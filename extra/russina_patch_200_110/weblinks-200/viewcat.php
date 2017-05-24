@@ -294,7 +294,7 @@ class weblinks_viewcat
 //=========================================================
 // main
 //=========================================================
-$weblinks_viewcat  =& weblinks_viewcat::getInstance(WEBLINKS_DIRNAME);
+$weblinks_viewcat  = weblinks_viewcat::getInstance(WEBLINKS_DIRNAME);
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 

@@ -115,7 +115,7 @@ class admin_modify_base extends happy_linux_manage
         $this->_post           = happy_linux_post::getInstance();
 
         if (WEBLINKS_RSSC_USE) {
-            $this->_rssc_manage =& admin_rssc_manage::getInstance();
+            $this->_rssc_manage = admin_rssc_manage::getInstance();
         }
 
         $this->_conf =& $this->_config_handler->get_conf();

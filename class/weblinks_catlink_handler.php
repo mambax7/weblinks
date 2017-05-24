@@ -204,7 +204,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria->add(new criteria('cid', $cid, '='));
             $criteria->setStart($offset);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -215,7 +215,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($offset);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 

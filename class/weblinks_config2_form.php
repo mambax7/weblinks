@@ -37,7 +37,7 @@ if (!class_exists('weblinks_config2_form')) {
 
             parent::__construct();
 
-            $define =& weblinks_config2_define::getInstance($dirname);
+            $define = weblinks_config2_define::getInstance($dirname);
             $this->set_config_handler('config2', $dirname, 'weblinks');
             $this->set_config_define($define);
 

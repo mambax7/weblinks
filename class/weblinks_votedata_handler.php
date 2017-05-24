@@ -225,7 +225,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -238,7 +238,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratingtimestamp', 'DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -249,7 +249,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -263,7 +263,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratingtimestamp', 'DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -273,7 +273,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('lid ASC, ratingid ASC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -284,7 +284,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratinguser ASC, ratingid ASC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -294,7 +294,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('ratinguser', 0, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 

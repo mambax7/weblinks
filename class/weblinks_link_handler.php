@@ -588,7 +588,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -598,7 +598,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('lid DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -619,7 +619,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('broken DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -637,7 +637,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('rssc_lid', 0, '<>'));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -653,7 +653,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('rssc_lid', $rssc_lid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -682,7 +682,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('lid DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -704,7 +704,7 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('uid', $uid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -738,7 +738,7 @@ if (!class_exists('weblinks_link_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', $title, '='));
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 
@@ -747,7 +747,7 @@ if (!class_exists('weblinks_link_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', '%' . $title . '%', 'LIKE'));
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 

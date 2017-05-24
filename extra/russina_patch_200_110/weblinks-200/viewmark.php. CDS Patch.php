@@ -178,7 +178,7 @@ class weblinks_viewmark
     {
         global $xoopsTpl;
 
-        $pagenavi =& weblinks_pagenavi_menu::getInstance();
+        $pagenavi = weblinks_pagenavi_menu::getInstance();
 
         $pagenavi->setPerpage($this->_conf['perpage']);
         $pagenavi->set_sortid_default($this->_conf['orderby']);

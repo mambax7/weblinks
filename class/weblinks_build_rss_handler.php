@@ -67,8 +67,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
 
             $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
             $this->_link_handler   = weblinks_get_handler('link_basic', $dirname);
-            $this->_link_view      =& weblinks_link_view::getInstance($dirname);
-            $this->_htmlout        =& weblinks_htmlout::getInstance($dirname);
+            $this->_link_view      = weblinks_link_view::getInstance($dirname);
+            $this->_htmlout        = weblinks_htmlout::getInstance($dirname);
 
             $this->_conf = $this->_config_handler->get_conf();
             $this->_htmlout->add_plugin_line('rssout', $this->_conf['rssout']);

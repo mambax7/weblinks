@@ -455,7 +455,7 @@ if (!class_exists('weblinks_modify_handler')) {
             $criteria->add(new criteria('mode', $mode, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = $this->getObjects($criteria);
             return $objs;
         }
 

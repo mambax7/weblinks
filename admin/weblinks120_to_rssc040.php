@@ -87,7 +87,7 @@ class admin_export_rssc extends happy_linux_basic_handler
             $this->_rssc_black_handler =& rssc_get_handler('black', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_white_handler =& rssc_get_handler('white', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_feed_handler  =& rssc_get_handler('feed', WEBLINKS_RSSC_DIRNAME);
-            $this->_rssc_parse_handler =& rssc_parse_handler::getInstance();
+            $this->_rssc_parse_handler = rssc_parse_handler::getInstance();
         }
     }
 
@@ -661,7 +661,7 @@ class admin_export_rssc extends happy_linux_basic_handler
 
     public function _set_rssc_lid_list()
     {
-        $rssc_link_objs =& $this->_rssc_link_handler->getObjects();
+        $rssc_link_objs = $this->_rssc_link_handler->getObjects();
 
         $arr1 = array();
         $arr2 = array();

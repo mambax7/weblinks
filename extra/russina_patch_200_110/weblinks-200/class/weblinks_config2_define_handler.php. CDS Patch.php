@@ -87,7 +87,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             parent::__construct();
 
             // class instance
-            $this->_locate =& weblinks_locate_factory::getInstance($dirname);
+            $this->_locate = weblinks_locate_factory::getInstance($dirname);
         }
 
         public static function getInstance($dirname = null)
