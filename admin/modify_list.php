@@ -66,11 +66,11 @@ class admin_modify_list extends happy_linux_page_frame
     public function &_get_op_sortid_array()
     {
         $arr = [
-            'list_asc'  => 0,
+            'list_asc' => 0,
             'list_desc' => 1,
-            'list_new'  => 2,
-            'list_mod'  => 3,
-            'list_del'  => 4,
+            'list_new' => 2,
+            'list_mod' => 3,
+            'list_del' => 4,
         ];
 
         return $arr;
@@ -142,34 +142,34 @@ class admin_modify_list extends happy_linux_page_frame
 
     public function &_get_cols(&$obj)
     {
-        $mid     = $obj->get('mid');
-        $lid     = $obj->get('lid');
-        $mode    = $obj->get('mode');
+        $mid = $obj->get('mid');
+        $lid = $obj->get('lid');
+        $mode = $obj->get('mode');
         $title_s = $obj->getVar('title', 's');
 
         if (1 == $mode) {
-            $jump_mod  = 'link_manage.php?op=list_mod&mid=';
+            $jump_mod = 'link_manage.php?op=list_mod&mid=';
             $jump_link = 'link_manage.php?op=mod_form&lid=';
             $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
         } else {
-            $jump_mod  = 'link_manage.php?op=list_new&mid=';
+            $jump_mod = 'link_manage.php?op=list_new&mid=';
             $link_link = '---';
         }
 
         switch ($mode) {
             case 1:
-                $jump_mod  = 'link_manage.php?op=list_mod&mid=';
+                $jump_mod = 'link_manage.php?op=list_mod&mid=';
                 $jump_link = 'link_manage.php?op=mod_form&lid=';
                 $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
                 break;
             case 2:
-                $jump_mod  = 'link_manage.php?op=list_del&mid=';
+                $jump_mod = 'link_manage.php?op=list_del&mid=';
                 $jump_link = 'link_manage.php?op=mod_form&lid=';
                 $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
                 break;
             case 0:
             default:
-                $jump_mod  = 'link_manage.php?op=list_new&mid=';
+                $jump_mod = 'link_manage.php?op=list_new&mid=';
                 $link_link = '---';
                 break;
         }

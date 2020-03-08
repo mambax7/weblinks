@@ -39,10 +39,10 @@ if ('excute' != $op) {
 
 // table name
 $MODULE_DIRNAME = $xoopsModule->dirname();
-$table_link     = $MODULE_DIRNAME . '_link';
-$table_link     = $xoopsDB->prefix($table_link);
-$table_modify   = $MODULE_DIRNAME . '_modify';
-$table_modify   = $xoopsDB->prefix($table_modify);
+$table_link = $MODULE_DIRNAME . '_link';
+$table_link = $xoopsDB->prefix($table_link);
+$table_modify = $MODULE_DIRNAME . '_modify';
+$table_modify = $xoopsDB->prefix($table_modify);
 
 // --- link table ---
 echo "<h4>add column to link table</h4>\n";

@@ -29,10 +29,10 @@ if (!class_exists('weblinks_comment_handler')) {
         {
             global $xoopsModule;
 
-            $this->_db              = XoopsDatabaseFactory::getDatabaseConnection();
+            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
             $this->_comment_handler = xoops_getHandler('comment');
-            $this->_member_handler  = xoops_getHandler('member');
-            $this->_mid             = $xoopsModule->getVar('mid');
+            $this->_member_handler = xoops_getHandler('member');
+            $this->_mid = $xoopsModule->getVar('mid');
 
             $this->_remote_addr = xoops_getenv('REMOTE_ADDR');
         }
@@ -43,23 +43,23 @@ if (!class_exists('weblinks_comment_handler')) {
 
             $time = time();
 
-            $com_itemid   = $lid;
-            $com_uid      = $uid;
-            $com_title    = $title;
-            $com_text     = $text;
+            $com_itemid = $lid;
+            $com_uid = $uid;
+            $com_title = $title;
+            $com_text = $text;
             $com_exparams = 'cid=&';
 
-            $com_modid  = $this->_mid;
-            $com_ip     = $this->_remote_addr;
-            $com_pid    = 0;
+            $com_modid = $this->_mid;
+            $com_ip = $this->_remote_addr;
+            $com_pid = 0;
             $com_rootid = 0;
-            $com_icon   = '';
+            $com_icon = '';
 
-            $dohtml   = 0;
+            $dohtml = 0;
             $dosmiley = 1;
-            $doxcode  = 1;
-            $doimage  = 1;
-            $dobr     = 1;
+            $doxcode = 1;
+            $doimage = 1;
+            $dobr = 1;
 
             $comment = $this->_comment_handler->create();
             $comment->setVar('com_created', $time);
@@ -89,7 +89,7 @@ if (!class_exists('weblinks_comment_handler')) {
             }
 
             $newcid = $comment->getVar('com_id');
-            $ret    = $this->_comment_handler->updateByField($comment, 'com_rootid', $newcid);
+            $ret = $this->_comment_handler->updateByField($comment, 'com_rootid', $newcid);
             if (!$ret) {
                 $this->_error = $this->_db->error();
                 $this->_comment_handler->delete($comment);

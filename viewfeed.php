@@ -38,7 +38,7 @@ include 'header.php';
 include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
 
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_viewfeed = weblinks_viewfeed::getInstance();
 
 if (!WEBLINKS_RSSC_EXIST) {
@@ -57,7 +57,7 @@ $xoopsTpl->assign('xoops_atom', 'modules/' . WEBLINKS_DIRNAME . '/atom.php');
 $xoopsTpl->assign('lang_atomfeed_distribute', _WLS_ATOMFEED_DISTRIBUTE);
 
 $weblinks_template->set_keyword_by_request();
-$keyword_array       = $weblinks_template->get_keyword_array();
+$keyword_array = $weblinks_template->get_keyword_array();
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
 $weblinks_header->assign_module_header();
@@ -108,7 +108,7 @@ class weblinks_viewfeed
     public function __construct()
     {
         $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_conf    = $config_handler->get_conf();
+        $this->_conf = $config_handler->get_conf();
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 

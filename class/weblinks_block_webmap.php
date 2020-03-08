@@ -42,17 +42,17 @@ if (!class_exists('weblinks_block_webmap')) {
         //---------------------------------------------------------
         public function build_map_block($param)
         {
-            $dirname      = $param['dirname'];
-            $mode         = $param['mode'];
-            $name         = $param['name'];
+            $dirname = $param['dirname'];
+            $mode = $param['mode'];
+            $name = $param['name'];
             $style_height = $param['style_height'];
-            $links        = $param['links'];
-            $conf         = $param['conf'];
+            $links = $param['links'];
+            $conf = $param['conf'];
 
             $webmap3_dirname = $conf['webmap3_dirname'];
-            $use             = $conf['gm_use'];
-            $length          = $conf['gm_desc_length'];
-            $wordwrap        = $conf['gm_wordwrap'];
+            $use = $conf['gm_use'];
+            $length = $conf['gm_desc_length'];
+            $wordwrap = $conf['gm_wordwrap'];
 
             if (!$use) {
                 return false;
@@ -64,21 +64,21 @@ if (!class_exists('weblinks_block_webmap')) {
 
             if (0 == $mode) {
                 return false;
-                // use config value
+            // use config value
             } elseif (1 == $mode) {
-                $latitude  = $conf['gm_latitude'];
+                $latitude = $conf['gm_latitude'];
                 $longitude = $conf['gm_longitude'];
-                $zoom      = $conf['gm_zoom'];
+                $zoom = $conf['gm_zoom'];
             } else {
-                $latitude  = $param['latitude'];
+                $latitude = $param['latitude'];
                 $longitude = $param['longitude'];
-                $zoom      = $param['zoom'];
+                $zoom = $param['zoom'];
             }
 
             $show_webmap = false;
-            $map_div_id  = $name . '_map';
-            $map_func    = $name . '_map_load';
-            $style       = 'height:' . $style_height . 'px; ' . $this->_STYLE_DEFAULT;
+            $map_div_id = $name . '_map';
+            $map_func = $name . '_map_load';
+            $style = 'height:' . $style_height . 'px; ' . $this->_STYLE_DEFAULT;
 
             $this->_map_class = &$this->get_map_class($webmap3_dirname);
             if (!is_object($this->_map_class)) {
@@ -104,7 +104,7 @@ if (!class_exists('weblinks_block_webmap')) {
                 foreach ($links as $link) {
                     if ($this->check_latlng_by_link($link)) {
                         $show_webmap = true;
-                        $markers[]   = $this->build_marker_block($link, $conf);
+                        $markers[] = $this->build_marker_block($link, $conf);
                     }
                 }
             }
@@ -117,10 +117,10 @@ if (!class_exists('weblinks_block_webmap')) {
             $this->_map_class->fetch_markers_head($m_param);
 
             $arr = [
-                'show_webmap'   => $show_webmap,
+                'show_webmap' => $show_webmap,
                 'webmap_div_id' => $map_div_id,
-                'webmap_func'   => $map_func,
-                'webmap_style'  => $style,
+                'webmap_func' => $map_func,
+                'webmap_style' => $style,
             ];
 
             return $arr;
@@ -168,7 +168,7 @@ if (!class_exists('weblinks_block_webmap')) {
 
         public function build_info_block($link, $conf)
         {
-            $url   = $this->_url_singlelink . '?lid=' . $link['lid'];
+            $url = $this->_url_singlelink . '?lid=' . $link['lid'];
             $url_s = $this->sanitize($url);
 
             $summary = $this->_map_class->build_summary($link['desc_html']);

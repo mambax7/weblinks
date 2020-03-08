@@ -46,8 +46,8 @@ class admin_export_rssc extends happy_linux_basic_handler
     public $_conf_rss_white_arr;
 
     // local
-    public $_rssc_lid_list_by_p1   = [];
-    public $_rssc_lid_list_by_url  = [];
+    public $_rssc_lid_list_by_p1 = [];
+    public $_rssc_lid_list_by_url = [];
     public $_rssc_link_objs_by_lid = [];
     public $_rssc_exist_lid;
 
@@ -66,27 +66,27 @@ class admin_export_rssc extends happy_linux_basic_handler
         $this->set_debug_db_sql(0);
         $this->set_debug_db_error(1);
 
-        $this->_system  = happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
         $this->_strings = happy_linux_strings::getInstance();
-        $this->_post    = happy_linux_post::getInstance();
-        $this->_form    = happy_linux_form_lib::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_form = happy_linux_form_lib::getInstance();
 
         $this->_weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler   = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
         $this->_weblinks_atomfeed_table = $this->prefix('atomfeed');
-        $this->_weblinks_mid            = $this->_system->get_mid();
+        $this->_weblinks_mid = $this->_system->get_mid();
 
-        $conf                      = $this->_weblinks_config_handler->get_conf();
-        $this->_conf_rss_site_arr  = $conf['rss_site_arr'];
+        $conf = $this->_weblinks_config_handler->get_conf();
+        $this->_conf_rss_site_arr = $conf['rss_site_arr'];
         $this->_conf_rss_black_arr = $conf['rss_black_arr'];
         $this->_conf_rss_white_arr = $conf['rss_white_arr'];
 
         if (WEBLINKS_RSSC_EXIST) {
-            $this->_rssc_link_handler  = rssc_getHandler('link', WEBLINKS_RSSC_DIRNAME);
+            $this->_rssc_link_handler = rssc_getHandler('link', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_black_handler = rssc_getHandler('black', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_white_handler = rssc_getHandler('white', WEBLINKS_RSSC_DIRNAME);
-            $this->_rssc_feed_handler  = rssc_getHandler('feed', WEBLINKS_RSSC_DIRNAME);
+            $this->_rssc_feed_handler = rssc_getHandler('feed', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_parse_handler = rssc_parse_handler::getInstance();
         }
     }
@@ -121,7 +121,7 @@ class admin_export_rssc extends happy_linux_basic_handler
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
-        $this->_next   = $this->_offset + $this->_LIMIT;
+        $this->_next = $this->_offset + $this->_LIMIT;
 
         return $this->_offset;
     }
@@ -157,7 +157,7 @@ class admin_export_rssc extends happy_linux_basic_handler
 
         // weblinks list
         $site_list = $this->_conf_rss_site_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> rss site in weblinks<br><br>\n";
 
@@ -175,19 +175,19 @@ class admin_export_rssc extends happy_linux_basic_handler
             echo " <br>\n";
 
             $title = '';
-            $link  = '';
+            $link = '';
 
             $parse_obj = $this->_rssc_parse_handler->parse_by_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
-                $link  = $parse_obj->get_channel_by_key('link');
+                $link = $parse_obj->get_channel_by_key('link');
             }
 
             if (empty($title)) {
                 $title = 'RSS site ' . $i;
             }
 
-            $url     = $link;
+            $url = $link;
             $rss_url = $site_url;
 
             $rssc_link_obj = &$this->_rssc_link_handler->create();
@@ -235,7 +235,7 @@ class admin_export_rssc extends happy_linux_basic_handler
 
         // weblinks list
         $site_list = $this->_conf_rss_black_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> black list in weblinks<br><br>\n";
 
@@ -301,7 +301,7 @@ class admin_export_rssc extends happy_linux_basic_handler
 
         // weblinks list
         $site_list = $this->_conf_rss_white_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> white list in weblinks<br><br>\n";
 
@@ -426,11 +426,11 @@ class admin_export_rssc extends happy_linux_basic_handler
 
         $weblinks_link_objs = &$this->_weblinks_link_handler->get_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
         foreach ($weblinks_link_objs as $obj) {
-            $lid              = $obj->get('lid');
-            $title            = $obj->get('title');
-            $uid              = $obj->get('uid');
-            $url              = $obj->get('url');
-            $rss_flag         = $obj->get('rss_flag');
+            $lid = $obj->get('lid');
+            $title = $obj->get('title');
+            $uid = $obj->get('uid');
+            $url = $obj->get('url');
+            $rss_flag = $obj->get('rss_flag');
             $weblinks_rss_url = $obj->get('rss_url');
 
             echo $lid . ': ' . htmlspecialchars($title);
@@ -454,16 +454,16 @@ class admin_export_rssc extends happy_linux_basic_handler
             else {
                 echo " insert <br>\n";
 
-                $rss_url  = '';
+                $rss_url = '';
                 $atom_url = '';
 
                 switch ($rss_flag) {
                     case 1:
-                        $mode    = 2;   // rss
+                        $mode = 2;   // rss
                         $rss_url = $weblinks_rss_url;
                         break;
                     case 2:
-                        $mode     = 3;  // atom
+                        $mode = 3;  // atom
                         $atom_url = $weblinks_rss_url;
                         break;
                     default:
@@ -556,7 +556,7 @@ class admin_export_rssc extends happy_linux_basic_handler
         $offset = $this->get_post_offset();
 
         $total = $this->_get_weblinks_atomfeed_count();
-        $rows  = &$this->_get_weblinks_atomfeed_rows($this->_LIMIT, $offset);
+        $rows = &$this->_get_weblinks_atomfeed_rows($this->_LIMIT, $offset);
 
         $next = $this->_next;
         if ($this->_next > $total) {
@@ -569,9 +569,9 @@ class admin_export_rssc extends happy_linux_basic_handler
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
         foreach ($rows as $row) {
-            $aid   = $row['aid'];
+            $aid = $row['aid'];
             $title = $row['title'];
-            $link  = $row['url'];
+            $link = $row['url'];
 
             echo $aid . ': ' . htmlspecialchars($title);
 
@@ -582,19 +582,19 @@ class admin_export_rssc extends happy_linux_basic_handler
 
             echo " <br>\n";
 
-            $lid            = $this->_get_rssc_feed_lid($row);
-            $uid            = $this->_get_rssc_feed_uid($lid);
-            $p1             = $this->_get_rssc_feed_p1($lid);
-            $site_title     = $row['site_title'];
-            $site_link      = $row['site_url'];
-            $entry_id       = $row['entry_id'];
-            $guid           = $row['guid'];
-            $updated_unix   = $row['time_modified'];
+            $lid = $this->_get_rssc_feed_lid($row);
+            $uid = $this->_get_rssc_feed_uid($lid);
+            $p1 = $this->_get_rssc_feed_p1($lid);
+            $site_title = $row['site_title'];
+            $site_link = $row['site_url'];
+            $entry_id = $row['entry_id'];
+            $guid = $row['guid'];
+            $updated_unix = $row['time_modified'];
             $published_unix = $row['time_issued'];
-            $author_name    = $row['author_name'];
-            $author_uri     = $row['author_url'];
-            $author_email   = $row['author_email'];
-            $content        = $row['content'];
+            $author_name = $row['author_name'];
+            $author_uri = $row['author_url'];
+            $author_email = $row['author_email'];
+            $content = $row['content'];
 
             $feed_obj = &$this->_rssc_feed_handler->create();
 
@@ -632,7 +632,7 @@ class admin_export_rssc extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function _get_weblinks_atomfeed_count()
     {
-        $sql   = 'SELECT count(*) FROM ' . $this->_weblinks_atomfeed_table;
+        $sql = 'SELECT count(*) FROM ' . $this->_weblinks_atomfeed_table;
         $count = $this->get_count_by_sql($sql);
 
         return $count;
@@ -640,8 +640,8 @@ class admin_export_rssc extends happy_linux_basic_handler
 
     public function _get_weblinks_atomfeed_rows($limit = 0, $offset = 0)
     {
-        $sql  = 'SELECT * FROM ' . $this->_weblinks_atomfeed_table;
-        $sql  .= ' ORDER BY aid';
+        $sql = 'SELECT * FROM ' . $this->_weblinks_atomfeed_table;
+        $sql .= ' ORDER BY aid';
         $rows = &$this->get_rows_by_sql($sql, $limit, $offset);
 
         return $rows;
@@ -653,7 +653,7 @@ class admin_export_rssc extends happy_linux_basic_handler
     public function _exist_url_in_rssc($url)
     {
         $this->_rssc_exist_lid = 0;
-        $list                  = &$this->_rssc_link_handler->get_list_by_rssurl($url);
+        $list = &$this->_rssc_link_handler->get_list_by_rssurl($url);
         if (is_array($list) && (count($list) > 0)) {
             $this->_rssc_exist_lid = $list[0];
 
@@ -674,7 +674,7 @@ class admin_export_rssc extends happy_linux_basic_handler
         foreach ($rssc_link_objs as $obj) {
             $lid = $obj->get('lid');
             $url = $obj->get('url');
-            $p1  = $obj->get('p1');
+            $p1 = $obj->get('p1');
 
             if ($p1) {
                 $arr1[$p1] = $lid;
@@ -687,8 +687,8 @@ class admin_export_rssc extends happy_linux_basic_handler
             $arr3[$lid] = $obj;
         }
 
-        $this->_rssc_lid_list_by_p1   = $arr1;
-        $this->_rssc_lid_list_by_url  = $arr2;
+        $this->_rssc_lid_list_by_p1 = $arr1;
+        $this->_rssc_lid_list_by_url = $arr2;
         $this->_rssc_link_objs_by_lid = $arr3;
     }
 
@@ -762,8 +762,8 @@ class admin_export_rssc extends happy_linux_basic_handler
 
     public function _form_site()
     {
-        $title  = 'STEP 1 : export rss site to link table';
-        $op     = 'export_site';
+        $title = 'STEP 1 : export rss site to link table';
+        $op = 'export_site';
         $submit = 'GO STEP 1';
 
         $this->_print_form_next($title, $op, $submit);
@@ -771,8 +771,8 @@ class admin_export_rssc extends happy_linux_basic_handler
 
     public function _form_black()
     {
-        $title  = 'STEP 2 : export to black list';
-        $op     = 'export_black';
+        $title = 'STEP 2 : export to black list';
+        $op = 'export_black';
         $submit = 'GO STEP 2';
 
         $this->_print_form_next($title, $op, $submit);
@@ -780,8 +780,8 @@ class admin_export_rssc extends happy_linux_basic_handler
 
     public function _form_white()
     {
-        $title  = 'STEP 3 : export to white list';
-        $op     = 'export_white';
+        $title = 'STEP 3 : export to white list';
+        $op = 'export_white';
         $submit = 'GO STEP 3';
 
         $this->_print_form_next($title, $op, $submit);
@@ -790,7 +790,7 @@ class admin_export_rssc extends happy_linux_basic_handler
     public function _form_link($offset = 0)
     {
         $title = 'STEP 4 : export to link table';
-        $op    = 'export_link';
+        $op = 'export_link';
 
         if ($offset) {
             $submit = "GO next $this->_LIMIT links";
@@ -804,7 +804,7 @@ class admin_export_rssc extends happy_linux_basic_handler
     public function _form_feed($offset = 0)
     {
         $title = 'STEP 5 : export to feed table';
-        $op    = 'export_feed';
+        $op = 'export_feed';
 
         if ($offset) {
             $submit = "GO next $this->_LIMIT feeds";
@@ -828,10 +828,10 @@ class admin_export_rssc extends happy_linux_basic_handler
         // show form
         //  $this->_form->show($title, $op, $submit, $offset);
 
-        $limit  = 0;
-        $desc   = '';
+        $limit = 0;
+        $desc = '';
         $action = '';
-        $text   = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
+        $text = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
         echo $text;
     }
 
@@ -875,7 +875,7 @@ if (WEBLINKS_RSSC_EXIST) {
 }
 
 $export = admin_export_rssc::getInstance();
-$op     = 'main';
+$op = 'main';
 if (isset($_POST['op'])) {
     $op = $_POST['op'];
 }

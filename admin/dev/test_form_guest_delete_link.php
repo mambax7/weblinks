@@ -36,7 +36,7 @@ if (!$test->has_guest_perm()) {
     dev_footer();
 }
 
-$LID    = $test->get_post_lid();
+$LID = $test->get_post_lid();
 $PASSWD = $test->get_post_passwd();
 if (empty($LID)) {
     $test->print_form_lid(true);
@@ -69,7 +69,7 @@ $test->update_config_by_name_array('auth_delete', [1]);
 $test->update_config_by_name_array('auth_delete_auto', [1]);
 
 $link_form_url = $link_url . '?lid=' . $LID;
-$ret           = $test->fetch($link_form_url);
+$ret = $test->fetch($link_form_url);
 if (!$ret) {
     dev_footer();
 }
@@ -93,13 +93,13 @@ $test->update_config_by_name_array('auth_delete', [1, WEBLINKS_ID_AUTH_PASSWD]);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => WEBLINKS_URL . '/dev/rss_3.xml',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => WEBLINKS_URL . '/dev/rss_3.xml',
     'rss_flag' => 2,    // rss
-    'passwd'   => $PASSWD,
-    'request'  => 'password',
+    'passwd' => $PASSWD,
+    'request' => 'password',
 ];
 
 $ret = $test->guest_delete_password($param);
@@ -131,13 +131,13 @@ $test->update_config_by_name_array('auth_delete_auto', [1, WEBLINKS_ID_AUTH_PASS
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => WEBLINKS_URL . '/dev/rss_3.xml',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => WEBLINKS_URL . '/dev/rss_3.xml',
     'rss_flag' => 2,    // rss
-    'passwd'   => $PASSWD,
-    'request'  => 'password',
+    'passwd' => $PASSWD,
+    'request' => 'password',
 ];
 
 $ret = $test->guest_delete_password($param);

@@ -11,7 +11,7 @@ function dev_header($title = null)
 
     header('Content-Type:text/html; charset=' . _CHARSET);
 
-    $module_name   = $xoopsModule->getVar('name');
+    $module_name = $xoopsModule->getVar('name');
     $module_name_s = htmlspecialchars($module_name, ENT_QUOTES);
 
     if (empty($title)) {

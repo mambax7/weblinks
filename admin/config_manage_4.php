@@ -52,8 +52,8 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
 
 // class
-$config_form       = admin_config_form::getInstance();
-$config_store      = admin_config_store::getInstance();
+$config_form = admin_config_form::getInstance();
+$config_store = admin_config_store::getInstance();
 $link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();

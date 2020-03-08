@@ -19,7 +19,7 @@ if (!class_exists('weblinks_pagerank_handler')) {
         public $_link_handler;
         public $_pagerank;
 
-        public $_CACHE_TIME_LONG  = 0;
+        public $_CACHE_TIME_LONG = 0;
         public $_CACHE_TIME_SHORT = 0;
 
         //---------------------------------------------------------
@@ -30,9 +30,9 @@ if (!class_exists('weblinks_pagerank_handler')) {
             $this->_DIRNAME = $dirname;
 
             $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-            $this->_pagerank     = happy_linux_get_singleton('pagerank');
+            $this->_pagerank = happy_linux_get_singleton('pagerank');
 
-            $this->_CACHE_TIME_LONG  = 30 * 24 * 60 * 60; // one month
+            $this->_CACHE_TIME_LONG = 30 * 24 * 60 * 60; // one month
             $this->_CACHE_TIME_SHORT = 24 * 60 * 60; // one day
         }
 
@@ -46,8 +46,8 @@ if (!class_exists('weblinks_pagerank_handler')) {
                 return 0;
             }
 
-            $url             = $row['url'];
-            $pagerank        = $row['pagerank'];
+            $url = $row['url'];
+            $pagerank = $row['pagerank'];
             $pagerank_update = $row['pagerank_update'];
 
             $pr = $pagerank;

@@ -37,17 +37,17 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         public function show_admin_mod_approve_form($form_mode, $mid = 0)
         {
             $this->_form_mode = $form_mode;
-            $this->_mid       = $mid;
+            $this->_mid = $mid;
 
             $this->init();
             $this->begin_admin_form();
 
             $linkitem_arr = $this->_load_define();
 
-            $form_title   = _WLS_MODREQUESTS;
+            $form_title = _WLS_MODREQUESTS;
             $submit_value = _WLS_APPROVE;
-            $op           = WEBLINKS_OP_APPROVE_MOD;   // approve_mod
-            $button_name  = 'refuse_mod';
+            $op = WEBLINKS_OP_APPROVE_MOD;   // approve_mod
+            $button_name = 'refuse_mod';
             $button_value = _WLS_IGNORE;
 
             switch ($form_mode) {
@@ -75,7 +75,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             $edit_obj->set('mid', $mid);
             $this->set_obj($edit_obj);
 
-            $lid       = $edit_obj->get('lid');
+            $lid = $edit_obj->get('lid');
             $saved_obj = &$this->get_edit($lid);
             if (!is_object($saved_obj)) {
                 echo "no link record lid=$lid <br>\n";
@@ -222,9 +222,9 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         public function _compare_saved($id)
         {
             if (isset($this->_linkitem_arr[$id])) {
-                $linkitem    = $this->_linkitem_arr[$id];
-                $name        = $linkitem['name'];
-                $user_value  = $this->get_obj_var($name, 'n');
+                $linkitem = $this->_linkitem_arr[$id];
+                $name = $linkitem['name'];
+                $user_value = $this->get_obj_var($name, 'n');
                 $saved_value = $this->get_saved_obj_var($name, 'n');
 
                 if ($user_value == $saved_value) {
@@ -252,9 +252,9 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
 
             $link_uname = $this->build_user_link_uname_by_uid($saved_value);
             $link_email = $this->build_user_link_email_by_uid($saved_value);
-            $text       = $this->_modified_msg($id);
-            $text       .= $saved_value . '&nbsp;&nbsp;' . $link_uname . '&nbsp;&nbsp;' . $link_email;
-            $cap        = $this->_build_caption(_WLS_OWNER);
+            $text = $this->_modified_msg($id);
+            $text .= $saved_value . '&nbsp;&nbsp;' . $link_uname . '&nbsp;&nbsp;' . $link_email;
+            $cap = $this->_build_caption(_WLS_OWNER);
 
             $this->add_label($cap, $text);
         }
@@ -271,8 +271,8 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
             $opt_yesno = &$this->get_form_radio_yesno_options();
-            $text      = $this->_modified_msg($id);
-            $text      .= $this->_build_value_checked($saved_value, $opt_yesno);
+            $text = $this->_modified_msg($id);
+            $text .= $this->_build_value_checked($saved_value, $opt_yesno);
             $this->add_buff('', $text);
         }
 
@@ -289,7 +289,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
 
-            $width  = $this->get_saved_obj_var('width');
+            $width = $this->get_saved_obj_var('width');
             $height = $this->get_saved_obj_var('height');
 
             if ($saved_value) {
@@ -308,9 +308,9 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
 
-            $name2  = 'rss_flag';
+            $name2 = 'rss_flag';
             $value2 = $this->get_obj_var($name2);
-            $opt2   = $this->_get_options_by_name($name2);
+            $opt2 = $this->_get_options_by_name($name2);
 
             $text = $this->_modified_msg($id);
             if ($saved_value) {
@@ -340,7 +340,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         public function add_admin_name_mail_saved($id, $value1, $name2)
         {
             $value2 = $this->get_obj_var($name2);
-            $opt2   = $this->_get_options_by_name($name2);
+            $opt2 = $this->_get_options_by_name($name2);
 
             $text = $this->_modified_msg($id);
             $text .= $this->_build_value_when_empty($value1) . '<br>';
@@ -389,7 +389,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         public function add_admin_cat_saved($id)
         {
             $flag_modified = false;
-            $user_cid_arr  = $this->get_obj_var('cid_arr');
+            $user_cid_arr = $this->get_obj_var('cid_arr');
             $saved_cid_arr = $this->get_saved_obj_var('cid_arr');
 
             $catpath = '';
@@ -450,9 +450,9 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
 
             $checked_value = 1;
-            $confirm_name  = $name . '_confirm';
+            $confirm_name = $name . '_confirm';
             $confirm_value = $this->_post->get_post_int($confirm_name);
-            $checked       = $this->build_html_checked($checked_value, $confirm_value);
+            $checked = $this->build_html_checked($checked_value, $confirm_value);
 
             $text = $this->build_html_input_checkbox($confirm_name, $checked_value, $checked);
             $text .= ' <span style="color:#0000ff;" >' . _AM_WEBLINKS_CHECK_CONFIRM . '</span>';
@@ -464,7 +464,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         //---------------------------------------------------------
         public function show_admin_approve_del_form($modify_obj)
         {
-            $mid    = $modify_obj->get('mid');
+            $mid = $modify_obj->get('mid');
             $reason = $modify_obj->getVar('usercomment', 's');
 
             // --- form start---

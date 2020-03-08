@@ -25,7 +25,7 @@ if (!class_exists('weblinks_build_kml_handler')) {
         public $_conf;
 
         public $_LANG_NO_MATCH = 'No matches found for your query';
-        public $_MIN_PAGE      = 1; // page start from 1
+        public $_MIN_PAGE = 1; // page start from 1
 
         //---------------------------------------------------------
         // constructor
@@ -33,18 +33,18 @@ if (!class_exists('weblinks_build_kml_handler')) {
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
-            $DIR_XML        = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
+            $DIR_XML = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
 
             parent::__construct();
             $this->set_template($DIR_XML . '/weblinks_build_kml.html');
             $this->init_obj();
 
             $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler   = weblinks_getHandler('link_basic', $dirname);
-            $this->_link_view      = weblinks_link_view_basic::getInstance($dirname);
-            $this->_htmlout        = weblinks_htmlout::getInstance($dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_link_view = weblinks_link_view_basic::getInstance($dirname);
+            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
 
-            $this->_myts    = MyTextSanitizer::getInstance();
+            $this->_myts = MyTextSanitizer::getInstance();
             $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -260,7 +260,7 @@ if (!class_exists('weblinks_build_kml_handler')) {
             foreach ($arr2 as $k => $v) {
                 // match
                 if (0 === mb_strpos($k, 'kml_')) {
-                    $name        = str_replace('kml_', '', $k);
+                    $name = str_replace('kml_', '', $k);
                     $arr3[$name] = $v;
                 }
             }

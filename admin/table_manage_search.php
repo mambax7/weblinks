@@ -33,13 +33,13 @@ class admin_table_manage_search extends happy_linux_error
         parent::__construct();
 
         // handlder
-        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
         $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_catlink_handler  = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
+        $this->_catlink_handler = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
 
-        $this->_post   = happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
         $this->_system = happy_linux_system::getInstance();
-        $this->_form   = happy_linux_form_lib::getInstance();
+        $this->_form = happy_linux_form_lib::getInstance();
 
         $this->_link_handler->set_debug_db_sql(0);
         $this->_link_handler->set_debug_db_error(1);
@@ -97,20 +97,20 @@ class admin_table_manage_search extends happy_linux_error
         }
 
         $offset = $this->_post->get_post_get('offset');
-        $next   = $this->_LIMIT + $offset;
+        $next = $this->_LIMIT + $offset;
 
         $total = $this->_link_handler->getCount();
-        $objs  = &$this->_link_handler->get_objects_all($this->_LIMIT, $offset);
+        $objs = &$this->_link_handler->get_objects_all($this->_LIMIT, $offset);
 
         echo "total $total links <br>\n";
         echo "execute $offset -> $next <br><br>\n";
 
         foreach ($objs as $obj) {
-            $lid             = $obj->get('lid');
-            $cid_arr         = &$this->_catlink_handler->get_cid_array_by_lid($lid);
-            $save_obj        = new weblinks_link_save(WEBLINKS_DIRNAME);
+            $lid = $obj->get('lid');
+            $cid_arr = &$this->_catlink_handler->get_cid_array_by_lid($lid);
+            $save_obj = new weblinks_link_save(WEBLINKS_DIRNAME);
             $save_obj->_vars = &$obj->_vars;
-            $search          = $save_obj->build_search($cid_arr);
+            $search = $save_obj->build_search($cid_arr);
             $this->_update_link($lid, $search);
 
             $msg = "$lid : $search";
@@ -142,11 +142,11 @@ class admin_table_manage_search extends happy_linux_error
         $arr = [
             [
                 'name' => $this->_system->get_module_name(),
-                'url'  => 'index.php',
+                'url' => 'index.php',
             ],
             [
                 'name' => _HAPPY_LINUX_CONF_TABLE_MANAGE,
-                'url'  => 'table_manage.php',
+                'url' => 'table_manage.php',
             ],
             [
                 'name' => $this->_TITLE,

@@ -39,10 +39,10 @@ if ('excute' != $op) {
 
 // table name
 $MODULE_DIRNAME = $xoopsModule->dirname();
-$table_link     = $MODULE_DIRNAME . '_link';
-$table_link     = $xoopsDB->prefix($table_link);
-$table_catlink  = $MODULE_DIRNAME . '_catlink';
-$table_catlink  = $xoopsDB->prefix($table_catlink);
+$table_link = $MODULE_DIRNAME . '_link';
+$table_link = $xoopsDB->prefix($table_link);
+$table_catlink = $MODULE_DIRNAME . '_catlink';
+$table_catlink = $xoopsDB->prefix($table_catlink);
 
 // --- catlink table ---
 echo '<h3>create catlink table</h3>';
@@ -55,12 +55,12 @@ alter_link($table_link);
 
 // --- link table ---
 echo '<h3>read link table</h3>';
-$sql2    = "SELECT * FROM $table_link ORDER BY lid";
+$sql2 = "SELECT * FROM $table_link ORDER BY lid";
 $result2 = sql_exec($sql2);
 
 while ($row = $xoopsDB->fetchArray($result2)) {
-    $lid    = $row['lid'];
-    $cids   = $row['cids'];
+    $lid = $row['lid'];
+    $cids = $row['cids'];
     $banner = $row['banner'];
 
     $arr = getCidArray($cids);
@@ -77,7 +77,7 @@ while ($row = $xoopsDB->fetchArray($result2)) {
         $size = getimagesize($banner);
 
         if ($size) {
-            $width  = (int)$size[0];
+            $width = (int)$size[0];
             $height = (int)$size[1];
 
             $sql = "UPDATE $table_link SET ";
@@ -164,7 +164,7 @@ function getCidArray($cids)
 {
     $split = explode('&', $cids);
 
-    $i     = 0;
+    $i = 0;
     $array = [];
     foreach ($split as $cid) {
         if ('' == $cid) {

@@ -31,7 +31,7 @@ if (!class_exists('weblinks_sendmail')) {
     //=========================================================
     class weblinks_sendmail extends happy_linux_error
     {
-        public $_FLAG_EVENT_USER      = true;  // send email to user
+        public $_FLAG_EVENT_USER = true;  // send email to user
         public $_FLAG_EVENT_ANONYMOUS = true;  // send email to anonymous
 
         public $_system;
@@ -53,15 +53,15 @@ if (!class_exists('weblinks_sendmail')) {
             parent::__construct();
 
             $this->_system = happy_linux_system::getInstance();
-            $this->_post   = happy_linux_post::getInstance();
+            $this->_post = happy_linux_post::getInstance();
 
-            $this->DIRNAME      = $dirname;
-            $this->SITENAME     = $this->_system->get_sitename();
-            $this->ADMINMAIL    = $this->_system->get_adminmail();
-            $this->SITEURL      = XOOPS_URL . '/';
+            $this->DIRNAME = $dirname;
+            $this->SITENAME = $this->_system->get_sitename();
+            $this->ADMINMAIL = $this->_system->get_adminmail();
+            $this->SITEURL = XOOPS_URL . '/';
             $this->_WEBLINK_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_uname       = $this->_system->get_uname();
+            $this->_uname = $this->_system->get_uname();
             $this->_remote_addr = xoops_getenv('REMOTE_ADDR');
         }
 
@@ -83,7 +83,7 @@ if (!class_exists('weblinks_sendmail')) {
         public function get_dir_mail_template($file_tpl)
         {
             $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $this->DIRNAME;
-            $LANGUAGE           = $this->_system->get_language();
+            $LANGUAGE = $this->_system->get_language();
 
             $dir_tpl_lang = $WEBLINKS_ROOT_PATH . '/language/' . $LANGUAGE . '/mail_template/';
 
@@ -103,7 +103,7 @@ if (!class_exists('weblinks_sendmail')) {
             $entry = WEBLINKS_URL . "/modlink.php?lid=$lid&code=$passwd";
 
             $file_tpl = 'lostpass.tpl';
-            $dir_tpl  = $this->get_dir_mail_template($file_tpl);
+            $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
             $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
@@ -138,13 +138,13 @@ if (!class_exists('weblinks_sendmail')) {
         public function send_newlink_to_admin($newid)
         {
             $file_tpl = 'link_waiting_notify_admin.tpl';
-            $dir_tpl  = $this->get_dir_mail_template($file_tpl);
+            $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
             $waiting_url = $this->_WEBLINK_URL . '/admin/link_manage.php?op=list_new&mid=' . $newid;
 
             $title = $this->_post->get_post_text('title');
-            $url   = $this->_post->get_post_text('url');
-            $mail  = $this->_post->get_post_text('mail');
+            $url = $this->_post->get_post_text('url');
+            $mail = $this->_post->get_post_text('mail');
 
             $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
@@ -179,7 +179,7 @@ if (!class_exists('weblinks_sendmail')) {
         public function send_approved_to_anonymous($tags)
         {
             $file_tpl = 'link_approve_notify_anon.tpl';
-            $dir_tpl  = $this->get_dir_mail_template($file_tpl);
+            $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
             $mail = $this->_post->get_post_text('mail');
 
@@ -220,10 +220,10 @@ if (!class_exists('weblinks_sendmail')) {
         //---------------------------------------------------------
         public function send_refused_to_user()
         {
-            $uid   = $this->_post->get_post_int('uid');
+            $uid = $this->_post->get_post_int('uid');
             $title = $this->_post->get_post_text('title');
-            $url   = $this->_post->get_post_text('url');
-            $mail  = $this->_post->get_post_text('mail');
+            $url = $this->_post->get_post_text('url');
+            $mail = $this->_post->get_post_text('mail');
 
             if ($this->_FLAG_EVENT_USER && $uid) {
                 $mailto = $this->_system->get_email_by_uid($uid);
@@ -234,7 +234,7 @@ if (!class_exists('weblinks_sendmail')) {
             }
 
             $file_tpl = 'link_refused_notify.tpl';
-            $dir_tpl  = $this->get_dir_mail_template($file_tpl);
+            $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
             $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();

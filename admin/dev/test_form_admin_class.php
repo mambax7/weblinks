@@ -30,7 +30,7 @@ class weblinks_test_form_admin extends weblinks_test_form
     {
         parent::__construct();
 
-        $this->_admin_cat_url  = WEBLINKS_URL . '/admin/category_manage.php';
+        $this->_admin_cat_url = WEBLINKS_URL . '/admin/category_manage.php';
         $this->_admin_link_url = WEBLINKS_URL . '/admin/link_manage.php';
     }
 
@@ -56,9 +56,9 @@ class weblinks_test_form_admin extends weblinks_test_form
             return false;
         }
 
-        $param['op']  = 'add_table';
+        $param['op'] = 'add_table';
         $param['lid'] = 0;
-        $form         = &$this->build_link_form($param);
+        $form = &$this->build_link_form($param);
 
         $ret = $this->submit_form($this->_admin_link_url, $form);
         if (!$ret) {
@@ -99,7 +99,7 @@ class weblinks_test_form_admin extends weblinks_test_form
         }
 
         $this->_lid = $form_values['lid'];
-        $form       = &$this->build_form_banner($form_values);
+        $form = &$this->build_form_banner($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -186,7 +186,7 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     public function admin_mod_link($param)
     {
-        $lid   = isset($param['lid']) ? $param['lid'] : 0;
+        $lid = isset($param['lid']) ? $param['lid'] : 0;
         $title = isset($param['title']) ? $param['title'] : null;
 
         $this->_lid = $lid;
@@ -277,7 +277,7 @@ class weblinks_test_form_admin extends weblinks_test_form
         }
 
         $this->_lid = $form_values['lid'];
-        $form       = &$this->build_form_del_confirm($form_values);
+        $form = &$this->build_form_del_confirm($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -297,46 +297,46 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     public function &build_form_banner($v)
     {
-        $arr                   = &$this->assign_link($v);
-        $arr['action']         = 'https://localhost' . $v['action'];
+        $arr = &$this->assign_link($v);
+        $arr['action'] = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
-        $arr['op']             = $v['op'];
-        $arr['op_mode']        = $v['op_mode'];
+        $arr['op'] = $v['op'];
+        $arr['op_mode'] = $v['op_mode'];
 
         return $arr;
     }
 
     public function &build_form_update_cat($v)
     {
-        $arr                   = &$this->assign_link($v);
-        $arr['action']         = 'https://localhost' . $v['action'];
+        $arr = &$this->assign_link($v);
+        $arr['action'] = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
-        $arr['op']             = $v['op'];
-        $arr['op_mode']        = $v['op_mode'];
+        $arr['op'] = $v['op'];
+        $arr['op_mode'] = $v['op_mode'];
 
         return $arr;
     }
 
     public function &build_form_rssc($v)
     {
-        $rdf_url  = isset($v['rdf_url']) ? $v['rdf_url'] : '';
-        $rss_url  = isset($v['rss_url']) ? $v['rss_url'] : '';
+        $rdf_url = isset($v['rdf_url']) ? $v['rdf_url'] : '';
+        $rss_url = isset($v['rss_url']) ? $v['rss_url'] : '';
         $atom_url = isset($v['atom_url']) ? $v['atom_url'] : '';
 
         $arr = [
-            'action'         => WEBLINKS_URL . '/admin/' . $v['action'],
+            'action' => WEBLINKS_URL . '/admin/' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
-            'op'             => $v['op'],
-            'op_mode'        => $v['op_mode'],
-            'link_lid'       => $v['link_lid'],
-            'rssc_lid'       => $v['rssc_lid'],
-            'title'          => $v['title'],
-            'url'            => $v['url'],
-            'rss_flag'       => $v['rss_flag'],
-            'rdf_url'        => $rdf_url,
-            'atom_url'       => $atom_url,
-            'rss_url'        => $rss_url,
-            'show_rss_url'   => $rss_url,
+            'op' => $v['op'],
+            'op_mode' => $v['op_mode'],
+            'link_lid' => $v['link_lid'],
+            'rssc_lid' => $v['rssc_lid'],
+            'title' => $v['title'],
+            'url' => $v['url'],
+            'rss_flag' => $v['rss_flag'],
+            'rdf_url' => $rdf_url,
+            'atom_url' => $atom_url,
+            'rss_url' => $rss_url,
+            'show_rss_url' => $rss_url,
         ];
 
         return $arr;
@@ -345,11 +345,11 @@ class weblinks_test_form_admin extends weblinks_test_form
     public function &build_form_refresh($v)
     {
         $arr = [
-            'action'         => 'https://localhost' . $v['action'],
+            'action' => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
-            'op'             => $v['op'],
-            'op_mode'        => $v['op_mode'],
-            'rssc_lid'       => $v['rssc_lid'],
+            'op' => $v['op'],
+            'op_mode' => $v['op_mode'],
+            'rssc_lid' => $v['rssc_lid'],
         ];
 
         return $arr;
@@ -357,10 +357,10 @@ class weblinks_test_form_admin extends weblinks_test_form
 
     public function &build_form_del_confirm($v)
     {
-        $arr                   = &$this->assign_link($v);
-        $arr['action']         = 'https://localhost' . $v['action'];
+        $arr = &$this->assign_link($v);
+        $arr['action'] = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
-        $arr['op']             = $v['op'];
+        $arr['op'] = $v['op'];
 
         return $arr;
     }
@@ -385,12 +385,12 @@ class weblinks_test_form_admin extends weblinks_test_form
 
         $cat_form = [
             'XOOPS_G_TICKET' => $ticket,
-            'op'             => 'add_table',
-            'title'          => $title,
-            'lflag'          => 1,
-            'orders'         => 0,
-            'pid'            => 0,
-            'imgurl'         => $imgurl,
+            'op' => 'add_table',
+            'title' => $title,
+            'lflag' => 1,
+            'orders' => 0,
+            'pid' => 0,
+            'imgurl' => $imgurl,
         ];
 
         // submit_form
@@ -409,7 +409,7 @@ class weblinks_test_form_admin extends weblinks_test_form
 
         $cat_form = [
             'XOOPS_G_TICKET' => $ticket,
-            'op'             => 'update_path',
+            'op' => 'update_path',
         ];
 
         $ret = $this->submit_form($this->_admin_cat_url, $cat_form);

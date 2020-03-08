@@ -51,7 +51,7 @@ class admin_modify_notify extends admin_modify_base
         }
 
         $rss_flag = $this->get_post_rss_flag();
-        $lid      = $this->get_post_lid();
+        $lid = $this->get_post_lid();
 
         if (WEBLINKS_RSSC_USE && $rss_flag) {
             $this->_rssc_manage->add_link($lid, 'approve_new');
@@ -183,8 +183,8 @@ class admin_modify_notify extends admin_modify_base
 
         $param = [
             'to_email' => $this->_email,
-            'subject'  => $subject,
-            'body'     => $body,
+            'subject' => $subject,
+            'body' => $body,
         ];
 
         $ret = $this->_mail_send->send($param);

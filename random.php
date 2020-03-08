@@ -26,9 +26,9 @@
 include 'header.php';
 
 $weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
-$conf    = $weblinks_config_handler->get_conf();
+$conf = $weblinks_config_handler->get_conf();
 $lid_arr = $weblinks_link_handler->get_lid_array_by_random(1);
 
 // jump this site, if no data

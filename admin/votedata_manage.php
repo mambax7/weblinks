@@ -157,7 +157,7 @@ class admin_form_votedata extends happy_linux_form
         parent::__construct();
 
         $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_system       = happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
     }
 
     public static function getInstance()
@@ -176,14 +176,14 @@ class admin_form_votedata extends happy_linux_form
     public function _show($obj, $extra = null, $mode = 0)
     {
         $form_title = 'modify votedata';
-        $op         = 'mod_table';
+        $op = 'mod_table';
         $button_val = _HAPPY_LINUX_MODIFY;
 
         $this->set_obj($obj);
 
         $title_s = '';
 
-        $lid      = $obj->get('lid');
+        $lid = $obj->get('lid');
         $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
@@ -214,7 +214,7 @@ class admin_form_votedata extends happy_linux_form
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
+        $ele_del = $this->build_html_input_submit('del_table', _DELETE);
         $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
         echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');
 

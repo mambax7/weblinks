@@ -25,14 +25,14 @@ include '../../../mainfile.php';
 
 //===== header.php begin =====
 // set module object
-$url_arr        = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
+$url_arr = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
 $module_handler = xoops_getHandler('module');
-$xoopsModule    = $module_handler->getByDirname($url_arr[2]);
+$xoopsModule = $module_handler->getByDirname($url_arr[2]);
 unset($url_arr);
 
 // set config values for this module
 if (1 == $xoopsModule->getVar('hasconfig') || 1 == $xoopsModule->getVar('hascomments')) {
-    $config_handler    = &xoops_getHandler('config');
+    $config_handler = &xoops_getHandler('config');
     $xoopsModuleConfig = &$config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 }
 
@@ -139,8 +139,8 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 $weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $country_code = $weblinks_config_handler->get_conf_by_name('country_code');
-$rss_dirname  = $weblinks_config_handler->get_conf_by_name('rss_dirname');
-$rss_use      = $weblinks_config_handler->get_conf_by_name('rss_use');
+$rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
+$rss_use = $weblinks_config_handler->get_conf_by_name('rss_use');
 
 include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/locate.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_locate.php';

@@ -28,10 +28,10 @@ class rssc_lid_mod
 
         $this->_db = $xoopsDB;
 
-        $this->_table_link      = $this->_db->prefix($dirname . '_link');
+        $this->_table_link = $this->_db->prefix($dirname . '_link');
         $this->_table_rssc_link = $this->_db->prefix($this->_RSSC_DIRNAME . '_link');
 
-        $this->_rss_utility       = happy_linux_rss_utility::getInstance();
+        $this->_rss_utility = happy_linux_rss_utility::getInstance();
         $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
     }
 
@@ -81,9 +81,9 @@ class rssc_lid_mod
         }
         $next = $offset + $this->_LIMIT;
 
-        $sql1  = 'SELECT count(*) FROM ' . $this->_table_rssc_link;
-        $res1  = $this->sql_exec($sql1);
-        $row1  = $this->_db->fetchRow($res1);
+        $sql1 = 'SELECT count(*) FROM ' . $this->_table_rssc_link;
+        $res1 = $this->sql_exec($sql1);
+        $row1 = $this->_db->fetchRow($res1);
         $total = $row1[0];
 
         echo "There are $total rssc links <br>\n";
@@ -93,9 +93,9 @@ class rssc_lid_mod
         $res2 = $this->sql_exec($sql2, $this->_LIMIT, $offset);
 
         while ($row = $this->_db->fetchArray($res2)) {
-            $lid   = $row['lid'];
+            $lid = $row['lid'];
             $title = $row['title'];
-            $p1    = $row['p1'];
+            $p1 = $row['p1'];
 
             $ret = $this->mod_rssc_lid($p1, $lid);
             if ($ret) {
@@ -162,7 +162,7 @@ class rssc_lid_mod
     {
         $action = xoops_getenv('PHP_SELF');
         $submit = "GO next $this->_LIMIT links";
-        $next2  = $next + $this->_LIMIT; ?>
+        $next2 = $next + $this->_LIMIT; ?>
         <br>
         <hr>
         <h4>next link table</h4>

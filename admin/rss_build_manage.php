@@ -13,7 +13,7 @@ include 'admin_header.php';
 include 'admin_header_config.php';
 
 // class
-$config_form  = admin_config_form::getInstance();
+$config_form = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();

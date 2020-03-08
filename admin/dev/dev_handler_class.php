@@ -214,14 +214,14 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $lflag = 1;    // allow link
 
-        $cflag          = 0;
-        $tflag          = 0;
-        $displayimg     = '';
-        $description    = '';
+        $cflag = 0;
+        $tflag = 0;
+        $displayimg = '';
+        $description = '';
         $catdescription = '';
-        $catfooter      = '';
-        $groupid        = '';
-        $editaccess     = '';
+        $catfooter = '';
+        $groupid = '';
+        $editaccess = '';
 
         // table name
         $category_table = $this->prefix('category');
@@ -266,8 +266,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function &get_category($cid)
     {
         $category_table = $this->prefix('category');
-        $sql            = 'SELECT * FROM ' . $category_table . ' WHERE cid=' . (int)$cid;
-        $row            = &$this->get_row_by_sql($sql);
+        $sql = 'SELECT * FROM ' . $category_table . ' WHERE cid=' . (int)$cid;
+        $row = &$this->get_row_by_sql($sql);
 
         return $row;
     }
@@ -314,12 +314,12 @@ class weblinks_dev_handler extends happy_linux_basic_handler
             $title = $this->get_randum_title();
         }
 
-        $hits      = mt_rand(0, 100);
-        $title     = $this->get_randum_title();
-        $banner    = $this->get_randum_banner(5);
-        $passwd    = $this->get_randum_passwd_md5();
+        $hits = mt_rand(0, 100);
+        $title = $this->get_randum_title();
+        $banner = $this->get_randum_banner(5);
+        $passwd = $this->get_randum_passwd_md5();
         $recommend = $this->get_randum_mark();
-        $mutual    = $this->get_randum_mark();
+        $mutual = $this->get_randum_mark();
 
         list($time_create, $time_update) = $this->get_randum_create_time();
 
@@ -332,16 +332,16 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         }
 
         // name
-        $name     = '';
-        $mail     = '';
+        $name = '';
+        $mail = '';
         $nameflag = 0;
         $mailflag = 0;
 
         $uid = mt_rand(0, 10);
         if ($uid) {
-            $user     = &$this->_system->get_user_by_uid($uid);
-            $name     = $user['uname'];
-            $mail     = $user['email'];
+            $user = &$this->_system->get_user_by_uid($uid);
+            $name = $user['uname'];
+            $mail = $user['email'];
             $nameflag = mt_rand(0, 1);
             $mailflag = mt_rand(0, 1);
         }
@@ -353,41 +353,41 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         }
 
         // figures image
-        $width  = 20;
+        $width = 20;
         $height = 27;
 
-        $cids         = '';
-        $company      = '';
-        $addr         = '';
-        $tel          = '';
+        $cids = '';
+        $company = '';
+        $addr = '';
+        $tel = '';
         $admincomment = '';
-        $mark         = 0;
-        $rating       = 0;
-        $votes        = 0;
-        $comments     = 0;
-        $rss_xml      = '';
-        $rss_update   = 0;
-        $usercomment  = '';
-        $zip          = '';
-        $state        = '';
-        $city         = '';
-        $addr2        = '';
-        $fax          = '';
-        $dohtml       = 0;
-        $dosmiley     = 1;
-        $doxcode      = 1;
-        $doimage      = 1;
-        $dobr         = 1;
-        $etc1         = '';
-        $etc2         = '';
-        $etc3         = '';
-        $etc4         = '';
-        $etc5         = '';
-        $rssc_lid     = '';
-        $aux_int_1    = 0;
-        $aux_int_2    = 0;
-        $aux_text_1   = '';
-        $aux_text_2   = '';
+        $mark = 0;
+        $rating = 0;
+        $votes = 0;
+        $comments = 0;
+        $rss_xml = '';
+        $rss_update = 0;
+        $usercomment = '';
+        $zip = '';
+        $state = '';
+        $city = '';
+        $addr2 = '';
+        $fax = '';
+        $dohtml = 0;
+        $dosmiley = 1;
+        $doxcode = 1;
+        $doimage = 1;
+        $dobr = 1;
+        $etc1 = '';
+        $etc2 = '';
+        $etc3 = '';
+        $etc4 = '';
+        $etc5 = '';
+        $rssc_lid = '';
+        $aux_int_1 = 0;
+        $aux_int_2 = 0;
+        $aux_text_1 = '';
+        $aux_text_2 = '';
 
         $search = "$title $url $description";
 
@@ -513,7 +513,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function update_link_rating_by_lid($sum, $count, $lid)
     {
         $link_table = $this->prefix('link');
-        $rating     = $sum / $count;
+        $rating = $sum / $count;
 
         $sql = "UPDATE $link_table SET rating=$rating, votes=$count WHERE lid=" . (int)$lid;
 
@@ -532,8 +532,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function &get_link($lid)
     {
         $link_table = $this->prefix('link');
-        $sql        = 'SELECT * FROM ' . $link_table . ' WHERE lid=' . (int)$lid;
-        $row        = &$this->get_row_by_sql($sql);
+        $sql = 'SELECT * FROM ' . $link_table . ' WHERE lid=' . (int)$lid;
+        $row = &$this->get_row_by_sql($sql);
 
         return $row;
     }
@@ -558,8 +558,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function &get_modify($mid)
     {
         $modify_table = $this->prefix('modify');
-        $sql          = 'SELECT * FROM ' . $modify_table . ' WHERE mid=' . (int)$mid;
-        $row          = &$this->get_row_by_sql($sql);
+        $sql = 'SELECT * FROM ' . $modify_table . ' WHERE mid=' . (int)$mid;
+        $row = &$this->get_row_by_sql($sql);
 
         return $row;
     }
@@ -610,8 +610,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function &get_votedata_rows_groupby_lid()
     {
         $votedata_table = $this->prefix('votedata');
-        $sql            = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
-        $rows           = &$this->get_rows_by_sql($sql);
+        $sql = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
+        $rows = &$this->get_rows_by_sql($sql);
 
         return $rows;
     }
@@ -689,8 +689,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function &get_rssc_link($rssc_lid)
     {
         $rssc_link_table = $this->db_prefix('rssc_link');
-        $sql             = 'SELECT * FROM ' . $rssc_link_table . ' WHERE lid=' . (int)$rssc_lid;
-        $row             = &$this->get_row_by_sql($sql);
+        $sql = 'SELECT * FROM ' . $rssc_link_table . ' WHERE lid=' . (int)$rssc_lid;
+        $row = &$this->get_row_by_sql($sql);
 
         return $row;
     }
@@ -701,7 +701,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public function get_rssc_feed_count_by_rssc_link($rssc_lid)
     {
         $rssc_feed_table = $this->db_prefix('rssc_feed');
-        $sql             = 'SELECT count(*) FROM ' . $rssc_feed_table . ' WHERE lid=' . (int)$rssc_lid;
+        $sql = 'SELECT count(*) FROM ' . $rssc_feed_table . ' WHERE lid=' . (int)$rssc_lid;
 
         return $this->get_count_by_sql($sql);
     }
@@ -736,23 +736,23 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $com_table = $this->db_prefix('xoopscomments');
 
         // constant
-        $com_icon     = '';
-        $com_sig      = 0;
-        $dohtml       = 0;
-        $dosmiley     = 1;
-        $doxcode      = 1;
-        $doimage      = 1;
-        $dobr         = 1;
-        $com_status   = 2;
+        $com_icon = '';
+        $com_sig = 0;
+        $dohtml = 0;
+        $dosmiley = 1;
+        $doxcode = 1;
+        $doimage = 1;
+        $dobr = 1;
+        $com_status = 2;
         $com_exparams = '';
-        $com_modid    = $mid;
+        $com_modid = $mid;
 
         // randum data
-        $com_itemid   = mt_rand(1, $MAX_ITEMID);
-        $com_uid      = mt_rand(1, 10);
-        $com_ip       = $this->get_randum_ip();
-        $com_title    = $this->get_randum_title();
-        $com_created  = $this->get_randum_time();
+        $com_itemid = mt_rand(1, $MAX_ITEMID);
+        $com_uid = mt_rand(1, 10);
+        $com_ip = $this->get_randum_ip();
+        $com_title = $this->get_randum_title();
+        $com_created = $this->get_randum_time();
         $com_modified = $com_created;
 
         // other
@@ -767,14 +767,14 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $newid = $this->getInsertId();
 
         // pid: 1 per 2
-        $com_id     = $newid;
+        $com_id = $newid;
         $com_rootid = $newid;
-        $com_pid    = 0;
+        $com_pid = 0;
 
         if (0 == $i % 2) {
             if (isset($this->_com_itemid_arr[$com_itemid])) {
                 $pid_arr = $this->_com_itemid_arr[$com_itemid];
-                $count   = count($pid_arr) - 1;
+                $count = count($pid_arr) - 1;
 
                 if ($count < 0) {
                     $count = 0;
@@ -783,7 +783,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
                 $id = mt_rand(0, $count);
 
                 if (isset($pid_arr[$id])) {
-                    $com_pid    = $pid_arr[$id];
+                    $com_pid = $pid_arr[$id];
                     $com_rootid = $this->_com_id_arr[$com_pid]['com_rootid'];
                 }
             }
@@ -796,14 +796,14 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $this->query($sql2);
 
         $this->_com_id_arr[$com_id]['com_rootid'] = $com_rootid;
-        $this->_com_itemid_arr[$com_itemid][]     = $com_id;
+        $this->_com_itemid_arr[$com_itemid][] = $com_id;
     }
 
     public function &get_comment_rows($mid)
     {
-        $sql  = 'SELECT com_itemid, count(com_itemid) as c ';
-        $sql  .= 'FROM ' . $this->_xoopscomments_table . ' ';
-        $sql  .= 'WHERE com_modid=' . $mid . ' GROUP BY com_itemid ';
+        $sql = 'SELECT com_itemid, count(com_itemid) as c ';
+        $sql .= 'FROM ' . $this->_xoopscomments_table . ' ';
+        $sql .= 'WHERE com_modid=' . $mid . ' GROUP BY com_itemid ';
         $rows = &$this->get_rows_by_sql($sql);
 
         return $rows;

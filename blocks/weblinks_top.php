@@ -72,7 +72,7 @@ if (!function_exists('b_weblinks_top_show')) {
     function b_weblinks_top_show($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $class   = weblinks_block::getSingleton($DIRNAME);
+        $class = weblinks_block::getSingleton($DIRNAME);
 
         return $class->top_show($options);
     }
@@ -80,7 +80,7 @@ if (!function_exists('b_weblinks_top_show')) {
     function b_weblinks_top_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $class   = weblinks_block::getSingleton($DIRNAME);
+        $class = weblinks_block::getSingleton($DIRNAME);
 
         return $class->top_edit($options);
     }

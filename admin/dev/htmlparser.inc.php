@@ -90,13 +90,13 @@ class HtmlParser
      */
     public function __construct($aHtmlText)
     {
-        $this->iHtmlText       = $aHtmlText;
+        $this->iHtmlText = $aHtmlText;
         $this->iHtmlTextLength = mb_strlen($aHtmlText);
         $this->iNodeAttributes = [];
         $this->setTextIndex(0);
 
         $this->BOE_ARRAY = [' ', "\t", "\r", "\n", '='];
-        $this->B_ARRAY   = [' ', "\t", "\r", "\n"];
+        $this->B_ARRAY = [' ', "\t", "\r", "\n"];
         $this->BOS_ARRAY = [' ', "\t", "\r", "\n", '/'];
     }
 
@@ -110,8 +110,8 @@ class HtmlParser
     {
         $text = $this->skipToElement();
         if ('' != $text) {
-            $this->iNodeType  = NODE_TYPE_TEXT;
-            $this->iNodeName  = 'Text';
+            $this->iNodeType = NODE_TYPE_TEXT;
+            $this->iNodeName = 'Text';
             $this->iNodeValue = $text;
 
             return true;
@@ -136,9 +136,9 @@ class HtmlParser
         $this->skipMaxInTag('<', 1);
         if ('/' == $this->iCurrentChar) {
             $this->moveNext();
-            $name             = $this->skipToBlanksInTag();
-            $this->iNodeType  = NODE_TYPE_ENDELEMENT;
-            $this->iNodeName  = $name;
+            $name = $this->skipToBlanksInTag();
+            $this->iNodeType = NODE_TYPE_ENDELEMENT;
+            $this->iNodeName = $name;
             $this->iNodeValue = '';
             $this->skipEndOfTag();
 
@@ -150,33 +150,33 @@ class HtmlParser
             if (0 === mb_strpos($name, '!--')) {
                 $ppos = mb_strpos($name, '--', 3);
                 if (mb_strpos($name, '--', 3) === (mb_strlen($name) - 2)) {
-                    $this->iNodeType  = NODE_TYPE_COMMENT;
-                    $this->iNodeName  = 'Comment';
+                    $this->iNodeType = NODE_TYPE_COMMENT;
+                    $this->iNodeName = 'Comment';
                     $this->iNodeValue = '<' . $name . '>';
-                    $comment          = true;
+                    $comment = true;
                 } else {
                     $rest = $this->skipToStringInTag('-->');
                     if ('' != $rest) {
-                        $this->iNodeType  = NODE_TYPE_COMMENT;
-                        $this->iNodeName  = 'Comment';
+                        $this->iNodeType = NODE_TYPE_COMMENT;
+                        $this->iNodeName = 'Comment';
                         $this->iNodeValue = '<' . $name . $rest;
-                        $comment          = true;
+                        $comment = true;
                         // Already skipped end of tag
                         return true;
                     }
                 }
             }
             if (!$comment) {
-                $this->iNodeType  = NODE_TYPE_TEXT;
-                $this->iNodeName  = 'Text';
+                $this->iNodeType = NODE_TYPE_TEXT;
+                $this->iNodeName = 'Text';
                 $this->iNodeValue = '<' . $name;
 
                 return true;
             }
         } else {
-            $this->iNodeType  = NODE_TYPE_ELEMENT;
+            $this->iNodeType = NODE_TYPE_ELEMENT;
             $this->iNodeValue = '';
-            $this->iNodeName  = $name;
+            $this->iNodeName = $name;
             while ($this->skipBlanksInTag()) {
                 $attrName = $this->skipToBlanksOrEqualsInTag();
                 if ('' != $attrName && '/' != $attrName) {
@@ -184,7 +184,7 @@ class HtmlParser
                     if ('=' == $this->iCurrentChar) {
                         $this->skipEqualsInTag();
                         $this->skipBlanksInTag();
-                        $value                                           = $this->readValueInTag();
+                        $value = $this->readValueInTag();
                         $this->iNodeAttributes[mb_strtolower($attrName)] = $value;
                     } else {
                         $this->iNodeAttributes[mb_strtolower($attrName)] = '';
@@ -229,7 +229,7 @@ class HtmlParser
 
     public function readValueInTag()
     {
-        $ch    = $this->iCurrentChar;
+        $ch = $this->iCurrentChar;
         $value = '';
         if ('"' == $ch) {
             $this->skipMaxInTag('"', 1);
@@ -305,7 +305,7 @@ class HtmlParser
 
     public function skipMaxInTag($chars, $maxChars)
     {
-        $sb    = '';
+        $sb = '';
         $count = 0;
         while (-1 !== ($ch = $this->iCurrentChar) && ++$count < $maxChars) {
             if ('>' == $ch) {
@@ -379,7 +379,7 @@ class HtmlParser
         if (false === $pos) {
             return '';
         }
-        $top      = $pos + mb_strlen($needle);
+        $top = $pos + mb_strlen($needle);
         $retvalue = mb_substr($this->iHtmlText, $this->iHtmlTextIndex, $top - $this->iHtmlTextIndex);
         $this->setTextIndex($top);
 
@@ -394,7 +394,7 @@ function HtmlParser_ForFile($fileName)
 
 function HtmlParser_ForURL($url)
 {
-    $fp      = fopen($url, 'rb');
+    $fp = fopen($url, 'rb');
     $content = '';
     while (true) {
         $data = fread($fp, 8192);

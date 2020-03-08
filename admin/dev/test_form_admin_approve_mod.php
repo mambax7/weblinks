@@ -63,13 +63,13 @@ $test->update_config_by_name_array('auth_modify_auto', [1]);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
-    'notify'   => 0,
-    'return'   => 'modify request link',
+    'notify' => 0,
+    'return' => 'modify request link',
 ];
 
 $ret = $test->user_modify_link_with_login($param);
@@ -111,13 +111,13 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(14),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(14),
     'rss_flag' => 2,    // rss
-    'notify'   => 1,    // nofity
-    'return'   => 'modify request link',
+    'notify' => 1,    // nofity
+    'return' => 'modify request link',
 ];
 
 $ret = $test->user_modify_link_with_login($param);
@@ -174,13 +174,13 @@ echo "<h4>scenario 3: modify & refuse</h4>\n";
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
-    'notify'   => 1,    // nofity
-    'return'   => 'modify request link',
+    'notify' => 1,    // nofity
+    'return' => 'modify request link',
 ];
 
 $ret = $test->user_modify_link_with_login($param);

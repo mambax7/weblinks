@@ -10,11 +10,11 @@ include 'admin_header_min.php';
 
 // ===  main ===
 if (WEBLINKS_RSSC_EXIST && WEBLINKS_RSSC_USE) {
-    $handler          = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
-    $total_feed       = $handler->get_count_by_tablename('feed', WEBLINKS_RSSC_DIRNAME);
+    $handler = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
+    $total_feed = $handler->get_count_by_tablename('feed', WEBLINKS_RSSC_DIRNAME);
     $url_rssc_archive = WEBLINKS_RSSC_URL . '/admin/archive_manage.php';
 } else {
-    $total_feed       = 0;
+    $total_feed = 0;
     $url_rssc_archive = '';
 }
 

@@ -22,7 +22,7 @@ if (!class_exists('weblinks_notification')) {
         public $_notification_handler;
 
         // input
-        public $_newid    = null;
+        public $_newid = null;
         public $_save_obj = null;
 
         // local
@@ -41,7 +41,7 @@ if (!class_exists('weblinks_notification')) {
 
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_category_handler     = weblinks_getHandler('category', $dirname);
+            $this->_category_handler = weblinks_getHandler('category', $dirname);
             $this->_notification_handler = xoops_getHandler('notification');
         }
 
@@ -60,7 +60,7 @@ if (!class_exists('weblinks_notification')) {
         //---------------------------------------------------------
         public function notify_newlink($newid, &$obj, $cid_array)
         {
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$obj;
 
             $tags = &$this->build_tags_newlink();
@@ -74,7 +74,7 @@ if (!class_exists('weblinks_notification')) {
 
         public function notify_newlink_admin($newid, &$obj, &$cid_array)
         {
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$obj;
 
             $tags = &$this->_build_tags_newlink_admin();
@@ -87,7 +87,7 @@ if (!class_exists('weblinks_notification')) {
 
         public function notify_link_submit($newid, &$obj, $cid_array)
         {
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$obj;
 
             $tags = &$this->_build_tags_linksubmit();
@@ -101,10 +101,10 @@ if (!class_exists('weblinks_notification')) {
 
         public function notify_link_modify($newid, &$obj, &$cid_array)
         {
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$obj;
 
-            $tags                      = [];
+            $tags = [];
             $tags['MODIFYREPORTS_URL'] = WEBLINKS_URL . '/admin/link_manage.php?op=list_mod&mid=' . $newid;
 
             $this->_notification_handler->triggerEvent('global', 0, 'link_modify', $tags);
@@ -112,10 +112,10 @@ if (!class_exists('weblinks_notification')) {
 
         public function notify_link_delete($newid, &$obj, &$cid_array)
         {
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$obj;
 
-            $tags                      = [];
+            $tags = [];
             $tags['MODIFYREPORTS_URL'] = WEBLINKS_URL . '/admin/link_manage.php?op=list_del&mid=' . $newid;
 
             $this->_notification_handler->triggerEvent('global', 0, 'link_modify', $tags);
@@ -133,7 +133,7 @@ if (!class_exists('weblinks_notification')) {
 
             if ($cid) {
                 $tags['CATEGORY_NAME'] = $this->_category_handler->get_title($cid);
-                $tags['CATEGORY_URL']  = $this->_WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
+                $tags['CATEGORY_URL'] = $this->_WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
             }
 
             return $tags;
@@ -160,7 +160,7 @@ if (!class_exists('weblinks_notification')) {
 
             if ($cid) {
                 $tags['CATEGORY_NAME'] = $this->_category_handler->get_title($cid);
-                $tags['CATEGORY_URL']  = $this->_WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
+                $tags['CATEGORY_URL'] = $this->_WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
             }
 
             return $tags;
@@ -168,9 +168,9 @@ if (!class_exists('weblinks_notification')) {
 
         public function &build_tags_link_mod()
         {
-            $tags              = [];
+            $tags = [];
             $tags['LINK_NAME'] = $this->_save_obj->get('title');
-            $tags['LINK_URL']  = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $this->_save_obj->get('lid');
+            $tags['LINK_URL'] = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $this->_save_obj->get('lid');
 
             return $tags;
         }
@@ -187,10 +187,10 @@ if (!class_exists('weblinks_notification')) {
                 return $false;
             }
 
-            $tags                     = [];
-            $tags['LINK_NAME']        = $this->_save_obj->get('title');
+            $tags = [];
+            $tags['LINK_NAME'] = $this->_save_obj->get('title');
             $tags['LINK_DESCRIPTION'] = $this->_save_obj->description_short($this->_MAX_DESCRIPTION);
-            $tags['LINK_URL']         = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $this->_newid;
+            $tags['LINK_URL'] = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $this->_newid;
 
             $this->_tags = &$tags;
 
@@ -209,8 +209,8 @@ if (!class_exists('weblinks_notification')) {
                 return $false;
             }
 
-            $tags                     = [];
-            $tags['LINK_NAME']        = $this->_save_obj->get('title');
+            $tags = [];
+            $tags['LINK_NAME'] = $this->_save_obj->get('title');
             $tags['LINK_DESCRIPTION'] = $this->_save_obj->description_short($this->_MAX_DESCRIPTION);
             $tags['LINK_USERCOMMENT'] = $this->_save_obj->usercomment_short($this->_MAX_USERCOMMENT);
             $tags['WAITINGLINKS_URL'] = $this->_WEBLINKS_URL . '/admin/link_manage.php?op=list_new&mid=' . $this->_newid;

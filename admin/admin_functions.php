@@ -72,19 +72,19 @@ function weblinks_admin_print_footer()
 function weblinks_admin_print_bread($name1, $url1 = '', $name2 = '')
 {
     $system = happy_linux_system::getInstance();
-    $form   = happy_linux_form::getInstance();
+    $form = happy_linux_form::getInstance();
 
     $arr = [
         [
             'name' => $system->get_module_name(),
-            'url'  => 'index.php',
+            'url' => 'index.php',
         ],
     ];
 
     if ($name1) {
         $arr[] = [
             'name' => $name1,
-            'url'  => $url1,
+            'url' => $url1,
         ];
     }
 
@@ -101,17 +101,17 @@ function weblinks_admin_print_menu()
 {
     $MAX_COL = 4;
 
-    $menu           = happy_linux_admin_menu::getInstance();
-    $handler        = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
-    $link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+    $menu = happy_linux_admin_menu::getInstance();
+    $handler = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
+    $link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
     $modify_handler = weblinks_getHandler('modify_basic', WEBLINKS_DIRNAME);
 
-    $total_cat     = $handler->get_count_by_tablename('category');
-    $total_vote    = $handler->get_count_by_tablename('votedata');
+    $total_cat = $handler->get_count_by_tablename('category');
+    $total_vote = $handler->get_count_by_tablename('votedata');
     $total_catlink = $handler->get_count_by_tablename('catlink');
-    $total_broken  = $handler->get_count_by_tablename('broken');
-    $total_link    = $link_handler->get_count_all();
-    $total_nourl   = $link_handler->get_count_non_url();
+    $total_broken = $handler->get_count_by_tablename('broken');
+    $total_link = $link_handler->get_count_all();
+    $total_nourl = $link_handler->get_count_non_url();
 
     $total_brokenlinks = $link_handler->get_count_broken();
     $total_brokenlinks = $menu->highlight_number($total_brokenlinks);
@@ -127,18 +127,18 @@ function weblinks_admin_print_menu()
 
     $total_broken = $menu->highlight_number($total_broken);
 
-    $link_list    = _WEBLINKS_ADMIN_LINK_LIST . " ($total_link)";
-    $cat_list     = _WEBLINKS_ADMIN_CATEGORY_LIST . " ($total_cat)";
-    $vote_list    = _AM_WEBLINKS_VOTE_LIST . " ($total_vote)";
+    $link_list = _WEBLINKS_ADMIN_LINK_LIST . " ($total_link)";
+    $cat_list = _WEBLINKS_ADMIN_CATEGORY_LIST . " ($total_cat)";
+    $vote_list = _AM_WEBLINKS_VOTE_LIST . " ($total_vote)";
     $catlink_list = _AM_WEBLINKS_CATLINK_LIST . " ($total_catlink)";
 
     $title_link = _WEBLINKS_ADMIN_LINK_MANAGE . '<br>' . _WEBLINKS_ADMIN_ADD_LINK;
 
     $title_brokenlinks = _WEBLINKS_ADMIN_LINK_BROKEN . " ($total_brokenlinks)";
-    $title_newlinks    = _WLS_LINKSWAITING . " ($total_newlinks)";
-    $title_modify      = _WLS_MODREQUESTS . " ($total_modify)";
-    $title_broken      = _WLS_BROKENREPORTS . " ($total_broken)";
-    $title_delete      = _AM_WEBLINKS_DEL_REQS . " ($total_delete)";
+    $title_newlinks = _WLS_LINKSWAITING . " ($total_newlinks)";
+    $title_modify = _WLS_MODREQUESTS . " ($total_modify)";
+    $title_broken = _WLS_BROKENREPORTS . " ($total_broken)";
+    $title_delete = _AM_WEBLINKS_DEL_REQS . " ($total_delete)";
 
     $config_0 = _AM_WEBLINKS_MODULE_CONFIG_0 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_0 . ') ';
     $config_2 = _WEBLINKS_ADMIN_MODULE_CONFIG_2 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_2 . ') ';
@@ -151,60 +151,60 @@ function weblinks_admin_print_menu()
     $column = '(' . _AM_WEBLINKS_COLUMN_MANAGE . ')';
 
     if (WEBLINKS_RSSC_EXIST && WEBLINKS_RSSC_USE) {
-        $total_feed         = $handler->get_count_by_tablename('feed', WEBLINKS_RSSC_DIRNAME);
+        $total_feed = $handler->get_count_by_tablename('feed', WEBLINKS_RSSC_DIRNAME);
         $url_rssc_feed_list = WEBLINKS_RSSC_URL . '/admin/archive_manage.php';
     } else {
-        $total_feed         = 0;
+        $total_feed = 0;
         $url_rssc_feed_list = '';
     }
 
     $feed_list = _AM_WEBLINKS_TITLE_RSSC_MANAGE . " ($total_feed)";
 
     $menu_arr = [
-        $config_0                       => 'index.php',
+        $config_0 => 'index.php',
         _WEBLINKS_ADMIN_MODULE_CONFIG_1 => 'preferences.php',
-        $config_2                       => 'config_manage_2.php',
-        $config_3                       => 'config_manage_3.php',
+        $config_2 => 'config_manage_2.php',
+        $config_3 => 'config_manage_3.php',
 
         $config_4 => 'config_manage_4.php',
         $config_5 => 'config_manage_5.php',
         $config_6 => 'config_manage_6.php',
         $config_7 => 'config_manage_7.php',
 
-        $cat_list     => 'category_list.php',
-        $link_list    => 'link_list.php',
-        $vote_list    => 'votedata_list.php',
+        $cat_list => 'category_list.php',
+        $link_list => 'link_list.php',
+        $vote_list => 'votedata_list.php',
         $catlink_list => 'catlink_list.php',
 
-        _AM_WEBLINKS_ADD_CATEGORY      => 'category_manage.php',
-        _WEBLINKS_ADMIN_ADD_LINK       => 'link_manage.php',
-        _AM_WEBLINKS_BULK_IMPORT       => 'bulk_manage.php',
+        _AM_WEBLINKS_ADD_CATEGORY => 'category_manage.php',
+        _WEBLINKS_ADMIN_ADD_LINK => 'link_manage.php',
+        _AM_WEBLINKS_BULK_IMPORT => 'bulk_manage.php',
         _AM_WEBLINKS_LINK_CHECK_MANAGE => 'link_check_manage.php',
 
-        $title_newlinks    => 'modify_list.php?op=list_new',
-        $title_modify      => 'modify_list.php?op=list_mod',
-        $title_delete      => 'modify_list.php?op=list_del',
+        $title_newlinks => 'modify_list.php?op=list_new',
+        $title_modify => 'modify_list.php?op=list_mod',
+        $title_delete => 'modify_list.php?op=list_del',
         $title_brokenlinks => 'link_list.php?op=list_broken',
 
-        _WEBLINKS_ADMIN_USER_MANAGE      => 'user_list.php',
-        _WEBLINKS_ADMIN_SENDMAIL         => 'mail_users.php',
+        _WEBLINKS_ADMIN_USER_MANAGE => 'user_list.php',
+        _WEBLINKS_ADMIN_SENDMAIL => 'mail_users.php',
         _AM_WEBLINKS_NOTIFICATION_MANAGE => 'notification_manage.php',
-        $title_broken                    => 'broken_list.php',
+        $title_broken => 'broken_list.php',
 
         _HAPPY_LINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
-        _AM_WEBLINKS_IMPORT_MANAGE       => 'import_manage.php',
-        _AM_WEBLINKS_EXPORT_MANAGE       => 'export_manage.php',
-        _HAPPY_LINUX_CONF_RSS_MANAGE     => 'rss_build_manage.php',
+        _AM_WEBLINKS_IMPORT_MANAGE => 'import_manage.php',
+        _AM_WEBLINKS_EXPORT_MANAGE => 'export_manage.php',
+        _HAPPY_LINUX_CONF_RSS_MANAGE => 'rss_build_manage.php',
 
         _AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE => 'output_plugin_manage.php',
-        _AM_WEBLINKS_MAP_JP_MANAGE        => 'map_jp_manage.php',
-        $column                           => 'column_manage.php',
-        $feed_list                        => 'rssc_manage.php',
+        _AM_WEBLINKS_MAP_JP_MANAGE => 'map_jp_manage.php',
+        $column => 'column_manage.php',
+        $feed_list => 'rssc_manage.php',
 
         _HAPPY_LINUX_CONF_TABLE_MANAGE => 'table_manage.php',
-        _HAPPY_LINUX_AM_MODULE         => 'modules.php',
-        _HAPPY_LINUX_AM_BLOCK          => 'blocks.php',
-        _HAPPY_LINUX_GOTO_MODULE       => '../index.php',
+        _HAPPY_LINUX_AM_MODULE => 'modules.php',
+        _HAPPY_LINUX_AM_BLOCK => 'blocks.php',
+        _HAPPY_LINUX_GOTO_MODULE => '../index.php',
     ];
 
     echo $menu->build_menu_table($menu_arr, $MAX_COL);
@@ -224,7 +224,7 @@ function weblinks_admin_multi_redirect_jp_site()
 {
     if (weblinks_multi_is_english_site()) {
         // Engilsh site goto Japanese site
-        $url    = xoops_getenv('REQUEST_URI');
+        $url = xoops_getenv('REQUEST_URI');
         $url_jp = str_replace('/en/', '/jp/', $url);
         redirect_header($url_jp, 1, _WEBLINKS_REDIRECT_JP_SITE);
     }

@@ -161,11 +161,11 @@ class admin_table_manage extends happy_linux_table_manage
         $ret = $link_handler->clean_rss_xml();
         if ($ret) {
             $time = 1;
-            $msg  = _HAPPY_LINUX_EXECUTED;
+            $msg = _HAPPY_LINUX_EXECUTED;
         } else {
             $time = 3;
-            $msg  = _HAPPY_LINUX_FAILED;
-            $msg  .= $link_handler->getErrors(1);
+            $msg = _HAPPY_LINUX_FAILED;
+            $msg .= $link_handler->getErrors(1);
         }
 
         redirect_header($this->_this_url, $time, $msg);

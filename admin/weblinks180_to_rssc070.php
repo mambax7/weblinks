@@ -56,14 +56,14 @@ class admin_export_rssc extends happy_linux_error
         parent::__construct();
 
         $this->_system = happy_linux_system::getInstance();
-        $this->_post   = happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
 
-        $this->_weblinks_config_handler   = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
         $this->_weblinks_atomfeed_handler = weblinks_getHandler('atomfeed', WEBLINKS_DIRNAME);
 
-        $conf                      = $this->_weblinks_config_handler->get_conf();
-        $this->_conf_rss_site_arr  = $conf['rss_site_arr'];
+        $conf = $this->_weblinks_config_handler->get_conf();
+        $this->_conf_rss_site_arr = $conf['rss_site_arr'];
         $this->_conf_rss_black_arr = $conf['rss_black_arr'];
         $this->_conf_rss_white_arr = $conf['rss_white_arr'];
 
@@ -125,7 +125,7 @@ class admin_export_rssc extends happy_linux_error
 
         // weblinks list
         $site_list = $this->_conf_rss_site_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> rss site in weblinks<br><br>\n";
 
@@ -149,7 +149,7 @@ class admin_export_rssc extends happy_linux_error
 
         // weblinks list
         $site_list = $this->_conf_rss_black_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> black list in weblinks<br><br>\n";
 
@@ -173,7 +173,7 @@ class admin_export_rssc extends happy_linux_error
 
         // weblinks list
         $site_list = $this->_conf_rss_white_arr;
-        $total     = count($site_list);
+        $total = count($site_list);
 
         echo 'There are <b>' . $total . "</b> white list in weblinks<br><br>\n";
 
@@ -193,9 +193,9 @@ class admin_export_rssc extends happy_linux_error
     {
         echo "<h4>STEP 4: export to link table</h4>\n";
 
-        $total  = $this->_weblinks_link_handler->get_count_rss_flag_prev_ver();
+        $total = $this->_weblinks_link_handler->get_count_rss_flag_prev_ver();
         $offset = $this->_rssc_get_post_offset();
-        $next   = $this->_rssc_calc_next($total);
+        $next = $this->_rssc_calc_next($total);
 
         echo 'There are <b>' . $total . "</b> rss links in weblinks<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
@@ -203,7 +203,7 @@ class admin_export_rssc extends happy_linux_error
         $weblinks_link_objs = &$this->_weblinks_link_handler->get_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
         foreach ($weblinks_link_objs as $obj) {
             $weblinks_lid = $obj->get('lid');
-            $rssc_lid     = $this->_rssc_import_handler->import_link_weblinks($obj);
+            $rssc_lid = $this->_rssc_import_handler->import_link_weblinks($obj);
 
             // weblinks link table
             if ($rssc_lid) {
@@ -225,9 +225,9 @@ class admin_export_rssc extends happy_linux_error
     {
         echo "<h4>STEP 5: export to feed table</h4>\n";
 
-        $total  = $this->_weblinks_atomfeed_handler->getCount();
+        $total = $this->_weblinks_atomfeed_handler->getCount();
         $offset = $this->_rssc_get_post_offset();
-        $next   = $this->_rssc_calc_next($total);
+        $next = $this->_rssc_calc_next($total);
 
         echo 'There are <b>' . $total . "</b> feeds in weblinks<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
@@ -259,8 +259,8 @@ class admin_export_rssc extends happy_linux_error
 
     public function _form_site()
     {
-        $title  = 'STEP 1 : export rss site to link table';
-        $op     = 'export_site';
+        $title = 'STEP 1 : export rss site to link table';
+        $op = 'export_site';
         $submit = 'GO STEP 1';
 
         $this->_print_form_next($title, $op, $submit);
@@ -268,8 +268,8 @@ class admin_export_rssc extends happy_linux_error
 
     public function _form_black()
     {
-        $title  = 'STEP 2 : export to black list';
-        $op     = 'export_black';
+        $title = 'STEP 2 : export to black list';
+        $op = 'export_black';
         $submit = 'GO STEP 2';
 
         $this->_print_form_next($title, $op, $submit);
@@ -277,8 +277,8 @@ class admin_export_rssc extends happy_linux_error
 
     public function _form_white()
     {
-        $title  = 'STEP 3 : export to white list';
-        $op     = 'export_white';
+        $title = 'STEP 3 : export to white list';
+        $op = 'export_white';
         $submit = 'GO STEP 3';
 
         $this->_print_form_next($title, $op, $submit);
@@ -287,7 +287,7 @@ class admin_export_rssc extends happy_linux_error
     public function _form_link($offset = 0)
     {
         $title = 'STEP 4 : export to link table';
-        $op    = 'export_link';
+        $op = 'export_link';
 
         if ($offset) {
             $submit = 'GO next ' . $this->_LIMIT . ' links';
@@ -301,7 +301,7 @@ class admin_export_rssc extends happy_linux_error
     public function _form_feed($offset = 0)
     {
         $title = 'STEP 5 : export to feed table';
-        $op    = 'export_feed';
+        $op = 'export_feed';
 
         if ($offset) {
             $submit = 'GO next ' . $this->_LIMIT . ' feeds';
@@ -376,7 +376,7 @@ if (WEBLINKS_RSSC_EXIST) {
 }
 
 $export = admin_export_rssc::getInstance();
-$op     = 'main';
+$op = 'main';
 if (isset($_POST['op'])) {
     $op = $_POST['op'];
 }

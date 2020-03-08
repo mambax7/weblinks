@@ -48,9 +48,9 @@
 class weblinks_gen_record extends weblinks_dev_handler
 {
     public $_GM_PRECISION = 0.000000000001;
-    public $_MAX_CAT      = 50;
-    public $_WIDTH        = 20;
-    public $_HEIGHT       = 27;
+    public $_MAX_CAT = 50;
+    public $_WIDTH = 20;
+    public $_HEIGHT = 27;
     public $_SLASHED_TEXT;
 
     public $_strings;
@@ -59,7 +59,7 @@ class weblinks_gen_record extends weblinks_dev_handler
     public $_mid;
     public $_is_xoops_guest;
 
-    public $_com_id_arr     = [];
+    public $_com_id_arr = [];
     public $_com_itemid_arr = [];
 
     public $_DEBUG_PRINT;
@@ -74,9 +74,9 @@ class weblinks_gen_record extends weblinks_dev_handler
         $this->set_debug_db_error(true);
 
         $this->_strings = happy_linux_strings::getInstance();
-        $this->_system  = happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
 
-        $this->_mid            = $this->_system->get_mid();
+        $this->_mid = $this->_system->get_mid();
         $this->_is_xoops_guest = $this->_system->is_guest();
 
         $this->_SLASHED_TEXT = ' <h1>h1</h1> ' . addslashes(addslashes(' \ " ' . " ' "));
@@ -119,7 +119,7 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         for ($i = 0; $i < $MAX_PARENT; ++$i) {
             // randum data
-            $title  = 'main_' . $this->get_randum_title();
+            $title = 'main_' . $this->get_randum_title();
             $imgurl = $this->get_randum_category_image();
             $orders = mt_rand(1, 10);
 
@@ -134,10 +134,10 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         for ($i = 0; $i < ($MAX_CAT - $MAX_PARENT); ++$i) {
             // randum data
-            $title   = 'sub_' . $this->get_randum_title();
+            $title = 'sub_' . $this->get_randum_title();
             $max_pid = (int)($MAX_PARENT + $i);
-            $pid     = mt_rand(1, $max_pid);
-            $orders  = mt_rand(1, 10);
+            $pid = mt_rand(1, $max_pid);
+            $orders = mt_rand(1, 10);
 
             // ctegory table
             $this->insert_category($pid, $title, $imgurl, $orders);
@@ -195,14 +195,14 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         // table name
         $votedata_table = $this->prefix('votedata');
-        $link_table     = $this->prefix('link');
+        $link_table = $this->prefix('link');
 
         for ($i = 0; $i < $MAX_VOTE; ++$i) {
             // randum data
-            $lid             = mt_rand(1, $MAX_LINK);
-            $ratinguser      = mt_rand(1, 10);
-            $rating          = mt_rand(0, 10);
-            $ratinghostname  = $this->get_randum_ip();
+            $lid = mt_rand(1, $MAX_LINK);
+            $ratinguser = mt_rand(1, 10);
+            $rating = mt_rand(0, 10);
+            $ratinghostname = $this->get_randum_ip();
             $ratingtimestamp = $this->get_randum_time();
 
             // votedata table
@@ -214,9 +214,9 @@ class weblinks_gen_record extends weblinks_dev_handler
         $rows2 = &$this->get_votedata_rows_groupby_lid();
 
         foreach ($rows2 as $row2) {
-            $lid   = $row2['lid'];
+            $lid = $row2['lid'];
             $count = $row2['c'];
-            $sum   = $row2['s'];
+            $sum = $row2['s'];
 
             $this->update_link_rating_by_lid($sum, $count, $lid);
         }
@@ -267,7 +267,7 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         $rows = &$this->get_comment_rows($this->_mid);
         foreach ($rows as $row) {
-            $lid      = $row['com_itemid'];
+            $lid = $row['com_itemid'];
             $comments = $row['c'];
 
             $this->update_link_comments($lid, $comments);
@@ -276,7 +276,7 @@ class weblinks_gen_record extends weblinks_dev_handler
 
     public function gen_comment_list($mid, $MAX_COM, $MAX_ITEMID)
     {
-        $this->_com_id_arr     = [];
+        $this->_com_id_arr = [];
         $this->_com_itemid_arr = [];
 
         for ($i = 0; $i < $MAX_COM; ++$i) {
@@ -290,9 +290,9 @@ class weblinks_gen_record extends weblinks_dev_handler
     public function &build_link_record($title, $flag_uid, $mode_dhtml, $flag_rssc_lid)
     {
         $param = [
-            'title'         => $title,
-            'flag_uid'      => $flag_uid,
-            'mode_dhtml'    => $mode_dhtml,
+            'title' => $title,
+            'flag_uid' => $flag_uid,
+            'mode_dhtml' => $mode_dhtml,
             'flag_rssc_lid' => $flag_rssc_lid,
         ];
 
@@ -313,8 +313,8 @@ class weblinks_gen_record extends weblinks_dev_handler
         list($time_expire_year, $time_expire_month, $time_expire_day, $time_expire_hour, $time_expire_min, $time_expire_sec) = $this->_strings->split_time_ymd($arr1['time_expire']);
 
         $time_update_flag_update = 0;
-        $time_publish_flag       = 0;
-        $time_expire_flag        = 0;
+        $time_publish_flag = 0;
+        $time_expire_flag = 0;
 
         $rssc_lid_flag_update = 0;
         if ($flag_rssc_lid) {
@@ -322,36 +322,36 @@ class weblinks_gen_record extends weblinks_dev_handler
         }
 
         $arr2 = [
-            'cid'                     => $cid_arr,
+            'cid' => $cid_arr,
 
             // time
-            'time_publish_flag'       => $time_publish_flag,
-            'time_publish_year'       => $time_publish_year,
-            'time_publish_month'      => $time_publish_month,
-            'time_publish_day'        => $time_publish_day,
-            'time_publish_hour'       => $time_publish_hour,
-            'time_publish_min'        => $time_publish_min,
-            'time_publish_sec'        => $time_publish_sec,
-            'time_expire_flag'        => $time_expire_flag,
-            'time_expire_year'        => $time_expire_year,
-            'time_expire_month'       => $time_expire_month,
-            'time_expire_day'         => $time_expire_day,
-            'time_expire_hour'        => $time_expire_hour,
-            'time_expire_min'         => $time_expire_min,
-            'time_expire_sec'         => $time_expire_sec,
+            'time_publish_flag' => $time_publish_flag,
+            'time_publish_year' => $time_publish_year,
+            'time_publish_month' => $time_publish_month,
+            'time_publish_day' => $time_publish_day,
+            'time_publish_hour' => $time_publish_hour,
+            'time_publish_min' => $time_publish_min,
+            'time_publish_sec' => $time_publish_sec,
+            'time_expire_flag' => $time_expire_flag,
+            'time_expire_year' => $time_expire_year,
+            'time_expire_month' => $time_expire_month,
+            'time_expire_day' => $time_expire_day,
+            'time_expire_hour' => $time_expire_hour,
+            'time_expire_min' => $time_expire_min,
+            'time_expire_sec' => $time_expire_sec,
             'time_update_flag_update' => $time_update_flag_update,
 
             // rssc_lid
-            'rssc_lid_flag_update'    => $rssc_lid_flag_update,
+            'rssc_lid_flag_update' => $rssc_lid_flag_update,
 
             // dhtml
-            'weblinks_description'    => $arr1['description'],
-            'weblinks_textarea1'      => $arr1['textarea1'],
+            'weblinks_description' => $arr1['description'],
+            'weblinks_textarea1' => $arr1['textarea1'],
 
             // passwd
-            'passwd_md5'              => md5($arr1['passwd']),
-            'passwd_new'              => '',
-            'passwd_2'                => '',
+            'passwd_md5' => md5($arr1['passwd']),
+            'passwd_new' => '',
+            'passwd_2' => '',
         ];
 
         $arr3 = array_merge($arr1, $arr2);
@@ -361,32 +361,32 @@ class weblinks_gen_record extends weblinks_dev_handler
 
     public function &build_link_record_array_from_param($param)
     {
-        $title      = $this->get_from_array($param, 'title');
-        $flag_uid   = $this->get_from_array($param, 'flag_uid');
+        $title = $this->get_from_array($param, 'title');
+        $flag_uid = $this->get_from_array($param, 'flag_uid');
         $mode_dhtml = $this->get_from_array($param, 'mode_dhtml');
 
         // common
-        $url     = 'https://' . $title . '/';
+        $url = 'https://' . $title . '/';
         $rss_url = $url . $this->get_randum_title() . '.xml';
-        $banner  = $this->get_randum_banner();
-        $mail    = $this->get_randum_title() . '@' . $title . '.exsample.com';
+        $banner = $this->get_randum_banner();
+        $mail = $this->get_randum_title() . '@' . $title . '.exsample.com';
 
         // text
         $slashed_title = $title . $this->_SLASHED_TEXT;
-        $name          = 'name_' . $slashed_title;
-        $company       = 'company_' . $slashed_title;
-        $state         = 'state_' . $slashed_title;
-        $city          = 'city_' . $slashed_title;
-        $addr          = 'addr_' . $slashed_title;
-        $addr2         = 'addr2_' . $slashed_title;
-        $zip           = 'zip_' . $slashed_title;
-        $tel           = 'tel_' . $slashed_title;
-        $fax           = 'fax_' . $slashed_title;
-        $etc1          = 'etc1_' . $slashed_title;
-        $etc2          = 'etc2_' . $slashed_title;
-        $etc3          = 'etc3_' . $slashed_title;
-        $etc4          = 'etc4_' . $slashed_title;
-        $etc5          = 'etc5_' . $slashed_title;
+        $name = 'name_' . $slashed_title;
+        $company = 'company_' . $slashed_title;
+        $state = 'state_' . $slashed_title;
+        $city = 'city_' . $slashed_title;
+        $addr = 'addr_' . $slashed_title;
+        $addr2 = 'addr2_' . $slashed_title;
+        $zip = 'zip_' . $slashed_title;
+        $tel = 'tel_' . $slashed_title;
+        $fax = 'fax_' . $slashed_title;
+        $etc1 = 'etc1_' . $slashed_title;
+        $etc2 = 'etc2_' . $slashed_title;
+        $etc3 = 'etc3_' . $slashed_title;
+        $etc4 = 'etc4_' . $slashed_title;
+        $etc5 = 'etc5_' . $slashed_title;
 
         // textarea
         $slashed_textarea = "\n" . $title . "\n" . $this->get_randum_number_06() . "\n" . $this->_SLASHED_TEXT . "\n";
@@ -395,31 +395,31 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         // dhtml
         $slashed_dhtml = "\n" . $title . "\n" . $this->get_randum_number_06() . "\n" . $this->_SLASHED_TEXT . "\n";
-        $description   = 'description' . $slashed_dhtml . $this->get_randum_dhtml();
-        $textarea1     = 'textarea1' . $slashed_dhtml . $this->get_randum_dhtml();
-        $textarea2     = 'textarea2' . $slashed_dhtml . $this->get_randum_dhtml();
-        $admincomment  = 'admincomment' . $slashed_dhtml . $this->get_randum_dhtml();
+        $description = 'description' . $slashed_dhtml . $this->get_randum_dhtml();
+        $textarea1 = 'textarea1' . $slashed_dhtml . $this->get_randum_dhtml();
+        $textarea2 = 'textarea2' . $slashed_dhtml . $this->get_randum_dhtml();
+        $admincomment = 'admincomment' . $slashed_dhtml . $this->get_randum_dhtml();
 
         // passwd
         $passwd = xoops_makepass();
         //  $passwd_md5 = md5($passwd);
 
         // integer
-        $lid      = mt_rand(10, 100);
-        $hits     = mt_rand(10, 100);
-        $votes    = mt_rand(10, 100);
+        $lid = mt_rand(10, 100);
+        $hits = mt_rand(10, 100);
+        $votes = mt_rand(10, 100);
         $comments = mt_rand(10, 100);
-        $broken   = mt_rand(10, 100);
-        $width    = mt_rand(10, 100);
-        $height   = mt_rand(10, 100);
-        $rating   = mt_rand(10, 100) / 10;
+        $broken = mt_rand(10, 100);
+        $width = mt_rand(10, 100);
+        $height = mt_rand(10, 100);
+        $rating = mt_rand(10, 100) / 10;
 
-        $nameflag  = 1;
-        $mailflag  = 1;
-        $request   = 1;
+        $nameflag = 1;
+        $mailflag = 1;
+        $request = 1;
         $recommend = 1;
-        $mutual    = 1;
-        $rss_flag  = 2; // rss
+        $mutual = 1;
+        $rss_flag = 2; // rss
 
         $map_use = 1;
         list($gm_latitude, $gm_longitude, $gm_zoom, $gm_type) = $this->get_randum_gm_param();
@@ -432,137 +432,137 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         switch ($mode_dhtml) {
             case 1:
-                $dohtml    = 1;
-                $dosmiley  = 1;
-                $doxcode   = 1;
-                $doimage   = 1;
-                $dobr      = 1;
-                $dohtml1   = 1;
+                $dohtml = 1;
+                $dosmiley = 1;
+                $doxcode = 1;
+                $doimage = 1;
+                $dobr = 1;
+                $dohtml1 = 1;
                 $dosmiley1 = 1;
-                $doxcode1  = 1;
-                $doimage1  = 1;
-                $dobr1     = 1;
+                $doxcode1 = 1;
+                $doimage1 = 1;
+                $dobr1 = 1;
                 break;
             case 2:
-                $dohtml    = mt_rand(0, 1);
-                $dosmiley  = mt_rand(0, 1);
-                $doxcode   = mt_rand(0, 1);
-                $doimage   = mt_rand(0, 1);
-                $dobr      = mt_rand(0, 1);
-                $dohtml1   = mt_rand(0, 1);
+                $dohtml = mt_rand(0, 1);
+                $dosmiley = mt_rand(0, 1);
+                $doxcode = mt_rand(0, 1);
+                $doimage = mt_rand(0, 1);
+                $dobr = mt_rand(0, 1);
+                $dohtml1 = mt_rand(0, 1);
                 $dosmiley1 = mt_rand(0, 1);
-                $doxcode1  = mt_rand(0, 1);
-                $doimage1  = mt_rand(0, 1);
-                $dobr1     = mt_rand(0, 1);
+                $doxcode1 = mt_rand(0, 1);
+                $doimage1 = mt_rand(0, 1);
+                $dobr1 = mt_rand(0, 1);
                 break;
             case 0:
             default:
-                $dohtml    = 0;
-                $dosmiley  = 0;
-                $doxcode   = 0;
-                $doimage   = 0;
-                $dobr      = 0;
-                $dohtml1   = 0;
+                $dohtml = 0;
+                $dosmiley = 0;
+                $doxcode = 0;
+                $doimage = 0;
+                $dobr = 0;
+                $dohtml1 = 0;
                 $dosmiley1 = 0;
-                $doxcode1  = 0;
-                $doimage1  = 0;
-                $dobr1     = 0;
+                $doxcode1 = 0;
+                $doimage1 = 0;
+                $dobr1 = 0;
                 break;
         }
 
         list($time_create, $time_update) = $this->get_randum_create_time();
 
         $time_publish = time() - mt_rand(0, 10000);
-        $time_expire  = time() + mt_rand(0, 10000);
-        $rssc_lid     = mt_rand(10, 100);
+        $time_expire = time() + mt_rand(0, 10000);
+        $rssc_lid = mt_rand(10, 100);
 
-        $forum_id    = 0;
+        $forum_id = 0;
         $comment_use = 1;
-        $album_id    = 0;
+        $album_id = 0;
 
         $arr = [
-            'lid'          => $lid,
-            'title'        => $title,
-            'uid'          => $uid,
-            'url'          => $url,
-            'recommend'    => $recommend,
-            'mutual'       => $mutual,
-            'banner'       => $banner,
-            'rss_url'      => $rss_url,
-            'rss_flag'     => $rss_flag,
-            'name'         => $name,
-            'nameflag'     => $nameflag,
-            'mail'         => $mail,
-            'mailflag'     => $mailflag,
-            'company'      => $company,
-            'zip'          => $zip,
-            'state'        => $state,
-            'city'         => $city,
-            'addr'         => $addr,
-            'addr2'        => $addr2,
-            'tel'          => $tel,
-            'fax'          => $fax,
-            'etc1'         => $etc1,
-            'etc2'         => $etc2,
-            'etc3'         => $etc3,
-            'etc4'         => $etc4,
-            'etc5'         => $etc5,
-            'usercomment'  => $usercomment,
+            'lid' => $lid,
+            'title' => $title,
+            'uid' => $uid,
+            'url' => $url,
+            'recommend' => $recommend,
+            'mutual' => $mutual,
+            'banner' => $banner,
+            'rss_url' => $rss_url,
+            'rss_flag' => $rss_flag,
+            'name' => $name,
+            'nameflag' => $nameflag,
+            'mail' => $mail,
+            'mailflag' => $mailflag,
+            'company' => $company,
+            'zip' => $zip,
+            'state' => $state,
+            'city' => $city,
+            'addr' => $addr,
+            'addr2' => $addr2,
+            'tel' => $tel,
+            'fax' => $fax,
+            'etc1' => $etc1,
+            'etc2' => $etc2,
+            'etc3' => $etc3,
+            'etc4' => $etc4,
+            'etc5' => $etc5,
+            'usercomment' => $usercomment,
             'admincomment' => $admincomment,
-            'map_use'      => $map_use,
-            'gm_latitude'  => $gm_latitude,
+            'map_use' => $map_use,
+            'gm_latitude' => $gm_latitude,
             'gm_longitude' => $gm_longitude,
-            'gm_zoom'      => $gm_zoom,
-            'gm_type'      => $gm_type,
-            'dohtml'       => $dohtml,
-            'dosmiley'     => $dosmiley,
-            'doxcode'      => $doxcode,
-            'doimage'      => $doimage,
-            'dobr'         => $dobr,
-            'dohtml1'      => $dohtml1,
-            'dosmiley1'    => $dosmiley1,
-            'doxcode1'     => $doxcode1,
-            'doimage1'     => $doimage1,
-            'dobr1'        => $dobr1,
-            'hits'         => $hits,
-            'rating'       => $rating,
-            'votes'        => $votes,
-            'comments'     => $comments,
-            'broken'       => $broken,
-            'width'        => $width,
-            'height'       => $height,
-            'cids'         => '',
-            'search'       => '',
+            'gm_zoom' => $gm_zoom,
+            'gm_type' => $gm_type,
+            'dohtml' => $dohtml,
+            'dosmiley' => $dosmiley,
+            'doxcode' => $doxcode,
+            'doimage' => $doimage,
+            'dobr' => $dobr,
+            'dohtml1' => $dohtml1,
+            'dosmiley1' => $dosmiley1,
+            'doxcode1' => $doxcode1,
+            'doimage1' => $doimage1,
+            'dobr1' => $dobr1,
+            'hits' => $hits,
+            'rating' => $rating,
+            'votes' => $votes,
+            'comments' => $comments,
+            'broken' => $broken,
+            'width' => $width,
+            'height' => $height,
+            'cids' => '',
+            'search' => '',
 
             // time
-            'time_create'  => $time_create,
-            'time_update'  => $time_update,
+            'time_create' => $time_create,
+            'time_update' => $time_update,
             'time_publish' => $time_publish,
-            'time_expire'  => $time_expire,
+            'time_expire' => $time_expire,
 
             // rssc_lid
-            'rssc_lid'     => $rssc_lid,
+            'rssc_lid' => $rssc_lid,
 
             // dhtml
-            'description'  => $description,
-            'textarea1'    => $textarea1,
-            'textarea2'    => $textarea2,
+            'description' => $description,
+            'textarea1' => $textarea1,
+            'textarea2' => $textarea2,
 
             // passwd
-            'passwd'       => $passwd,
+            'passwd' => $passwd,
 
-            'forum_id'    => $forum_id,
+            'forum_id' => $forum_id,
             'comment_use' => $comment_use,
-            'album_id'    => $album_id,
+            'album_id' => $album_id,
 
             // not use
-            'mark'        => '',
-            'rss_xml'     => '',
-            'rss_update'  => 0,
-            'aux_int_1'   => 0,
-            'aux_int_2'   => 0,
-            'aux_text_1'  => '',
-            'aux_text_2'  => '',
+            'mark' => '',
+            'rss_xml' => '',
+            'rss_update' => 0,
+            'aux_int_1' => 0,
+            'aux_int_2' => 0,
+            'aux_text_1' => '',
+            'aux_text_2' => '',
         ];
 
         $ret = &$this->assign_link($arr);
@@ -576,7 +576,7 @@ class weblinks_gen_record extends weblinks_dev_handler
     public function get_randum_category_image()
     {
         $imgurl_dir = XOOPS_URL . '/modules/' . WEBLINKS_DIRNAME . '/images/category';
-        $imgurl     = $imgurl_dir . '/' . $this->get_randum_image();
+        $imgurl = $imgurl_dir . '/' . $this->get_randum_image();
 
         return $imgurl;
     }
@@ -584,7 +584,7 @@ class weblinks_gen_record extends weblinks_dev_handler
     public function get_randum_banner($num = 0)
     {
         $banner_dir = XOOPS_URL . '/modules/' . WEBLINKS_DIRNAME . '/images/link';
-        $banner     = '';
+        $banner = '';
 
         // once at $num times
         if ((0 == $num) || (0 == mt_rand(0, $num))) {
@@ -603,9 +603,9 @@ class weblinks_gen_record extends weblinks_dev_handler
 
     public function get_randum_create_time()
     {
-        $time        = time();
-        $rand1       = mt_rand(0, 365 * 24 * 60 * 60); // 1 year
-        $rand2       = mt_rand(0, (int)($rand1 / 2));
+        $time = time();
+        $rand1 = mt_rand(0, 365 * 24 * 60 * 60); // 1 year
+        $rand2 = mt_rand(0, (int)($rand1 / 2));
         $time_create = $time - $rand1;
         $time_update = $time - $rand2;
 
@@ -651,7 +651,7 @@ class weblinks_gen_record extends weblinks_dev_handler
     public function get_randum_cid_array()
     {
         $arr = [];
-        $i   = 0;
+        $i = 0;
         for ($j = 0; $j < 100; ++$j) {
             $cid = mt_rand(1, $this->_MAX_CAT);
             if (!in_array($cid, $arr)) {
@@ -671,8 +671,8 @@ class weblinks_gen_record extends weblinks_dev_handler
         $gm_latitude = 34.64933466571561 + mt_rand(100, 1000000) / 1000000;
 
         $gm_longitude = 135.0 + mt_rand(100, 1000000) / 1000000;
-        $gm_zoom      = sprintf('%02d', mt_rand(10, 14));
-        $gm_type      = mt_rand(0, 2);
+        $gm_zoom = sprintf('%02d', mt_rand(10, 14));
+        $gm_type = mt_rand(0, 2);
 
         return [$gm_latitude, $gm_longitude, $gm_zoom, $gm_type];
     }

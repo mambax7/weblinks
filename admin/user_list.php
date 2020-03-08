@@ -53,11 +53,11 @@ class admin_user_list extends happy_linux_page_frame
     public $_system;
 
     public $_total_lid_array_with_email = 0;
-    public $_total_uid_with_use         = 0;
-    public $_total_uid_without_use      = 0;
+    public $_total_uid_with_use = 0;
+    public $_total_uid_without_use = 0;
 
     public $_lid_array_with_email = [];
-    public $_uid_list_with_use    = [];
+    public $_uid_list_with_use = [];
     public $_uid_list_without_use = [];
 
     public $_logo_img;
@@ -82,9 +82,9 @@ class admin_user_list extends happy_linux_page_frame
         $this->set_flag_execute_time(true);
 
         $this->_users_link_handler = weblinks_getHandler('users_link', WEBLINKS_DIRNAME);
-        $this->_system             = happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
 
-        $logo_url        = XOOPS_URL . '/images/icons/email.gif';
+        $logo_url = XOOPS_URL . '/images/icons/email.gif';
         $this->_logo_img = $this->build_html_img_tag($logo_url, 0, 0, 0, 'mailto');
     }
 
@@ -134,8 +134,8 @@ class admin_user_list extends happy_linux_page_frame
 
     public function _get_total()
     {
-        $this->_total_with_email      = $this->_handler->get_count_with_email();
-        $this->_total_uid_with_use    = $this->_users_link_handler->get_uid_count_with_use();
+        $this->_total_with_email = $this->_handler->get_count_with_email();
+        $this->_total_uid_with_use = $this->_users_link_handler->get_uid_count_with_use();
         $this->_total_uid_without_use = $this->_users_link_handler->get_uid_count_without_use();
 
         switch ($this->_sortid) {
@@ -192,16 +192,16 @@ class admin_user_list extends happy_linux_page_frame
     {
         $submitter_p = '---';
 
-        $lid    = $obj->getVar('lid', 'n');
-        $uid    = $obj->getVar('uid', 'n');
+        $lid = $obj->getVar('lid', 'n');
+        $uid = $obj->getVar('uid', 'n');
         $name_s = $obj->getVar('name', 's');
         $mail_s = $obj->getVar('mail', 's');
 
         $jump_lid = 'link_manage.php?op=modLink&lid=';
-        $input_p  = $this->build_form_js_checkbox($lid);
+        $input_p = $this->build_form_js_checkbox($lid);
         $linkid_p = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_lid);
-        $title_p  = $this->_build_page_name_link_by_obj($obj, 'url', 'title', '_blank');
-        $email_p  = $this->build_xoops_mailto_with_logo($mail_s);
+        $title_p = $this->_build_page_name_link_by_obj($obj, 'url', 'title', '_blank');
+        $email_p = $this->build_xoops_mailto_with_logo($mail_s);
 
         if (empty($name_s)) {
             $name_s = '---';
@@ -247,8 +247,8 @@ class admin_user_list extends happy_linux_page_frame
 
         if (count($objs) > 0) {
             foreach ($objs as $obj) {
-                $lid         = $obj->getVar('lid');
-                $title_s     = $obj->getVar('title');
+                $lid = $obj->getVar('lid');
+                $title_s = $obj->getVar('title');
                 $modlink_url = 'link_manage.php?op=modLink&lid=' . $lid;
 
                 $lid_list .= $this->build_html_a_href_name($modlink_url, $title_s);
@@ -260,7 +260,7 @@ class admin_user_list extends happy_linux_page_frame
         $input_p .= $this->_build_uname($uid, $uname_s);
 
         $submitter_p = $this->build_xoops_url_userinfo($uid, $uname_s);
-        $email_p     = $this->build_xoops_mailto_with_logo($email_s);
+        $email_p = $this->build_xoops_mailto_with_logo($email_s);
 
         $arr = [
             $input_p,
@@ -287,16 +287,16 @@ class admin_user_list extends happy_linux_page_frame
         switch ($this->_sortid) {
             case 1:
                 $title = _WEBLINKS_ADMIN_USER_LINK;
-                $desc  = '';
+                $desc = '';
                 break;
             case 2:
                 $title = _WEBLINKS_ADMIN_USER_NOLINK;
-                $desc  = '';
+                $desc = '';
                 break;
             case 0:
             default:
                 $title = _WEBLINKS_ADMIN_USER_EMAIL;
-                $desc  = _WEBLINKS_ADMIN_USER_EMAIL_DSC;
+                $desc = _WEBLINKS_ADMIN_USER_EMAIL_DSC;
                 break;
         }
 

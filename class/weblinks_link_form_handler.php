@@ -79,16 +79,16 @@ if (!class_exists('weblinks_link_form_handler')) {
         public $_DIRNAME;
         public $_WEBLINKS_URL;
 
-        public $TEXT_SIZE    = 50;
-        public $TEXT_MAX     = 255;
-        public $URL_SIZE     = 70;
-        public $URL_MAX      = 255;
-        public $PASSWD_SIZE  = 20;
-        public $PASSWD_MAX   = 100;
+        public $TEXT_SIZE = 50;
+        public $TEXT_MAX = 255;
+        public $URL_SIZE = 70;
+        public $URL_MAX = 255;
+        public $PASSWD_SIZE = 20;
+        public $PASSWD_MAX = 100;
         public $TEXTAREA_ROW = 5;
         public $TEXTAREA_COL = 60;
-        public $DHTML_ROW    = 15;
-        public $DHTML_COL    = 60;
+        public $DHTML_ROW = 15;
+        public $DHTML_COL = 60;
 
         public $IMG_CHECKED;
         public $IMG_NO_CHECKED;
@@ -110,28 +110,28 @@ if (!class_exists('weblinks_link_form_handler')) {
         public $_conf;
 
         // set parameter
-        public $_flag_owner            = false;
+        public $_flag_owner = false;
         public $_flag_auth_modify_auto = false;
-        public $_mode_notify_show      = 0;
-        public $_flag_button_del       = false;
+        public $_mode_notify_show = 0;
+        public $_flag_button_del = false;
 
         // local
-        public $_buff        = [];
+        public $_buff = [];
         public $_buff_hidden = [];
 
         public $_flag_usercomment_indispensable = false;
-        public $_flag_admin_caption             = false;
-        public $_flag_url_visit                 = 0;
-        public $_flag_desc_type                 = 1;
-        public $_mode_banner_size               = 0;
+        public $_flag_admin_caption = false;
+        public $_flag_url_visit = 0;
+        public $_flag_desc_type = 1;
+        public $_mode_banner_size = 0;
 
         public $_conf_dhtml_option = [];
 
         public $_vars = null;
 
         public $_linkitem_arr = null;
-        public $_form_mode    = null;
-        public $_lid          = 0;
+        public $_form_mode = null;
+        public $_lid = 0;
 
         public $_flag_webmap = false;
 
@@ -142,27 +142,27 @@ if (!class_exists('weblinks_link_form_handler')) {
         {
             parent::__construct();
 
-            $this->_DIRNAME      = $dirname;
+            $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler          = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler            = weblinks_getHandler('link', $dirname);
-            $this->_modify_handler          = weblinks_getHandler('modify', $dirname);
-            $this->_category_handler        = weblinks_getHandler('category', $dirname);
-            $this->_catlink_handler         = weblinks_getHandler('catlink', $dirname);
-            $this->_broken_handler          = weblinks_getHandler('broken', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link', $dirname);
+            $this->_modify_handler = weblinks_getHandler('modify', $dirname);
+            $this->_category_handler = weblinks_getHandler('category', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
+            $this->_broken_handler = weblinks_getHandler('broken', $dirname);
             $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
 
-            $this->_auth         = weblinks_auth::getInstance($dirname);
-            $this->_system       = happy_linux_system::getInstance();
-            $this->_post         = happy_linux_post::getInstance();
+            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_system = happy_linux_system::getInstance();
+            $this->_post = happy_linux_post::getInstance();
             $this->_webmap_class = weblinks_webmap::getInstance($dirname);
 
             $this->_conf = $this->_config_handler->get_conf();
 
-            $image_checked        = $this->_WEBLINKS_URL . '/images/checked.gif';
-            $image_nochecked      = $this->_WEBLINKS_URL . '/images/nochecked.gif';
-            $this->IMG_CHECKED    = '<img src="' . $image_checked . '" border="0" alt="checked" />';
+            $image_checked = $this->_WEBLINKS_URL . '/images/checked.gif';
+            $image_nochecked = $this->_WEBLINKS_URL . '/images/nochecked.gif';
+            $this->IMG_CHECKED = '<img src="' . $image_checked . '" border="0" alt="checked" />';
             $this->IMG_NO_CHECKED = '<img src="' . $image_nochecked . '" border="0" alt="nochecked" />';
         }
 
@@ -176,12 +176,12 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function clear_local()
         {
-            $this->_buff        = [];
+            $this->_buff = [];
             $this->_buff_hidden = [];
 
             $this->_flag_admin_caption = false;
-            $this->_flag_url_visit     = 0;
-            $this->_flag_desc_type     = 1;
+            $this->_flag_url_visit = 0;
+            $this->_flag_desc_type = 1;
         }
 
         public function begin_form()
@@ -206,7 +206,7 @@ if (!class_exists('weblinks_link_form_handler')) {
         public function show_user_form($form_mode, $lid = 0)
         {
             $this->_form_mode = $form_mode;
-            $this->_lid       = $lid;
+            $this->_lid = $lid;
 
             $this->init();
             $this->begin_form();
@@ -238,7 +238,7 @@ if (!class_exists('weblinks_link_form_handler')) {
             switch ($form_mode) {
                 case 'modify':
                 case 'modify_preview':
-                    $form_title   = _WLS_REQUESTMOD;
+                    $form_title = _WLS_REQUESTMOD;
                     $submit_value = _EDIT;
 
                     // not owner and not auto
@@ -249,7 +249,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                 case 'submit':
                 case 'submit_preview':
                 default:
-                    $form_title   = _WLS_SUBMITLINKHEAD;
+                    $form_title = _WLS_SUBMITLINKHEAD;
                     $submit_value = _REGISTER;
                     break;
             }
@@ -269,7 +269,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                     $edit_obj->build_submit_preview();
                     break;
                 case 'modify_preview':
-                    $lid      = $this->_post->get_post_int('lid');
+                    $lid = $this->_post->get_post_int('lid');
                     $edit_obj = &$this->get_edit($lid);
                     if (!is_object($edit_obj)) {
                         echo "no link record lid=$lid <br>\n";
@@ -418,7 +418,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                 $button2 = $this->build_html_input_submit($button_name, $button_value);
             }
             $button3 = $this->build_html_input_button_cancel('cancel', _CANCEL);
-            $button  = $button1 . ' ' . $button2 . ' ' . $button3;
+            $button = $button1 . ' ' . $button2 . ' ' . $button3;
 
             return $button;
         }
@@ -473,8 +473,8 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function add_tray_checkbox($name)
         {
-            $value         = $this->get_obj_var($name);
-            $options       = $this->_get_options_by_name($name);
+            $value = $this->get_obj_var($name);
+            $options = $this->_get_options_by_name($name);
             $this->_tray[] = $this->build_html_input_checkbox_select($name, $value, $options);
         }
 
@@ -491,7 +491,7 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function clear_buff()
         {
-            $this->_buff        = [];
+            $this->_buff = [];
             $this->_buff_hidden = [];
         }
 
@@ -536,20 +536,20 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function get_user_param($id)
         {
-            $name  = null;
-            $form  = null;
-            $mode  = null;
-            $opt   = null;
-            $cap   = null;
+            $name = null;
+            $form = null;
+            $mode = null;
+            $opt = null;
+            $cap = null;
             $value = null;
 
             if (isset($this->_linkitem_arr[$id])) {
                 $linkitem = $this->_linkitem_arr[$id];
-                $name     = $linkitem['name'];
-                $form     = $linkitem['user_form'];
-                $mode     = $linkitem['user_mode'];
-                $opt      = $linkitem['options'];
-                $cap      = $this->_build_caption_by_itemid($id);
+                $name = $linkitem['name'];
+                $form = $linkitem['user_form'];
+                $mode = $linkitem['user_mode'];
+                $opt = $linkitem['options'];
+                $cap = $this->_build_caption_by_itemid($id);
 
                 // BUG 4520: dont work newline in textarea
                 $value = $this->get_obj_var($name, 'n');
@@ -653,7 +653,7 @@ if (!class_exists('weblinks_link_form_handler')) {
             $cid_arr = $this->get_obj_var('cid_arr');
 
             $file_popup = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/catlist_popup.php';
-            $onclick    = $this->build_xoops_openWithSelfMain($file_popup, 'help', 400, 500);
+            $onclick = $this->build_xoops_openWithSelfMain($file_popup, 'help', 400, 500);
 
             $text = '<a href="#catlist" onclick="' . $onclick . '">' . _WLS_CATLIST . "</a><br>\n";
             $text .= $this->_category_handler->build_selbox_multi($cid_arr);
@@ -667,7 +667,7 @@ if (!class_exists('weblinks_link_form_handler')) {
 
             if (WEBLINKS_RSSC_USE) {
                 $rss_flag = $this->get_obj_var('rss_flag');
-                $rss_opt  = $this->get_obj_var('rss_opt');
+                $rss_opt = $this->get_obj_var('rss_opt');
 
                 $text = $this->build_edit_url_with_visit('rss_url', $value, $this->URL_SIZE, $this->URL_MAX);
                 $text .= "<br>\n";
@@ -693,10 +693,10 @@ if (!class_exists('weblinks_link_form_handler')) {
 
             if ($this->_flag_usercomment_indispensable) {
                 $title = $this->_get_define_by_itemid($id, 'title');
-                $desc  = $this->_get_define_by_itemid($id, 'desc');
-                $def   = '';
-                $mode  = 2;
-                $cap   = $this->_build_caption($title, $desc, $def, $mode);
+                $desc = $this->_get_define_by_itemid($id, 'desc');
+                $def = '';
+                $mode = 2;
+                $cap = $this->_build_caption($title, $desc, $def, $mode);
             }
 
             $this->add_buff($cap, $text);
@@ -745,9 +745,9 @@ if (!class_exists('weblinks_link_form_handler')) {
                 case 2:
                 default:
                     $value = $this->get_obj_var($name);
-                    $opt   = $this->_get_options_by_name($name);
-                    $text  .= "<br>\n";
-                    $text  .= $this->build_html_input_radio_select($name, $value, $opt);
+                    $opt = $this->_get_options_by_name($name);
+                    $text .= "<br>\n";
+                    $text .= $this->build_html_input_radio_select($name, $value, $opt);
                     break;
             }
 
@@ -780,7 +780,7 @@ if (!class_exists('weblinks_link_form_handler')) {
         {
             list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
 
-            $ext        = $this->parse_tail_figure($name);
+            $ext = $this->parse_tail_figure($name);
             $name_dhtml = $this->build_link_dhtml_name($name);
             list($row, $col) = $this->get_link_dhtml_size($name);
 
@@ -867,7 +867,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                 return;
             }
 
-            $desc   = $this->_webmap_class->build_form_desc();
+            $desc = $this->_webmap_class->build_form_desc();
             $iframe = $this->_webmap_class->build_form_iframe();
 
             list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
@@ -924,22 +924,22 @@ if (!class_exists('weblinks_link_form_handler')) {
         public function add_passwd_new_1($id)
         {
             $title = $this->_get_define_by_itemid($id, 'title');
-            $desc  = $this->_get_define_by_itemid($id, 'description');
-            $cap   = $this->_build_caption($title, $desc, '', 2);
-            $text  = $this->make_passwd_by_name('passwd_new');
+            $desc = $this->_get_define_by_itemid($id, 'description');
+            $cap = $this->_build_caption($title, $desc, '', 2);
+            $text = $this->make_passwd_by_name('passwd_new');
             $this->add_buff($cap, $text);
         }
 
         public function add_passwd_new_2($id)
         {
-            $cap  = $this->_build_caption(_US_VERIFYPASS, '', '', 2);
+            $cap = $this->_build_caption(_US_VERIFYPASS, '', '', 2);
             $text = $this->make_passwd_by_name('passwd_2');
             $this->add_buff($cap, $text);
         }
 
         public function add_passwd_mod_1($id)
         {
-            $cap   = $this->_build_caption_by_itemid($id, _US_TYPEPASSTWICE);
+            $cap = $this->_build_caption_by_itemid($id, _US_TYPEPASSTWICE);
             $text1 = $this->make_passwd_by_name('passwd_new');
             $text2 = $this->make_passwd_by_name('passwd_2');
             $this->add_buff($cap, $text1 . ' ' . $text2);
@@ -957,7 +957,7 @@ if (!class_exists('weblinks_link_form_handler')) {
         public function make_passwd_by_name($name)
         {
             $value = '';
-            $text  = $this->build_html_input_password($name, $value, $this->PASSWD_SIZE, $this->PASSWD_MAX);
+            $text = $this->build_html_input_password($name, $value, $this->PASSWD_SIZE, $this->PASSWD_MAX);
 
             return $text;
         }
@@ -973,8 +973,8 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
 
             $title = $this->_get_define_by_itemid($id, 'title');
-            $desc  = $this->_get_define_by_itemid($id, 'description');
-            $cap   = $this->_build_caption($title, $desc, '', 2);
+            $desc = $this->_get_define_by_itemid($id, 'description');
+            $cap = $this->_build_caption($title, $desc, '', 2);
 
             include_once XOOPS_ROOT_PATH . '/modules/captcha/include/api.php';
             $captcha_api = captcha_api::getInstance();
@@ -1076,14 +1076,14 @@ if (!class_exists('weblinks_link_form_handler')) {
             $action = xoops_getenv('PHP_SELF');
             list($name, $val) = $this->get_token();
 
-            $request    = $this->_post->get_post_text('request');
+            $request = $this->_post->get_post_text('request');
             $passwd_old = $this->_post->get_post_text('passwd_old');
 
             $hiddens = [
-                'op'      => $op,
-                'lid'     => $lid,
+                'op' => $op,
+                'lid' => $lid,
                 'confirm' => 1,
-                $name     => $val,
+                $name => $val,
             ];
 
             if ($mid) {
@@ -1101,7 +1101,7 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function show_del_reason_form($lid)
         {
-            $request    = $this->_post->get_post_text('request');
+            $request = $this->_post->get_post_text('request');
             $passwd_old = $this->_post->get_post_text('passwd_old');
 
             $url_cancel = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
@@ -1124,7 +1124,7 @@ if (!class_exists('weblinks_link_form_handler')) {
             echo $this->build_form_table_begin();
             echo $this->build_form_table_title(_WEBLINKS_DEL_LINK_CONFIRM);
 
-            $cap  = $this->_build_caption(_WEBLINKS_DEL_LINK_REASON, '', '', 2);
+            $cap = $this->_build_caption(_WEBLINKS_DEL_LINK_REASON, '', '', 2);
             $text = $this->build_html_textarea('reason', '', $this->TEXTAREA_ROW, $this->TEXTAREA_COL);
             echo $this->build_form_table_line($cap, $text);
 
@@ -1143,11 +1143,11 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         public function build_user_link_uname_by_uid($uid)
         {
-            $uname      = $this->_system->get_uname_by_uid($uid);
+            $uname = $this->_system->get_uname_by_uid($uid);
             $link_uname = $uname;
 
             if (0 != $uid) {
-                $url        = XOOPS_URL . '/userinfo.php?uid=' . $uid;
+                $url = XOOPS_URL . '/userinfo.php?uid=' . $uid;
                 $link_uname = $this->build_html_a_href_name($url, $uname, '_blank');
             }
 
@@ -1156,7 +1156,7 @@ if (!class_exists('weblinks_link_form_handler')) {
 
         public function build_user_link_email_by_uid($uid)
         {
-            $email      = $this->_system->get_email_by_uid($uid);
+            $email = $this->_system->get_email_by_uid($uid);
             $link_email = '';
 
             if ((0 != $uid) && $email) {

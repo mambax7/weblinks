@@ -28,13 +28,13 @@ class weblinks_test_form_parser
     {
         $parser = new HtmlParser($text);
 
-        $arr            = [];
-        $form_loop      = false;
-        $select_loop    = false;
-        $textarea_loop  = false;
-        $select_name    = null;
-        $select_value   = null;
-        $textarea_name  = null;
+        $arr = [];
+        $form_loop = false;
+        $select_loop = false;
+        $textarea_loop = false;
+        $select_name = null;
+        $select_value = null;
+        $textarea_name = null;
         $textarea_value = null;
 
         while ($parser->parse()) {
@@ -44,12 +44,12 @@ class weblinks_test_form_parser
                 echo 'Type=' . $parser->iNodeType . ';';
             }
 
-            $node_name  = mb_strtolower($parser->iNodeName);
+            $node_name = mb_strtolower($parser->iNodeName);
             $form_begin = false;
             if ('form' == $node_name) {
                 if ('1' == $parser->iNodeType) {
                     $form_begin = true;
-                    $form_loop  = true;
+                    $form_loop = true;
                 } elseif ('2' == $parser->iNodeType) {
                     $form_loop = false;
                 }
@@ -61,8 +61,8 @@ class weblinks_test_form_parser
 
             if ('select' == $node_name) {
                 if ('1' == $parser->iNodeType) {
-                    $select_loop  = true;
-                    $select_name  = null;
+                    $select_loop = true;
+                    $select_name = null;
                     $select_value = null;
                 } elseif ('2' == $parser->iNodeType) {
                     $select_loop = false;
@@ -74,8 +74,8 @@ class weblinks_test_form_parser
                 }
             } elseif ('textarea' == $node_name) {
                 if ('1' == $parser->iNodeType) {
-                    $textarea_loop  = true;
-                    $textarea_name  = null;
+                    $textarea_loop = true;
+                    $textarea_name = null;
                     $textarea_value = null;
                 } elseif ('2' == $parser->iNodeType) {
                     $textarea_loop = false;
@@ -99,18 +99,18 @@ class weblinks_test_form_parser
                 }
 
                 $attrValues = $parser->iNodeAttributes;
-                $attrNames  = array_keys($attrValues);
-                $size       = count($attrNames);
+                $attrNames = array_keys($attrValues);
+                $size = count($attrNames);
 
-                $action   = null;
-                $type     = null;
-                $name     = null;
-                $value    = null;
+                $action = null;
+                $type = null;
+                $name = null;
+                $value = null;
                 $selected = false;
-                $checked  = false;
+                $checked = false;
 
                 for ($i = 0; $i < $size; ++$i) {
-                    $attr_name  = $attrNames[$i];
+                    $attr_name = $attrNames[$i];
                     $attr_value = $attrValues[$attr_name];
 
                     if ($this->_DEBUG) {

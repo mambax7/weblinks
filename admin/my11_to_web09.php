@@ -37,8 +37,8 @@ if (isset($_POST['op'])) {
 
 // dir name
 $MODULE_DIRNAME = $xoopsModule->dirname();
-$MODULE_ROOT    = XOOPS_ROOT_PATH . '/modules/' . $MODULE_DIRNAME;
-$MODULE_URL     = XOOPS_URL . '/modules/' . $MODULE_DIRNAME;
+$MODULE_ROOT = XOOPS_ROOT_PATH . '/modules/' . $MODULE_DIRNAME;
+$MODULE_URL = XOOPS_URL . '/modules/' . $MODULE_DIRNAME;
 
 echo "<h3>Transfer DB mylinks v1.1 to weblinks v0.9</h3>\n";
 
@@ -143,7 +143,7 @@ function trans_image()
         if (is_writable($shots_dir_web)) {
             foreach ($file_arr as $file) {
                 $file_source = $shots_dir_my . $file;
-                $file_dest   = $shots_dir_web . $file;
+                $file_dest = $shots_dir_web . $file;
 
                 if (copy($file_source, $file_dest)) {
                     echo "$file_source -> $file_dest <br>\n";
@@ -210,9 +210,9 @@ function trans_category()
     $cat_title_arr = [];
 
     while ($row = $xoopsDB->fetchArray($res1)) {
-        $cid    = $row['cid'];
-        $pid    = $row['pid'];
-        $title  = addslashes($row['title']);
+        $cid = $row['cid'];
+        $pid = $row['pid'];
+        $title = addslashes($row['title']);
         $imgurl = addslashes($row['imgurl']);
 
         echo "$cid: $title <br>";
@@ -323,9 +323,9 @@ function trans_link()
     $next = $offset + $LIMIT;
 
     $table = $xoopsDB->prefix('mylinks_links');
-    $sql1  = "SELECT count(*) FROM $table";
-    $res1  = sql_exec($sql1);
-    $row1  = $xoopsDB->fetchRow($res1);
+    $sql1 = "SELECT count(*) FROM $table";
+    $res1 = sql_exec($sql1);
+    $row1 = $xoopsDB->fetchRow($res1);
     $total = $row1[0];
 
     echo "There are $total links <br>\n";
@@ -335,30 +335,30 @@ function trans_link()
     $res2 = sql_exec($sql2, $LIMIT, $offset);
 
     while ($row = $xoopsDB->fetchArray($res2)) {
-        $lid         = $row['lid'];
-        $uid         = $row['submitter'];
-        $cid         = $row['cid'];
-        $url         = $row['url'];
-        $hits        = $row['hits'];
-        $rating      = $row['rating'];
-        $votes       = $row['votes'];
-        $logourl     = $row['logourl'];
-        $comments    = $row['comments'];
+        $lid = $row['lid'];
+        $uid = $row['submitter'];
+        $cid = $row['cid'];
+        $url = $row['url'];
+        $hits = $row['hits'];
+        $rating = $row['rating'];
+        $votes = $row['votes'];
+        $logourl = $row['logourl'];
+        $comments = $row['comments'];
         $time_create = $row['date'];
         $time_update = $time_create;
 
         $title = addslashes($row['title']);
 
         $banner = '';
-        $width  = 0;
+        $width = 0;
         $height = 0;
 
         if ($logourl) {
             $banner = $shots_url_web . $logourl;
-            $size   = getimagesize($banner);
+            $size = getimagesize($banner);
 
             if ($size) {
-                $width  = (int)$size[0];
+                $width = (int)$size[0];
                 $height = (int)$size[1];
             } else {
                 echo "<font color='red'>image size error: $banner</font><br>";
@@ -370,7 +370,7 @@ function trans_link()
         $desc = get_desc($lid);
         $desc = addslashes($desc);
 
-        $cat    = addslashes($cat_title_arr[$cid]);
+        $cat = addslashes($cat_title_arr[$cid]);
         $search = "$url $title $cat $desc";
 
         $passwd = md5(mt_rand(10000000, 99999999));
@@ -405,9 +405,9 @@ function get_desc($lid)
 {
     global $xoopsDB;
 
-    $sql  = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_text') . " WHERE lid=$lid";
-    $res  = sql_exec($sql);
-    $row  = $xoopsDB->fetchArray($res);
+    $sql = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_text') . " WHERE lid=$lid";
+    $res = sql_exec($sql);
+    $row = $xoopsDB->fetchArray($res);
     $desc = $row['description'];
 
     return $desc;
@@ -435,7 +435,7 @@ function form_next_link($next)
 
     $action = xoops_getenv('PHP_SELF');
     $submit = "GO next $LIMIT links";
-    $next2  = $next + $LIMIT; ?>
+    $next2 = $next + $LIMIT; ?>
     <br>
     <hr>
     <h4>STEP 3 : transfer link table</h4>
@@ -499,8 +499,8 @@ function trans_comment()
 
     // module id
     $module_handler = xoops_getHandler('module');
-    $module         = $module_handler->getByDirname('mylinks');
-    $mid_my         = $module->getVar('mid');
+    $module = $module_handler->getByDirname('mylinks');
+    $mid_my = $module->getVar('mid');
 
     $com_id_arr = [];
 
@@ -515,25 +515,25 @@ function trans_comment()
     echo "There are $total comments <br><br>\n";
 
     while ($row1 = $xoopsDB->fetchArray($res1)) {
-        $com_id       = $row1['com_id'];
-        $com_pid      = $row1['com_pid'];
-        $com_icon     = $row1['com_icon'];
-        $com_sig      = $row1['com_sig'];
-        $com_status   = $row1['com_status'];
+        $com_id = $row1['com_id'];
+        $com_pid = $row1['com_pid'];
+        $com_icon = $row1['com_icon'];
+        $com_sig = $row1['com_sig'];
+        $com_status = $row1['com_status'];
         $com_exparams = $row1['com_exparams'];
-        $com_itemid   = $row1['com_itemid'];
-        $com_uid      = $row1['com_uid'];
-        $com_ip       = $row1['com_ip'];
-        $com_title    = $row1['com_title'];
-        $com_text     = $row1['com_text'];
-        $com_created  = $row1['com_created'];
+        $com_itemid = $row1['com_itemid'];
+        $com_uid = $row1['com_uid'];
+        $com_ip = $row1['com_ip'];
+        $com_title = $row1['com_title'];
+        $com_text = $row1['com_text'];
+        $com_created = $row1['com_created'];
         $com_modified = $row1['com_modified'];
 
-        $dohtml   = $row1['dohtml'];
+        $dohtml = $row1['dohtml'];
         $dosmiley = $row1['dosmiley'];
-        $doxcode  = $row1['doxcode'];
-        $doimage  = $row1['doimage'];
-        $dobr     = $row1['dobr'];
+        $doxcode = $row1['doxcode'];
+        $doimage = $row1['doimage'];
+        $dobr = $row1['dobr'];
 
         echo "$com_id: $com_title <br>";
 
@@ -547,14 +547,14 @@ function trans_comment()
 
         $newid = $xoopsDB->getInsertId();
 
-        $com_id_new     = $newid;
+        $com_id_new = $newid;
         $com_rootid_new = $newid;
-        $com_pid_new    = 0;
+        $com_pid_new = 0;
 
         if ($com_pid) {
             if (isset($com_id_arr[$com_pid])) {
                 $com_rootid_new = $com_id_arr[$com_pid]['com_rootid_new'];
-                $com_pid_new    = $com_id_arr[$com_pid]['com_id_new'];
+                $com_pid_new = $com_id_arr[$com_pid]['com_id_new'];
             } else {
                 echo "<font color='red'>pid convert error: $com_id </font><br>";
             }
@@ -567,7 +567,7 @@ function trans_comment()
 
         sql_exec($sql);
 
-        $com_id_arr[$com_id]['com_id_new']     = $com_id_new;
+        $com_id_arr[$com_id]['com_id_new'] = $com_id_new;
         $com_id_arr[$com_id]['com_rootid_new'] = $com_rootid_new;
     }
 

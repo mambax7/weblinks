@@ -70,10 +70,10 @@ $DIR_CONFIG = WEBLINKS_ROOT_PATH . '/cache';
 
 // class
 $class_debug = happy_linux_debug::getInstance();
-$class_info  = happy_linux_server_info::getInstance();
-$admin_menu  = happy_linux_admin_menu::getInstance();
+$class_info = happy_linux_server_info::getInstance();
+$admin_menu = happy_linux_admin_menu::getInstance();
 $config_menu = admin_config_menu::getInstance();
-$install     = weblinks_install::getInstance(WEBLINKS_DIRNAME);
+$install = weblinks_install::getInstance(WEBLINKS_DIRNAME);
 
 $op = $install->get_post_op();
 

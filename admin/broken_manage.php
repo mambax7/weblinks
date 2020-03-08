@@ -180,7 +180,7 @@ class admin_broken_manage extends happy_linux_manage
         }
 
         foreach ($id_arr as $id) {
-            $this->_id  = $id;
+            $this->_id = $id;
             $this->_obj = &$this->_handler->get($id);
 
             if (!is_object($this->_obj)) {
@@ -284,7 +284,7 @@ class admin_form_broken extends happy_linux_form
         parent::__construct();
 
         $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_system       = happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
     }
 
     public static function getInstance()
@@ -303,7 +303,7 @@ class admin_form_broken extends happy_linux_form
     public function _show($obj, $extra = null, $mode = 0)
     {
         $form_title = 'modify broken';
-        $op         = 'mod_table';
+        $op = 'mod_table';
         $button_val = _HAPPY_LINUX_MODIFY;
 
         $this->set_obj($obj);
@@ -311,20 +311,20 @@ class admin_form_broken extends happy_linux_form
         $lid = $obj->get('lid');
 
         $flag_link_exist = false;
-        $title_s         = '';
-        $url_s           = '';
-        $uid             = '';
+        $title_s = '';
+        $url_s = '';
+        $uid = '';
 
         $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $flag_link_exist = true;
-            $title_s         = $link_obj->getVar('title', 's');
-            $url_s           = $link_obj->getVar('url', 's');
-            $uid             = $link_obj->get('uid');
+            $title_s = $link_obj->getVar('title', 's');
+            $url_s = $link_obj->getVar('url', 's');
+            $uid = $link_obj->get('uid');
         }
 
         $user_param = $this->_system->get_user_by_uid($uid);
-        $owner      = $user_param['uname'];
+        $owner = $user_param['uname'];
         $owneremail = $user_param['email'];
 
         // form start
@@ -350,7 +350,7 @@ class admin_form_broken extends happy_linux_form
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
+        $ele_del = $this->build_html_input_submit('del_table', _DELETE);
         $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
         echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');
 

@@ -43,7 +43,7 @@ class admin_modify_new extends admin_modify_base
     public function list_new()
     {
         $total = $this->_handler->get_count_new();
-        $mid   = $this->get_post_mid();
+        $mid = $this->get_post_mid();
 
         if ($total > 0) {
             if ($mid > 0) {
@@ -87,7 +87,7 @@ class admin_modify_new extends admin_modify_base
     //---------------------------------------------------------
     public function approve_new()
     {
-        $mid      = $this->get_post_mid();
+        $mid = $this->get_post_mid();
         $rss_flag = $this->get_post_rss_flag();
 
         if (!$this->_get_obj()) {

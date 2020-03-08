@@ -131,7 +131,7 @@ if (!class_exists('weblinks_link_add_handler')) {
             $this->_clear_errors();
 
             $rss_flag = 0;
-            $rss_url  = '';
+            $rss_url = '';
 
             // create link object
             $obj = &$this->_create_add_link_by_arr($_POST, false, true);
@@ -193,8 +193,8 @@ if (!class_exists('weblinks_link_add_handler')) {
                 return false;
             }
 
-            $this->_newid     = $newid;
-            $this->_save_obj  = &$obj;
+            $this->_newid = $newid;
+            $this->_save_obj = &$obj;
             $this->_cid_array = &$cid_arr;
 
             $ret = $this->_catlink_handler->add_link_by_lid_cid_array($newid, $this->_cid_array);
@@ -221,7 +221,7 @@ if (!class_exists('weblinks_link_add_handler')) {
                 return false;
             }
 
-            $this->_newid    = $newid;
+            $this->_newid = $newid;
             $this->_save_obj = &$save_obj;
 
             return $newid;
@@ -233,9 +233,9 @@ if (!class_exists('weblinks_link_add_handler')) {
             $save_obj = &$this->_create_link_save();
             $save_obj->assign_add_object($post, $not_gpc, $flag_banner, $this->_get_flag_pagerank());
 
-            $this->_cid_array         = &$save_obj->get_cid_array();
+            $this->_cid_array = &$save_obj->get_cid_array();
             $this->_banner_error_code = $save_obj->get_banner_error_code();
-            $this->_banner_errors     = $save_obj->get_banner_errors();
+            $this->_banner_errors = $save_obj->get_banner_errors();
 
             return $save_obj;
         }

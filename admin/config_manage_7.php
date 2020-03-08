@@ -10,7 +10,7 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form  = admin_config_form::getInstance();
+$config_form = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 $link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 

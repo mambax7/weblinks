@@ -77,8 +77,8 @@ class admin_mail_users
         $this->_form->set_max_user($this->_MAX_USER);
 
         $this->_mail_send = happy_linux_mail_send::getInstance();
-        $this->_post      = happy_linux_post::getInstance();
-        $this->_system    = happy_linux_system::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_system = happy_linux_system::getInstance();
     }
 
     public static function getInstance()
@@ -132,7 +132,7 @@ class admin_mail_users
 
         $user_list = $_POST['user_list'];
 
-        $added    = [];
+        $added = [];
         $added_id = [];
 
         foreach ($user_list as $uid) {
@@ -146,13 +146,13 @@ class admin_mail_users
 
         $total = count($added);
         $start = $this->_get_post_start();
-        $end   = $this->_calc_end($total);
+        $end = $this->_calc_end($total);
 
         $param = [
-            'from_name'  => $this->_post->get_post_text('from_name'),
+            'from_name' => $this->_post->get_post_text('from_name'),
             'from_email' => $this->_post->get_post_text('from_email'),
-            'subject'    => $this->_post->get_post_text('subject'),
-            'body'       => $this->_post->get_post_text('body'),
+            'subject' => $this->_post->get_post_text('subject'),
+            'body' => $this->_post->get_post_text('body'),
         ];
 
         printf(_WEBLINKS_THERE_ARE_EMAIL, $total);
@@ -211,14 +211,14 @@ class admin_mail_users
         }
 
         $start = $this->_get_post_start();
-        $end   = $this->_calc_end($total);
+        $end = $this->_calc_end($total);
 
         $param = [
-            'from_name'  => $this->_post->get_post_text('from_name'),
+            'from_name' => $this->_post->get_post_text('from_name'),
             'from_email' => $this->_post->get_post_text('from_email'),
-            'subject'    => $this->_post->get_post_text('subject'),
-            'body'       => $this->_post->get_post_text('body'),
-            'debug'      => true,
+            'subject' => $this->_post->get_post_text('subject'),
+            'body' => $this->_post->get_post_text('body'),
+            'debug' => true,
         ];
 
         printf(_WEBLINKS_THERE_ARE_EMAIL, $total);
@@ -237,13 +237,13 @@ class admin_mail_users
                 $user_mail = $obj->user_mail('n');
 
                 $tags = [
-                    'W_LID'   => $lid,
-                    'W_NAME'  => $user_name,
+                    'W_LID' => $lid,
+                    'W_NAME' => $user_name,
                     'W_EMAIL' => $user_mail,
                 ];
 
                 $param['to_emails'] = $user_mail;
-                $param['tags']      = $tags;
+                $param['tags'] = $tags;
 
                 $this->_mail_send->send($param);
 
@@ -322,11 +322,11 @@ class admin_mail_users
         $arr = [
             [
                 'name' => $this->_system->get_module_name(),
-                'url'  => 'index.php',
+                'url' => 'index.php',
             ],
             [
                 'name' => _WEBLINKS_ADMIN_SENDMAIL,
-                'url'  => 'mail_users.php',
+                'url' => 'mail_users.php',
             ],
         ];
         echo $this->_form->build_html_bread_crumb($arr);
@@ -385,12 +385,12 @@ class admin_mail_form extends happy_linux_mail_form
         list($user_list, $users_label) = $this->get_post_memberslist_link();
 
         $param = [
-            'op'              => 'send_link',
-            'user_list'       => $user_list,
-            'users_label'     => $users_label,
+            'op' => 'send_link',
+            'user_list' => $user_list,
+            'users_label' => $users_label,
             'subject_caption' => $subject_caption,
-            'body_caption'    => $body_caption,
-            'body'            => $this->get_body('{W_NAME}'),
+            'body_caption' => $body_caption,
+            'body' => $this->get_body('{W_NAME}'),
         ];
 
         $this->print_form($param);
@@ -399,14 +399,14 @@ class admin_mail_form extends happy_linux_mail_form
     public function get_post_memberslist_link()
     {
         if (isset($_POST['memberslist_id']) && is_array($_POST['memberslist_id'])) {
-            $user_list     = &$_POST['memberslist_id'];
-            $link_count    = count($user_list);
+            $user_list = &$_POST['memberslist_id'];
+            $link_count = count($user_list);
             $display_names = '';
 
             for ($i = 0; $i < $link_count; ++$i) {
                 $lid = (int)$user_list[$i];
 
-                $obj         = &$this->_link_handler->get($lid);
+                $obj = &$this->_link_handler->get($lid);
                 $user_name_s = $obj->user_name('s');
                 $user_mail_s = $obj->user_mail('s');
 

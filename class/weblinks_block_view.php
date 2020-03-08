@@ -131,8 +131,8 @@ if (!class_exists('weblinks_block_view')) {
 
         public function get_show_new_update()
         {
-            $newdays     = $this->get_param('newdays');
-            $show_new    = false;
+            $newdays = $this->get_param('newdays');
+            $show_new = false;
             $show_update = false;
 
             if ($newdays > 0) {
@@ -154,8 +154,8 @@ if (!class_exists('weblinks_block_view')) {
         public function get_block_title_disp()
         {
             $title_length = $this->get_param('title_length');
-            $show_title   = false;
-            $title_disp   = '';
+            $show_title = false;
+            $title_disp = '';
 
             if (0 != $title_length) {
                 $show_title = true;
@@ -168,14 +168,14 @@ if (!class_exists('weblinks_block_view')) {
         public function get_block_desc_disp()
         {
             $desc_length = $this->get_param('desc_length');
-            $show_desc   = false;
-            $desc_short  = '';
+            $show_desc = false;
+            $desc_short = '';
 
             // description
             $desc_html = $this->get_description_disp();
 
             if (0 != $desc_length) {
-                $show_desc  = true;
+                $show_desc = true;
                 $desc_short = $this->build_summary($desc_html, $desc_length);
             }
 
@@ -184,11 +184,11 @@ if (!class_exists('weblinks_block_view')) {
 
         public function get_block_banner_disp()
         {
-            $max_width     = $this->get_param('max_width');
+            $max_width = $this->get_param('max_width');
             $width_default = $this->get_param('width_default');
-            $show_banner   = false;
-            $width_row     = $this->get('width');
-            $banner_width  = $width_row;
+            $show_banner = false;
+            $width_row = $this->get('width');
+            $banner_width = $width_row;
 
             if (($max_width > 0) && $this->get('banner')) {
                 $show_banner = true;

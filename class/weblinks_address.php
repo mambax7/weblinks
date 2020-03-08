@@ -35,7 +35,7 @@ if (!class_exists('weblinks_address')) {
             $conf_handler = weblinks_getHandler('config2_basic', $dirname);
 
             $conf_handler->init();
-            $conf               = $conf_handler->get_conf();
+            $conf = $conf_handler->get_conf();
             $this->_county_code = $conf['country_code'];
         }
 
@@ -61,10 +61,10 @@ if (!class_exists('weblinks_address')) {
             }
 
             $file_default = $this->_PATH . '/locate/us/address.php';
-            $file_locate  = $this->_PATH . '/locate/' . $this->_county_code . '/address.php';
+            $file_locate = $this->_PATH . '/locate/' . $this->_county_code . '/address.php';
 
             $class_default = 'weblinks_address_us';
-            $class_locate  = 'weblinks_address_' . $this->_county_code;
+            $class_locate = 'weblinks_address_' . $this->_county_code;
 
             $is_locate = false;
             if (file_exists($file_locate)) {

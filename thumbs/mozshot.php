@@ -17,10 +17,10 @@ if (!function_exists('weblinks_thumb_mozshot')) {
     function &weblinks_thumb_mozshot($url)
     {
         $arr = [
-            'name'   => 'mozshot',
-            'url'    => 'https://mozshot.nemui.org/',
-            'image'  => 'https://mozshot.nemui.org/shot?' . $url,
-            'width'  => 128,
+            'name' => 'mozshot',
+            'url' => 'https://mozshot.nemui.org/',
+            'image' => 'https://mozshot.nemui.org/shot?' . $url,
+            'width' => 128,
             'height' => 128,
         ];
 

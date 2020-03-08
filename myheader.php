@@ -28,14 +28,14 @@ $weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 // Notice [PHP]: Undefined variable: dirname
 $weblinks_link_view = weblinks_link_view::getInstance(WEBLINKS_DIRNAME);
 
-$weblinks_post   = happy_linux_post::getInstance();
+$weblinks_post = happy_linux_post::getInstance();
 $weblinks_system = happy_linux_system::getInstance();
 
 // constant
 $IMAGE_LOGO = XOOPS_URL . '/images/logo.gif';
 
 // BUG 2932: dont work correctly when register_long_arrays = off
-$lid   = $weblinks_post->get_get_int('lid');
+$lid = $weblinks_post->get_get_int('lid');
 $url_s = $weblinks_link_handler->get_url($lid, 's');
 
 // jump this site, if no url

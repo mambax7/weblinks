@@ -83,12 +83,12 @@ class weblinks_modlink extends happy_linux_error
     public $_system_uid;
     public $_system_module_name;
 
-    public $_auth_param             = null;
+    public $_auth_param = null;
     public $_has_auth_modify_permit = false;
-    public $_has_auth_modify_auto   = false;
+    public $_has_auth_modify_auto = false;
     public $_has_auth_delete_permit = false;
-    public $_is_owner               = false;
-    public $_flag_passwd_incorrect  = false;
+    public $_is_owner = false;
+    public $_flag_passwd_incorrect = false;
 
     // link record
     public $_lid;
@@ -96,8 +96,8 @@ class weblinks_modlink extends happy_linux_error
 
     // error
     public $_banner_error_code = 0;
-    public $_rssc_error_code   = 0;
-    public $_flag_error        = 0;
+    public $_rssc_error_code = 0;
+    public $_flag_error = 0;
 
     //---------------------------------------------------------
     // constructor
@@ -107,23 +107,23 @@ class weblinks_modlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_edit_handler  = weblinks_getHandler('link_edit', $dirname);
-        $this->_link_form_handler  = weblinks_getHandler('link_form', $dirname);
+        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_edit_handler = weblinks_getHandler('link_edit', $dirname);
+        $this->_link_form_handler = weblinks_getHandler('link_form', $dirname);
         $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
 
-        $this->_auth     = weblinks_auth::getInstance($dirname);
-        $this->_header   = weblinks_header::getInstance($dirname);
+        $this->_auth = weblinks_auth::getInstance($dirname);
+        $this->_header = weblinks_header::getInstance($dirname);
         $this->_template = weblinks_template::getInstance($dirname);
-        $this->_system   = happy_linux_system::getInstance();
-        $this->_post     = happy_linux_post::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_post = happy_linux_post::getInstance();
 
         $this->_conf = $this->_config_handler->get_conf();
 
         $this->_system_is_module_admin = $this->_system->is_module_admin();
-        $this->_system_is_user         = $this->_system->is_user();
-        $this->_system_uid             = $this->_system->get_uid();
-        $this->_system_module_name     = $this->_system->get_module_name();
+        $this->_system_is_user = $this->_system->is_user();
+        $this->_system_uid = $this->_system->get_uid();
+        $this->_system_module_name = $this->_system->get_module_name();
     }
 
     public static function getInstance($dirname = null)
@@ -181,8 +181,8 @@ class weblinks_modlink extends happy_linux_error
         }
 
         $this->_link_title_s = $obj->getVar('title', 's');
-        $rec_uid             = $obj->get('uid');
-        $rec_passwd          = $obj->get('passwd');
+        $rec_uid = $obj->get('uid');
+        $rec_passwd = $obj->get('passwd');
 
         // check publish
         if (!$this->_system->is_user($rec_uid)
@@ -190,14 +190,14 @@ class weblinks_modlink extends happy_linux_error
             return 'not_publish';
         }
 
-        $auth                          = &$this->_auth->get_auth_modify($rec_uid, $rec_passwd);
-        $this->_auth_param             = &$auth;
+        $auth = &$this->_auth->get_auth_modify($rec_uid, $rec_passwd);
+        $this->_auth_param = &$auth;
         $this->_has_auth_modify_permit = $auth['has_auth_modify_permit'];
-        $this->_has_auth_modify_auto   = $auth['has_auth_modify_auto'];
+        $this->_has_auth_modify_auto = $auth['has_auth_modify_auto'];
         $this->_has_auth_delete_permit = $auth['has_auth_delete_permit'];
-        $this->_is_owner               = $auth['is_owner'];
-        $this->_flag_passwd_incorrect  = $auth['flag_passwd_incorrect'];
-        $code                          = $auth['code'];
+        $this->_is_owner = $auth['is_owner'];
+        $this->_flag_passwd_incorrect = $auth['flag_passwd_incorrect'];
+        $code = $auth['code'];
 
         if ('permit' == $code) {
             $this->_link_edit_handler->init();
@@ -360,7 +360,7 @@ class weblinks_modlink extends happy_linux_error
             return false;
         }
         $this->_banner_error_code = $this->_link_edit_handler->get_banner_error_code();
-        $this->_rssc_error_code   = $this->_link_edit_handler->get_rssc_error_code();
+        $this->_rssc_error_code = $this->_link_edit_handler->get_rssc_error_code();
 
         return true;
     }
@@ -486,7 +486,7 @@ class weblinks_modlink extends happy_linux_error
         list($token_name, $token_value) = $this->_link_edit_handler->get_token_pair();
 
         $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-        $weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+        $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
         $weblinks_header->assign_module_header();
         $weblinks_template->assignIndex();
@@ -523,7 +523,7 @@ $weblinks_modlink = weblinks_modlink::getInstance(WEBLINKS_DIRNAME);
 $url_index = WEBLINKS_URL . '/index.php';
 
 // start
-$op  = $weblinks_modlink->get_post_op();
+$op = $weblinks_modlink->get_post_op();
 $lid = $weblinks_modlink->get_post_get_lid();
 
 // check permit
@@ -560,13 +560,13 @@ if ('goto_admin' == $check) {
     exit();
 }
 
-$auth_arr               = &$weblinks_modlink->get_auth_param();
-$is_owner               = $auth_arr['is_owner'];
+$auth_arr = &$weblinks_modlink->get_auth_param();
+$is_owner = $auth_arr['is_owner'];
 $has_auth_modify_permit = $auth_arr['has_auth_modify_permit'];
-$has_auth_modify_auto   = $auth_arr['has_auth_modify_auto'];
+$has_auth_modify_auto = $auth_arr['has_auth_modify_auto'];
 $has_auth_delete_permit = $auth_arr['has_auth_delete_permit'];
-$has_auth_delete_auto   = $auth_arr['has_auth_delete_auto'];
-$flag_passwd_incorrect  = $auth_arr['flag_passwd_incorrect'];
+$has_auth_delete_auto = $auth_arr['has_auth_delete_auto'];
+$flag_passwd_incorrect = $auth_arr['flag_passwd_incorrect'];
 
 if ('show_password' == $check) {
     $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_passwd.html';
@@ -596,7 +596,7 @@ if ('submit' == $op) {
         }
 
         // redirect to single link
-        $msg  = _WLS_MODIFYAPPROVED . "<br>\n";
+        $msg = _WLS_MODIFYAPPROVED . "<br>\n";
         $msg2 = $weblinks_modlink->get_mod_link_msg();
         $time = $happy_linux_time->get_elapse_time();
         if ($msg2) {
@@ -648,9 +648,9 @@ if ('submit' == $op) {
 
         // redirect to single link
         $time = $happy_linux_time->get_elapse_time();
-        $msg  = _WLS_MODIFYAPPROVED . "<br>\n";
-        $msg  .= "$time sec <br>\n";
-        $msg  .= $weblinks_modlink->build_comment('delete approve link');    // for test form
+        $msg = _WLS_MODIFYAPPROVED . "<br>\n";
+        $msg .= "$time sec <br>\n";
+        $msg .= $weblinks_modlink->build_comment('delete approve link');    // for test form
         redirect_header($url_index, 2, $msg);
         exit();
     } // modify approve

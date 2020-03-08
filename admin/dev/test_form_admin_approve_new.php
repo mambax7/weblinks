@@ -35,12 +35,12 @@ $test->update_config_by_name_array('auth_submit_auto', [1]);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
-    'notify'   => 0,
-    'return'   => 'submit request link',
+    'notify' => 0,
+    'return' => 'submit request link',
 ];
 
 $ret = $test->user_submit_link_with_login($param);
@@ -73,12 +73,12 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(13),
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(13),
     'rss_flag' => 2,    // rss
-    'notify'   => 1,
-    'return'   => 'submit request link',
+    'notify' => 1,
+    'return' => 'submit request link',
 ];
 
 $ret = $test->user_submit_link_with_login($param);
@@ -128,12 +128,12 @@ echo "<h4>scenario 3: submit & refuse</h4>\n";
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
-    'notify'   => 1,
-    'return'   => 'submit request link',
+    'notify' => 1,
+    'return' => 'submit request link',
 ];
 
 $ret = $test->user_submit_link_with_login($param);

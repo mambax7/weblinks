@@ -17,10 +17,10 @@ if (!function_exists('weblinks_thumb_simpleapi')) {
     function &weblinks_thumb_simpleapi($url)
     {
         $arr = [
-            'name'   => 'simpleapi',
-            'url'    => 'https://img.simpleapi.net/',
-            'image'  => 'https://img.simpleapi.net/small/' . $url,
-            'width'  => 128,
+            'name' => 'simpleapi',
+            'url' => 'https://img.simpleapi.net/',
+            'image' => 'https://img.simpleapi.net/small/' . $url,
+            'width' => 128,
             'height' => 128,
         ];
 

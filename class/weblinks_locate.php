@@ -69,7 +69,7 @@ if (!class_exists('weblinks_locate')) {
             static $init;
             if (!isset($init)) {
                 $init = true;
-                $arr  = &$this->weblinks_get_value('config');
+                $arr = &$this->weblinks_get_value('config');
                 $this->array_merge($arr);
             }
         }
@@ -94,8 +94,8 @@ if (!class_exists('weblinks_locate')) {
             $instance1 = &$this->get_instance($code);
             $instance2 = &$this->get_instance($code, 'weblinks', $this->get_dirname());
 
-            $arr1    = &$instance1->get_vars();
-            $arr2    = &$instance2->get_vars();
+            $arr1 = &$instance1->get_vars();
+            $arr2 = &$instance2->get_vars();
             $arr_out = array_merge($arr1, $arr2);
 
             return $arr_out;

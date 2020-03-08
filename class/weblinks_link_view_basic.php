@@ -45,13 +45,13 @@ if (!class_exists('weblinks_link_view_basic')) {
         {
             parent::__construct();
 
-            $this->_DIRNAME      = $dirname;
+            $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
             $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler   = weblinks_getHandler('link_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
 
-            $this->_system      = happy_linux_system::getInstance();
+            $this->_system = happy_linux_system::getInstance();
             $this->_block_class = weblinks_block_view::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -76,7 +76,7 @@ if (!class_exists('weblinks_link_view_basic')) {
         public function &get_show_basic_by_lid($lid)
         {
             $show = false;
-            $row  = &$this->_link_handler->get_cache_by_lid($lid);
+            $row = &$this->_link_handler->get_cache_by_lid($lid);
             if (is_array($row) && count($row)) {
                 $this->set_vars($row);
                 $this->build_show_basic();
@@ -158,14 +158,14 @@ if (!class_exists('weblinks_link_view_basic')) {
             // Warning : date(): Windows does not support dates prior to ...
             $time_publish = $this->get('time_publish');
 
-            $time_publish_long   = null;
+            $time_publish_long = null;
             $time_publish_middle = null;
-            $time_publish_short  = null;
+            $time_publish_short = null;
 
             if ($time_publish > 0) {
-                $time_publish_long   = formatTimestamp($time_publish, 'l');
+                $time_publish_long = formatTimestamp($time_publish, 'l');
                 $time_publish_middle = formatTimestamp($time_publish, 'm');
-                $time_publish_short  = formatTimestamp($time_publish, 's');
+                $time_publish_short = formatTimestamp($time_publish, 's');
             }
 
             $this->set('time_publish_long', $time_publish_long);
@@ -176,14 +176,14 @@ if (!class_exists('weblinks_link_view_basic')) {
             // Warning : date(): Windows does not support dates prior to ...
             $time_expire = $this->get('time_expire');
 
-            $time_expire_long   = null;
+            $time_expire_long = null;
             $time_expire_middle = null;
-            $time_expire_short  = null;
+            $time_expire_short = null;
 
             if ($time_expire > 0) {
-                $time_expire_long   = formatTimestamp($time_expire, 'l');
+                $time_expire_long = formatTimestamp($time_expire, 'l');
                 $time_expire_middle = formatTimestamp($time_expire, 'm');
-                $time_expire_short  = formatTimestamp($time_expire, 's');
+                $time_expire_short = formatTimestamp($time_expire, 's');
             }
 
             $this->set('time_expire_long', $time_expire_long);
@@ -191,7 +191,7 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('time_expire_short', $time_expire_short);
 
             // url
-            $flag_url         = 0;
+            $flag_url = 0;
             $mode_url_summary = 0;
             if ($this->get('url') && $this->_conf['view_url']) {
                 $flag_url = $this->_conf['view_url'];
@@ -245,7 +245,7 @@ if (!class_exists('weblinks_link_view_basic')) {
                 // if NOT same item
                 if (!preg_match('/_s$/', $k) && !is_array($v)) {
                     $name = $k . '_s';
-                    $val  = $this->sanitize_text($v);
+                    $val = $this->sanitize_text($v);
                     $this->set($name, $val);
                 }
             }
@@ -256,39 +256,39 @@ if (!class_exists('weblinks_link_view_basic')) {
 
         public function _set_textarea1_disp()
         {
-            $context  = $this->get('textarea1');
-            $dohtml   = $this->get('dohtml1');
+            $context = $this->get('textarea1');
+            $dohtml = $this->get('dohtml1');
             $dosmiley = $this->get('dosmiley1');
-            $doxcode  = $this->get('doxcode1');
-            $doimage  = $this->get('doimage1');
-            $dobr     = $this->get('dobr1');
-            $str      = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+            $doxcode = $this->get('doxcode1');
+            $doimage = $this->get('doimage1');
+            $dobr = $this->get('dobr1');
+            $str = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
 
             $this->set('textarea1_disp', $str);
         }
 
         public function _set_textarea2_disp()
         {
-            $context  = $this->get('textarea2');
-            $dohtml   = 0;
+            $context = $this->get('textarea2');
+            $dohtml = 0;
             $dosmiley = 1;
-            $doxcode  = 1;
-            $doimage  = 1;
-            $dobr     = 1;
-            $str      = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+            $doxcode = 1;
+            $doimage = 1;
+            $dobr = 1;
+            $str = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
 
             $this->set('textarea2_disp', $str);
         }
 
         public function _set_admincomment_disp()
         {
-            $context  = $this->get('admincomment');
-            $dohtml   = 0;
+            $context = $this->get('admincomment');
+            $dohtml = 0;
             $dosmiley = 1;
-            $doxcode  = 1;
-            $doimage  = 1;
-            $dobr     = 1;
-            $str      = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+            $doxcode = 1;
+            $doimage = 1;
+            $dobr = 1;
+            $str = $this->display_textarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
 
             $this->set('admincomment_disp', $str);
         }
@@ -297,21 +297,21 @@ if (!class_exists('weblinks_link_view_basic')) {
         {
             // Mapfan disregards a space or subsequent ones.
 
-            $zip   = $this->get('zip');
+            $zip = $this->get('zip');
             $state = $this->get('state');
-            $city  = $this->get('city');
-            $addr  = $this->get('addr');
+            $city = $this->get('city');
+            $addr = $this->get('addr');
             $addr2 = $this->get('addr2');
 
-            $flag_addr         = 0;
-            $en_join           = '';
-            $jp_join           = '';
-            $en_urlencode      = '';
-            $jp_urlencode      = '';
+            $flag_addr = 0;
+            $en_join = '';
+            $jp_join = '';
+            $en_urlencode = '';
+            $jp_urlencode = '';
             $en_utf8_urlencode = '';
             $jp_utf8_urlencode = '';
-            $en_csz            = '';
-            $en_csz_urlencode  = '';
+            $en_csz = '';
+            $en_csz_urlencode = '';
 
             if ($state || $city || $addr || $addr2) {
                 $flag_addr = 1;
@@ -328,12 +328,12 @@ if (!class_exists('weblinks_link_view_basic')) {
             $en_csz_urlencode = urlencode($en_csz);
 
             if ($state || $city || $addr) {
-                $en_join           = $addr . ' ' . $en_csz;
-                $jp_join           = $state . $city . $addr;
-                $en_utf8           = happy_linux_convert_to_utf8($en_join);
-                $jp_utf8           = happy_linux_convert_to_utf8($jp_join);
-                $en_urlencode      = urlencode($en_join);
-                $jp_urlencode      = urlencode($jp_join);
+                $en_join = $addr . ' ' . $en_csz;
+                $jp_join = $state . $city . $addr;
+                $en_utf8 = happy_linux_convert_to_utf8($en_join);
+                $jp_utf8 = happy_linux_convert_to_utf8($jp_join);
+                $en_urlencode = urlencode($en_join);
+                $jp_urlencode = urlencode($jp_join);
                 $en_utf8_urlencode = urlencode($en_utf8);
                 $jp_utf8_urlencode = urlencode($jp_utf8);
             }
@@ -403,7 +403,7 @@ if (!class_exists('weblinks_link_view_basic')) {
         {
             // not use return references
             $show = false;
-            $row  = $this->_link_handler->get_cache_by_lid($lid);
+            $row = $this->_link_handler->get_cache_by_lid($lid);
             if (is_array($row) && count($row)) {
                 $this->set_vars($row);
                 $this->build_kml();
@@ -425,7 +425,7 @@ if (!class_exists('weblinks_link_view_basic')) {
         {
             $summary = $this->build_summary($this->get_description_disp(), $this->_conf['gm_desc_length']);
 
-            $url_s  = $this->sanitize_url($this->get('url'));
+            $url_s = $this->sanitize_url($this->get('url'));
             $link_s = $this->sanitize_url($this->_build_single_link());
 
             $text = '';

@@ -58,12 +58,12 @@ if (!class_exists('weblinks_config2_form')) {
         //---------------------------------------------------------
         public function build_conf_extra_func($config)
         {
-            $formtype  = $config['formtype'];
+            $formtype = $config['formtype'];
             $valuetype = $config['valuetype'];
-            $name      = $config['name'];
-            $value     = $config['value'];
-            $options   = $config['options'];
-            $value_s   = $this->sanitize_text($value);
+            $name = $config['name'];
+            $value = $config['value'];
+            $options = $config['options'];
+            $value_s = $this->sanitize_text($value);
 
             switch ($formtype) {
                 case 'extra_dirname_list':
@@ -115,12 +115,12 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_dirname_list_common($config, $file)
         {
-            $name  = $config['name'];
+            $name = $config['name'];
             $value = $config['value'];
 
             $param = [
-                'dirname_except'  => $this->_DIRNAME,
-                'none_flag'       => true,
+                'dirname_except' => $this->_DIRNAME,
+                'none_flag' => true,
                 'dirname_default' => $value,
             ];
 
@@ -136,8 +136,8 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_forum_plugin($config)
         {
-            $name    = $config['name'];
-            $value   = $config['value'];
+            $name = $config['name'];
+            $value = $config['value'];
             $options = &$this->_plugin->get_config_options('forum');
 
             return $this->build_html_select($name, $value, $options);
@@ -145,8 +145,8 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_album_plugin($config)
         {
-            $name    = $config['name'];
-            $value   = $config['value'];
+            $name = $config['name'];
+            $value = $config['value'];
             $options = &$this->_plugin->get_config_options('album');
 
             return $this->build_html_select($name, $value, $options);
@@ -154,8 +154,8 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_d3forum_plugin($config)
         {
-            $name    = $config['name'];
-            $value   = $config['value'];
+            $name = $config['name'];
+            $value = $config['value'];
             $options = &$this->_plugin->get_config_options('d3forum');
 
             return $this->build_html_select($name, $value, $options);
@@ -163,8 +163,8 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_d3forum_forum_id($config)
         {
-            $name    = $config['name'];
-            $value   = $config['value'];
+            $name = $config['name'];
+            $value = $config['value'];
             $options = &$this->_plugin->get_options_for_d3forum();
 
             return $this->build_html_select($name, $value, $options);
@@ -174,8 +174,8 @@ if (!class_exists('weblinks_config2_form')) {
         {
             $banner_handler = weblinks_getHandler('banner', $this->_DIRNAME);
 
-            $name    = $config['name'];
-            $value   = $config['value'];
+            $name = $config['name'];
+            $value = $config['value'];
             $options = $banner_handler->get_thumb_options();
 
             return $this->build_html_input_radio_select($name, $value, $options, '<br>', false);

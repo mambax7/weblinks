@@ -54,12 +54,12 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
         // result
         public $_newid;
-        public $_save_obj  = null;
+        public $_save_obj = null;
         public $_cid_array = [];
 
         public $_banner_error_code = 0;
-        public $_banner_errors     = null;
-        public $_rssc_error_code   = 0;
+        public $_banner_errors = null;
+        public $_rssc_error_code = 0;
 
         public $_DEBUG_MODIFY_DELETE = true;
 
@@ -72,18 +72,18 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
             parent::__construct();
 
-            $this->_config_handler       = weblinks_getHandler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
             $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', $dirname);
-            $this->_category_handler     = weblinks_getHandler('category', $dirname);
-            $this->_link_handler         = weblinks_getHandler('link', $dirname);
-            $this->_catlink_handler      = weblinks_getHandler('catlink', $dirname);
-            $this->_banner_handler       = weblinks_getHandler('banner', $dirname);
-            $this->_notification         = weblinks_notification::getInstance($dirname);
+            $this->_category_handler = weblinks_getHandler('category', $dirname);
+            $this->_link_handler = weblinks_getHandler('link', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
+            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
+            $this->_notification = weblinks_notification::getInstance($dirname);
 
-            $this->_system      = happy_linux_system::getInstance();
-            $this->_post        = happy_linux_post::getInstance();
-            $this->_form        = happy_linux_form::getInstance();
-            $this->_strings     = happy_linux_strings::getInstance();
+            $this->_system = happy_linux_system::getInstance();
+            $this->_post = happy_linux_post::getInstance();
+            $this->_form = happy_linux_form::getInstance();
+            $this->_strings = happy_linux_strings::getInstance();
             $this->_remote_file = happy_linux_remote_file::getInstance();
 
             if (WEBLINKS_RSSC_USE) {
@@ -179,7 +179,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $size = &$this->_banner_handler->get_remote_banner_size($banner);
             if (!$size) {
                 $this->_banner_error_code = $this->_banner_handler->getErrorCode();
-                $this->_banner_errors     = $this->_banner_handler->getErrors();
+                $this->_banner_errors = $this->_banner_handler->getErrors();
             }
 
             return $size;
@@ -237,8 +237,8 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $cat_objs = $this->_category_handler->get_objects_all();
 
             foreach ($cat_objs as $obj) {
-                $cid   = $obj->getVar('cid');
-                $arr   = &$this->_category_handler->get_parent_and_all_child_id($cid);
+                $cid = $obj->getVar('cid');
+                $arr = &$this->_category_handler->get_parent_and_all_child_id($cid);
                 $count = $this->_link_catlink_handler->get_count_by_cid_array($arr);
 
                 $obj->setVar('link_count', $count);
@@ -260,7 +260,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         {
             if ($this->_DEBUG_MODIFY_DELETE) {
                 $modify_handler = weblinks_getHandler('modify', $this->_DIRNAME);
-                $ret            = $modify_handler->delete($modify_obj);
+                $ret = $modify_handler->delete($modify_obj);
                 if (!$ret) {
                     $this->_set_errors($modify_handler->getErrors());
 
@@ -278,16 +278,16 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function build_show_link($lid)
         {
             $link_view = weblinks_link_view::getInstance($this->_DIRNAME);
-            $template  = weblinks_template::getInstance($this->_DIRNAME);
-            $link      = &$link_view->get_show_by_lid($lid);
-            $text      = $template->fetch_link_single($link);
+            $template = weblinks_template::getInstance($this->_DIRNAME);
+            $link = &$link_view->get_show_by_lid($lid);
+            $text = $template->fetch_link_single($link);
 
             return $text;
         }
 
         public function build_style_sheet()
         {
-            $url  = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/' . 'weblinks.css';
+            $url = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/' . 'weblinks.css';
             $text = $this->_form->build_html_link_stylesheet($url);
 
             return $text;
@@ -367,7 +367,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             }
 
             $rss_flag = 0;
-            $rss_url  = '';
+            $rss_url = '';
 
             // BUG : Fatal error: Call to a member function create_new_rssc_obj() on a non-object
             if (WEBLINKS_RSSC_USE) {
@@ -395,14 +395,14 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function _check_rssurl()
         {
             $rss_flag = 0;
-            $rss_url  = '';
+            $rss_url = '';
 
             // create rssc object
             $rssc_obj = &$this->_rssc_edit_handler->create_new_rssc_obj();
             if (is_object($rssc_obj)) {
-                $code     = $rssc_obj->get('auto_code');
+                $code = $rssc_obj->get('auto_code');
                 $rss_flag = $rssc_obj->get('rss_flag');
-                $rss_url  = $rssc_obj->get('show_rss_url');
+                $rss_url = $rssc_obj->get('show_rss_url');
 
                 // discover
                 switch ($code) {

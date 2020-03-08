@@ -17,8 +17,8 @@ $genarete = new weblinks_gen_record();
 dev_header();
 
 $PID_START = 0;
-$MAX_CAT   = 10;
-$MAX_PID   = 10;
+$MAX_CAT = 10;
+$MAX_PID = 10;
 
 echo "<h3>generete child category</h3>\n";
 echo "one link in each category <br>\n";
@@ -38,10 +38,10 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
 
     for ($i = 1; $i <= $MAX_CAT; ++$i) {
         // category table
-        $title  = $pid . ': ' . $genarete->get_randum_title();
+        $title = $pid . ': ' . $genarete->get_randum_title();
         $imgurl = $genarete->get_randum_category_image();
         $orders = 0;
-        $cid    = $genarete->insert_category($pid, $title, $imgurl, $orders);
+        $cid = $genarete->insert_category($pid, $title, $imgurl, $orders);
 
         // link table
         $lid = $genarete->insert_randum_link();

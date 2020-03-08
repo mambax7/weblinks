@@ -53,9 +53,9 @@ $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
 ];
 
@@ -79,9 +79,9 @@ echo "<h4>scenario 2: banner, no perfomance, no rss</h4>\n";
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => '',
     'rss_flag' => 0,
 ];
 
@@ -112,9 +112,9 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => '',
     'rss_flag' => 0,
 ];
 
@@ -150,9 +150,9 @@ $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(1),
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(1),
     'rss_flag' => 2,    // rss
 ];
 
@@ -197,9 +197,9 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(2),
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(2),
     'rss_flag' => 2,    // rss
 ];
 

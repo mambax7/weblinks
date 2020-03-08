@@ -20,7 +20,7 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form  = admin_config_form::getInstance();
+$config_form = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 $link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
@@ -56,8 +56,8 @@ $config_form->print_menu_5();
 $config_form->set_submit_value(_WEBLINKS_UPDATE);
 $config_form->init_form();
 
-$link_etc_arr      = &$link_handler->get_field_name_etc_array();
-$link_etc_count    = count($link_etc_arr);
+$link_etc_arr = &$link_handler->get_field_name_etc_array();
+$link_etc_count = count($link_etc_arr);
 $text_link_num_etc = sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $link_etc_count);
 $conf_link_num_etc = $config_form->get_value_by_name('link_num_etc');
 

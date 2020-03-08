@@ -29,12 +29,12 @@ if (!function_exists('b_weblinks_photo_show')) {
 
     function b_weblinks_photo_show($options)
     {
-        $SEL_KIND          = 'album';
-        $PLUGIN_KIND       = 'photos';
-        $WIDTH             = 140; // pixel
-        $MODE_SUB          = 1;   // with sub
-        $CYCLE             = 60;  // sec
-        $SHOW_TITLE        = true;
+        $SEL_KIND = 'album';
+        $PLUGIN_KIND = 'photos';
+        $WIDTH = 140; // pixel
+        $MODE_SUB = 1;   // with sub
+        $CYCLE = 60;  // sec
+        $SHOW_TITLE = true;
         $FLAG_WEBLINKS_CAT = true;
 
         $album_id = 0;  // all category
@@ -42,7 +42,7 @@ if (!function_exists('b_weblinks_photo_show')) {
         global $xoopsDB;
 
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $limit   = (int)$options[1];
+        $limit = (int)$options[1];
 
         $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME;
         include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
@@ -52,12 +52,12 @@ if (!function_exists('b_weblinks_photo_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/plugins/album_sel.php';
 
         $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
-        $plugin           = weblinks_plugin::getInstance($DIRNAME);
+        $plugin = weblinks_plugin::getInstance($DIRNAME);
 
         // config
         $table_config = $xoopsDB->prefix($DIRNAME . '_config2');
-        $sql1         = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';
-        $res1         = $xoopsDB->query($sql1, 0, 0);
+        $sql1 = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';
+        $res1 = $xoopsDB->query($sql1, 0, 0);
         if (!$res1) {
             return $block;
         }
@@ -66,17 +66,17 @@ if (!function_exists('b_weblinks_photo_show')) {
             $conf[$row1['conf_name']] = $row1['conf_value'];
         }
 
-        $cat_album_sel     = $conf['cat_album_sel'];
+        $cat_album_sel = $conf['cat_album_sel'];
         $cat_album_dirname = $conf['cat_album_dirname'];
-        $cat_album_mode    = $conf['cat_album_mode'];
+        $cat_album_mode = $conf['cat_album_mode'];
 
         // return value
-        $block               = [];
-        $block['dirname']    = $DIRNAME;
+        $block = [];
+        $block['dirname'] = $DIRNAME;
         $block['show_title'] = $SHOW_TITLE;
 
         // category in weblinks viewcat
-        $url     = xoops_getenv('REQUEST_URI');
+        $url = xoops_getenv('REQUEST_URI');
         $viewcat = 'modules/' . $DIRNAME . '/viewcat.php';
 
         if ($FLAG_WEBLINKS_CAT && mb_strstr($url, $viewcat)) {
@@ -102,15 +102,15 @@ if (!function_exists('b_weblinks_photo_show')) {
         $filename = $sel['name'];
 
         $opts = [
-            'dirname'     => $cat_album_dirname,
-            'width'       => $WIDTH,
+            'dirname' => $cat_album_dirname,
+            'width' => $WIDTH,
             'album_limit' => $limit,
-            'album_id'    => $album_id,
-            'mode_sub'    => $MODE_SUB,
-            'cycle'       => $CYCLE,
+            'album_id' => $album_id,
+            'mode_sub' => $MODE_SUB,
+            'cycle' => $CYCLE,
         ];
 
-        $func   = $plugin->build_plugin_func($PLUGIN_KIND, $filename);
+        $func = $plugin->build_plugin_func($PLUGIN_KIND, $filename);
         $photos = &$plugin->exec_plugin($filename, $func, $opts);
 
         $block['album_dirname'] = $cat_album_dirname;

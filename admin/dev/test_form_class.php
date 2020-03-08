@@ -37,11 +37,11 @@ include_once 'test_form_parser_class.php';
 class weblinks_test_form extends weblinks_gen_record
 {
     public $_UNAME_ADMIN = 'admin';
-    public $_PASS_ADMIN  = 'admin';
-    public $_UNAME_USER  = 'tester';
-    public $_PASS_USER   = 'tester';
+    public $_PASS_ADMIN = 'admin';
+    public $_UNAME_USER = 'tester';
+    public $_PASS_USER = 'tester';
     public $_UNAME_OTHER = 'tester2';
-    public $_PASS_OTHER  = 'tester2';
+    public $_PASS_OTHER = 'tester2';
 
     public $_snoopy;
     public $_form_parser;
@@ -49,14 +49,14 @@ class weblinks_test_form extends weblinks_gen_record
     public $_user_submit_url;
     public $_user_modify_url;
 
-    public $_lid              = null;
-    public $_newid            = null;
+    public $_lid = null;
+    public $_newid = null;
     public $_build_form_array = null;
 
     public $_flag_print_body = true;
 
-    public $_DEBUG_PRINT_SUBMIT       = false;
-    public $_DEBUG_PRINT_FORM_VALUE   = false;
+    public $_DEBUG_PRINT_SUBMIT = false;
+    public $_DEBUG_PRINT_FORM_VALUE = false;
     public $_DEBUG_PRINT_RESULT_LEVEL = 0;
 
     //---------------------------------------------------------
@@ -66,7 +66,7 @@ class weblinks_test_form extends weblinks_gen_record
     {
         parent::__construct();
 
-        $this->_snoopy      = new Snoopy();
+        $this->_snoopy = new Snoopy();
         $this->_form_parser = new weblinks_test_form_parser();
 
         $this->_user_submit_url = WEBLINKS_URL . '/submit.php';
@@ -118,8 +118,8 @@ class weblinks_test_form extends weblinks_gen_record
 
         $form = [
             'uname' => $uname,
-            'pass'  => $pass,
-            'op'    => 'login',
+            'pass' => $pass,
+            'op' => 'login',
         ];
 
         $ret = $this->_snoopy->submit($url, $form);
@@ -389,14 +389,14 @@ class weblinks_test_form extends weblinks_gen_record
             $result = $this->_snoopy->results;
         }
 
-        $msg   = null;
+        $msg = null;
         $newid = null;
 
         $pattern1 = '/<!-- weblinks : (.*) \[(\d+)\] -->/';
         $pattern2 = '/<!-- weblinks : (.*) -->/';
 
         if (preg_match($pattern1, $result, $match1)) {
-            $msg   = $match1[1];
+            $msg = $match1[1];
             $newid = $match1[2];
         } elseif (preg_match($pattern2, $result, $match2)) {
             $msg = $match2[1];
@@ -416,13 +416,13 @@ class weblinks_test_form extends weblinks_gen_record
     public function set_admin_uname_pass($uname, $pass)
     {
         $this->_UNAME_ADMIN = $uname;
-        $this->_PASS_ADMIN  = $pass;
+        $this->_PASS_ADMIN = $pass;
     }
 
     public function set_user_uname_pass($uname, $pass)
     {
         $this->_UNAME_USER = $uanme;
-        $this->_PASS_USER  = $pass;
+        $this->_PASS_USER = $pass;
     }
 
     public function get_admin_uname()
@@ -486,7 +486,7 @@ class weblinks_test_form extends weblinks_gen_record
         }
 
         $param['lid'] = 0;
-        $form         = $this->build_link_form($param);
+        $form = $this->build_link_form($param);
 
         $ret = $this->submit_form($this->_user_submit_url, $form);
         if (!$ret) {
@@ -544,7 +544,7 @@ class weblinks_test_form extends weblinks_gen_record
         $this->_lid = $lid;
 
         $link_form_url = $this->_user_modify_url . '?lid=' . $lid;
-        $ret           = $this->fetch_form($link_form_url);
+        $ret = $this->fetch_form($link_form_url);
         if (!$ret) {
             return false;
         }
@@ -590,7 +590,7 @@ class weblinks_test_form extends weblinks_gen_record
     public function is_link_owner($lid, $uname = null)
     {
         $link_uid = 0;
-        $row      = &$this->get_link($lid);
+        $row = &$this->get_link($lid);
         if (is_array($row) && isset($row['uid'])) {
             $link_uid = $row['uid'];
         }
@@ -599,7 +599,7 @@ class weblinks_test_form extends weblinks_gen_record
             $uname = $this->_UNAME_USER;
         }
 
-        $user      = &$this->_system->get_user_by_uname($uname);
+        $user = &$this->_system->get_user_by_uname($uname);
         $uname_uid = $user['uid'];
 
         if ($link_uid && ($link_uid == $uname_uid)) {
@@ -769,41 +769,41 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     public function &build_link_form(&$param)
     {
-        $op       = isset($param['op']) ? $param['op'] : null;
-        $lid      = isset($param['lid']) ? $param['lid'] : 0;
-        $name     = isset($param['name']) ? $param['name'] : null;
-        $title    = isset($param['title']) ? $param['title'] : null;
-        $banner   = isset($param['banner']) ? $param['banner'] : null;
+        $op = isset($param['op']) ? $param['op'] : null;
+        $lid = isset($param['lid']) ? $param['lid'] : 0;
+        $name = isset($param['name']) ? $param['name'] : null;
+        $title = isset($param['title']) ? $param['title'] : null;
+        $banner = isset($param['banner']) ? $param['banner'] : null;
         $rss_flag = isset($param['rss_flag']) ? $param['rss_flag'] : 0;
-        $rss_url  = isset($param['rss_url']) ? $param['rss_url'] : null;
-        $passwd   = isset($param['passwd']) ? $param['passwd'] : null;
-        $request  = isset($param['request']) ? $param['request'] : null;
-        $notify   = isset($param['notify']) ? $param['notify'] : 0;
+        $rss_url = isset($param['rss_url']) ? $param['rss_url'] : null;
+        $passwd = isset($param['passwd']) ? $param['passwd'] : null;
+        $request = isset($param['request']) ? $param['request'] : null;
+        $notify = isset($param['notify']) ? $param['notify'] : 0;
 
-        $param['flag_uid']      = 0;    // system param;
-        $param['mode_dhtml']    = 1;    // all 1
+        $param['flag_uid'] = 0;    // system param;
+        $param['mode_dhtml'] = 1;    // all 1
         $param['flag_rssc_lid'] = 0;    // not update
 
         $arr = &$this->build_link_record_from_param($param);
 
-        $arr['submit']         = 'submit';
+        $arr['submit'] = 'submit';
         $arr['XOOPS_G_TICKET'] = $this->get_ticket();
 
-        $arr['op']       = $op;
-        $arr['lid']      = $lid;
-        $arr['banner']   = $banner;
-        $arr['rss_url']  = $rss_url;
+        $arr['op'] = $op;
+        $arr['lid'] = $lid;
+        $arr['banner'] = $banner;
+        $arr['rss_url'] = $rss_url;
         $arr['rss_flag'] = $rss_flag;
-        $arr['notify']   = $notify;
-        $arr['request']  = $request;
+        $arr['notify'] = $notify;
+        $arr['request'] = $request;
 
         if ($passwd) {
             $arr['passwd_new'] = $passwd;
-            $arr['passwd_2']   = $passwd;
+            $arr['passwd_2'] = $passwd;
             $arr['passwd_old'] = $passwd;
         } else {
             $arr['passwd_new'] = $arr['passwd'];
-            $arr['passwd_2']   = $arr['passwd'];
+            $arr['passwd_2'] = $arr['passwd'];
             $arr['passwd_old'] = $arr['passwd'];
         }
 
@@ -817,11 +817,11 @@ class weblinks_test_form extends weblinks_gen_record
         $notify = isset($v['notify']) ? $v['notify'] : 0;
 
         $arr = [
-            'action'         => 'https://localhost' . $v['action'],
+            'action' => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
-            'delete'         => 'delete',
-            'lid'            => $v['lid'],
-            'notify'         => $notify,
+            'delete' => 'delete',
+            'lid' => $v['lid'],
+            'notify' => $notify,
         ];
 
         return $arr;
@@ -829,23 +829,23 @@ class weblinks_test_form extends weblinks_gen_record
 
     public function &build_form_del_reason($v)
     {
-        $notify     = isset($v['notify']) ? $v['notify'] : 0;
-        $confirm    = isset($v['confirm']) ? $v['confirm'] : 0;
+        $notify = isset($v['notify']) ? $v['notify'] : 0;
+        $confirm = isset($v['confirm']) ? $v['confirm'] : 0;
         $passwd_old = isset($v['passwd_old']) ? $v['passwd_old'] : null;
-        $request    = isset($v['request']) ? $v['request'] : 0;
+        $request = isset($v['request']) ? $v['request'] : 0;
 
         $reason = "reason\n" . $this->get_randum_title();
 
         $arr = [
-            'action'         => 'https://localhost' . $v['action'],
+            'action' => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
-            'op'             => $v['op'],
-            'lid'            => $v['lid'],
-            'confirm'        => $confirm,
-            'notify'         => $notify,
-            'reason'         => $reason,
-            'passwd_old'     => $passwd_old,
-            'request'        => $request,
+            'op' => $v['op'],
+            'lid' => $v['lid'],
+            'confirm' => $confirm,
+            'notify' => $notify,
+            'reason' => $reason,
+            'passwd_old' => $passwd_old,
+            'request' => $request,
         ];
 
         return $arr;
@@ -854,16 +854,16 @@ class weblinks_test_form extends weblinks_gen_record
     public function &build_form_del_confirm($v)
     {
         $passwd_old = isset($v['passwd_old']) ? $v['passwd_old'] : null;
-        $request    = isset($v['request']) ? $v['request'] : 0;
+        $request = isset($v['request']) ? $v['request'] : 0;
 
         $arr = [
-            'action'         => 'https://localhost' . $v['action'],
+            'action' => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
-            'op'             => $v['op'],
-            'lid'            => $v['lid'],
-            'confirm'        => $v['confirm'],
-            'passwd_old'     => $passwd_old,
-            'request'        => $request,
+            'op' => $v['op'],
+            'lid' => $v['lid'],
+            'confirm' => $v['confirm'],
+            'passwd_old' => $passwd_old,
+            'request' => $request,
         ];
 
         return $arr;

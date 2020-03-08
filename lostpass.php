@@ -73,9 +73,9 @@ class weblinks_lostpass extends happy_linux_error
         $this->_link_handler = weblinks_getHandler('link', $dirname);
 
         $this->_mail_template = happy_linux_mail_template::getInstance($dirname);
-        $this->_system        = happy_linux_system::getInstance();
-        $this->_post          = happy_linux_post::getInstance();
-        $this->_form          = happy_linux_form::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_form = happy_linux_form::getInstance();
     }
 
     public static function getInstance($dirname = null)
@@ -121,7 +121,7 @@ class weblinks_lostpass extends happy_linux_error
             return -2;
         }
 
-        $link_mail        = $obj->get('mail');
+        $link_mail = $obj->get('mail');
         $this->_link_name = $obj->get('name');
 
         if ($email != $link_mail) {
@@ -129,7 +129,7 @@ class weblinks_lostpass extends happy_linux_error
         }
 
         $this->_passwd = xoops_makepass();
-        $passwd_md5    = md5($this->_passwd);
+        $passwd_md5 = md5($this->_passwd);
         $obj->setVar('passwd', $passwd_md5);
 
         $ret = $this->_link_handler->update($obj);
@@ -145,15 +145,15 @@ class weblinks_lostpass extends happy_linux_error
     //---------------------------------------------------------
     public function send_passwd()
     {
-        $SITEURL   = $this->_mail_template->get_xoops_siteurl();
-        $SITENAME  = $this->_mail_template->get_xoops_sitename();
+        $SITEURL = $this->_mail_template->get_xoops_siteurl();
+        $SITENAME = $this->_mail_template->get_xoops_sitename();
         $ADMINMAIL = $this->_mail_template->get_xoops_adminmail();
 
         $file_tpl = 'lostpass.tpl';
-        $dir_tpl  = $this->_mail_template->get_dir_mail_template($file_tpl);
+        $dir_tpl = $this->_mail_template->get_dir_mail_template($file_tpl);
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $this->_DIRNAME;
-        $entry        = $WEBLINKS_URL . '/modlink.php?lid=' . $this->_post_lid . '&code=' . $this->_passwd;
+        $entry = $WEBLINKS_URL . '/modlink.php?lid=' . $this->_post_lid . '&code=' . $this->_passwd;
 
         $xoopsMailer = &getMailer();
         $xoopsMailer->useMail();
@@ -218,7 +218,7 @@ $weblinks_lostpass = weblinks_lostpass::getInstance(WEBLINKS_DIRNAME);
 
 $xoopsOption['pagetype'] = 'user';
 
-$lid        = $weblinks_lostpass->get_post_lid();
+$lid = $weblinks_lostpass->get_post_lid();
 $singlelink = 'singlelink.php?lid=' . $lid;
 
 $ret = $weblinks_lostpass->update_password($lid);

@@ -43,10 +43,10 @@ if ('excute' != $op) {
 
 // table name
 $MODULE_DIRNAME = $xoopsModule->dirname();
-$table_link     = $xoopsDB->prefix($MODULE_DIRNAME . '_link');
-$table_modify   = $xoopsDB->prefix($MODULE_DIRNAME . '_modify');
+$table_link = $xoopsDB->prefix($MODULE_DIRNAME . '_link');
+$table_modify = $xoopsDB->prefix($MODULE_DIRNAME . '_modify');
 $table_atomfeed = $xoopsDB->prefix($MODULE_DIRNAME . '_atomfeed');
-$table_config   = $xoopsDB->prefix($MODULE_DIRNAME . '_config');
+$table_config = $xoopsDB->prefix($MODULE_DIRNAME . '_config');
 
 // --- config table ---
 echo '<h4>create config table</h4>';

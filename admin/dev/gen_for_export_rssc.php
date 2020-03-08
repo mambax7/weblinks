@@ -66,8 +66,8 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $site_title = $this->get_randum_title();
-            $rss_url    = "https://$site_title/rss.xml";
-            $rss_flag   = 1;
+            $rss_url = "https://$site_title/rss.xml";
+            $rss_flag = 1;
 
             $newid = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
 
@@ -98,11 +98,11 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $site_title = $this->get_randum_title();
-            $rss_url    = "https://$site_title/rss.xml";
-            $rss_flag   = 1;
-            $mode       = 2;
+            $rss_url = "https://$site_title/rss.xml";
+            $rss_flag = 1;
+            $mode = 2;
 
-            $newid        = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
+            $newid = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
             $new_rssc_lid = $this->insert_rssc_link($site_title, $mode, $rss_url);
 
             $catnum = mt_rand(1, 3);
@@ -114,7 +114,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             // same title & time
             for ($j = 0; $j < 3; ++$j) {
                 $title = $this->get_randum_title();
-                $time  = $this->get_randum_time();
+                $time = $this->get_randum_time();
                 $this->insert_atomfeed($newid, $site_title, $title, $time);
                 $this->insert_rssc_feed($new_rssc_lid, $site_title, $title, $time);
             }
@@ -145,17 +145,17 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             $time_created = $this->get_randum_time();
         }
 
-        $site_url      = "https://$site_title/";
-        $url           = "https://$title/";
-        $time_issued   = $time_created;
+        $site_url = "https://$site_title/";
+        $url = "https://$title/";
+        $time_issued = $time_created;
         $time_modified = $time_created;
 
         $content = "$title\n $time_created\n";
 
-        $entry_id     = '';
-        $guid         = '';
-        $author_name  = '';
-        $author_url   = '';
+        $entry_id = '';
+        $guid = '';
+        $author_name = '';
+        $author_url = '';
         $author_email = '';
 
         // insert
@@ -201,32 +201,32 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         global $RSSC_DIRNAME;
         $rssc_link_table = $this->db_prefix($RSSC_DIRNAME . '_link');
 
-        $rdf_url  = '';
+        $rdf_url = '';
         $atom_url = '';
 
         if (0 == $mode) {
-            $mode     = mt_rand(1, 3);
-            $rdf_url  = "https://$title/rdf.xml";
-            $rss_url  = "https://$title/rss.xml";
+            $mode = mt_rand(1, 3);
+            $rdf_url = "https://$title/rdf.xml";
+            $rss_url = "https://$title/rss.xml";
             $atom_url = "https://$title/atom.xml";
         }
 
-        $url          = "https://$title/";
-        $ltype        = mt_rand(0, 1);
-        $headline     = mt_rand(0, 10);
+        $url = "https://$title/";
+        $ltype = mt_rand(0, 1);
+        $headline = mt_rand(0, 10);
         $updated_unix = $this->get_randum_time();
 
-        $uid        = 1;    // admin
-        $mid        = 0;
-        $p1         = 0;
-        $p2         = 0;
-        $p3         = 0;
-        $encoding   = 'utf-8';
-        $refresh    = 3600;
-        $channel    = '';
-        $xml        = '';
-        $aux_int_1  = 0;
-        $aux_int_2  = 0;
+        $uid = 1;    // admin
+        $mid = 0;
+        $p1 = 0;
+        $p2 = 0;
+        $p3 = 0;
+        $encoding = 'utf-8';
+        $refresh = 3600;
+        $channel = '';
+        $xml = '';
+        $aux_int_1 = 0;
+        $aux_int_2 = 0;
         $aux_text_1 = '';
         $aux_text_2 = '';
 
@@ -298,31 +298,31 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             $updated_unix = $this->get_randum_time();
         }
 
-        $site_link      = "https://$site_title/";
-        $link           = "https://$title/";
+        $site_link = "https://$site_title/";
+        $link = "https://$title/";
         $published_unix = $updated_unix;
 
         $content = "$title\n $updated_unix\n";
 
-        $uid              = 1;    // admin
-        $mid              = 0;
-        $p1               = 0;
-        $p2               = 0;
-        $p3               = 0;
-        $entry_id         = '';
-        $guid             = '';
-        $category         = '';
-        $author_name      = '';
-        $author_uri       = '';
-        $author_email     = '';
-        $type_cont        = 0;
-        $raws             = '';
-        $aux_int_1        = 0;
-        $aux_int_2        = 0;
-        $aux_text_1       = '';
-        $aux_text_2       = '';
-        $enclosure_url    = '';
-        $enclosure_type   = '';
+        $uid = 1;    // admin
+        $mid = 0;
+        $p1 = 0;
+        $p2 = 0;
+        $p3 = 0;
+        $entry_id = '';
+        $guid = '';
+        $category = '';
+        $author_name = '';
+        $author_uri = '';
+        $author_email = '';
+        $type_cont = 0;
+        $raws = '';
+        $aux_int_1 = 0;
+        $aux_int_2 = 0;
+        $aux_text_1 = '';
+        $aux_text_2 = '';
+        $enclosure_url = '';
+        $enclosure_type = '';
         $enclosure_length = 0;
 
         $search = "$title $link $content";
@@ -404,12 +404,12 @@ $genarete = new weblinks_genarate_rssc();
 
 dev_header();
 
-$RSSC_DIRNAME  = 'rssc';
-$MAX_CAT       = 10;
-$MAX_PARENT    = 3;
-$MAX_LINK      = 100;
-$MAX_VOTE      = 30;
-$MAX_COM       = 30;
+$RSSC_DIRNAME = 'rssc';
+$MAX_CAT = 10;
+$MAX_PARENT = 3;
+$MAX_LINK = 100;
+$MAX_VOTE = 30;
+$MAX_COM = 30;
 $MAX_RSSC_LINK = 10;
 
 echo "<h3>generete table data for export rssc</h3>\n";

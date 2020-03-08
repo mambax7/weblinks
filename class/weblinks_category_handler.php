@@ -181,10 +181,10 @@ if (!class_exists('weblinks_category_handler')) {
         public $_conf;
 
         // cache
-        public $_cached_objs    = [];
-        public $_tree_array     = [];
+        public $_cached_objs = [];
+        public $_tree_array = [];
         public $_cat_info_array = [];
-        public $_total_count    = 0;
+        public $_total_count = 0;
 
         //---------------------------------------------------------
         // constructor
@@ -203,9 +203,9 @@ if (!class_exists('weblinks_category_handler')) {
 
             $this->_tree = new XoopsTree($this->_table, 'cid', 'pid');
 
-            $config_basic_handler          = weblinks_getHandler('config2_basic', $dirname);
+            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
             $this->_category_basic_handler = weblinks_getHandler('category_basic', $dirname);
-            $this->_strings                = happy_linux_strings::getInstance();
+            $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $config_basic_handler->get_conf();
         }
@@ -408,7 +408,7 @@ if (!class_exists('weblinks_category_handler')) {
         //---------------------------------------------------------
         public function get_count_by_pid($pid)
         {
-            $pid      = (int)$pid;
+            $pid = (int)$pid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('pid', $pid, '='));
             $count = $this->getCount($criteria);
@@ -454,7 +454,7 @@ if (!class_exists('weblinks_category_handler')) {
 
         public function &get_objects_by_title($title)
         {
-            $title    = addslashes($title);
+            $title = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', $title, '='));
             $objs = &$this->getObjects($criteria);
@@ -464,7 +464,7 @@ if (!class_exists('weblinks_category_handler')) {
 
         public function &get_objects_by_title_like($title)
         {
-            $title    = addslashes($title);
+            $title = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', '%' . $title . '%', 'LIKE'));
             $objs = &$this->getObjects($criteria);

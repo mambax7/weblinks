@@ -118,7 +118,7 @@ if (!class_exists('weblinks_template')) {
 
         // local variable
         public $_time_start = 0;
-        public $_time_prev  = 0;
+        public $_time_prev = 0;
 
         // config
         public $_conf;
@@ -130,13 +130,13 @@ if (!class_exists('weblinks_template')) {
         public $_total_feed;
 
         // keyword
-        public $_keyword_array      = [];
+        public $_keyword_array = [];
         public $_keywords_urlencode = null;
-        public $_keyword_query      = null;
+        public $_keyword_query = null;
 
         // meet W3C
         public $_SELECTED = 'selected="selected"';
-        public $_CHECKED  = 'checked="checked"';
+        public $_CHECKED = 'checked="checked"';
 
         //---------------------------------------------------------
         // constructor
@@ -146,27 +146,27 @@ if (!class_exists('weblinks_template')) {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
-            $this->_linkitem_handler   = weblinks_getHandler('linkitem_basic', $dirname);
-            $this->_category_handler   = weblinks_getHandler('category_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_linkitem_handler = weblinks_getHandler('linkitem_basic', $dirname);
+            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
             $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
-            $this->_rssc_handler       = weblinks_getHandler('rssc_view', $dirname);
+            $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
 
-            $this->_menu          = weblinks_menu::getInstance($dirname);
-            $this->_auth          = weblinks_auth::getInstance($dirname);
-            $this->_system        = happy_linux_system::getInstance();
-            $this->_post          = happy_linux_post::getInstance();
-            $this->_strings       = happy_linux_strings::getInstance();
+            $this->_menu = weblinks_menu::getInstance($dirname);
+            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_system = happy_linux_system::getInstance();
+            $this->_post = happy_linux_post::getInstance();
+            $this->_strings = happy_linux_strings::getInstance();
             $this->_class_keyword = happy_linux_keyword::getInstance();
 
-            $this->_conf       = $this->_config_handler->get_conf();
+            $this->_conf = $this->_config_handler->get_conf();
             $conf_map_template = $this->_conf['map_template'];
 
             // system
-            $this->_module_name     = $this->_system->get_module_name();
-            $this->_xoops_language  = $this->_system->get_language();
+            $this->_module_name = $this->_system->get_module_name();
+            $this->_xoops_language = $this->_system->get_language();
             $this->_is_module_admin = $this->_system->is_module_admin();
-            $this->_is_japanese     = $this->_system->is_japanese();
+            $this->_is_japanese = $this->_system->is_japanese();
 
             // template
             $this->_dir_templates = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates';
@@ -210,7 +210,7 @@ if (!class_exists('weblinks_template')) {
             global $xoopsTpl;
             $this->load_total();
 
-            $header   = $this->fetch_header($description);
+            $header = $this->fetch_header($description);
             $guidance = $this->fetch_guidance();
 
             $xoopsTpl->assign('weblinks_header', $header);
@@ -270,8 +270,8 @@ if (!class_exists('weblinks_template')) {
             $tpl = &$this->_create_xoops_tpl();
 
             $selbox = '';
-            $cid    = $this->_post->get_get_int('cid');
-            $mark   = $this->_post->get_get_text('mark');
+            $cid = $this->_post->get_get_int('cid');
+            $mark = $this->_post->get_get_text('mark');
 
             if (0 == $subcat) {
                 $subcat = $this->_post->get_get_int('subcat');
@@ -378,7 +378,7 @@ if (!class_exists('weblinks_template')) {
                 $width = 1;
             }
 
-            $count          = count($categories);
+            $count = count($categories);
             $cols_remainder = &$this->build_remainder_array($this->calc_remainder($count, $cols));
 
             $tpl = &$this->_create_xoops_tpl();
@@ -487,9 +487,9 @@ if (!class_exists('weblinks_template')) {
             if (is_object($xoopsUser)) {
                 $tpl->assign(
                     [
-                        'xoops_isuser'  => true,
-                        'xoops_userid'  => $xoopsUser->getVar('uid'),
-                        'xoops_uname'   => $xoopsUser->getVar('uname'),
+                        'xoops_isuser' => true,
+                        'xoops_userid' => $xoopsUser->getVar('uid'),
+                        'xoops_uname' => $xoopsUser->getVar('uname'),
                         'xoops_isadmin' => $xoopsUserIsAdmin,
                     ]
                 );
@@ -499,7 +499,7 @@ if (!class_exists('weblinks_template')) {
                 $tpl->assign(
                     [
                         'xoops_modulename' => $xoopsModule->getVar('name'),
-                        'xoops_dirname'    => $xoopsModule->getVar('dirname'),
+                        'xoops_dirname' => $xoopsModule->getVar('dirname'),
                     ]
                 );
             }
@@ -650,7 +650,7 @@ if (!class_exists('weblinks_template')) {
 
             // show ratelink
             $show_ratelink = false;
-            $show_rating   = false;
+            $show_rating = false;
             if ($this->_menu->show_rating()) {
                 $show_rating = true;
 
@@ -737,7 +737,7 @@ if (!class_exists('weblinks_template')) {
             foreach ($this->_conf as $k => $v) {
                 // match
                 if (0 === mb_strpos($k, 'lang_')) {
-                    $name  = htmlspecialchars($k, ENT_QUOTES);
+                    $name = htmlspecialchars($k, ENT_QUOTES);
                     $value = htmlspecialchars($v, ENT_QUOTES);
                     $tpl->assign($name, $value);
                 }
@@ -751,7 +751,7 @@ if (!class_exists('weblinks_template')) {
         {
             $conf = &$this->_linkitem_handler->get_conf();
             foreach ($conf as $k => $v) {
-                $name  = htmlspecialchars('lang_link_' . $k, ENT_QUOTES);
+                $name = htmlspecialchars('lang_link_' . $k, ENT_QUOTES);
                 $value = htmlspecialchars($v, ENT_QUOTES);
                 $tpl->assign($name, $value);
             }
@@ -774,10 +774,10 @@ if (!class_exists('weblinks_template')) {
         public function load_total()
         {
             $this->_total_site_recommend = $this->_link_count_handler->get_link_count_by_mark('recommend');
-            $this->_total_site_mutual    = $this->_link_count_handler->get_link_count_by_mark('mutual');
-            $this->_total_site_gmap      = $this->_link_count_handler->get_link_count_by_mark('gmap');
-            $this->_total_site_rss       = $this->_link_count_handler->get_link_count_by_mark('rss');
-            $this->_total_feed           = $this->_rssc_handler->get_feed_count();
+            $this->_total_site_mutual = $this->_link_count_handler->get_link_count_by_mark('mutual');
+            $this->_total_site_gmap = $this->_link_count_handler->get_link_count_by_mark('gmap');
+            $this->_total_site_rss = $this->_link_count_handler->get_link_count_by_mark('rss');
+            $this->_total_feed = $this->_rssc_handler->get_feed_count();
         }
 
         //---------------------------------------------------------
@@ -827,7 +827,7 @@ if (!class_exists('weblinks_template')) {
 
         public function _get_custom_file($dir, $name)
         {
-            $file_orig   = $this->_dir_templates . '/' . $dir . '/' . $name;
+            $file_orig = $this->_dir_templates . '/' . $dir . '/' . $name;
             $file_custom = $this->_dir_templates . '/customs/' . $name;
 
             if (file_exists($file_custom)) {

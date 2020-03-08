@@ -60,7 +60,7 @@ if (!class_exists('weblinks_singlelink')) {
 
         public $_conf;
 
-        public $_keyword_array  = [];
+        public $_keyword_array = [];
         public $_flag_highlight = false;
 
         //---------------------------------------------------------
@@ -70,15 +70,15 @@ if (!class_exists('weblinks_singlelink')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_basic_handler     = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler      = weblinks_getHandler('link_basic', $dirname);
+            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
             $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-            $this->_banner_handler    = weblinks_getHandler('banner', $dirname);
+            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
             $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);
-            $this->_rssc_handler      = weblinks_getHandler('rssc', $dirname);
+            $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
-            $this->_post   = happy_linux_post::getInstance();
+            $this->_post = happy_linux_post::getInstance();
 
             $this->_conf = &$config_basic_handler->get_conf();
 
@@ -103,7 +103,7 @@ if (!class_exists('weblinks_singlelink')) {
             $row = &$this->_link_handler->get_cache_by_lid($lid);
             if (isset($row['banner']) && isset($row['width']) && isset($row['height'])) {
                 $banner = $row['banner'];
-                $width  = $row['width'];
+                $width = $row['width'];
                 $height = $row['height'];
 
                 // read remote file, when not set
@@ -184,12 +184,12 @@ if (!class_exists('weblinks_singlelink')) {
         {
             // BUG 4279: Undefined index: rss_num in file singlelink.php
             $arr = [
-                'rss_show'   => false,
-                'rss_num'    => 0,
-                'rss_flag'   => 0,
-                'rss_url'    => '',
+                'rss_show' => false,
+                'rss_num' => 0,
+                'rss_flag' => 0,
+                'rss_url' => '',
                 'rss_update' => '',
-                'feeds'      => [],
+                'feeds' => [],
             ];
 
             if (WEBLINKS_RSSC_USE) {
@@ -202,12 +202,12 @@ if (!class_exists('weblinks_singlelink')) {
         public function get_atomfeed_auto($lid)
         {
             $arr = [
-                'rss_show'   => false,
-                'rss_num'    => 0,
-                'rss_flag'   => 0,
-                'rss_url'    => '',
+                'rss_show' => false,
+                'rss_num' => 0,
+                'rss_flag' => 0,
+                'rss_url' => '',
                 'rss_update' => '',
-                'feeds'      => [],
+                'feeds' => [],
             ];
 
             $rssc_lid = $this->_link_view_handler->get_link_rssc_lid($lid);
@@ -235,8 +235,8 @@ if (!class_exists('weblinks_singlelink')) {
                     return $arr;
                 }
 
-                $rss_flag   = $rssc_link_show['mode'];
-                $rss_url    = $rssc_link_show['url_xml'];
+                $rss_flag = $rssc_link_show['mode'];
+                $rss_url = $rssc_link_show['url_xml'];
                 $rss_update = $rssc_link_show['updated_long'];
 
                 $rss_show = false;
@@ -245,12 +245,12 @@ if (!class_exists('weblinks_singlelink')) {
                 }
 
                 $arr = [
-                    'rss_num'    => $this->_conf['rss_num_content'],
-                    'rss_show'   => $rss_show,
-                    'rss_flag'   => $rss_flag,
-                    'rss_url'    => $rss_url,
+                    'rss_num' => $this->_conf['rss_num_content'],
+                    'rss_show' => $rss_show,
+                    'rss_flag' => $rss_flag,
+                    'rss_url' => $rss_url,
                     'rss_update' => $rss_update,
-                    'feeds'      => $feeds,
+                    'feeds' => $feeds,
                 ];
             }
 

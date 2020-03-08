@@ -41,7 +41,7 @@ if (!class_exists('weblinks_mailer')) {
         public $_header;
 
         public $_to_users = [];
-        public $_success  = [];
+        public $_success = [];
 
         // debug
         public $_flag_send;
@@ -160,7 +160,7 @@ if (!class_exists('weblinks_mailer')) {
 
             $this->_mailer->headers[] = 'X-Mailer: PHP/' . phpversion();
             $this->_mailer->headers[] = 'Return-Path: ' . $this->_mailer->fromEmail;
-            $header                   = implode($this->_mailer->LE, $this->_mailer->headers);
+            $header = implode($this->_mailer->LE, $this->_mailer->headers);
 
             // TODO: we should have an option of no-reply for private messages and emails
             // to which we do not accept replies.  e.g. the site admin doesn't want a
@@ -178,11 +178,11 @@ if (!class_exists('weblinks_mailer')) {
             //  done as includes if mail templates ever get this sophisticated
 
             // replace tags with actual values
-            $body    = $this->_mailer->body;
+            $body = $this->_mailer->body;
             $subject = $this->_mailer->subject;
 
             foreach ($this->_mailer->assignedTags as $k => $v) {
-                $body    = str_replace('{' . $k . '}', $v, $body);
+                $body = str_replace('{' . $k . '}', $v, $body);
                 $subject = str_replace('{' . $k . '}', $v, $subject);
             }
 
@@ -191,8 +191,8 @@ if (!class_exists('weblinks_mailer')) {
             $body = str_replace("\n", $this->_mailer->LE, $body);
 
             $this->_subject = $subject;
-            $this->_body    = $body;
-            $this->_header  = $header;
+            $this->_body = $body;
+            $this->_header = $header;
 
             if (!$this->_flag_send) {
                 echo nl2br($this->_sanitize($header)) . " <br><br>\n";
@@ -230,12 +230,12 @@ if (!class_exists('weblinks_mailer')) {
         {
             $flag_error = false;
 
-            $this->_mailer->errors  = [];
+            $this->_mailer->errors = [];
             $this->_mailer->success = [];
 
-            $lid   = $user['lid'];
+            $lid = $user['lid'];
             $email = $user['email'];
-            $name  = $user['name'];
+            $name = $user['name'];
 
             // send message to specified users, if any
 

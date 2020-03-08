@@ -21,16 +21,16 @@ include 'admin_header.php';
 include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/config_file.php';
 
 $conf_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$config_file  = happy_linux_config_file::getInstance();
+$config_file = happy_linux_config_file::getInstance();
 
-$DIR_CONFIG  = WEBLINKS_ROOT_PATH . '/cache';
+$DIR_CONFIG = WEBLINKS_ROOT_PATH . '/cache';
 $FILE_CONFIG = $DIR_CONFIG . '/config.php';
 
 xoops_cp_header();
 
 $conf = &$conf_handler->get_conf();
 $pass = $conf['bin_pass'];
-$url  = WEBLINKS_URL . '/bin/link_check.php?pass=' . $pass . '&amp;limit=10';
+$url = WEBLINKS_URL . '/bin/link_check.php?pass=' . $pass . '&amp;limit=10';
 
 weblinks_admin_print_bread(_HAPPY_LINUX_CONF_COMMAND_MANAGE, 'command_manage.php', _HAPPY_LINUX_CONF_CREATE_CONFIG);
 echo '<h3>' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</h3>\n";

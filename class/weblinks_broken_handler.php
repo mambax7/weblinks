@@ -48,10 +48,10 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         public function get_uname($usereal = 0)
         {
-            $uid          = $this->get('sender');
+            $uid = $this->get('sender');
             $user_handler = xoops_getHandler('user');
-            $user_obj     = $user_handler->get($uid);
-            $uname        = '';
+            $user_obj = $user_handler->get($uid);
+            $uname = '';
 
             if (is_object($user_obj)) {
                 $uname = $user_obj->getUnameFromId($uid, $usereal);
@@ -62,10 +62,10 @@ if (!class_exists('weblinks_broken_handler')) {
 
         public function get_email($format = 's')
         {
-            $uid          = $this->get('sender');
+            $uid = $this->get('sender');
             $user_handler = xoops_getHandler('user');
-            $user_obj     = $user_handler->get($uid);
-            $email        = '';
+            $user_obj = $user_handler->get($uid);
+            $email = '';
 
             if (is_object($user_obj)) {
                 $email = $user_obj->getVar('email', $format);
@@ -155,7 +155,7 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         public function get_count_by_lid($lid)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $ret = $this->getCount($criteria);
@@ -165,8 +165,8 @@ if (!class_exists('weblinks_broken_handler')) {
 
         public function get_count_by_lid_uid($lid, $uid)
         {
-            $lid      = (int)$lid;
-            $uid      = (int)$uid;
+            $lid = (int)$lid;
+            $uid = (int)$uid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('sender', $uid, '='));
@@ -177,7 +177,7 @@ if (!class_exists('weblinks_broken_handler')) {
 
         public function get_count_by_lid_ip($lid, $ip)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ip', $ip, '='));
@@ -191,7 +191,7 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         public function &get_objects_group_by_lid()
         {
-            $ret   = [];
+            $ret = [];
             $limit = $start = 0;
 
             $sql = 'SELECT * FROM ' . $this->_table . ' ';

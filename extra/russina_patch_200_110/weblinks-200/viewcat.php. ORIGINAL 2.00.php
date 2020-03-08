@@ -88,11 +88,11 @@ class weblinks_viewcat
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_config_handler    = weblinks_getHandler('config2_basic', $dirname);
+        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
         $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_template          = weblinks_template::getInstance($dirname);
-        $this->_gmap              = weblinks_gmap::getInstance($dirname);
-        $this->_map_jp            = weblinks_map_jp::getInstance($dirname);
+        $this->_template = weblinks_template::getInstance($dirname);
+        $this->_gmap = weblinks_gmap::getInstance($dirname);
+        $this->_map_jp = weblinks_map_jp::getInstance($dirname);
 
         $this->_class_keyword = happy_linux_keyword::getInstance();
 
@@ -118,9 +118,9 @@ class weblinks_viewcat
 
         $this->_link_view_handler->init();
 
-        $flag_catpath      = true;
+        $flag_catpath = true;
         $flag_parent_image = false;
-        $flag_parent_desc  = false;
+        $flag_parent_desc = false;
 
         if (3 == $this->_conf['cat_img_mode']) {
             $flag_parent_image = true;
@@ -138,20 +138,20 @@ class weblinks_viewcat
     public function &build($category, &$keyword_array)
     {
         $show_category_navi = false;
-        $category_navi      = '';
-        $show_links         = false;
-        $links_full         = '';
-        $show_linklist      = false;
-        $links_list         = '';
-        $show_gm_list       = false;
-        $gm_list            = '';
-        $show_forum_list    = false;
-        $forum_list         = '';
-        $show_photo_list    = false;
-        $photo_list         = '';
-        $show_desc_disp     = false;
-        $map_jp             = '';
-        $show_map_jp        = false;
+        $category_navi = '';
+        $show_links = false;
+        $links_full = '';
+        $show_linklist = false;
+        $links_list = '';
+        $show_gm_list = false;
+        $gm_list = '';
+        $show_forum_list = false;
+        $forum_list = '';
+        $show_photo_list = false;
+        $photo_list = '';
+        $show_desc_disp = false;
+        $map_jp = '';
+        $show_map_jp = false;
 
         $this->_link_view_handler->set_highlight($this->_conf['use_highlight']);
         $this->_link_view_handler->set_keyword_array($keyword_array);
@@ -160,18 +160,18 @@ class weblinks_viewcat
         // --- category list ---
         $cid = $category['cid'];
 
-        $flag_catpath  = 0;
+        $flag_catpath = 0;
         $category_list = &$this->_link_view_handler->get_category_list_by_pid($cid, $flag_catpath, $this->_conf['cat_sub'], $this->_conf['cat_sub_mode']);
 
         if (is_array($category_list) && count($category_list)) {
             $show_category_navi = true;
-            $category_navi      = $this->_template->fetch_category_navi($category_list, $this->_conf['cat_img_mode'], $this->_conf['cat_cols'], $keywords_urlencoded);
+            $category_navi = $this->_template->fetch_category_navi($category_list, $this->_conf['cat_img_mode'], $this->_conf['cat_cols'], $keywords_urlencoded);
         }
 
         // --- map jp ---
         if ($this->_conf['map_jp_show_cat']) {
             $show_map_jp = true;
-            $map_jp      = $this->_map_jp->fetch_template();
+            $map_jp = $this->_map_jp->fetch_template();
         }
 
         // --- link list ---
@@ -179,7 +179,7 @@ class weblinks_viewcat
 
         if ($total > 0) {
             $show_links = true;
-            $link_list  = &$this->get_linklist_self($total, $cid, $keywords_urlencoded);
+            $link_list = &$this->get_linklist_self($total, $cid, $keywords_urlencoded);
 
             if ($this->_conf['view_style_cat']) {
                 $links_full = $this->_template->fetch_links_full($link_list);
@@ -191,7 +191,7 @@ class weblinks_viewcat
 
             if (is_array($link_list) && count($link_list)) {
                 $show_linklist = true;
-                $links_list    = $this->_template->fetch_links_list($link_list);
+                $links_list = $this->_template->fetch_links_list($link_list);
             }
         }
 
@@ -205,7 +205,7 @@ class weblinks_viewcat
 
             if (isset($gm_value['show_gm']) && $gm_value['show_gm']) {
                 $show_gm_list = true;
-                $gm_list      = $this->_gmap->fetch_list($link_list, $gm_value, 'weblinks_gm_map_index');
+                $gm_list = $this->_gmap->fetch_list($link_list, $gm_value, 'weblinks_gm_map_index');
             }
         }
 
@@ -214,7 +214,7 @@ class weblinks_viewcat
             $threads = &$this->_link_view_handler->get_cat_forum_threads_by_cid($cid);
             if (is_array($threads) && count($threads)) {
                 $show_forum_list = true;
-                $forum_list      = $this->_template->fetch_forum_list($threads);
+                $forum_list = $this->_template->fetch_forum_list($threads);
             }
         }
 
@@ -223,30 +223,30 @@ class weblinks_viewcat
             $photos = &$this->_link_view_handler->get_cat_album_photos_by_cid($cid);
             if (is_array($photos) && count($photos)) {
                 $show_photo_list = true;
-                $photo_list      = $this->_template->fetch_photo_list($photos);
+                $photo_list = $this->_template->fetch_photo_list($photos);
             }
         }
 
         $arr = [
-            'category'           => $category,
-            'title_s'            => $category['title_s'],
-            'catpath'            => $category['catpath'],
+            'category' => $category,
+            'title_s' => $category['title_s'],
+            'catpath' => $category['catpath'],
             'show_category_navi' => $show_category_navi,
-            'category_navi'      => $category_navi,
-            'show_links'         => $show_links,
-            'links_full'         => $links_full,
-            'show_linklist'      => $show_linklist,
-            'links_list'         => $links_list,
-            'show_gm_list'       => $show_gm_list,
-            'gm_list'            => $gm_list,
-            'show_forum_list'    => $show_forum_list,
-            'forum_list'         => $forum_list,
-            'show_photo_list'    => $show_photo_list,
-            'photo_list'         => $photo_list,
-            'cat_img_mode'       => $this->_conf['cat_img_mode'],
-            'show_desc_disp'     => $show_desc_disp,
-            'show_map_jp'        => $show_map_jp,
-            'map_jp'             => $map_jp,
+            'category_navi' => $category_navi,
+            'show_links' => $show_links,
+            'links_full' => $links_full,
+            'show_linklist' => $show_linklist,
+            'links_list' => $links_list,
+            'show_gm_list' => $show_gm_list,
+            'gm_list' => $gm_list,
+            'show_forum_list' => $show_forum_list,
+            'forum_list' => $forum_list,
+            'show_photo_list' => $show_photo_list,
+            'photo_list' => $photo_list,
+            'cat_img_mode' => $this->_conf['cat_img_mode'],
+            'show_desc_disp' => $show_desc_disp,
+            'show_map_jp' => $show_map_jp,
+            'map_jp' => $map_jp,
         ];
 
         return $arr;
@@ -267,7 +267,7 @@ class weblinks_viewcat
         $pagenavi->getGetSortid();
 
         $start = $pagenavi->calcStart();
-        $sort  = $pagenavi->get_sort();
+        $sort = $pagenavi->get_sort();
 
         $link_list = &$this->_link_view_handler->get_link_list_by_cid_sort($cid, $sort, $this->_conf['perpage'], $start);
 
@@ -286,9 +286,9 @@ class weblinks_viewcat
 //=========================================================
 // main
 //=========================================================
-$weblinks_viewcat  = weblinks_viewcat::getInstance(WEBLINKS_DIRNAME);
+$weblinks_viewcat = weblinks_viewcat::getInstance(WEBLINKS_DIRNAME);
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 $category = &$weblinks_viewcat->get_category();
 if (!$category) {
@@ -318,10 +318,10 @@ $arr = &$weblinks_viewcat->build($category, $keyword_array);
 
 // search form
 $show_mark = 0;
-$show_cat  = 1;
-$show_br1  = 1;
-$show_br2  = 1;
-$subcat    = 1;
+$show_cat = 1;
+$show_br1 = 1;
+$show_br2 = 1;
+$subcat = 1;
 $weblinks_template->assignSearch($show_mark, $show_cat, $show_br1, $show_br2, $subcat);
 
 $xoopsTpl->assign('category', $category);

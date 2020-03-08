@@ -137,7 +137,7 @@ class admin_link_clone extends admin_link_base
     //---------------------------------------------------------
     public function clone_module_to()
     {
-        $lid     = $this->get_post_lid();
+        $lid = $this->get_post_lid();
         $dirname = $this->_post->get_post_text('dirname');
 
         if (!$this->_check_token()) {
@@ -165,7 +165,7 @@ class admin_link_clone extends admin_link_base
     public function clone_module_from()
     {
         $from = $this->_post->get_post_get_int('from');
-        $lid  = $this->get_post_lid();
+        $lid = $this->get_post_lid();
 
         if (!$this->_check_token()) {
             redirect_header('link_list.php', 3, _WLS_ERRORNOLINK);

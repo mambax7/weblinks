@@ -79,13 +79,13 @@ class weblinks_test_class extends weblinks_gen_record
     {
         $flag = false;
 
-        $not_gpc     = $this->get_from_array($param, 'not_gpc');
+        $not_gpc = $this->get_from_array($param, 'not_gpc');
         $flag_banner = $this->get_from_array($param, 'flag_banner');
-        $flag_time   = $this->get_from_array($param, 'flag_time');
-        $mode_dhtml  = $this->get_from_array($param, 'mode_dhtml');
+        $flag_time = $this->get_from_array($param, 'flag_time');
+        $mode_dhtml = $this->get_from_array($param, 'mode_dhtml');
         $mode_passwd = $this->get_from_array($param, 'mode_passwd');
 
-        $param['flag_uid']      = 1;
+        $param['flag_uid'] = 1;
         $param['flag_rssc_lid'] = 0;
 
         list($inputs, $expects) = $this->build_input_expect($param);
@@ -118,17 +118,17 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     public function test_admin_mod_link(&$param)
     {
-        $flag    = false;
-        $times   = null;
+        $flag = false;
+        $times = null;
         $not_gpc = 0;
 
-        $flag_banner   = $this->get_from_array($param, 'flag_banner');
-        $flag_time     = $this->get_from_array($param, 'flag_time');
-        $mode_dhtml    = $this->get_from_array($param, 'mode_dhtml');
-        $mode_passwd   = $this->get_from_array($param, 'mode_passwd');
+        $flag_banner = $this->get_from_array($param, 'flag_banner');
+        $flag_time = $this->get_from_array($param, 'flag_time');
+        $mode_dhtml = $this->get_from_array($param, 'mode_dhtml');
+        $mode_passwd = $this->get_from_array($param, 'mode_passwd');
         $flag_rssc_lid = $this->get_from_array($param, 'flag_rssc_lid');
 
-        $param['not_gpc']  = $not_gpc;
+        $param['not_gpc'] = $not_gpc;
         $param['flag_uid'] = 1;
 
         $saves = &$this->build_saves();
@@ -136,15 +136,15 @@ class weblinks_test_class extends weblinks_gen_record
         list($inputs, $expects) = $this->build_input_expect($param);
 
         $expects['time_update'] = $saves['time_update'];
-        $expects['rss_url']     = $saves['rss_url'];
-        $expects['rss_flag']    = $saves['rss_flag'];
+        $expects['rss_url'] = $saves['rss_url'];
+        $expects['rss_flag'] = $saves['rss_flag'];
 
         // user & admin can not chnage
         $expects['time_create'] = $saves['time_create'];
-        $expects['hits']        = $saves['hits'];
-        $expects['rating']      = $saves['rating'];
-        $expects['votes']       = $saves['votes'];
-        $expects['comments']    = $saves['comments'];
+        $expects['hits'] = $saves['hits'];
+        $expects['rating'] = $saves['rating'];
+        $expects['votes'] = $saves['votes'];
+        $expects['comments'] = $saves['comments'];
 
         if ($flag_time) {
             $times[] = 'time_update';
@@ -189,8 +189,8 @@ class weblinks_test_class extends weblinks_gen_record
 
         foreach ($results as $k => $v) {
             $flag = false;
-            $msg  = $k . ': ' . $v;
-            $msg  = htmlspecialchars($msg, ENT_QUOTES);
+            $msg = $k . ': ' . $v;
+            $msg = htmlspecialchars($msg, ENT_QUOTES);
 
             if (is_array($excludes) && in_array($k, $excludes)) {
                 if ($this->_flag_print_detail) {
@@ -203,7 +203,7 @@ class weblinks_test_class extends weblinks_gen_record
             $e = $expects[$k];
 
             if (is_array($times) && in_array($k, $times)) {
-                $time        = time();
+                $time = time();
                 $time_before = $time - 10;  // 10 sec before
                 if (($v < $time_before) || ($v > $time)) {
                     $msg = 'unmtach time ' . $msg . ' =! ' . $time;
@@ -254,65 +254,65 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     public function build_input_expect(&$param)
     {
-        $not_gpc       = $this->get_from_array($param, 'not_gpc');
-        $flag_banner   = $this->get_from_array($param, 'flag_banner');
-        $flag_uid      = $this->get_from_array($param, 'flag_uid');
-        $flag_time     = $this->get_from_array($param, 'flag_time');
-        $mode_dhtml    = $this->get_from_array($param, 'mode_dhtml');
-        $mode_passwd   = $this->get_from_array($param, 'mode_passwd');
+        $not_gpc = $this->get_from_array($param, 'not_gpc');
+        $flag_banner = $this->get_from_array($param, 'flag_banner');
+        $flag_uid = $this->get_from_array($param, 'flag_uid');
+        $flag_time = $this->get_from_array($param, 'flag_time');
+        $mode_dhtml = $this->get_from_array($param, 'mode_dhtml');
+        $mode_passwd = $this->get_from_array($param, 'mode_passwd');
         $flag_rssc_lid = $this->get_from_array($param, 'flag_rssc_lid');
 
         $param['title'] = $this->get_randum_title();
 
         $inputs = &$this->build_link_record_from_param($param);
 
-        $temp                = &$inputs;
+        $temp = &$inputs;
         $temp['description'] = $inputs['weblinks_description'];
-        $temp['textarea1']   = $inputs['weblinks_textarea1'];
-        $temp['rss_url']     = '';
-        $temp['rss_flag']    = 0;
+        $temp['textarea1'] = $inputs['weblinks_textarea1'];
+        $temp['rss_url'] = '';
+        $temp['rss_flag'] = 0;
 
         // user & admin can not change
-        $temp['hits']     = 0;
-        $temp['rating']   = 0;
-        $temp['votes']    = 0;
+        $temp['hits'] = 0;
+        $temp['rating'] = 0;
+        $temp['votes'] = 0;
         $temp['comments'] = 0;
 
         if ($flag_banner) {
-            $inputs['width']  = $this->_WIDTH;
+            $inputs['width'] = $this->_WIDTH;
             $inputs['height'] = $this->_HEIGHT;
-            $temp['width']    = $this->_WIDTH;
-            $temp['height']   = $this->_HEIGHT;
+            $temp['width'] = $this->_WIDTH;
+            $temp['height'] = $this->_HEIGHT;
         } else {
-            $inputs['width']  = 0;
+            $inputs['width'] = 0;
             $inputs['height'] = 0;
-            $temp['width']    = 0;
-            $temp['height']   = 0;
+            $temp['width'] = 0;
+            $temp['height'] = 0;
         }
 
         if ($flag_time) {
             $inputs['time_update_flag_update'] = 1;
-            $inputs['time_publish_flag']       = 1;
-            $inputs['time_expire_flag']        = 1;
+            $inputs['time_publish_flag'] = 1;
+            $inputs['time_expire_flag'] = 1;
         } else {
             $temp['time_publish'] = 0;
-            $temp['time_expire']  = 0;
+            $temp['time_expire'] = 0;
         }
 
         switch ($mode_passwd) {
             // add password
             case 1:
                 $inputs['passwd_new'] = $inputs['passwd'];
-                $temp['passwd']       = $inputs['passwd_md5'];
+                $temp['passwd'] = $inputs['passwd_md5'];
                 break;
             // approve password
             case 2:
-                $inputs['op']   = 'approve_new';
+                $inputs['op'] = 'approve_new';
                 $temp['passwd'] = $inputs['passwd_md5'];
                 break;
             // approve request password
             case 3:
-                $inputs['op']   = 'approve_mod';
+                $inputs['op'] = 'approve_mod';
                 $temp['passwd'] = $inputs['passwd_md5'];
                 break;
             // default password
@@ -333,17 +333,17 @@ class weblinks_test_class extends weblinks_gen_record
     public function &build_saves()
     {
         $param = [
-            'title'         => $this->get_randum_title(),
-            'flag_uid'      => 1,
-            'mode_dhtml'    => 2,
+            'title' => $this->get_randum_title(),
+            'flag_uid' => 1,
+            'mode_dhtml' => 2,
             'flag_rssc_lid' => false,
         ];
 
         $saves = &$this->build_link_record_from_param($param);
 
         $saves['description'] = $saves['weblinks_description'];
-        $saves['textarea1']   = $saves['weblinks_textarea1'];
-        $saves['passwd']      = xoops_makepass();
+        $saves['textarea1'] = $saves['weblinks_textarea1'];
+        $saves['passwd'] = xoops_makepass();
 
         return $saves;
     }

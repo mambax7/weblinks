@@ -36,13 +36,13 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         public $_link_obj;
         public $_rssc_obj;
 
-        public $_ret_check_param   = false;
-        public $_ret_check_exist   = false;
+        public $_ret_check_param = false;
+        public $_ret_check_exist = false;
         public $_ret_code_discover = 0;
-        public $_rssc_exist_lid    = 0;
-        public $_rssc_newid        = 0;
-        public $_parse_result      = null;
-        public $_exist_list_msg    = null;
+        public $_rssc_exist_lid = 0;
+        public $_rssc_newid = 0;
+        public $_parse_result = null;
+        public $_exist_list_msg = null;
 
         public $_form_mode = null;
 
@@ -55,7 +55,7 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
 
             $this->_link_handler = weblinks_getHandler('link', $dirname);
             $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
-            $this->_rssc_form    = weblinks_rssc_form::getInstance();
+            $this->_rssc_form = weblinks_rssc_form::getInstance();
         }
 
         //---------------------------------------------------------
@@ -238,12 +238,12 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         //---------------------------------------------------------
         public function get_title_rssurl($lid)
         {
-            $title_s  = '';
-            $rss_url  = '';
+            $title_s = '';
+            $rss_url = '';
             $link_obj = &$this->_link_handler->get($lid);
             if (is_object($link_obj)) {
-                $title_s       = $link_obj->getVar('title', 's');
-                $rssc_lid      = $link_obj->get('rssc_lid');
+                $title_s = $link_obj->getVar('title', 's');
+                $rssc_lid = $link_obj->get('rssc_lid');
                 $rssc_link_obj = &$this->get_rssc_link_obj($rssc_lid);
                 if (is_object($rssc_link_obj)) {
                     $rss_url = $rssc_link_obj->get_rssurl_by_mode();

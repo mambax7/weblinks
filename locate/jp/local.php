@@ -28,7 +28,7 @@ if (!class_exists('weblinks_locate_jp')) {
             parent::__construct();
 
             $arr = [
-                'happy_linux_url'       => 'https://linux.ohwada.jp/',   // reset this value
+                'happy_linux_url' => 'https://linux.ohwada.jp/',   // reset this value
                 'weblinks_map_template' => 'weblinks_jp_google.html',
             ];
 

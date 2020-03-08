@@ -81,8 +81,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $this->_modify_basic_handler = weblinks_getHandler('modify_basic', $dirname);
 
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler           = weblinks_getHandler('config2_basic', $dirname);
-                $conf                     = $config_handler->get_conf();
+                $config_handler = weblinks_getHandler('config2_basic', $dirname);
+                $conf = $config_handler->get_conf();
                 $this->_conf_link_num_etc = $conf['link_num_etc'];
             }
         }
@@ -96,15 +96,15 @@ if (!class_exists('weblinks_modify_handler')) {
                 ${$k} = $v;
             }
 
-            $sql_etc_name  = '';
+            $sql_etc_name = '';
             $sql_etc_value = '';
 
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name      = 'etc' . $i;
-                    $etc_val       = $obj->get($etc_name);
-                    $sql_etc_name  .= $etc_name . ', ';
+                    $etc_name = 'etc' . $i;
+                    $etc_val = $obj->get($etc_name);
+                    $sql_etc_name .= $etc_name . ', ';
                     $sql_etc_value .= $this->quote($etc_val) . ', ';
                 }
             }
@@ -322,8 +322,8 @@ if (!class_exists('weblinks_modify_handler')) {
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name    = 'etc' . $i;
-                    $etc_val     = $obj->get($etc_name);
+                    $etc_name = 'etc' . $i;
+                    $etc_val = $obj->get($etc_name);
                     $sql_etc_set .= $etc_name . '=' . $this->quote($etc_val) . ', ';
                 }
             }
@@ -449,7 +449,7 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         public function &get_objects_by_mode($mode, $limit = 0, $start = 0)
         {
-            $mode     = (int)$mode;
+            $mode = (int)$mode;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('mode', $mode, '='));
             $criteria->setStart($start);
@@ -479,7 +479,7 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         public function &get_mid_array_by_mode($mode, $limit = 0, $start = 0)
         {
-            $mode     = (int)$mode;
+            $mode = (int)$mode;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('mode', $mode, '='));
             $criteria->setStart($start);
@@ -544,7 +544,7 @@ if (!class_exists('weblinks_modify_handler')) {
             // etci .. etcj
             for ($i = $start; $i <= $end; ++$i) {
                 $etc_name = 'etc' . $i;
-                $sql      .= $etc_name . ' varchar(255) default NULL' . $comma;
+                $sql .= $etc_name . ' varchar(255) default NULL' . $comma;
             }
 
             $sql .= ')';

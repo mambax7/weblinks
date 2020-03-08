@@ -29,7 +29,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         }
 
         $false = false;
-        $arr   = [];
+        $arr = [];
 
         $sql = 'SELECT * FROM ' . $xoopsDB->prefix('bb_forums') . ' ORDER BY forum_id';
 
@@ -60,16 +60,16 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         }
 
         $URL_MOD = XOOPS_URL . '/modules/newbb';
-        $false   = false;
-        $arr     = [];
+        $false = false;
+        $arr = [];
 
         // option parameter
-        $forum_id_in  = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
+        $forum_id_in = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
         $thread_limit = isset($opts['thread_limit']) ? (int)$opts['thread_limit'] : 1;
         $thread_start = isset($opts['thread_start']) ? (int)$opts['thread_start'] : 0;
-        $post_limit   = isset($opts['post_limit']) ? (int)$opts['post_limit'] : 1;
-        $post_start   = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
-        $post_order   = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
+        $post_limit = isset($opts['post_limit']) ? (int)$opts['post_limit'] : 1;
+        $post_start = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
+        $post_order = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
 
         if (0 == $forum_id_in) {
             return $false;
@@ -98,13 +98,13 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         }
 
         // specify forum
-        $arr['forum_id']    = 0;
+        $arr['forum_id'] = 0;
         $arr['forum_title'] = '';
-        $arr['forum_link']  = '';
+        $arr['forum_link'] = '';
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $arr['forum_id']    = $forum_id_in;
+            $arr['forum_id'] = $forum_id_in;
             $arr['forum_title'] = $forum_title[$forum_id_in];
-            $arr['forum_link']  = $URL_MOD . '/viewforum.php?forum=' . $forum_id_in;
+            $arr['forum_link'] = $URL_MOD . '/viewforum.php?forum=' . $forum_id_in;
         }
 
         // latest topics
@@ -125,19 +125,19 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
 
         while ($row2 = $xoopsDB->fetchArray($res2)) {
             $thread_arr = [];
-            $forum_id   = $row2['forum_id'];
-            $topic_id   = $row2['topic_id'];
+            $forum_id = $row2['forum_id'];
+            $topic_id = $row2['topic_id'];
 
             $topic_link = $URL_MOD . '/viewtopic.php?forum=' . $forum_id . '&amp;topic_id=' . $topic_id;
 
-            $thread_arr['forum_id']    = $forum_id;
+            $thread_arr['forum_id'] = $forum_id;
             $thread_arr['forum_title'] = $forum_title[$forum_id];
-            $thread_arr['forum_link']  = $URL_MOD . '/viewforum.php?forum=' . $forum_id;
+            $thread_arr['forum_link'] = $URL_MOD . '/viewforum.php?forum=' . $forum_id;
 
-            $thread_arr['thread_id']     = $topic_id;
-            $thread_arr['thread_link']   = $topic_link;
-            $thread_arr['thread_title']  = $row2['topic_title'];
-            $thread_arr['thread_time']   = $row2['topic_time'];
+            $thread_arr['thread_id'] = $topic_id;
+            $thread_arr['thread_link'] = $topic_link;
+            $thread_arr['thread_title'] = $row2['topic_title'];
+            $thread_arr['thread_time'] = $row2['topic_time'];
             $thread_arr['thread_time_s'] = formatTimestamp($row2['topic_time'], 's');
 
             // latest posts
@@ -154,16 +154,16 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
             }
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
-                $post_arr                = [];
-                $post_id                 = $row3['post_id'];
-                $post_arr['post_id']     = $post_id;
-                $post_arr['post_link']   = $topic_link . '&amp;post_id=' . $post_id . '#forumpost' . $post_id;
-                $post_arr['post_title']  = $row3['subject'];
-                $post_arr['post_time']   = $row3['post_time'];
+                $post_arr = [];
+                $post_id = $row3['post_id'];
+                $post_arr['post_id'] = $post_id;
+                $post_arr['post_link'] = $topic_link . '&amp;post_id=' . $post_id . '#forumpost' . $post_id;
+                $post_arr['post_title'] = $row3['subject'];
+                $post_arr['post_time'] = $row3['post_time'];
                 $post_arr['post_time_s'] = formatTimestamp($row3['post_time'], 's');
 
                 // text
-                $html   = 1;
+                $html = 1;
                 $smiley = 1;
                 $xcodes = 1;
 

@@ -53,8 +53,8 @@ class admin_category_list extends happy_linux_page_frame
     // hack for multi site
     public $_flag_show_aux_text_1 = false;
     public $_flag_show_aux_text_2 = false;
-    public $_aux_text_1           = _WEBLINKS_CAT_AUX_TEXT_1;
-    public $_aux_text_2           = _WEBLINKS_CAT_AUX_TEXT_2;
+    public $_aux_text_1 = _WEBLINKS_CAT_AUX_TEXT_1;
+    public $_aux_text_2 = _WEBLINKS_CAT_AUX_TEXT_2;
 
     //---------------------------------------------------------
     // constructor
@@ -77,7 +77,7 @@ class admin_category_list extends happy_linux_page_frame
         // hack for multi site
         if (weblinks_multi_is_japanese_site()) {
             $this->_flag_show_aux_text_1 = true;
-            $this->_aux_text_1           = _WEBLINKS_CAT_TITLE_JP;
+            $this->_aux_text_1 = _WEBLINKS_CAT_TITLE_JP;
         }
     }
 
@@ -181,29 +181,29 @@ class admin_category_list extends happy_linux_page_frame
 
     public function _get_cols(&$obj)
     {
-        $cid          = $obj->getVar('cid', 'n');
-        $pid          = $obj->getVar('pid', 'n');
-        $orders       = $obj->getVar('orders', 'n');
-        $title_s      = $obj->getVar('title', 's');
+        $cid = $obj->getVar('cid', 'n');
+        $pid = $obj->getVar('pid', 'n');
+        $orders = $obj->getVar('orders', 'n');
+        $title_s = $obj->getVar('title', 's');
         $aux_text_1_s = $obj->getVar('aux_text_1', 's');
         $aux_text_2_s = $obj->getVar('aux_text_2', 's');
 
-        $jump_cid       = 'category_manage.php?op=modCat&amp;cid=';
-        $jump_pid       = 'category_list.php?sortid=' . WEBLINKS_CAT_LIST_ORDER . '&amp;pid=' . $pid;
-        $jump_pid_2     = 'category_list.php?sortid=' . WEBLINKS_CAT_LIST_ORDER . '&amp;pid=' . $cid;
-        $url_view_cid   = WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
+        $jump_cid = 'category_manage.php?op=modCat&amp;cid=';
+        $jump_pid = 'category_list.php?sortid=' . WEBLINKS_CAT_LIST_ORDER . '&amp;pid=' . $pid;
+        $jump_pid_2 = 'category_list.php?sortid=' . WEBLINKS_CAT_LIST_ORDER . '&amp;pid=' . $cid;
+        $url_view_cid = WEBLINKS_URL . '/viewcat.php?cid=' . $cid;
         $url_folder_gif = WEBLINKS_URL . '/images/folder.gif';
 
-        $depth   = $this->_handler->get_cid_depth_from_cache_by_cid($cid);
+        $depth = $this->_handler->get_cid_depth_from_cache_by_cid($cid);
         $depth_d = str_repeat('--', $depth);
 
-        $num_sub  = $this->_handler->get_count_by_pid($cid);
+        $num_sub = $this->_handler->get_count_by_pid($cid);
         $ptitle_s = $this->_handler->get_title_with_top($pid, 's');
 
         $link_category = $this->_build_page_id_link_by_obj($obj, 'cid', $jump_cid);
-        $link_ptitle   = $this->build_html_a_href_name($jump_pid, $ptitle_s);
-        $link_title    = $this->build_html_a_href_name($jump_pid_2, $title_s);
-        $img_folder    = $this->build_html_img_tag($url_folder_gif, 0, 0, 0, 'folder');
+        $link_ptitle = $this->build_html_a_href_name($jump_pid, $ptitle_s);
+        $link_title = $this->build_html_a_href_name($jump_pid_2, $title_s);
+        $img_folder = $this->build_html_img_tag($url_folder_gif, 0, 0, 0, 'folder');
         $view_category = $this->build_html_a_href_name($url_view_cid, $img_folder, '', false);
 
         $arr = [

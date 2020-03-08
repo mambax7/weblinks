@@ -43,7 +43,7 @@ class weblinks_test_form_guest extends weblinks_test_form
         $this->_lid = $lid;
 
         $link_form_url = $this->_user_modify_url . '?lid=' . $lid;
-        $ret           = $this->fetch_form($link_form_url);
+        $ret = $this->fetch_form($link_form_url);
         if (!$ret) {
             return false;
         }
@@ -75,7 +75,7 @@ class weblinks_test_form_guest extends weblinks_test_form
         $this->_lid = $lid;
 
         $link_form_url = $this->_user_modify_url . '?lid=' . $lid;
-        $ret           = $this->fetch_form($link_form_url);
+        $ret = $this->fetch_form($link_form_url);
         if (!$ret) {
             return false;
         }
@@ -103,14 +103,14 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     public function &build_form_password($param)
     {
-        $lid     = isset($param['lid']) ? $param['lid'] : 0;
-        $passwd  = isset($param['passwd']) ? $param['passwd'] : null;
+        $lid = isset($param['lid']) ? $param['lid'] : 0;
+        $passwd = isset($param['passwd']) ? $param['passwd'] : null;
         $request = isset($param['request']) ? $param['request'] : null;
 
         $arr = [
-            'lid'        => $lid,
+            'lid' => $lid,
             'passwd_old' => $passwd,
-            'request'    => $request,
+            'request' => $request,
         ];
 
         return $arr;
@@ -118,17 +118,17 @@ class weblinks_test_form_guest extends weblinks_test_form
 
     public function &build_form_del_password($param)
     {
-        $lid     = isset($param['lid']) ? $param['lid'] : 0;
-        $passwd  = isset($param['passwd']) ? $param['passwd'] : null;
+        $lid = isset($param['lid']) ? $param['lid'] : 0;
+        $passwd = isset($param['passwd']) ? $param['passwd'] : null;
         $request = isset($param['request']) ? $param['request'] : null;
 
         $arr = [
             'XOOPS_G_TICKET' => $this->get_ticket(),
-            'delete'         => 'delete',
-            'lid'            => $lid,
-            'passwd_old'     => $passwd,
-            'request'        => $request,
-            'notify'         => 0,
+            'delete' => 'delete',
+            'lid' => $lid,
+            'passwd_old' => $passwd,
+            'request' => $request,
+            'notify' => 0,
         ];
 
         return $arr;

@@ -37,7 +37,7 @@ if (!$test->has_guest_perm()) {
     dev_footer();
 }
 
-$LID    = $test->get_post_lid();
+$LID = $test->get_post_lid();
 $PASSWD = $test->get_post_passwd();
 if (empty($LID)) {
     $test->print_form_lid(true);
@@ -68,7 +68,7 @@ $test->update_config_by_name_array('auth_modify', [XOOPS_GROUP_ADMIN]);
 $test->update_config_by_name_array('auth_modify_auto', [XOOPS_GROUP_ADMIN]);
 
 $link_form_url = $link_url . '?lid=' . $LID;
-$ret           = $test->fetch($link_form_url);
+$ret = $test->fetch($link_form_url);
 if (!$ret) {
     dev_footer();
 }
@@ -90,8 +90,8 @@ $test->update_config_by_name_array('auth_modify', [XOOPS_GROUP_ADMIN, XOOPS_GROU
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'    => $LID,
-    'title'  => $title,
+    'lid' => $LID,
+    'title' => $title,
     'banner' => $test->get_randum_banner(0),
 ];
 
@@ -119,13 +119,13 @@ $test->update_config_by_name_array('auth_modify', [XOOPS_GROUP_ADMIN, WEBLINKS_I
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(12),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(12),
     'rss_flag' => 2,    // rss
-    'passwd'   => $PASSWD,
-    'request'  => 'password',
+    'passwd' => $PASSWD,
+    'request' => 'password',
 ];
 
 $ret = $test->guest_modify_password($param);
@@ -157,9 +157,9 @@ $test->update_config_by_name_array('auth_modify_auto', [XOOPS_GROUP_ADMIN, WEBLI
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'     => $LID,
-    'title'   => $title,
-    'banner'  => $test->get_randum_banner(0),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
     'request' => 'modify',
 ];
 
@@ -187,13 +187,13 @@ $test->update_config_by_name_array('auth_modify_auto', [XOOPS_GROUP_ADMIN, WEBLI
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(12),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(12),
     'rss_flag' => 2,    // rss
-    'passwd'   => $PASSWD,
-    'request'  => 'password',
+    'passwd' => $PASSWD,
+    'request' => 'password',
 ];
 
 $ret = $test->guest_modify_password($param);

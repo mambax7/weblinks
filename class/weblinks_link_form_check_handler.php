@@ -68,8 +68,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         // error message
         public $error_msg_flag_lid_full = 0;
         public $error_msg_flag_lid_part = 0;
-        public $error_msg_lid_arr_full  = [];
-        public $error_msg_lid_arr_part  = [];
+        public $error_msg_lid_arr_full = [];
+        public $error_msg_lid_arr_part = [];
         public $_formated_error_addlink;
 
         //---------------------------------------------------------
@@ -81,12 +81,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler   = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler     = weblinks_getHandler('link', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link', $dirname);
             $this->_linkitem_handler = weblinks_getHandler('linkitem_define', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
-            $this->_post   = happy_linux_post::getInstance();
+            $this->_post = happy_linux_post::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
         }
@@ -142,9 +142,9 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_clear_errors();
 
             foreach ($linkitem_arr as $id => $v) {
-                $name  = $this->_get_linkitem_by_itemid($id, 'name');
-                $mode  = $this->_get_linkitem_by_itemid($id, 'user_mode');
-                $form  = $this->_get_linkitem_by_itemid($id, 'user_form');
+                $name = $this->_get_linkitem_by_itemid($id, 'name');
+                $mode = $this->_get_linkitem_by_itemid($id, 'user_mode');
+                $form = $this->_get_linkitem_by_itemid($id, 'user_form');
                 $title = $this->_get_linkitem_by_itemid($id, 'title');
 
                 switch ($name) {
@@ -419,8 +419,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $this->error_msg_flag_lid_full = 0;
             $this->error_msg_flag_lid_part = 0;
-            $this->error_msg_lid_arr_full  = [];
-            $this->error_msg_lid_arr_part  = [];
+            $this->error_msg_lid_arr_full = [];
+            $this->error_msg_lid_arr_part = [];
 
             if ($this->_conf['check_double'] >= 1) {
                 $ret = $this->_check_url_full($url);
@@ -477,9 +477,9 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                     continue;
                 }
 
-                $url_db   = $obj->get('url');
+                $url_db = $obj->get('url');
                 $url_db_r = str_replace('|', '\|', $url_db);
-                $url_r    = str_replace('|', '\|', $url);
+                $url_r = str_replace('|', '\|', $url);
 
                 if (preg_match("|$url_db_r|", $url)) {
                     $flag = 1;
@@ -532,7 +532,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if (!$this->_post->get_post_int($confirm_name)
                 && ($this->_post->get_post_text($name) != $obj->get($name))) {
                 $title = $this->_get_linkitem_by_name($name, 'title');
-                $msg   = sprintf(_AM_WEBLINKS_WARN_CONFIRM, $title);
+                $msg = sprintf(_AM_WEBLINKS_WARN_CONFIRM, $title);
                 $this->_set_errors($msg);
 
                 return false;
@@ -597,10 +597,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 return '';
             }
 
-            $title_s    = $obj->getVar('title');
-            $lid_s      = sprintf('%03d', $lid);
+            $title_s = $obj->getVar('title');
+            $lid_s = sprintf('%03d', $lid);
             $url_single = WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
-            $text       = '<li><a href="' . $url_single . '" target="_blank">' . $lid_s . ': ' . $title_s . "</a></li>\n";
+            $text = '<li><a href="' . $url_single . '" target="_blank">' . $lid_s . ': ' . $title_s . "</a></li>\n";
 
             return $text;
         }

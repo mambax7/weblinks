@@ -43,14 +43,14 @@ if (!class_exists('weblinks_htmlout_kml_sample')) {
         {
             $max_desc = (int)$this->get_param_by_num(0, $this->_MAX_DESC_DEFAULT);
 
-            $lid       = $this->get('lid');
-            $url       = $this->get('url');
+            $lid = $this->get('lid');
+            $url = $this->get('url');
             $desc_disp = $this->get('description_disp');
 
             $summary = happy_linux_mb_build_summary($desc_disp, $max_desc);
 
-            $link   = $this->get_weblinks_url() . '/singlelink.php?lid=' . $lid;
-            $url_s  = happy_linux_sanitize_url($url);
+            $link = $this->get_weblinks_url() . '/singlelink.php?lid=' . $lid;
+            $url_s = happy_linux_sanitize_url($url);
             $link_s = happy_linux_sanitize_url($link);
 
             $text = '';

@@ -14,10 +14,10 @@ if (!function_exists('weblinks_thumb_websitethumbnails')) {
     function &weblinks_thumb_websitethumbnails($url)
     {
         $arr = [
-            'name'   => 'website thumbnails',
-            'url'    => 'https://www.websitethumbnails.net/',
-            'image'  => 'https://www.websitethumbnails.net/view.php?url=' . $url,
-            'width'  => 120,
+            'name' => 'website thumbnails',
+            'url' => 'https://www.websitethumbnails.net/',
+            'image' => 'https://www.websitethumbnails.net/view.php?url=' . $url,
+            'width' => 120,
             'height' => 90,
         ];
 

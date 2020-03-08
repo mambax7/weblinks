@@ -22,10 +22,10 @@ class weblinks_get_location
     public $_conf;
 
     // weblinks config
-    public $_ELE_ID_PARENT_LATITUDE  = 'gm_latitude';
+    public $_ELE_ID_PARENT_LATITUDE = 'gm_latitude';
     public $_ELE_ID_PARENT_LONGITUDE = 'gm_longitude';
-    public $_ELE_ID_PARENT_ZOOM      = 'gm_zoom';
-    public $_ELE_ID_PARENT_ADDRESS   = 'gm_location';
+    public $_ELE_ID_PARENT_ZOOM = 'gm_zoom';
+    public $_ELE_ID_PARENT_ADDRESS = 'gm_location';
 
     public $_DIRNAME;
 
@@ -37,7 +37,7 @@ class weblinks_get_location
         $this->_DIRNAME = $dirname;
 
         $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-        $this->_cat_handler  = weblinks_getHandler('category_basic', $dirname);
+        $this->_cat_handler = weblinks_getHandler('category_basic', $dirname);
         $this->_conf_handler = weblinks_getHandler('config2_basic', $dirname);
 
         $this->_conf_handler->init();
@@ -88,8 +88,8 @@ class weblinks_get_location
     public function get_latlng()
     {
         $flag = false;
-        $lat  = $this->_conf['gm_latitude'];
-        $lng  = $this->_conf['gm_longitude'];
+        $lat = $this->_conf['gm_latitude'];
+        $lng = $this->_conf['gm_longitude'];
         $zoom = $this->_conf['gm_zoom'];
         $addr = $this->_conf['gm_location'];
 
@@ -101,8 +101,8 @@ class weblinks_get_location
             if (is_array($row)) {
                 if ($row['gm_zoom'] > 0) {
                     $flag = true;
-                    $lat  = $row['gm_latitude'];
-                    $lng  = $row['gm_longitude'];
+                    $lat = $row['gm_latitude'];
+                    $lng = $row['gm_longitude'];
                     $zoom = $row['gm_zoom'];
                 }
 
@@ -116,8 +116,8 @@ class weblinks_get_location
             if (is_array($row)) {
                 if ($row['gm_zoom'] > 0) {
                     $flag = true;
-                    $lat  = $row['gm_latitude'];
-                    $lng  = $row['gm_longitude'];
+                    $lat = $row['gm_latitude'];
+                    $lng = $row['gm_longitude'];
                     $zoom = $row['gm_zoom'];
                 }
                 if ('' != $row['gm_location']) {
@@ -132,7 +132,7 @@ class weblinks_get_location
     public function build_address($state, $city, $addr)
     {
         $address_class = weblinks_address::getInstance($this->_DIRNAME);
-        $locate_class  = $address_class->get_instance_locate();
+        $locate_class = $address_class->get_instance_locate();
 
         return $locate_class->build_address($state, $city, $addr);
     }

@@ -64,14 +64,14 @@ include 'header_oh.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_singlelink.php';
 
 $weblinks_singlelink = weblinks_singlelink::getInstance(WEBLINKS_DIRNAME);
-$weblinks_template   = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header     = weblinks_header::getInstance(WEBLINKS_DIRNAME);
-$weblinks_webmap     = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_webmap = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $lid = $weblinks_singlelink->get_get_lid();
 
-$conf            = &$weblinks_singlelink->get_conf();
+$conf = &$weblinks_singlelink->get_conf();
 $is_module_admin = $weblinks_singlelink->is_module_admin();
 
 $weblinks_template->set_keyword_by_request();
@@ -99,7 +99,7 @@ if (!$is_module_admin
     exit();
 }
 
-$title_s     = $link_show['title'];
+$title_s = $link_show['title'];
 $comment_use = $link_show['comment_use'];
 
 // --- template start ---
@@ -136,21 +136,21 @@ foreach ($catpath_arr as $catpath) {
 }
 
 $link_show['mode_singlelink'] = 1;
-$single                       = $weblinks_template->fetch_link_single($link_show);
+$single = $weblinks_template->fetch_link_single($link_show);
 $xoopsTpl->assign('weblinks_link_single', $single);
 
 // --- webmap ---
-$show_webmap   = false;
+$show_webmap = false;
 $webmap_div_id = '';
-$webmap_func   = '';
+$webmap_func = '';
 
 if ($link_show['flag_gm_use']) {
     $ret = $weblinks_webmap->init_map();
     if ($ret) {
-        $webmap_param  = $weblinks_webmap->fetch_single($link_show);
-        $show_webmap   = $webmap_param['show_webmap'];
+        $webmap_param = $weblinks_webmap->fetch_single($link_show);
+        $show_webmap = $webmap_param['show_webmap'];
         $webmap_div_id = $webmap_param['webmap_div_id'];
-        $webmap_func   = $webmap_param['webmap_func'];
+        $webmap_func = $webmap_param['webmap_func'];
     }
 }
 
@@ -174,12 +174,12 @@ if (is_array($atomfeed['feeds']) && count($atomfeed['feeds'])) {
 }
 
 // forum
-$show_forum_list     = false;
+$show_forum_list = false;
 $weblinks_forum_list = '';
 
 $threads = &$weblinks_singlelink->get_link_forum_threads_by_lid($lid);
 if (is_array($threads) && count($threads)) {
-    $show_forum_list     = true;
+    $show_forum_list = true;
     $weblinks_forum_list = $weblinks_template->fetch_forum_list($threads);
 }
 
@@ -189,12 +189,12 @@ $xoopsTpl->assign('lang_latest_forum', _WEBLINKS_LATEST_FORUM);
 
 // album
 $show_photo_list = false;
-$photo_list      = '';
+$photo_list = '';
 
 $photos = &$weblinks_singlelink->get_link_album_photos_by_lid($lid);
 if (is_array($photos) && count($photos)) {
     $show_photo_list = true;
-    $photo_list      = $weblinks_template->fetch_photo_list($photos);
+    $photo_list = $weblinks_template->fetch_photo_list($photos);
 }
 
 $xoopsTpl->assign('weblinks_photo_list', $photo_list);

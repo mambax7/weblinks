@@ -23,7 +23,7 @@
 // recommend to use rssc/include/view_blog.inc.php
 //---------------------------------------------------------
 
-$WEBLINKS_DIRNAME      = basename(dirname(__DIR__));
+$WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 $WEBLINKS_RSSC_DIRNAME = 'rssc';
 
 // --- eval begin ---
@@ -126,7 +126,7 @@ if (!function_exists('weblinks_view_blog_base')) {
 
         // check exist rssc module
         $module_handler = xoops_getHandler('module');
-        $module         = $module_handler->getByDirname($WEBLINKS_RSSC_DIRNAME);
+        $module = $module_handler->getByDirname($WEBLINKS_RSSC_DIRNAME);
         if (!is_object($module)) {
             echo '<span style="color: #ff0000;">' . 'rssc not installed' . "</span>\n";
 
@@ -156,7 +156,7 @@ if (!function_exists('weblinks_view_blog_base')) {
         }
 
         $options = [
-            'num_feed'    => 10,
+            'num_feed' => 10,
             'num_content' => 1,
             'max_summary' => 200,
         ];

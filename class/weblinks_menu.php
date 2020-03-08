@@ -42,7 +42,7 @@ if (!class_exists('weblinks_menu')) {
         // variable
         public $_config_cached;
 
-        public $_flag_replace      = false;
+        public $_flag_replace = false;
         public $_replace_cat_title = 'aux_text_1';
 
         //---------------------------------------------------------

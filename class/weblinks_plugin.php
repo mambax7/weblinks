@@ -46,7 +46,7 @@ if (!class_exists('weblinks_plugin')) {
             $this->_DIRNAME = $dirname;
 
             $config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_conf    = $config_handler->get_conf();
+            $this->_conf = $config_handler->get_conf();
         }
 
         public static function getInstance($dirname = null)
@@ -65,7 +65,7 @@ if (!class_exists('weblinks_plugin')) {
         // config2_form
         public function &get_config_options($sel_kind)
         {
-            $arr2    = [];
+            $arr2 = [];
             $arr2[0] = '---';
 
             $arr1 = &$this->_exec_selecter($sel_kind);
@@ -197,7 +197,7 @@ if (!class_exists('weblinks_plugin')) {
 
         public function _get_value_by_conf_key($sel_kind, $conf_name, $key)
         {
-            $val    = false;
+            $val = false;
             $sel_id = $this->_get_conf_value_by_name($conf_name);
             if ($sel_id) {
                 $arr = &$this->get_selecter_by_id($sel_kind, $sel_id);
@@ -212,7 +212,7 @@ if (!class_exists('weblinks_plugin')) {
         public function &_exec_selecter($sel_kind)
         {
             $func_sel = 'weblinks_plugin_' . $sel_kind . '_sel';
-            $val      = &$func_sel();
+            $val = &$func_sel();
 
             return $val;
         }
@@ -251,7 +251,7 @@ if (!class_exists('weblinks_plugin')) {
         public function &_get_categories_by_conf($sel_kind, $plugin_kind, $conf_name, $options, $flag_zero = false, $flag_all = false)
         {
             $filename = $this->_get_filename_by_conf($sel_kind, $conf_name);
-            $func     = $this->build_plugin_func($plugin_kind, $filename);
+            $func = $this->build_plugin_func($plugin_kind, $filename);
 
             $arr = &$this->_get_categories_by_filename($filename, $func, $options, $flag_zero, $flag_all);
 
@@ -283,8 +283,8 @@ if (!class_exists('weblinks_plugin')) {
         public function &_exec_plugin_common($sel_kind, $plugin_kind, $plugin_sel_name, $options = null)
         {
             $filename = $this->_get_filename_by_conf($sel_kind, $plugin_sel_name);
-            $func     = $this->build_plugin_func($plugin_kind, $filename);
-            $arr      = &$this->exec_plugin($filename, $func, $options);
+            $func = $this->build_plugin_func($plugin_kind, $filename);
+            $arr = &$this->exec_plugin($filename, $func, $options);
 
             return $arr;
         }
@@ -300,7 +300,7 @@ if (!class_exists('weblinks_plugin')) {
         public function &exec_plugin($filename, $func, $options = null)
         {
             $file = '/modules/' . $this->_DIRNAME . '/plugins/' . $filename . '.php';
-            $arr  = [];
+            $arr = [];
 
             if (file_exists(XOOPS_ROOT_PATH . '/' . $file)) {
                 include_once XOOPS_ROOT_PATH . '/' . $file;
@@ -320,22 +320,22 @@ if (!class_exists('weblinks_plugin')) {
         //---------------------------------------------------------
         public function &_get_album_photos_common($plugin_sel_name, $opts = null)
         {
-            $dirname     = isset($opts['dirname']) ? $opts['dirname'] : '';
-            $width       = isset($opts['width']) ? (int)$opts['width'] : 140;
+            $dirname = isset($opts['dirname']) ? $opts['dirname'] : '';
+            $width = isset($opts['width']) ? (int)$opts['width'] : 140;
             $album_limit = isset($opts['album_limit']) ? (int)$opts['album_limit'] : 1;
-            $album_id    = isset($opts['album_id']) ? (int)$opts['album_id'] : 0;
-            $mode_sub    = isset($opts['mode_sub']) ? (int)$opts['mode_sub'] : 1;
-            $cycle       = isset($opts['cycle']) ? (int)$opts['cycle'] : 60;
-            $cols        = isset($opts['cols']) ? (int)$opts['cols'] : 3;
+            $album_id = isset($opts['album_id']) ? (int)$opts['album_id'] : 0;
+            $mode_sub = isset($opts['mode_sub']) ? (int)$opts['mode_sub'] : 1;
+            $cycle = isset($opts['cycle']) ? (int)$opts['cycle'] : 60;
+            $cols = isset($opts['cols']) ? (int)$opts['cols'] : 3;
 
             $options = [
-                'dirname'     => $dirname,
-                'width'       => $width,
+                'dirname' => $dirname,
+                'width' => $width,
                 'album_limit' => $album_limit,
-                'album_id'    => $album_id,
-                'mode_sub'    => $mode_sub,
-                'cycle'       => $cycle,
-                'cols'        => $cols,
+                'album_id' => $album_id,
+                'mode_sub' => $mode_sub,
+                'cycle' => $cycle,
+                'cols' => $cols,
             ];
 
             $arr = &$this->_exec_plugin_common('album', 'photos', $plugin_sel_name, $options);

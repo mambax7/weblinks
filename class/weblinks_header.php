@@ -40,11 +40,11 @@ if (!class_exists('weblinks_header')) {
         //---------------------------------------------------------
         public function __construct($dirname)
         {
-            $this->_DIRNAME      = $dirname;
+            $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $config_handler     = weblinks_getHandler('config2_basic', $dirname);
-            $this->_conf        = $config_handler->get_conf();
+            $config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_conf = $config_handler->get_conf();
             $this->_header_mode = $this->_conf['header_mode'];
         }
 

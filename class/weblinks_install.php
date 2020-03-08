@@ -57,8 +57,8 @@ if (!class_exists('weblinks_install')) {
 
             $this->_linkitem_table = $this->prefix($dirname . '_linkitem');
             $this->_category_table = $this->prefix($dirname . '_category');
-            $this->_link_table     = $this->prefix($dirname . '_link');
-            $this->_modify_table   = $this->prefix($dirname . '_modify');
+            $this->_link_table = $this->prefix($dirname . '_link');
+            $this->_modify_table = $this->prefix($dirname . '_modify');
         }
 
         public static function getInstance($dirname = null)
@@ -396,7 +396,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         {
             $arr = [];
 
-            $sql  = 'SELECT * FROM ' . $this->_linkitem_table . ' ORDER BY item_id ASC';
+            $sql = 'SELECT * FROM ' . $this->_linkitem_table . ' ORDER BY item_id ASC';
             $rows = &$this->get_rows_by_sql($sql);
 
             if (is_array($rows) && (count($rows) > 0)) {
@@ -412,7 +412,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         {
             $this->clear_error();
             $this->_count_insert = 0;
-            $define_arr          = $this->_linkitem_define->get_define();
+            $define_arr = $this->_linkitem_define->get_define();
 
             // list from Define
             foreach ($define_arr as $id => $def) {
@@ -428,7 +428,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         {
             $this->clear_error();
             $this->_count_insert = 0;
-            $define_arr          = $this->_linkitem_define->get_define();
+            $define_arr = $this->_linkitem_define->get_define();
 
             // list from Define
             foreach ($define_arr as $id => $def) {
@@ -472,10 +472,10 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             }
 
             $row = [
-                'item_id'     => $item_id,
-                'name'        => $name,
-                'title'       => $title,
-                'user_mode'   => $user_mode,
+                'item_id' => $item_id,
+                'name' => $name,
+                'title' => $title,
+                'user_mode' => $user_mode,
                 'description' => $description,
             ];
 
@@ -489,8 +489,8 @@ CREATE TABLE ' . $this->_linkitem_table . " (
 
         public function _build_insert_linkitem_sql($row)
         {
-            $aux_int_1  = 0;
-            $aux_int_2  = 0;
+            $aux_int_1 = 0;
+            $aux_int_2 = 0;
             $aux_text_1 = '';
             $aux_text_2 = '';
 

@@ -10,9 +10,9 @@
 if (!class_exists('weblinks_htmlout_base')) {
     class weblinks_htmlout_base
     {
-        public $_item_vars  = [];
+        public $_item_vars = [];
         public $_param_vars = [];
-        public $_log_vars   = [];
+        public $_log_vars = [];
 
         public $_DIRNAME;
 

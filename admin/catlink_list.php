@@ -35,7 +35,7 @@ class admin_catlink_list extends happy_linux_page_frame
         $this->set_flag_execute_time(true);
 
         $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
@@ -70,7 +70,7 @@ class admin_catlink_list extends happy_linux_page_frame
         $cid = $obj->get('cid');
         $lid = $obj->get('lid');
 
-        $cat_title_s  = '';
+        $cat_title_s = '';
         $link_title_s = '';
 
         $cat_obj = &$this->_category_handler->get($cid);
@@ -84,11 +84,11 @@ class admin_catlink_list extends happy_linux_page_frame
         }
 
         $jump_catlink = 'catlink_manage.php?op=mod_form&jid=';
-        $jump_cat     = 'category_manage.php?op=mod_form&cid=';
-        $jump_link    = 'link_manage.php?op=mod_form&lid=';
+        $jump_cat = 'category_manage.php?op=mod_form&cid=';
+        $jump_link = 'link_manage.php?op=mod_form&lid=';
         $link_catlink = $this->_build_page_id_link_by_obj($obj, 'jid', $jump_catlink);
-        $link_cat     = $this->_build_page_id_link_by_obj($obj, 'cid', $jump_cat);
-        $link_link    = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
+        $link_cat = $this->_build_page_id_link_by_obj($obj, 'cid', $jump_cat);
+        $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
 
         $arr = [
             $link_catlink,

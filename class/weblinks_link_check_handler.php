@@ -54,11 +54,11 @@ if (!class_exists('weblinks_link_check_handler')) {
         public $_flag_broken = false;    // view broken colum
 
         public $_TIMEOUT_CONNECT = 0;  // 30 sec  ( snoopy default )
-        public $_TIMEOUT_READ    = 0;  // disable ( snoopy default )
+        public $_TIMEOUT_READ = 0;  // disable ( snoopy default )
 
         public $_link_broken_count = 0;
-        public $_link_broken_arr   = [];
-        public $_link_broken       = null;
+        public $_link_broken_arr = [];
+        public $_link_broken = null;
 
         //---------------------------------------------------------
         // constructor
@@ -69,7 +69,7 @@ if (!class_exists('weblinks_link_check_handler')) {
 
             // Non-static method xxx::getInstance() should not be called statically
             $this->_remote_file = happy_linux_get_singleton('remote_file');
-            $this->_bin_file    = happy_linux_get_singleton('bin_file');
+            $this->_bin_file = happy_linux_get_singleton('bin_file');
 
             $this->_remote_file->set_snoopy_timeout_connect($this->_TIMEOUT_CONNECT);
             $this->_remote_file->set_snoopy_timeout_read($this->_TIMEOUT_READ);
@@ -83,20 +83,20 @@ if (!class_exists('weblinks_link_check_handler')) {
         public function check($limit = 0, $offset = 0)
         {
             $this->_link_broken_count = 0;
-            $this->_link_broken_arr   = [];
+            $this->_link_broken_arr = [];
 
             $this->_execute($limit, $offset);
         }
 
         public function _loop($row)
         {
-            $lid   = $row['lid'];
+            $lid = $row['lid'];
             $title = $row['title'];
-            $url   = $row['url'];
+            $url = $row['url'];
 
             $check_start = $this->_get_microtime();
-            $ret         = $this->_check_url($url);
-            $check_time  = $this->_get_microtime() - $check_start;
+            $ret = $this->_check_url($url);
+            $check_time = $this->_get_microtime() - $check_start;
 
             if ($this->_flag_echo_lid) {
                 echo '-' . sprintf('%6.3f', $check_time);
@@ -176,8 +176,8 @@ if (!class_exists('weblinks_link_check_handler')) {
         {
             $link_id = sprintf('%03d', $lid);
 
-            $modlink    = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/admin/link_manage.php?op=modLink&lid=' . $lid;
-            $title      = htmlspecialchars($title);
+            $modlink = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/admin/link_manage.php?op=modLink&lid=' . $lid;
+            $title = htmlspecialchars($title);
             $google_url = $this->_build_google_search_url($title);
 
             $text = '<tr>';
@@ -204,7 +204,7 @@ if (!class_exists('weblinks_link_check_handler')) {
         {
             $query = happy_linux_convert_to_utf8($query);
             $query = urlencode($query);
-            $url   = 'https://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
+            $url = 'https://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
 
             return $url;
         }

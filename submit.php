@@ -103,8 +103,8 @@ class weblinks_submit extends happy_linux_error
     // config
     public $_conf;
     public $_has_auth_permit = false;
-    public $_has_auth_auto   = false;
-    public $_has_auth_html   = false;
+    public $_has_auth_auto = false;
+    public $_has_auth_html = false;
 
     // system
     public $_system_is_module_admin;
@@ -114,9 +114,9 @@ class weblinks_submit extends happy_linux_error
 
     // error
     public $_banner_error_code = 0;
-    public $_rssc_error_code   = 0;
-    public $_discovery_error   = null;
-    public $_flag_error        = 0;
+    public $_rssc_error_code = 0;
+    public $_discovery_error = null;
+    public $_flag_error = 0;
 
     //---------------------------------------------------------
     // constructor
@@ -128,25 +128,25 @@ class weblinks_submit extends happy_linux_error
 
         $this->_DIRNAME = $dirname;
 
-        $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_edit_handler  = weblinks_getHandler('link_edit', $dirname);
-        $this->_link_form_handler  = weblinks_getHandler('link_form', $dirname);
+        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_edit_handler = weblinks_getHandler('link_edit', $dirname);
+        $this->_link_form_handler = weblinks_getHandler('link_form', $dirname);
         $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
 
-        $this->_auth     = weblinks_auth::getInstance($dirname);
+        $this->_auth = weblinks_auth::getInstance($dirname);
         $this->_template = weblinks_template::getInstance($dirname);
-        $this->_header   = weblinks_header::getInstance($dirname);
+        $this->_header = weblinks_header::getInstance($dirname);
 
         $this->_post = happy_linux_post::getInstance();
         $this->_myts = MyTextSanitizer::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
 
-        $system                        = happy_linux_system::getInstance();
+        $system = happy_linux_system::getInstance();
         $this->_system_is_module_admin = $system->is_module_admin();
-        $this->_system_is_user         = $system->is_user();
-        $this->_system_module_name     = $system->get_module_name();
-        $this->_system_uid             = $system->get_uid();
+        $this->_system_is_user = $system->is_user();
+        $this->_system_module_name = $system->get_module_name();
+        $this->_system_uid = $system->get_uid();
     }
 
     public static function getInstance($dirname = null)
@@ -271,21 +271,21 @@ class weblinks_submit extends happy_linux_error
 
         $this->_discovery_error = null;
 
-        $url      = $this->_post->get_post_url('url');
-        $rss_url  = $this->_post->get_post_url('rss_url');
+        $url = $this->_post->get_post_url('url');
+        $rss_url = $this->_post->get_post_url('rss_url');
         $rss_flag = $this->_post->get_post_int('rss_flag');
 
         if ($url && (HAPPY_LINUX_RSS_MODE_AUTO == $rss_flag) && ('' == $rss_url)) {
             $ret = $rss_utility->discover($url);
             if (!$ret) {
-                $msg                    = _RSSC_DISCOVER_FAILED;
+                $msg = _RSSC_DISCOVER_FAILED;
                 $this->_discovery_error = $msg;
 
                 return false;
             }
 
             $_POST['rss_flag'] = $rss_utility->get_xml_mode();
-            $_POST['rss_url']  = $rss_utility->get_xmlurl_by_mode();
+            $_POST['rss_url'] = $rss_utility->get_xmlurl_by_mode();
 
             return true;
         }
@@ -349,7 +349,7 @@ class weblinks_submit extends happy_linux_error
             return false;
         }
         $this->_banner_error_code = $this->_link_edit_handler->get_banner_error_code();
-        $this->_rssc_error_code   = $this->_link_edit_handler->get_rssc_error_code();
+        $this->_rssc_error_code = $this->_link_edit_handler->get_rssc_error_code();
 
         return $newid;
     }
@@ -441,7 +441,7 @@ class weblinks_submit extends happy_linux_error
 // main
 //=========================================================
 $weblinks_submit = weblinks_submit::getInstance(WEBLINKS_DIRNAME);
-$weblinks_time   = happy_linux_time::getInstance();
+$weblinks_time = happy_linux_time::getInstance();
 
 // check permit
 $check = $weblinks_submit->check_access();
@@ -503,8 +503,8 @@ if ('submit' == $op) {
         $url_singlelink = WEBLINKS_URL . '/singlelink.php?lid=' . $newid;
 
         // redirect to single link
-        $msg  = _WLS_RECEIVED . "<br>\n";
-        $msg  .= _WLS_ISAPPROVED . "<br>\n";
+        $msg = _WLS_RECEIVED . "<br>\n";
+        $msg .= _WLS_ISAPPROVED . "<br>\n";
         $msg2 = $weblinks_submit->get_add_link_msg();
         $time = $weblinks_time->get_elapse_time();
 

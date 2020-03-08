@@ -81,11 +81,11 @@ class weblinks_test_class_user extends weblinks_test_class
     {
         $flag = false;
 
-        $mode_user_perm    = $this->get_from_array($param_user, 'mode_user_perm');
+        $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $mode_passwd_guest = $this->get_from_array($param_user, 'mode_passwd_guest');
-        $mode_dhtml        = $this->get_from_array($param_user, 'mode_dhtml');
+        $mode_dhtml = $this->get_from_array($param_user, 'mode_dhtml');
 
-        $not_gpc     = 0;
+        $not_gpc = 0;
         $flag_banner = 1;
         $mode_passwd = $this->get_permit_mode_passwd($mode_passwd_guest);
 
@@ -123,11 +123,11 @@ class weblinks_test_class_user extends weblinks_test_class
     {
         $flag = false;
 
-        $mode_user_perm    = $this->get_from_array($param_user, 'mode_user_perm');
+        $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $mode_passwd_guest = $this->get_from_array($param_user, 'mode_passwd_guest');
-        $mode_dhtml        = $this->get_from_array($param_user, 'mode_dhtml');
+        $mode_dhtml = $this->get_from_array($param_user, 'mode_dhtml');
 
-        $not_gpc     = false;
+        $not_gpc = false;
         $flag_banner = true;
         $mode_passwd = $this->get_permit_mode_passwd($mode_passwd_guest);
 
@@ -146,7 +146,7 @@ class weblinks_test_class_user extends weblinks_test_class
         $expects['time_create'] = $saves['time_create'];
 
         if (0 == $mode_user_perm) {
-            $expects['width']  = $this->_WIDTH;
+            $expects['width'] = $this->_WIDTH;
             $expects['height'] = $this->_HEIGHT;
         }
 
@@ -179,9 +179,9 @@ class weblinks_test_class_user extends weblinks_test_class
     {
         $flag = false;
 
-        $mode_user_perm    = $this->get_from_array($param_user, 'mode_user_perm');
+        $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $mode_passwd_guest = $this->get_from_array($param_user, 'mode_passwd_guest');
-        $mode_dhtml        = $this->get_from_array($param_user, 'mode_dhtml');
+        $mode_dhtml = $this->get_from_array($param_user, 'mode_dhtml');
 
         $modify_mode = 0;
         $mode_passwd = $this->get_permit_mode_passwd($mode_passwd_guest);
@@ -221,9 +221,9 @@ class weblinks_test_class_user extends weblinks_test_class
     {
         $flag = false;
 
-        $mode_user_perm    = $this->get_from_array($param_user, 'mode_user_perm');
+        $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $mode_passwd_guest = $this->get_from_array($param_user, 'mode_passwd_guest');
-        $mode_dhtml        = $this->get_from_array($param_user, 'mode_dhtml');
+        $mode_dhtml = $this->get_from_array($param_user, 'mode_dhtml');
 
         $modify_mode = 1;
         $mode_passwd = $this->get_permit_mode_passwd($mode_passwd_guest);
@@ -266,89 +266,89 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     public function build_input_expect_user($saves, $param_user)
     {
-        $not_gpc       = false;
-        $flag_banner   = true;
-        $flag_uid      = 0;
-        $flag_time     = 1;
+        $not_gpc = false;
+        $flag_banner = true;
+        $flag_uid = 0;
+        $flag_time = 1;
         $flag_rssc_lid = 0;
 
         $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
-        $mode_dhtml     = $this->get_from_array($param_user, 'mode_dhtml');
-        $mode_passwd    = $this->get_from_array($param_user, 'mode_passwd');
+        $mode_dhtml = $this->get_from_array($param_user, 'mode_dhtml');
+        $mode_passwd = $this->get_from_array($param_user, 'mode_passwd');
 
         $param = [
-            'not_gpc'       => $not_gpc,
-            'flag_uid'      => $flag_uid,
-            'flag_banner'   => $flag_banner,
-            'flag_time'     => $flag_time,
-            'mode_dhtml'    => $mode_dhtml,
-            'mode_passwd'   => $mode_passwd,
+            'not_gpc' => $not_gpc,
+            'flag_uid' => $flag_uid,
+            'flag_banner' => $flag_banner,
+            'flag_time' => $flag_time,
+            'mode_dhtml' => $mode_dhtml,
+            'mode_passwd' => $mode_passwd,
             'flag_rssc_lid' => $flag_rssc_lid,
         ];
 
         list($inputs, $expects) = $this->build_input_expect($param);
 
         if (0 == $mode_user_perm) {
-            $expects['url']          = $saves['url'];
-            $expects['banner']       = $saves['banner'];
-            $expects['description']  = $saves['description'];
-            $expects['name']         = $saves['name'];
-            $expects['nameflag']     = $saves['nameflag'];
-            $expects['mail']         = $saves['mail'];
-            $expects['mailflag']     = $saves['mailflag'];
-            $expects['company']      = $saves['company'];
-            $expects['addr']         = $saves['addr'];
-            $expects['tel']          = $saves['tel'];
-            $expects['usercomment']  = $saves['usercomment'];
-            $expects['zip']          = $saves['zip'];
-            $expects['state']        = $saves['state'];
-            $expects['city']         = $saves['city'];
-            $expects['addr2']        = $saves['addr2'];
-            $expects['fax']          = $saves['fax'];
-            $expects['etc1']         = $saves['etc1'];
-            $expects['etc2']         = $saves['etc2'];
-            $expects['etc3']         = $saves['etc3'];
-            $expects['etc4']         = $saves['etc4'];
-            $expects['etc5']         = $saves['etc5'];
-            $expects['gm_latitude']  = $saves['gm_latitude'];
+            $expects['url'] = $saves['url'];
+            $expects['banner'] = $saves['banner'];
+            $expects['description'] = $saves['description'];
+            $expects['name'] = $saves['name'];
+            $expects['nameflag'] = $saves['nameflag'];
+            $expects['mail'] = $saves['mail'];
+            $expects['mailflag'] = $saves['mailflag'];
+            $expects['company'] = $saves['company'];
+            $expects['addr'] = $saves['addr'];
+            $expects['tel'] = $saves['tel'];
+            $expects['usercomment'] = $saves['usercomment'];
+            $expects['zip'] = $saves['zip'];
+            $expects['state'] = $saves['state'];
+            $expects['city'] = $saves['city'];
+            $expects['addr2'] = $saves['addr2'];
+            $expects['fax'] = $saves['fax'];
+            $expects['etc1'] = $saves['etc1'];
+            $expects['etc2'] = $saves['etc2'];
+            $expects['etc3'] = $saves['etc3'];
+            $expects['etc4'] = $saves['etc4'];
+            $expects['etc5'] = $saves['etc5'];
+            $expects['gm_latitude'] = $saves['gm_latitude'];
             $expects['gm_longitude'] = $saves['gm_longitude'];
-            $expects['gm_zoom']      = $saves['gm_zoom'];
-            $expects['gm_type']      = $saves['gm_type'];
-            $expects['textarea1']    = $saves['textarea1'];
-            $expects['textarea2']    = $saves['textarea2'];
-            $expects['dohtml']       = $saves['dohtml'];
-            $expects['dosmiley']     = $saves['dosmiley'];
-            $expects['doxcode']      = $saves['doxcode'];
-            $expects['doimage']      = $saves['doimage'];
-            $expects['dobr']         = $saves['dobr'];
-            $expects['dohtml1']      = $saves['dohtml1'];
-            $expects['dosmiley1']    = $saves['dosmiley1'];
-            $expects['doxcode1']     = $saves['doxcode1'];
-            $expects['doimage1']     = $saves['doimage1'];
-            $expects['dobr1']        = $saves['dobr1'];
+            $expects['gm_zoom'] = $saves['gm_zoom'];
+            $expects['gm_type'] = $saves['gm_type'];
+            $expects['textarea1'] = $saves['textarea1'];
+            $expects['textarea2'] = $saves['textarea2'];
+            $expects['dohtml'] = $saves['dohtml'];
+            $expects['dosmiley'] = $saves['dosmiley'];
+            $expects['doxcode'] = $saves['doxcode'];
+            $expects['doimage'] = $saves['doimage'];
+            $expects['dobr'] = $saves['dobr'];
+            $expects['dohtml1'] = $saves['dohtml1'];
+            $expects['dosmiley1'] = $saves['dosmiley1'];
+            $expects['doxcode1'] = $saves['doxcode1'];
+            $expects['doimage1'] = $saves['doimage1'];
+            $expects['dobr1'] = $saves['dobr1'];
 
             // v1.70: user can change
             $expects['time_publish'] = $saves['time_publish'];
-            $expects['time_expire']  = $saves['time_expire'];
+            $expects['time_expire'] = $saves['time_expire'];
 
             // modify dont have width
             if (isset($saves['width'])) {
-                $expects['width']  = $saves['width'];
+                $expects['width'] = $saves['width'];
                 $expects['height'] = $saves['height'];
             }
         }
 
         // user can not change
-        $expects['hits']         = $saves['hits'];
-        $expects['rating']       = $saves['rating'];
-        $expects['votes']        = $saves['votes'];
-        $expects['comments']     = $saves['comments'];
-        $expects['recommend']    = $saves['recommend'];
-        $expects['mutual']       = $saves['mutual'];
-        $expects['broken']       = $saves['broken'];
-        $expects['rssc_lid']     = $saves['rssc_lid'];
-        $expects['rss_url']      = $saves['rss_url'];
-        $expects['rss_flag']     = $saves['rss_flag'];
+        $expects['hits'] = $saves['hits'];
+        $expects['rating'] = $saves['rating'];
+        $expects['votes'] = $saves['votes'];
+        $expects['comments'] = $saves['comments'];
+        $expects['recommend'] = $saves['recommend'];
+        $expects['mutual'] = $saves['mutual'];
+        $expects['broken'] = $saves['broken'];
+        $expects['rssc_lid'] = $saves['rssc_lid'];
+        $expects['rss_url'] = $saves['rss_url'];
+        $expects['rss_flag'] = $saves['rss_flag'];
         $expects['admincomment'] = $saves['admincomment'];
 
         return [$inputs, $expects];
@@ -357,24 +357,24 @@ class weblinks_test_class_user extends weblinks_test_class
     public function build_input_expect_user_modify($saves, $param_user)
     {
         $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
-        $modify_mode    = $this->get_from_array($param_user, 'modify_mode');
+        $modify_mode = $this->get_from_array($param_user, 'modify_mode');
 
         list($inputs, $expects) = $this->build_input_expect_user($saves, $param_user);
 
-        $inputs['mode']   = $modify_mode;
+        $inputs['mode'] = $modify_mode;
         $inputs['notify'] = 1;
-        $inputs['mid']    = mt_rand(10, 100);
-        $inputs['muid']   = mt_rand(10, 100);
+        $inputs['mid'] = mt_rand(10, 100);
+        $inputs['muid'] = mt_rand(10, 100);
 
-        $expects['mode']   = $modify_mode;
+        $expects['mode'] = $modify_mode;
         $expects['notify'] = 1;
-        $expects['mid']    = 0;
-        $expects['muid']   = $this->_system->get_uid();
-        $expects['cids']   = serialize($inputs['cid']);
+        $expects['mid'] = 0;
+        $expects['muid'] = $this->_system->get_uid();
+        $expects['cids'] = serialize($inputs['cid']);
 
         // user can change
         if ($mode_user_perm > 0) {
-            $expects['rss_url']  = $inputs['rss_url'];
+            $expects['rss_url'] = $inputs['rss_url'];
             $expects['rss_flag'] = $inputs['rss_flag'];
         }
 

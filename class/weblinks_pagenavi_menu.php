@@ -60,11 +60,11 @@ if (!class_exists('weblinks_pagenavi_menu')) {
         public function assign_navi($tpl, $script)
         {
             $show_navi = false;
-            $navi      = '';
+            $navi = '';
 
             //if 2 or more items, show the sort menu
             if ($this->_total > 1) {
-                $navi      = $this->build($script);
+                $navi = $this->build($script);
                 $show_navi = true;
             }
 

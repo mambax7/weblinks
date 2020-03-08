@@ -17,11 +17,11 @@ $genarete = new weblinks_gen_record();
 
 dev_header();
 
-$MAX_CAT    = 10;
+$MAX_CAT = 10;
 $MAX_PARENT = 3;
-$MAX_LINK   = 100;
-$MAX_VOTE   = 30;
-$MAX_COM    = 30;
+$MAX_LINK = 100;
+$MAX_VOTE = 30;
+$MAX_COM = 30;
 
 echo "<h3>generete table data</h3>\n";
 

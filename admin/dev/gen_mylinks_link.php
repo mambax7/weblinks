@@ -18,7 +18,7 @@ $genarete = new weblinks_gen_mylinks();
 
 dev_header();
 
-$CID      = 1;
+$CID = 1;
 $MAX_LINK = 1000;
 
 echo "<h3>generete mylinks link in one category</h3>\n";
@@ -26,7 +26,7 @@ echo "<h3>generete mylinks link in one category</h3>\n";
 for ($i = 1; $i <= $MAX_LINK; ++$i) {
     // link table
     $link_title = $genarete->get_randum_title();
-    $lid        = $genarete->insert_mylinks_link($CID, $link_title);
+    $lid = $genarete->insert_mylinks_link($CID, $link_title);
 
     // text table
     $genarete->insert_mylinks_text($lid, $link_title);

@@ -204,7 +204,7 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 $weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
-$rss_use     = $weblinks_config_handler->get_conf_by_name('rss_use');
+$rss_use = $weblinks_config_handler->get_conf_by_name('rss_use');
 
 //---------------------------------------------------------
 // linkitem
@@ -229,7 +229,7 @@ if (!defined('WEBLINKS_RSSC_URL')) {
 
 // rssc module install check
 $module_handler = xoops_getHandler('module');
-$module         = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
+$module = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
 if (is_object($module)) {
     // rssc module exists check, if missed to remove files
     if (file_exists(WEBLINKS_RSSC_ROOT_PATH . '/include/rssc_version.php')) {

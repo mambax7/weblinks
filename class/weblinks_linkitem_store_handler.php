@@ -75,18 +75,18 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             echo $this->make_table3_title($form_title);
 
             $options = [
-                _WEBLINKS_NO_USE        => 0,
-                _WEBLINKS_USE           => 1,
+                _WEBLINKS_NO_USE => 0,
+                _WEBLINKS_USE => 1,
                 _WEBLINKS_INDISPENSABLE => 2,
             ];
 
             // list from config array
             foreach ($linkitem_arr as $item_id => $linkitem) {
-                $name      = $linkitem['name'];
+                $name = $linkitem['name'];
                 $conf_form = $linkitem['conf_form'];
-                $title     = $linkitem['title'];
+                $title = $linkitem['title'];
                 $user_mode = $linkitem['user_mode'];
-                $desc      = $linkitem['description'];
+                $desc = $linkitem['description'];
 
                 if (0 == $conf_form) {
                     continue;
@@ -180,9 +180,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         {
             parent::__construct();
 
-            $this->_handler        = weblinks_getHandler('linkitem', $dirname);
+            $this->_handler = weblinks_getHandler('linkitem', $dirname);
             $this->_define_handler = weblinks_getHandler('linkitem_define', $dirname);
-            $this->_define         = weblinks_linkitem_define::getInstance($dirname);
+            $this->_define = weblinks_linkitem_define::getInstance($dirname);
 
             $this->_post = happy_linux_post::getInstance();
         }
@@ -294,9 +294,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             $this->_clear_errors();
 
             $itemid_arr = $this->_post->get_post_array_int('item_ids');
-            $mode_arr   = $this->_post->get_post_array_int('user_mode');
-            $title_arr  = $this->_post->get_post_array_text('title');
-            $desc_arr   = $this->_post->get_post_array_text('description');
+            $mode_arr = $this->_post->get_post_array_int('user_mode');
+            $title_arr = $this->_post->get_post_array_text('title');
+            $desc_arr = $this->_post->get_post_array_text('description');
 
             $count = count($itemid_arr);
             if ($count <= 0) {
@@ -313,11 +313,11 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                 }
 
                 $title_current = $obj->getVar('title');
-                $mode_current  = $obj->getVar('user_mode');
-                $desc_current  = $obj->getVar('description');
+                $mode_current = $obj->getVar('user_mode');
+                $desc_current = $obj->getVar('description');
 
                 $title = '';
-                $mode  = 0;
+                $mode = 0;
 
                 if (isset($title_arr[$itemid])) {
                     $title = $title_arr[$itemid];
@@ -383,7 +383,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         public function clean_table()
         {
             $magic = $this->_handler->get_magic_word();
-            $ret   = $this->_handler->clean_table($magic);
+            $ret = $this->_handler->clean_table($magic);
             if (!$ret) {
                 $this->_set_errors($this->_handler->getErrors());
             }

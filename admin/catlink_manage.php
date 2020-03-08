@@ -38,7 +38,7 @@ class admin_catlink_manage extends happy_linux_manage
         $this->set_flag_execute_time(true);
 
         $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
@@ -94,7 +94,7 @@ class admin_form_catlink extends happy_linux_form
         parent::__construct();
 
         $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
@@ -113,7 +113,7 @@ class admin_form_catlink extends happy_linux_form
     public function _show($obj, $extra = null, $mode = 0)
     {
         $form_title = 'modify catlink';
-        $op         = 'mod_table';
+        $op = 'mod_table';
         $button_val = _HAPPY_LINUX_MODIFY;
 
         $this->set_obj($obj);
@@ -121,7 +121,7 @@ class admin_form_catlink extends happy_linux_form
         $cid = $obj->get('cid');
         $lid = $obj->get('lid');
 
-        $cat_title_s  = '';
+        $cat_title_s = '';
         $link_title_s = '';
 
         $cat_obj = &$this->_category_handler->get($cid);
@@ -154,7 +154,7 @@ class admin_form_catlink extends happy_linux_form
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
+        $ele_del = $this->build_html_input_submit('del_table', _DELETE);
         $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
         echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');
 

@@ -83,12 +83,12 @@ class admin_link_list extends happy_linux_page_frame
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
         $this->set_flag_execute_time(true);
 
-        $config_handler        = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
         $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
         $this->_broken_handler = weblinks_getHandler('broken', WEBLINKS_DIRNAME);
 
         $this->_strings = happy_linux_strings::getInstance();
-        $this->_locate  = weblinks_locate_factory::getInstance(WEBLINKS_DIRNAME);
+        $this->_locate = weblinks_locate_factory::getInstance(WEBLINKS_DIRNAME);
 
         // hack for multi site
         if (weblinks_multi_is_japanese_site()) {
@@ -123,13 +123,13 @@ class admin_link_list extends happy_linux_page_frame
     public function &_get_op_sortid_array()
     {
         $arr = [
-            'list_asc'     => 0,
-            'list_desc'    => 1,
-            'list_broken'  => 2,
-            'list_non'     => 3,
-            'list_rss'     => 4,
+            'list_asc' => 0,
+            'list_desc' => 1,
+            'list_broken' => 2,
+            'list_non' => 3,
+            'list_rss' => 4,
             'list_publish' => 5,
-            'list_expire'  => 6,
+            'list_expire' => 6,
             'list_comment' => 7,
         ];
 
@@ -165,13 +165,13 @@ class admin_link_list extends happy_linux_page_frame
 
     public function _get_total()
     {
-        $this->_count_all                 = $this->_get_total_all();
-        $this->_count_non_url             = $this->_handler->get_count_non_url();
-        $this->_count_rss_flag            = $this->_handler->get_count_rss_flag(false);
-        $this->_count_broken              = $this->_handler->get_count_broken();
+        $this->_count_all = $this->_get_total_all();
+        $this->_count_non_url = $this->_handler->get_count_non_url();
+        $this->_count_rss_flag = $this->_handler->get_count_rss_flag(false);
+        $this->_count_broken = $this->_handler->get_count_broken();
         $this->_count_time_publish_before = $this->_handler->get_count_time_publish_before();
-        $this->_count_time_expire_after   = $this->_handler->get_count_time_expire_after();
-        $this->_count_usercomment         = $this->_handler->get_count_usercomment();
+        $this->_count_time_expire_after = $this->_handler->get_count_time_expire_after();
+        $this->_count_usercomment = $this->_handler->get_count_usercomment();
 
         switch ($this->_sortid) {
             case 1:
@@ -240,28 +240,28 @@ class admin_link_list extends happy_linux_page_frame
 
     public function &_get_cols(&$obj)
     {
-        $lid     = $obj->getVar('lid', 'n');
-        $broken  = $obj->getVar('broken', 'n');
-        $title   = $obj->getVar('title', 'n');
+        $lid = $obj->getVar('lid', 'n');
+        $broken = $obj->getVar('broken', 'n');
+        $title = $obj->getVar('title', 'n');
         $title_s = $obj->getVar('title', 's');
-        $url     = $obj->getVar('url', 'n');
-        $url_s   = $obj->getVar('url', 's');
-        $etc1_s  = $obj->getVar('etc1', 's');
-        $etc2_s  = $obj->getVar('etc2', 's');
+        $url = $obj->getVar('url', 'n');
+        $url_s = $obj->getVar('url', 's');
+        $etc1_s = $obj->getVar('etc1', 's');
+        $etc2_s = $obj->getVar('etc2', 's');
 
-        $usercomment_short   = $obj->usercomment_short($this->_MAX_USERCOMMENT);
+        $usercomment_short = $obj->usercomment_short($this->_MAX_USERCOMMENT);
         $usercomment_short_s = $this->sanitize_text($usercomment_short);
 
-        $jump_link    = 'link_manage.php?op=mod_form&lid=';
-        $link_link    = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
+        $jump_link = 'link_manage.php?op=mod_form&lid=';
+        $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
         $url_view_lid = WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
         $url_text_gif = WEBLINKS_URL . '/images/text.gif';
 
         $google_url = $this->_locate->weblinks_build_google_search_url($title);
         $link_title = $this->build_html_a_href_name($google_url, $title_s, '_blank');
 
-        $link_url  = $this->build_html_a_href_name($url, $url_s, '_blank');
-        $img_link  = $this->build_html_img_tag($url_text_gif, 0, 0, 0, 'link');
+        $link_url = $this->build_html_a_href_name($url, $url_s, '_blank');
+        $img_link = $this->build_html_img_tag($url_text_gif, 0, 0, 0, 'link');
         $view_link = $this->build_html_a_href_name($url_view_lid, $img_link, '', false);
 
         $arr = [
@@ -294,9 +294,9 @@ class admin_link_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _print_top()
     {
-        $total_broken              = $this->build_html_highlight_number($this->_count_broken);
+        $total_broken = $this->build_html_highlight_number($this->_count_broken);
         $total_time_publish_before = $this->build_html_highlight_number($this->_count_time_publish_before, 0, '#0000ff', '', 'bold');
-        $total_time_expire_after   = $this->build_html_highlight_number($this->_count_time_expire_after, 0, '#0000ff', '', 'bold');
+        $total_time_expire_after = $this->build_html_highlight_number($this->_count_time_expire_after, 0, '#0000ff', '', 'bold');
 
         switch ($this->_sortid) {
             case 1:

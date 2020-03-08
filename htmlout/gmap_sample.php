@@ -19,8 +19,8 @@
 if (!class_exists('weblinks_htmlout_gmap_sample')) {
     class weblinks_htmlout_gmap_sample extends weblinks_htmlout_base
     {
-        public $_MAX_TITLE_DEFAULT    = -1;
-        public $_MAX_DESC_DEFAULT     = 100;
+        public $_MAX_TITLE_DEFAULT = -1;
+        public $_MAX_DESC_DEFAULT = 100;
         public $_MARKER_WIDTH_DEFAULT = 300;
 
         //---------------------------------------------------------
@@ -52,7 +52,7 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
             $link = $this->get_weblinks_url() . '/singlelink.php?lid=' . $lid;
 
             $info_single = $this->_build_info($url, true);
-            $info_list   = $this->_build_info($link);
+            $info_list = $this->_build_info($link);
 
             $this->set('gm_info_single', $info_single);
             $this->set('gm_info_list', $info_list);
@@ -62,18 +62,18 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
 
         public function _build_info($url, $flag_target = false)
         {
-            $max_title    = (int)$this->get_param_by_num(0, $this->_MAX_TITLE_DEFAULT);
-            $max_desc     = (int)$this->get_param_by_num(1, $this->_MAX_DESC_DEFAULT);
+            $max_title = (int)$this->get_param_by_num(0, $this->_MAX_TITLE_DEFAULT);
+            $max_desc = (int)$this->get_param_by_num(1, $this->_MAX_DESC_DEFAULT);
             $marker_width = (int)$this->get_param_by_num(2, $this->_MARKER_WIDTH_DEFAULT);
 
-            $lid       = $this->get('lid');
-            $title     = $this->get('title');
+            $lid = $this->get('lid');
+            $title = $this->get('title');
             $desc_disp = $this->get('description_disp');
 
             $title_short = happy_linux_mb_shorten($title, $max_title);
-            $summary     = happy_linux_mb_build_summary($desc_disp, $max_desc);
+            $summary = happy_linux_mb_build_summary($desc_disp, $max_desc);
 
-            $url_s   = happy_linux_sanitize_url($url);
+            $url_s = happy_linux_sanitize_url($url);
             $title_s = happy_linux_sanitize_text($title_short);
 
             $target = '';

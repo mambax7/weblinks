@@ -42,11 +42,11 @@ if (!function_exists('weblinks_get_handler')) {
 
     function weblinks_get_where_public($conf_broken, $prefix = '')
     {
-        $broken       = $prefix . 'broken';
+        $broken = $prefix . 'broken';
         $time_publish = $prefix . 'time_publish';
-        $time_expire  = $prefix . 'time_expire';
+        $time_expire = $prefix . 'time_expire';
 
-        $time  = time();
+        $time = time();
         $where = ' ( ' . $broken . ' = 0 OR ' . $broken . ' < ' . $conf_broken . ' ) ';
         $where .= 'AND ( ' . $time_publish . ' = 0 OR ' . $time_publish . ' < ' . $time . ' ) ';
         $where .= 'AND ( ' . $time_expire . ' = 0 OR ' . $time_expire . ' > ' . $time . ' ) ';

@@ -81,7 +81,7 @@ $test->update_config_by_name_array('auth_modify', [1]);
 $test->update_config_by_name_array('auth_modify_auto', [1]);
 
 $link_form_url = $link_url . '?lid=' . $LID;
-$ret           = $test->fetch($link_form_url);
+$ret = $test->fetch($link_form_url);
 if (!$ret) {
     dev_footer();
 }
@@ -103,10 +103,10 @@ $test->update_config_by_name_array('auth_modify', [1, 2]);
 
 $title = 'req-' . $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(7),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(7),
     'rss_flag' => 2,    // rss
 ];
 
@@ -136,10 +136,10 @@ $flag_ok = false;
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,    // non
 ];
 
@@ -156,7 +156,7 @@ if ($is_link_owner) {
     }
 } else {
     $link_form_url = $link_url . '?lid=' . $LID;
-    $ret           = $test->fetch($link_form_url);
+    $ret = $test->fetch($link_form_url);
     if (!$ret) {
         dev_footer();
     }
@@ -184,10 +184,10 @@ $flag_ok = false;
 
 $title = 'mod-' . $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(8),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(8),
     'rss_flag' => 2,    // rss
 ];
 
@@ -204,7 +204,7 @@ if ($is_link_owner) {
     }
 } else {
     $link_form_url = $link_url . '?lid=' . $LID;
-    $ret           = $test->fetch($link_form_url);
+    $ret = $test->fetch($link_form_url);
     if (!$ret) {
         dev_footer();
     }
@@ -242,10 +242,10 @@ $flag_ok = false;
 
 $title = 'mod-' . $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => WEBLINKS_URL . '/dev/rss_4.xml',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => WEBLINKS_URL . '/dev/rss_4.xml',
     'rss_flag' => 2,    // rss
 ];
 
@@ -268,7 +268,7 @@ else {
     echo 'user: <b>' . $test->get_other_uname() . "</b> is not owner <br>\n";
 
     $link_form_url = $link_url . '?lid=' . $LID;
-    $ret           = $test->fetch($link_form_url);
+    $ret = $test->fetch($link_form_url);
     if (!$ret) {
         dev_footer();
     }

@@ -57,7 +57,7 @@ $test->update_config_by_name_array('auth_delete', [1, 2]);
 $test->update_config_by_name_array('auth_delete_auto', [1]);
 
 $param = [
-    'lid'    => $LID,
+    'lid' => $LID,
     'return' => 'delete request link',
 ];
 
@@ -93,7 +93,7 @@ $test->logout();
 echo "<h4>scenario 2: delete & approve </h4>\n";
 
 $param = [
-    'lid'    => $LID,
+    'lid' => $LID,
     'return' => 'delete request link',
 ];
 

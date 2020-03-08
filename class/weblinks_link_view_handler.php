@@ -92,7 +92,7 @@ if (!class_exists('weblinks_link_view_handler')) {
 
         // keyword
         public $_flag_highlight = false;
-        public $_keyword_array  = [];
+        public $_keyword_array = [];
 
         //---------------------------------------------------------
         // constructor
@@ -101,16 +101,16 @@ if (!class_exists('weblinks_link_view_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_plugin    = weblinks_plugin::getInstance($dirname);
-            $this->_htmlout   = weblinks_htmlout::getInstance($dirname);
+            $this->_plugin = weblinks_plugin::getInstance($dirname);
+            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
             $this->_link_view = weblinks_link_view::getInstance($dirname);
 
             $this->_system = happy_linux_system::getInstance();
-            $this->_form   = happy_linux_form::getInstance();
-            $this->_time   = happy_linux_time::getInstance();
+            $this->_form = happy_linux_form::getInstance();
+            $this->_time = happy_linux_time::getInstance();
 
             $this->_system_is_admin = $this->_system->is_module_admin();
-            $this->_system_uid      = $this->_system->get_uid();
+            $this->_system_uid = $this->_system->get_uid();
 
             $this->_htmlout->add_plugin_line('htmlout', $this->_conf['htmlout']);
         }
@@ -138,7 +138,7 @@ if (!class_exists('weblinks_link_view_handler')) {
                 $happy_linux_time->print_lap_time('weblinks_link_basic_handler: latest');
             }
 
-            $arr  = &$this->_link_handler->get_lid_array_latest($limit, $start);
+            $arr = &$this->_link_handler->get_lid_array_latest($limit, $start);
             $list = &$this->_get_link_list_by_lid_array($arr);
 
             if ($this->get_debug_print_time()) {
@@ -152,8 +152,8 @@ if (!class_exists('weblinks_link_view_handler')) {
         public function &get_link_list_create($limit = 0, $start = 0)
         {
             $orderby = 'time_create DESC, lid DESC';
-            $arr     = &$this->_link_handler->get_lid_array_orderby($orderby, $limit, $start);
-            $list    = &$this->_get_link_list_by_lid_array($arr);
+            $arr = &$this->_link_handler->get_lid_array_orderby($orderby, $limit, $start);
+            $list = &$this->_get_link_list_by_lid_array($arr);
 
             return $list;
         }
@@ -161,7 +161,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         // index
         public function &get_owner_list_by_uid($uid, $limit = 0, $start = 0)
         {
-            $arr  = &$this->_link_handler->get_lid_array_by_uid($uid, $limit, $start);
+            $arr = &$this->_link_handler->get_lid_array_by_uid($uid, $limit, $start);
             $list = &$this->_get_link_list_by_lid_array($arr);
 
             return $list;
@@ -173,7 +173,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         // viewcat
         public function &get_link_list_by_cid_sort($cid, $sort, $limit = 0, $start = 0)
         {
-            $lid_arr   = &$this->get_lid_array_by_cid_sort($cid, $sort, $limit, $start);
+            $lid_arr = &$this->get_lid_array_by_cid_sort($cid, $sort, $limit, $start);
             $link_list = &$this->_get_link_list_by_lid_array($lid_arr);
 
             return $link_list;
@@ -182,8 +182,8 @@ if (!class_exists('weblinks_link_view_handler')) {
         // viewcat
         public function &get_link_all_child_list_latest_by_cid($cid, $limit = 0, $start = 0)
         {
-            $orderby   = 'time_update DESC';
-            $lid_arr   = &$this->get_lid_array_all_child_by_cid_orderby($cid, $orderby, $limit, $start);
+            $orderby = 'time_update DESC';
+            $lid_arr = &$this->get_lid_array_all_child_by_cid_orderby($cid, $orderby, $limit, $start);
             $link_list = &$this->_get_link_list_by_lid_array($lid_arr);
 
             return $link_list;
@@ -196,7 +196,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         public function &get_link_list_orderby($orderby, $limit = 0, $start = 0)
         {
             // BUG: topten is unlimited
-            $arr  = &$this->_link_handler->get_lid_array_orderby($orderby, $limit, $start);
+            $arr = &$this->_link_handler->get_lid_array_orderby($orderby, $limit, $start);
             $list = &$this->_get_link_list_by_lid_array($arr);
 
             return $list;
@@ -207,9 +207,9 @@ if (!class_exists('weblinks_link_view_handler')) {
         {
             $this->_clear_errors();
 
-            $i        = 0;
+            $i = 0;
             $rank_arr = [];
-            $cid_arr  = $this->get_cid_array_by_pid(0);
+            $cid_arr = $this->get_cid_array_by_pid(0);
 
             if (count($cid_arr) > $topten_cats) {
                 $this->_set_errors(sprintf(_WLS_TOPTEN_ERROR, $topten_cats));
@@ -221,7 +221,7 @@ if (!class_exists('weblinks_link_view_handler')) {
                 // get all child cat ids for a given cat id
                 $links = &$this->_get_link_parent_child_list_by_cid_orderby($cid, $orderby, $limit, $start);
 
-                $rank_arr[$i]['cid']   = $cid;
+                $rank_arr[$i]['cid'] = $cid;
                 $rank_arr[$i]['title'] = sprintf(_WLS_TOPTEN_TITLE, $ctitle_s, $limit);
                 $rank_arr[$i]['links'] = $links;
 
@@ -282,7 +282,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         // search
         public function &get_link_list_by_cid_array_where_orderby(&$cid_arr, $where, $orderby, $limit = 0, $start = 0)
         {
-            $arr  = &$this->get_lid_array_by_cid_array_where_orderby($cid_arr, $where, $orderby, $limit, $start);
+            $arr = &$this->get_lid_array_by_cid_array_where_orderby($cid_arr, $where, $orderby, $limit, $start);
             $list = &$this->_get_link_list_by_lid_array($arr);
 
             return $list;
@@ -291,7 +291,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         // search
         public function &get_link_list_by_where($where, $limit = 0, $start = 0)
         {
-            $arr  = &$this->_link_handler->get_lid_array_by_where($where, $limit, $start);
+            $arr = &$this->_link_handler->get_lid_array_by_where($where, $limit, $start);
             $list = &$this->_get_link_list_by_lid_array($arr);
 
             return $list;
@@ -327,11 +327,11 @@ if (!class_exists('weblinks_link_view_handler')) {
             $forum_id = $this->get_cat_forum_id_by_cid($cid);
 
             $opts = [
-                'forum_id'     => $forum_id,
-                'dirname'      => $this->_conf['cat_forum_dirname'],
+                'forum_id' => $forum_id,
+                'dirname' => $this->_conf['cat_forum_dirname'],
                 'thread_limit' => $this->_conf['cat_forum_thread_limit'],
-                'post_limit'   => $this->_conf['cat_forum_post_limit'],
-                'post_order'   => $this->_get_forum_post_order('cat_forum_post_order'),
+                'post_limit' => $this->_conf['cat_forum_post_limit'],
+                'post_order' => $this->_get_forum_post_order('cat_forum_post_order'),
             ];
 
             $arr = &$this->_plugin->get_forum_threads_for_cat($opts);
@@ -345,11 +345,11 @@ if (!class_exists('weblinks_link_view_handler')) {
             $forum_id = $this->_link_handler->get_forum_id($lid);
 
             $opts = [
-                'forum_id'     => $forum_id,
-                'dirname'      => $this->_conf['link_forum_dirname'],
+                'forum_id' => $forum_id,
+                'dirname' => $this->_conf['link_forum_dirname'],
                 'thread_limit' => $this->_conf['link_forum_thread_limit'],
-                'post_limit'   => $this->_conf['link_forum_post_limit'],
-                'post_order'   => $this->_get_forum_post_order('link_forum_post_order'),
+                'post_limit' => $this->_conf['link_forum_post_limit'],
+                'post_order' => $this->_get_forum_post_order('link_forum_post_order'),
             ];
 
             $arr = &$this->_plugin->get_forum_threads_for_link($opts);
@@ -382,8 +382,8 @@ if (!class_exists('weblinks_link_view_handler')) {
             $album_id = $this->get_cat_album_id_by_cid($cid);
 
             $opts = [
-                'album_id'    => $album_id,
-                'dirname'     => $this->_conf['cat_album_dirname'],
+                'album_id' => $album_id,
+                'dirname' => $this->_conf['cat_album_dirname'],
                 'album_limit' => $this->_conf['cat_album_limit'],
             ];
 
@@ -398,8 +398,8 @@ if (!class_exists('weblinks_link_view_handler')) {
             $album_id = $this->_link_handler->get_album_id($lid);
 
             $opts = [
-                'album_id'    => $album_id,
-                'dirname'     => $this->_conf['link_album_dirname'],
+                'album_id' => $album_id,
+                'dirname' => $this->_conf['link_album_dirname'],
                 'album_limit' => $this->_conf['link_album_limit'],
             ];
 

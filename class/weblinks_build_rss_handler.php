@@ -65,9 +65,9 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
             $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler   = weblinks_getHandler('link_basic', $dirname);
-            $this->_link_view      = weblinks_link_view::getInstance($dirname);
-            $this->_htmlout        = weblinks_htmlout::getInstance($dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_link_view = weblinks_link_view::getInstance($dirname);
+            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
 
             $this->_conf = $this->_config_handler->get_conf();
             $this->_htmlout->add_plugin_line('rssout', $this->_conf['rssout']);
@@ -146,7 +146,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
             foreach ($arr2 as $k => $v) {
                 // match
                 if (0 === mb_strpos($k, 'rss_')) {
-                    $name        = str_replace('rss_', '', $k);
+                    $name = str_replace('rss_', '', $k);
                     $arr3[$name] = $v;
                 }
             }
@@ -198,25 +198,25 @@ if (!class_exists('weblinks_build_rss_handler')) {
         public function &_build_common_item(&$item)
         {
             // title content
-            $title_xml   = $this->_build_xml_title($item['title']);
+            $title_xml = $this->_build_xml_title($item['title']);
             $content_xml = $this->_build_xml_content($item['content']);
-            $sum_xml     = $this->_build_xml_summary($item['content'], 0, 0);
+            $sum_xml = $this->_build_xml_summary($item['content'], 0, 0);
 
-            $category_xml    = $this->_xml($item['category']);
+            $category_xml = $this->_xml($item['category']);
             $author_name_xml = $this->_xml($item['author_name']);
 
-            $published_unix        = (int)$item['time_create'];
-            $updated_unix          = (int)$item['time_update'];
-            $published_rfc822_xml  = $this->_xml($this->_date_rfc822($published_unix));
-            $updated_rfc822_xml    = $this->_xml($this->_date_rfc822($updated_unix));
+            $published_unix = (int)$item['time_create'];
+            $updated_unix = (int)$item['time_update'];
+            $published_rfc822_xml = $this->_xml($this->_date_rfc822($published_unix));
+            $updated_rfc822_xml = $this->_xml($this->_date_rfc822($updated_unix));
             $published_iso8601_xml = $this->_xml($this->_date_iso8601($published_unix));
-            $updated_iso8601_xml   = $this->_xml($this->_date_iso8601($updated_unix));
+            $updated_iso8601_xml = $this->_xml($this->_date_iso8601($updated_unix));
 
             // geo rss
-            $lat  = null;
+            $lat = null;
             $long = null;
             if ((0 != $item['gm_latitude']) || (0 != $item['gm_longitude']) || (0 != $item['gm_zoom'])) {
-                $lat  = (float)$item['gm_latitude'];
+                $lat = (float)$item['gm_latitude'];
                 $long = (float)$item['gm_longitude'];
             }
 
@@ -229,31 +229,31 @@ if (!class_exists('weblinks_build_rss_handler')) {
             }
 
             $ret = [
-                'link'              => $link_xml,
-                'guid'              => $link_xml,
-                'entry_id'          => '',
-                'author_uri'        => $this->_xml_url($item['author_uri']),
-                'author_email'      => $this->_xml($item['author_email']),
-                'author_name'       => $author_name_xml,
-                'title'             => $title_xml,
-                'summary'           => $sum_xml,
-                'description'       => $sum_xml,
-                'content'           => $content_xml,
-                'category'          => $category_xml,
-                'published_unix'    => $published_unix,  // unixtime
-                'updated_unix'      => $updated_unix,    // unixtime
-                'published_rfc822'  => $published_rfc822_xml,
-                'date_rfc822'       => $published_rfc822_xml,
-                'updated_rfc822'    => $updated_rfc822_xml,
+                'link' => $link_xml,
+                'guid' => $link_xml,
+                'entry_id' => '',
+                'author_uri' => $this->_xml_url($item['author_uri']),
+                'author_email' => $this->_xml($item['author_email']),
+                'author_name' => $author_name_xml,
+                'title' => $title_xml,
+                'summary' => $sum_xml,
+                'description' => $sum_xml,
+                'content' => $content_xml,
+                'category' => $category_xml,
+                'published_unix' => $published_unix,  // unixtime
+                'updated_unix' => $updated_unix,    // unixtime
+                'published_rfc822' => $published_rfc822_xml,
+                'date_rfc822' => $published_rfc822_xml,
+                'updated_rfc822' => $updated_rfc822_xml,
                 'published_iso8601' => $published_iso8601_xml,
-                'date_iso8601'      => $published_iso8601_xml,
-                'updated_iso8601'   => $updated_iso8601_xml,
-                'dc_subject'        => $category_xml,
-                'dc_creator'        => $author_name_xml,
-                'dc_date'           => $published_iso8601_xml,
-                'content_encoded'   => $content_xml,
-                'geo_lat'           => $lat,
-                'geo_long'          => $long,
+                'date_iso8601' => $published_iso8601_xml,
+                'updated_iso8601' => $updated_iso8601_xml,
+                'dc_subject' => $category_xml,
+                'dc_creator' => $author_name_xml,
+                'dc_date' => $published_iso8601_xml,
+                'content_encoded' => $content_xml,
+                'geo_lat' => $lat,
+                'geo_long' => $long,
             ];
 
             return $ret;

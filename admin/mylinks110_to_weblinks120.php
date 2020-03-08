@@ -24,7 +24,7 @@ include 'admin_header.php';
 class admin_import_mylinks extends happy_linux_basic_handler
 {
     public $_MYLINKS_DIRNAME = 'mylinks';
-    public $_LIMIT           = 100;
+    public $_LIMIT = 100;
 
     public $_weblinks_category_handler;
     public $_weblinks_link_handler;
@@ -66,32 +66,32 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->set_debug_db_sql(0);
 
         $this->_system = happy_linux_system::getInstance();
-        $this->_post   = happy_linux_post::getInstance();
-        $this->_form   = happy_linux_form_lib::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_form = happy_linux_form_lib::getInstance();
 
         $this->_weblinks_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_weblinks_catlink_handler  = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_catlink_handler = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
         $this->_weblinks_votedata_handler = weblinks_getHandler('votedata', WEBLINKS_DIRNAME);
-        $this->_weblinks_votedata_table   = $this->prefix('votedata');
+        $this->_weblinks_votedata_table = $this->prefix('votedata');
 
         $this->_weblinks_category_handler->set_debug_db_error(1);
         $this->_weblinks_link_handler->set_debug_db_error(1);
         $this->_weblinks_catlink_handler->set_debug_db_error(1);
         $this->_weblinks_votedata_handler->set_debug_db_error(1);
 
-        $this->_mylinks_cat_table      = $this->db_prefix('mylinks_cat');
-        $this->_mylinks_links_table    = $this->db_prefix('mylinks_links');
-        $this->_mylinks_text_table     = $this->db_prefix('mylinks_text');
+        $this->_mylinks_cat_table = $this->db_prefix('mylinks_cat');
+        $this->_mylinks_links_table = $this->db_prefix('mylinks_links');
+        $this->_mylinks_text_table = $this->db_prefix('mylinks_text');
         $this->_mylinks_votedata_table = $this->db_prefix('mylinks_votedata');
-        $this->_xoopscomments_table    = $this->db_prefix('xoopscomments');
+        $this->_xoopscomments_table = $this->db_prefix('xoopscomments');
 
         $this->_weblinks_shots_url = WEBLINKS_URL . '/images/shots/';
         $this->_weblinks_shots_dir = WEBLINKS_ROOT_PATH . '/images/shots/';
-        $this->_mylinks_shots_dir  = XOOPS_ROOT_PATH . '/modules/' . $this->_MYLINKS_DIRNAME . '/images/shots/';
+        $this->_mylinks_shots_dir = XOOPS_ROOT_PATH . '/modules/' . $this->_MYLINKS_DIRNAME . '/images/shots/';
 
         $this->_weblinks_mid = $this->_system->get_mid();
-        $this->_mylinks_mid  = $this->_system->get_mid_by_dirname($this->_MYLINKS_DIRNAME);
+        $this->_mylinks_mid = $this->_system->get_mid_by_dirname($this->_MYLINKS_DIRNAME);
     }
 
     public static function getInstance()
@@ -124,7 +124,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
-        $this->_next   = $this->_offset + $this->_LIMIT;
+        $this->_next = $this->_offset + $this->_LIMIT;
 
         return $this->_offset;
     }
@@ -165,7 +165,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
     {
         echo "<h4>STEP 1: import shot images</h4>\n";
 
-        $this->_mylinks_shots_dir  = XOOPS_ROOT_PATH . '/modules/' . $this->_MYLINKS_DIRNAME . '/images/shots/';
+        $this->_mylinks_shots_dir = XOOPS_ROOT_PATH . '/modules/' . $this->_MYLINKS_DIRNAME . '/images/shots/';
         $this->_weblinks_shots_dir = WEBLINKS_ROOT_PATH . '/images/shots/';
 
         $file_arr = [];
@@ -193,7 +193,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
             if (is_writable($this->_weblinks_shots_dir)) {
                 foreach ($file_arr as $file) {
                     $file_source = $this->_mylinks_shots_dir . $file;
-                    $file_dest   = $this->_weblinks_shots_dir . $file;
+                    $file_dest = $this->_weblinks_shots_dir . $file;
 
                     if (copy($file_source, $file_dest)) {
                         echo "$file_source -> $file_dest <br>\n";
@@ -246,19 +246,19 @@ class admin_import_mylinks extends happy_linux_basic_handler
         //  editaccess varchar(255) : not use
 
         echo '<h4>STEP 2 : import category table</h4>';
-        $sql1  = 'SELECT * FROM ' . $this->_mylinks_cat_table . ' ORDER BY cid';
+        $sql1 = 'SELECT * FROM ' . $this->_mylinks_cat_table . ' ORDER BY cid';
         $rows1 = &$this->get_rows_by_sql($sql1);
         $total = count($rows1);
 
         echo "There are $total categorys in mylinks<br><br>\n";
 
-        $lflag  = 1;
+        $lflag = 1;
         $orders = 1;
 
         foreach ($rows1 as $row) {
-            $cid    = $row['cid'];
-            $pid    = $row['pid'];
-            $title  = $row['title'];
+            $cid = $row['cid'];
+            $pid = $row['pid'];
+            $title = $row['title'];
             $imgurl = $row['imgurl'];
 
             echo "$cid: $title <br>";
@@ -347,10 +347,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
         $offset = $this->get_post_offset();
 
-        $sql1  = 'SELECT count(*) FROM ' . $this->_mylinks_links_table;
+        $sql1 = 'SELECT count(*) FROM ' . $this->_mylinks_links_table;
         $total = &$this->get_count_by_sql($sql1);
 
-        $sql2  = 'SELECT * FROM ' . $this->_mylinks_links_table . ' ORDER BY lid';
+        $sql2 = 'SELECT * FROM ' . $this->_mylinks_links_table . ' ORDER BY lid';
         $rows2 = &$this->get_rows_by_sql($sql2, $this->_LIMIT, $offset);
 
         $next = $this->_next;
@@ -366,33 +366,33 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_weblinks_category_handler->load();
 
         foreach ($rows2 as $row) {
-            $lid         = $row['lid'];
-            $uid         = $row['submitter'];
-            $cid         = $row['cid'];
-            $title       = $row['title'];
-            $url         = $row['url'];
-            $hits        = $row['hits'];
-            $rating      = $row['rating'];
-            $votes       = $row['votes'];
-            $comments    = $row['comments'];
+            $lid = $row['lid'];
+            $uid = $row['submitter'];
+            $cid = $row['cid'];
+            $title = $row['title'];
+            $url = $row['url'];
+            $hits = $row['hits'];
+            $rating = $row['rating'];
+            $votes = $row['votes'];
+            $comments = $row['comments'];
             $time_create = $row['date'];
             $time_update = $time_create;
-            $logourl     = $row['logourl'];
+            $logourl = $row['logourl'];
 
             echo "$lid: $title <br>";
 
             $cid_arr = [$cid];
-            $banner  = '';
-            $width   = 0;
-            $height  = 0;
+            $banner = '';
+            $width = 0;
+            $height = 0;
 
             if ($logourl) {
-                $banner       = $this->_weblinks_shots_url . $logourl;
+                $banner = $this->_weblinks_shots_url . $logourl;
                 $banner_local = $this->_weblinks_shots_dir . $logourl;
-                $size         = getimagesize($banner_local);
+                $size = getimagesize($banner_local);
 
                 if ($size) {
-                    $width  = (int)$size[0];
+                    $width = (int)$size[0];
                     $height = (int)$size[1];
                 } else {
                     echo "<font color='red'>image size error: $banner</font><br>";
@@ -400,7 +400,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
             }
 
             $description = $this->get_mylinks_description($lid);
-            $passwd      = md5(xoops_makepass());
+            $passwd = md5(xoops_makepass());
 
             // new object
             $obj = new weblinks_link_save(WEBLINKS_DIRNAME);
@@ -440,8 +440,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function get_mylinks_description($lid)
     {
-        $sql  = 'SELECT * FROM ' . $this->_mylinks_text_table . ' WHERE lid=' . $lid;
-        $row  = &$this->get_row_by_sql($sql);
+        $sql = 'SELECT * FROM ' . $this->_mylinks_text_table . ' WHERE lid=' . $lid;
+        $row = &$this->get_row_by_sql($sql);
         $desc = $row['description'];
 
         return $desc;
@@ -470,33 +470,33 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
         $com_id_arr = [];
 
-        $sql1  = 'SELECT * FROM ' . $this->_xoopscomments_table . ' ';
-        $sql1  .= 'WHERE com_modid=' . $this->_mylinks_mid . ' ';
-        $sql1  .= 'ORDER BY com_id ';
+        $sql1 = 'SELECT * FROM ' . $this->_xoopscomments_table . ' ';
+        $sql1 .= 'WHERE com_modid=' . $this->_mylinks_mid . ' ';
+        $sql1 .= 'ORDER BY com_id ';
         $rows1 = &$this->get_rows_by_sql($sql1);
         $total = count($rows1);
 
         echo "There are $total comments <br><br>\n";
 
         foreach ($rows1 as $row) {
-            $com_id       = $row['com_id'];
-            $com_pid      = $row['com_pid'];
-            $com_icon     = $row['com_icon'];
-            $com_sig      = $row['com_sig'];
-            $com_status   = $row['com_status'];
+            $com_id = $row['com_id'];
+            $com_pid = $row['com_pid'];
+            $com_icon = $row['com_icon'];
+            $com_sig = $row['com_sig'];
+            $com_status = $row['com_status'];
             $com_exparams = $row['com_exparams'];
-            $com_itemid   = $row['com_itemid'];
-            $com_uid      = $row['com_uid'];
-            $com_ip       = $row['com_ip'];
-            $com_title    = $row['com_title'];
-            $com_text     = $row['com_text'];
-            $com_created  = $row['com_created'];
+            $com_itemid = $row['com_itemid'];
+            $com_uid = $row['com_uid'];
+            $com_ip = $row['com_ip'];
+            $com_title = $row['com_title'];
+            $com_text = $row['com_text'];
+            $com_created = $row['com_created'];
             $com_modified = $row['com_modified'];
-            $dohtml       = $row['dohtml'];
-            $dosmiley     = $row['dosmiley'];
-            $doxcode      = $row['doxcode'];
-            $doimage      = $row['doimage'];
-            $dobr         = $row['dobr'];
+            $dohtml = $row['dohtml'];
+            $dosmiley = $row['dosmiley'];
+            $doxcode = $row['doxcode'];
+            $doimage = $row['doimage'];
+            $dobr = $row['dobr'];
 
             echo "$com_id: $com_title <br>";
 
@@ -511,14 +511,14 @@ class admin_import_mylinks extends happy_linux_basic_handler
             $this->query($sql2);
             $newid = $this->_db->getInsertId();
 
-            $com_id_new     = $newid;
+            $com_id_new = $newid;
             $com_rootid_new = $newid;
-            $com_pid_new    = 0;
+            $com_pid_new = 0;
 
             if ($com_pid) {
                 if (isset($com_id_arr[$com_pid])) {
                     $com_rootid_new = $com_id_arr[$com_pid]['com_rootid_new'];
-                    $com_pid_new    = $com_id_arr[$com_pid]['com_id_new'];
+                    $com_pid_new = $com_id_arr[$com_pid]['com_id_new'];
                 } else {
                     echo "<font color='red'>pid convert error: $com_id </font><br>";
                 }
@@ -531,7 +531,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
             $this->query($sql3);
 
-            $com_id_arr[$com_id]['com_id_new']     = $com_id_new;
+            $com_id_arr[$com_id]['com_id_new'] = $com_id_new;
             $com_id_arr[$com_id]['com_rootid_new'] = $com_rootid_new;
         }
 
@@ -605,8 +605,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_re_create()
     {
-        $title  = 'STEP 0 : initalize';
-        $op     = 're_create';
+        $title = 'STEP 0 : initalize';
+        $op = 're_create';
         $submit = 'GO STEP 0';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -617,8 +617,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_image()
     {
-        $title  = 'STEP 1 : shot images';
-        $op     = 'import_image';
+        $title = 'STEP 1 : shot images';
+        $op = 'import_image';
         $submit = 'GO STEP 1';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -627,8 +627,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_category()
     {
-        $title  = 'STEP 2 : import category table';
-        $op     = 'import_category';
+        $title = 'STEP 2 : import category table';
+        $op = 'import_category';
         $submit = 'GO STEP 2';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -637,8 +637,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_link()
     {
-        $title  = 'STEP 3 : import link table';
-        $op     = 'import_link';
+        $title = 'STEP 3 : import link table';
+        $op = 'import_link';
         $submit = 'GO STEP 3';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -647,9 +647,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_next_link($offset)
     {
-        $title  = 'STEP 3 : import link table';
+        $title = 'STEP 3 : import link table';
         $submit = 'GO next ' . $this->_LIMIT . ' links';
-        $op     = 'import_link';
+        $op = 'import_link';
 
         echo "<br><hr>\n";
         echo '<h4>' . $title . "</h4>\n";
@@ -658,8 +658,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_votedate()
     {
-        $title  = 'STEP 4 : import votedate table';
-        $op     = 'import_votedate';
+        $title = 'STEP 4 : import votedate table';
+        $op = 'import_votedate';
         $submit = 'GO STEP 4';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -668,8 +668,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _form_comment()
     {
-        $title  = 'STEP 5 : import comment table';
-        $op     = 'import_comment';
+        $title = 'STEP 5 : import comment table';
+        $op = 'import_comment';
         $submit = 'GO STEP 5';
 
         echo '<h4>' . $title . "</h4>\n";
@@ -687,10 +687,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
         }
 
         // show form
-        $limit  = 0;
-        $desc   = '';
+        $limit = 0;
+        $desc = '';
         $action = '';
-        $text   = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
+        $text = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
         echo $text;
     }
 

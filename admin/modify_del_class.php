@@ -40,7 +40,7 @@ class admin_modify_del extends admin_modify_base
     public function list_del()
     {
         $total = $this->_handler->get_count_del();
-        $mid   = $this->get_post_mid();
+        $mid = $this->get_post_mid();
 
         if ($total > 0) {
             if ($mid > 0) {

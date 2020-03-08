@@ -34,118 +34,118 @@
 //================================================================
 class admin_table_manage_zombie extends happy_linux_basic_handler
 {
-public $FLAG_DEBUG_LINK = 0;
+    public $FLAG_DEBUG_LINK = 0;
 
-public $table_link;
-public $table_cat;
-public $table_catlink;
+    public $table_link;
+    public $table_cat;
+    public $table_catlink;
 
-public $_post;
-public $_system;
-public $_form;
+    public $_post;
+    public $_system;
+    public $_form;
 
-public $_op;
-public $_limit;
-public $_offset;
-public $_next;
+    public $_op;
+    public $_limit;
+    public $_offset;
+    public $_next;
 
-public $_THIS_TITLE = 'Zombie Check';
-public $_THIS_URL = 'table_manage_zombie.php';
+    public $_THIS_TITLE = 'Zombie Check';
+    public $_THIS_URL = 'table_manage_zombie.php';
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-    parent::__construct(WEBLINKS_DIRNAME);
-    $this->set_debug_db_sql(WEBLINKS_DEBUG_TABLE_CHECK_SQL);
-    $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        parent::__construct(WEBLINKS_DIRNAME);
+        $this->set_debug_db_sql(WEBLINKS_DEBUG_TABLE_CHECK_SQL);
+        $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
 
-    // hack for multi site
-    if (WEBLINKS_FLAG_MULTI_SITE) {
-        $this->renew_prefix(WEBLINKS_DB_PREFIX);
+        // hack for multi site
+        if (WEBLINKS_FLAG_MULTI_SITE) {
+            $this->renew_prefix(WEBLINKS_DB_PREFIX);
+        }
+
+        // table name
+        $this->table_link = $this->prefix('link');
+        $this->table_cat = $this->prefix('category');
+        $this->table_catlink = $this->prefix('catlink');
+
+        $this->_post = happy_linux_post::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_form = admin_table_manage_zombie_form::getInstance();
     }
 
-    // table name
-    $this->table_link    = $this->prefix('link');
-    $this->table_cat     = $this->prefix('category');
-    $this->table_catlink = $this->prefix('catlink');
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
 
-    $this->_post   = happy_linux_post::getInstance();
-    $this->_system = happy_linux_system::getInstance();
-    $this->_form   = admin_table_manage_zombie_form::getInstance();
-}
-
-public static function getInstance()
-{
-    static $instance;
-    if (null === $instance) {
-        $instance = new static();
+        return $instance;
     }
 
-    return $instance;
-}
+    //---------------------------------------------------------
+    // function
+    //---------------------------------------------------------
+    public function get_post_param()
+    {
+        $op = $this->get_post_op();
+        $limit = $this->get_post_limit();
+        $offset = $this->get_post_offset();
+        $this->_next = $limit + $offset;
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-public function get_post_param()
-{
-    $op          = $this->get_post_op();
-    $limit       = $this->get_post_limit();
-    $offset      = $this->get_post_offset();
-    $this->_next = $limit + $offset;
+        return $op;
+    }
 
-    return $op;
-}
+    public function get_post_op()
+    {
+        $this->_op = $this->_post->get_post_get('op');
 
-public function get_post_op()
-{
-    $this->_op = $this->_post->get_post_get('op');
+        return $this->_op;
+    }
 
-    return $this->_op;
-}
+    public function get_post_limit()
+    {
+        $this->_limit = $this->_post->get_post_get('limit');
 
-public function get_post_limit()
-{
-    $this->_limit = $this->_post->get_post_get('limit');
+        return $this->_limit;
+    }
 
-    return $this->_limit;
-}
+    public function get_post_offset()
+    {
+        $this->_offset = $this->_post->get_post_get('offset');
 
-public function get_post_offset()
-{
-    $this->_offset = $this->_post->get_post_get('offset');
+        return $this->_offset;
+    }
 
-    return $this->_offset;
-}
+    //---------------------------------------------------------
+    // menu
+    //---------------------------------------------------------
+    public function menu()
+    {
+        weblinks_admin_print_header();
+        weblinks_admin_print_menu();
 
-//---------------------------------------------------------
-// menu
-//---------------------------------------------------------
-public function menu()
-{
-    weblinks_admin_print_header();
-    weblinks_admin_print_menu();
+        echo '<h3>' . _AM_WEBLINKS_TABLE_MANAGE . "</h3>\n";
 
-    echo '<h3>' . _AM_WEBLINKS_TABLE_MANAGE . "</h3>\n";
+        $this->print_menu_zombie($this->_THIS_URL);
+    }
 
-    $this->print_menu_zombie($this->_THIS_URL);
-}
+    public function print_menu_zombie($action)
+    {
+        $submit = 'Goto Zombie Check';
 
-public function print_menu_zombie($action)
-{
-    $submit = 'Goto Zombie Check';
+        echo '<h4>' . $this->_THIS_TITLE . "</h4>\n";
+        echo "check adjustment of link table, category table and catlink table <br>\n";
+        echo "<br>\n";
 
-    echo '<h4>' . $this->_THIS_TITLE . "</h4>\n";
-    echo "check adjustment of link table, category table and catlink table <br>\n";
-    echo "<br>\n";
-
-    $total_link            = $this->get_num_from_link();
-    $total_cat             = $this->get_num_from_cat();
-    $total_catlink         = $this->get_num_from_catlink();
-    $num_link_from_catlink = $this->get_num_link_from_catlink();
-    $num_cat_from_catlink  = $this->get_num_cat_from_catlink(); ?>
+        $total_link = $this->get_num_from_link();
+        $total_cat = $this->get_num_from_cat();
+        $total_catlink = $this->get_num_from_catlink();
+        $num_link_from_catlink = $this->get_num_link_from_catlink();
+        $num_cat_from_catlink = $this->get_num_cat_from_catlink(); ?>
     <table>
         <tr>
             <td>lid of link table</td>
@@ -175,27 +175,27 @@ public function print_menu_zombie($action)
         echo "<font color='red'>unmatch number of lids</font><br>\n";
     }
 
-    if ($total_cat < $num_cat_from_catlink) {
-        echo "<font color='red'>unmatch number of cids</font><br>\n";
-    } elseif ($total_cat != $num_cat_from_catlink) {
-        echo "unmatch number of cids, may be OK<br>\n";
+        if ($total_cat < $num_cat_from_catlink) {
+            echo "<font color='red'>unmatch number of cids</font><br>\n";
+        } elseif ($total_cat != $num_cat_from_catlink) {
+            echo "unmatch number of cids, may be OK<br>\n";
+        }
+
+        $this->_form->show_zombie_start($this->_THIS_TITLE, $action);
     }
 
-    $this->_form->show_zombie_start($this->_THIS_TITLE, $action);
-}
+    //---------------------------------------------------------
+    // check
+    //---------------------------------------------------------
+    public function check_all()
+    {
+        $total_link = $this->get_num_from_link();
+        $total_cat = $this->get_num_from_cat();
+        $total_catlink = $this->get_num_from_catlink();
 
-//---------------------------------------------------------
-// check
-//---------------------------------------------------------
-public function check_all()
-{
-    $total_link    = $this->get_num_from_link();
-    $total_cat     = $this->get_num_from_cat();
-    $total_catlink = $this->get_num_from_catlink();
-
-    $title = 'check all';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n"; ?>
+        $title = 'check all';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n"; ?>
     <table>
         <tr>
             <td>total link</td>
@@ -213,387 +213,387 @@ public function check_all()
     <br>
     <?php
 
-    $lid_from_link    = $this->get_lid_from_link();
-    $cid_from_cat     = $this->get_cid_from_cat();
-    $lid_from_catlink = $this->get_lid_from_catlink();
-    $cid_from_catlink = $this->get_cid_from_catlink();
+    $lid_from_link = $this->get_lid_from_link();
+        $cid_from_cat = $this->get_cid_from_cat();
+        $lid_from_catlink = $this->get_lid_from_catlink();
+        $cid_from_catlink = $this->get_cid_from_catlink();
 
-    // check zombie link
-    $lid_res_arr = $this->check_in_array($lid_from_link, $lid_from_catlink);
-    if (count($lid_res_arr)) {
-        $this->print_form_del_link_from_catlink($lid_res_arr);
+        // check zombie link
+        $lid_res_arr = $this->check_in_array($lid_from_link, $lid_from_catlink);
+        if (count($lid_res_arr)) {
+            $this->print_form_del_link_from_catlink($lid_res_arr);
 
-        return;
-    }
+            return;
+        }
 
-    echo "OK check lid of link in catlink table<br>\n";
+        echo "OK check lid of link in catlink table<br>\n";
 
-    // check zombie category
-    $cid_res_arr = $this->check_in_array($cid_from_cat, $cid_from_catlink);
-    if (count($cid_res_arr)) {
-        $this->print_form_del_cat_from_catlink($cid_res_arr);
+        // check zombie category
+        $cid_res_arr = $this->check_in_array($cid_from_cat, $cid_from_catlink);
+        if (count($cid_res_arr)) {
+            $this->print_form_del_cat_from_catlink($cid_res_arr);
 
-        return;
-    }
+            return;
+        }
 
-    echo "OK check cid of categoty in catlink table<br>\n";
+        echo "OK check cid of categoty in catlink table<br>\n";
 
-    // check link without category
-    $lid_res_arr = $this->check_in_array($lid_from_catlink, $lid_from_link);
-    if (count($lid_res_arr)) {
-        $this->print_form_del_link($lid_res_arr);
+        // check link without category
+        $lid_res_arr = $this->check_in_array($lid_from_catlink, $lid_from_link);
+        if (count($lid_res_arr)) {
+            $this->print_form_del_link($lid_res_arr);
 
-        return;
-    }
+            return;
+        }
 
-    echo "OK check lid of catlink in link table<br>\n";
+        echo "OK check lid of catlink in link table<br>\n";
 
-    // check link without category
-    $cid_res_arr = $this->check_in_array($cid_from_catlink, $cid_from_cat);
-    if (count($cid_res_arr)) {
-        $this->print_cat_list($cid_res_arr);
+        // check link without category
+        $cid_res_arr = $this->check_in_array($cid_from_catlink, $cid_from_cat);
+        if (count($cid_res_arr)) {
+            $this->print_cat_list($cid_res_arr);
 
-        return;
-    }
+            return;
+        }
 
-    echo "OK check lid of catlink in link table<br>\n";
+        echo "OK check lid of catlink in link table<br>\n";
 
-    $this->_print_finish();
-}
-
-public function check_link_in_catlink()
-{
-    $total_link       = $this->get_num_from_link();
-    $total_catlink    = $this->get_num_link_from_catlink();
-    $lid_from_link    = $this->get_lid_from_link();
-    $lid_from_catlink = $this->get_lid_from_catlink($this->_limit, $this->_offset);
-
-    $title = 'check catlink table';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
-
-    echo "check lid of link in catlink table <br>\n";
-    echo "total link: $total_link <br>\n";
-    echo "$this->_offset -> $this->_next in catlink $total_catlink <br>\n";
-
-    // check zombie link
-    $lid_res_arr = $this->check_in_array($lid_from_link, $lid_from_catlink);
-    if (count($lid_res_arr)) {
-        $this->print_form_del_link_from_catlink($lid_res_arr);
-
-        return;
-    }
-
-    // next
-    if (($this->_limit > 0) && ($this->_next < $total_catlink)) {
-        $this->_print_form_next();
-    } else {
-        $this->_print_check_next('check_cat_in_catlink');
-    }
-}
-
-public function check_cat_in_catlink()
-{
-    $total_cat        = $this->get_num_from_cat();
-    $total_catlink    = $this->get_num_cat_from_catlink();
-    $cid_from_cat     = $this->get_cid_from_cat();
-    $cid_from_catlink = $this->get_cid_from_catlink($this->_limit, $this->_offset);
-
-    $title = 'check catlink table';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
-
-    echo "check cid of categoty in catlink table <br>\n";
-    echo "total category: $total_cat <br>\n";
-    echo "$this->_offset -> $this->_next in catlink $total_catlink<br>\n";
-
-    // check zombie category
-    $cid_res_arr = $this->check_in_array($cid_from_cat, $cid_from_catlink);
-    if (count($cid_res_arr)) {
-        $this->print_form_del_cat_from_catlink($cid_res_arr);
-
-        return;
-    }
-
-    // next
-    $this->_next = $this->_offset + $this->_limit;
-    if (($this->_limit > 0) && ($this->_next < $total_catlink)) {
-        $this->_print_form_next();
-    } else {
-        $this->_print_check_next('check_catlink_in_link');
-    }
-}
-
-public function check_catlink_in_link()
-{
-    $total_link       = $this->get_num_from_link();
-    $total_catlink    = $this->get_num_link_from_catlink();
-    $lid_from_link    = $this->get_lid_from_link($this->_limit, $this->_offset);
-    $lid_from_catlink = $this->get_lid_from_catlink();
-
-    $title = 'check link table';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
-
-    echo "check lid of catlink in link table <br>\n";
-    echo "total catlink: $total_catlink <br>\n";
-    echo "$this->_offset -> $this->_next in link $total_link <br>\n";
-
-    // check link without category
-    $lid_res_arr = $this->check_in_array($lid_from_catlink, $lid_from_link);
-    if (count($lid_res_arr)) {
-        $this->print_form_del_link($lid_res_arr);
-
-        return;
-    }
-
-    // next
-    if (($this->_limit > 0) && ($this->_next < $total_link)) {
-        $this->_print_form_next();
-    } else {
-        $this->_print_check_next('check_catlink_in_cat');
-    }
-}
-
-public function check_catlink_in_cat()
-{
-    $total_cat        = $this->get_num_from_cat();
-    $total_catlink    = $this->get_num_cat_from_catlink();
-    $cid_from_cat     = $this->get_cid_from_cat($this->_limit, $this->_offset);
-    $cid_from_catlink = $this->get_cid_from_catlink();
-
-    $title = 'check category table';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
-
-    echo "check cid of catlink in category table <br>\n";
-    echo "total catlink: $total_catlink <br>\n";
-    echo "$this->_offset -> $this->_next in category $total_cat <br>\n";
-
-    // check link without category
-    $cid_res_arr = $this->check_in_array($cid_from_catlink, $cid_from_cat);
-    if (count($cid_res_arr)) {
-        $this->print_cat_list($cid_res_arr);
-
-        return;
-    }
-
-    // next
-    if (($this->_limit > 0) && ($this->_next < $total_cat)) {
-        $this->_print_form_next();
-    } else {
         $this->_print_finish();
     }
-}
 
-// check id of arr_2 in arr_1
-public function check_in_array($arr_1, $arr_2)
-{
-    $arr_3 = [];
+    public function check_link_in_catlink()
+    {
+        $total_link = $this->get_num_from_link();
+        $total_catlink = $this->get_num_link_from_catlink();
+        $lid_from_link = $this->get_lid_from_link();
+        $lid_from_catlink = $this->get_lid_from_catlink($this->_limit, $this->_offset);
 
-    foreach ($arr_2 as $id) {
-        if (!in_array($id, $arr_1)) {
-            $arr_3[] = $id;
+        $title = 'check catlink table';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
+
+        echo "check lid of link in catlink table <br>\n";
+        echo "total link: $total_link <br>\n";
+        echo "$this->_offset -> $this->_next in catlink $total_catlink <br>\n";
+
+        // check zombie link
+        $lid_res_arr = $this->check_in_array($lid_from_link, $lid_from_catlink);
+        if (count($lid_res_arr)) {
+            $this->print_form_del_link_from_catlink($lid_res_arr);
+
+            return;
+        }
+
+        // next
+        if (($this->_limit > 0) && ($this->_next < $total_catlink)) {
+            $this->_print_form_next();
+        } else {
+            $this->_print_check_next('check_cat_in_catlink');
         }
     }
 
-    return $arr_3;
-}
+    public function check_cat_in_catlink()
+    {
+        $total_cat = $this->get_num_from_cat();
+        $total_catlink = $this->get_num_cat_from_catlink();
+        $cid_from_cat = $this->get_cid_from_cat();
+        $cid_from_catlink = $this->get_cid_from_catlink($this->_limit, $this->_offset);
 
-//---------------------------------------------------------
-// delete data from table
-//---------------------------------------------------------
-public function del_link_from_link()
-{
-    $title = 'DELETE link FROM link TABLE';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
+        $title = 'check catlink table';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
 
-    $lid_arr = [];
-    if (isset($_POST['lid'])) {
-        $lid_arr = $_POST['lid'];
+        echo "check cid of categoty in catlink table <br>\n";
+        echo "total category: $total_cat <br>\n";
+        echo "$this->_offset -> $this->_next in catlink $total_catlink<br>\n";
+
+        // check zombie category
+        $cid_res_arr = $this->check_in_array($cid_from_cat, $cid_from_catlink);
+        if (count($cid_res_arr)) {
+            $this->print_form_del_cat_from_catlink($cid_res_arr);
+
+            return;
+        }
+
+        // next
+        $this->_next = $this->_offset + $this->_limit;
+        if (($this->_limit > 0) && ($this->_next < $total_catlink)) {
+            $this->_print_form_next();
+        } else {
+            $this->_print_check_next('check_catlink_in_link');
+        }
     }
 
-    foreach ($lid_arr as $lid) {
-        echo "lid: $lid <br>\n";
-        $this->del_link_by_lid($lid);
+    public function check_catlink_in_link()
+    {
+        $total_link = $this->get_num_from_link();
+        $total_catlink = $this->get_num_link_from_catlink();
+        $lid_from_link = $this->get_lid_from_link($this->_limit, $this->_offset);
+        $lid_from_catlink = $this->get_lid_from_catlink();
+
+        $title = 'check link table';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
+
+        echo "check lid of catlink in link table <br>\n";
+        echo "total catlink: $total_catlink <br>\n";
+        echo "$this->_offset -> $this->_next in link $total_link <br>\n";
+
+        // check link without category
+        $lid_res_arr = $this->check_in_array($lid_from_catlink, $lid_from_link);
+        if (count($lid_res_arr)) {
+            $this->print_form_del_link($lid_res_arr);
+
+            return;
+        }
+
+        // next
+        if (($this->_limit > 0) && ($this->_next < $total_link)) {
+            $this->_print_form_next();
+        } else {
+            $this->_print_check_next('check_catlink_in_cat');
+        }
     }
 
-    $this->_print_check_again_del('check_catlink_in_link');
-}
+    public function check_catlink_in_cat()
+    {
+        $total_cat = $this->get_num_from_cat();
+        $total_catlink = $this->get_num_cat_from_catlink();
+        $cid_from_cat = $this->get_cid_from_cat($this->_limit, $this->_offset);
+        $cid_from_catlink = $this->get_cid_from_catlink();
 
-public function del_link_from_catlink()
-{
-    $title = 'DELETE link FROM catlink TABLE';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
+        $title = 'check category table';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
 
-    $lid_arr = [];
-    if (isset($_POST['lid'])) {
-        $lid_arr = $_POST['lid'];
+        echo "check cid of catlink in category table <br>\n";
+        echo "total catlink: $total_catlink <br>\n";
+        echo "$this->_offset -> $this->_next in category $total_cat <br>\n";
+
+        // check link without category
+        $cid_res_arr = $this->check_in_array($cid_from_catlink, $cid_from_cat);
+        if (count($cid_res_arr)) {
+            $this->print_cat_list($cid_res_arr);
+
+            return;
+        }
+
+        // next
+        if (($this->_limit > 0) && ($this->_next < $total_cat)) {
+            $this->_print_form_next();
+        } else {
+            $this->_print_finish();
+        }
     }
 
-    foreach ($lid_arr as $lid) {
-        echo "lid: $lid <br>\n";
-        $this->del_catlink_by_lid($lid);
+    // check id of arr_2 in arr_1
+    public function check_in_array($arr_1, $arr_2)
+    {
+        $arr_3 = [];
+
+        foreach ($arr_2 as $id) {
+            if (!in_array($id, $arr_1)) {
+                $arr_3[] = $id;
+            }
+        }
+
+        return $arr_3;
     }
 
-    $this->_print_check_again_del('check_link_in_catlink');
-}
+    //---------------------------------------------------------
+    // delete data from table
+    //---------------------------------------------------------
+    public function del_link_from_link()
+    {
+        $title = 'DELETE link FROM link TABLE';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
 
-public function del_cat_from_catlink()
-{
-    $title = 'DELETE category FROM catlink TABLE';
-    $this->print_bread($title);
-    echo '<h4>' . $title . "</h4>\n";
+        $lid_arr = [];
+        if (isset($_POST['lid'])) {
+            $lid_arr = $_POST['lid'];
+        }
 
-    $cid_arr = [];
-    if (isset($_POST['cid'])) {
-        $cid_arr = $_POST['cid'];
+        foreach ($lid_arr as $lid) {
+            echo "lid: $lid <br>\n";
+            $this->del_link_by_lid($lid);
+        }
+
+        $this->_print_check_again_del('check_catlink_in_link');
     }
 
-    foreach ($cid_arr as $cid) {
-        echo "cid: $cid <br>\n";
-        $this->del_catlink_by_cid($cid);
+    public function del_link_from_catlink()
+    {
+        $title = 'DELETE link FROM catlink TABLE';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
+
+        $lid_arr = [];
+        if (isset($_POST['lid'])) {
+            $lid_arr = $_POST['lid'];
+        }
+
+        foreach ($lid_arr as $lid) {
+            echo "lid: $lid <br>\n";
+            $this->del_catlink_by_lid($lid);
+        }
+
+        $this->_print_check_again_del('check_link_in_catlink');
     }
 
-    $this->_print_check_again_del('check_cat_in_catlink');
-}
+    public function del_cat_from_catlink()
+    {
+        $title = 'DELETE category FROM catlink TABLE';
+        $this->print_bread($title);
+        echo '<h4>' . $title . "</h4>\n";
 
-//---------------------------------------------------------
-// SQL function
-//---------------------------------------------------------
-public function get_num_from_link()
-{
-    $sql   = 'SELECT count(*) FROM ' . $this->table_link;
-    $count = $this->get_count_by_sql($sql);
+        $cid_arr = [];
+        if (isset($_POST['cid'])) {
+            $cid_arr = $_POST['cid'];
+        }
 
-    return $count;
-}
+        foreach ($cid_arr as $cid) {
+            echo "cid: $cid <br>\n";
+            $this->del_catlink_by_cid($cid);
+        }
 
-public function get_num_from_cat()
-{
-    $sql = 'SELECT count(*) FROM ' . $this->table_cat;
-
-    return $this->get_count_by_sql($sql);
-}
-
-public function get_num_from_catlink()
-{
-    $sql   = 'SELECT count(*) FROM ' . $this->table_catlink;
-    $count = $this->get_count_by_sql($sql);
-
-    return $count;
-}
-
-public function get_num_link_from_catlink()
-{
-    $num = 0;
-    $sql = 'SELECT DISTINCT lid FROM ' . $this->table_catlink . ' ORDER BY lid';
-    $arr = $this->get_first_row_by_sql($sql);
-    if (is_array($arr)) {
-        $num = count($arr);
+        $this->_print_check_again_del('check_cat_in_catlink');
     }
 
-    return $num;
-}
+    //---------------------------------------------------------
+    // SQL function
+    //---------------------------------------------------------
+    public function get_num_from_link()
+    {
+        $sql = 'SELECT count(*) FROM ' . $this->table_link;
+        $count = $this->get_count_by_sql($sql);
 
-public function get_num_cat_from_catlink()
-{
-    $num = 0;
-    $sql = 'SELECT DISTINCT cid FROM ' . $this->table_catlink . ' ORDER BY cid';
-    $arr = $this->get_first_row_by_sql($sql);
-    if (is_array($arr)) {
-        $num = count($arr);
+        return $count;
     }
 
-    return $num;
-}
+    public function get_num_from_cat()
+    {
+        $sql = 'SELECT count(*) FROM ' . $this->table_cat;
 
-public function get_lid_from_link($limit = 0, $offset = 0)
-{
-    $sql = 'SELECT lid FROM .' . $this->table_link . ' ORDER BY lid';
-    $row = $this->get_first_row_by_sql($sql, $limit, $offset);
+        return $this->get_count_by_sql($sql);
+    }
 
-    return $row;
-}
+    public function get_num_from_catlink()
+    {
+        $sql = 'SELECT count(*) FROM ' . $this->table_catlink;
+        $count = $this->get_count_by_sql($sql);
 
-public function get_lid_from_catlink($limit = 0, $offset = 0)
-{
-    $sql = 'SELECT DISTINCT lid FROM ' . $this->table_catlink . ' ORDER BY lid';
-    $row = $this->get_first_row_by_sql($sql, $limit, $offset);
+        return $count;
+    }
 
-    return $row;
-}
+    public function get_num_link_from_catlink()
+    {
+        $num = 0;
+        $sql = 'SELECT DISTINCT lid FROM ' . $this->table_catlink . ' ORDER BY lid';
+        $arr = $this->get_first_row_by_sql($sql);
+        if (is_array($arr)) {
+            $num = count($arr);
+        }
 
-public function get_cid_from_cat($limit = 0, $offset = 0)
-{
-    $sql = 'SELECT cid FROM .' . $this->table_cat . ' ORDER BY cid';
-    $row = $this->get_first_row_by_sql($sql, $limit, $offset);
+        return $num;
+    }
 
-    return $row;
-}
+    public function get_num_cat_from_catlink()
+    {
+        $num = 0;
+        $sql = 'SELECT DISTINCT cid FROM ' . $this->table_catlink . ' ORDER BY cid';
+        $arr = $this->get_first_row_by_sql($sql);
+        if (is_array($arr)) {
+            $num = count($arr);
+        }
 
-public function get_cid_from_catlink($limit = 0, $offset = 0)
-{
-    $sql = 'SELECT DISTINCT cid FROM ' . $this->table_catlink . ' ORDER BY cid';
-    $row = $this->get_first_row_by_sql($sql, $limit, $offset);
+        return $num;
+    }
 
-    return $row;
-}
+    public function get_lid_from_link($limit = 0, $offset = 0)
+    {
+        $sql = 'SELECT lid FROM .' . $this->table_link . ' ORDER BY lid';
+        $row = $this->get_first_row_by_sql($sql, $limit, $offset);
 
-public function get_link_title_by_lid($lid)
-{
-    $sql   = 'SELECT title FROM ' . $this->table_link . " WHERE lid=$lid";
-    $row   = $this->get_row_by_sql($sql);
-    $title = $row['title'];
+        return $row;
+    }
 
-    return $title;
-}
+    public function get_lid_from_catlink($limit = 0, $offset = 0)
+    {
+        $sql = 'SELECT DISTINCT lid FROM ' . $this->table_catlink . ' ORDER BY lid';
+        $row = $this->get_first_row_by_sql($sql, $limit, $offset);
 
-public function get_cat_title_by_cid($cid)
-{
-    $sql   = 'SELECT title FROM ' . $this->table_cat . " WHERE cid=$cid";
-    $row   = $this->get_row_by_sql($sql);
-    $title = $row['title'];
+        return $row;
+    }
 
-    return $title;
-}
+    public function get_cid_from_cat($limit = 0, $offset = 0)
+    {
+        $sql = 'SELECT cid FROM .' . $this->table_cat . ' ORDER BY cid';
+        $row = $this->get_first_row_by_sql($sql, $limit, $offset);
 
-public function del_link_by_lid($lid)
-{
-    $sql = 'DELETE FROM ' . $this->table_link . " WHERE lid=$lid";
-    $this->query($sql);
-}
+        return $row;
+    }
 
-public function del_catlink_by_lid($lid)
-{
-    $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE lid=$lid";
-    $this->query($sql);
-}
+    public function get_cid_from_catlink($limit = 0, $offset = 0)
+    {
+        $sql = 'SELECT DISTINCT cid FROM ' . $this->table_catlink . ' ORDER BY cid';
+        $row = $this->get_first_row_by_sql($sql, $limit, $offset);
 
-public function del_catlink_by_cid($cid)
-{
-    $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE cid=$cid";
-    $this->query($sql);
-}
+        return $row;
+    }
 
-//---------------------------------------------------------
-// form
-//---------------------------------------------------------
-public function _print_form_next()
-{
-    echo "<br>\n";
+    public function get_link_title_by_lid($lid)
+    {
+        $sql = 'SELECT title FROM ' . $this->table_link . " WHERE lid=$lid";
+        $row = $this->get_row_by_sql($sql);
+        $title = $row['title'];
 
-    $title  = '';
-    $desc   = '';
-    $submit = 'NEXT ' . $this->_limit;
-    echo $this->_form->build_lib_box_limit_offset($title, $desc, $this->_limit, $this->_next, $this->_op, $submit);
-}
+        return $title;
+    }
 
-public function print_form_del_link_from_catlink($lid_arr)
-{
-    $count = count($lid_arr); ?>
+    public function get_cat_title_by_cid($cid)
+    {
+        $sql = 'SELECT title FROM ' . $this->table_cat . " WHERE cid=$cid";
+        $row = $this->get_row_by_sql($sql);
+        $title = $row['title'];
+
+        return $title;
+    }
+
+    public function del_link_by_lid($lid)
+    {
+        $sql = 'DELETE FROM ' . $this->table_link . " WHERE lid=$lid";
+        $this->query($sql);
+    }
+
+    public function del_catlink_by_lid($lid)
+    {
+        $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE lid=$lid";
+        $this->query($sql);
+    }
+
+    public function del_catlink_by_cid($cid)
+    {
+        $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE cid=$cid";
+        $this->query($sql);
+    }
+
+    //---------------------------------------------------------
+    // form
+    //---------------------------------------------------------
+    public function _print_form_next()
+    {
+        echo "<br>\n";
+
+        $title = '';
+        $desc = '';
+        $submit = 'NEXT ' . $this->_limit;
+        echo $this->_form->build_lib_box_limit_offset($title, $desc, $this->_limit, $this->_next, $this->_op, $submit);
+    }
+
+    public function print_form_del_link_from_catlink($lid_arr)
+    {
+        $count = count($lid_arr); ?>
     <br>
     <hr>
     <h4><font color='red'>ERROR</font></h4>
@@ -619,11 +619,11 @@ public function print_form_del_link_from_catlink($lid_arr)
     <?php
 
     $this->_print_finish();
-}
+    }
 
-public function print_form_del_cat_from_catlink($cid_arr)
-{
-    $count = count($cid_arr); ?>
+    public function print_form_del_cat_from_catlink($cid_arr)
+    {
+        $count = count($cid_arr); ?>
     <br>
     <hr>
     <h4><font color='red'>ERROR</font></h4>
@@ -647,11 +647,11 @@ public function print_form_del_cat_from_catlink($cid_arr)
     <?php
 
     $this->_print_finish();
-}
+    }
 
-public function print_form_del_link($lid_arr)
-{
-    $count = count($lid_arr); ?>
+    public function print_form_del_link($lid_arr)
+    {
+        $count = count($lid_arr); ?>
     <h4><font color='red'>ERROR</font></h4>
     There are <b><?php echo $count; ?></b> links without category in link table <br>
     <br>
@@ -691,12 +691,12 @@ public function print_form_del_link($lid_arr)
         echo "</form>\n";
     }
 
-    $this->_print_finish();
-}
+        $this->_print_finish();
+    }
 
-public function print_cat_list($cid_arr)
-{
-$count = count($cid_arr); ?>
+    public function print_cat_list($cid_arr)
+    {
+        $count = count($cid_arr); ?>
 <h4>Notice</h4>
 There are <b><?php echo $count; ?></b> categories without link in category table <br>
 <br>
@@ -718,8 +718,8 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         echo "</tr>\n";
     }
 
-    echo "</table>\n";
-    $this->_print_finish();
+        echo "</table>\n";
+        $this->_print_finish();
     }
 
     public function _build_category_manage($cid)
@@ -787,15 +787,15 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         $arr = [
             [
                 'name' => $this->_system->get_module_name(),
-                'url'  => 'index.php',
+                'url' => 'index.php',
             ],
             [
                 'name' => _AM_WEBLINKS_TABLE_MANAGE,
-                'url'  => 'table_manage.php',
+                'url' => 'table_manage.php',
             ],
             [
                 'name' => $this->_THIS_TITLE,
-                'url'  => $this->_THIS_URL,
+                'url' => $this->_THIS_URL,
             ],
         ];
 
@@ -807,8 +807,9 @@ There are <b><?php echo $count; ?></b> categories without link in category table
 
         echo $this->_form->build_html_bread_crumb($arr);
     }
+
     // --- class end ---
-    }
+}
 
     //=========================================================
     // class admin_table_manage_zombie_form
@@ -844,10 +845,10 @@ There are <b><?php echo $count; ?></b> categories without link in category table
             echo "<br>\n";
 
             $opt = [
-                'CHECK ALL'                              => 'check_all',
-                'check lid of link in catlink table'     => 'check_link_in_catlink',
+                'CHECK ALL' => 'check_all',
+                'check lid of link in catlink table' => 'check_link_in_catlink',
                 'check cid of category in catlink table' => 'check_cat_in_catlink',
-                'check lid of catlink in link table'     => 'check_catlink_in_link',
+                'check lid of catlink in link table' => 'check_catlink_in_link',
                 'check cid of catlink in cattgory table' => 'check_catlink_in_cat',
             ];
 

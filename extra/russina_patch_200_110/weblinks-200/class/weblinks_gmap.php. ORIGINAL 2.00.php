@@ -37,14 +37,14 @@ if (!class_exists('weblinks_gmap')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler          = weblinks_getHandler('config2_basic', $dirname);
+            $config_handler = weblinks_getHandler('config2_basic', $dirname);
             $this->_linkitem_handler = weblinks_getHandler('linkitem_basic', $dirname);
-            $this->_strings          = happy_linux_strings::getInstance();
+            $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
 
-            $dir_parts              = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts';
-            $this->_template_list   = $dir_parts . '/weblinks_gm_list.html';
+            $dir_parts = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts';
+            $this->_template_list = $dir_parts . '/weblinks_gm_list.html';
             $this->_template_single = $dir_parts . '/weblinks_gm_single.html';
             $this->_template_iframe = $dir_parts . '/weblinks_gm_iframe.html';
         }
@@ -92,10 +92,10 @@ if (!class_exists('weblinks_gmap')) {
 
         public function _assign_common($tpl, $param = null)
         {
-            $gm_latitude  = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
+            $gm_latitude = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
             $gm_longitude = isset($param['gm_longitude']) ? $param['gm_longitude'] : 0;
-            $gm_zoom      = isset($param['gm_zoom']) ? $param['gm_zoom'] : 0;
-            $gm_type      = isset($param['gm_type']) ? $param['gm_type'] : 0;
+            $gm_zoom = isset($param['gm_zoom']) ? $param['gm_zoom'] : 0;
+            $gm_type = isset($param['gm_type']) ? $param['gm_type'] : 0;
 
             $linkitem = &$this->_linkitem_handler->get_conf();
 
@@ -148,8 +148,8 @@ if (!class_exists('weblinks_gmap')) {
             // because the parent-child relationship of the windows isn't recognized.
 
             $WEBLINKS_URL = XOOPS_URL . '/modules/' . $this->_DIRNAME;
-            $url_gm_get   = $WEBLINKS_URL . '/gm_get_location.php?mode=opener';
-            $url_image    = $WEBLINKS_URL . '/images/google_maps.gif';
+            $url_gm_get = $WEBLINKS_URL . '/gm_get_location.php?mode=opener';
+            $url_image = $WEBLINKS_URL . '/images/google_maps.gif';
 
             $text = '<a name="google_map_desc"></a>' . "\n";
 

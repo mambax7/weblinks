@@ -41,9 +41,9 @@ class admin_map_jp_manage extends happy_linux_error
     public function __construct()
     {
         $this->_category_handler = weblinks_getHandler('category_basic', WEBLINKS_DIRNAME);
-        $this->_config_handler   = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
-        $this->_map_jp           = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
-        $this->_header           = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
+        $this->_map_jp = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
+        $this->_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
         $this->_form = admin_map_jp_form::getInstance();
         $this->_post = happy_linux_post::getInstance();
@@ -74,7 +74,7 @@ class admin_map_jp_manage extends happy_linux_error
     {
         $pref_arr = $this->_post->get_post('pref');
         $name_arr = $this->_post->get_post('name');
-        $cid_arr  = $this->_post->get_post('cid');
+        $cid_arr = $this->_post->get_post('cid');
 
         if (!is_array($pref_arr) || (0 == count($pref_arr))) {
             $msg = 'Error';
@@ -82,12 +82,12 @@ class admin_map_jp_manage extends happy_linux_error
             return $msg;
         }
 
-        $arr   = [];
+        $arr = [];
         $count = count($pref_arr);
         for ($i = 0; $i < $count; ++$i) {
-            $pref               = $pref_arr[$i];
+            $pref = $pref_arr[$i];
             $arr[$pref]['name'] = $name_arr[$i];
-            $arr[$pref]['cid']  = $cid_arr[$i];
+            $arr[$pref]['cid'] = $cid_arr[$i];
         }
 
         $ret = $this->_config_handler->update_by_name('map_jp_info', $arr);
@@ -208,7 +208,7 @@ class admin_map_jp_form extends happy_linux_form_lib
         echo '</tr>' . "\n";
 
         foreach ($info_arr as $k => $v) {
-            $cid        = $v['cid'];
+            $cid = $v['cid'];
             $category_s = $this->_category_handler->get_title($cid, 's');
 
             echo '<tr>';
@@ -245,11 +245,11 @@ class admin_map_jp_form extends happy_linux_form_lib
 //=========================================================
 // main
 //=========================================================
-$manage       = admin_map_jp_manage::getInstance();
-$config_form  = admin_config_form::getInstance();
+$manage = admin_map_jp_manage::getInstance();
+$config_form = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
-$op    = $manage->get_post_op();
+$op = $manage->get_post_op();
 $error = '';
 
 if ('save' == $op) {

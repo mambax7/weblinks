@@ -27,7 +27,7 @@ if (!class_exists('weblinks_cat_view_handler')) {
             parent::__construct($dirname);
 
             $this->_strings = happy_linux_strings::getInstance();
-            $this->_post    = happy_linux_post::getInstance();
+            $this->_post = happy_linux_post::getInstance();
         }
 
         //=========================================================
@@ -47,9 +47,9 @@ if (!class_exists('weblinks_cat_view_handler')) {
             }
 
             if ($flag_parent_image && empty($arr['imgurl'])) {
-                $parent                 = &$this->_category_handler->get_parent_imgurl_size($cid);
-                $arr['imgurl']          = $parent['imgurl'];
-                $arr['img_show_width']  = $parent['img_show_width'];
+                $parent = &$this->_category_handler->get_parent_imgurl_size($cid);
+                $arr['imgurl'] = $parent['imgurl'];
+                $arr['img_show_width'] = $parent['img_show_width'];
                 $arr['img_show_height'] = $parent['img_show_height'];
             }
 
@@ -60,11 +60,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
                 $desc_disp = $this->_category_handler->get_parent_desc_disp($cid);
             }
 
-            $arr['title_s']    = $this->_strings->sanitize_text($arr['title']);
-            $arr['imgurl_s']   = $this->_strings->sanitize_url($arr['imgurl']);
+            $arr['title_s'] = $this->_strings->sanitize_text($arr['title']);
+            $arr['imgurl_s'] = $this->_strings->sanitize_url($arr['imgurl']);
             $arr['link_count'] = $this->get_all_link_count_by_cid($cid);
-            $arr['catpath']    = $catpath;
-            $arr['desc_disp']  = $desc_disp;
+            $arr['catpath'] = $catpath;
+            $arr['desc_disp'] = $desc_disp;
 
             return $arr;
         }
@@ -113,7 +113,7 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // singlelink
         public function &get_catpath_array_by_lid($lid)
         {
-            $cid_arr     = $this->_catlink_handler->get_cid_array_by_lid($lid);
+            $cid_arr = $this->_catlink_handler->get_cid_array_by_lid($lid);
             $catpath_arr = [];
 
             foreach ($cid_arr as $cid) {
@@ -134,9 +134,9 @@ if (!class_exists('weblinks_cat_view_handler')) {
 
             foreach ($tree_array as $cid) {
                 $catlist[] = [
-                    'cid'   => $cid,
+                    'cid' => $cid,
                     'count' => $this->get_all_link_count_by_cid($cid),
-                    'path'  => $this->_category_handler->build_cat_path($cid, 's'),
+                    'path' => $this->_category_handler->build_cat_path($cid, 's'),
                 ];
             }
 
@@ -172,7 +172,7 @@ if (!class_exists('weblinks_cat_view_handler')) {
                     break;
                 // self
                 case 3:
-                    $arr            = &$cache;
+                    $arr = &$cache;
                     $arr['show_gm'] = true;
                     break;
                 // not show
@@ -267,8 +267,8 @@ if (!class_exists('weblinks_cat_view_handler')) {
             }
 
             $opts = [
-                'album_id'    => $album_id,
-                'dirname'     => $this->_conf['cat_album_dirname'],
+                'album_id' => $album_id,
+                'dirname' => $this->_conf['cat_album_dirname'],
                 'album_limit' => $this->_conf['cat_album_limit'],
             ];
 
@@ -317,7 +317,7 @@ if (!class_exists('weblinks_cat_view_handler')) {
                     break;
                 // self
                 case 3:
-                    $arr            = &$cache;
+                    $arr = &$cache;
                     $arr['show_gm'] = true;
                     break;
                 // not show
@@ -334,10 +334,10 @@ if (!class_exists('weblinks_cat_view_handler')) {
         public function &_get_gm_value_null()
         {
             $arr = [
-                'show_gm'      => false,
-                'gm_latitude'  => null,
+                'show_gm' => false,
+                'gm_latitude' => null,
                 'gm_longitude' => null,
-                'gm_zoom'      => null,
+                'gm_zoom' => null,
             ];
 
             return $arr;
@@ -346,10 +346,10 @@ if (!class_exists('weblinks_cat_view_handler')) {
         public function &_get_gm_value_conf()
         {
             $arr = [
-                'show_gm'      => true,
-                'gm_latitude'  => $this->_conf['gm_latitude'],
+                'show_gm' => true,
+                'gm_latitude' => $this->_conf['gm_latitude'],
                 'gm_longitude' => $this->_conf['gm_longitude'],
-                'gm_zoom'      => $this->_conf['gm_zoom'],
+                'gm_zoom' => $this->_conf['gm_zoom'],
             ];
 
             return $arr;

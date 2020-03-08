@@ -41,7 +41,7 @@ class weblinks_gen_mylinks extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_PARENT; ++$i) {
             // randum data
-            $title  = 'main_' . $this->get_randum_title();
+            $title = 'main_' . $this->get_randum_title();
             $imgurl = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
 
             // category table
@@ -57,9 +57,9 @@ class weblinks_gen_mylinks extends weblinks_gen_record
 
         for ($i = 0; $i < ($MAX_CAT - $MAX_PARENT); ++$i) {
             // randum data
-            $title   = 'sub_' . $this->get_randum_title();
+            $title = 'sub_' . $this->get_randum_title();
             $max_pid = (int)($MAX_PARENT + $i);
-            $pid     = mt_rand(1, $max_pid);
+            $pid = mt_rand(1, $max_pid);
 
             // ctegory table
             $this->insert_mylinks_category($pid, $title, $imgurl);
@@ -110,7 +110,7 @@ class weblinks_gen_mylinks extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             // randum data
-            $cid   = mt_rand(1, $MAX_CAT);
+            $cid = mt_rand(1, $MAX_CAT);
             $title = $this->get_randum_title();
 
             // link table
@@ -127,16 +127,16 @@ class weblinks_gen_mylinks extends weblinks_gen_record
         $link_table = $this->db_prefix('mylinks_links');
 
         // constant
-        $rating   = 0;
-        $votes    = 0;
+        $rating = 0;
+        $votes = 0;
         $comments = 0;
-        $status   = 1;
+        $status = 1;
 
         $submitter = mt_rand(0, 10);
-        $hits      = mt_rand(0, 100);
-        $logourl   = $this->get_randum_image();
-        $date      = $this->get_randum_time();
-        $url       = "https://$title/";
+        $hits = mt_rand(0, 100);
+        $logourl = $this->get_randum_image();
+        $date = $this->get_randum_time();
+        $url = "https://$title/";
 
         // link table
         $sql = "INSERT INTO $link_table (";
@@ -190,14 +190,14 @@ class weblinks_gen_mylinks extends weblinks_gen_record
 
         // table name
         $votedata_table = $this->db_prefix('mylinks_votedata');
-        $link_table     = $this->db_prefix('mylinks_links');
+        $link_table = $this->db_prefix('mylinks_links');
 
         for ($i = 0; $i < $MAX_VOTE; ++$i) {
             // randum data
-            $lid             = mt_rand(1, $MAX_LINK);
-            $ratinguser      = mt_rand(1, 10);
-            $rating          = mt_rand(0, 10);
-            $ratinghostname  = $this->get_randum_ip();
+            $lid = mt_rand(1, $MAX_LINK);
+            $ratinguser = mt_rand(1, 10);
+            $rating = mt_rand(0, 10);
+            $ratinghostname = $this->get_randum_ip();
             $ratingtimestamp = $this->get_randum_time();
 
             // votedata table
@@ -210,13 +210,13 @@ class weblinks_gen_mylinks extends weblinks_gen_record
 
         echo '<br>';
 
-        $sql2  = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
+        $sql2 = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
         $rows2 = &$this->get_rows_by_sql($sql2);
 
         foreach ($rows2 as $row2) {
-            $lid   = $row2['lid'];
+            $lid = $row2['lid'];
             $count = $row2['c'];
-            $sum   = $row2['s'];
+            $sum = $row2['s'];
 
             $rating = $sum / $count;
 
@@ -245,7 +245,7 @@ class weblinks_gen_mylinks extends weblinks_gen_record
         $rows = &$this->get_comment_rows($mid);
         foreach ($rows as $row) {
             $itemid = $row['com_itemid'];
-            $count  = $row['c'];
+            $count = $row['c'];
 
             $sql = "UPDATE $link_table SET comments=$count WHERE lid=$itemid";
             $this->query($sql);

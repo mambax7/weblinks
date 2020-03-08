@@ -71,12 +71,12 @@ if (!function_exists('weblinks_search_base')) {
             $where .= ' AND ( uid = ' . $uid . ' ) ';
         }
 
-        $where2         = '';
+        $where2 = '';
         $hightlight_key = '';
-        $count          = count($queryarray);
+        $count = count($queryarray);
 
         if (is_array($queryarray) && ($count > 0)) {
-            $keywords       = urlencode(implode(' ', $queryarray));
+            $keywords = urlencode(implode(' ', $queryarray));
             $hightlight_key = '&amp;keywords=' . $keywords;
 
             $where2 .= "( search LIKE '%$queryarray[0]%' ";
@@ -104,35 +104,35 @@ if (!function_exists('weblinks_search_base')) {
         $i = 0;
 
         while ($row = $xoopsDB->fetchArray($res)) {
-            $ret[$i]['link']  = 'singlelink.php?lid=' . $row['lid'] . $hightlight_key;
+            $ret[$i]['link'] = 'singlelink.php?lid=' . $row['lid'] . $hightlight_key;
             $ret[$i]['title'] = $row['title'];
-            $ret[$i]['time']  = $row['time_update'];
-            $ret[$i]['uid']   = $row['uid'];
+            $ret[$i]['time'] = $row['time_update'];
+            $ret[$i]['uid'] = $row['uid'];
             $ret[$i]['image'] = 'images/home.gif';
 
             // show context
-            $context  = $row['description'];
-            $dohtml   = $row['dohtml'];
+            $context = $row['description'];
+            $dohtml = $row['dohtml'];
             $dosmiley = $row['dosmiley'];
-            $doxcode  = $row['doxcode'];
-            $doimage  = $row['doimage'];
-            $dobr     = $row['dobr'];
+            $doxcode = $row['doxcode'];
+            $doimage = $row['doimage'];
+            $dobr = $row['dobr'];
 
             // hack for multi language
             if (weblinks_multi_is_japanese_site()) {
                 if ($row['textarea1']) {
-                    $context  = $row['textarea1'];
-                    $dohtml   = $row['dohtml1'];
+                    $context = $row['textarea1'];
+                    $dohtml = $row['dohtml1'];
                     $dosmiley = $row['dosmiley1'];
-                    $doxcode  = $row['doxcode1'];
-                    $doimage  = $row['doimage1'];
-                    $dobr     = $row['dobr1'];
+                    $doxcode = $row['doxcode1'];
+                    $doimage = $row['doimage1'];
+                    $dobr = $row['dobr1'];
                 }
             }
 
-            $context            = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
-            $context            = preg_replace('/>/', '> ', $context);
-            $context            = strip_tags($context);
+            $context = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+            $context = preg_replace('/>/', '> ', $context);
+            $context = strip_tags($context);
             $ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
 
             ++$i;

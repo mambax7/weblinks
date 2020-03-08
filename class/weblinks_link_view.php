@@ -76,14 +76,14 @@ if (!class_exists('weblinks_link_view')) {
             parent::__construct($dirname);
 
             $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
-            $this->_catlink_handler  = weblinks_getHandler('catlink_basic', $dirname);
-            $this->_banner_handler   = weblinks_getHandler('banner', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink_basic', $dirname);
+            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
             $this->_pagerank_handler = weblinks_getHandler('pagerank', $dirname);
-            $this->_rssc_handler     = weblinks_getHandler('rssc_view', $dirname);
-            $this->_auth             = weblinks_auth::getInstance($dirname);
-            $this->_webmap_class     = weblinks_webmap::getInstance($dirname);
+            $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
+            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_webmap_class = weblinks_webmap::getInstance($dirname);
 
-            $this->_lang      = happy_linux_language_factory::getInstance();
+            $this->_lang = happy_linux_language_factory::getInstance();
             $this->_highlight = happy_linux_highlight::getInstance();
 
             $this->_highlight->set_replace_callback('happy_linux_highlighter_by_class');
@@ -107,7 +107,7 @@ if (!class_exists('weblinks_link_view')) {
         {
             // not use return references
             $show = false;
-            $row  = $this->_link_handler->get_cache_by_lid($lid);
+            $row = $this->_link_handler->get_cache_by_lid($lid);
             if (is_array($row) && count($row)) {
                 $this->set_vars($row);
                 $this->build_show($flag_highlight, $keyword_array);
@@ -152,7 +152,7 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         public function _set_link_categories()
         {
-            $lid     = $this->get('lid');
+            $lid = $this->get('lid');
             $cid_arr = $this->_catlink_handler->get_cid_array_by_lid($lid);
             $this->set_catpaths_by_cid_array($cid_arr);
 
@@ -167,7 +167,7 @@ if (!class_exists('weblinks_link_view')) {
         public function set_catpaths_by_cid_array($cid_arr)
         {
             $show_catpaths = false;
-            $catpaths      = null;
+            $catpaths = null;
 
             if (is_array($cid_arr) && count($cid_arr)) {
                 $catpaths = &$this->_category_handler->build_parent_path_multi($cid_arr);
@@ -187,13 +187,13 @@ if (!class_exists('weblinks_link_view')) {
         {
             $arr = &$this->_banner_handler->build_show_image_web($this->get('banner'), $this->get('width'), $this->get('height'), $this->get('url'));
 
-            $image_url         = $arr['image_url'];
-            $image_link_width  = $arr['image_link_width'];
+            $image_url = $arr['image_url'];
+            $image_link_width = $arr['image_link_width'];
             $image_link_height = $arr['image_link_height'];
-            $image_list_width  = $arr['image_list_width'];
+            $image_list_width = $arr['image_list_width'];
             $image_list_height = $arr['image_list_height'];
-            $image_link_show   = false;
-            $image_list_show   = false;
+            $image_link_show = false;
+            $image_list_show = false;
 
             if ($this->_conf['link_image_use'] && $image_url) {
                 $image_link_show = true;
@@ -217,9 +217,9 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         public function _set_pagerank()
         {
-            $flag_cache    = false;
+            $flag_cache = false;
             $show_pagerank = false;
-            $pagerank      = 0;
+            $pagerank = 0;
 
             // show when url is fill
             if (($this->_conf['use_pagerank'] > 0) && $this->get('url')) {
@@ -227,7 +227,7 @@ if (!class_exists('weblinks_link_view')) {
                     $flag_cache = true;
                 }
                 $show_pagerank = true;
-                $pagerank      = $this->_pagerank_handler->get_page_rank($this->get('lid'), $flag_cache);
+                $pagerank = $this->_pagerank_handler->get_page_rank($this->get('lid'), $flag_cache);
             }
 
             $this->set('show_pagerank', $show_pagerank);
@@ -248,13 +248,13 @@ if (!class_exists('weblinks_link_view')) {
 
         public function build_rss_url_by_rssc_lid($rssc_lid)
         {
-            $flag  = 0;
-            $url   = '';
+            $flag = 0;
+            $url = '';
             $url_s = '';
             if (WEBLINKS_RSSC_USE && $rssc_lid) {
-                $row   = &$this->_rssc_handler->get_rssc_link_by_rssc_lid($rssc_lid);
-                $flag  = $row['mode'];
-                $url   = $row['url_xml'];
+                $row = &$this->_rssc_handler->get_rssc_link_by_rssc_lid($rssc_lid);
+                $flag = $row['mode'];
+                $url = $row['url_xml'];
                 $url_s = $row['url_xml_s'];
             }
 
@@ -300,7 +300,7 @@ if (!class_exists('weblinks_link_view')) {
             $lid = $this->get('lid');
 
             $mail_subject = '';
-            $mail_body    = '';
+            $mail_body = '';
 
             if ($lid) {
                 list($mail_subject, $mail_body) = $this->build_link_mail_by_lid($lid);
@@ -314,17 +314,17 @@ if (!class_exists('weblinks_link_view')) {
         public function build_link_mail_by_lid($lid)
         {
             $sitename = $this->_system->get_sitename();
-            $subject  = sprintf(_WLS_INTRESTLINK, $sitename);
-            $body     = sprintf(_WLS_INTLINKFOUND, $sitename) . ': ';
-            $body     .= $this->_build_single_link_by_lid($lid);
+            $subject = sprintf(_WLS_INTRESTLINK, $sitename);
+            $body = sprintf(_WLS_INTLINKFOUND, $sitename) . ': ';
+            $body .= $this->_build_single_link_by_lid($lid);
 
             // --- effective only in Japanese environment ---
             // convert EUC-JP to SJIS
             $subject = $this->_lang->convert_telafriend_subject($subject);
-            $body    = $this->_lang->convert_telafriend_body($body);
+            $body = $this->_lang->convert_telafriend_body($body);
 
             $subject = rawurlencode($subject);
-            $body    = rawurlencode($body);
+            $body = rawurlencode($body);
 
             return [$subject, $body];
         }
@@ -335,7 +335,7 @@ if (!class_exists('weblinks_link_view')) {
         public function check_webmap_dirname()
         {
             $dirname = $this->_conf['webmap3_dirname'];
-            $use     = $this->_conf['gm_use'];
+            $use = $this->_conf['gm_use'];
 
             $ret = $this->_webmap_class->check_webmap_dirname($dirname);
             if (!$ret) {
@@ -359,7 +359,7 @@ if (!class_exists('weblinks_link_view')) {
 
         public function _set_gm_use()
         {
-            $flag_gm_use  = false;
+            $flag_gm_use = false;
             $flag_kml_use = false;
 
             if ($this->get('google_use')) {
@@ -406,7 +406,7 @@ if (!class_exists('weblinks_link_view')) {
         {
             // not use return references
             $show = false;
-            $row  = $this->_link_handler->get_cache_by_lid($lid);
+            $row = $this->_link_handler->get_cache_by_lid($lid);
             if (is_array($row) && count($row)) {
                 $this->set_vars($row);
                 $this->build_rss($flag_user);
@@ -421,19 +421,19 @@ if (!class_exists('weblinks_link_view')) {
             $lid = $this->get('lid');
             $uid = $this->get('uid');
 
-            $link    = $this->_build_single_link_by_lid($lid);
+            $link = $this->_build_single_link_by_lid($lid);
             $content = $this->get_description_disp();
 
             // author_name
-            $author_name  = '';
+            $author_name = '';
             $author_email = '';
-            $author_uri   = '';
+            $author_uri = '';
 
             if ($flag_user && $uid) {
-                $user         = $this->_system->get_user_by_uid($uid);
-                $author_name  = $user['uname'];
+                $user = $this->_system->get_user_by_uid($uid);
+                $author_name = $user['uname'];
                 $author_email = $user['email'];
-                $author_uri   = $user['url'];
+                $author_uri = $user['url'];
             }
 
             // category

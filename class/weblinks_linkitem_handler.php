@@ -62,7 +62,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
     class weblinks_linkitem_handler extends happy_linux_object_handler
     {
         public $_cached_by_itemid = [];
-        public $_cached_by_name   = [];
+        public $_cached_by_name = [];
 
         //---------------------------------------------------------
         // constructor
@@ -146,13 +146,13 @@ if (!class_exists('weblinks_linkitem_handler')) {
         public function load()
         {
             $this->_cached_by_itemid = [];
-            $this->_cached_by_name   = [];
+            $this->_cached_by_name = [];
 
             $objs = $this->getObjects();
             foreach ($objs as $obj) {
-                $arr                                      = $obj->getVarAll('n');
+                $arr = $obj->getVarAll('n');
                 $this->_cached_by_itemid[$arr['item_id']] = $arr;
-                $this->_cached_by_name[$arr['name']]      = $arr;
+                $this->_cached_by_name[$arr['name']] = $arr;
             }
         }
 
@@ -220,8 +220,8 @@ if (!class_exists('weblinks_linkitem_handler')) {
         {
             $obj = false;
 
-            $sql   = 'SELECT * FROM ' . $this->_table . ' WHERE item_id=' . (int)$id;
-            $objs  = &$this->get_objects_by_sql($sql);
+            $sql = 'SELECT * FROM ' . $this->_table . ' WHERE item_id=' . (int)$id;
+            $objs = &$this->get_objects_by_sql($sql);
             $count = count($objs);
 
             if ($count <= 0) {

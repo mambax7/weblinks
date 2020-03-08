@@ -76,36 +76,36 @@ class admin_broken_list extends happy_linux_page_frame
 
     public function &_get_cols(&$obj)
     {
-        $bid    = $obj->get('bid');
-        $lid    = $obj->get('lid');
+        $bid = $obj->get('bid');
+        $lid = $obj->get('lid');
         $sender = $obj->getVar('sender');
-        $ip     = $obj->getVar('ip');
-        $uname  = $obj->get_uname();
-        $email  = $obj->get_email();
+        $ip = $obj->getVar('ip');
+        $uname = $obj->get_uname();
+        $email = $obj->get_email();
 
         $checkbox = $this->build_form_js_checkbox($bid);
 
         $flag_link_exist = false;
-        $title_s         = '';
-        $url_s           = '';
-        $uid             = '';
+        $title_s = '';
+        $url_s = '';
+        $uid = '';
 
         $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $flag_link_exist = true;
-            $title_s         = $link_obj->getVar('title', 's');
-            $url_s           = $link_obj->getVar('url', 's');
-            $uid             = $link_obj->get('uid');
+            $title_s = $link_obj->getVar('title', 's');
+            $url_s = $link_obj->getVar('url', 's');
+            $uid = $link_obj->get('uid');
         }
 
         $user_param = $this->_system->get_user_by_uid($uid);
-        $owner      = $user_param['uname'];
+        $owner = $user_param['uname'];
         $owneremail = $user_param['email'];
 
         $jump_broken = 'broken_manage.php?op=mod_form&bid=';
-        $jump_link   = 'link_manage.php?op=mod_form&lid=';
+        $jump_link = 'link_manage.php?op=mod_form&lid=';
         $link_broken = $this->_build_page_id_link_by_obj($obj, 'bid', $jump_broken);
-        $link_link   = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
+        $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
 
         if ($flag_link_exist) {
             $title = '<a href="' . $url_s . '" target="_blank">' . $title_s . '</a>';

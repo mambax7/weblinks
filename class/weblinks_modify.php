@@ -185,7 +185,7 @@ if (!class_exists('weblinks_modify')) {
         {
             parent::__construct();
 
-            $this->_link_validate           = weblinks_link_validate::getInstance($dirname);
+            $this->_link_validate = weblinks_link_validate::getInstance($dirname);
             $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
         }
 

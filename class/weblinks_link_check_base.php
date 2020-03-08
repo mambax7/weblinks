@@ -20,8 +20,8 @@ if (!class_exists('weblinks_link_check_base')) {
 
         public $_link_handler;
 
-        public $_TITLE         = null;
-        public $_flag_echo     = true;
+        public $_TITLE = null;
+        public $_flag_echo = true;
         public $_flag_echo_lid = false;
 
         public $_total_link;
@@ -51,8 +51,8 @@ if (!class_exists('weblinks_link_check_base')) {
             $this->_time_start = time();
             $this->_total_link = $this->get_link_count_all();
 
-            $lid_array        = &$this->_get_lid_array($limit, $offset);
-            $lid_num          = count($lid_array);
+            $lid_array = &$this->_get_lid_array($limit, $offset);
+            $lid_num = count($lid_array);
             $this->_num_check = $lid_num;
 
             if (0 == $lid_num) {
@@ -62,7 +62,7 @@ if (!class_exists('weblinks_link_check_base')) {
             }
 
             $this->_lid_start = $lid_array[0];
-            $this->_lid_end   = $lid_array[$lid_num - 1];
+            $this->_lid_end = $lid_array[$lid_num - 1];
 
             $this->_print_write_data($this->_get_html_start());
 
@@ -121,15 +121,15 @@ if (!class_exists('weblinks_link_check_base')) {
         public function _get_html_start()
         {
             $time_now = $this->_get_time_now();
-            $text     = '<h4>' . $this->_TITLE . "</h4>\n";
-            $text     .= _WEBLINKS_ADMIN_TIME_START . " $time_now<br><br>\n";
+            $text = '<h4>' . $this->_TITLE . "</h4>\n";
+            $text .= _WEBLINKS_ADMIN_TIME_START . " $time_now<br><br>\n";
 
             return $text;
         }
 
         public function _get_html_end()
         {
-            $time_now    = $this->_get_time_now();
+            $time_now = $this->_get_time_now();
             $time_elapse = $this->_get_time_elapse($this->_time_start);
 
             $text = '';
@@ -187,8 +187,8 @@ if (!class_exists('weblinks_link_check_base')) {
         public function _get_time_elapse($time_start)
         {
             $time = time() - $time_start;
-            $min  = (int)($time / 60);
-            $sec  = $time - 60 * $min;
+            $min = (int)($time / 60);
+            $sec = $time - 60 * $min;
             $text = sprintf(_WEBLINKS_ADMIN_MIN_SEC, $min, $sec);
 
             return $text;

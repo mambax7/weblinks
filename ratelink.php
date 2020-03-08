@@ -52,8 +52,8 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_votedata_handler.php';
 class weblinks_ratelink extends happy_linux_error
 {
     public $_ALLOW_INCREMENT_POST = false;
-    public $_MIN_RATING           = 1;
-    public $_MAX_RATING           = 10;
+    public $_MIN_RATING = 1;
+    public $_MAX_RATING = 10;
 
     public $_config_handler;
     public $_link_handler;
@@ -83,14 +83,14 @@ class weblinks_ratelink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler   = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler     = weblinks_getHandler('link', $dirname);
+        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_getHandler('link', $dirname);
         $this->_votedata_handler = weblinks_getHandler('votedata', $dirname);
-        $this->_auth             = weblinks_auth::getInstance($dirname);
+        $this->_auth = weblinks_auth::getInstance($dirname);
 
         $this->_system = happy_linux_system::getInstance();
-        $this->_post   = happy_linux_post::getInstance();
-        $this->_form   = happy_linux_form::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_form = happy_linux_form::getInstance();
     }
 
     public static function getInstance($dirname = null)
@@ -109,9 +109,9 @@ class weblinks_ratelink extends happy_linux_error
 
         $this->_post_rating = $this->_post->get_post('rating');
 
-        $this->_sitename       = $this->_system->get_sitename();
+        $this->_sitename = $this->_system->get_sitename();
         $this->_system_is_user = $this->_system->is_user();
-        $this->_system_uid     = $this->_system->get_uid();
+        $this->_system_uid = $this->_system->get_uid();
 
         $this->_remote_addr = getenv('REMOTE_ADDR');
     }
@@ -283,12 +283,12 @@ class weblinks_ratelink extends happy_linux_error
 //=========================================================
 
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_ratelink = weblinks_ratelink::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $submit = $weblinks_ratelink->get_post_submit();
-$lid    = $weblinks_ratelink->get_post_get_lid();
+$lid = $weblinks_ratelink->get_post_get_lid();
 
 $url_singlelink = 'singlelink.php?lid=' . $lid;
 

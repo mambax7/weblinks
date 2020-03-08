@@ -169,9 +169,9 @@ class admin_link_add extends admin_link_base
 
     public function add_banner()
     {
-        $lid      = $this->get_post_lid();
+        $lid = $this->get_post_lid();
         $rss_flag = $this->get_post_rss_flag();
-        $skip     = $this->get_post_skip();
+        $skip = $this->get_post_skip();
 
         if (!$this->_check_token()) {
             $this->_print_add_banner_form($this->_lid, 'add_banner_preview');

@@ -70,12 +70,12 @@ class weblinks_viewmark
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_config_handler    = weblinks_getHandler('config2_basic', $dirname);
+        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
         $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_template          = weblinks_template::getInstance($dirname);
+        $this->_template = weblinks_template::getInstance($dirname);
 
         $this->_class_keyword = happy_linux_keyword::getInstance();
-        $this->_post          = happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
     }
@@ -92,10 +92,10 @@ class weblinks_viewmark
 
     public function build($keyword_array)
     {
-        $show_links    = false;
-        $links         = null;
+        $show_links = false;
+        $links = null;
         $show_kml_list = false;
-        $kml_list      = null;
+        $kml_list = null;
         $kml_list_desc = null;
 
         $kml_perpage = $this->_post->get_get_int('kml_perpage', $this->_KML_LIMIT_DEFAULT);
@@ -107,29 +107,29 @@ class weblinks_viewmark
 
         list($mark, $show_mark, $title) = $this->_get_mark();
 
-        $total    = $this->_link_view_handler->get_link_count_by_mark($mark);
+        $total = $this->_link_view_handler->get_link_count_by_mark($mark);
         $thereare = sprintf(_WLS_THEREARE, $total);
 
         if ($total > 0) {
             $show_links = true;
-            $links      = $this->_get_links($total, $mark, $keywords_urlencoded);
+            $links = $this->_get_links($total, $mark, $keywords_urlencoded);
 
             if ('gmap' == $mark) {
                 $show_kml_list = true;
-                $kml_list      = $this->_get_kml_list($total, $kml_perpage);
+                $kml_list = $this->_get_kml_list($total, $kml_perpage);
             }
         }
 
         $arr = [
-            'lang_title'    => $title,
+            'lang_title' => $title,
             'lang_thereare' => $thereare,
-            'mark'          => $mark,
-            'total'         => $total,
-            'links'         => $links,
-            'kml_list'      => $kml_list,
-            'kml_perpage'   => $kml_perpage,
-            'show_mark'     => $show_mark,
-            'show_links'    => $show_links,
+            'mark' => $mark,
+            'total' => $total,
+            'links' => $links,
+            'kml_list' => $kml_list,
+            'kml_perpage' => $kml_perpage,
+            'show_mark' => $show_mark,
+            'show_links' => $show_links,
             'show_kml_list' => $show_kml_list,
         ];
 
@@ -149,13 +149,13 @@ class weblinks_viewmark
                 $title = $this->_conf['lang_site_gmap'];
                 break;
             case 'mutual':
-                $title     = $this->_conf['lang_site_mutual'];
+                $title = $this->_conf['lang_site_mutual'];
                 $show_mark = true;
                 break;
             case 'recommend':
             default:
-                $mark      = 'recommend';
-                $title     = $this->_conf['lang_site_recommend'];
+                $mark = 'recommend';
+                $title = $this->_conf['lang_site_recommend'];
                 $show_mark = true;
         }
 
@@ -175,7 +175,7 @@ class weblinks_viewmark
         $pagenavi->getGetPage();
         $pagenavi->getGetSortid();
         $start = $pagenavi->calcStart();
-        $sort  = $pagenavi->get_sort();
+        $sort = $pagenavi->get_sort();
 
         // link list
         $link_list = &$this->_link_view_handler->get_link_by_mark_sort($mark, $sort, $this->_conf['perpage'], $start);
@@ -216,7 +216,7 @@ class weblinks_viewmark
 
 $weblinks_viewmark = weblinks_viewmark::getInstance(WEBLINKS_DIRNAME);
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
@@ -224,7 +224,7 @@ $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_viewmark.html';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $weblinks_template->set_keyword_by_request();
-$keyword_array       = $weblinks_template->get_keyword_array();
+$keyword_array = $weblinks_template->get_keyword_array();
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
 $weblinks_header->assign_module_header();

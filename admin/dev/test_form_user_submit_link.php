@@ -69,9 +69,9 @@ $test->update_config_by_name_array('auth_submit', [1, 2]);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(5),
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(5),
     'rss_flag' => 2,    // rss
 ];
 
@@ -98,9 +98,9 @@ $test->update_config_by_name_array('auth_submit_auto', [1, 2]);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,    // non
 ];
 
@@ -127,9 +127,9 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(6),
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(6),
     'rss_flag' => 2,    // rss
 ];
 

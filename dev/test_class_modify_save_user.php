@@ -24,9 +24,9 @@ $test->print_user_mode();
 echo "<h4>scenario 1: user add modify object: mode 1 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 0,
+    'mode_user_perm' => 0,
     'mode_passwd_guest' => 0,
-    'mode_dhtml'        => 0,
+    'mode_dhtml' => 0,
 ];
 
 $test->print_param($param);
@@ -41,9 +41,9 @@ if (!$ret) {
 echo "<h4>scenario 2: user add modify object: mode 2 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 1,
+    'mode_user_perm' => 1,
     'mode_passwd_guest' => 0,
-    'mode_dhtml'        => 0,
+    'mode_dhtml' => 0,
 ];
 
 $test->print_param($param);
@@ -58,9 +58,9 @@ if (!$ret) {
 echo "<h4>scenario 3: user add modify object: mode 3 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 1,
+    'mode_user_perm' => 1,
     'mode_passwd_guest' => 1,
-    'mode_dhtml'        => 1,
+    'mode_dhtml' => 1,
 ];
 
 $test->print_param($param);
@@ -77,9 +77,9 @@ if (!$ret) {
 echo "<h4>scenario 4: user mod modify object: mode 1 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 0,
+    'mode_user_perm' => 0,
     'mode_passwd_guest' => 0,
-    'mode_dhtml'        => 0,
+    'mode_dhtml' => 0,
 ];
 
 $test->print_param($param);
@@ -94,9 +94,9 @@ if (!$ret) {
 echo "<h4>scenario 5: user mod modify object: mode 2 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 1,
+    'mode_user_perm' => 1,
     'mode_passwd_guest' => 0,
-    'mode_dhtml'        => 0,
+    'mode_dhtml' => 0,
 ];
 
 $test->print_param($param);
@@ -111,9 +111,9 @@ if (!$ret) {
 echo "<h4>scenario 6: user mod modify object: mode 3 </h4>\n";
 
 $param = [
-    'mode_user_perm'    => 1,
+    'mode_user_perm' => 1,
     'mode_passwd_guest' => 1,
-    'mode_dhtml'        => 1,
+    'mode_dhtml' => 1,
 ];
 
 $test->print_param($param);

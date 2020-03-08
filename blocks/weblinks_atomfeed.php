@@ -36,9 +36,9 @@ if (!function_exists('b_weblinks_atom_show')) {
     {
         global $xoopsDB;
 
-        $DIRNAME     = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $limit       = $options[1];
-        $max_title   = $options[2] - 1;
+        $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+        $limit = $options[1];
+        $max_title = $options[2] - 1;
         $max_summary = $options[3] - 1;
 
         $table_config = $xoopsDB->prefix($DIRNAME . '_config2');
@@ -56,24 +56,24 @@ if (!function_exists('b_weblinks_atom_show')) {
         }
 
         $rss_dirname = $conf['rss_dirname'];
-        $rss_use     = $conf['rss_use'];
+        $rss_use = $conf['rss_use'];
 
-        $block              = [];
+        $block = [];
         $block['lang_more'] = _MB_WEBLINKS_MORE;
-        $block['dirname']   = $DIRNAME;
+        $block['dirname'] = $DIRNAME;
 
         // check exist rssc module
         $module_handler = xoops_getHandler('module');
-        $module         = $module_handler->getByDirname($rss_dirname);
+        $module = $module_handler->getByDirname($rss_dirname);
         if (!is_object($module)) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = 'rssc not installed';
 
             return $block;
         }
 
         if (!$rss_use) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
@@ -81,12 +81,12 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         $table_rssc_feed = $xoopsDB->prefix($rss_dirname . '_feed');
 
-        $DAY    = 3;
+        $DAY = 3;
         $future = time() + $DAY * 24 * 3600;
-        $order  = 'updated_unix DESC, fid DESC';
+        $order = 'updated_unix DESC, fid DESC';
 
         // mid
-        $mid    = 0;
+        $mid = 0;
         $module = $module_handler->getByDirname($DIRNAME);
         if (is_object($module)) {
             $mid = $module->getVar('mid');
@@ -107,18 +107,18 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         // no atomfeed
         if (0 == $num) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
         }
 
         while ($row = $xoopsDB->fetchArray($res)) {
-            $site_title    = $row['site_title'];
-            $site_url      = $row['site_link'];
-            $title         = $row['title'];
-            $url           = $row['link'];
-            $content       = $row['content'];
+            $site_title = $row['site_title'];
+            $site_url = $row['site_link'];
+            $title = $row['title'];
+            $url = $row['link'];
+            $content = $row['content'];
             $time_modified = $row['updated_unix'];
 
             $feed = [];
@@ -147,12 +147,12 @@ if (!function_exists('b_weblinks_atom_show')) {
                 $date = formatTimestamp($time_modified, 's');
             }
 
-            $feed['date']       = $date;
-            $feed['site_url']   = happy_linux_sanitize_url($site_url);
-            $feed['url']        = happy_linux_sanitize_url($url);
+            $feed['date'] = $date;
+            $feed['site_url'] = happy_linux_sanitize_url($site_url);
+            $feed['url'] = happy_linux_sanitize_url($url);
             $feed['site_title'] = happy_linux_sanitize_text($site_title);
-            $feed['title']      = happy_linux_sanitize_text($title);
-            $feed['summary']    = happy_linux_sanitize_text($summary);
+            $feed['title'] = happy_linux_sanitize_text($title);
+            $feed['summary'] = happy_linux_sanitize_text($summary);
 
             $block['feeds'][] = $feed;
         }
@@ -193,14 +193,14 @@ if (!function_exists('b_weblinks_atom_show')) {
     {
         global $xoopsDB;
 
-        $DIRNAME     = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $lid         = (int)$options[1];
-        $limit       = (int)$options[2];
+        $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+        $lid = (int)$options[1];
+        $limit = (int)$options[2];
         $num_content = (int)$options[3];
         $max_summary = (int)$options[4] - 1;
 
         $table_config = $xoopsDB->prefix($DIRNAME . '_config2');
-        $table_link   = $xoopsDB->prefix($DIRNAME . '_link');
+        $table_link = $xoopsDB->prefix($DIRNAME . '_link');
 
         // config
         $sql = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';
@@ -215,22 +215,22 @@ if (!function_exists('b_weblinks_atom_show')) {
         }
 
         $rss_dirname = $conf['rss_dirname'];
-        $rss_use     = $conf['rss_use'];
+        $rss_use = $conf['rss_use'];
 
         $block = [];
 
         // check exist rssc module
         $module_handler = xoops_getHandler('module');
-        $module         = $module_handler->getByDirname($rss_dirname);
+        $module = $module_handler->getByDirname($rss_dirname);
         if (!is_object($module)) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = 'rssc not installed';
 
             return $block;
         }
 
         if (!$rss_use) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
@@ -240,7 +240,7 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         // no link id
         if (0 == $lid) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_LINK_ID;
 
             return $block;
@@ -249,24 +249,24 @@ if (!function_exists('b_weblinks_atom_show')) {
         $sql1 = 'SELECT * FROM ' . $table_link . ' WHERE lid=' . $lid;
         $res1 = $xoopsDB->query($sql1);
         if (!$res1) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
         }
 
-        $row1     = $xoopsDB->fetchArray($res1);
+        $row1 = $xoopsDB->fetchArray($res1);
         $rssc_lid = $row1['rssc_lid'];
         if (0 == $rssc_lid) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
         }
 
-        $DAY    = 3;
+        $DAY = 3;
         $future = time() + $DAY * 24 * 3600;
-        $order  = 'updated_unix DESC, fid DESC';
+        $order = 'updated_unix DESC, fid DESC';
 
         $sql2 = 'SELECT * FROM ' . $table_rssc_feed;
         $sql2 .= ' WHERE updated_unix <' . $future;
@@ -275,11 +275,11 @@ if (!function_exists('b_weblinks_atom_show')) {
         $sql2 .= ' ORDER BY ' . $order;
 
         $res2 = $xoopsDB->query($sql2, $limit, 0);
-        $num  = $xoopsDB->getRowsNum($res2);
+        $num = $xoopsDB->getRowsNum($res2);
 
         // no atomfeed
         if (0 == $num) {
-            $block['feed_show']  = 0;
+            $block['feed_show'] = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
 
             return $block;
@@ -287,11 +287,11 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         $i = 0;
         while ($row = $xoopsDB->fetchArray($res2)) {
-            $site_title    = $row['site_title'];
-            $site_url      = $row['site_link'];
-            $title         = $row['title'];
-            $url           = $row['link'];
-            $content       = $row['content'];
+            $site_title = $row['site_title'];
+            $site_url = $row['site_link'];
+            $title = $row['title'];
+            $url = $row['link'];
+            $content = $row['content'];
             $time_modified = $row['updated_unix'];
 
             $feed = [];
@@ -312,9 +312,9 @@ if (!function_exists('b_weblinks_atom_show')) {
             }
 
             $feed['content'] = $content;
-            $feed['date']    = $date;
-            $feed['url']     = happy_linux_sanitize_url($url);
-            $feed['title']   = happy_linux_sanitize_text($title);
+            $feed['date'] = $date;
+            $feed['url'] = happy_linux_sanitize_url($url);
+            $feed['title'] = happy_linux_sanitize_text($title);
             $feed['summary'] = happy_linux_sanitize_text($summary);
 
             ++$i;
@@ -325,10 +325,10 @@ if (!function_exists('b_weblinks_atom_show')) {
             $site_title = '---';
         }
 
-        $block['feed_show']   = 1;
+        $block['feed_show'] = 1;
         $block['num_content'] = $num_content;
-        $block['site_url']    = happy_linux_sanitize_url($site_url);
-        $block['site_title']  = happy_linux_sanitize_text($site_title);
+        $block['site_url'] = happy_linux_sanitize_url($site_url);
+        $block['site_title'] = happy_linux_sanitize_text($site_title);
 
         return $block;
     }

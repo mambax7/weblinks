@@ -66,9 +66,9 @@ class admin_config_form extends weblinks_config2_form
         $this->set_lib_box_span_title_class('weblinks_confirm_title');
 
         $this->_linkitem_form = weblinks_linkitem_form::getInstance(WEBLINKS_DIRNAME);
-        $this->_system        = happy_linux_system::getInstance();
-        $this->_dir           = happy_linux_dir::getInstance();
-        $this->_menu          = admin_config_menu::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_dir = happy_linux_dir::getInstance();
+        $this->_menu = admin_config_menu::getInstance();
 
         // init
         $this->load();
@@ -186,15 +186,15 @@ class admin_config_form extends weblinks_config2_form
     public function get_group_list()
     {
         $member_handler = xoops_getHandler('member');
-        $group_list     = $member_handler->getGroupList();
+        $group_list = $member_handler->getGroupList();
 
         $list_1 = [];
         foreach ($group_list as $k => $v) {
             $list_1[$v] = $k;
         }
 
-        $list_2                        = $list_1;
-        $list_2[_WEBLINKS_AUTH_UID]    = WEBLINKS_ID_AUTH_UID;
+        $list_2 = $list_1;
+        $list_2[_WEBLINKS_AUTH_UID] = WEBLINKS_ID_AUTH_UID;
         $list_2[_WEBLINKS_AUTH_PASSWD] = WEBLINKS_ID_AUTH_PASSWD;
 
         return [$list_1, $list_2];
@@ -215,9 +215,9 @@ class admin_config_form extends weblinks_config2_form
     {
         $cap = $this->build_conf_caption_by_name($name);
 
-        $id    = $this->get_by_name($name, 'conf_id');
+        $id = $this->get_by_name($name, 'conf_id');
         $value = $this->get_by_name($name, 'value');
-        $size  = count($opt);
+        $size = count($opt);
 
         $show = $this->build_html_select_multiple($name, $value, $opt, $size);
         $show .= $this->build_conf_hidden($id);
@@ -230,7 +230,7 @@ class admin_config_form extends weblinks_config2_form
 
     public function print_yesno($name)
     {
-        $cap  = $this->build_conf_caption_by_name($name);
+        $cap = $this->build_conf_caption_by_name($name);
         $show = $this->build_conf_radio_yesno_by_name($name);
 
         echo '<tr>';
@@ -241,7 +241,7 @@ class admin_config_form extends weblinks_config2_form
 
     public function print_text($name)
     {
-        $cap  = $this->build_conf_caption_by_name($name);
+        $cap = $this->build_conf_caption_by_name($name);
         $show = $this->build_conf_textbox_by_name($name);
 
         echo '<tr>';
@@ -273,9 +273,9 @@ class admin_config_form extends weblinks_config2_form
             }
         }
 
-        $cap1  = $this->build_conf_caption_by_name('country_code');
+        $cap1 = $this->build_conf_caption_by_name('country_code');
         $show1 = $this->build_conf_select_by_name('country_code', $opts);
-        $cap2  = $this->build_form_caption('', _AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC);
+        $cap2 = $this->build_form_caption('', _AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC);
 
         echo '<table class="outer" width="100%" ><tr>';
         echo '<th align="left" colspan="2">' . $title . '</th>';
@@ -449,7 +449,7 @@ class admin_config_form extends weblinks_config2_form
         $this->print_form_even_odd();
 
         $title_show = $this->build_conf_caption_by_name($name);
-        $name_show  = $this->build_conf_radio_select_by_name($name);
+        $name_show = $this->build_conf_radio_select_by_name($name);
 
         echo "<td></td><td>$title_show</td><td></td><td></td>";
         echo "<td align='left' colspan='2'>$name_show</td>";
@@ -514,7 +514,7 @@ class admin_config_form extends weblinks_config2_form
             $module = $this->_system->get_module_by_dirname($dirname);
             if (is_object($module)) {
                 $version = sprintf('%6.2f', $module->getVar('version') / 100);
-                $msg     = sprintf(_AM_WEBLINKS_MODULE_INSTALLED, $kind, $dirname, $version);
+                $msg = sprintf(_AM_WEBLINKS_MODULE_INSTALLED, $kind, $dirname, $version);
                 echo '<h4 style="color: #0000ff;">' . $msg . "</h4>\n";
             } else {
                 $msg = sprintf(_AM_WEBLINKS_MODULE_NOT_INSTALLED, $kind, $dirname);

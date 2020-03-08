@@ -39,25 +39,25 @@
 include 'header.php';
 
 $weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
-$weblinks_post   = happy_linux_post::getInstance();
+$weblinks_post = happy_linux_post::getInstance();
 $weblinks_system = happy_linux_system::getInstance();
 
 // constant
-$ROWS          = '70px,100%';
-$COLS          = '*';
+$ROWS = '70px,100%';
+$COLS = '*';
 $FLAG_REDIRECT = true;
 
-$conf          = &$weblinks_config_handler->get_conf();
+$conf = &$weblinks_config_handler->get_conf();
 $conf_use_hits = $conf['use_hits'];
-$conf_frame    = $conf['frame'];
+$conf_frame = $conf['frame'];
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $lid = $weblinks_post->get_get_int('lid');
-$op  = $weblinks_post->get_get_text('op');
+$op = $weblinks_post->get_get_text('op');
 
-$url   = $weblinks_link_handler->get_url($lid, 'n');
+$url = $weblinks_link_handler->get_url($lid, 'n');
 $url_s = happy_linux_sanitize_url($url);
 $url_u = happy_linux_undo_htmlspecialchars($url);
 

@@ -55,8 +55,8 @@ class admin_link_check_manage extends happy_linux_manage
 
     public $_post;
 
-    public $_conf   = null;
-    public $_limit  = 0;
+    public $_conf = null;
+    public $_limit = 0;
     public $_offset = 0;
 
     public $_TITLE_UPDATE = 'PageRank Update';
@@ -75,7 +75,7 @@ class admin_link_check_manage extends happy_linux_manage
         $this->set_flag_execute_time(true);
 
         $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler  = weblinks_getHandler('link_check', WEBLINKS_DIRNAME);
+        $this->_check_handler = weblinks_getHandler('link_check', WEBLINKS_DIRNAME);
         $this->_update_handler = weblinks_getHandler('pagerank_update', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
@@ -151,7 +151,7 @@ class admin_link_check_manage extends happy_linux_manage
 
     public function _print_form($op, $title)
     {
-        $limit  = $this->get_post_limit();
+        $limit = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
         $this->_form->show_first($op, $title, $limit, $offset);
@@ -180,7 +180,7 @@ class admin_link_check_manage extends happy_linux_manage
 
     public function _print_header()
     {
-        $limit  = $this->get_post_limit();
+        $limit = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
         $this->_print_cp_header();
@@ -194,9 +194,9 @@ class admin_link_check_manage extends happy_linux_manage
 
     public function _print_footer($op, $title)
     {
-        $limit  = $this->_limit;
+        $limit = $this->_limit;
         $offset = $this->_offset;
-        $next   = $offset + $limit;
+        $next = $offset + $limit;
 
         $total = $this->_check_handler->get_link_count_all();
 
@@ -266,9 +266,9 @@ class admin_form_pagerank extends happy_linux_form_lib
     {
         $submit = sprintf('Next %s link', $limit);
 
-        $desc   = '';
+        $desc = '';
         $action = '';
-        $text   = $this->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
+        $text = $this->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
         echo $text;
     }
 
@@ -282,7 +282,7 @@ class admin_form_pagerank extends happy_linux_form_lib
 weblinks_admin_multi_disable_feature();
 
 $manage = admin_link_check_manage::getInstance();
-$op     = $manage->get_post_op();
+$op = $manage->get_post_op();
 
 switch ($op) {
     case 'check':

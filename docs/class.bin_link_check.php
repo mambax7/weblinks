@@ -35,8 +35,8 @@ class bin_link_check extends happy_linux_bin_base
     public $_check;
 
     // constant
-    public $_MAILER          = 'XOOPS weblinks';
-    public $_TITLE           = _WEBLINKS_ADMIN_LINK_BROKEN_CHECK;
+    public $_MAILER = 'XOOPS weblinks';
+    public $_TITLE = _WEBLINKS_ADMIN_LINK_BROKEN_CHECK;
     public $_FILENAME_RESULT = 'cache/link_check.html';
 
     public $_flag_echo_lid = 0;
@@ -61,8 +61,8 @@ class bin_link_check extends happy_linux_bin_base
     public function check()
     {
         $conf_data = &$this->_check->get_conf();
-        $pass      = $conf_data['bin_pass'];
-        $mailto    = $conf_data['bin_mailto'];
+        $pass = $conf_data['bin_pass'];
+        $mailto = $conf_data['bin_mailto'];
         $flag_send = $conf_data['bin_send'];
 
         $this->set_env_param();
@@ -90,7 +90,7 @@ class bin_link_check extends happy_linux_bin_base
         // --- file close ---
 
         if ($flag_send) {
-            $total_link      = $this->_check->get_total_link();
+            $total_link = $this->_check->get_total_link();
             $num_link_broken = $this->_check->get_num_link_broken();
 
             // mail

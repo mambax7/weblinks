@@ -95,7 +95,7 @@ if (!class_exists('weblinks_link_mod_handler')) {
             $this->_clear_errors();
 
             $rss_flag = 0;
-            $rss_url  = '';
+            $rss_url = '';
 
             // create link object
             $obj = &$this->_create_mod_link_by_post($lid, true);
@@ -176,9 +176,9 @@ if (!class_exists('weblinks_link_mod_handler')) {
             $save_obj->assignVars($link_obj->gets());
             $save_obj->assign_mod_object($_POST, false, $flag_banner, $this->_get_flag_pagerank());
 
-            $this->_cid_array         = &$save_obj->get_cid_array();
+            $this->_cid_array = &$save_obj->get_cid_array();
             $this->_banner_error_code = $save_obj->get_banner_error_code();
-            $this->_banner_errors     = $save_obj->get_banner_errors();
+            $this->_banner_errors = $save_obj->get_banner_errors();
 
             return $save_obj;
         }

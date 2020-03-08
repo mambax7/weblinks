@@ -184,20 +184,20 @@ class admin_votedata_list extends happy_linux_page_frame
     public function &_get_cols(&$obj)
     {
         $ratingid = $obj->get('ratingid');
-        $lid      = $obj->get('lid');
+        $lid = $obj->get('lid');
 
-        $ratinguser      = $obj->getVar('ratinguser');
-        $rating          = $obj->getVar('rating');
-        $ratinghostname  = $obj->getVar('ratinghostname');
+        $ratinguser = $obj->getVar('ratinguser');
+        $rating = $obj->getVar('rating');
+        $ratinghostname = $obj->getVar('ratinghostname');
         $ratingtimestamp = $obj->getVar('ratingtimestamp');
-        $formatted_date  = $obj->get_formatted_timestamp();
+        $formatted_date = $obj->get_formatted_timestamp();
 
         $checkbox = $this->build_form_js_checkbox($ratingid);
 
-        $title_s        = '---';
+        $title_s = '---';
         $ratingusername = '---';
-        $uservotes      = '---';
-        $useravgrating  = '---';
+        $uservotes = '---';
+        $useravgrating = '---';
 
         if ($ratinguser) {
             $ratingusername = $obj->get_uname();
@@ -262,8 +262,8 @@ class admin_votedata_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _print_top()
     {
-        $total_all  = $this->_get_total_all();
-        $total      = $this->_get_total();
+        $total_all = $this->_get_total_all();
+        $total = $this->_get_total();
         $total_user = $this->_get_total_user();
         $total_anon = $this->_get_total_anon();
 
@@ -271,7 +271,7 @@ class admin_votedata_list extends happy_linux_page_frame
         printf(_WLS_THEREARE, $total_all);
         echo "<br><br>\n";
 
-        $script_asc  = $this->_get_script_asc();
+        $script_asc = $this->_get_script_asc();
         $script_desc = $this->_get_script_desc();
         $script_user = $this->_get_script_by_sortid(2);
         $script_anon = $this->_get_script_by_sortid(3);
@@ -305,9 +305,9 @@ class admin_votedata_list extends happy_linux_page_frame
         if ($this->_lid) {
             $link_obj = &$this->_link_handler->get($this->_lid);
             if (is_object($link_obj)) {
-                $title     = $link_obj->get('title');
+                $title = $link_obj->get('title');
                 $jump_link = 'link_manage.php?op=mod_form&lid=' . $this->_lid;
-                $text      = $this->build_html_a_href_name($jump_link, $title);  // class build_html
+                $text = $this->build_html_a_href_name($jump_link, $title);  // class build_html
                 echo $text . "<br><br>\n";
             }
         }

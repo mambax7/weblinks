@@ -78,14 +78,14 @@ echo "<h4>scenario 2: permit</h4>\n";
 $test->update_config_by_name('use_passwd', 1);
 $test->update_config_by_name_array('auth_submit', [1, 3]);
 
-$title  = $test->get_randum_title();
+$title = $test->get_randum_title();
 $passwd = xoops_makepass();
-$param  = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(9),
+$param = [
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(9),
     'rss_flag' => 2,    // rss
-    'passwd'   => $passwd,
+    'passwd' => $passwd,
 ];
 
 echo "passwd: $passwd <br>\n";
@@ -112,14 +112,14 @@ echo "<h4>scenario 3: permit and approve: </h4>\n";
 $test->update_config_by_name('cat_count', 1);
 $test->update_config_by_name_array('auth_submit_auto', [1, 3]);
 
-$title  = $test->get_randum_title();
+$title = $test->get_randum_title();
 $passwd = xoops_makepass();
-$param  = [
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(10),
+$param = [
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(10),
     'rss_flag' => 2,    // rss
-    'passwd'   => $passwd,
+    'passwd' => $passwd,
 ];
 
 echo "passwd: $passwd <br>\n";

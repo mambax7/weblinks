@@ -11,7 +11,7 @@ include 'admin_header.php';
 include_once WEBLINKS_ROOT_PATH . '/api/build_rss_feed.php';
 
 $builder = weblinks_getHandler('build_rss_feed', WEBLINKS_DIRNAME);
-$post    = happy_linux_post::getInstance();
+$post = happy_linux_post::getInstance();
 
 $mode = $post->get_get_text('mode');
 

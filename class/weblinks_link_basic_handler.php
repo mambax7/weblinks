@@ -122,11 +122,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
             }
             if ($row['textarea1']) {
                 $arr['description'] = $row['textarea1'];
-                $arr['dohtml']      = $row['dohtml1'];
-                $arr['dosmiley']    = $row['dosmiley1'];
-                $arr['doxcode']     = $row['doxcode1'];
-                $arr['doimage']     = $row['doimage1'];
-                $arr['dobr']        = $row['dobr1'];
+                $arr['dohtml'] = $row['dohtml1'];
+                $arr['dosmiley'] = $row['dosmiley1'];
+                $arr['doxcode'] = $row['doxcode1'];
+                $arr['doimage'] = $row['doimage1'];
+                $arr['dobr'] = $row['dobr1'];
             }
 
             return $arr;
@@ -248,10 +248,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function build_sql_where_exclude()
         {
             $broken = (int)$this->_conf['broken_threshold'];
-            $time   = time();
-            $where  = ' ( broken = 0 OR broken < ' . $broken . ' ) ';
-            $where  .= 'AND ( time_publish = 0 OR time_publish < ' . $time . ' ) ';
-            $where  .= 'AND ( time_expire = 0 OR time_expire > ' . $time . ' ) ';
+            $time = time();
+            $where = ' ( broken = 0 OR broken < ' . $broken . ' ) ';
+            $where .= 'AND ( time_publish = 0 OR time_publish < ' . $time . ' ) ';
+            $where .= 'AND ( time_expire = 0 OR time_expire > ' . $time . ' ) ';
 
             return $where;
         }
@@ -259,17 +259,17 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function build_sql_where_exclude_join()
         {
             $broken = (int)$this->_conf['broken_threshold'];
-            $time   = time();
-            $where  = ' ( l.broken = 0 OR l.broken < ' . $broken . ' ) ';
-            $where  .= 'AND ( l.time_publish = 0 OR l.time_publish < ' . $time . ' ) ';
-            $where  .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';
+            $time = time();
+            $where = ' ( l.broken = 0 OR l.broken < ' . $broken . ' ) ';
+            $where .= 'AND ( l.time_publish = 0 OR l.time_publish < ' . $time . ' ) ';
+            $where .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';
 
             return $where;
         }
 
         public function get_count_by_where($where)
         {
-            $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ' . $where;
+            $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ' . $where;
             $count = $this->get_count_by_sql($sql);
 
             return $count;

@@ -78,7 +78,7 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function get_post_param()
     {
-        $op     = $this->get_post_op();
+        $op = $this->get_post_op();
         $offset = $this->get_post_offset();
 
         return $op;
@@ -101,7 +101,7 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
-        $this->_next   = $this->_offset + $this->_LIMIT;
+        $this->_next = $this->_offset + $this->_LIMIT;
 
         return $this->_offset;
     }
@@ -142,26 +142,26 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         echo 'There are <b>' . $total_link_rss . "</b> rss links in weblinks<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
-        $count_not  = 0;
+        $count_not = 0;
         $count_more = 0;
 
         $url_weblinsk_link_manage = 'link_manage.php?op=mod_form&amp;lid=';
-        $url_rssc_link_manage     = XOOPS_URL . '/modules/' . WEBLINKS_RSSC_DIRNAME . '/admin/link_manage.php?op=mod_form&amp;lid=';
+        $url_rssc_link_manage = XOOPS_URL . '/modules/' . WEBLINKS_RSSC_DIRNAME . '/admin/link_manage.php?op=mod_form&amp;lid=';
 
         $weblinks_link_objs = &$this->_weblinks_link_handler->get_objects_rss_flag($this->_LIMIT, $offset);
         foreach ($weblinks_link_objs as $weblinks_link_obj) {
-            $weblinks_lid   = $weblinks_link_obj->get('lid');
+            $weblinks_lid = $weblinks_link_obj->get('lid');
             $weblinks_title = $weblinks_link_obj->get('title');
-            $rssc_lid_1     = $weblinks_link_obj->get('rssc_lid');
+            $rssc_lid_1 = $weblinks_link_obj->get('rssc_lid');
 
             if (0 == $rssc_lid_1) {
                 // no action
                 continue;
             }
 
-            $url_1    = $url_weblinsk_link_manage . $weblinks_lid;
-            $lid_1s   = sprintf('%03d', $weblinks_lid);
-            $href_1   = '<a href="' . $url_1 . '" target="_blank">' . $lid_1s . '</a>';
+            $url_1 = $url_weblinsk_link_manage . $weblinks_lid;
+            $lid_1s = sprintf('%03d', $weblinks_lid);
+            $href_1 = '<a href="' . $url_1 . '" target="_blank">' . $lid_1s . '</a>';
             $title_1s = htmlspecialchars($weblinks_title);
 
             $rssc_link_obj_1 = &$this->_rssc_link_handler->get($rssc_lid_1);
@@ -173,8 +173,8 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
                 continue;
             }
 
-            $rdf_url  = $rssc_link_obj_1->get('rdf_url');
-            $rss_url  = $rssc_link_obj_1->get('rss_url');
+            $rdf_url = $rssc_link_obj_1->get('rdf_url');
+            $rss_url = $rssc_link_obj_1->get('rss_url');
             $atom_url = $rssc_link_obj_1->get('atom_url');
 
             $list = &$this->_rssc_link_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $rssc_lid_1);
@@ -187,10 +187,10 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
                     $rssc_link_obj_2 = &$this->_rssc_link_handler->get($rssc_lid_2);
                     if (is_object($rssc_link_obj_2)) {
                         $rssc_title_2 = $rssc_link_obj_2->get('title');
-                        $url_2        = $url_rssc_link_manage . $rssc_lid_2;
-                        $lid_2s       = sprintf('%03d', $rssc_lid_2);
-                        $href_2       = '<a href="' . $url_2 . '" target="_blank">' . $lid_2s . '</a>';
-                        $title_2s     = htmlspecialchars($rssc_title_2);
+                        $url_2 = $url_rssc_link_manage . $rssc_lid_2;
+                        $lid_2s = sprintf('%03d', $rssc_lid_2);
+                        $href_2 = '<a href="' . $url_2 . '" target="_blank">' . $lid_2s . '</a>';
+                        $title_2s = htmlspecialchars($rssc_title_2);
                         echo ' --- ' . $href_2 . ' : ' . $title_2s . "<br>\n";
                     }
                 }
@@ -245,10 +245,10 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         }
 
         // show form
-        $limit  = 0;
-        $desc   = '';
+        $limit = 0;
+        $desc = '';
         $action = '';
-        $text   = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
+        $text = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
         echo $text;
     }
 
@@ -296,7 +296,7 @@ if (WEBLINKS_RSSC_EXIST) {
 }
 
 $manage = admin_table_manage_rssc::getInstance();
-$op     = $manage->get_post_param();
+$op = $manage->get_post_param();
 
 switch ($op) {
     case 'check_link':

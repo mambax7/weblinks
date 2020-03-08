@@ -19,7 +19,7 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         }
 
         $inc_class = &webphoto_inc_weblinks::getInstance();
-        $ret       = $inc_class->albums($opts);
+        $ret = $inc_class->albums($opts);
 
         return $ret;
     }
@@ -34,7 +34,7 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         }
 
         $inc_class = &webphoto_inc_weblinks::getInstance();
-        $ret       = $inc_class->photos($opts);
+        $ret = $inc_class->photos($opts);
 
         return $ret;
     }

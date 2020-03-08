@@ -105,8 +105,8 @@ if (!class_exists('weblinks_link_req_handler')) {
                 return false;
             }
 
-            $this->_newid     = $newid;
-            $this->_save_obj  = &$save_obj;
+            $this->_newid = $newid;
+            $this->_save_obj = &$save_obj;
             $this->_cid_array = &$save_obj->get_cid_array();
 
             return $newid;

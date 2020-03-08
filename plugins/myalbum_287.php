@@ -28,7 +28,7 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
     {
         global $xoopsDB;
 
-        $false   = false;
+        $false = false;
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'myalbum';
 
         $file = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/include/read_configs.php';
@@ -52,7 +52,7 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
 
     function &weblinks_plugin_photos_myalbum_287($opts)
     {
-        $false   = false;
+        $false = false;
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'myalbum';
 
         $file = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/blocks/myalbum_rphoto.php';
@@ -62,12 +62,12 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
             return $false;
         }
 
-        $width       = isset($opts['width']) ? (int)$opts['width'] : 140;
+        $width = isset($opts['width']) ? (int)$opts['width'] : 140;
         $album_limit = isset($opts['album_limit']) ? (int)$opts['album_limit'] : 1;
-        $album_id    = isset($opts['album_id']) ? (int)$opts['album_id'] : 0;
-        $mode_sub    = isset($opts['mode_sub']) ? (int)$opts['mode_sub'] : 1;
-        $cycle       = isset($opts['cycle']) ? (int)$opts['cycle'] : 60;
-        $cols        = isset($opts['cols']) ? (int)$opts['cols'] : 3;
+        $album_id = isset($opts['album_id']) ? (int)$opts['album_id'] : 0;
+        $mode_sub = isset($opts['mode_sub']) ? (int)$opts['mode_sub'] : 1;
+        $cycle = isset($opts['cycle']) ? (int)$opts['cycle'] : 60;
+        $cols = isset($opts['cols']) ? (int)$opts['cols'] : 3;
 
         if (0 == $album_id) {
             return $false;
@@ -104,15 +104,15 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
 
         $ret = [];
         foreach ($block['photo'] as $photo) {
-            $href    = $href_base . $photo['lid'] . '&amp;cid=' . $photo['cid'];
-            $src     = $photo['thumbs_url'] . '/' . $photo['lid'] . '.' . $photo['ext'];
-            $title   = $photo['title'];
+            $href = $href_base . $photo['lid'] . '&amp;cid=' . $photo['cid'];
+            $src = $photo['thumbs_url'] . '/' . $photo['lid'] . '.' . $photo['ext'];
+            $title = $photo['title'];
             $attribs = $photo['img_attribs'];
 
             $ret[] = [
-                'href'        => $href,
-                'title'       => $title,
-                'img_src'     => $src,
+                'href' => $href,
+                'title' => $title,
+                'img_src' => $src,
                 'img_attribs' => $attribs,
             ];
         }

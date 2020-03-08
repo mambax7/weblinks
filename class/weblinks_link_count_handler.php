@@ -29,8 +29,8 @@ if (!class_exists('weblinks_link_count_handler')) {
         public $_link_catlink_handler;
 
         // local
-        public $_conf        = [];
-        public $_cached_cid  = [];
+        public $_conf = [];
+        public $_cached_cid = [];
         public $_cached_mark = [];
 
         //---------------------------------------------------------
@@ -43,10 +43,10 @@ if (!class_exists('weblinks_link_count_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler       = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler         = weblinks_getHandler('link_basic', $dirname);
-            $this->_category_handler     = weblinks_getHandler('category_basic', $dirname);
-            $this->_catlink_handler      = weblinks_getHandler('catlink_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink_basic', $dirname);
             $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', $dirname);
 
             $this->_conf = &$this->_config_handler->get_conf();
@@ -73,7 +73,7 @@ if (!class_exists('weblinks_link_count_handler')) {
                 return (int)$this->_cached_mark['public'];
             }
 
-            $count                        = $this->_link_handler->get_count_public();
+            $count = $this->_link_handler->get_count_public();
             $this->_cached_mark['public'] = $count;
 
             return $count;
@@ -106,7 +106,7 @@ if (!class_exists('weblinks_link_count_handler')) {
                 return (int)$this->_cached_cid[$cid]['top_link_count'];
             }
 
-            $count                                     = $this->_link_catlink_handler->get_count_by_cid($cid);
+            $count = $this->_link_catlink_handler->get_count_by_cid($cid);
             $this->_cached_cid[$cid]['top_link_count'] = $count;
 
             return $count;
@@ -123,7 +123,7 @@ if (!class_exists('weblinks_link_count_handler')) {
                 $count = $this->_category_handler->get_link_count($cid);
             } else {
                 $cid_arr = &$this->get_cid_array_patent_children($cid);
-                $count   = $this->_link_catlink_handler->get_count_by_cid_array($cid_arr);
+                $count = $this->_link_catlink_handler->get_count_by_cid_array($cid_arr);
             }
 
             $this->_cached_cid[$cid]['all_link_count'] = $count;

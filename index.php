@@ -69,10 +69,10 @@ include_once WEBLINKS_ROOT_PATH . '/api/waiting.php';
 
 $weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
 $weblinks_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
-$weblinks_template     = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header       = weblinks_header::getInstance(WEBLINKS_DIRNAME);
-$weblinks_webmap       = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
-$weblinks_map_jp       = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_webmap = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
+$weblinks_map_jp = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
 
 //---------------------------------------------------------
 // main
@@ -82,9 +82,9 @@ $weblinks_map_jp       = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
 $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_index.html';
 include XOOPS_ROOT_PATH . '/header.php';
 
-$conf          = $weblinks_view_handler->get_config();
+$conf = $weblinks_view_handler->get_config();
 $conf_new_link = $conf['index_new_link'];
-$conf_new_rss  = $conf['index_new_rss'];
+$conf_new_rss = $conf['index_new_rss'];
 
 $weblinks_template->set_keyword_by_request();
 
@@ -93,7 +93,7 @@ $keyword_array = $weblinks_template->get_keyword_array();
 
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
-$show_gm  = false;
+$show_gm = false;
 $gm_param = [];
 
 //---------
@@ -102,21 +102,21 @@ $conf['gm_use'] = 1;
 if ($conf['gm_use']) {
     switch ($conf['index_gm_mode']) {
         case 1:
-            $show_gm  = true;
+            $show_gm = true;
             $gm_param = [
-                'gm_latitude'  => $conf['gm_latitude'],
+                'gm_latitude' => $conf['gm_latitude'],
                 'gm_longitude' => $conf['gm_longitude'],
-                'gm_zoom'      => $conf['gm_zoom'],
-                'gm_type'      => 0,
+                'gm_zoom' => $conf['gm_zoom'],
+                'gm_type' => 0,
             ];
             break;
         case 2:
-            $show_gm  = true;
+            $show_gm = true;
             $gm_param = [
-                'gm_latitude'  => $conf['index_gm_latitude'],
+                'gm_latitude' => $conf['index_gm_latitude'],
                 'gm_longitude' => $conf['index_gm_longitude'],
-                'gm_zoom'      => $conf['index_gm_zoom'],
-                'gm_type'      => 0,
+                'gm_zoom' => $conf['index_gm_zoom'],
+                'gm_type' => 0,
             ];
             break;
     }
@@ -139,15 +139,15 @@ $xoopsTpl->assign('keywords', $keywords_urlencoded);
 // --- category list ---
 $weblinks_view_handler->init();
 
-$pid           = 0;
-$flag_catpath  = 0;
+$pid = 0;
+$flag_catpath = 0;
 $category_list = $weblinks_view_handler->get_category_list_by_pid($pid, $flag_catpath, $conf['index_cat_sub_num'], $conf['index_cat_sub_mode']);
 
 $show_category_navi = false;
-$category_navi      = '';
+$category_navi = '';
 if (is_array($category_list) && count($category_list)) {
     $show_category_navi = true;
-    $category_navi      = $weblinks_template->fetch_category_navi($category_list, $conf['index_cat_img_mode'], $conf['index_cat_cols'], $keywords_urlencoded);
+    $category_navi = $weblinks_template->fetch_category_navi($category_list, $conf['index_cat_img_mode'], $conf['index_cat_cols'], $keywords_urlencoded);
 }
 
 $xoopsTpl->assign('show_category_navi', $show_category_navi);
@@ -155,11 +155,11 @@ $xoopsTpl->assign('weblinks_category_navi', $category_navi);
 
 // --- map jp ---
 $show_map_jp = false;
-$map_jp      = '';
+$map_jp = '';
 
 if ($conf['map_jp_show_index']) {
     $show_map_jp = true;
-    $map_jp      = $weblinks_map_jp->fetch_template();
+    $map_jp = $weblinks_map_jp->fetch_template();
 }
 
 $xoopsTpl->assign('show_map_jp', $show_map_jp);
@@ -171,10 +171,10 @@ $xoopsTpl->assign('lang_thereare', sprintf(_WLS_THEREARE, $total_link));
 
 // BUG 4278: cannot set no link list on the top page
 $show_links_list = false;
-$links_list      = '';
-$show_webmap     = false;
-$webmap_div_id   = '';
-$webmap_func     = '';
+$links_list = '';
+$show_webmap = false;
+$webmap_div_id = '';
+$webmap_func = '';
 
 if ($conf_new_link) {
     if ($conf['index_mode_latest']) {
@@ -185,16 +185,16 @@ if ($conf_new_link) {
 
     if (is_array($link_list) && count($link_list)) {
         $show_links_list = true;
-        $links_list      = $weblinks_template->fetch_links_list($link_list);
+        $links_list = $weblinks_template->fetch_links_list($link_list);
 
         // --- webmap ---
         if ($show_gm) {
             $ret = $weblinks_webmap->init_map();
             if ($ret) {
-                $webmap_param  = $weblinks_webmap->fetch_list($link_list, $gm_param);
-                $show_webmap   = $webmap_param['show_webmap'];
+                $webmap_param = $weblinks_webmap->fetch_list($link_list, $gm_param);
+                $show_webmap = $webmap_param['show_webmap'];
                 $webmap_div_id = $webmap_param['webmap_div_id'];
-                $webmap_func   = $webmap_param['webmap_func'];
+                $webmap_func = $webmap_param['webmap_func'];
             }
         }
     }
@@ -210,7 +210,7 @@ $xoopsTpl->assign('webmap_func', $webmap_func);
 
 // --- atomfeed list ---
 $show_new_atomfeed = false;
-$show_feeds_list   = false;
+$show_feeds_list = false;
 
 if (WEBLINKS_RSSC_USE && $conf_new_rss) {
     $show_new_atomfeed = true;
@@ -233,11 +233,11 @@ $xoopsTpl->assign('show_feeds_list', $show_feeds_list);
 
 // --- waiting list ---
 $show_admin_waiting_list = false;
-$show_user_waiting_list  = false;
-$show_user_owner_list    = false;
-$admin_waiting_list      = null;
-$user_waiting_list       = null;
-$user_owner_list         = null;
+$show_user_waiting_list = false;
+$show_user_owner_list = false;
+$admin_waiting_list = null;
+$user_waiting_list = null;
+$user_owner_list = null;
 
 if ($conf['index_admin_waiting_show']) {
     $admin_waiting_list = weblinks_admin_waiting_base(WEBLINKS_DIRNAME);

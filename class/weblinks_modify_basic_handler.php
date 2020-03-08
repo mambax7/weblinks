@@ -44,7 +44,7 @@ if (!class_exists('weblinks_modify_basic_handler')) {
         //---------------------------------------------------------
         public function get_count_by_mode($mode)
         {
-            $sql   = 'SELECT count(*) FROM ' . $this->_table . ' WHERE mode=' . (int)$mode;
+            $sql = 'SELECT count(*) FROM ' . $this->_table . ' WHERE mode=' . (int)$mode;
             $count = $this->get_count_by_sql($sql);
 
             return $count;

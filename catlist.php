@@ -30,8 +30,8 @@
 include 'header.php';
 
 $weblinks_view_handler = weblinks_getHandler('cat_view', WEBLINKS_DIRNAME);
-$weblinks_template     = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header       = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 //---------------------------------------------------------
 // main
@@ -42,7 +42,7 @@ $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_catlist.html';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $weblinks_template->set_keyword_by_request();
-$keyword_array       = $weblinks_template->get_keyword_array();
+$keyword_array = $weblinks_template->get_keyword_array();
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
 // Index

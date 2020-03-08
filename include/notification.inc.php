@@ -50,14 +50,14 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
         // hack for multi site
         // BUG: not show category title
         $table_category = weblinks_multi_get_table_name($dirname, 'category');
-        $table_link     = weblinks_multi_get_table_name($dirname, 'link');
+        $table_link = weblinks_multi_get_table_name($dirname, 'link');
 
         if (empty($xoopsModule) || $xoopsModule->getVar('dirname') != $dirname) {
             $module_handler = xoops_getHandler('module');
-            $module         = $module_handler->getByDirname($dirname);
+            $module = $module_handler->getByDirname($dirname);
 
             $config_handler = xoops_getHandler('config');
-            $config         = $config_handler->getConfigsByCat(0, $module->getVar('mid'));
+            $config = $config_handler->getConfigsByCat(0, $module->getVar('mid'));
         } else {
             $module = &$xoopsModule;
             $config = &$xoopsModuleConfig;
@@ -65,7 +65,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
 
         if ('global' == $category) {
             $item['name'] = '';
-            $item['url']  = '';
+            $item['url'] = '';
 
             return $item;
         }
@@ -76,7 +76,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             $row = $xoopsDB->fetchArray($xoopsDB->query($sql));
 
             $item['name'] = $row['title'];
-            $item['url']  = XOOPS_URL . '/modules/' . $dirname . '/viewcat.php?cid=' . $item_id;
+            $item['url'] = XOOPS_URL . '/modules/' . $dirname . '/viewcat.php?cid=' . $item_id;
 
             return $item;
         }
@@ -87,7 +87,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             $row = $xoopsDB->fetchArray($xoopsDB->query($sql));
 
             $item['name'] = $row['title'];
-            $item['url']  = XOOPS_URL . '/modules/' . $dirname . '/singlelink.php?lid=' . $item_id;
+            $item['url'] = XOOPS_URL . '/modules/' . $dirname . '/singlelink.php?lid=' . $item_id;
 
             return $item;
         }

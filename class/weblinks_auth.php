@@ -37,9 +37,9 @@ if (!class_exists('weblinks_auth')) {
             parent::__construct();
 
             $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_menu           = weblinks_menu::getInstance($dirname);
-            $this->_post           = happy_linux_post::getInstance();
-            $this->_system         = happy_linux_system::getInstance();
+            $this->_menu = weblinks_menu::getInstance($dirname);
+            $this->_post = happy_linux_post::getInstance();
+            $this->_system = happy_linux_system::getInstance();
         }
 
         public static function getInstance($dirname = null)
@@ -57,8 +57,8 @@ if (!class_exists('weblinks_auth')) {
         //---------------------------------------------------------
         public function show_modify($rec_uid)
         {
-            $uid_match   = $this->_check_uid_match($rec_uid);
-            $has_permit  = $this->_has_auth_modify_permit($uid_match);
+            $uid_match = $this->_check_uid_match($rec_uid);
+            $has_permit = $this->_has_auth_modify_permit($uid_match);
             $show_passwd = $this->_check_show_passwd();
 
             if ($has_permit || $show_passwd) {
@@ -71,8 +71,8 @@ if (!class_exists('weblinks_auth')) {
         public function &get_auth_submit()
         {
             $has_permit = $this->_menu->show_submit();
-            $has_auto   = $this->_has_auth('auth_submit_auto');
-            $code       = $this->_get_submit_code($has_permit);
+            $has_auto = $this->_has_auth('auth_submit_auto');
+            $code = $this->_get_submit_code($has_permit);
 
             $arr = [$code, $has_permit, $has_auto];
 
@@ -90,13 +90,13 @@ if (!class_exists('weblinks_auth')) {
             $has_permit = $this->_has_auth_modify_permit($uid_match, $passwd_match);
 
             $arr = [
-                'code'                   => $this->_get_modify_code($has_permit, $passwd_match, $request),
+                'code' => $this->_get_modify_code($has_permit, $passwd_match, $request),
                 'has_auth_modify_permit' => $has_permit,
-                'has_auth_modify_auto'   => $this->_has_auth_modify_auto($uid_match, $passwd_match),
+                'has_auth_modify_auto' => $this->_has_auth_modify_auto($uid_match, $passwd_match),
                 'has_auth_delete_permit' => $this->_has_auth_delete_permit($uid_match, $passwd_match),
-                'has_auth_delete_auto'   => $this->_has_auth_delete_auto($uid_match, $passwd_match),
-                'is_owner'               => $this->_is_owner($uid_match, $passwd_match),
-                'flag_passwd_incorrect'  => $passwd_incorrect,
+                'has_auth_delete_auto' => $this->_has_auth_delete_auto($uid_match, $passwd_match),
+                'is_owner' => $this->_is_owner($uid_match, $passwd_match),
+                'flag_passwd_incorrect' => $passwd_incorrect,
             ];
 
             return $arr;
@@ -111,17 +111,17 @@ if (!class_exists('weblinks_auth')) {
         public function &has_auth_desc_option()
         {
             $arr = [
-                'dohtml'   => $this->_has_auth('auth_dohtml'),
+                'dohtml' => $this->_has_auth('auth_dohtml'),
                 'dosmiley' => $this->_has_auth('auth_dosmiley'),
-                'doxcode'  => $this->_has_auth('auth_doxcode'),
-                'doimage'  => $this->_has_auth('auth_doimage'),
-                'dobr'     => $this->_has_auth('auth_dobr'),
+                'doxcode' => $this->_has_auth('auth_doxcode'),
+                'doimage' => $this->_has_auth('auth_doimage'),
+                'dobr' => $this->_has_auth('auth_dobr'),
 
-                'dohtml1'   => $this->_has_auth('auth_dohtml_1'),
+                'dohtml1' => $this->_has_auth('auth_dohtml_1'),
                 'dosmiley1' => $this->_has_auth('auth_dosmiley_1'),
-                'doxcode1'  => $this->_has_auth('auth_doxcode_1'),
-                'doimage1'  => $this->_has_auth('auth_doimage_1'),
-                'dobr1'     => $this->_has_auth('auth_dobr_1'),
+                'doxcode1' => $this->_has_auth('auth_doxcode_1'),
+                'doimage1' => $this->_has_auth('auth_doimage_1'),
+                'dobr1' => $this->_has_auth('auth_dobr_1'),
             ];
 
             return $arr;
@@ -189,7 +189,7 @@ if (!class_exists('weblinks_auth')) {
 
         public function _check_passwd_match($rec_passwd, $request)
         {
-            $passwd_match     = false;
+            $passwd_match = false;
             $passwd_incorrect = false;
 
             list($passwd, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
@@ -252,8 +252,8 @@ if (!class_exists('weblinks_auth')) {
 
         public function _has_modify_common($name, $uid_match, $passwd_match)
         {
-            $has_auth        = $this->_has_auth($name);
-            $has_auth_uid    = $this->_has_auth_uid($name);
+            $has_auth = $this->_has_auth($name);
+            $has_auth_uid = $this->_has_auth_uid($name);
             $has_auth_passwd = $this->_has_auth_passwd($name);
 
             if ($has_auth) {
@@ -303,7 +303,7 @@ if (!class_exists('weblinks_auth')) {
             // modify happy_linux_basic_handler
 
             $auth_arr = &$this->_get_conf_array($name);
-            $groups   = &$this->_system->get_user_groups();
+            $groups = &$this->_system->get_user_groups();
 
             if (is_array($auth_arr) && count($auth_arr)
                 && is_array($groups)

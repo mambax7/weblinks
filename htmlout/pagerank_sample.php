@@ -37,7 +37,7 @@ if (!class_exists('weblinks_htmlout_pagerank_sample')) {
             $pagerank_handler = &$this->get_handler('pagerank');
 
             $lid = $this->get_item_by_key('lid');
-            $pr  = $pagerank_handler->get_page_rank($lid);
+            $pr = $pagerank_handler->get_page_rank($lid);
 
             $this->set_item_by_key('show_pagerank', true);
             $this->set_item_by_key('pagerank', $pr);

@@ -29,12 +29,12 @@ if (!class_exists('weblinks_block')) {
         {
             parent::__construct();
 
-            $this->_db           = XoopsDatabaseFactory::getDatabaseConnection();
+            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
             $this->_webmap_class = weblinks_block_webmap::getSingleton($dirname);
 
-            $this->_table_link     = weblinks_multi_get_table_name($dirname, 'link');
+            $this->_table_link = weblinks_multi_get_table_name($dirname, 'link');
             $this->_table_category = weblinks_multi_get_table_name($dirname, 'category');
-            $this->_table_catlink  = weblinks_multi_get_table_name($dirname, 'catlink');
+            $this->_table_catlink = weblinks_multi_get_table_name($dirname, 'catlink');
         }
 
         public function &getSingleton($dirname)
@@ -91,27 +91,27 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         public function top_show($options)
         {
-            $SHOW_RECOMMEND  = false;
+            $SHOW_RECOMMEND = false;
             $LIMIT_RECOMMEND = 3;
 
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-            $order            = $options[1];
-            $limit            = (int)$options[2];
-            $title_length     = (int)$options[3];
+            $order = $options[1];
+            $limit = (int)$options[2];
+            $title_length = (int)$options[3];
             $cat_title_length = (int)$options[4];
-            $desc_length      = (int)$options[5];
-            $newdays          = (int)$options[6];
-            $popular          = (int)$options[7];
-            $max_width        = (int)$options[8];
-            $width_default    = (int)$options[9];
+            $desc_length = (int)$options[5];
+            $newdays = (int)$options[6];
+            $popular = (int)$options[7];
+            $max_width = (int)$options[8];
+            $width_default = (int)$options[9];
 
-            $gm_mode      = isset($options[10]) ? (int)$options[10] : 0;
-            $gm_latitude  = isset($options[11]) ? (float)$options[11] : 0;
+            $gm_mode = isset($options[10]) ? (int)$options[10] : 0;
+            $gm_latitude = isset($options[11]) ? (float)$options[11] : 0;
             $gm_longitude = isset($options[12]) ? (float)$options[12] : 0;
-            $gm_zoom      = isset($options[13]) ? (int)$options[13] : 0;
-            $gm_height    = isset($options[14]) ? (int)$options[14] : 0;
-            $gm_timeout   = isset($options[15]) ? (int)$options[15] : 0;
+            $gm_zoom = isset($options[13]) ? (int)$options[13] : 0;
+            $gm_height = isset($options[14]) ? (int)$options[14] : 0;
+            $gm_timeout = isset($options[15]) ? (int)$options[15] : 0;
 
             // use config value
             //  $gm_desc_length  = isset($options[16]) ? intval($options[16])   : 0;
@@ -129,19 +129,19 @@ if (!class_exists('weblinks_block')) {
 
             $lid_array = [];
 
-            $block                  = [];
-            $block['dirname']       = $DIRNAME;
-            $block['lang_hits']     = _MB_WEBLINKS_HITS;
-            $block['lang_rating']   = _MB_WEBLINKS_RATING;
-            $block['lang_votes']    = _MB_WEBLINKS_VOTES;
+            $block = [];
+            $block['dirname'] = $DIRNAME;
+            $block['lang_hits'] = _MB_WEBLINKS_HITS;
+            $block['lang_rating'] = _MB_WEBLINKS_RATING;
+            $block['lang_votes'] = _MB_WEBLINKS_VOTES;
             $block['lang_comments'] = _MB_WEBLINKS_COMMENTS;
-            $block['lang_more']     = _MB_WEBLINKS_MORE;
+            $block['lang_more'] = _MB_WEBLINKS_MORE;
 
-            $gm_links      = [];
-            $show_webmap   = false;
+            $gm_links = [];
+            $show_webmap = false;
             $webmap_div_id = '';
-            $webmap_func   = '';
-            $webmap_style  = '';
+            $webmap_func = '';
+            $webmap_style = '';
 
             // config
             $conf = weblinks_get_config($DIRNAME);
@@ -152,14 +152,14 @@ if (!class_exists('weblinks_block')) {
             $broken = $conf['broken_threshold'];
 
             $link_param = [
-                'order'            => $order,
-                'title_length'     => $title_length,
+                'order' => $order,
+                'title_length' => $title_length,
                 'cat_title_length' => $cat_title_length,
-                'desc_length'      => $desc_length,
-                'newdays'          => $newdays,
-                'popular'          => $popular,
-                'max_width'        => $max_width,
-                'width_default'    => $width_default,
+                'desc_length' => $desc_length,
+                'newdays' => $newdays,
+                'popular' => $popular,
+                'max_width' => $max_width,
+                'width_default' => $width_default,
 
                 // hack for multi language
                 'is_japanese_site' => weblinks_multi_is_japanese_site(),
@@ -171,8 +171,8 @@ if (!class_exists('weblinks_block')) {
             }
 
             foreach ($rows1 as $row1) {
-                $lid_array[]      = $row1['lid'];
-                $link             = $this->build_link($row1, $link_param);
+                $lid_array[] = $row1['lid'];
+                $link = $this->build_link($row1, $link_param);
                 $block['links'][] = $link;
 
                 if ($link['google_use']) {
@@ -188,7 +188,7 @@ if (!class_exists('weblinks_block')) {
                 }
 
                 foreach ($rows3 as $row3) {
-                    $link                       = $thos->build_link($row3, $link_param);
+                    $link = $thos->build_link($row3, $link_param);
                     $block['recommend_links'][] = $link;
 
                     // not in latest link
@@ -201,31 +201,31 @@ if (!class_exists('weblinks_block')) {
             $block['show_recommend'] = $SHOW_RECOMMEND;
 
             // google map
-            $gm_name  = $DIRNAME . '_b_' . $order;
+            $gm_name = $DIRNAME . '_b_' . $order;
             $gm_param = [
-                'dirname'      => $DIRNAME,
-                'latitude'     => $gm_latitude,
-                'longitude'    => $gm_longitude,
-                'zoom'         => $gm_zoom,
-                'name'         => $gm_name,
-                'mode'         => $gm_mode,
+                'dirname' => $DIRNAME,
+                'latitude' => $gm_latitude,
+                'longitude' => $gm_longitude,
+                'zoom' => $gm_zoom,
+                'name' => $gm_name,
+                'mode' => $gm_mode,
                 'style_height' => $gm_height,
-                'links'        => $gm_links,
-                'conf'         => $conf,
+                'links' => $gm_links,
+                'conf' => $conf,
             ];
 
             $webmap_param = $this->_webmap_class->build_map_block($gm_param);
             if (is_array($webmap_param)) {
-                $show_webmap   = $webmap_param['show_webmap'];
+                $show_webmap = $webmap_param['show_webmap'];
                 $webmap_div_id = $webmap_param['webmap_div_id'];
-                $webmap_func   = $webmap_param['webmap_func'];
-                $webmap_style  = $webmap_param['webmap_style'];
+                $webmap_func = $webmap_param['webmap_func'];
+                $webmap_style = $webmap_param['webmap_style'];
             }
 
-            $block['show_webmap']    = $show_webmap;
-            $block['webmap_div_id']  = $webmap_div_id;
-            $block['webmap_func']    = $webmap_func;
-            $block['webmap_style']   = $webmap_style;
+            $block['show_webmap'] = $show_webmap;
+            $block['webmap_div_id'] = $webmap_div_id;
+            $block['webmap_func'] = $webmap_func;
+            $block['webmap_style'] = $webmap_style;
             $block['webmap_timeout'] = $gm_timeout;
 
             return $block;
@@ -233,27 +233,27 @@ if (!class_exists('weblinks_block')) {
 
         public function top_edit($options)
         {
-            $DIRNAME          = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-            $order            = $options[1];
-            $limit            = (int)$options[2];
-            $title_length     = (int)$options[3];
+            $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+            $order = $options[1];
+            $limit = (int)$options[2];
+            $title_length = (int)$options[3];
             $cat_title_length = (int)$options[4];
-            $desc_length      = (int)$options[5];
-            $newdays          = (int)$options[6];
-            $popular          = (int)$options[7];
-            $max_width        = (int)$options[8];
-            $width_default    = (int)$options[9];
+            $desc_length = (int)$options[5];
+            $newdays = (int)$options[6];
+            $popular = (int)$options[7];
+            $max_width = (int)$options[8];
+            $width_default = (int)$options[9];
 
-            $gm_mode         = isset($options[10]) ? (int)$options[10] : 0;
-            $gm_latitude     = isset($options[11]) ? (float)$options[11] : 0;
-            $gm_longitude    = isset($options[12]) ? (float)$options[12] : 0;
-            $gm_zoom         = isset($options[13]) ? (int)$options[13] : 0;
-            $gm_height       = isset($options[14]) ? (int)$options[14] : 0;
-            $gm_timeout      = isset($options[15]) ? (int)$options[15] : 0;
-            $gm_desc_length  = isset($options[16]) ? (int)$options[16] : 0;
-            $gm_wordwrap     = isset($options[17]) ? (int)$options[17] : 0;
+            $gm_mode = isset($options[10]) ? (int)$options[10] : 0;
+            $gm_latitude = isset($options[11]) ? (float)$options[11] : 0;
+            $gm_longitude = isset($options[12]) ? (float)$options[12] : 0;
+            $gm_zoom = isset($options[13]) ? (int)$options[13] : 0;
+            $gm_height = isset($options[14]) ? (int)$options[14] : 0;
+            $gm_timeout = isset($options[15]) ? (int)$options[15] : 0;
+            $gm_desc_length = isset($options[16]) ? (int)$options[16] : 0;
+            $gm_wordwrap = isset($options[17]) ? (int)$options[17] : 0;
             $gm_marker_width = isset($options[18]) ? (int)$options[18] : 0;
-            $gm_control      = isset($options[19]) ? (int)$options[19] : 1;
+            $gm_control = isset($options[19]) ? (int)$options[19] : 1;
             $gm_type_control = isset($options[20]) ? (int)$options[20] : 1;
 
             $form = '<table><tr><td>';
@@ -440,31 +440,31 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         public function generic_show($options)
         {
-            $DIRNAME          = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-            $limit            = (int)$options[1];
-            $title_length     = (int)$options[2];
+            $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+            $limit = (int)$options[1];
+            $title_length = (int)$options[2];
             $cat_title_length = (int)$options[3];
-            $desc_length      = (int)$options[4];
-            $newdays          = (int)$options[5];
-            $popular          = (int)$options[6];
-            $max_width        = (int)$options[7];
-            $width_default    = (int)$options[8];
-            $show_date        = (int)$options[9];
-            $show_mode_url    = (int)$options[10];
-            $flag_url_empty   = (int)$options[11];
-            $cid              = (int)$options[12];
-            $flag_subcat      = (int)$options[13];
-            $mode_link        = $options[14];
-            $flag_random      = (int)$options[15];
-            $order            = $options[16];
-            $sort             = $options[17];
+            $desc_length = (int)$options[4];
+            $newdays = (int)$options[5];
+            $popular = (int)$options[6];
+            $max_width = (int)$options[7];
+            $width_default = (int)$options[8];
+            $show_date = (int)$options[9];
+            $show_mode_url = (int)$options[10];
+            $flag_url_empty = (int)$options[11];
+            $cid = (int)$options[12];
+            $flag_subcat = (int)$options[13];
+            $mode_link = $options[14];
+            $flag_random = (int)$options[15];
+            $order = $options[16];
+            $sort = $options[17];
 
-            $gm_mode      = isset($options[18]) ? (int)$options[18] : 0;
-            $gm_latitude  = isset($options[19]) ? (float)$options[19] : 0;
+            $gm_mode = isset($options[18]) ? (int)$options[18] : 0;
+            $gm_latitude = isset($options[19]) ? (float)$options[19] : 0;
             $gm_longitude = isset($options[20]) ? (float)$options[20] : 0;
-            $gm_zoom      = isset($options[21]) ? (int)$options[21] : 0;
-            $gm_height    = isset($options[22]) ? (int)$options[22] : 0;
-            $gm_timeout   = isset($options[23]) ? (int)$options[23] : 0;
+            $gm_zoom = isset($options[21]) ? (int)$options[21] : 0;
+            $gm_height = isset($options[22]) ? (int)$options[22] : 0;
+            $gm_timeout = isset($options[23]) ? (int)$options[23] : 0;
 
             // use config value
             //  $gm_desc_length  = isset($options[24]) ? intval($options[24])   : 0;
@@ -496,21 +496,21 @@ if (!class_exists('weblinks_block')) {
                 $show_title = 0;
             }
 
-            $gm_links      = [];
-            $show_webmap   = false;
+            $gm_links = [];
+            $show_webmap = false;
             $webmap_div_id = '';
-            $webmap_func   = '';
-            $webmap_style  = '';
+            $webmap_func = '';
+            $webmap_style = '';
 
-            $block                  = [];
-            $block['dirname']       = $DIRNAME;
-            $block['lang_hits']     = _MB_WEBLINKS_HITS;
-            $block['lang_rating']   = _MB_WEBLINKS_RATING;
-            $block['lang_votes']    = _MB_WEBLINKS_VOTES;
+            $block = [];
+            $block['dirname'] = $DIRNAME;
+            $block['lang_hits'] = _MB_WEBLINKS_HITS;
+            $block['lang_rating'] = _MB_WEBLINKS_RATING;
+            $block['lang_votes'] = _MB_WEBLINKS_VOTES;
             $block['lang_comments'] = _MB_WEBLINKS_COMMENTS;
-            $block['lang_random']   = _MB_WEBLINKS_RANDOM;
-            $block['show_title']    = $show_title;
-            $block['show_date']     = $show_date;
+            $block['lang_random'] = _MB_WEBLINKS_RANDOM;
+            $block['show_title'] = $show_title;
+            $block['show_date'] = $show_date;
             $block['show_mode_url'] = $show_mode_url;
 
             // config
@@ -520,26 +520,26 @@ if (!class_exists('weblinks_block')) {
             }
 
             $link_param = [
-                'order'            => $order,
-                'title_length'     => $title_length,
-                'desc_length'      => $desc_length,
+                'order' => $order,
+                'title_length' => $title_length,
+                'desc_length' => $desc_length,
                 'cat_title_length' => $cat_title_length,
-                'newdays'          => $newdays,
-                'popular'          => $popular,
-                'max_width'        => $max_width,
-                'width_default'    => $width_default,
+                'newdays' => $newdays,
+                'popular' => $popular,
+                'max_width' => $max_width,
+                'width_default' => $width_default,
             ];
 
             $sql_param = [
                 'flag_url_empty' => $flag_url_empty,
-                'flag_subcat'    => $flag_subcat,
-                'flag_random'    => $flag_random,
-                'mode_link'      => $mode_link,
-                'cid'            => $cid,
-                'order'          => $order,
-                'sort'           => $sort,
-                'limit'          => $limit,
-                'broken'         => $conf['broken_threshold'],
+                'flag_subcat' => $flag_subcat,
+                'flag_random' => $flag_random,
+                'mode_link' => $mode_link,
+                'cid' => $cid,
+                'order' => $order,
+                'sort' => $sort,
+                'limit' => $limit,
+                'broken' => $conf['broken_threshold'],
             ];
 
             $rows = $this->get_rows_generic_in_link($sql_param);
@@ -548,7 +548,7 @@ if (!class_exists('weblinks_block')) {
             }
 
             foreach ($rows as $row) {
-                $link             = $this->build_link($row, $link_param);
+                $link = $this->build_link($row, $link_param);
                 $block['links'][] = $link;
 
                 if ($link['google_use']) {
@@ -557,31 +557,31 @@ if (!class_exists('weblinks_block')) {
             }
 
             // google map
-            $gm_name  = $DIRNAME . '_b_g_' . $order;
+            $gm_name = $DIRNAME . '_b_g_' . $order;
             $gm_param = [
-                'dirname'      => $DIRNAME,
-                'latitude'     => $gm_latitude,
-                'longitude'    => $gm_longitude,
-                'zoom'         => $gm_zoom,
-                'name'         => $gm_name,
-                'mode'         => $gm_mode,
+                'dirname' => $DIRNAME,
+                'latitude' => $gm_latitude,
+                'longitude' => $gm_longitude,
+                'zoom' => $gm_zoom,
+                'name' => $gm_name,
+                'mode' => $gm_mode,
                 'style_height' => $gm_height,
-                'links'        => $gm_links,
-                'conf'         => $conf,
+                'links' => $gm_links,
+                'conf' => $conf,
             ];
 
             $webmap_param = $this->_webmap_class->build_map_block($gm_param);
             if (is_array($webmap_param)) {
-                $show_webmap   = $webmap_param['show_webmap'];
+                $show_webmap = $webmap_param['show_webmap'];
                 $webmap_div_id = $webmap_param['webmap_div_id'];
-                $webmap_func   = $webmap_param['webmap_func'];
-                $webmap_style  = $webmap_param['webmap_style'];
+                $webmap_func = $webmap_param['webmap_func'];
+                $webmap_style = $webmap_param['webmap_style'];
             }
 
-            $block['show_webmap']    = $show_webmap;
-            $block['webmap_div_id']  = $webmap_div_id;
-            $block['webmap_func']    = $webmap_func;
-            $block['webmap_style']   = $webmap_style;
+            $block['show_webmap'] = $show_webmap;
+            $block['webmap_div_id'] = $webmap_div_id;
+            $block['webmap_func'] = $webmap_func;
+            $block['webmap_style'] = $webmap_style;
             $block['webmap_timeout'] = $gm_timeout;
 
             return $block;
@@ -591,7 +591,7 @@ if (!class_exists('weblinks_block')) {
         {
             // base on W3C
             $SELECTED = 'selected="selected"';
-            $CHECKED  = 'checked="checked"';
+            $CHECKED = 'checked="checked"';
 
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
@@ -602,35 +602,35 @@ if (!class_exists('weblinks_block')) {
             $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
             $category_handler->load_once();
 
-            $DIRNAME          = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-            $limit            = (int)$options[1];
-            $title_length     = (int)$options[2];
+            $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+            $limit = (int)$options[1];
+            $title_length = (int)$options[2];
             $cat_title_length = (int)$options[3];
-            $desc_length      = (int)$options[4];
-            $newdays          = (int)$options[5];
-            $popular          = (int)$options[6];
-            $max_width        = (int)$options[7];
-            $width_default    = (int)$options[8];
-            $show_date        = (int)$options[9];
-            $show_mode_url    = (int)$options[10];
-            $flag_url_empty   = (int)$options[11];
-            $cid              = (int)$options[12];
-            $flag_subcat      = (int)$options[13];
-            $mode_link        = $options[14];
-            $flag_random      = (int)$options[15];
-            $order            = $options[16];
-            $sort             = $options[17];
+            $desc_length = (int)$options[4];
+            $newdays = (int)$options[5];
+            $popular = (int)$options[6];
+            $max_width = (int)$options[7];
+            $width_default = (int)$options[8];
+            $show_date = (int)$options[9];
+            $show_mode_url = (int)$options[10];
+            $flag_url_empty = (int)$options[11];
+            $cid = (int)$options[12];
+            $flag_subcat = (int)$options[13];
+            $mode_link = $options[14];
+            $flag_random = (int)$options[15];
+            $order = $options[16];
+            $sort = $options[17];
 
-            $gm_mode         = isset($options[18]) ? (int)$options[18] : 0;
-            $gm_latitude     = isset($options[19]) ? (float)$options[19] : 0;
-            $gm_longitude    = isset($options[20]) ? (float)$options[20] : 0;
-            $gm_zoom         = isset($options[21]) ? (int)$options[21] : 0;
-            $gm_height       = isset($options[22]) ? (int)$options[22] : 0;
-            $gm_timeout      = isset($options[23]) ? (int)$options[23] : 0;
-            $gm_desc_length  = isset($options[24]) ? (int)$options[24] : 0;
-            $gm_wordwrap     = isset($options[25]) ? (int)$options[25] : 0;
+            $gm_mode = isset($options[18]) ? (int)$options[18] : 0;
+            $gm_latitude = isset($options[19]) ? (float)$options[19] : 0;
+            $gm_longitude = isset($options[20]) ? (float)$options[20] : 0;
+            $gm_zoom = isset($options[21]) ? (int)$options[21] : 0;
+            $gm_height = isset($options[22]) ? (int)$options[22] : 0;
+            $gm_timeout = isset($options[23]) ? (int)$options[23] : 0;
+            $gm_desc_length = isset($options[24]) ? (int)$options[24] : 0;
+            $gm_wordwrap = isset($options[25]) ? (int)$options[25] : 0;
             $gm_marker_width = isset($options[26]) ? (int)$options[26] : 0;
-            $gm_control      = isset($options[27]) ? (int)$options[27] : 1;
+            $gm_control = isset($options[27]) ? (int)$options[27] : 1;
             $gm_type_control = isset($options[28]) ? (int)$options[28] : 1;
 
             // show date
@@ -677,7 +677,7 @@ if (!class_exists('weblinks_block')) {
 
             // mode
             $mode_sel_recommend = '';
-            $mode_sel_mutual    = '';
+            $mode_sel_mutual = '';
             if ('recommend' == $mode_link) {
                 $mode_sel_recommend = $SELECTED;
             } elseif ('mutual' == $mode_link) {
@@ -694,12 +694,12 @@ if (!class_exists('weblinks_block')) {
             }
 
             // order
-            $order_sel_lid    = '';
+            $order_sel_lid = '';
             $order_sel_update = '';
             $order_sel_create = '';
-            $order_sel_hits   = '';
+            $order_sel_hits = '';
             $order_sel_rating = '';
-            $order_sel_title  = '';
+            $order_sel_title = '';
             if ('time_update' == $order) {
                 $order_sel_update = $SELECTED;
             } elseif ('time_create' == $order) {
@@ -715,7 +715,7 @@ if (!class_exists('weblinks_block')) {
             }
 
             // sort
-            $sort_sel_asc  = '';
+            $sort_sel_asc = '';
             $sort_sel_desc = '';
             if ('DESC' == $sort) {
                 $sort_sel_desc = $SELECTED;
@@ -953,30 +953,30 @@ if (!class_exists('weblinks_block')) {
             list($show_new, $show_update) = $this->get_show_new_update();
 
             $arr = [
-                'id'             => $lid,
-                'cid'            => $cid,
-                'hits_disp'      => $hits_disp,
-                'banner_width'   => $banner_width,
-                'rating_disp'    => $rating_disp,
-                'title_disp'     => $title_disp,
+                'id' => $lid,
+                'cid' => $cid,
+                'hits_disp' => $hits_disp,
+                'banner_width' => $banner_width,
+                'rating_disp' => $rating_disp,
+                'title_disp' => $title_disp,
                 'cat_title_disp' => $cat_title_disp,
-                'desc_html'      => $desc_html,
-                'desc_short'     => $desc_short,
-                'google_icon'    => $google_icon,
-                'google_use'     => $google_use,
-                'url_s'          => $this->sanitize_url($row['url']),
-                'banner_s'       => $this->sanitize_url($row['banner']),
-                'date_short'     => formatTimestamp($row['time_update'], 's'),
-                'name_disp'      => $this->get_name_disp(),
-                'mail_disp'      => $this->get_mail_disp(),
+                'desc_html' => $desc_html,
+                'desc_short' => $desc_short,
+                'google_icon' => $google_icon,
+                'google_use' => $google_use,
+                'url_s' => $this->sanitize_url($row['url']),
+                'banner_s' => $this->sanitize_url($row['banner']),
+                'date_short' => formatTimestamp($row['time_update'], 's'),
+                'name_disp' => $this->get_name_disp(),
+                'mail_disp' => $this->get_mail_disp(),
 
-                'show_title'     => $show_title,
+                'show_title' => $show_title,
                 'show_cat_title' => $show_cat_title,
-                'show_desc'      => $show_desc,
-                'show_banner'    => $show_banner,
-                'show_new'       => $show_new,
-                'show_update'    => $show_update,
-                'show_pop'       => $this->get_show_popular(),
+                'show_desc' => $show_desc,
+                'show_banner' => $show_banner,
+                'show_new' => $show_new,
+                'show_update' => $show_update,
+                'show_pop' => $this->get_show_popular(),
             ];
 
             $link = $row + $arr;
@@ -992,8 +992,8 @@ if (!class_exists('weblinks_block')) {
             $cat_title_length = $param['cat_title_length'];
 
             $show_cat_title = false;
-            $cid            = 0;
-            $cat_title      = '';
+            $cid = 0;
+            $cat_title = '';
             $cat_title_disp = '';
 
             if (0 != $cat_title_length) {
@@ -1022,8 +1022,8 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         public function get_google_use_icon($row)
         {
-            $google_use  = false;
-            $google_cid  = 0;
+            $google_use = false;
+            $google_cid = 0;
             $google_icon = 0;
             if ($this->_webmap_class->check_latlng_by_link($row)) {
                 $google_use = true;
@@ -1083,21 +1083,21 @@ if (!class_exists('weblinks_block')) {
         public function get_rows_generic_in_link($param)
         {
             $flag_url_empty = $param['flag_url_empty'];
-            $flag_subcat    = $param['flag_subcat'];
-            $flag_random    = $param['flag_random'];
-            $mode_link      = $param['mode_link'];
-            $cid            = $param['cid'];
-            $order          = $param['order'];
-            $sort           = $param['sort'];
-            $broken         = $param['broken'];
-            $limit          = $param['limit'];
+            $flag_subcat = $param['flag_subcat'];
+            $flag_random = $param['flag_random'];
+            $mode_link = $param['mode_link'];
+            $cid = $param['cid'];
+            $order = $param['order'];
+            $sort = $param['sort'];
+            $broken = $param['broken'];
+            $limit = $param['limit'];
 
-            $sql_link    = 'SELECT l.* FROM ' . $this->_table_link . ' l ';
+            $sql_link = 'SELECT l.* FROM ' . $this->_table_link . ' l ';
             $sql_catlink = '';
 
-            $where_link    = weblinks_get_where_public($broken, 'l.');
+            $where_link = weblinks_get_where_public($broken, 'l.');
             $where_catlink = '';
-            $where_mode    = '';
+            $where_mode = '';
 
             // url empty
             if (1 == $flag_url_empty) {
@@ -1106,18 +1106,18 @@ if (!class_exists('weblinks_block')) {
 
             // all categories ( not specify )
             if ((0 == $cid) && (1 == $flag_subcat)) {
-                $sql_catlink   = '';
+                $sql_catlink = '';
                 $where_catlink = '';
-                // specify category
+            // specify category
             } else {
                 $sql_catlink = $this->_table_catlink . ' cl ON l.lid=cl.lid ';
 
                 // parent category only
                 if (0 == $flag_subcat) {
                     $where_catlink = 'cl.cid=' . $cid . ' ';
-                    // parent and all children categories
+                // parent and all children categories
                 } else {
-                    $cattree   = new XoopsTree($this->_table_category, 'cid', 'pid');
+                    $cattree = new XoopsTree($this->_table_category, 'cid', 'pid');
                     $cid_array = [];
                     $cid_array = $cattree->getAllChildId($cid);
 
@@ -1139,7 +1139,7 @@ if (!class_exists('weblinks_block')) {
             // random mode
             if ($flag_random) {
                 $sql_orderby = 'rand()';
-                // normal mode
+            // normal mode
             } elseif ('' != $order && '' != $sort) {
                 $sql_orderby = 'l.' . $order . ' ' . $sort;
             }

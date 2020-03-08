@@ -155,7 +155,7 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         public function get_count_by_cid($cid)
         {
-            $cid      = (int)$cid;
+            $cid = (int)$cid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('cid', $cid, '='));
             $count = $this->getCount($criteria);
@@ -165,7 +165,7 @@ if (!class_exists('weblinks_catlink_handler')) {
 
         public function get_count_by_lid($lid)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $count = $this->getCount($criteria);
@@ -202,7 +202,7 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         public function &get_objects_by_cid($cid, $limit = 0, $offset = 0)
         {
-            $cid      = (int)$cid;
+            $cid = (int)$cid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('cid', $cid, '='));
             $criteria->setStart($offset);
@@ -214,7 +214,7 @@ if (!class_exists('weblinks_catlink_handler')) {
 
         public function &get_objects_by_lid($lid, $limit = 0, $offset = 0)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($offset);
@@ -229,8 +229,8 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         public function &get_lid_array_by_cid($cid, $limit = 0, $offset = 0)
         {
-            $cid     = (int)$cid;
-            $objs    = &$this->get_objects_by_cid($cid, $limit, $offset);
+            $cid = (int)$cid;
+            $objs = &$this->get_objects_by_cid($cid, $limit, $offset);
             $lid_arr = [];
 
             if (count($objs) > 0) {

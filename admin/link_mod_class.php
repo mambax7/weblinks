@@ -118,16 +118,16 @@ class admin_link_mod extends admin_link_base
 
     public function _check_rssc_lid()
     {
-        $lid      = $this->_obj->get('lid');
+        $lid = $this->_obj->get('lid');
         $rssc_lid = $this->_obj->get('rssc_lid');
-        $objs     = &$this->_handler->get_objects_rssc_lid($lid, $rssc_lid);
+        $objs = &$this->_handler->get_objects_rssc_lid($lid, $rssc_lid);
 
         if (is_array($objs) && count($objs)) {
             echo '<h4 style="color:#ff0000">' . _AM_WEBLINKS_RSSC_LID_EXIST_MORE . "</h4>\n";
             echo "<ul>\n";
             foreach ($objs as $obj) {
                 $title_s = $obj->getVar('title', 's');
-                $url     = $this->_build_url_mod_form($obj->get('lid'));
+                $url = $this->_build_url_mod_form($obj->get('lid'));
                 echo '<li><a href="' . $url . '">' . $title_s . "</a></li>\n";
             }
             echo "</ul><br>\n";
@@ -146,7 +146,7 @@ class admin_link_mod extends admin_link_base
     //---------------------------------------------------------
     public function mod_link()
     {
-        $lid                  = $this->get_post_lid();
+        $lid = $this->get_post_lid();
         $rssc_lid_flag_update = $this->get_post_rssc_lid_flag_update();
 
         if (!$this->_get_obj()) {
@@ -252,9 +252,9 @@ class admin_link_mod extends admin_link_base
 
     public function mod_banner()
     {
-        $lid                  = $this->get_post_lid();
-        $rss_flag             = $this->get_post_rss_flag();
-        $skip                 = $this->get_post_skip();
+        $lid = $this->get_post_lid();
+        $rss_flag = $this->get_post_rss_flag();
+        $skip = $this->get_post_skip();
         $rssc_lid_flag_update = $this->get_post_rssc_lid_flag_update();
 
         if (!$this->_check_token()) {

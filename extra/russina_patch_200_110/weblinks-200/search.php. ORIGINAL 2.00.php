@@ -70,14 +70,14 @@ class weblinks_search extends happy_linux_search
     // config
     public $_conf;
 
-    public $_post_cid    = 0;
+    public $_post_cid = 0;
     public $_post_subcat = 0;
-    public $_post_mark   = '';
+    public $_post_mark = '';
 
     public $_link_query_array;
     public $_link_where;
     public $_feed_where;
-    public $_start   = 0;
+    public $_start = 0;
     public $_cid_arr = [];
 
     public $_orderby = 'time_update DESC';
@@ -92,8 +92,8 @@ class weblinks_search extends happy_linux_search
         $this->set_lang_hankaku(_HAPPY_LINUX_HANKAKU);
 
         $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_rssc_handler      = weblinks_getHandler('rssc_view', $dirname);
-        $config_handler           = weblinks_getHandler('config2_basic', $dirname);
+        $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
+        $config_handler = weblinks_getHandler('config2_basic', $dirname);
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
@@ -192,7 +192,7 @@ class weblinks_search extends happy_linux_search
         $this->_pagenavi->setTotal($this->_total);
 
         $this->_pagenavi->getGetPage();
-        $start        = $this->_pagenavi->calcStart();
+        $start = $this->_pagenavi->calcStart();
         $this->_start = $start;
 
         $this->_link_view_handler->set_keyword_array($this->_merged_query_array);
@@ -204,7 +204,7 @@ class weblinks_search extends happy_linux_search
         // next page
         if ($this->_total > $search_links) {
             $script = $this->_build_script();
-            $navi   = $this->_pagenavi->build($script);
+            $navi = $this->_pagenavi->build($script);
         }
 
         return [$link_list, $navi];
@@ -232,7 +232,7 @@ class weblinks_search extends happy_linux_search
 
     public function _build_sql_search($query_array1, $query_array2 = null, $andor = 'AND')
     {
-        $where  = '';
+        $where = '';
         $where1 = '';
 
         $where_single = $this->build_single_double_where('search', $query_array1, $query_array2, $andor);
@@ -332,8 +332,8 @@ class weblinks_search extends happy_linux_search
 //================================================================
 
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
-$weblinks_search   = weblinks_search::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_search = weblinks_search::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
@@ -346,7 +346,7 @@ $conf = $weblinks_search->get_conf();
 // not use extract
 $weblinks_search->get_post_get();
 $action = $weblinks_search->get_action();
-$query  = $weblinks_search->get_query();
+$query = $weblinks_search->get_query();
 
 $weblinks_header->assign_module_header();
 
@@ -357,9 +357,9 @@ $weblinks_template->assignDisplayLink();
 
 // search form
 $show_mark = 1;
-$show_cat  = 1;
-$show_br1  = 1;
-$show_br2  = 1;
+$show_cat = 1;
+$show_br1 = 1;
+$show_br2 = 1;
 $weblinks_template->set_keyword_query($query);
 $weblinks_template->assignSearch($show_mark, $show_cat, $show_br1, $show_br2);
 
@@ -395,7 +395,7 @@ if (!$ret) {
     exit();
 }
 
-$query_array      = $weblinks_search->get_query_array();
+$query_array = $weblinks_search->get_query_array();
 $merged_urlencode = $weblinks_search->get_merged_urlencode();
 
 // keyword
@@ -434,23 +434,23 @@ if ($total > 0) {
 }
 
 // --- rss feed ---
-$feed_show   = 0;
-$feed_found  = '';
+$feed_show = 0;
+$feed_found = '';
 $feed_reason = '';
 
 if (WEBLINKS_RSSC_USE) {
     $count = $weblinks_search->get_feed_count();
 
     if ($count > 0) {
-        $feed_show  = 1;
+        $feed_show = 1;
         $feed_found = sprintf(_SR_FOUND, $count);
-        $feeds      = &$weblinks_search->get_feeds();
+        $feeds = &$weblinks_search->get_feeds();
 
         foreach ($feeds as $feed) {
             $xoopsTpl->append('feeds', $feed);
         }
     } else {
-        $feed_show   = 2;
+        $feed_show = 2;
         $feed_reason = _SR_NOMATCH;
     }
 }

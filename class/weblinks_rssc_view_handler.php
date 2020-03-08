@@ -29,19 +29,19 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         public $_mid;
 
         // input parameter
-        public $_feed_order         = 'updated_unix DESC, fid DESC';
-        public $_feed_start         = 0;
-        public $_feed_limit         = 10;
+        public $_feed_order = 'updated_unix DESC, fid DESC';
+        public $_feed_start = 0;
+        public $_feed_limit = 10;
         public $_feed_flag_sanitize = true;
 
         // sanitize param
-        public $_feed_flag_title_html   = false;   // not allow
+        public $_feed_flag_title_html = false;   // not allow
         public $_feed_flag_content_html = false;   // not allow
-        public $_feed_max_summary       = 250;
-        public $_feed_max_title         = -1;   // unlimited
-        public $_feed_max_content       = -1;   // unlimited
-        public $_feed_keyword_array     = [];
-        public $_feed_highlight         = false;
+        public $_feed_max_summary = 250;
+        public $_feed_max_title = -1;   // unlimited
+        public $_feed_max_content = -1;   // unlimited
+        public $_feed_keyword_array = [];
+        public $_feed_highlight = false;
 
         //---------------------------------------------------------
         // constructor

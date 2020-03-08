@@ -59,7 +59,7 @@ class weblinks_topten
     public $_title;
     public $_sort_name;
     public $_sort_db;
-    public $_error     = '';
+    public $_error = '';
     public $_post_rate = 0;
 
     //---------------------------------------------------------
@@ -69,11 +69,11 @@ class weblinks_topten
     {
         $this->_DIRNAME = $dirname;
 
-        $config_basic_handler     = weblinks_getHandler('config2_basic', $dirname);
+        $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
         $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
 
         $this->_template = weblinks_template::getInstance($dirname);
-        $this->_post     = happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
 
         $this->_conf = $config_basic_handler->get_conf();
     }
@@ -110,17 +110,17 @@ class weblinks_topten
         $this->_post_rate = $this->_post->get_get_int('rate');
 
         if (1 == $this->_post_rate) {
-            $this->_title     = $this->_conf['lang_site_highrate'];
+            $this->_title = $this->_conf['lang_site_highrate'];
             $this->_sort_name = _WLS_RATING;
-            $this->_sort_db   = 'rating';
+            $this->_sort_db = 'rating';
         } elseif (2 == $this->_post_rate) {
-            $this->_title     = $this->_conf['lang_site_pagerank'];
+            $this->_title = $this->_conf['lang_site_pagerank'];
             $this->_sort_name = _WEBLINKS_PAGERANK;
-            $this->_sort_db   = 'pagerank';
+            $this->_sort_db = 'pagerank';
         } else {
-            $this->_title     = $this->_conf['lang_site_popular'];
+            $this->_title = $this->_conf['lang_site_popular'];
             $this->_sort_name = _WLS_HITS;
-            $this->_sort_db   = 'hits';
+            $this->_sort_db = 'hits';
         }
     }
 
@@ -160,7 +160,7 @@ class weblinks_topten
     public function get_rankings()
     {
         $links_list = [];
-        $rankings   = [];
+        $rankings = [];
 
         $this->_link_view_handler->init();
 
@@ -224,8 +224,8 @@ class weblinks_topten
 //=========================================================
 
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_topten   = weblinks_topten::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header   = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_topten = weblinks_topten::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
@@ -235,7 +235,7 @@ include XOOPS_ROOT_PATH . '/header.php';
 $conf = $weblinks_topten->get_conf();
 
 $weblinks_template->set_keyword_by_request();
-$keyword_array       = $weblinks_template->get_keyword_array();
+$keyword_array = $weblinks_template->get_keyword_array();
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
 $weblinks_topten->set_highlight($conf['use_highlight']);
@@ -254,7 +254,7 @@ $weblinks_topten->get_get_rate();
 $topten_title = $weblinks_topten->get_topten_title();
 /* CDS Patch. Weblinks. 2.00. 7. BOF */
 $topten_title_simple = $weblinks_topten->get_topten_title_simple();
-$sort_db             = $weblinks_topten->get_sort_db();
+$sort_db = $weblinks_topten->get_sort_db();
 /* CDS Patch. Weblinks. 2.00. 7. EOF */
 $sort_name = $weblinks_topten->get_sort_name();
 list($links, $rankings) = $weblinks_topten->get_rankings();
@@ -262,10 +262,10 @@ $topten_error = $weblinks_topten->get_error();
 
 $template_links_list = $weblinks_template->fetch_links_list($links);
 
-$i                 = 0;
+$i = 0;
 $template_rankings = [];
 foreach ($rankings as $rank) {
-    $template_rankings[$i]['cid']   = $rank['cid'];
+    $template_rankings[$i]['cid'] = $rank['cid'];
     $template_rankings[$i]['title'] = $rank['title'];
     /* CDS Patch. Weblinks. 2.00. 7. BOF */
     $template_rankings[$i]['title_simple'] = $rank['title_simple'];

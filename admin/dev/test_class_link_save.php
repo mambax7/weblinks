@@ -25,10 +25,10 @@ echo 'magic_quotes_gpc: ' . @get_magic_quotes_gpc() . "<br>\n";
 echo "<h4>scenario 1: admin add object: no param </h4>\n";
 
 $param = [
-    'not_gpc'     => 0,
+    'not_gpc' => 0,
     'flag_banner' => 0,
-    'flag_time'   => 0,
-    'mode_dhtml'  => 0,
+    'flag_time' => 0,
+    'mode_dhtml' => 0,
     'mode_passwd' => 0,
 ];
 
@@ -44,10 +44,10 @@ if (!$ret) {
 echo "<h4>scenario 2: admin add object: all param </h4>\n";
 
 $param = [
-    'not_gpc'     => 1,
+    'not_gpc' => 1,
     'flag_banner' => 1,
-    'flag_time'   => 1,
-    'mode_dhtml'  => 1,
+    'flag_time' => 1,
+    'mode_dhtml' => 1,
     'mode_passwd' => 1,   // add pass
 ];
 
@@ -63,10 +63,10 @@ if (!$ret) {
 echo "<h4>scenario 3: admin add object: approve </h4>\n";
 
 $param = [
-    'not_gpc'     => 0,
+    'not_gpc' => 0,
     'flag_banner' => 0,
-    'flag_time'   => 1,
-    'mode_dhtml'  => 1,
+    'flag_time' => 1,
+    'mode_dhtml' => 1,
     'mode_passwd' => 2,   // approve pass
 ];
 
@@ -84,10 +84,10 @@ if (!$ret) {
 echo "<h4>scenario 4: admin mod object: no param </h4>\n";
 
 $param = [
-    'flag_banner'   => 0,
-    'flag_time'     => 0,
-    'mode_dhtml'    => 0,
-    'mode_passwd'   => 0,
+    'flag_banner' => 0,
+    'flag_time' => 0,
+    'mode_dhtml' => 0,
+    'mode_passwd' => 0,
     'flag_rssc_lid' => 0,
 ];
 
@@ -103,10 +103,10 @@ if (!$ret) {
 echo "<h4>scenario 5: admin mod object: all param </h4>\n";
 
 $param = [
-    'flag_banner'   => 1,
-    'flag_time'     => 1,
-    'mode_dhtml'    => 1,
-    'mode_passwd'   => 1,   // mod pass
+    'flag_banner' => 1,
+    'flag_time' => 1,
+    'mode_dhtml' => 1,
+    'mode_passwd' => 1,   // mod pass
     'flag_rssc_lid' => 1,
 ];
 
@@ -122,10 +122,10 @@ if (!$ret) {
 echo "<h4>scenario 6: admin mod object: approve </h4>\n";
 
 $param = [
-    'flag_banner'   => 0,
-    'flag_time'     => 1,
-    'mode_dhtml'    => 2,
-    'mode_passwd'   => 3,   // approve pass
+    'flag_banner' => 0,
+    'flag_time' => 1,
+    'mode_dhtml' => 2,
+    'mode_passwd' => 3,   // approve pass
     'flag_rssc_lid' => 1,
 ];
 

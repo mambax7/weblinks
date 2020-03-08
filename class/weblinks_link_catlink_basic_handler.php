@@ -61,12 +61,12 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_table_link    = $this->prefix('link');
+            $this->_table_link = $this->prefix('link');
             $this->_table_catlink = $this->prefix('catlink');
 
             $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
 
-            $conf               = $config_basic_handler->get_conf();
+            $conf = $config_basic_handler->get_conf();
             $this->_conf_broken = $conf['broken_threshold'];
         }
 
@@ -121,7 +121,7 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
 
         public function build_sql_where_exclude()
         {
-            $time  = time();
+            $time = time();
             $where = ' l.broken < ' . (int)$this->_conf_broken . ' ';
             $where .= 'AND ( l.time_publish = 0 OR l.time_publish <= ' . $time . ' ) ';
             $where .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';

@@ -34,11 +34,11 @@ if (!class_exists('weblinks_link_vote_del_handler')) {
 
             parent::__construct();
 
-            $this->_link_handler     = weblinks_getHandler('link', $dirname);
-            $this->_catlink_handler  = weblinks_getHandler('catlink', $dirname);
-            $this->_modify_handler   = weblinks_getHandler('modify', $dirname);
+            $this->_link_handler = weblinks_getHandler('link', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
+            $this->_modify_handler = weblinks_getHandler('modify', $dirname);
             $this->_votedata_handler = weblinks_getHandler('votedata', $dirname);
-            $this->_broken_handler   = weblinks_getHandler('broken', $dirname);
+            $this->_broken_handler = weblinks_getHandler('broken', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
         }

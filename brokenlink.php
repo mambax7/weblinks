@@ -65,17 +65,17 @@ class weblinks_brokenlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $config_handler        = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler   = weblinks_getHandler('link', $dirname);
+        $config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_getHandler('link', $dirname);
         $this->_broken_handler = weblinks_getHandler('broken', $dirname);
-        $this->_system         = happy_linux_system::getInstance();
-        $this->_post           = happy_linux_post::getInstance();
-        $this->_form           = happy_linux_form::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_post = happy_linux_post::getInstance();
+        $this->_form = happy_linux_form::getInstance();
 
-        $this->_system_uid  = $this->_system->get_uid();
+        $this->_system_uid = $this->_system->get_uid();
         $this->_remote_addr = getenv('REMOTE_ADDR');
 
-        $conf                       = $config_handler->get_conf();
+        $conf = $config_handler->get_conf();
         $this->_conf_use_brokenlink = $conf['use_brokenlink'];
     }
 
@@ -191,13 +191,13 @@ class weblinks_brokenlink extends happy_linux_error
 // main
 //=========================================================
 
-$weblinks_template   = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header     = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_brokenlink = weblinks_brokenlink::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $submit = $weblinks_brokenlink->get_post_submit();
-$lid    = $weblinks_brokenlink->get_post_get_lid();
+$lid = $weblinks_brokenlink->get_post_get_lid();
 
 $url_singlelink = 'singlelink.php?lid=' . $lid;
 
@@ -237,9 +237,9 @@ if ($submit) {
         exit();
     }
 
-    $tags                      = [];
+    $tags = [];
     $tags['BROKENREPORTS_URL'] = WEBLINKS_URL . '/admin/broken_list.php';
-    $notification_handler      = xoops_getHandler('notification');
+    $notification_handler = xoops_getHandler('notification');
     $notification_handler->triggerEvent('global', 0, 'link_broken', $tags);
 
     redirect_header($url_singlelink, 1, _WLS_THANKSFORINFO);

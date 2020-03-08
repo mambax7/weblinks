@@ -22,17 +22,17 @@ if (!class_exists('weblinks_webmap')) {
         public $_conf;
 
         public $_flag_webmap = false;
-        public $_URL_IFRAME  = '';
-        public $_URL_OPENER  = '';
+        public $_URL_IFRAME = '';
+        public $_URL_OPENER = '';
 
         public $_map_div_id = '';
-        public $_map_func   = '';
+        public $_map_func = '';
 
         public $_lid = 0;
         public $_cid = 0;
 
-        public $_info_max      = 0;
-        public $_info_width    = 0;
+        public $_info_max = 0;
+        public $_info_width = 0;
         public $_IFRAME_HEIGHT = '800px';
 
         //---------------------------------------------------------
@@ -52,7 +52,7 @@ if (!class_exists('weblinks_webmap')) {
             $this->_URL_OPENER = XOOPS_URL . '/modules/' . $dirname . '/get_location.php?mode=opener';
 
             $this->_map_div_id = $dirname . '_google_map';
-            $this->_map_func   = $dirname . '_google_map_load';
+            $this->_map_func = $dirname . '_google_map_load';
         }
 
         public static function getInstance($dirname = null)
@@ -139,7 +139,7 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_flag_webmap = true;
-            $this->_html_class  = &webmap3_api_html::getSingleton($webmap_dirname);
+            $this->_html_class = &webmap3_api_html::getSingleton($webmap_dirname);
 
             return 1;
         }
@@ -157,7 +157,7 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_flag_webmap = true;
-            $this->_map_class   = &$map_class;
+            $this->_map_class = &$map_class;
 
             return true;
         }
@@ -190,7 +190,7 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_flag_webmap = true;
-            $this->_form_class  = webmap3_api_form::getSingleton($webmap_dirname);
+            $this->_form_class = webmap3_api_form::getSingleton($webmap_dirname);
 
             return 1;
         }
@@ -203,7 +203,7 @@ if (!class_exists('weblinks_webmap')) {
 
             $js1 = $this->_form_class->build_form_js($flag_header);
             $js2 = $this->_form_class->build_display_html_js();
-            $js  = $js1 . $js2;
+            $js = $js1 . $js2;
 
             return $js;
         }
@@ -278,10 +278,10 @@ if (!class_exists('weblinks_webmap')) {
         {
             $show_webmap = false;
 
-            $latitude  = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
+            $latitude = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
             $longitude = isset($param['gm_longitude']) ? $param['gm_longitude'] : 0;
-            $zoom      = isset($param['gm_zoom']) ? $param['gm_zoom'] : 0;
-            $type      = isset($param['gm_type']) ? $param['gm_type'] : 0;
+            $zoom = isset($param['gm_zoom']) ? $param['gm_zoom'] : 0;
+            $type = isset($param['gm_type']) ? $param['gm_type'] : 0;
 
             $this->_map_class->init();
 
@@ -307,7 +307,7 @@ if (!class_exists('weblinks_webmap')) {
                 foreach ($links as $link) {
                     if ($this->check_latlng_by_link($link)) {
                         $show_webmap = true;
-                        $markers[]   = $this->build_marker_list($link);
+                        $markers[] = $this->build_marker_list($link);
                     }
                 }
             }
@@ -320,9 +320,9 @@ if (!class_exists('weblinks_webmap')) {
             $this->_map_class->fetch_markers_head($param);
 
             $arr = [
-                'show_webmap'   => $show_webmap,
+                'show_webmap' => $show_webmap,
                 'webmap_div_id' => $this->_map_div_id,
-                'webmap_func'   => $this->_map_func,
+                'webmap_func' => $this->_map_func,
             ];
 
             return $arr;
@@ -356,10 +356,10 @@ if (!class_exists('weblinks_webmap')) {
         {
             $show_webmap = false;
 
-            $latitude  = $link['gm_latitude'];
+            $latitude = $link['gm_latitude'];
             $longitude = $link['gm_longitude'];
-            $zoom      = $link['gm_zoom'];
-            $type      = $link['gm_type'];
+            $zoom = $link['gm_zoom'];
+            $type = $link['gm_type'];
 
             $this->_map_class->init();
 
@@ -383,7 +383,7 @@ if (!class_exists('weblinks_webmap')) {
             $markers = [];
             if ($this->check_latlng_by_link($link)) {
                 $show_webmap = true;
-                $markers[]   = $this->build_marker_single($link);
+                $markers[] = $this->build_marker_single($link);
             }
 
             // map
@@ -394,9 +394,9 @@ if (!class_exists('weblinks_webmap')) {
             $this->_map_class->fetch_markers_head($param);
 
             $arr = [
-                'show_webmap'   => $show_webmap,
+                'show_webmap' => $show_webmap,
                 'webmap_div_id' => $this->_map_div_id,
-                'webmap_func'   => $this->_map_func,
+                'webmap_func' => $this->_map_func,
             ];
 
             return $arr;
@@ -420,7 +420,7 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         public function build_info_list($link)
         {
-            $url   = $this->_url_singlelink . '?lid=' . $link['lid'];
+            $url = $this->_url_singlelink . '?lid=' . $link['lid'];
             $url_s = $this->sanitize($url);
 
             return $this->build_info_common($link, $url_s);

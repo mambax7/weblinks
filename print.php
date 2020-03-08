@@ -34,7 +34,7 @@ include_once XOOPS_ROOT_PATH . '/class/template.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_singlelink.php';
 
 $weblinks_singlelink = weblinks_singlelink::getInstance(WEBLINKS_DIRNAME);
-$weblinks_template   = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 
 $lid = $weblinks_singlelink->get_get_lid();
 
@@ -51,13 +51,13 @@ if ($link_show['warn_time_publish'] || $link_show['warn_time_expire']) {
     exit();
 }
 
-$site_name   = $weblinks_singlelink->get_site_name();
+$site_name = $weblinks_singlelink->get_site_name();
 $module_name = $weblinks_singlelink->get_module_name();
-$title_s     = $link_show['title'];
+$title_s = $link_show['title'];
 
 // template
 $WEBLINK_TEMPLATE_NAME = 'db:' . WEBLINKS_DIRNAME . '_print.html';
-$xoopsTpl              = new XoopsTpl();
+$xoopsTpl = new XoopsTpl();
 
 // index
 $weblinks_template->assignPageTitle($title_s, false);

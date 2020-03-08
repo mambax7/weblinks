@@ -100,7 +100,7 @@ if (!class_exists('weblinks_config2_basic_handler')) {
                 return false;
             }
 
-            $arr['rss_site_arr']  = &$this->_conv_to_array($arr['rss_site']);
+            $arr['rss_site_arr'] = &$this->_conv_to_array($arr['rss_site']);
             $arr['rss_black_arr'] = &$this->_conv_to_array($arr['rss_black']);
             $arr['rss_white_arr'] = &$this->_conv_to_array($arr['rss_white']);
 

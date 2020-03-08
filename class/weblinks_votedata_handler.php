@@ -55,7 +55,7 @@ if (!class_exists('weblinks_votedata_handler')) {
         // name for "anonymous" if not found
         public function get_uname($usereal = 0)
         {
-            $uid   = $this->get('ratinguser');
+            $uid = $this->get('ratinguser');
             $uname = XoopsUser::getUnameFromId($uid, $usereal);
 
             return $uname;
@@ -155,7 +155,7 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         public function get_count_by_lid($lid)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $count = $this->getCount($criteria);
@@ -165,8 +165,8 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function get_count_by_lid_ip_time($lid, $ip, $time)
         {
-            $lid      = (int)$lid;
-            $time     = (int)$time;
+            $lid = (int)$lid;
+            $time = (int)$time;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinghostname', $ip, '='));
@@ -188,7 +188,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_count_user_by_lid($lid)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', 0, '>'));
@@ -199,7 +199,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_count_by_uid($uid)
         {
-            $uid      = (int)$uid;
+            $uid = (int)$uid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $count = $this->getCount($criteria);
@@ -209,8 +209,8 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_count_by_lid_uid($lid, $uid)
         {
-            $lid      = (int)$lid;
-            $uid      = (int)$uid;
+            $lid = (int)$lid;
+            $uid = (int)$uid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', $uid, '='));
@@ -224,7 +224,7 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         public function &get_objects_by_lid($lid, $limit = 0, $start = 0)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($start);
@@ -236,7 +236,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_objects_user_by_lid($lid, $limit = 0, $start = 0)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', 0, '>'));
@@ -250,7 +250,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_objects_by_uid($uid, $limit = 0, $start = 0)
         {
-            $uid      = (int)$uid;
+            $uid = (int)$uid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $criteria->setStart($start);
@@ -262,8 +262,8 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function &get_objects_by_lid_uid($lid, $uid, $limit = 0, $start = 0)
         {
-            $lid      = (int)$lid;
-            $uid      = (int)$uid;
+            $lid = (int)$lid;
+            $uid = (int)$uid;
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', $uid, '='));
@@ -359,7 +359,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function calc_rating_by_lid($lid, $decimals = 4)
         {
-            $lid      = (int)$lid;
+            $lid = (int)$lid;
             $decimals = (int)$decimals;
 
             $objs = &$this->get_objects_by_lid($lid);
@@ -377,7 +377,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
         public function calc_rating_by_uid($uid, $decimals = 1)
         {
-            $uid      = (int)$uid;
+            $uid = (int)$uid;
             $decimals = (int)$decimals;
 
             $objs = &$this->get_objects_by_uid($uid);

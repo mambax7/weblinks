@@ -41,48 +41,48 @@ if (!function_exists('b_weblinks_catlist_show')) {
 
         require_once(XOOPS_ROOT_PATH . '/class/xoopstree.php');
 
-        $dirname       = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $num_show      = $options[1];
-        $image_mode    = $options[2];
-        $max_width     = $options[3];
+        $dirname = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
+        $num_show = $options[1];
+        $image_mode = $options[2];
+        $max_width = $options[3];
         $width_default = $options[4];
 
-        $WEBLINKS_URL   = XOOPS_URL . '/modules/' . $dirname;
+        $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
         $table_category = $xoopsDB->prefix($dirname . '_category');
-        $table_catlink  = $xoopsDB->prefix($dirname . '_catlink');
-        $table_link     = $xoopsDB->prefix($dirname . '_link');
+        $table_catlink = $xoopsDB->prefix($dirname . '_catlink');
+        $table_link = $xoopsDB->prefix($dirname . '_link');
 
-        $myts   = MyTextSanitizer::getInstance(); // MyTextSanitizer object
+        $myts = MyTextSanitizer::getInstance(); // MyTextSanitizer object
         $mytree = new XoopsTree($table_category, 'cid', 'pid');
 
-        $count   = 1;
+        $count = 1;
         $retVars = [];
 
         $MAX_BROKEN = 5;
 
-        $sql   = 'SELECT count(*) FROM ' . $table_link . " WHERE broken < $MAX_BROKEN";
+        $sql = 'SELECT count(*) FROM ' . $table_link . " WHERE broken < $MAX_BROKEN";
         $array = $xoopsDB->fetchRow($xoopsDB->query($sql));
-        $num   = $array[0];
+        $num = $array[0];
         if (empty($num)) {
             $num = 0;
         }
         $retVars['total_links'] = $num;
 
         $retVars['lang_total_links'] = _MB_WEBLINKS_TOTAL_LINKS;
-        $retVars['lang_links']       = _MB_WEBLINKS_LINKS;
+        $retVars['lang_links'] = _MB_WEBLINKS_LINKS;
 
         // top catergory
-        $sql    = 'SELECT * FROM ' . $table_category . ' WHERE pid=0 ORDER BY orders, cid';
+        $sql = 'SELECT * FROM ' . $table_category . ' WHERE pid=0 ORDER BY orders, cid';
         $result = $xoopsDB->query($sql);
         while ($record = $xoopsDB->fetchArray($result)) {
-            $cid    = $record['cid'];
-            $title  = $record['title'];
+            $cid = $record['cid'];
+            $title = $record['title'];
             $imgurl = $record['imgurl'];
 
             // image
             $imgurl_myts = '';
-            $width       = 0;
-            $height      = 0;
+            $width = 0;
+            $height = 0;
             if ((2 == $image_mode) && ($max_width > 0) && $imgurl && ('https://' != $imgurl)) {
                 $imgurl_myts = htmlspecialchars($imgurl, ENT_QUOTES);
 
@@ -103,7 +103,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
             }
 
             // number of links by category
-            $sql         = 'SELECT count(DISTINCT lid) FROM ' . $table_catlink . ' WHERE cid=' . $cid;
+            $sql = 'SELECT count(DISTINCT lid) FROM ' . $table_catlink . ' WHERE cid=' . $cid;
             $child_array = $mytree->getAllChildId($cid);
 
             if (count($child_array) > 0) {
@@ -119,18 +119,18 @@ if (!function_exists('b_weblinks_catlist_show')) {
 
             // bug fix: show all sub categories when $options[0] = 0
             if ($num_show > 0) {
-                $sql                      = 'SELECT count(*) FROM ' . $table_category . ' WHERE pid=' . $cid;
+                $sql = 'SELECT count(*) FROM ' . $table_category . ' WHERE pid=' . $cid;
                 $subCategoriesCountResult = $xoopsDB->query($sql);
                 list($subCategoriesCount) = $xoopsDB->fetchRow($subCategoriesCountResult);
 
                 if ($subCategoriesCount > 0) {
-                    $sql                 = 'SELECT cid,title FROM ' . $table_category . ' WHERE pid=' . $cid . ' ORDER BY orders ASC, cid ASC';
+                    $sql = 'SELECT cid,title FROM ' . $table_category . ' WHERE pid=' . $cid . ' ORDER BY orders ASC, cid ASC';
                     $subCategoreisResult = $xoopsDB->query($sql, $num_show, 0);
-                    $subcategories       = [];
+                    $subcategories = [];
 
                     while ($subCategory = $xoopsDB->fetchArray($subCategoreisResult)) {
-                        $ch_id           = $subCategory['cid'];
-                        $ch_title        = $myts->makeTboxData4Show($subCategory['title']);
+                        $ch_id = $subCategory['cid'];
+                        $ch_title = $myts->makeTboxData4Show($subCategory['title']);
                         $subcategories[] = "<a href='" . $WEBLINKS_URL . '/viewcat.php?cid=' . $ch_id . "'>" . $ch_title . '</a>';
                     }
 
@@ -143,19 +143,19 @@ if (!function_exists('b_weblinks_catlist_show')) {
             }
 
             $retVars['categories'][] = [
-                'id'            => $cid,
-                'imgurl'        => $imgurl_myts,
-                'width'         => $width,
+                'id' => $cid,
+                'imgurl' => $imgurl_myts,
+                'width' => $width,
                 'subcategories' => $subcategories,
-                'totallink'     => $totallink,
-                'count'         => $count,
-                'title'         => $myts->makeTboxData4Show($title),
+                'totallink' => $totallink,
+                'count' => $count,
+                'title' => $myts->makeTboxData4Show($title),
             ];
 
             ++$count;
         }
 
-        $retVars['dirname']    = $dirname;
+        $retVars['dirname'] = $dirname;
         $retVars['image_mode'] = $image_mode;
 
         return $retVars;
@@ -166,7 +166,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
     {
         $dirname = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        $image_mode_checked              = ['', '', ''];
+        $image_mode_checked = ['', '', ''];
         $image_mode_checked[$options[2]] = 'checked';
 
         $form = '<table><tr><td>';

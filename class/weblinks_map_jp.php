@@ -81,8 +81,8 @@ if (!class_exists('weblinks_map_jp')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
-            $this->_category_handler   = weblinks_getHandler('category_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
             $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
 
             $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.html';
@@ -124,12 +124,12 @@ if (!class_exists('weblinks_map_jp')) {
 
             $arr = [];
             foreach ($pref as $k => $v) {
-                $cid  = $v['cid'];
+                $cid = $v['cid'];
                 $name = $v['name'];
 
                 $arr[$k] = [
-                    'cid'   => $cid,
-                    'name'  => htmlspecialchars($name, ENT_QUOTES),
+                    'cid' => $cid,
+                    'name' => htmlspecialchars($name, ENT_QUOTES),
                     'count' => $this->_link_count_handler->get_all_link_count_by_cid($cid),
                 ];
             }
@@ -140,7 +140,7 @@ if (!class_exists('weblinks_map_jp')) {
         public function &get_conf_pref_array()
         {
             $conf = $this->_config_handler->get_conf();
-            $arr  = unserialize($conf['map_jp_info']);
+            $arr = unserialize($conf['map_jp_info']);
 
             return $arr;
         }
@@ -155,7 +155,7 @@ if (!class_exists('weblinks_map_jp')) {
 
                     $arr[$k] = [
                         'name' => $name,
-                        'cid'  => $this->_get_cid_by_like_title($name),
+                        'cid' => $this->_get_cid_by_like_title($name),
                     ];
                 }
             }
@@ -165,7 +165,7 @@ if (!class_exists('weblinks_map_jp')) {
 
         public function _get_cid_by_like_title($title)
         {
-            $cid  = '';
+            $cid = '';
             $rows = &$this->_category_handler->get_rows_by_like_title($title);
             if (is_array($rows) && isset($rows[0]['cid'])) {
                 $cid = (int)$rows[0]['cid'];

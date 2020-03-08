@@ -12,14 +12,14 @@ if (!class_exists('weblinksD3commentContent')) {
     {
         public function fetchSummary($external_link_id)
         {
-            $db   = XoopsDatabaseFactory::getDatabaseConnection();
+            $db = XoopsDatabaseFactory::getDatabaseConnection();
             $myts = MyTextSanitizer::getInstance();
 
             $module_handler = xoops_getHandler('module');
-            $module         = $module_handler->getByDirname($this->mydirname);
+            $module = $module_handler->getByDirname($this->mydirname);
 
             $weblinks_id = (int)$external_link_id;
-            $mydirname   = $this->mydirname;
+            $mydirname = $this->mydirname;
             if (preg_match('/[^0-9a-zA-Z_-]/', $mydirname)) {
                 die('Invalid mydirname');
             }
@@ -31,22 +31,22 @@ if (!class_exists('weblinksD3commentContent')) {
 
             $uri = XOOPS_URL . '/modules/' . $mydirname . '/singlelink.php?&lid=' . $weblinks_id;
 
-            $str     = strip_tags($myts->displayTarea(strip_tags($content_row['description'])));
+            $str = strip_tags($myts->displayTarea(strip_tags($content_row['description'])));
             $summary = xoops_substr($str, 0, 255);
 
             return [
-                'dirname'     => $mydirname,
+                'dirname' => $mydirname,
                 'module_name' => $module->getVar('name'),
-                'subject'     => $myts->makeTboxData4Show($content_row['title']),
-                'uri'         => $uri,
-                'summary'     => $summary,
+                'subject' => $myts->makeTboxData4Show($content_row['title']),
+                'uri' => $uri,
+                'summary' => $summary,
             ];
         }
 
         public function validate_id($link_id)
         {
             $weblinks_id = (int)$link_id;
-            $mydirname   = $this->mydirname;
+            $mydirname = $this->mydirname;
 
             $db = XoopsDatabaseFactory::getDatabaseConnection();
 
@@ -55,10 +55,10 @@ if (!class_exists('weblinksD3commentContent')) {
             list(
                 $count
                 ) = $db->fetchRow(
-                $db->query(
-                    'SELECT COUNT(*) FROM ' . $db->prefix($mydirname . '_link') . " WHERE lid=$weblinks_id AND comment_use AND ( time_publish = 0 OR time_publish < " . $time . ' ) AND ( time_expire = 0 OR time_expire > ' . $time . ' )'
-                )
-            );
+                    $db->query(
+                        'SELECT COUNT(*) FROM ' . $db->prefix($mydirname . '_link') . " WHERE lid=$weblinks_id AND comment_use AND ( time_publish = 0 OR time_publish < " . $time . ' ) AND ( time_expire = 0 OR time_expire > ' . $time . ' )'
+                    )
+                );
 
             if ($count <= 0) {
                 return false;
@@ -70,7 +70,7 @@ if (!class_exists('weblinksD3commentContent')) {
         public function onUpdate($mode, $link_id, $forum_id, $topic_id, $post_id = 0)
         {
             $weblinks_id = (int)$link_id;
-            $mydirname   = $this->mydirname;
+            $mydirname = $this->mydirname;
 
             $db = XoopsDatabaseFactory::getDatabaseConnection();
 

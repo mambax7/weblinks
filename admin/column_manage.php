@@ -33,9 +33,9 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_link_handler           = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_modify_handler         = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
-        $this->_config_handler         = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
         $this->_linkitem_store_handler = weblinks_getHandler('linkitem_store', WEBLINKS_DIRNAME);
 
         $this->_form = admin_column_form::getInstance();
@@ -79,9 +79,9 @@ class admin_column_manage extends happy_linux_error
         }
 
         $etc_arr = &$this->_link_handler->get_field_name_etc_array();
-        $count   = count($etc_arr);
-        $start   = $count + 1;
-        $end     = $count + $num;
+        $count = count($etc_arr);
+        $start = $count + 1;
+        $end = $count + $num;
 
         $ret = $this->_link_handler->add_column_table_etc($start, $end);
         if (!$ret) {
@@ -120,7 +120,7 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function check_etc_column()
     {
-        $link_etc_arr   = &$this->_link_handler->get_field_name_etc_array();
+        $link_etc_arr = &$this->_link_handler->get_field_name_etc_array();
         $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
 
         $count = count($link_etc_arr);
@@ -138,7 +138,7 @@ class admin_column_manage extends happy_linux_error
 
     public function print_form()
     {
-        $link_etc_arr   = &$this->_link_handler->get_field_name_etc_array();
+        $link_etc_arr = &$this->_link_handler->get_field_name_etc_array();
         $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
 
         $count = count($link_etc_arr);
@@ -186,8 +186,8 @@ class admin_column_form extends happy_linux_form_lib
         parent::__construct();
 
         $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_system       = happy_linux_system::getInstance();
-        $this->_post         = happy_linux_post::getInstance();
+        $this->_system = happy_linux_system::getInstance();
+        $this->_post = happy_linux_post::getInstance();
     }
 
     public static function getInstance()
@@ -226,7 +226,7 @@ class admin_column_form extends happy_linux_form_lib
 //=========================================================
 $manage = admin_column_manage::getInstance();
 
-$op    = $manage->get_post_op();
+$op = $manage->get_post_op();
 $error = '';
 
 if ('add_column' == $op) {

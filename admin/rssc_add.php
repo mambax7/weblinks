@@ -50,9 +50,9 @@ class rssc_add
         $this->_table_link = $this->_db->prefix($dirname . '_link');
 
         $this->_system_class = happy_linux_system::getInstance();
-        $this->_html_class   = happy_linux_html::getInstance();
+        $this->_html_class = happy_linux_html::getInstance();
 
-        $this->_rss_utility       = happy_linux_rss_utility::getInstance();
+        $this->_rss_utility = happy_linux_rss_utility::getInstance();
         $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
     }
 
@@ -85,7 +85,7 @@ class rssc_add
             $op = $_POST['op'];
         }
 
-        $sql   = 'SELECT count(*) FROM ' . $this->_table_link;
+        $sql = 'SELECT count(*) FROM ' . $this->_table_link;
         $total = $this->get_count_by_sql($sql);
 
         $this->print_title();
@@ -103,14 +103,14 @@ class rssc_add
 
     public function print_title()
     {
-        $paths   = [];
+        $paths = [];
         $paths[] = [
             'name' => $this->_system_class->get_module_name(),
-            'url'  => 'index.php',
+            'url' => 'index.php',
         ];
         $paths[] = [
             'name' => _AM_WEBLINKS_TITLE_RSSC_MANAGE,
-            'url'  => 'rssc_manage.php',
+            'url' => 'rssc_manage.php',
         ];
         $paths[] = [
             'name' => _AM_WEBLINKS_TITLE_RSSC_ADD,
@@ -131,17 +131,17 @@ class rssc_add
         }
 
         $start = $offset + 1;
-        $next  = $offset + $this->_LIMIT;
+        $next = $offset + $this->_LIMIT;
 
         echo "Excute $start - $next th link <br><br>";
 
-        $sql  = 'SELECT * FROM ' . $this->_table_link . ' ORDER BY lid';
+        $sql = 'SELECT * FROM ' . $this->_table_link . ' ORDER BY lid';
         $rows = $this->get_rows_by_sql($sql, $this->_LIMIT, $offset);
 
         foreach ($rows as $row) {
-            $lid      = $row['lid'];
-            $title    = $row['title'];
-            $url      = $row['url'];
+            $lid = $row['lid'];
+            $title = $row['title'];
+            $url = $row['url'];
             $rssc_lid = $row['rssc_lid'];
 
             if (empty($url)) {
@@ -180,7 +180,7 @@ class rssc_add
 
         // catch in build_rssc of weblinks_rssc_handler.php
         $_POST['title'] = $title;
-        $_POST['url']   = $url;
+        $_POST['url'] = $url;
 
         $this->_rssc_edit_handler->clear_errors_logs();
         $ret2 = $this->_rssc_edit_handler->add_rssc($lid);
@@ -235,7 +235,7 @@ class rssc_add
 
         // catch in build_rssc of weblinks_rssc_handler.php
         $_POST['rss_flag'] = $this->_rss_utility->get_xml_mode();
-        $_POST['rss_url']  = $this->_rss_utility->get_xmlurl_by_mode();
+        $_POST['rss_url'] = $this->_rss_utility->get_xmlurl_by_mode();
 
         return true;
     }
@@ -244,7 +244,7 @@ class rssc_add
     {
         $action = xoops_getenv('PHP_SELF');
         $submit = "GO next $this->_LIMIT links";
-        $next2  = $next + $this->_LIMIT;
+        $next2 = $next + $this->_LIMIT;
 
         $text = <<<EOF
 <br>

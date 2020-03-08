@@ -25,15 +25,15 @@ if (!$flag) {
 
 // --- category table ---
 echo '<h3>category table</h3>';
-$sql1    = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_cat') . ' ORDER BY cid';
+$sql1 = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_cat') . ' ORDER BY cid';
 $result1 = sql_exec($sql1);
 
 $category = [];
 
 while ($row = $xoopsDB->fetchArray($result1)) {
-    $cid    = $row['cid'];
-    $pid    = $row['pid'];
-    $title  = addslashes($row['title']);
+    $cid = $row['cid'];
+    $pid = $row['pid'];
+    $title = addslashes($row['title']);
     $banner = addslashes($row['imgurl']);
 
     echo "$cid: $title <br>";
@@ -51,38 +51,38 @@ while ($row = $xoopsDB->fetchArray($result1)) {
 
 // --- link table ---
 echo '<h3>link table</h3>';
-$sql2    = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_links') . ' ORDER BY lid';
+$sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_links') . ' ORDER BY lid';
 $result2 = sql_exec($sql2);
 
 $shots_url = XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/images/shots/';
 
 while ($row = $xoopsDB->fetchArray($result2)) {
-    $lid         = $row['lid'];
-    $uid         = $row['submitter'];
-    $cid         = $row['cid'];
-    $url         = $row['url'];
-    $title       = addslashes($row['title']);
+    $lid = $row['lid'];
+    $uid = $row['submitter'];
+    $cid = $row['cid'];
+    $url = $row['url'];
+    $title = addslashes($row['title']);
     $time_create = $row['date'];
     $time_update = $time_create;
-    $hits        = $row['hits'];
-    $rating      = $row['rating'];
-    $votes       = $row['votes'];
-    $comments    = $row['comments'];
-    $passwd      = md5(mt_rand(10000000, 99999999));
-    $cids        = "&$cid&";
+    $hits = $row['hits'];
+    $rating = $row['rating'];
+    $votes = $row['votes'];
+    $comments = $row['comments'];
+    $passwd = md5(mt_rand(10000000, 99999999));
+    $cids = "&$cid&";
 
     $banner = $shots_url . $row['logourl'];
     $banner = addslashes($banner);
 
     $category[$cid] = $title;
 
-    $sql3        = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_text') . " WHERE lid=$lid";
-    $result3     = sql_exec($sql3);
-    $row3        = $xoopsDB->fetchArray($result3);
-    $desc        = $row3['description'];
+    $sql3 = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_text') . " WHERE lid=$lid";
+    $result3 = sql_exec($sql3);
+    $row3 = $xoopsDB->fetchArray($result3);
+    $desc = $row3['description'];
     $description = addslashes($desc);
 
-    $cat    = addslashes($category[$cid]);
+    $cat = addslashes($category[$cid]);
     $search = "$url $title $cat $description";
 
     $desc = mb_substr($desc, 0, 100);

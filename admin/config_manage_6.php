@@ -100,7 +100,7 @@ class admin_config_form_6 extends admin_config_form
 
         $kml_perpage = isset($_GET['kml_perpage']) ? (int)$_GET['kml_perpage'] : WEBLINKS_C_KML_PERPAGE;
 
-        $total    = $link_handler->get_count_gmap();
+        $total = $link_handler->get_count_gmap();
         $max_page = $link_handler->get_gmap_kml_page($total, $kml_perpage);
 
         echo '<a name="gm_kml_debug"></a>' . "\n";
@@ -130,8 +130,8 @@ class admin_config_form_6 extends admin_config_form
 // main
 //================================================================
 
-$config_form     = admin_config_form_6::getInstance();
-$config_store    = admin_config_store::getInstance();
+$config_form = admin_config_form_6::getInstance();
+$config_store = admin_config_store::getInstance();
 $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();

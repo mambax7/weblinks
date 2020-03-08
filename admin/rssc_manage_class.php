@@ -42,7 +42,7 @@ class admin_rssc_manage extends happy_linux_manage
         $this->set_id_name('lid');
 
         $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_form         = weblinks_rssc_form::getInstance();
+        $this->_form = weblinks_rssc_form::getInstance();
     }
 
     public static function getInstance()
@@ -324,7 +324,7 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     public function check_mod_form($link_obj)
     {
-        $lid      = $link_obj->get('lid');
+        $lid = $link_obj->get('lid');
         $rssc_lid = $link_obj->get('rssc_lid');
 
         if (0 == $rssc_lid) {
@@ -389,7 +389,7 @@ class admin_rssc_manage extends happy_linux_manage
         // discover result
         $this->_print_discover_result($rssc_obj);
 
-        $saved_rssc_lid   = $this->_link_obj->get('rssc_lid');
+        $saved_rssc_lid = $this->_link_obj->get('rssc_lid');
         $current_rssc_lid = $rssc_obj->get('rssc_lid');
 
         // when not set rssc_lid
@@ -443,7 +443,7 @@ class admin_rssc_manage extends happy_linux_manage
 
     public function _exec_mod_rssc($op_mode)
     {
-        $lid  = $this->get_post_lid();
+        $lid = $this->get_post_lid();
         $code = $this->_exec_mod_rssc_detail($lid);
 
         switch ($code) {
@@ -498,7 +498,7 @@ class admin_rssc_manage extends happy_linux_manage
             return WEBLINKS_CODE_PARAM_ERROR;
         }
 
-        $saved_rssc_lid   = $link_obj->get('rssc_lid');
+        $saved_rssc_lid = $link_obj->get('rssc_lid');
         $current_rssc_lid = $rssc_obj->get('rssc_lid');
 
         // when not set rssc_lid
@@ -590,7 +590,7 @@ class admin_rssc_manage extends happy_linux_manage
 
     public function _exec_refresh_link($op_mode)
     {
-        $lid      = $this->get_post_lid();
+        $lid = $this->get_post_lid();
         $rssc_lid = $this->get_post_rssc_lid();
 
         // === refresh rss feeds ===
@@ -704,23 +704,23 @@ class admin_rssc_manage extends happy_linux_manage
         switch ($op_mode) {
             case 'mod_link':
                 $name1 = _WLS_MODLINK;
-                $url1  = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
+                $url1 = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
                 $name2 = _AM_WEBLINKS_MOD_RSSC;
                 break;
             case WEBLINKS_OP_APPROVE_NEW:   // approve_new
                 $name1 = _AM_WEBLINKS_APPROVE;
-                $url1  = '';
+                $url1 = '';
                 $name2 = _AM_WEBLINKS_ADD_RSSC;
                 break;
             case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
                 $name1 = _AM_WEBLINKS_APPROVE_MOD;
-                $url1  = '';
+                $url1 = '';
                 $name2 = _AM_WEBLINKS_MOD_RSSC;
                 break;
             case 'add_link':
             default:
                 $name1 = _WEBLINKS_ADMIN_ADD_LINK;
-                $url1  = 'link_manage.php?op=add_form';
+                $url1 = 'link_manage.php?op=add_form';
                 $name2 = _AM_WEBLINKS_ADD_RSSC;
                 break;
         }
@@ -735,20 +735,20 @@ class admin_rssc_manage extends happy_linux_manage
         switch ($op_mode) {
             case 'mod_link':
                 $name1 = _WLS_MODLINK;
-                $url1  = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
+                $url1 = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
                 break;
             case WEBLINKS_OP_APPROVE_NEW:   // approve_new
                 $name1 = _AM_WEBLINKS_APPROVE;
-                $url1  = '';
+                $url1 = '';
                 break;
             case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
                 $name1 = _AM_WEBLINKS_APPROVE_MOD;
-                $url1  = '';
+                $url1 = '';
                 break;
             case 'add_link':
             default:
                 $name1 = _WEBLINKS_ADMIN_ADD_LINK;
-                $url1  = 'link_manage.php?op=add_form';
+                $url1 = 'link_manage.php?op=add_form';
                 break;
         }
 
@@ -762,11 +762,11 @@ class admin_rssc_manage extends happy_linux_manage
         $arr = [
             [
                 'name' => $this->_system->get_module_name(),
-                'url'  => 'index.php',
+                'url' => 'index.php',
             ],
             [
                 'name' => $name1,
-                'url'  => $url1,
+                'url' => $url1,
             ],
             [
                 'name' => $name2,
@@ -803,7 +803,7 @@ class admin_rssc_manage extends happy_linux_manage
     public function _get_rssc_link_obj()
     {
         $rssc_lid = $this->get_post_rssc_lid();
-        $obj      = &$this->_handler->get_rssc_link($rssc_lid);
+        $obj = &$this->_handler->get_rssc_link($rssc_lid);
         if (is_object($obj)) {
             $this->_rssc_link_obj = &$obj;
         }

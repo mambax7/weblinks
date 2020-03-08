@@ -29,7 +29,7 @@ class admin_config_store extends happy_linux_error
         parent::__construct();
 
         // config_store_handler
-        $define                      = weblinks_config2_define::getInstance(WEBLINKS_DIRNAME);
+        $define = weblinks_config2_define::getInstance(WEBLINKS_DIRNAME);
         $this->_config_store_handler = happy_linux_config_store_handler::getInstance();
         $this->_config_store_handler->set_handler('config2', WEBLINKS_DIRNAME, 'weblinks');
         $this->_config_store_handler->set_define($define);

@@ -30,7 +30,7 @@ if (!class_exists('weblinks_users_link_handler')) {
             }
 
             $this->_table_weblinks_link = $this->prefix('link');
-            $this->_table_xoops_users   = $this->db_prefix('users');
+            $this->_table_xoops_users = $this->db_prefix('users');
         }
 
         //---------------------------------------------------------

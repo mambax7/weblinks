@@ -98,8 +98,8 @@ if (!function_exists('weblinks_install_base')) {
 
         // main
         $weblinks = weblinks_install::getInstance($DIRNAME);
-        $code     = $weblinks->install();
-        $ret[]    = $weblinks->get_message();
+        $code = $weblinks->install();
+        $ret[] = $weblinks->get_message();
 
         return $code;
     }
@@ -122,8 +122,8 @@ if (!function_exists('weblinks_install_base')) {
 
         // main
         $weblinks = new weblinks_install($DIRNAME);
-        $code     = $weblinks->update();
-        $msgs[]   = $weblinks->get_message();
+        $code = $weblinks->update();
+        $msgs[] = $weblinks->get_message();
 
         return $code;
     }

@@ -29,7 +29,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         }
 
         $false = false;
-        $arr   = [];
+        $arr = [];
 
         $sql = 'SELECT * FROM ' . $xoopsDB->prefix('bluesbb_topic') . ' ORDER BY topic_id';
 
@@ -60,16 +60,16 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         }
 
         $URL_MOD = XOOPS_URL . '/modules/bluesbb';
-        $false   = false;
-        $arr     = [];
+        $false = false;
+        $arr = [];
 
         // option parameter
-        $forum_id_in  = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
+        $forum_id_in = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
         $thread_limit = isset($opts['thread_limit']) ? (int)$opts['thread_limit'] : 1;
         $thread_start = isset($opts['thread_start']) ? (int)$opts['thread_start'] : 0;
-        $post_limit   = isset($opts['post_limit']) ? (int)$opts['post_limit'] : 1;
-        $post_start   = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
-        $post_order   = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
+        $post_limit = isset($opts['post_limit']) ? (int)$opts['post_limit'] : 1;
+        $post_start = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
+        $post_order = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
 
         if (0 == $forum_id_in) {
             return $false;
@@ -100,13 +100,13 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         }
 
         // specify forum
-        $arr['forum_id']    = 0;
+        $arr['forum_id'] = 0;
         $arr['forum_title'] = '';
-        $arr['forum_link']  = '';
+        $arr['forum_link'] = '';
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $arr['forum_id']    = $forum_id_in;
+            $arr['forum_id'] = $forum_id_in;
             $arr['forum_title'] = $forum_title_arr[$forum_id_in];
-            $arr['forum_link']  = $URL_MOD . '/topic.php?top=' . $forum_id_in;
+            $arr['forum_link'] = $URL_MOD . '/topic.php?top=' . $forum_id_in;
         }
 
         // latest topics
@@ -128,20 +128,20 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
 
         while ($row2 = $xoopsDB->fetchArray($res2)) {
             $thread_arr = [];
-            $topic_id   = $row2['topic_id'];
-            $thread_id  = $row2['thread_id'];
+            $topic_id = $row2['topic_id'];
+            $thread_id = $row2['thread_id'];
 
             $topic_style = $topic_style_arr[$topic_id];
             $thread_link = $URL_MOD . '/thread.php?thr=' . $thread_id . '&amp;sty=' . $topic_style;
 
-            $thread_arr['forum_id']    = $topic_id;
+            $thread_arr['forum_id'] = $topic_id;
             $thread_arr['forum_title'] = $forum_title_arr[$topic_id];
-            $thread_arr['forum_link']  = $URL_MOD . '/topic.php?top=' . $topic_id;
+            $thread_arr['forum_link'] = $URL_MOD . '/topic.php?top=' . $topic_id;
 
-            $thread_arr['thread_id']     = $thread_id;
-            $thread_arr['thread_link']   = $thread_link;
-            $thread_arr['thread_title']  = $row2['title'];
-            $thread_arr['thread_time']   = $row2['res_time'];
+            $thread_arr['thread_id'] = $thread_id;
+            $thread_arr['thread_link'] = $thread_link;
+            $thread_arr['thread_title'] = $row2['title'];
+            $thread_arr['thread_time'] = $row2['res_time'];
             $thread_arr['thread_time_s'] = formatTimestamp($row2['res_time'], 's');
 
             // latest posts
@@ -157,8 +157,8 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
                 $post_arr = [];
-                $post_id  = $row3['post_id'];
-                $res_id   = $row3['res_id'];
+                $post_id = $row3['post_id'];
+                $res_id = $row3['res_id'];
 
                 $lt = '';
                 switch ($topic_style) {
@@ -173,10 +173,10 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
                         break;
                 }
 
-                $post_arr['post_id']     = $post_id;
-                $post_arr['post_link']   = $thread_link . '&amp;num=' . $lt;
-                $post_arr['post_title']  = $row3['title'];
-                $post_arr['post_time']   = $row3['post_time'];
+                $post_arr['post_id'] = $post_id;
+                $post_arr['post_link'] = $thread_link . '&amp;num=' . $lt;
+                $post_arr['post_title'] = $row3['title'];
+                $post_arr['post_time'] = $row3['post_time'];
                 $post_arr['post_time_s'] = formatTimestamp($row3['post_time'], 's');
 
                 // text

@@ -56,7 +56,7 @@ function ' . $WEBLINKS_DIRNAME . '_user_waiting( $uid, $limit=0, $offset=0 )
 if (!function_exists('b_waiting_weblinks_base')) {
     function &b_waiting_weblinks_base($dirname)
     {
-        $arr    = [];
+        $arr = [];
         $arr[0] = weblinks_waiting_waitings_base($dirname);
         $arr[1] = weblinks_waiting_modreqs_base($dirname);
         $arr[2] = weblinks_waiting_delreqs_base($dirname);
@@ -71,7 +71,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-        $xoopsDB      = XoopsDatabaseFactory::getDatabaseConnection();
+        $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();
         $table_modify = $xoopsDB->prefix($dirname . '_modify');
 
         $sql = 'SELECT COUNT(*) FROM ' . $table_modify . ' WHERE mode=0';
@@ -79,8 +79,8 @@ if (!function_exists('b_waiting_weblinks_base')) {
         $res = $xoopsDB->query($sql);
         if ($res) {
             list($count) = $xoopsDB->fetchRow($res);
-            $arr['adminlink']     = $WEBLINKS_URL . '/admin/modify_list.php?op=list_new';
-            $arr['pendingnum']    = $count;
+            $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_new';
+            $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_WAITINGS;
         }
 
@@ -93,7 +93,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-        $xoopsDB      = XoopsDatabaseFactory::getDatabaseConnection();
+        $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();
         $table_modify = $xoopsDB->prefix($dirname . '_modify');
 
         $sql = 'SELECT COUNT(*) FROM ' . $table_modify . ' WHERE mode=1';
@@ -101,8 +101,8 @@ if (!function_exists('b_waiting_weblinks_base')) {
         $res = $xoopsDB->query($sql);
         if ($res) {
             list($count) = $xoopsDB->fetchRow($res);
-            $arr['adminlink']     = $WEBLINKS_URL . '/admin/modify_list.php?op=list_mod';
-            $arr['pendingnum']    = $count;
+            $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_mod';
+            $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_MODREQS;
         }
 
@@ -115,7 +115,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-        $xoopsDB      = XoopsDatabaseFactory::getDatabaseConnection();
+        $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();
         $table_modify = $xoopsDB->prefix($dirname . '_modify');
 
         $sql = 'SELECT COUNT(*) FROM ' . $table_modify . ' WHERE mode=2';
@@ -123,8 +123,8 @@ if (!function_exists('b_waiting_weblinks_base')) {
         $res = $xoopsDB->query($sql);
         if ($res) {
             list($count) = $xoopsDB->fetchRow($res);
-            $arr['adminlink']     = $WEBLINKS_URL . '/admin/modify_list.php?op=list_del';
-            $arr['pendingnum']    = $count;
+            $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_del';
+            $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_DELREQS;
         }
 
@@ -137,7 +137,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-        $xoopsDB      = XoopsDatabaseFactory::getDatabaseConnection();
+        $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();
         $table_broken = $xoopsDB->prefix($dirname . '_broken');
 
         $sql = 'SELECT COUNT(*) FROM ' . $table_broken;
@@ -145,8 +145,8 @@ if (!function_exists('b_waiting_weblinks_base')) {
         $res = $xoopsDB->query($sql);
         if ($res) {
             list($count) = $xoopsDB->fetchRow($res);
-            $arr['adminlink']     = $WEBLINKS_URL . '/admin/broken_list.php';
-            $arr['pendingnum']    = $count;
+            $arr['adminlink'] = $WEBLINKS_URL . '/admin/broken_list.php';
+            $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_BROKENS;
         }
 
@@ -160,7 +160,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
     function &weblinks_user_waiting_base($dirname, $uid, $limit = 0, $offset = 0)
     {
-        $xoopsDB      = XoopsDatabaseFactory::getDatabaseConnection();
+        $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();
         $table_modify = $xoopsDB->prefix($dirname . '_modify');
 
         $sql = 'SELECT * FROM ' . $table_modify;

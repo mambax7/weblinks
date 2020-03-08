@@ -19,8 +19,8 @@ $genarete = new weblinks_gen_mylinks();
 dev_header();
 
 $PID_START = 0;
-$MAX_CAT   = 10;
-$MAX_PID   = 10;
+$MAX_CAT = 10;
+$MAX_PID = 10;
 
 echo "<h3>generete mylinks child category</h3>\n";
 echo "one link in each category <br>\n";
@@ -43,12 +43,12 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
     for ($i = 1; $i <= $MAX_CAT; ++$i) {
         // category table
         $cat_title = $pid . ': ' . $genarete->get_randum_title();
-        $imgurl    = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
-        $cid       = $genarete->insert_mylinks_category($pid, $cat_title, $imgurl);
+        $imgurl = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
+        $cid = $genarete->insert_mylinks_category($pid, $cat_title, $imgurl);
 
         // link table
         $link_title = $genarete->get_randum_title();
-        $lid        = $genarete->insert_mylinks_link($cid, $link_title);
+        $lid = $genarete->insert_mylinks_link($cid, $link_title);
 
         // text table
         $genarete->insert_mylinks_text($lid, $link_title);

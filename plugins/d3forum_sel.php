@@ -15,8 +15,8 @@ if (!function_exists('weblinks_plugin_d3forum_sel')) {
     {
         $sel = [];
 
-        $sel[1]['name']        = 'd3forum_073';
-        $sel[1]['dirname']     = 'd3forum';
+        $sel[1]['name'] = 'd3forum_073';
+        $sel[1]['dirname'] = 'd3forum';
         $sel[1]['description'] = 'd3forum v0.73';
 
         return $sel;

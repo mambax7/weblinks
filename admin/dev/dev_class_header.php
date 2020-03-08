@@ -114,8 +114,8 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 $weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $country_code = $weblinks_config_handler->get_conf_by_name('country_code');
-$rss_dirname  = $weblinks_config_handler->get_conf_by_name('rss_dirname');
-$rss_use      = $weblinks_config_handler->get_conf_by_name('rss_use');
+$rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
+$rss_use = $weblinks_config_handler->get_conf_by_name('rss_use');
 
 include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/locate.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_locate.php';
@@ -137,7 +137,7 @@ if (!defined('WEBLINKS_RSSC_URL')) {
 
 // rssc module install check
 $module_handler = xoops_getHandler('module');
-$module         = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
+$module = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
 if (is_object($module)) {
     define('WEBLINKS_RSSC_EXIST', 1);
     if ($rss_use) {

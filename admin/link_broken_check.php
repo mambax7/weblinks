@@ -128,7 +128,7 @@ class admin_manage_link_broken_check extends happy_linux_manage
 
     public function _print_form()
     {
-        $limit  = $this->get_post_limit();
+        $limit = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
         $this->_form->show_first($limit, $offset);
@@ -139,7 +139,7 @@ class admin_manage_link_broken_check extends happy_linux_manage
     //---------------------------------------------------------
     public function check_link()
     {
-        $limit  = $this->get_post_limit();
+        $limit = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
         $total_link = $this->_handler->get_link_count_all();
@@ -221,9 +221,9 @@ class admin_form_link_broken_check extends happy_linux_form_lib
     {
         $submit = sprintf(_WEBLINKS_ADMIN_CHECK_NEXT, $limit);
 
-        $desc   = '';
+        $desc = '';
         $action = '';
-        $text   = $this->build_lib_box_limit_offset(_WEBLINKS_ADMIN_LINK_BROKEN_CHECK, $desc, $limit, $offset, 'check', $submit, $action);
+        $text = $this->build_lib_box_limit_offset(_WEBLINKS_ADMIN_LINK_BROKEN_CHECK, $desc, $limit, $offset, 'check', $submit, $action);
         echo $text;
     }
 
@@ -237,7 +237,7 @@ class admin_form_link_broken_check extends happy_linux_form_lib
 weblinks_admin_multi_disable_feature();
 
 $manage = admin_manage_link_broken_check::getInstance();
-$op     = $manage->get_post_op();
+$op = $manage->get_post_op();
 
 switch ($op) {
     case 'check':

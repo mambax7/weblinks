@@ -42,9 +42,9 @@
 class admin_modify_manage extends weblinks_error
 {
     public $WEBLINKS_MAX_LINK_IN_DETAIL = 5;
-    public $WEBLINKS_MAX_LINK_IN_PAGE   = 10;
-    public $FLAG_EVENT_USER             = 1;  // send email to user
-    public $FLAG_EVENT_ANONYMOUS        = 1;  // send email to anonymous
+    public $WEBLINKS_MAX_LINK_IN_PAGE = 10;
+    public $FLAG_EVENT_USER = 1;  // send email to user
+    public $FLAG_EVENT_ANONYMOUS = 1;  // send email to anonymous
 
     public $_modify_handler;
     public $_link_edit_handler;
@@ -61,11 +61,11 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_modify_handler    = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
         $this->_link_edit_handler = weblinks_getHandler('link_edit', WEBLINKS_DIRNAME);
         $this->_link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
-        $this->_sendmail          = weblinks_sendmail::getInstance(WEBLINKS_DIRNAME);
-        $this->_post              = weblinks_post::getInstance();
+        $this->_sendmail = weblinks_sendmail::getInstance(WEBLINKS_DIRNAME);
+        $this->_post = weblinks_post::getInstance();
     }
 
     public static function getInstance()
@@ -391,7 +391,7 @@ class admin_modify_manage extends weblinks_error
 class admin_list_new_links extends weblinks_page_frame
 {
     public $WEBLINKS_MAX_LINK_IN_DETAIL = 5;
-    public $WEBLINKS_MAX_LINK_IN_PAGE   = 5;
+    public $WEBLINKS_MAX_LINK_IN_PAGE = 5;
 
     public $_mode;
 
@@ -425,7 +425,7 @@ class admin_list_new_links extends weblinks_page_frame
     public function show_new()
     {
         $this->_mode = 0;
-        $this->_op   = 'listNewLinks';
+        $this->_op = 'listNewLinks';
         $this->set_script('link_manage.php?op=listNewLinks');
         $this->show();
     }
@@ -433,7 +433,7 @@ class admin_list_new_links extends weblinks_page_frame
     public function show_mod()
     {
         $this->_mode = 1;
-        $this->_op   = 'listModReq';
+        $this->_op = 'listModReq';
         $this->set_script('link_manage.php?op=listModReq');
         $this->show();
     }
@@ -468,7 +468,7 @@ class admin_list_new_links extends weblinks_page_frame
 
     public function &get_cols(&$obj)
     {
-        $op      = 'listNewLinks';
+        $op = 'listNewLinks';
         $jump_id = 'link_manage.php?op=' . $this->_op . '&amp;mid=';
         $id_link = $this->build_html_id_link_by_obj($obj, 'mid', $jump_id);
 

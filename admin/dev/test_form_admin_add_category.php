@@ -30,7 +30,7 @@ if (!$ret) {
 //---------------------------------------------------------
 echo "<h4>scenario 1: performance off</h4>\n";
 
-$mode  = 0;
+$mode = 0;
 $title = 'main_' . $test->get_randum_title();
 
 $ret = $test->admin_add_cat_add_cat($title, $mode);
@@ -51,7 +51,7 @@ if ($test->match_return_msg('add record')) {
 //---------------------------------------------------------
 echo "<h4>scenario 2: performance on</h4>\n";
 
-$mode  = 1;
+$mode = 1;
 $title = 'main_' . $test->get_randum_title();
 
 $ret = $test->admin_add_cat_add_cat($title, $mode);

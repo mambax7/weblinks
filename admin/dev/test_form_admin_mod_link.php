@@ -58,10 +58,10 @@ $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => '',
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => '',
+    'rss_url' => '',
     'rss_flag' => 0,
     'rss_flag' => 0,
 ];
@@ -96,10 +96,10 @@ echo "<h4>scenario 2: banner, no performance, no rss</h4>\n";
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => '',
     'rss_flag' => 0,
 ];
 
@@ -140,10 +140,10 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => '',
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => '',
     'rss_flag' => 0,
 ];
 
@@ -189,10 +189,10 @@ $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(3),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(3),
     'rss_flag' => 2,    // rss
 ];
 
@@ -244,10 +244,10 @@ $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
 $param = [
-    'lid'      => $LID,
-    'title'    => $title,
-    'banner'   => $test->get_randum_banner(0),
-    'rss_url'  => $test->build_rss_url(4),
+    'lid' => $LID,
+    'title' => $title,
+    'banner' => $test->get_randum_banner(0),
+    'rss_url' => $test->build_rss_url(4),
     'rss_flag' => 2,    // rss
 ];
 

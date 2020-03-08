@@ -53,50 +53,50 @@ class link_csv
     public $_table_linkitem;
     public $_table_rssc_link = '';
 
-    public $_error                = '';
-    public $_uid_uname_array      = [];
+    public $_error = '';
+    public $_uid_uname_array = [];
     public $_category_title_array = [];
 
     public $_FIELD_NAME_ARRAY = [
-        'lid'             => _WLS_LINKID,
-        'uid'             => _WEBLINKS_USERID,
-        'cids'            => _WLS_CATEGORY,
-        'title'           => _WLS_SITETITLE,
-        'url'             => _WLS_SITEURL,
-        'banner'          => _WLS_BANNERURL,
-        'description'     => _WLS_DESCRIPTION,
-        'name'            => _WLS_NAME,
+        'lid' => _WLS_LINKID,
+        'uid' => _WEBLINKS_USERID,
+        'cids' => _WLS_CATEGORY,
+        'title' => _WLS_SITETITLE,
+        'url' => _WLS_SITEURL,
+        'banner' => _WLS_BANNERURL,
+        'description' => _WLS_DESCRIPTION,
+        'name' => _WLS_NAME,
         //      "nameflag"
-        'mail'            => _WLS_EMAIL,
+        'mail' => _WLS_EMAIL,
         //      "mailflag"
-        'company'         => _WLS_COMPANY,
-        'addr'            => _WLS_ADDR,
-        'tel'             => _WLS_TEL,
+        'company' => _WLS_COMPANY,
+        'addr' => _WLS_ADDR,
+        'tel' => _WLS_TEL,
         //      "search",
         //      "passwd" => _US_PASSWORD ,
-        'admincomment'    => _WLS_ADMINCOMMENT,
+        'admincomment' => _WLS_ADMINCOMMENT,
         //      "mark",
-        'time_create'     => _WEBLINKS_CREATE,
-        'time_update'     => _WLS_LASTUPDATE,
-        'hits'            => _WLS_HITS,
-        'rating'          => _WLS_RATING,
-        'votes'           => _WLS_VOTE,
-        'comments'        => _COMMENTS,
+        'time_create' => _WEBLINKS_CREATE,
+        'time_update' => _WLS_LASTUPDATE,
+        'hits' => _WLS_HITS,
+        'rating' => _WLS_RATING,
+        'votes' => _WLS_VOTE,
+        'comments' => _COMMENTS,
         //      "width",
         //      "height",
-        'recommend'       => _WLS_SITE_RECOMMEND,
-        'mutual'          => _WLS_SITE_MUTUAL,
-        'broken'          => _WLS_BROKEN_COUNTER,
-        'rss_url'         => _WLS_RSS_URL,
+        'recommend' => _WLS_SITE_RECOMMEND,
+        'mutual' => _WLS_SITE_MUTUAL,
+        'broken' => _WLS_BROKEN_COUNTER,
+        'rss_url' => _WLS_RSS_URL,
         //      "rss_flag",
         //      "rss_xml",
         //      "rss_update",
-        'usercomment'     => _WLS_USER_COMMENT,
-        'zip'             => _WLS_ZIP,
-        'state'           => _WLS_STATE,
-        'city'            => _WLS_CITY,
-        'addr2'           => _WLS_ADDR2,
-        'fax'             => _WLS_FAX,
+        'usercomment' => _WLS_USER_COMMENT,
+        'zip' => _WLS_ZIP,
+        'state' => _WLS_STATE,
+        'city' => _WLS_CITY,
+        'addr2' => _WLS_ADDR2,
+        'fax' => _WLS_FAX,
         //      "dohtml",
         //      "dosmiley",
         //      "doxcode",
@@ -107,17 +107,17 @@ class link_csv
         //      "etc3",
         //      "etc4",
         //      "etc5",
-        'map_use'         => _WEBLINKS_MAP_USE,
-        'rssc_lid'        => _WEBLINKS_RSSC_LID,
-        'gm_latitude'     => _WEBLINKS_GM_LATITUDE,
-        'gm_longitude'    => _WEBLINKS_GM_LONGITUDE,
-        'gm_zoom'         => _WEBLINKS_GM_ZOOM,
+        'map_use' => _WEBLINKS_MAP_USE,
+        'rssc_lid' => _WEBLINKS_RSSC_LID,
+        'gm_latitude' => _WEBLINKS_GM_LATITUDE,
+        'gm_longitude' => _WEBLINKS_GM_LONGITUDE,
+        'gm_zoom' => _WEBLINKS_GM_ZOOM,
         //      "aux_int_1",
         //      "aux_int_2",
         //      "aux_text_1",
         //      "aux_text_2",
-        'time_publish'    => _WEBLINKS_TIME_PUBLISH,
-        'time_expire'     => _WEBLINKS_TIME_EXPIRE,
+        'time_publish' => _WEBLINKS_TIME_PUBLISH,
+        'time_expire' => _WEBLINKS_TIME_EXPIRE,
         //      "textarea1",
         //      "textarea2",
         //      "dohtml1",
@@ -125,14 +125,14 @@ class link_csv
         //      "doxcode1",
         //      "doimage1",
         //      "dobr1",
-        'forum_id'        => _WEBLINKS_FORUM_SEL,
-        'comment_use'     => _WEBLINKS_COMMENT_USE,
-        'album_id'        => _WEBLINKS_ALBUM_SEL,
-        'gm_type'         => _WEBLINKS_GM_TYPE,
-        'pagerank'        => _WEBLINKS_PAGERANK,
+        'forum_id' => _WEBLINKS_FORUM_SEL,
+        'comment_use' => _WEBLINKS_COMMENT_USE,
+        'album_id' => _WEBLINKS_ALBUM_SEL,
+        'gm_type' => _WEBLINKS_GM_TYPE,
+        'pagerank' => _WEBLINKS_PAGERANK,
         'pagerank_update' => _WEBLINKS_PAGERANK_UPDATE,
-        'gm_icon'         => _WEBLINKS_GM_ICON,
-        'uid_uname'       => _WLS_REGSTERED,
+        'gm_icon' => _WEBLINKS_GM_ICON,
+        'uid_uname' => _WLS_REGSTERED,
     ];
 
     public $_DIRNAME;
@@ -145,18 +145,18 @@ class link_csv
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_db           = XoopsDatabaseFactory::getDatabaseConnection();
+        $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_user_handler = xoops_getHandler('user');
 
         $this->_system_class = happy_linux_system::getInstance();
-        $this->_html_class   = happy_linux_html::getInstance();
+        $this->_html_class = happy_linux_html::getInstance();
 
         $this->_table_xoops_users = $this->_db->prefix('users');
-        $this->_table_link        = $this->_db->prefix($dirname . '_link');
-        $this->_table_category    = $this->_db->prefix($dirname . '_category');
-        $this->_table_catlink     = $this->_db->prefix($dirname . '_catlink');
-        $this->_table_config2     = $this->_db->prefix($dirname . '_config2');
-        $this->_table_linkitem    = $this->_db->prefix($dirname . '_linkitem');
+        $this->_table_link = $this->_db->prefix($dirname . '_link');
+        $this->_table_category = $this->_db->prefix($dirname . '_category');
+        $this->_table_catlink = $this->_db->prefix($dirname . '_catlink');
+        $this->_table_config2 = $this->_db->prefix($dirname . '_config2');
+        $this->_table_linkitem = $this->_db->prefix($dirname . '_linkitem');
     }
 
     public static function getInstance($dirname = null)
@@ -213,7 +213,7 @@ class link_csv
 
     public function get_start_form()
     {
-        $sql   = 'SELECT count(*) FROM ' . $this->_table_link;
+        $sql = 'SELECT count(*) FROM ' . $this->_table_link;
         $count = $this->get_count_by_sql($sql);
 
         $option = '';
@@ -250,14 +250,14 @@ EOF;
 
     public function print_title()
     {
-        $paths   = [];
+        $paths = [];
         $paths[] = [
             'name' => $this->_system_class->get_module_name(),
-            'url'  => 'index.php',
+            'url' => 'index.php',
         ];
         $paths[] = [
             'name' => _WEBLINKS_ADMIN_LINK_LIST,
-            'url'  => 'link_list.php',
+            'url' => 'link_list.php',
         ];
         $paths[] = [
             'name' => _AM_WEBLINKS_TITLE_LINK_CSV,
@@ -297,7 +297,7 @@ EOF;
 
         $file_name = $this->get_file_name();
         $file_full = $dir . $file_name;
-        $ret       = $this->open($file_full);
+        $ret = $this->open($file_full);
         if (!$ret) {
             return false;
         }
@@ -477,7 +477,7 @@ EOF;
             return $this->_uid_uname_array[$uid];
         }
 
-        $uname                        = $this->get_xoops_users_uname($uid);
+        $uname = $this->get_xoops_users_uname($uid);
         $this->_uid_uname_array[$uid] = $uname;
 
         return $uname;
@@ -485,14 +485,14 @@ EOF;
 
     public function get_cids($row)
     {
-        $lid  = (int)$row['lid'];
+        $lid = (int)$row['lid'];
         $rows = $this->get_catlink($lid);
 
         $str = '';
         foreach ($rows as $row) {
-            $cid   = (int)$row['cid'];
+            $cid = (int)$row['cid'];
             $title = $this->get_cached_category_title($cid);
-            $str   .= $cid . ' : ' . $title . ", \n";
+            $str .= $cid . ' : ' . $title . ", \n";
         }
 
         return $str;
@@ -547,12 +547,12 @@ EOF;
 
     public function get_fields()
     {
-        $sql  = 'SHOW COLUMNS FROM ' . $this->_table_link;
+        $sql = 'SHOW COLUMNS FROM ' . $this->_table_link;
         $rows = $this->get_rows_by_sql($sql);
 
         $fields = [];
         foreach ($rows as $row) {
-            $field    = $row['Field'];
+            $field = $row['Field'];
             $fields[] = $field;
             if ('uid' == $field) {
                 $fields[] = 'uid_uname';
@@ -596,7 +596,7 @@ EOF;
             return $this->_category_title_array[$cid];
         }
 
-        $title                             = $this->get_category_title($cid);
+        $title = $this->get_category_title($cid);
         $this->_category_title_array[$cid] = $title;
 
         return $title;
@@ -617,7 +617,7 @@ EOF;
 
     public function get_configs()
     {
-        $sql  = 'SELECT * FROM ' . $this->_table_config2 . ' ORDER BY id';
+        $sql = 'SELECT * FROM ' . $this->_table_config2 . ' ORDER BY id';
         $rows = $this->get_rows_by_sql($sql);
 
         $arr = [];
@@ -630,7 +630,7 @@ EOF;
 
     public function get_linkitems()
     {
-        $sql  = 'SELECT * FROM ' . $this->_table_linkitem . ' ORDER BY id';
+        $sql = 'SELECT * FROM ' . $this->_table_linkitem . ' ORDER BY id';
         $rows = $this->get_rows_by_sql($sql);
 
         $arr = [];
@@ -735,7 +735,7 @@ EOF;
     public function convert_encoding($file_in, $encoding)
     {
         $file_out = $file_in . '.txt';
-        $text     = file_get_contents($file_in);
+        $text = file_get_contents($file_in);
 
         if (function_exists('mb_convert_encoding')) {
             $text = mb_convert_encoding($text, $encoding, _CHARSET);

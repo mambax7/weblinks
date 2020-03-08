@@ -53,8 +53,8 @@ class admin_link_base extends happy_linux_manage
         $this->set_flag_execute_time(true);
 
         $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler  = weblinks_getHandler('link_form_check', WEBLINKS_DIRNAME);
-        $this->_time_class     = happy_linux_time::getInstance();
+        $this->_check_handler = weblinks_getHandler('link_form_check', WEBLINKS_DIRNAME);
+        $this->_time_class = happy_linux_time::getInstance();
 
         if (WEBLINKS_RSSC_USE) {
             $this->_rssc_manage = admin_rssc_manage::getInstance();
@@ -145,12 +145,12 @@ class admin_link_base extends happy_linux_manage
         }
 
         $banner = $this->get_post_banner();
-        $width  = 0;
+        $width = 0;
         $height = 0;
 
         $size = &$this->_edit_handler->get_remote_banner_size($banner);
         if (is_array($size) && isset($size[0]) && isset($size[1])) {
-            $width  = $size[0];
+            $width = $size[0];
             $height = $size[1];
         } elseif (!$size) {
             $this->_set_error_title(_WEBLINKS_WARN_BANNER_NOT_GET_SIZE);
@@ -188,29 +188,29 @@ class admin_link_base extends happy_linux_manage
         switch ($op_mode) {
             case 'add_link':
                 $title = _WEBLINKS_ADMIN_ADD_LINK;
-                $op    = 'add_form';
+                $op = 'add_form';
                 break;
             case 'mod_link':
                 $title = _WLS_MODLINK;
-                $op    = 'mod_form';
+                $op = 'mod_form';
                 break;
             case 'del_link':
                 $title = _AM_WEBLINKS_DEL_LINK;
-                $op    = 'del_form';
+                $op = 'del_form';
                 break;
             case 'add_banner':
                 $title = _WEBLINKS_ADMIN_ADD_LINK;
-                $op    = 'add_banner_form';
+                $op = 'add_banner_form';
                 break;
             case 'mod_banner':
                 $title = _WLS_MODLINK;
-                $op    = 'mod_banner_form';
+                $op = 'mod_banner_form';
                 break;
             default:
             case 'update_cat':
                 $title = _AM_WEBLINKS_UPDATE_CAT_COUNT;
-                $op    = 'update_cat_form';
-                $name  = '';
+                $op = 'update_cat_form';
+                $name = '';
                 break;
         }
 
@@ -223,10 +223,10 @@ class admin_link_base extends happy_linux_manage
 
     public function update_cat()
     {
-        $lid                  = $this->get_post_lid();
-        $rss_flag             = $this->get_post_rss_flag();
-        $op_mode              = $this->get_post_op_mode();
-        $skip                 = $this->get_post_skip();
+        $lid = $this->get_post_lid();
+        $rss_flag = $this->get_post_rss_flag();
+        $op_mode = $this->get_post_op_mode();
+        $skip = $this->get_post_skip();
         $rssc_lid_flag_update = $this->get_post_rssc_lid_flag_update();
 
         $url_end = 'link_list.php';
@@ -238,7 +238,7 @@ class admin_link_base extends happy_linux_manage
         switch ($op_mode) {
             case 'add_link':
             case 'add_banner':
-                $msg     = _WLS_NEWLINKADDED . "<br>\n";
+                $msg = _WLS_NEWLINKADDED . "<br>\n";
                 $url_end = $this->_redirect_desc;
                 if (WEBLINKS_RSSC_USE && $rss_flag) {
                     $flag_add_rssc = true;
@@ -246,19 +246,19 @@ class admin_link_base extends happy_linux_manage
                 break;
             case 'mod_link':
             case 'mod_banner':
-                $msg     = _WLS_DBUPDATED . "<br>\n";
+                $msg = _WLS_DBUPDATED . "<br>\n";
                 $url_end = $this->_redirect_asc;
                 if (WEBLINKS_RSSC_USE && !$rssc_lid_flag_update) {
                     $flag_mod_rssc = true;
                 }
                 break;
             case 'del_link':
-                $msg     = _AM_WEBLINKS_DEL_LINK . "<br>\n";
+                $msg = _AM_WEBLINKS_DEL_LINK . "<br>\n";
                 $url_end = $this->_redirect_asc;
                 break;
             default:
             case 'update_cat':
-                $msg     = '';
+                $msg = '';
                 $url_end = $this->_redirect_asc;
                 break;
         }
@@ -278,8 +278,8 @@ class admin_link_base extends happy_linux_manage
             }
 
             $time = $this->_time_class->get_elapse_time();
-            $msg  .= _AM_WEBLINKS_CAT_COUNT_UPDATED . " : $time sec \n";
-            $msg  .= $this->_build_comment('update cat');   // for test form
+            $msg .= _AM_WEBLINKS_CAT_COUNT_UPDATED . " : $time sec \n";
+            $msg .= $this->_build_comment('update cat');   // for test form
             redirect_header($url_end, 3, $msg);
             exit();
         }

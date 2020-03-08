@@ -54,15 +54,15 @@ if (!class_exists('weblinks_link_edit')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler  = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler    = weblinks_getHandler('link', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link', $dirname);
             $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
-            $this->_link_view       = weblinks_link_view::getInstance($dirname);
-            $this->_auth            = weblinks_auth::getInstance($dirname);
-            $this->_rssc_handler    = weblinks_getHandler('rssc', $dirname);
+            $this->_link_view = weblinks_link_view::getInstance($dirname);
+            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
-            $this->_post   = happy_linux_post::getInstance();
+            $this->_post = happy_linux_post::getInstance();
 
             $this->_conf_desc_option = $this->_auth->has_auth_desc_option();
         }
@@ -129,7 +129,7 @@ if (!class_exists('weblinks_link_edit')) {
         public function build_password_by_post()
         {
             $passwd_new = $this->_post->get_post_text('passwd_new');
-            $passwd_2   = $this->_post->get_post_text('passwd_2');
+            $passwd_2 = $this->_post->get_post_text('passwd_2');
 
             list($passwd_old, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
 
@@ -166,8 +166,8 @@ if (!class_exists('weblinks_link_edit')) {
         public function build_rss_url_by_post()
         {
             $rss_flag = $this->_post->get_post_int('rss_flag');
-            $rss_url  = $this->_post->get_post_url('rss_url');
-            $rss_url  = $this->sanitize_url($rss_url);
+            $rss_url = $this->_post->get_post_url('rss_url');
+            $rss_url = $this->sanitize_url($rss_url);
 
             $this->set('rss_flag', $rss_flag);
             $this->set('rss_url', $rss_url);
@@ -198,11 +198,11 @@ if (!class_exists('weblinks_link_edit')) {
         {
             $nameflag = $this->_link_obj->get('nameflag');
 
-            $name_edit     = '';
+            $name_edit = '';
             $nameflag_edit = 0;
 
             if (1 == $nameflag) {
-                $name_edit     = $this->_link_obj->getVar('name');
+                $name_edit = $this->_link_obj->getVar('name');
                 $nameflag_edit = 1;
             }
 
@@ -216,11 +216,11 @@ if (!class_exists('weblinks_link_edit')) {
         {
             $mailflag = $this->_link_obj->get('mailflag');
 
-            $mail_edit     = '';
+            $mail_edit = '';
             $mailflag_edit = 0;
 
             if (1 == $mailflag) {
-                $mail_edit     = $this->_link_obj->getVar('mail');
+                $mail_edit = $this->_link_obj->getVar('mail');
                 $mailflag_edit = 1;
             }
 

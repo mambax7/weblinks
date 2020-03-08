@@ -28,8 +28,8 @@ if (!class_exists('weblinks_address_us')) {
         public function build_address($state, $city, $addr)
         {
             $state = trim($state);
-            $city  = trim($city);
-            $addr  = trim($addr);
+            $city = trim($city);
+            $addr = trim($addr);
 
             if (empty($state) && empty($city) && empty($addr)) {
                 return '';

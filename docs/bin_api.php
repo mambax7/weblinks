@@ -30,9 +30,9 @@
 // 2006-05-15 K.OHWADA
 //=========================================================
 
-$WEBLINKS_PATH    = dirname(dirname(__FILE__));
+$WEBLINKS_PATH = dirname(dirname(__FILE__));
 $WEBLINKS_DIRNAME = basename($WEBLINKS_PATH);
-$XOOPS_ROOT_PATH  = dirname(dirname($WEBLINKS_PATH));
+$XOOPS_ROOT_PATH = dirname(dirname($WEBLINKS_PATH));
 
 // config files ( set XOOPS_ROOT_PATH )
 if (file_exists($XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/cache/config.php')) {
