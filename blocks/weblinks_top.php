@@ -38,9 +38,9 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
 
-// 2006-11-03 hiro <http://ishinomaki.cc/>
+// 2006-11-03 hiro <https://ishinomaki.cc/>
 // add b_weblinks_generic_show()
 
 // 2006-05-15 K.OHWADA
@@ -72,14 +72,16 @@ if (!function_exists('b_weblinks_top_show')) {
     function b_weblinks_top_show($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $class   =& weblinks_block::getSingleton($DIRNAME);
+        $class   = weblinks_block::getSingleton($DIRNAME);
+
         return $class->top_show($options);
     }
 
     function b_weblinks_top_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
-        $class   =& weblinks_block::getSingleton($DIRNAME);
+        $class   = weblinks_block::getSingleton($DIRNAME);
+
         return $class->top_edit($options);
     }
 
@@ -89,7 +91,8 @@ if (!function_exists('b_weblinks_top_show')) {
 
         include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
 
-        $class =& weblinks_block::getSingleton($DIRNAME);
+        $class = weblinks_block::getSingleton($DIRNAME);
+
         return $class->generic_show($options);
     }
 
@@ -110,9 +113,9 @@ if (!function_exists('b_weblinks_top_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_config2_basic_handler.php';
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
 
-        $class =& weblinks_block::getSingleton($DIRNAME);
+        $class = weblinks_block::getSingleton($DIRNAME);
+
         return $class->generic_edit($options);
     }
-
     // --- block function begin end ---
 }

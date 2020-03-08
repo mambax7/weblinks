@@ -60,7 +60,7 @@ class admin_broken_manage extends happy_linux_manage
         $this->set_list_id_name('broken_id');
         $this->set_flag_execute_time(true);
 
-        $this->_link_vote_handler = weblinks_get_handler('link_vote_del', WEBLINKS_DIRNAME);
+        $this->_link_vote_handler = weblinks_getHandler('link_vote_del', WEBLINKS_DIRNAME);
 
         $this->set_debug_check_token(false);
         $this->_handler->set_debug_delete(false);
@@ -69,8 +69,8 @@ class admin_broken_manage extends happy_linux_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_broken_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -123,10 +123,9 @@ class admin_broken_manage extends happy_linux_manage
         if ($this->_exec_del_table()) {
             redirect_header('broken_list.php', 1, _WLS_BROKENDELETED);
             exit();
-        } else {
-            $this->_print_del_db_error();
-            exit();
         }
+        $this->_print_del_db_error();
+        exit();
     }
 
     public function _exec_del_table()
@@ -136,6 +135,7 @@ class admin_broken_manage extends happy_linux_manage
         $ret = $this->_handler->delete_by_lid($lid);
         if (!$ret) {
             $this - _set_errors($this->_handler->getErrors());
+
             return false;
         }
 
@@ -166,23 +166,22 @@ class admin_broken_manage extends happy_linux_manage
         if ($this->_exec_del_all()) {
             redirect_header('broken_list.php', 1, _WLS_BROKENDELETED);
             exit();
-        } else {
-            $this->_print_del_db_error();
-            exit();
         }
+        $this->_print_del_db_error();
+        exit();
     }
 
     public function _exec_del_all()
     {
         $id_arr = $this->_get_post_list_id();
 
-        if (!is_array($id_arr) || (count($id_arr) == 0)) {
+        if (!is_array($id_arr) || (0 == count($id_arr))) {
             return true;
         }
 
         foreach ($id_arr as $id) {
             $this->_id  = $id;
-            $this->_obj =& $this->_handler->get($id);
+            $this->_obj = &$this->_handler->get($id);
 
             if (!is_object($this->_obj)) {
                 continue;
@@ -207,10 +206,9 @@ class admin_broken_manage extends happy_linux_manage
         if ($this->_exec_del_by_link()) {
             redirect_header('broken_list.php', 1, _WLS_BROKENDELETED);
             exit();
-        } else {
-            $this->_print_del_db_error();
-            exit();
         }
+        $this->_print_del_db_error();
+        exit();
 
         $this->_main_del_table();
     }
@@ -222,6 +220,7 @@ class admin_broken_manage extends happy_linux_manage
         $ret = $this->_handler->delete_by_lid($lid);
         if (!$ret) {
             $this - _set_errors($this->_handler->getErrors());
+
             return false;
         }
 
@@ -241,10 +240,9 @@ class admin_broken_manage extends happy_linux_manage
         if ($this->_exec_del_link()) {
             redirect_header('broken_list.php', 1, _WLS_LINKDELETED);
             exit();
-        } else {
-            $this->_print_del_db_error();
-            exit();
         }
+        $this->_print_del_db_error();
+        exit();
     }
 
     public function _exec_del_link()
@@ -285,15 +283,15 @@ class admin_form_broken extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
         $this->_system       = happy_linux_system::getInstance();
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_broken();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -317,7 +315,7 @@ class admin_form_broken extends happy_linux_form
         $url_s           = '';
         $uid             = '';
 
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $flag_link_exist = true;
             $title_s         = $link_obj->getVar('title', 's');
@@ -378,19 +376,15 @@ switch ($op) {
     case 'mod_form':
         $manage->mod_form();
         break;
-
     case 'mod_table':
         $manage->mod_table();
         break;
-
     case 'del_table':
         $manage->del_table();
         break;
-
     case 'del_all':
         $manage->del_all();
         break;
-
     default:
         xoops_cp_header();
         echo '<h4>No Action</h4>';
@@ -398,5 +392,4 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

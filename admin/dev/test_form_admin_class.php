@@ -37,9 +37,10 @@ class weblinks_test_form_admin extends weblinks_test_form
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_test_form_admin();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -57,7 +58,7 @@ class weblinks_test_form_admin extends weblinks_test_form
 
         $param['op']  = 'add_table';
         $param['lid'] = 0;
-        $form         =& $this->build_link_form($param);
+        $form         = &$this->build_link_form($param);
 
         $ret = $this->submit_form($this->_admin_link_url, $form);
         if (!$ret) {
@@ -92,17 +93,19 @@ class weblinks_test_form_admin extends weblinks_test_form
         $form_values = $this->get_form_values();
         if (!isset($form_values['lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
         $this->_lid = $form_values['lid'];
-        $form       =& $this->build_form_banner($form_values);
+        $form       = &$this->build_form_banner($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
@@ -111,62 +114,70 @@ class weblinks_test_form_admin extends weblinks_test_form
         $form_values = $this->get_form_values();
         if (!isset($form_values['lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_update_cat($form_values);
+        $form = &$this->build_form_update_cat($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
     public function _admin_rssc()
     {
         if (!$this->is_exist_rssc_module()) {
-            echo "Skip this test: RSSC module is not installed <br />\n";
+            echo "Skip this test: RSSC module is not installed <br>\n";
+
             return true;
         }
 
         $form_values = $this->get_form_values();
         if (!isset($form_values['link_lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_rssc($form_values);
+        $form = &$this->build_form_rssc($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
     public function _admin_refresh()
     {
         if (!$this->is_exist_rssc_module()) {
-            echo "Skip this test: RSSC module is not installed <br />\n";
+            echo "Skip this test: RSSC module is not installed <br>\n";
+
             return true;
         }
 
         $form_values = $this->get_form_values();
         if (!isset($form_values['link_lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_refresh($form_values);
+        $form = &$this->build_form_refresh($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
@@ -185,16 +196,18 @@ class weblinks_test_form_admin extends weblinks_test_form
         $ret = $this->fetch_form($link_form_url);
         if (!$ret) {
             $this->print_error('Error: admin modify link: fetch form ');
+
             return false;
         }
 
         $param['op'] = 'mod_table';
 
-        $form =& $this->build_link_form($param);
+        $form = &$this->build_link_form($param);
 
         $ret = $this->submit_form($this->_admin_link_url, $form);
         if (!$ret) {
             $this->print_error('Error: admin modify link: submit form ');
+
             return false;
         }
 
@@ -235,16 +248,18 @@ class weblinks_test_form_admin extends weblinks_test_form
         $ret = $this->fetch_form($link_form_url);
         if (!$ret) {
             $this->print_error('Error: admin delete link: fetch form ');
+
             return false;
         }
 
         $param['op'] = 'del_form';
 
-        $form =& $this->build_link_form($param);
+        $form = &$this->build_link_form($param);
 
         $ret = $this->submit_form($this->_admin_link_url, $form);
         if (!$ret) {
             $this->print_error('Error: admin delete link: submit form ');
+
             return false;
         }
 
@@ -256,17 +271,19 @@ class weblinks_test_form_admin extends weblinks_test_form
         $form_values = $this->get_form_values();
         if (!isset($form_values['lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
         $this->_lid = $form_values['lid'];
-        $form       =& $this->build_form_del_confirm($form_values);
+        $form       = &$this->build_form_del_confirm($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
@@ -280,21 +297,23 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     public function &build_form_banner($v)
     {
-        $arr                   =& $this->assign_link($v);
-        $arr['action']         = 'http://localhost' . $v['action'];
+        $arr                   = &$this->assign_link($v);
+        $arr['action']         = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op']             = $v['op'];
         $arr['op_mode']        = $v['op_mode'];
+
         return $arr;
     }
 
     public function &build_form_update_cat($v)
     {
-        $arr                   =& $this->assign_link($v);
-        $arr['action']         = 'http://localhost' . $v['action'];
+        $arr                   = &$this->assign_link($v);
+        $arr['action']         = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op']             = $v['op'];
         $arr['op_mode']        = $v['op_mode'];
+
         return $arr;
     }
 
@@ -304,7 +323,7 @@ class weblinks_test_form_admin extends weblinks_test_form
         $rss_url  = isset($v['rss_url']) ? $v['rss_url'] : '';
         $atom_url = isset($v['atom_url']) ? $v['atom_url'] : '';
 
-        $arr = array(
+        $arr = [
             'action'         => WEBLINKS_URL . '/admin/' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op'             => $v['op'],
@@ -318,28 +337,31 @@ class weblinks_test_form_admin extends weblinks_test_form
             'atom_url'       => $atom_url,
             'rss_url'        => $rss_url,
             'show_rss_url'   => $rss_url,
-        );
+        ];
+
         return $arr;
     }
 
     public function &build_form_refresh($v)
     {
-        $arr = array(
-            'action'         => 'http://localhost' . $v['action'],
+        $arr = [
+            'action'         => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op'             => $v['op'],
             'op_mode'        => $v['op_mode'],
             'rssc_lid'       => $v['rssc_lid'],
-        );
+        ];
+
         return $arr;
     }
 
     public function &build_form_del_confirm($v)
     {
-        $arr                   =& $this->assign_link($v);
-        $arr['action']         = 'http://localhost' . $v['action'];
+        $arr                   = &$this->assign_link($v);
+        $arr['action']         = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op']             = $v['op'];
+
         return $arr;
     }
 
@@ -361,7 +383,7 @@ class weblinks_test_form_admin extends weblinks_test_form
         $ticket = $this->get_ticket();
         $imgurl = $this->get_randum_category_image();
 
-        $cat_form = array(
+        $cat_form = [
             'XOOPS_G_TICKET' => $ticket,
             'op'             => 'add_table',
             'title'          => $title,
@@ -369,7 +391,7 @@ class weblinks_test_form_admin extends weblinks_test_form
             'orders'         => 0,
             'pid'            => 0,
             'imgurl'         => $imgurl,
-        );
+        ];
 
         // submit_form
         $ret = $this->submit_form($this->_admin_cat_url, $cat_form);
@@ -385,10 +407,10 @@ class weblinks_test_form_admin extends weblinks_test_form
         // build_form
         $ticket = $this->get_ticket();
 
-        $cat_form = array(
+        $cat_form = [
             'XOOPS_G_TICKET' => $ticket,
             'op'             => 'update_path',
-        );
+        ];
 
         $ret = $this->submit_form($this->_admin_cat_url, $cat_form);
         if (!$ret) {

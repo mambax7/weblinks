@@ -14,13 +14,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_linkitem_basic_handler')) {
-
     //================================================================
     // class weblinks_linkitem_basic_handler
     //================================================================
     class weblinks_linkitem_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -66,6 +64,5 @@ if (!class_exists('weblinks_linkitem_basic_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

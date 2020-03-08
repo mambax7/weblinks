@@ -25,19 +25,20 @@ $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
 
 // --- eval begin ---
-eval('
+eval(
+    '
 
 function ' . $WEBLINKS_DIRNAME . '_notify_iteminfo( $category, $item_id )
 {
     return weblinks_notify_iteminfo_base( "' . $WEBLINKS_DIRNAME . '" , $category, $item_id ) ;
 }
 
-');
+'
+);
 // --- eval end ---
 
 // === weblinks_notify_iteminfo_base begin ===
 if (!function_exists('weblinks_notify_iteminfo_base')) {
-
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
@@ -58,17 +59,18 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             $config_handler = xoops_getHandler('config');
             $config         = $config_handler->getConfigsByCat(0, $module->getVar('mid'));
         } else {
-            $module =& $xoopsModule;
-            $config =& $xoopsModuleConfig;
+            $module = &$xoopsModule;
+            $config = &$xoopsModuleConfig;
         }
 
-        if ($category == 'global') {
+        if ('global' == $category) {
             $item['name'] = '';
             $item['url']  = '';
+
             return $item;
         }
 
-        if ($category == 'category') {
+        if ('category' == $category) {
             // Assume we have a valid category id
             $sql = "SELECT * FROM $table_category WHERE cid=$item_id";
             $row = $xoopsDB->fetchArray($xoopsDB->query($sql));
@@ -79,7 +81,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             return $item;
         }
 
-        if ($category == 'link') {
+        if ('link' == $category) {
             // Assume we have a valid link id
             $sql = "SELECT * FROM $table_link WHERE lid=$item_id";
             $row = $xoopsDB->fetchArray($xoopsDB->query($sql));
@@ -90,6 +92,5 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             return $item;
         }
     }
-
     // === weblinks_notify_iteminfo_base begin ===
 }

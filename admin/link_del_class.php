@@ -18,7 +18,6 @@
 //=========================================================
 class admin_link_del extends admin_link_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -31,9 +30,10 @@ class admin_link_del extends admin_link_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_del();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -104,10 +104,9 @@ class admin_link_del extends admin_link_base
             $msg .= $this->_build_comment('del record');    // for test form
             redirect_header($this->_redirect_asc, 1, $msg);
             exit();
-        } else {
-            $this->_print_del_db_error();
-            exit();
         }
+        $this->_print_del_db_error();
+        exit();
     }
 
     public function _exec_del_table()
@@ -118,6 +117,7 @@ class admin_link_del extends admin_link_base
         $ret = $this->_edit_handler->del_link_vote_comm_catlink_by_lid($lid);
         if (!$ret) {
             $this->_set_errors($this->_edit_handler->getErrors());
+
             return false;
         }
 

@@ -18,13 +18,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_form_mod_approve_handler')) {
-
     //=========================================================
     // class weblinks_link_form_mod_approve_handler
     //=========================================================
     class weblinks_link_form_mod_approve_handler extends weblinks_link_form_admin_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -54,19 +52,20 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
 
             switch ($form_mode) {
                 case 'preview':
-                    $edit_obj =& $this->get_edit_modify($mid);
+                    $edit_obj = &$this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
-                        echo "no modify record mid=$mid <br />\n";
+                        echo "no modify record mid=$mid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_approve_modify_preview();
                     break;
-
                 case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
                 default:
-                    $edit_obj =& $this->get_edit_modify($mid);
+                    $edit_obj = &$this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
-                        echo "no modify record mid=$mid <br />\n";
+                        echo "no modify record mid=$mid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_approve_modify();
@@ -77,9 +76,10 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             $this->set_obj($edit_obj);
 
             $lid       = $edit_obj->get('lid');
-            $saved_obj =& $this->get_edit($lid);
+            $saved_obj = &$this->get_edit($lid);
             if (!is_object($saved_obj)) {
-                echo "no link record lid=$lid <br />\n";
+                echo "no link record lid=$lid <br>\n";
+
                 return false;
             }
 
@@ -93,122 +93,98 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
                     case 'hidden':
                         $this->add_hidden_by_id($id);
                         break;
-
                     case 'text':
                         $this->add_text_by_id($id);
                         $this->add_admin_text_saved($id);
                         break;
-
                     case 'textarea':
                         $this->add_textarea_by_id($id);
                         $this->add_admin_textarea_saved($id);
                         break;
-
                     case 'dhtml':
                         $this->add_user_dhtml_by_id($id);
                         $this->add_admin_textarea_saved($id);
                         break;
-
                     case 'checkbox':
                         $this->add_checkbox_by_id($id);
                         $this->add_admin_checkbox_saved($id);
                         break;
-
                     case 'yesno':
                         $this->add_yesno_by_id($id);
                         $this->add_admin_yesno_saved($id);
                         break;
-
                     case 'url':
                         $this->add_url_by_id($id);
                         $this->add_admin_url_saved($id);
                         break;
-
                     case 'mid':
                         $this->add_admin_id($id);
                         break;
-
                     case 'lid':
                         $this->add_admin_id($id);
                         break;
-
                     case 'uid':
                         $this->add_admin_uid($id);
                         $this->add_admin_uid_saved($id);
                         $this->add_approve_check_confirm($id);
                         break;
-
                     case 'time_create':
                         $this->add_admin_time_create($id);
                         break;
-
                     case 'time_update':
                         $this->add_admin_time_update($id);
                         break;
-
                     case 'time_publish':
                         $this->add_time_publish($id);
                         $this->add_admin_time_saved($id);
                         break;
-
                     case 'time_expire':
                         $this->add_time_expire($id);
                         $this->add_admin_time_saved($id);
                         break;
-
                     case 'cat':
                         $this->add_cat_by_id($id);
                         $this->add_admin_cat_saved($id);
                         break;
-
                     case 'admincomment':
                         $this->add_admin_admincomment_saved($id);
                         break;
-
                     case 'banner':
                         $this->add_admin_banner($id);
                         $this->add_admin_banner_saved($id);
                         break;
-
                     case 'rss_url':
                         $this->add_rss_url_by_id($id);
                         $this->add_admin_rss_url_saved($id);
                         break;
-
                     case 'name':
                         $this->add_name_by_id($id);
                         $this->add_admin_name_saved($id);
                         $this->add_approve_check_confirm($id);
                         break;
-
                     case 'mail':
                         $this->add_mail_by_id($id);
                         $this->add_admin_mail_saved($id);
                         $this->add_approve_check_confirm($id);
                         break;
-
                     case 'passwd':
                         $this->add_admin_passwd_approve($id);
                         break;
-
                     // google map
                     case 'gm_latitude':
                         $this->add_gm_latitude_by_id($id);
                         $this->add_admin_text_saved($id);
                         break;
-
                     // forum_id
                     case 'forum_id':
                         $this->add_admin_forum_id($id);
                         $this->add_admin_forum_id_saved($id);
                         break;
-
                     // album_id
                     case 'album_id':
                         $this->add_admin_album_id($id);
                         $this->add_admin_album_id_saved($id);
                         break;
-
                     case 'notify':
                     case 'none':
                     default:
@@ -219,6 +195,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             // print form
             $button = $this->_build_button($submit_value, $button_name, $button_value);
             $this->_print_form($form_title, $op, $button);
+
             return true;
         }
 
@@ -231,12 +208,14 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             if (!$this->_compare_saved($id)) {
                 $text = $this->_build_modified_msg();
             }
+
             return $text;
         }
 
         public function _build_modified_msg()
         {
             $text = '<div class="weblinks_form_modified">' . _AM_WEBLINKS_MODIFIED . '</div>' . "\n";
+
             return $text;
         }
 
@@ -252,6 +231,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -273,8 +253,8 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             $link_uname = $this->build_user_link_uname_by_uid($saved_value);
             $link_email = $this->build_user_link_email_by_uid($saved_value);
             $text       = $this->_modified_msg($id);
-            $text .= $saved_value . '&nbsp;&nbsp;' . $link_uname . '&nbsp;&nbsp;' . $link_email;
-            $cap = $this->_build_caption(_WLS_OWNER);
+            $text       .= $saved_value . '&nbsp;&nbsp;' . $link_uname . '&nbsp;&nbsp;' . $link_email;
+            $cap        = $this->_build_caption(_WLS_OWNER);
 
             $this->add_label($cap, $text);
         }
@@ -290,9 +270,9 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         public function add_admin_yesno_saved($id)
         {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
-            $opt_yesno =& $this->get_form_radio_yesno_options();
+            $opt_yesno = &$this->get_form_radio_yesno_options();
             $text      = $this->_modified_msg($id);
-            $text .= $this->_build_value_checked($saved_value, $opt_yesno);
+            $text      .= $this->_build_value_checked($saved_value, $opt_yesno);
             $this->add_buff('', $text);
         }
 
@@ -315,7 +295,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             if ($saved_value) {
                 $text = $saved_value;
                 $text .= $this->build_edit_visit($saved_value);
-                $text .= "<br />\n";
+                $text .= "<br>\n";
                 $text .= $this->build_html_img_tag($saved_value, $width, $height, 0, 'banner');
             } else {
                 $text = '---';
@@ -340,7 +320,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
                 $text .= '---';
             }
 
-            $text .= "<br />\n";
+            $text .= "<br>\n";
             $text .= $this->_build_value_checked($value2, $opt2);
             $this->add_buff('', $text);
         }
@@ -363,7 +343,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             $opt2   = $this->_get_options_by_name($name2);
 
             $text = $this->_modified_msg($id);
-            $text .= $this->_build_value_when_empty($value1) . '<br />';
+            $text .= $this->_build_value_when_empty($value1) . '<br>';
             $text .= $this->_build_value_checked($value2, $opt2);
             $this->add_buff('', $text);
         }
@@ -387,7 +367,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
 
             $text = $this->_modified_msg($id);
-            if ($saved_value == '') {
+            if ('' == $saved_value) {
                 $text .= '---';
             } else {
                 $text .= $this->_build_show_textarea($saved_value, 1);
@@ -401,7 +381,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             list($cap, $name, $saved_value, $opt, $admin_form, $mode) = $this->get_saved_param($id);
 
             $text = $this->_modified_msg($id);
-            $text .= _WEBLINKS_ADMIN_PRESENT_SAVE . "<br />\n";
+            $text .= _WEBLINKS_ADMIN_PRESENT_SAVE . "<br>\n";
             $text .= $this->build_html_textarea($name, $saved_value, $this->TEXTAREA_ROW, $this->TEXTAREA_COL);
             $this->add_buff($cap, $text);
         }
@@ -415,7 +395,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
             $catpath = '';
             foreach ($saved_cid_arr as $cid) {
                 $catpath .= $this->_category_handler->build_cat_path($cid, 's');
-                $catpath .= "<br />\n";
+                $catpath .= "<br>\n";
                 if (!in_array($cid, $user_cid_arr)) {
                     $flag_modified = true;
                 }
@@ -482,7 +462,7 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
         //---------------------------------------------------------
         // delete form
         //---------------------------------------------------------
-        public function show_admin_approve_del_form(&$modify_obj)
+        public function show_admin_approve_del_form($modify_obj)
         {
             $mid    = $modify_obj->get('mid');
             $reason = $modify_obj->getVar('usercomment', 's');
@@ -510,6 +490,5 @@ if (!class_exists('weblinks_link_form_mod_approve_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

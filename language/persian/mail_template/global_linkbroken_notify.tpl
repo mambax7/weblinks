@@ -16,6 +16,6 @@ A broken link report has been submitted and is awaiting approval.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 وبمستر
 {X_ADMINMAIL}

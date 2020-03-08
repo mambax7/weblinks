@@ -42,7 +42,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_check_handler')) {
-
     //=========================================================
     // class weblinks_link_check_handler
     // this class is used by command line
@@ -58,7 +57,7 @@ if (!class_exists('weblinks_link_check_handler')) {
         public $_TIMEOUT_READ    = 0;  // disable ( snoopy default )
 
         public $_link_broken_count = 0;
-        public $_link_broken_arr   = array();
+        public $_link_broken_arr   = [];
         public $_link_broken       = null;
 
         //---------------------------------------------------------
@@ -84,12 +83,12 @@ if (!class_exists('weblinks_link_check_handler')) {
         public function check($limit = 0, $offset = 0)
         {
             $this->_link_broken_count = 0;
-            $this->_link_broken_arr   = array();
+            $this->_link_broken_arr   = [];
 
             $this->_execute($limit, $offset);
         }
 
-        public function _loop(&$row)
+        public function _loop($row)
         {
             $lid   = $row['lid'];
             $title = $row['title'];
@@ -106,7 +105,7 @@ if (!class_exists('weblinks_link_check_handler')) {
             if (!$ret) {
                 $this->_countup_link_broken($lid);
                 $this->_link_broken_count++;
-                $this->_link_broken_arr[] = array($lid, $title, $url, $check_time);
+                $this->_link_broken_arr[] = [$lid, $title, $url, $check_time];
             }
         }
 
@@ -149,6 +148,7 @@ if (!class_exists('weblinks_link_check_handler')) {
         {
             $text = '<tr><td>' . _WEBLINKS_ADMIN_LINK_NUM_BROKEN . '</td>';
             $text .= '<td>' . $this->_link_broken . ' ' . _WEBLINKS_ADMIN_NUM . '</td></tr>' . "\n";
+
             return $text;
         }
 
@@ -156,7 +156,7 @@ if (!class_exists('weblinks_link_check_handler')) {
         {
             $text = _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE;
             $text .= _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE;
-            $text .= "<br />\n";
+            $text .= "<br>\n";
             $text .= '<table border="1"><tr>';
             $text .= '<th align="center">' . _WLS_LINKID . '</th>';
             $text .= '<th align="center">' . _WLS_SITETITLE . '</th>';
@@ -197,14 +197,15 @@ if (!class_exists('weblinks_link_check_handler')) {
 
         public function _get_table_end()
         {
-            return "</table><br />\n";
+            return "</table><br>\n";
         }
 
         public function _build_google_search_url($query)
         {
             $query = happy_linux_convert_to_utf8($query);
             $query = urlencode($query);
-            $url   = 'http://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
+            $url   = 'https://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
+
             return $url;
         }
 
@@ -241,6 +242,5 @@ if (!class_exists('weblinks_link_check_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

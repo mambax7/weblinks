@@ -7,6 +7,6 @@ Vous pouvez voir ce lien ici:
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Le Webmestre
 {X_ADMINMAIL}

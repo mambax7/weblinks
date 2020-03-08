@@ -14,7 +14,7 @@
 
 // 2007-08-01 K.OHWADA
 // _WEBLINKS_GM_CURRENT_ADDRESS
-// <br> => <br />
+// <br> => <br>
 
 // 2007-04-08 K.OHWADA
 // _WEBLINKS_GM_TYPE
@@ -59,7 +59,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MB_LOADED')) {
@@ -175,10 +175,10 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANCEL', 'Отменить');
 
     define('_WLS_ALREADYREPORTED', 'Вы уже отправили доклад о неработающей ссылке этого ресурса.');
-    define('_WLS_MUSTREGFIRST', 'Извините, у вас нет разрешения на выполнение этого действия.<br />Пожалуйста, сначала зарегистрируйтесь или войти!');
+    define('_WLS_MUSTREGFIRST', 'Извините, у вас нет разрешения на выполнение этого действия.<br>Пожалуйста, сначала зарегистрируйтесь или войти!');
     define('_WLS_NORATING', 'Оценка не выбрана.');
-    define('_WLS_CANTVOTEOWN', 'Вы не можете голосовать за ресурс, который Вы отправили.<br />Все голоса записываются и рецензируются.');
-    define('_WLS_VOTEONCE2', 'Голосуйте за выбранный ресурс только один раз.<br />Все голоса записываются и рецензируются.');
+    define('_WLS_CANTVOTEOWN', 'Вы не можете голосовать за ресурс, который Вы отправили.<br>Все голоса записываются и рецензируются.');
+    define('_WLS_VOTEONCE2', 'Голосуйте за выбранный ресурс только один раз.<br>Все голоса записываются и рецензируются.');
 
     //%%%%%%    Admin     %%%%%
 
@@ -300,8 +300,10 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'Не опубликовывать');
     define('_WLS_NOTSELECT', 'Не определено');
     define('_WLS_SUBMIT_INDISPENSABLE', "Пометка звездочкой '<b>*</b>' означает обязательный пункт.");
-    define('_WLS_SUBMIT_USER_COMMENT',
-           '"Комментарий администратору" следует использовать для мнения, запроса и т.д.<br />Этот столбец не отображается на веб.<br />Пожалуйста, заполните адрес вашего сайта и как это связано с этим сайтом, если вы хотите пометить его как "Лучший сайт".');
+    define(
+        '_WLS_SUBMIT_USER_COMMENT',
+        '"Комментарий администратору" следует использовать для мнения, запроса и т.д.<br>Этот столбец не отображается на веб.<br>Пожалуйста, заполните адрес вашего сайта и как это связано с этим сайтом, если вы хотите пометить его как "Лучший сайт".'
+    );
     define('_WLS_USER_COMMENT', 'Комментарий администратору');
     define('_WLS_NOT_DISPLAY', 'Этот столбец не отображается на веб.');
 
@@ -314,7 +316,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //======    user.php    ======
     define('_WLS_PLEASEPASSWORD', 'Введите ваш пароль');
     define('_WLS_REGSTERED', 'Зарегистрированный пользователь');
-    define('_WLS_REGSTERED_DSC', 'Кто угодно может изменить информацию ссылки. <br />Веб-мастер проверит изменения перед публикацией.');
+    define('_WLS_REGSTERED_DSC', 'Кто угодно может изменить информацию ссылки. <br>Веб-мастер проверит изменения перед публикацией.');
     define('_WLS_EMAILNOTFOUND', 'Адрес электронной почты не соответствует.');
 
     // error message
@@ -371,8 +373,10 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'автоматическое обнаружение');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Распространенные RSS/ATOM каналы отображаются здесь.');
-    define('_WLS_ATOMFEED_FIREFOX',
-           "Если вы используете <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, сделайте закладку этой страницы, для просмотра вашего RSS/ATOM канала. ");
+    define(
+        '_WLS_ATOMFEED_FIREFOX',
+        "Если вы используете <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, сделайте закладку этой страницы, для просмотра вашего RSS/ATOM канала. "
+    );
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Оповестить, если утверждено');
@@ -458,7 +462,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Предупреждение: Не удалось прочитать адрес');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Предупреждение: Не удалось получить размер баннера');
 
-    // google map: hacked by wye <http://never-ever.info/>
+    // google map: hacked by wye <https://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Широта');
     define('_WEBLINKS_GM_LONGITUDE', 'Долгота');
     define('_WEBLINKS_GM_ZOOM', 'Уровень увеличения');
@@ -583,4 +587,3 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_NOFEED', 'Нет канала');      //No Feed
     define('_WEBLINKS_IN', 'в');       //in
 }// --- define language end ---
-;

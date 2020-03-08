@@ -1,6 +1,6 @@
 Hola {X_UNAME},
 
-	
+
 Una nueva sub-categoría a sido agregada a categoría "{CATEGORY_NAME}" en {X_SITENAME}.
 
 Click aquí para ver esa categoría:
@@ -20,6 +20,6 @@ Por favor, no responda a este mensaje.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 El Webmaster
 {X_ADMINMAIL}

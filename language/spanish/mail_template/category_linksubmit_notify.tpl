@@ -1,6 +1,6 @@
 Hola {X_UNAME},
 
-	
+
 Un nuevo enlace se ha añadido en la categoría "{CATEGORY_NAME}" en {X_SITENAME} y esta esperando la aprobación.
 
 Puede ver este enlace añadido aquí :
@@ -8,10 +8,10 @@ Puede ver este enlace añadido aquí :
 
 Información del Link nuevo :
 Title : {LINK_NAME}
-Descripción : 
+Descripción :
 {LINK_DESCRIPTION}
 
-Comentarios para el Administrador : 
+Comentarios para el Administrador :
 {LINK_USERCOMMENT}
 
 
@@ -26,6 +26,6 @@ Por favor, no responda a este mensaje.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 El Webmaster
 {X_ADMINMAIL}

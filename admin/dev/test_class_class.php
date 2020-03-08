@@ -42,9 +42,10 @@ class weblinks_test_class extends weblinks_gen_record
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_test_class();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -57,6 +58,7 @@ class weblinks_test_class extends weblinks_gen_record
         if ($isNew) {
             $obj->setNew();
         }
+
         return $obj;
     }
 
@@ -66,6 +68,7 @@ class weblinks_test_class extends weblinks_gen_record
         if ($isNew) {
             $obj->setNew();
         }
+
         return $obj;
     }
 
@@ -89,19 +92,19 @@ class weblinks_test_class extends weblinks_gen_record
 
         $expects['rssc_lid'] = 0;
 
-        $excludes =& $this->build_excludes($mode_passwd);
+        $excludes = &$this->build_excludes($mode_passwd);
 
-        $times = array('time_create', 'time_update');
+        $times = ['time_create', 'time_update'];
 
-        $obj =& $this->create_link_save();
+        $obj = &$this->create_link_save();
         $obj->assign_add_object($inputs, $not_gpc, $flag_banner);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
             $this->print_box('textarea1', $obj->textarea1_disp());
             $this->print_box('textarea2', $obj->textarea2_disp());
@@ -128,7 +131,7 @@ class weblinks_test_class extends weblinks_gen_record
         $param['not_gpc']  = $not_gpc;
         $param['flag_uid'] = 1;
 
-        $saves =& $this->build_saves();
+        $saves = &$this->build_saves();
 
         list($inputs, $expects) = $this->build_input_expect($param);
 
@@ -149,7 +152,7 @@ class weblinks_test_class extends weblinks_gen_record
             $expects['time_update'] = $saves['time_update'];
         }
 
-        if ($mode_passwd == 0) {
+        if (0 == $mode_passwd) {
             $expects['passwd'] = $saves['passwd'];
         }
 
@@ -157,18 +160,18 @@ class weblinks_test_class extends weblinks_gen_record
             $expects['rssc_lid'] = $saves['rssc_lid'];
         }
 
-        $excludes =& $this->build_excludes(1);
+        $excludes = &$this->build_excludes(1);
 
-        $obj =& $this->create_link_save();
+        $obj = &$this->create_link_save();
         $obj->setVars($saves);
         $obj->assign_mod_object($inputs, $not_gpc, $flag_banner);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
             $this->print_box('textarea1', $obj->textarea1_disp());
             $this->print_box('textarea2', $obj->textarea2_disp());
@@ -180,7 +183,7 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // check_match
     //---------------------------------------------------------
-    public function check_match(&$results, &$expects, &$times = null, &$excludes = null)
+    public function check_match($results, $expects, $times = null, $excludes = null)
     {
         $flag_result = false;
 
@@ -219,7 +222,6 @@ class weblinks_test_class extends weblinks_gen_record
                             $flag = true;
                         }
                         break;
-
                     default:
                         if ($v != $e) {
                             $msg = 'unmtach ' . $msg . ' =! ' . $e;
@@ -262,9 +264,9 @@ class weblinks_test_class extends weblinks_gen_record
 
         $param['title'] = $this->get_randum_title();
 
-        $inputs =& $this->build_link_record_from_param($param);
+        $inputs = &$this->build_link_record_from_param($param);
 
-        $temp                =& $inputs;
+        $temp                = &$inputs;
         $temp['description'] = $inputs['weblinks_description'];
         $temp['textarea1']   = $inputs['weblinks_textarea1'];
         $temp['rss_url']     = '';
@@ -303,19 +305,16 @@ class weblinks_test_class extends weblinks_gen_record
                 $inputs['passwd_new'] = $inputs['passwd'];
                 $temp['passwd']       = $inputs['passwd_md5'];
                 break;
-
             // approve password
             case 2:
                 $inputs['op']   = 'approve_new';
                 $temp['passwd'] = $inputs['passwd_md5'];
                 break;
-
             // approve request password
             case 3:
                 $inputs['op']   = 'approve_mod';
                 $temp['passwd'] = $inputs['passwd_md5'];
                 break;
-
             // default password
             case 0:
             default:
@@ -323,24 +322,24 @@ class weblinks_test_class extends weblinks_gen_record
         }
 
         if (!$not_gpc) {
-            $expects =& $this->_strings->strip_slashes_array_gpc($temp);
+            $expects = &$this->_strings->strip_slashes_array_gpc($temp);
         } else {
-            $expects =& $temp;
+            $expects = &$temp;
         }
 
-        return array($inputs, $expects);
+        return [$inputs, $expects];
     }
 
     public function &build_saves()
     {
-        $param = array(
+        $param = [
             'title'         => $this->get_randum_title(),
             'flag_uid'      => 1,
             'mode_dhtml'    => 2,
             'flag_rssc_lid' => false,
-        );
+        ];
 
-        $saves =& $this->build_link_record_from_param($param);
+        $saves = &$this->build_link_record_from_param($param);
 
         $saves['description'] = $saves['weblinks_description'];
         $saves['textarea1']   = $saves['weblinks_textarea1'];
@@ -351,7 +350,7 @@ class weblinks_test_class extends weblinks_gen_record
 
     public function &build_excludes($mode_passwd = 0)
     {
-        $excludes = array('search');
+        $excludes = ['search'];
 
         switch ($mode_passwd) {
             // add password
@@ -359,7 +358,6 @@ class weblinks_test_class extends weblinks_gen_record
                 // approve password
             case 2:
                 break;
-
             // default password
             case 0:
             default:

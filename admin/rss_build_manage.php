@@ -18,7 +18,7 @@ $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'rss_cache_clear') {
+if ('rss_cache_clear' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         $config_form->print_xoops_token_error();
@@ -48,77 +48,63 @@ exit();
 function admin_print_build_menu()
 {
     ?>
-    <h3><?php echo _HAPPY_LINUX_CONF_RSS_MANAGE;
-        ?></h3>
-    <?php echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC;
-    ?><br/><br/>
+    <h3><?php echo _HAPPY_LINUX_CONF_RSS_MANAGE; ?></h3>
+    <?php echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC; ?><br><br>
     <table border="1">
         <tr>
             <td>
             </td>
             <th class="weblinks_rss_build_manage">
-                <?php echo _AM_WEBLINKS_RSS_SITE;
-                ?>
+                <?php echo _AM_WEBLINKS_RSS_SITE; ?>
             </th>
             <th class="weblinks_rss_build_manage">
-                <?php echo _AM_WEBLINKS_RSS_FEED;
-                ?>
+                <?php echo _AM_WEBLINKS_RSS_FEED; ?>
             </th>
         </tr>
         <tr>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=rdf" target="_blank">
-                    <img src="<?php echo WEBLINKS_URL;
-                    ?>/images/rdf.png"></a>
+                    <img src="<?php echo WEBLINKS_URL; ?>/images/rdf.png"></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=rdf" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RDF;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RDF; ?></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?type=feed&mode=rdf" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RDF;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RDF; ?></a>
             </td>
         </tr>
         <tr>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=rss" target="_blank">
-                    <img src="<?php echo WEBLINKS_URL;
-                    ?>/images/rss.png"></a>
+                    <img src="<?php echo WEBLINKS_URL; ?>/images/rss.png"></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=rss" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RSS;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RSS; ?></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?type=feed&mode=rss" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RSS;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_RSS; ?></a>
             </td>
         </tr>
         <tr>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=atom" target="_blank">
-                    <img src="<?php echo WEBLINKS_URL;
-                    ?>/images/atom.png"></a>
+                    <img src="<?php echo WEBLINKS_URL; ?>/images/atom.png"></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?mode=atom" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_ATOM;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_ATOM; ?></a>
             </td>
             <td class="weblinks_rss_build_manage">
                 <a href="build_rss.php?type=feed&mode=atom" target="_blank">
-                    <?php echo _HAPPY_LINUX_CONF_DEBUG_ATOM;
-                    ?></a>
+                    <?php echo _HAPPY_LINUX_CONF_DEBUG_ATOM; ?></a>
             </td>
         </tr>
     </table>
     <?php
-
 }
 
 ?>

@@ -84,6 +84,7 @@ if (!class_exists('weblinks_comment_handler')) {
             $ret = $this->_comment_handler->insert($comment);
             if (!$ret) {
                 $this->_error = $this->_db->error();
+
                 return false;
             }
 
@@ -92,11 +93,12 @@ if (!class_exists('weblinks_comment_handler')) {
             if (!$ret) {
                 $this->_error = $this->_db->error();
                 $this->_comment_handler->delete($comment);
+
                 return false;
             }
 
             // increment user post if needed
-            $poster =& $this->_member_handler->getUser($com_uid);
+            $poster = &$this->_member_handler->getUser($com_uid);
             if (is_object($poster)) {
                 $this->_member_handler->updateUserByField($poster, 'posts', $poster->getVar('posts') + 1);
             }
@@ -111,6 +113,5 @@ if (!class_exists('weblinks_comment_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

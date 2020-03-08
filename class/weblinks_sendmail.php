@@ -26,7 +26,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_sendmail')) {
-
     //=========================================================
     // class weblinks_sendmail
     //=========================================================
@@ -69,9 +68,10 @@ if (!class_exists('weblinks_sendmail')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_sendmail($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -89,10 +89,10 @@ if (!class_exists('weblinks_sendmail')) {
 
             if (file_exists($dir_tpl_lang . $file_tpl)) {
                 return $dir_tpl_lang;
-            } else {
-                $dir = $WEBLINKS_ROOT_PATH . '/language/english/mail_template/';
-                return $dir;
             }
+            $dir = $WEBLINKS_ROOT_PATH . '/language/english/mail_template/';
+
+            return $dir;
         }
 
         //---------------------------------------------------------
@@ -105,7 +105,7 @@ if (!class_exists('weblinks_sendmail')) {
             $file_tpl = 'lostpass.tpl';
             $dir_tpl  = $this->get_dir_mail_template($file_tpl);
 
-            $xoopsMailer =& getMailer();
+            $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->setTemplateDir($dir_tpl);
             $xoopsMailer->setTemplate($file_tpl);
@@ -123,6 +123,7 @@ if (!class_exists('weblinks_sendmail')) {
             $ret = $xoopsMailer->send(true);
             if (!$ret) {
                 $this->_set_errors($xoopsMailer->getErrors(false));
+
                 return false;
             }
 
@@ -145,7 +146,7 @@ if (!class_exists('weblinks_sendmail')) {
             $url   = $this->_post->get_post_text('url');
             $mail  = $this->_post->get_post_text('mail');
 
-            $xoopsMailer =& getMailer();
+            $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->assign('WAITINGLINKS_URL', $waiting_url);
             $xoopsMailer->assign('SITE_NAME', $title);
@@ -163,6 +164,7 @@ if (!class_exists('weblinks_sendmail')) {
             $ret = $xoopsMailer->send(true);
             if (!$ret) {
                 $this->_set_errors($xoopsMailer->getErrors(false));
+
                 return false;
             }
 
@@ -174,14 +176,14 @@ if (!class_exists('weblinks_sendmail')) {
         // Notification to anonymous users
         // added by SnAKes
         //---------------------------------------------------------
-        public function send_approved_to_anonymous(&$tags)
+        public function send_approved_to_anonymous($tags)
         {
             $file_tpl = 'link_approve_notify_anon.tpl';
             $dir_tpl  = $this->get_dir_mail_template($file_tpl);
 
             $mail = $this->_post->get_post_text('mail');
 
-            $xoopsMailer =& getMailer();
+            $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
 
             if (is_array($tags)) {
@@ -203,6 +205,7 @@ if (!class_exists('weblinks_sendmail')) {
 
             if (!$ret) {
                 $this->_set_errors($xoopsMailer->getErrors(false));
+
                 return false;
             }
 
@@ -224,7 +227,7 @@ if (!class_exists('weblinks_sendmail')) {
 
             if ($this->_FLAG_EVENT_USER && $uid) {
                 $mailto = $this->_system->get_email_by_uid($uid);
-            } elseif ($this->_FLAG_EVENT_ANONYMOUS && ($uid == 0) && !empty($mail)) {
+            } elseif ($this->_FLAG_EVENT_ANONYMOUS && (0 == $uid) && !empty($mail)) {
                 $mailto = $mail;
             } else {
                 return false;
@@ -233,7 +236,7 @@ if (!class_exists('weblinks_sendmail')) {
             $file_tpl = 'link_refused_notify.tpl';
             $dir_tpl  = $this->get_dir_mail_template($file_tpl);
 
-            $xoopsMailer =& getMailer();
+            $xoopsMailer = &getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->assign('SITE_URL', $url);
             $xoopsMailer->assign('SITE_NAME', $title);
@@ -250,6 +253,7 @@ if (!class_exists('weblinks_sendmail')) {
 
             if (!$ret) {
                 $this->_set_errors($xoopsMailer->getErrors(false));
+
                 return false;
             }
 
@@ -258,6 +262,5 @@ if (!class_exists('weblinks_sendmail')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

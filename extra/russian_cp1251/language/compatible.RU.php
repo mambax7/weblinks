@@ -52,79 +52,79 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 //---------------------------------------------------------
 // compatible for v1.90
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_PAGERANK')) {
     // linkitem
-    define('_WEBLINKS_PAGERANK', 'Важность страницы');
-    define('_WEBLINKS_PAGERANK_UPDATE', 'Время обновления важности страницы');
-    define('_WEBLINKS_GM_KML_DEBUG', 'Просмотр отладки KML');
+    define('_WEBLINKS_PAGERANK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_PAGERANK_UPDATE', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_KML_DEBUG', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ KML');
 
     // gmap
-    define('_WEBLINKS_SITE_GMAP', 'Сайт карт Google');
-    define('_WEBLINKS_KML_LIST', 'Список KML');
-    define('_WEBLINKS_KML_LIST_DESC', 'Скачать KML и показать в Земле Google');
-    define('_WEBLINKS_KML_PERPAGE', 'Число разделителя');
+    define('_WEBLINKS_SITE_GMAP', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_KML_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅ KML');
+    define('_WEBLINKS_KML_LIST_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ KML пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_KML_PERPAGE', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // pagerank
-    define('_WEBLINKS_SITE_PAGERANK', 'Сайт с высокой важностью страницы');
+    define('_WEBLINKS_SITE_PAGERANK', 'пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_CONF_MENU')) {
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_7', 'Конфигурация модуля 7');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_7', 'Меню');
-    define('_AM_WEBLINKS_CONF_MENU', 'Вид меню');
-    define('_AM_WEBLINKS_CONF_MENU_DESC', 'Настройка, которая относится к виду меню');
-    define('_AM_WEBLINKS_CONF_TITLE', 'Заголовок меню');
+    define('_AM_WEBLINKS_MODULE_CONFIG_7', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 7');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_7', 'пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_MENU', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_MENU_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_TITLE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
 
     // htmlout
-    define('_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE', 'Управление плагином вывода HTML');
-    define('_AM_WEBLINKS_HTMLOUT', 'Плагин HTML вывода');
-    define('_AM_WEBLINKS_RSSOUT', 'Плагин RSS вывода');
-    define('_AM_WEBLINKS_KMLOUT', 'Плагин KML вывода');
+    define('_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ HTML');
+    define('_AM_WEBLINKS_HTMLOUT', 'пїЅпїЅпїЅпїЅпїЅпїЅ HTML пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_RSSOUT', 'пїЅпїЅпїЅпїЅпїЅпїЅ RSS пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_KMLOUT', 'пїЅпїЅпїЅпїЅпїЅпїЅ KML пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // pagerank
-    define('_AM_WEBLINKS_LINK_CHECK_MANAGE', 'Управление проверкой ссылок');
-    define('_AM_WEBLINKS_USE_PAGERANK', 'Показать важность страницы');
-    define('_AM_WEBLINKS_USE_PAGERANK_DESC', '"Показать" : показать важность страницы в меню, списке ссылок, одиночной ссылке');
-    define('_AM_WEBLINKS_USE_PAGERANK_NON', 'Не показывать');
-    define('_AM_WEBLINKS_USE_PAGERANK_SHOW', 'Показывать');
-    define('_AM_WEBLINKS_USE_PAGERANK_CACHE', 'Показывать, используя кэш колученной важности страницы');
+    define('_AM_WEBLINKS_LINK_CHECK_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PAGERANK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PAGERANK_DESC', '"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" : пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PAGERANK_NON', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PAGERANK_SHOW', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PAGERANK_CACHE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // kml
-    define('_AM_WEBLINKS_KML_USE', 'Показать KML');
+    define('_AM_WEBLINKS_KML_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ KML');
 }
 
 //---------------------------------------------------------
 // compatible for v1.80
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_ERROR_LENGTH')) {
-    define('_WEBLINKS_ERROR_LENGTH', 'Ошибка: %s должно быть меньше, чем %s символов');
+    define('_WEBLINKS_ERROR_LENGTH', 'пїЅпїЅпїЅпїЅпїЅпїЅ: %s пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ %s пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
     // google map
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Указатель] Ширина (пиксели)');
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'Ширина информационного указателя карты<br /><b>-1</b> не указан');
-    define('_AM_WEBLINKS_LINK_IMG_USE', 'Использовать %s');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ<br><b>-1</b> пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMG_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ %s');
 
-    define('_AM_WEBLINKS_RSS_SITE', 'Этот сайт');
-    define('_AM_WEBLINKS_RSS_FEED', 'RSS канал');
+    define('_AM_WEBLINKS_RSS_SITE', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_RSS_FEED', 'RSS пїЅпїЅпїЅпїЅпїЅ');
 
     // nameflag mainflag
-    define('_AM_WEBLINKS_CONF_LINK_USER', 'Конфигурация регистрации ссылки пользователя');
-    define('_AM_WEBLINKS_USER_NAMEFLAG', 'Выберите показ имени');
-    define('_AM_WEBLINKS_USER_MAILFLAG', 'Выберите показ электронной почты');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'Значение по умолчанию, когда пользователь регистрируется<br />Администратор может изменить значение');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'Выбор пользователя');
+    define('_AM_WEBLINKS_CONF_LINK_USER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_NAMEFLAG', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_MAILFLAG', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // description length
-    define('_AM_WEBLINKS_DESC_LENGTH', 'Максимальная длина символов');
-    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> или административная настройка : лимит 64KB<br />');
+    define('_AM_WEBLINKS_DESC_LENGTH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ : пїЅпїЅпїЅпїЅпїЅ 64KB<br>');
 }
 
 //---------------------------------------------------------
@@ -132,160 +132,166 @@ if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_ADMIN_WAITING_LIST')) {
     // waiting list
-    define('_WEBLINKS_ADMIN_WAITING_LIST', 'Список ожидания администратора');
-    define('_WEBLINKS_USER_WAITING_LIST', 'Ваш список ожидания');
-    define('_WEBLINKS_USER_OWNER_LIST', 'Ваш список отправленных');
+    define('_WEBLINKS_ADMIN_WAITING_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_USER_WAITING_LIST', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_USER_OWNER_LIST', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // submit form
-    define('_WEBLINKS_TIME_PUBLISH_SET', 'Установите дату публикации');
-    define('_WEBLINKS_TIME_PUBLISH_DESC', 'Если Вы не установите это, дата публикации станет бессрочной');
-    define('_WEBLINKS_TIME_EXPIRE_SET', 'Установите дату истечения');
-    define('_WEBLINKS_TIME_EXPIRE_DESC', 'Если Вы не установите это, дата истечения станет бессрочной');
-    define('_WEBLINKS_DEL_LINK_CONFIRM', 'Подтвердите удаление');
-    define('_WEBLINKS_DEL_LINK_REASON', 'Причина удаления');
+    define('_WEBLINKS_TIME_PUBLISH_SET', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_TIME_PUBLISH_DESC', 'пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_TIME_EXPIRE_SET', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_TIME_EXPIRE_DESC', 'пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DEL_LINK_CONFIRM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DEL_LINK_REASON', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
     // auth
-    define('_AM_WEBLINKS_AUTH_DELETE', 'Могут удалять');
-    define('_AM_WEBLINKS_AUTH_DELETE_DSC', 'Укажите группы, которым разрешено отправлять запросы на удаление ссылки');
-    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', 'Могут утверждать удаление ссылки');
-    define('_AM_WEBLINKS_AUTH_DELETE_AUTO_DSC', 'Укажите группы, которым разрешено утверждать запросы на удаление ссылки');
+    define('_AM_WEBLINKS_AUTH_DELETE', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DELETE_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DELETE_AUTO_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // nofitication
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'Управление оповещениями');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Настройка для каждого администратора модуля<br />Это тоже самое, что и главная страница модуля');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'Вы не можете использовать в некоторых версиях XOOPS');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'В данном случае, пожалуйста, используйте главную страницу этого модуля');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: Ваш запрос изменения ссылки утвержден');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: Ваш запрос изменения ссылки отклонен');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: Ваш запрос на удаление ссылки утвержден');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: Ваш запрос на удаление ссылки отклонен');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ<br>пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // config
-    define('_AM_WEBLINKS_ADMIN_WAITING_SHOW', 'Показать список ожидания администратора');
-    define('_AM_WEBLINKS_USER_WAITING_NUM', 'Количество ссылок списка ожидания пользователя');
-    define('_AM_WEBLINKS_USER_OWNER_NUM', 'Количество списка пользователей отправленного списка');
-    define('_AM_WEBLINKS_USE_HITS_SINGLELINK', 'Увеличивать счетчик, когда показывается одиночная ссылка');
-    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC', 'ДА позволяет увеличивать счетчик посещений, когда показывается одиночная ссылка');
-    define('_AM_WEBLINKS_MODE_RANDOM', 'Переадресация со случайным переходом');
-    define('_AM_WEBLINKS_MODE_RANDOM_URL', 'зарегистрированный адрес сайта');
-    define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', 'одиночная ссылка в этом модуле');
+    define('_AM_WEBLINKS_ADMIN_WAITING_SHOW', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_WAITING_NUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USER_OWNER_NUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_HITS_SINGLELINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_RANDOM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_RANDOM_URL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // request list
-    define('_AM_WEBLINKS_DEL_REQS', 'Удаляющиеся ссылки ожидающие проверки');
-    define('_AM_WEBLINKS_NO_DEL_REQ', 'Нет запроса удаляющейся ссылки');
-    define('_AM_WEBLINKS_DEL_REQ_DELETED', 'Удаляющийся запрос удален');
+    define('_AM_WEBLINKS_DEL_REQS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_NO_DEL_REQ', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_DEL_REQ_DELETED', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // link list
-    define('_AM_WEBLINKS_LINK_USERCOMMENT_DESC', 'Список ссылок с комментариями для администратора (список по новым ID)');
+    define('_AM_WEBLINKS_LINK_USERCOMMENT_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ID)');
 
     // clone
-    define('_AM_WEBLINKS_CLONE_LINK', 'Клонировать');
-    define('_AM_WEBLINKS_CLONE_MODULE', 'Клонировать в другой модуль');
-    define('_AM_WEBLINKS_CLONE_CONFIRM', 'Подтвердить клонирование');
-    define('_AM_WEBLINKS_NO_MODULE', 'Нет соответствующего модуля');
+    define('_AM_WEBLINKS_CLONE_LINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CLONE_MODULE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CLONE_CONFIRM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_NO_MODULE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // link form
-    define('_AM_WEBLINKS_MODIFIED', 'Изменено');
-    define('_AM_WEBLINKS_CHECK_CONFIRM', 'Подтверждено');
-    define('_AM_WEBLINKS_WARN_CONFIRM', 'Предупреждение: Проверить "Подтверждено" из %s');
-    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'Есть две или более ссылок, у которых такой же "RSSC ID"');
+    define('_AM_WEBLINKS_MODIFIED', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CHECK_CONFIRM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_WARN_CONFIRM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" пїЅпїЅ %s');
+    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ "RSSC ID"');
 
     // web shot
-    define('_AM_WEBLINKS_LINK_IMG_THUMB', 'Замена изображения ссылки');
-    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'Заменить изображение, когда не установлено изображение ссылки');
-    define('_AM_WEBLINKS_LINK_IMG_NON', 'нет');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Использовать <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Использовать <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_THUMB', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMG_NON', 'пїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 }
 
 //---------------------------------------------------------
 // compatible for v1.60
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_GM_CURRENT_ADDRESS')) {
-    define('_WEBLINKS_GM_CURRENT_ADDRESS', 'Текущий адрес');
-    define('_WEBLINKS_GM_SEARCH_LIST', 'Список результатов поиска');
+    define('_WEBLINKS_GM_CURRENT_ADDRESS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_SEARCH_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_0', 'Конфигурация модуля');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_0', 'Главная');
-    define('_AM_WEBLINKS_MODULE_CONFIG_5', 'Конфигурация модуля 5');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_5', 'Регистрация ссылки');
-    define('_AM_WEBLINKS_MODULE_CONFIG_6', 'Конфигурация модуля 6');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_6', 'Карта Google');
+    define('_AM_WEBLINKS_MODULE_CONFIG_0', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_0', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODULE_CONFIG_5', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 5');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_5', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODULE_CONFIG_6', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 6');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_6', 'пїЅпїЅпїЅпїЅпїЅ Google');
 
     // google map
-    define('_AM_WEBLINKS_GM_MAP_CONT', 'Управление карты');
+    define('_AM_WEBLINKS_GM_MAP_CONT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
     define('_AM_WEBLINKS_GM_MAP_CONT_DESC', 'GLargeMapControl, GSmallMapControl, GSmallZoomControl');
-    define('_AM_WEBLINKS_GM_MAP_CONT_NON', 'Не показывать');
-    define('_AM_WEBLINKS_GM_MAP_CONT_LARGE', 'Большое управление');
-    define('_AM_WEBLINKS_GM_MAP_CONT_SMALL', 'Маленькое управление');
-    define('_AM_WEBLINKS_GM_MAP_CONT_ZOOM', 'Управление увеличением');
-    define('_AM_WEBLINKS_GM_USE_TYPE_CONT', 'Использовать тип управления карты');
+    define('_AM_WEBLINKS_GM_MAP_CONT_NON', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_MAP_CONT_LARGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_MAP_CONT_SMALL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_MAP_CONT_ZOOM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_USE_TYPE_CONT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
     define('_AM_WEBLINKS_GM_USE_TYPE_CONT_DESC', 'GMapTypeControl');
-    define('_AM_WEBLINKS_GM_USE_SCALE_CONT', 'Использовать управление шкалой');
+    define('_AM_WEBLINKS_GM_USE_SCALE_CONT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
     define('_AM_WEBLINKS_GM_USE_SCALE_CONT_DESC', 'GScaleControl');
-    define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT', 'Использовать управление обзором карты');
+    define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
     define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT_DESC', 'GOverviewMapControl');
-    define('_AM_WEBLINKS_GM_MAP_TYPE', '[Поиск] Тип карты');
+    define('_AM_WEBLINKS_GM_MAP_TYPE', '[пїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Поиск] Вид геокода');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-           'Поиск широты и долготы из адреса<br /><b>Единственный результат</b><br />GClientGeocoder - getLatLng<br /><b>Множественный результат</b><br />GClientGeocoder - getLocations');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Единственный результат: getLatLng');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Множественный результат: getLocations');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Поиск][Япония] Использовать CSIS');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Действительно в Японии<br />Поиск широты и долготы из адреса');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Поиск][Япония] Использование обратного геокода');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-           'Действительно в Японии<br />Поиск адреса из широты и долготы<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Указатель] Максимум символов для заголовка');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Максимальноу число символов используемых для заголовка в указателе<br /><b>-1</b> не ограничено');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Указатель] Максимум символов для наполнения');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Максимальноу число символов используемых для наполнения в указателе<br /><b>-1</b> не ограничено');
-    define('_AM_WEBLINKS_GM_WORDWRAP', '[Указатель] Максимум символов для переноса строк');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Максимальноу число символов используемых для каждой строки (перенос трок) в указателе<br /><b>-1</b> не ограничено');
-    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Указатель] Показывать центральный указатель');
-    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'На главной странице и странице категории, показывать центральный указатель');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[пїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
+        'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ<br><b>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</b><br>GClientGeocoder - getLatLng<br><b>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</b><br>GClientGeocoder - getLocations'
+    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: getLatLng');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: getLocations');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[пїЅпїЅпїЅпїЅпїЅ][пїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ CSIS');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ<br>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[пїЅпїЅпїЅпїЅпїЅ][пїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
+        'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ<br>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
+    );
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br><b>-1</b> пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH', '[пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br><b>-1</b> пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_WORDWRAP', '[пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ) пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br><b>-1</b> пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ] пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // map jp
-    define('_AM_WEBLINKS_MAP_JP_MANAGE', 'Конфигурация карты Японии');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // column
-    define('_AM_WEBLINKS_COLUMN_MANAGE', 'Управление колонками');
-    define('_AM_WEBLINKS_COLUMN_MANAGE_DESC', 'Добавьте колонки etc в таблицу link и измените таблицу');
-    define('_AM_WEBLINKS_COLUMN_MANAGE_NOT_USE', 'Не используется');
-    define('_AM_WEBLINKS_THERE_ARE_COLUMN', 'Всего <b>%s</b> etc колонок в таблице link');
-    define('_AM_WEBLINKS_COLUMN_NUM', 'Количество добавленных etc колонок');
-    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', 'Количество etc колонок больше, чем число в таблице link');
-    define('_AM_WEBLINKS_COLUMN_UNMATCH', 'Колонки несовпадают в таблице link, измените таблицу');
-    define('_AM_WEBLINKS_PHPMYADMIN', 'Исправте в инструменте управления, таком как phpMyAdmin');
-    define('_AM_WEBLINKS_LINK_NUM_ETC', 'Количество etc колонок');
+    define('_AM_WEBLINKS_COLUMN_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_COLUMN_MANAGE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ etc пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ link пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_COLUMN_MANAGE_NOT_USE', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_THERE_ARE_COLUMN', 'пїЅпїЅпїЅпїЅпїЅ <b>%s</b> etc пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ link');
+    define('_AM_WEBLINKS_COLUMN_NUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ etc пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ etc пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ link');
+    define('_AM_WEBLINKS_COLUMN_UNMATCH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ link, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_PHPMYADMIN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ phpMyAdmin');
+    define('_AM_WEBLINKS_LINK_NUM_ETC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ etc пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // latest
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST', 'Порядок последних ссылок');
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST_UPDATE', 'Дата обновления');
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST_CREATE', 'Дата создания');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST_UPDATE', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST_CREATE', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // header
-    define('_AM_WEBLINKS_CONF_HTML_STYLE', 'Конфигурация HTML стиля');
-    define('_AM_WEBLINKS_HEADER_MODE', 'Использовать заголовок модуля XOOPS');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC',
-           'Когда "Нет", показывать таблицу стилей и Javascript в теге body<br />Когда "Да", показывать это в теге header, используя заголовок модуля XOOPS. Однако, есть некоторые темы, которые не могут быть использованы');
+    define('_AM_WEBLINKS_CONF_HTML_STYLE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HTML пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_HEADER_MODE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ XOOPS');
+    define(
+        '_AM_WEBLINKS_HEADER_MODE_DESC',
+        'пїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅ", пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Javascript пїЅ пїЅпїЅпїЅпїЅ body<br>пїЅпїЅпїЅпїЅпїЅ "пїЅпїЅ", пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ header, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ XOOPS. пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ'
+    );
 
     // bulk
-    define('_AM_WEBLINKS_BULK_SAMPLE', 'Вы можете посмотреть пример, нажав кнопку пример');
-    define('_AM_WEBLINKS_BULK_LINK_DSC10', 'Регистрация пунктов фиксирована');
-    define('_AM_WEBLINKS_BULK_LINK_DSC20', 'Администратор определяет регистрацию пунктов');
-    define('_AM_WEBLINKS_BULK_LINK_DSC21', 'Первый параграф');
-    define('_AM_WEBLINKS_BULK_LINK_DSC22', 'Второй параграф и следующие');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Введите имена зарегистрированных пунктов в 1-ой строке.<br />Введите горизонтальную полосу (---)');
-    define('_AM_WEBLINKS_BULK_LINK_DSC24', 'Опишите зарегистрированные пункты по порядку в первом параграфе, разделенных запятой(,) во 2-ой строке.');
-    define('_AM_WEBLINKS_BULK_CHECK_URL', 'Проверьте установку адреса');
-    define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'Проверьте установку описания');
+    define('_AM_WEBLINKS_BULK_SAMPLE', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC10', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC20', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC21', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC22', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 1-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (---)');
+    define('_AM_WEBLINKS_BULK_LINK_DSC24', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(,) пїЅпїЅ 2-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_BULK_CHECK_URL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -293,10 +299,10 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
 //---------------------------------------------------------
 if (!defined('_AM_WEBLINKS_USE_HIGHLIGHT')) {
     // highlight
-    define('_AM_WEBLINKS_USE_HIGHLIGHT', 'Использовать подсветку ключевых слов');
-    define('_AM_WEBLINKS_CHECK_MAIL', 'Проверять формат элекстронной почты');
-    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'НЕТ позволяется в любой форме. <br /> ДА проверяется, что адрес электронной почты в формате abc@efg.com, когда регистрируется ссылка. ');
-    define('_AM_WEBLINKS_NO_EMAIL', 'Не указан адрес электронной почты');
+    define('_AM_WEBLINKS_USE_HIGHLIGHT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CHECK_MAIL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. <br> пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ abc@efg.com, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. ');
+    define('_AM_WEBLINKS_NO_EMAIL', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -304,68 +310,68 @@ if (!defined('_AM_WEBLINKS_USE_HIGHLIGHT')) {
 //---------------------------------------------------------
 if (!defined('_AM_WEBLINKS_CONF_D3FORUM')) {
     // d3forum
-    define('_AM_WEBLINKS_CONF_D3FORUM', 'Интеграция комментариев с модулем d3forum');
-    define('_AM_WEBLINKS_PLUGIN_SEL', 'Выберите плагин');
-    define('_AM_WEBLINKS_DIRNAME_SEL', 'Выберите модуль');
+    define('_AM_WEBLINKS_CONF_D3FORUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ d3forum');
+    define('_AM_WEBLINKS_PLUGIN_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_DIRNAME_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // category
-    define('_AM_WEBLINKS_CAT_PATH_STYLE', 'Стиль просмотра пути категории');
+    define('_AM_WEBLINKS_CAT_PATH_STYLE', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // category page
-    define('_AM_WEBLINKS_CONF_CAT_PAGE', 'Настройка страницы категории');
-    define('_AM_WEBLINKS_CAT_COLS', 'Число колонок в категориях');
-    define('_AM_WEBLINKS_CAT_COLS_DESC', 'На странице категории, укажите число колонок, при показе категорий под одной иерархией');
-    define('_AM_WEBLINKS_CAT_SUB_MODE', 'Диапазон просмотра подкатегорий');
-    define('_AM_WEBLINKS_CAT_SUB_MODE_1', 'Только категорий под одной иерархией');
-    define('_AM_WEBLINKS_CAT_SUB_MODE_2', 'Все категории под одной и более иерархией');
+    define('_AM_WEBLINKS_CONF_CAT_PAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_COLS', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_COLS_DESC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_SUB_MODE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_SUB_MODE_1', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_SUB_MODE_2', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
 // compatible for v1.42
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_GM_TYPE')) {
-    define('_WEBLINKS_GM_TYPE', 'Тип карты Google');
-    define('_WEBLINKS_GM_TYPE_MAP', 'Карта');
-    define('_WEBLINKS_GM_TYPE_SATELLITE', 'Спутник');
-    define('_WEBLINKS_GM_TYPE_HYBRID', 'Гибрид');
+    define('_WEBLINKS_GM_TYPE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_GM_TYPE_MAP', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_TYPE_SATELLITE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_TYPE_HYBRID', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_CAT_DESC_MODE')) {
-    define('_AM_WEBLINKS_CAT_DESC_MODE', 'Показать описание');
-    define('_AM_WEBLINKS_CAT_SHOW_FORUM', 'Показать форум');
-    define('_AM_WEBLINKS_CAT_SHOW_ALBUM', 'Показать альбом');
-    define('_AM_WEBLINKS_MODE_SETTING', 'Настройка значения');
-    define('_AM_WEBLINKS_MODE_OMIT_PARENT', 'Такое же, как родительская категория, когда пропускается');
+    define('_AM_WEBLINKS_CAT_DESC_MODE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_SHOW_FORUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_SHOW_ALBUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_SETTING', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_OMIT_PARENT', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
 // compatible for v1.41
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_ALBUM_ID')) {
-    define('_WEBLINKS_ALBUM_ID', 'ID альбома');
-    define('_WEBLINKS_ALBUM_SEL', 'Выберите альбом');
+    define('_WEBLINKS_ALBUM_ID', 'ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_ALBUM_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE')) {
-    define('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE', 'Обновление размера изображения категории');
+    define('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_CONF_INDEX', 'Конфигурация главной страницы');
-    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'Режим карты Google');
+    define('_AM_WEBLINKS_CONF_INDEX', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Google');
 
-    define('_AM_WEBLINKS_CAT_SHOW_GM', 'Показать карту Google');
-    define('_AM_WEBLINKS_MODE_NON', 'Не показывать');
-    define('_AM_WEBLINKS_MODE_DEFAULT', 'Значение по умолчанию');
-    define('_AM_WEBLINKS_MODE_PARENT', 'Такой же, как родительская категория');
-    define('_AM_WEBLINKS_MODE_FOLLOWING', 'следующие значения');
+    define('_AM_WEBLINKS_CAT_SHOW_GM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_AM_WEBLINKS_MODE_NON', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_DEFAULT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_PARENT', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODE_FOLLOWING', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_CONF_CAT_ALBUM', 'Просмотр альбома в категории');
-    define('_AM_WEBLINKS_CONF_LINK_ALBUM', 'Просмотр альбома в ссылке');
-    define('_AM_WEBLINKS_ALBUM_SEL', 'Выберите модуль альбома');
-    define('_AM_WEBLINKS_ALBUM_LIMIT', 'Количество показываемых фотографий');
-    define('_AM_WEBLINKS_WHEN_OMIT', 'Процесс, когда пропускается');
+    define('_AM_WEBLINKS_CONF_CAT_ALBUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_LINK_ALBUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ALBUM_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ALBUM_LIMIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_WHEN_OMIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_MODULE_INSTALLED', '%s модуль ( %s ) версии %s установлен');
-    define('_AM_WEBLINKS_MODULE_NOT_INSTALLED', '%s модуль ( %s ) не установлен');
+    define('_AM_WEBLINKS_MODULE_INSTALLED', '%s пїЅпїЅпїЅпїЅпїЅпїЅ ( %s ) пїЅпїЅпїЅпїЅпїЅпїЅ %s пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODULE_NOT_INSTALLED', '%s пїЅпїЅпїЅпїЅпїЅпїЅ ( %s ) пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -373,13 +379,13 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE')) {
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_LATEST_FORUM')) {
     // forum
-    define('_WEBLINKS_LATEST_FORUM', 'Последний форум');
-    define('_WEBLINKS_FORUM', 'Форум');
-    define('_WEBLINKS_THREAD', 'Тема');
-    define('_WEBLINKS_POST', 'Сообщение');
-    define('_WEBLINKS_FORUM_ID', 'ID форума');
-    define('_WEBLINKS_FORUM_SEL', 'Выберите форум');
-    define('_WEBLINKS_COMMENT_USE', 'Использовать комментарии XOOPS');
+    define('_WEBLINKS_LATEST_FORUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_FORUM', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_THREAD', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_POST', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_FORUM_ID', 'ID пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_FORUM_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_COMMENT_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS');
 
     // aux
     define('_WEBLINKS_CAT_AUX_TEXT_1', 'aux_text_1');
@@ -389,75 +395,79 @@ if (!defined('_WEBLINKS_LATEST_FORUM')) {
 
     // captcha
     define('_WEBLINKS_CAPTCHA', 'Captcha');
-    define('_WEBLINKS_CAPTCHA_DESC', 'Анти-спам');
-    define('_WEBLINKS_ERROR_CAPTCHA', 'Ошибка: Несоответствие Captcha');
-    define('_WEBLINKS_ERROR', 'Ошибка');
+    define('_WEBLINKS_CAPTCHA_DESC', 'пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_ERROR_CAPTCHA', 'пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Captcha');
+    define('_WEBLINKS_ERROR', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // hack for multi site
-    define('_WEBLINKS_CAT_TITLE_JP', 'Японский заголовок');
-    define('_WEBLINKS_DISABLE_FEATURE', 'Отключить эту функцию');
-    define('_WEBLINKS_REDIRECT_JP_SITE', 'Перейти на японский сайт');
+    define('_WEBLINKS_CAT_TITLE_JP', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DISABLE_FEATURE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_REDIRECT_JP_SITE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
     // performance
-    define('_AM_WEBLINKS_UPDATE_CAT_PATH', 'Обновление путей дерева категорий');
-    define('_AM_WEBLINKS_UPDATE_CAT_COUNT', 'Обновление счетчика ссылок категориий');
-    define('_AM_WEBLINKS_CAT_COUNT_UPDATED', 'Пути дерева категорий обновлены');
+    define('_AM_WEBLINKS_UPDATE_CAT_PATH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_UPDATE_CAT_COUNT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_COUNT_UPDATED', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // config
-    define('_AM_WEBLINKS_SYSTEM_POST_LINK', 'Количество сообщений, когда отправляется ссылка');
-    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', 'ДА увеличивать сообщения XOOPS пользователя, когда пользователь отправляет новую ссылку. ');
-    define('_AM_WEBLINKS_SYSTEM_POST_RATE', 'Количество сообщений, когда оценивается ссылка');
-    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', 'ДА увеличивать сообщения XOOPS пользователя, когда пользователь оценивает ссылку. ');
+    define('_AM_WEBLINKS_SYSTEM_POST_LINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. ');
+    define('_AM_WEBLINKS_SYSTEM_POST_RATE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. ');
 
-    define('_AM_WEBLINKS_VIEW_STYLE_CAT', 'Стиль просмотра в каждой категории');
-    define('_AM_WEBLINKS_VIEW_STYLE_MARK', 'Стиль просмотра в рекомендуемых сайтах');
-    define('_AM_WEBLINKS_VIEW_STYLE_MARK_DSC', 'Это применяется в рекомендуемых сайтах, лучших сайтах, RSS/ATOM сайтах');
-    define('_AM_WEBLINKS_VIEW_STYLE_0', 'Краткое');
-    define('_AM_WEBLINKS_VIEW_STYLE_1', 'Полное');
+    define('_AM_WEBLINKS_VIEW_STYLE_CAT', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_STYLE_MARK', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_STYLE_MARK_DSC', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, RSS/ATOM пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_STYLE_0', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_STYLE_1', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Повышение эффективности');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-           'Если повышение производительности, то вычисляются необходимые данные заранее, когда показываются, и они хранятся в базе данных.<br />Когда используется в первый раз, выполните "Список категорий" -> "Обновление путей дерева категорий"');
-    define('_AM_WEBLINKS_CAT_PATH', 'Путь дерева категорий');
-    define('_AM_WEBLINKS_CAT_PATH_DSC', 'ДА вычисляет пути дерева категорий, и он хранятся в таблице категорий.<br />НЕТ вычисляется, когда показывается.');
-    define('_AM_WEBLINKS_CAT_COUNT', 'Счетчик ссылок категориий');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'ДА вычисляет счетчик ссылок категорий, и он хранятся в таблице категорий.<br />НЕТ вычисляется, когда показывается.');
+    define('_AM_WEBLINKS_CONF_PERFORMANCE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
+        'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" -> "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"'
+    );
+    define('_AM_WEBLINKS_CAT_PATH', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_PATH_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_CAT_COUNT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
 
-    define('_AM_WEBLINKS_POST_TEXT_4', 'Все элементы отображаются на странице администрирования');
-    define('_AM_WEBLINKS_LINK_REGISTER_1', 'Настройки ссылки: Текстовое поле 1');
+    define('_AM_WEBLINKS_POST_TEXT_4', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_REGISTER_1', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 1');
 
-    define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Конфигурация гостевой регистрации ссылки');
-    define('_AM_WEBLINKS_USE_CAPTCHA', 'Использовать CAPTCHA');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA является технологией анти-спама.<br />Для этой функции нуден модуль Captcha.<br />ДА, <b>анонимные пользователи</b> должны использовать CAPTCHA когда добавляют или изменяют ссылку.<br />НЕТ не показывает поле CAPTCHA.');
-    define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Модуль Captcha версии %s найден');
-    define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Модуль Captcha не найден');
+    define('_AM_WEBLINKS_CONF_LINK_GUEST', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_CAPTCHA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ CAPTCHA');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ Captcha.<br>пїЅпїЅ, <b>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</b> пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ CAPTCHA пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ CAPTCHA.'
+    );
+    define('_AM_WEBLINKS_CAPTCHA_FINDED', 'пїЅпїЅпїЅпїЅпїЅпїЅ Captcha пїЅпїЅпїЅпїЅпїЅпїЅ %s пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'пїЅпїЅпїЅпїЅпїЅпїЅ Captcha пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_CONF_SUBMIT', 'Описание регистрационной формы ссылки');
-    define('_AM_WEBLINKS_SUBMIT_MAIN', 'Описание при добавлении новой ссылки: 1');
-    define('_AM_WEBLINKS_SUBMIT_PENDING', 'Описание при добавлении новой ссылки: 2');
-    define('_AM_WEBLINKS_SUBMIT_DOUBLE', 'Описание при добавлении новой ссылки: 3');
-    define('_AM_WEBLINKS_SUBMIT_MAIN_DSC', 'Показать всегда');
-    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', 'Показывать, когда режим "необходимо утвердить администратором"');
-    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', 'Показывать, когда режим "проверить уже существующую ссылку"');
+    define('_AM_WEBLINKS_CONF_SUBMIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBMIT_MAIN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 1');
+    define('_AM_WEBLINKS_SUBMIT_PENDING', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 2');
+    define('_AM_WEBLINKS_SUBMIT_DOUBLE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 3');
+    define('_AM_WEBLINKS_SUBMIT_MAIN_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"');
+    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ"');
 
-    define('_AM_WEBLINKS_MODLINK_MAIN', 'Описание при изменении ссылки: 1');
-    define('_AM_WEBLINKS_MODLINK_PENDING', 'Описание при изменении ссылки: 2');
-    define('_AM_WEBLINKS_MODLINK_NOT_OWNER', 'Описание при изменении ссылки: 3');
-    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', 'Показывать, когда режим "необходимо утвердить администратором" и нет владельца');
+    define('_AM_WEBLINKS_MODLINK_MAIN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 1');
+    define('_AM_WEBLINKS_MODLINK_PENDING', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 2');
+    define('_AM_WEBLINKS_MODLINK_NOT_OWNER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: 3');
+    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_CONF_CAT_FORUM', 'Просмотр форума в категории');
-    define('_AM_WEBLINKS_CONF_LINK_FORUM', 'Просмотр форума в ссылке');
-    define('_AM_WEBLINKS_FORUM_SEL', 'Выберите модуль форума');
-    define('_AM_WEBLINKS_FORUM_THREAD_LIMIT', 'Количество показываемых тем');
-    define('_AM_WEBLINKS_FORUM_POST_LIMIT', 'Количество показываемых сообщений в каждой теме');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER', 'Порядок сообщений');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'По дате старших сообщений');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'По дате новых сообщений');
-    define('_AM_WEBLINKS_FORUM_INSTALLED', 'Модуль форума ( %s ) версии %s установлен');
-    define('_AM_WEBLINKS_FORUM_NOT_INSTALLED', 'Модуль форума ( %s ) не установлен');
+    define('_AM_WEBLINKS_CONF_CAT_FORUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_LINK_FORUM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_SEL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_THREAD_LIMIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_POST_LIMIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_INSTALLED', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ( %s ) пїЅпїЅпїЅпїЅпїЅпїЅ %s пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORUM_NOT_INSTALLED', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ( %s ) пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -465,20 +475,20 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
 //---------------------------------------------------------
 if (!defined('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS')) {
     // google map: Geocode
-    define('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS', 'Поиск карты из адреса');
-    define('_WEBLINKS_GM_NO_MATCH_PLACE', 'Нет места, соответствующего адресу');
-    define('_WEBLINKS_GM_JP_SEARCH_MAP_FROM_ADDRESS', 'Поиск карты из адреса в Японии');
-    define('_WEBLINKS_GM_JP_TOKYO_AC_GEOCODE', 'Японский Токийский университет');
-    define('_WEBLINKS_GM_JP_MLIT_ISJ', 'Японское Министерство Земельной Инфраструктуры и Транспорта');
+    define('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_NO_MATCH_PLACE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_JP_SEARCH_MAP_FROM_ADDRESS', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_JP_TOKYO_AC_GEOCODE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_JP_MLIT_ISJ', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // link item
-    define('_WEBLINKS_TIME_PUBLISH', 'Дата публикации');
-    define('_WEBLINKS_TIME_EXPIRE', 'Дата истечения');
-    define('_WEBLINKS_TEXTAREA', 'Текстовое поле');
+    define('_WEBLINKS_TIME_PUBLISH', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_TIME_EXPIRE', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_TEXTAREA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
 
-    define('_WEBLINKS_WARN_TIME_PUBLISH', 'Время побликации еще не наступило');
-    define('_WEBLINKS_WARN_TIME_EXPIRE', 'Приходит дата истечения');
-    define('_WEBLINKS_WARN_BROKEN', 'Ссылка может быть неработающей');
+    define('_WEBLINKS_WARN_TIME_PUBLISH', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_WARN_TIME_EXPIRE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_WARN_BROKEN', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE')) {
@@ -488,12 +498,12 @@ if (!defined('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE')) {
     //  define('_AM_WEBLINKS_TIME_EXPIRE','Set expiration time');
     //  define('_AM_WEBLINKS_TIME_EXPIRE_DESC','If you do not check it, expired setting will become undated');
 
-    define('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE', 'Список ссылок до времени публикации');
-    define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'Список ссылок после истекшего времени');
+    define('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_AM_WEBLINKS_SERVER_ENV', 'Серверная среда');
-    define('_AM_WEBLINKS_DEBUG_CONF', 'Переменные отладки');
-    define('_AM_WEBLINKS_ALL_GREEN', 'Все зеленое');
+    define('_AM_WEBLINKS_SERVER_ENV', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_DEBUG_CONF', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ALL_GREEN', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -502,16 +512,16 @@ if (!defined('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE')) {
 // main
 if (!defined('_WEBLINKS_GOOGLE_MAPS')) {
     // google map inline mode
-    define('_WEBLINKS_GOOGLE_MAPS', 'Карты Google');
-    define('_WEBLINKS_JAVASCRIPT_INVALID', 'Ваш браузер не может использовать JavaScript');
-    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'Ваш браузер не может использовать карты Google');
-    define('_WEBLINKS_GM_NEW_WINDOW', 'Показать в новом окне');
-    define('_WEBLINKS_GM_INLINE', 'Показать встроенно');
-    define('_WEBLINKS_GM_DISP_OFF', 'Отключить показ');
+    define('_WEBLINKS_GOOGLE_MAPS', 'пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_JAVASCRIPT_INVALID', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ JavaScript');
+    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_GM_NEW_WINDOW', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_INLINE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_DISP_OFF', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
 
     // google map: inverse Geocoder
-    define('_WEBLINKS_GM_GET_LATITUDE', 'Получить Широту/Долготу/Уровень увеличения');
-    define('_WEBLINKS_GM_GET_ADDR', 'Получить адрес');
+    define('_WEBLINKS_GM_GET_LATITUDE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_GET_ADDR', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
 }
 
 //---------------------------------------------------------
@@ -519,113 +529,115 @@ if (!defined('_WEBLINKS_GOOGLE_MAPS')) {
 //---------------------------------------------------------
 // main
 if (!defined('_WEBLINKS_MAP_USE')) {
-    define('_WEBLINKS_MAP_USE', 'Использовать иконку карты');
+    define('_WEBLINKS_MAP_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
 
     // rssc
     define('_WEBLINKS_RSSC_LID', 'RSSC Lid');
-    define('_WEBLINKS_RSS_MODE', 'Режим RSS');
-    define('_WEBLINKS_RSSC_NOT_INSTALLED', 'Модуль RSSC ( %s ) не установлен');
-    define('_WEBLINKS_RSSC_INSTALLED', 'Модуль RSSC ( %s ) версии %s is установлен');
-    define('_WEBLINKS_RSSC_REQUIRE', 'Требуется модуль RSSC версии %s или поздней');
-    define('_WEBLINKS_GOTO_SINGLELINK', 'Перейти к информации ссылки');
+    define('_WEBLINKS_RSS_MODE', 'пїЅпїЅпїЅпїЅпїЅ RSS');
+    define('_WEBLINKS_RSSC_NOT_INSTALLED', 'пїЅпїЅпїЅпїЅпїЅпїЅ RSSC ( %s ) пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_RSSC_INSTALLED', 'пїЅпїЅпїЅпїЅпїЅпїЅ RSSC ( %s ) пїЅпїЅпїЅпїЅпїЅпїЅ %s is пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_RSSC_REQUIRE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ RSSC пїЅпїЅпїЅпїЅпїЅпїЅ %s пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GOTO_SINGLELINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // warnig
-    define('_WEBLINKS_WARN_NOT_READ_URL', 'Предупреждение: Не удалось прочитать адрес');
-    define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Предупреждение: Не удалось получить размер баннера');
+    define('_WEBLINKS_WARN_NOT_READ_URL', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // google map
-    define('_WEBLINKS_GM_LATITUDE', 'Широта');
-    define('_WEBLINKS_GM_LONGITUDE', 'Долгота');
-    define('_WEBLINKS_GM_ZOOM', 'Уровень увеличения');
-    define('_WEBLINKS_GM_GET_LOCATION', 'Информация о местоположении, полученная с карт Google');
-    define('_WEBLINKS_GM_GET_BUTTON', 'Получить Широту/Долготу/Уровень увеличения');
-    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'Местоположение по умолчанию');
-    define('_WEBLINKS_GM_CURRENT_LOCATION', 'Текущее местоположение');
+    define('_WEBLINKS_GM_LATITUDE', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_LONGITUDE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_ZOOM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_GET_LOCATION', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ Google');
+    define('_WEBLINKS_GM_GET_BUTTON', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_GM_CURRENT_LOCATION', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 // admin
 if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     // menu
-    define('_AM_WEBLINKS_MODULE_CONFIG_3', 'Конфигурация модуля 3');
-    define('_AM_WEBLINKS_MODULE_CONFIG_4', 'Конфигурация модуля 4');
-    define('_AM_WEBLINKS_VOTE_LIST', 'Список голосования');
-    define('_AM_WEBLINKS_CATLINK_LIST', 'Список ссылок по категориям');
-    define('_AM_WEBLINKS_COMMAND_MANAGE', 'Управление командой');
-    define('_AM_WEBLINKS_TABLE_MANAGE', 'Управление таблицами базы данных');
-    define('_AM_WEBLINKS_IMPORT_MANAGE', 'Управление импортом');
-    define('_AM_WEBLINKS_EXPORT_MANAGE', 'Управление экспортом');
+    define('_AM_WEBLINKS_MODULE_CONFIG_3', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 3');
+    define('_AM_WEBLINKS_MODULE_CONFIG_4', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 4');
+    define('_AM_WEBLINKS_VOTE_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CATLINK_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_COMMAND_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_TABLE_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_IMPORT_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_EXPORT_MANAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_2', 'Аутентификация, категории, т.д.');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_3', 'Ссылки');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_4', 'RSS, форум, карта');
-    define('_AM_WEBLINKS_LINK_REGISTER', 'Настройки ссылки: Описание');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_2', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ.пїЅ.');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_3', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_4', 'RSS, пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_REGISTER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // bin configuration
-    define('_AM_WEBLINKS_FORM_BIN', 'Конфигурация команды');
-    define('_AM_WEBLINKS_FORM_BIN_DESC', 'Он используется на бинарной команде');
-    define('_AM_WEBLINKS_CONF_BIN_PASS', 'Пароль');
+    define('_AM_WEBLINKS_FORM_BIN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_FORM_BIN_DESC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_BIN_PASS', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
     //define('_AM_WEBLINKS_CONF_BIN_PASS_DESC','');
-    define('_AM_WEBLINKS_CONF_BIN_SEND', 'Отправить почту');
+    define('_AM_WEBLINKS_CONF_BIN_SEND', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
     //define('_AM_WEBLINKS_CONF_BIN_SEND_DESC','');
-    define('_AM_WEBLINKS_CONF_BIN_MAILTO', 'Электронная почта для отправки');
+    define('_AM_WEBLINKS_CONF_BIN_MAILTO', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
     //define('_AM_WEBLINKS_CONF_BIN_MAILTO_DESC','');
 
     // rssc
-    define('_AM_WEBLINKS_RSS_DIRNAME', 'Директория модуля RSSC');
+    define('_AM_WEBLINKS_RSS_DIRNAME', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ RSSC');
     //define('_AM_WEBLINKS_RSS_DIRNAME_DESC','');
 
     // link manage
-    define('_AM_WEBLINKS_DEL_LINK', 'Удалить ссылку');
-    define('_AM_WEBLINKS_ADD_RSSC', 'Добавить ссылку в модуль RSSC');
-    define('_AM_WEBLINKS_MOD_RSSC', 'Изменить ссылку в модуле RSSC');
-    define('_AM_WEBLINKS_REFRESH_RSSC', 'Обновить ссылку в модуле RSSC');
-    define('_AM_WEBLINKS_APPROVE', 'Утвердить новую ссылку');
-    define('_AM_WEBLINKS_APPROVE_MOD', 'Утвердить запрос изменения ссылки');
-    define('_AM_WEBLINKS_RSSC_LID_SAVED', 'Сохраненные rssc lid');
-    define('_AM_WEBLINKS_GOTO_LINK_LIST', 'ПЕРЕЙТИ к списку ссылки');
-    define('_AM_WEBLINKS_GOTO_LINK_EDIT', 'ПЕРЕЙТИ к изменению ссылки');
-    define('_AM_WEBLINKS_ADD_BANNER', 'Добавить размера изображение баннера');
-    define('_AM_WEBLINKS_MOD_BANNER', 'Изменить размер изображение баннера');
+    define('_AM_WEBLINKS_DEL_LINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ADD_RSSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ RSSC');
+    define('_AM_WEBLINKS_MOD_RSSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ RSSC');
+    define('_AM_WEBLINKS_REFRESH_RSSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ RSSC');
+    define('_AM_WEBLINKS_APPROVE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_APPROVE_MOD', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_RSSC_LID_SAVED', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ rssc lid');
+    define('_AM_WEBLINKS_GOTO_LINK_LIST', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_GOTO_LINK_EDIT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ADD_BANNER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MOD_BANNER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // vote list
-    define('_AM_WEBLINKS_VOTE_USER', 'Голоса зарегистрированных пользователей');
-    define('_AM_WEBLINKS_VOTE_ANON', 'Голоса анонимных пользователей');
+    define('_AM_WEBLINKS_VOTE_USER', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VOTE_ANON', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // locate
-    define('_AM_WEBLINKS_CONF_LOCATE', 'Конфигурация размещения');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'Код страны');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Введите ccTLDs код <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Коды стран доменов верхнего уровня</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Обновить пункт, который относится к коду страны. <br/> Пункт с пометкой <span style="color:#0000ff;">#</span>');
-    define('_AM_WEBLINKS_RENEW', 'Обновить');
+    define('_AM_WEBLINKS_CONF_LOCATE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ccTLDs пїЅпїЅпїЅ <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. <br> пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ <span style="color:#0000ff;">#</span>');
+    define('_AM_WEBLINKS_RENEW', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // map
-    define('_AM_WEBLINKS_CONF_MAP', 'Конфигурация карты сайта');
-    define('_AM_WEBLINKS_CONF_MAP_USE', 'Использовать карту сайта');
-    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'Шаблон карты сайта');
-    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'Введите имя шаблона файла в директории template/map/');
+    define('_AM_WEBLINKS_CONF_MAP', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_MAP_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ template/map/');
 
     // google map
-    define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Конфигурация карт Google');
-    define('_AM_WEBLINKS_CONF_GM_USE', 'Использовать карты Google');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Ключ API карт Google');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'Получите ключ API на <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> при использовании карт Google.');
-    define('_AM_WEBLINKS_CONF_GM_SERVER', 'Имя сервера');
-    define('_AM_WEBLINKS_CONF_GM_LANG', 'Код языка');
-    define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Местоположение по умолчанию');
-    define('_AM_WEBLINKS_CONF_GM_LATITUDE', 'Широта по умолчанию');
-    define('_AM_WEBLINKS_CONF_GM_LONGITUDE', 'Долгота по умолчанию');
-    define('_AM_WEBLINKS_CONF_GM_ZOOM', 'Уровень увеличения по умолчанию');
+    define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Google');
+    define('_AM_WEBLINKS_CONF_GM_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Google');
+    define('_AM_WEBLINKS_CONF_GM_APIKEY', 'пїЅпїЅпїЅпїЅ API пїЅпїЅпїЅпїЅ Google');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ API пїЅпїЅ <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Google.'
+    );
+    define('_AM_WEBLINKS_CONF_GM_SERVER', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GM_LANG', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GM_LOCATION', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GM_LATITUDE', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GM_LONGITUDE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GM_ZOOM', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // google search
-    define('_AM_WEBLINKS_CONF_GOOGLE_SEARCH', 'Конфигурация поиска Google');
-    define('_AM_WEBLINKS_CONF_GOOGLE_SERVER', 'Имя сервера');
-    define('_AM_WEBLINKS_CONF_GOOGLE_LANG', 'Код языка');
+    define('_AM_WEBLINKS_CONF_GOOGLE_SEARCH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ Google');
+    define('_AM_WEBLINKS_CONF_GOOGLE_SERVER', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_GOOGLE_LANG', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
 
     // template
-    define('_AM_WEBLINKS_CONF_TEMPLATE', 'Очистить кэш шаблонов');
-    define('_AM_WEBLINKS_CONF_TEMPLATE_DESC', 'НЕОБХОДИМО выполнить, при изменении файлов шаблона в директориях template/parts/ template/xml/ и template/map/');
+    define('_AM_WEBLINKS_CONF_TEMPLATE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_TEMPLATE_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ template/parts/ template/xml/ пїЅ template/map/');
 }
 
 //---------------------------------------------------------
@@ -645,13 +657,13 @@ if (!defined('_WEBLINKS_OPTIONS')) {
     //  define('_PRINT','Print');
     //  define('_SAMPLE','Sample');
 
-    define('_NO_MATCH_RECORD', 'Нет соответствующей записи');
-    define('_MANY_MATCH_RECORD', 'Есть две или более соответсвующих записи');
-    define('_NO_CATEGORY', 'Нет категории');
-    define('_NO_LINK', 'Нет ссылки');
-    define('_NO_TITLE', 'Нет заголовка');
-    define('_NO_URL', 'Нет адреса');
-    define('_NO_DESCRIPTION', 'Нет описания');
+    define('_NO_MATCH_RECORD', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_MANY_MATCH_RECORD', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_NO_CATEGORY', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_NO_LINK', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_NO_TITLE', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_NO_URL', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_NO_DESCRIPTION', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     //  define('_GOTO_MAIN',   'Goto Main');
     //  define('_GOTO_MODULE', 'Goto Module');
@@ -663,132 +675,140 @@ if (!defined('_WEBLINKS_OPTIONS')) {
     //  define('_WEBLINKS_UPGRADE_EXEC','Upgrad the config table');
 
     // html tag
-    define('_WEBLINKS_OPTIONS', 'Опции');
-    define('_WEBLINKS_DOHTML', ' Включить HTML-теги');
-    define('_WEBLINKS_DOIMAGE', ' Включить изображения');
-    define('_WEBLINKS_DOBREAK', ' Включить перевод строки');
-    define('_WEBLINKS_DOSMILEY', ' Включить иконки смайликов');
-    define('_WEBLINKS_DOXCODE', ' Включить XOOPS-коды');
+    define('_WEBLINKS_OPTIONS', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DOHTML', ' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HTML-пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DOIMAGE', ' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DOBREAK', ' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DOSMILEY', ' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_DOXCODE', ' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS-пїЅпїЅпїЅпїЅ');
 
-    define('_WEBLINKS_PASSWORD_INCORRECT', 'Неправильный пароль');
-    define('_WEBLINKS_ETC', 'другое');
-    define('_WEBLINKS_AUTH_UID', 'ID пользователя совпадает');
-    define('_WEBLINKS_AUTH_PASSWD', 'Пароль совпадает');
-    define('_WEBLINKS_BANNER_SIZE', 'Размер баннера');
+    define('_WEBLINKS_PASSWORD_INCORRECT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_ETC', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_AUTH_UID', 'ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_AUTH_PASSWD', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_BANNER_SIZE', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 // admin
 if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     // category
-    define('_AM_WEBLINKS_ADD_CATEGORY', 'Добавить новую категорию');
-    define('_AM_WEBLINKS_ERROR_SOME', 'Есть некоторые сообщения об ошибках');
-    define('_AM_WEBLINKS_LIST_ID_ASC', 'Список по старым ID');
-    define('_AM_WEBLINKS_LIST_ID_DESC', 'Список по новым ID');
+    define('_AM_WEBLINKS_ADD_CATEGORY', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_ERROR_SOME', 'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LIST_ID_ASC', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ID');
+    define('_AM_WEBLINKS_LIST_ID_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ID');
 
     // config
-    define('_AM_WEBLINKS_WARNING_NOT_WRITABLE', 'Директория недоступка для записи');
-    define('_AM_WEBLINKS_CONF_LINK', 'Конфигурация ссылки');
-    define('_AM_WEBLINKS_CONF_LINK_IMAGE', 'Конфигурация изображения ссылки');
-    define('_AM_WEBLINKS_CONF_VIEW', 'Конфигурация просмотра');
-    define('_AM_WEBLINKS_CONF_TOPTEN', 'Конфигурация лучшей десятки');
-    define('_AM_WEBLINKS_CONF_SEARCH', 'Конфигурация поиска');
-    define('_AM_WEBLINKS_USE_BROKENLINK', 'Отчеты неработающих ссылок');
-    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', 'ДА разрешить пользователям докладывать о неработающих ссылках');
-    define('_AM_WEBLINKS_USE_HITS', 'Увеличивать счетчик посещений когда переходят на сайт');
-    define('_AM_WEBLINKS_USE_HITS_DSC', 'ДА позволяет увеличивать счетчик посещений, когда переходят на сайт');
-    define('_AM_WEBLINKS_USE_PASSWD', 'Аутентификация по паролю');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'ДА, <b>анонимные пользователи</b> могут изменять ссылку с аутентификацией по паролю.<br />НЕТ, <br />поле пароля не показывается.');
-    define('_AM_WEBLINKS_PASSWD_MIN', 'Минимальная длина требуемого пароля');
-    define('_AM_WEBLINKS_POST_TEXT', 'Администратор имеет все полномочия управления');
-    define('_AM_WEBLINKS_AUTH_DOHTML', 'Разрешение на использование HTML-тегов');
-    define('_AM_WEBLINKS_AUTH_DOHTML_DSC', 'Укажите группы, которым разрешено использовать HTML-теги');
-    define('_AM_WEBLINKS_AUTH_DOSMILEY', 'Разрешение на использование иконок смайликов');
-    define('_AM_WEBLINKS_AUTH_DOSMILEY_DSC', 'Укажите группы, которым разрешено использовать иконки смайликов');
-    define('_AM_WEBLINKS_AUTH_DOXCODE', 'Разрешение на использование XOOPS-кодов');
-    define('_AM_WEBLINKS_AUTH_DOXCODE_DSC', 'Укажите группы, которым разрешено использовать XOOPS-коды');
-    define('_AM_WEBLINKS_AUTH_DOIMAGE', 'Разрешение на использование изображений');
-    define('_AM_WEBLINKS_AUTH_DOIMAGE_DSC', 'Укажите группы, которым разрешено использовать изображения');
-    define('_AM_WEBLINKS_AUTH_DOBR', 'Разрешение на использование переноса строк');
-    define('_AM_WEBLINKS_AUTH_DOBR_DSC', 'Укажите группы, которым разрешено использовать переносы строк');
-    define('_AM_WEBLINKS_SHOW_CATLIST', 'Показать список категорий в подменю');
-    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'ДА показать список верхних категорий в подменю');
-    define('_AM_WEBLINKS_VIEW_URL', 'Стиль просмотра адреса');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           'NONE <br />не показывать адрес или &lt;a&gt; тег.<br />Непрямой<br /> показывать visit.php в ссылке поля взамен адреса. <br />Прямой <br />Показывать адрес в ссылке поля, через JavaScript в событии onmousedown поля посещения считаются через JavaScript.');
+    define('_AM_WEBLINKS_WARNING_NOT_WRITABLE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_LINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_LINK_IMAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_VIEW', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_TOPTEN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_CONF_SEARCH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_BROKENLINK', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_HITS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_HITS_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PASSWD', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'пїЅпїЅ, <b>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</b> пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅ, <br>пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_PASSWD_MIN', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_POST_TEXT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOHTML', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HTML-пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOHTML_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HTML-пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOSMILEY', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOSMILEY_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOXCODE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS-пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOXCODE_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ XOOPS-пїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOIMAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOIMAGE_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOBR', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_AUTH_DOBR_DSC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SHOW_CATLIST', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_URL', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        'NONE <br>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ &lt;a&gt; пїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br> пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ visit.php пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. <br>пїЅпїЅпїЅпїЅпїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ JavaScript пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ onmousedown пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ JavaScript.'
+    );
     define('_AM_WEBLINKS_VIEW_URL_0', 'NONE');
-    define('_AM_WEBLINKS_VIEW_URL_1', 'Непрямой адрес');
-    define('_AM_WEBLINKS_VIEW_URL_2', 'Прямой адрес');
-    define('_AM_WEBLINKS_RECOMMEND_PRI', 'Приоритет рекомендуемых сайтов');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-           'NONE <br />Не показывать.<br />Нормальное <br />Рекомендуемые сайты показываются в заголовке.<br />Высокое <br />Показывать Рекомендованные сайты наверху каждой соответствующей категории.');
-    define('_AM_WEBLINKS_MUTUAL_PRI', 'Приоритет лучших сайтов');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC',
-           'NONE <br />Не показывать.<br />Нормальное <br />Лучшие сайты показываются в заголовке.<br />Высокое <br />Показывать Лучшие сайты наверху каждой соответствующей категории.');
+    define('_AM_WEBLINKS_VIEW_URL_1', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_VIEW_URL_2', 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_RECOMMEND_PRI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
+        'NONE <br>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'
+    );
+    define('_AM_WEBLINKS_MUTUAL_PRI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define(
+        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
+        'NONE <br>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.'
+    );
     define('_AM_WEBLINKS_PRI_0', 'NONE');
-    define('_AM_WEBLINKS_PRI_1', 'Нормальное');
-    define('_AM_WEBLINKS_PRI_2', 'Высокое');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'Автоматическое обновление размера баннера');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'ДА <br />обновлять размер изображения баннера автоматически.');
-    define('_AM_WEBLINKS_RSS_USE', 'Использовать RSS каналы');
-    define('_AM_WEBLINKS_RSS_USE_DSC', 'ДА <br />Получать и отображать RSS/ATOM каналы.');
+    define('_AM_WEBLINKS_PRI_1', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_PRI_2', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'пїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_RSS_USE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ RSS пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_RSS_USE_DSC', 'пїЅпїЅ <br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ RSS/ATOM пїЅпїЅпїЅпїЅпїЅпїЅ.');
 
     // bulk import
-    define('_AM_WEBLINKS_BULK_IMPORT', 'Массовый импорт');
-    define('_AM_WEBLINKS_BULK_IMPORT_FILE', 'Массовый импорт по файлу');
-    define('_AM_WEBLINKS_BULK_CAT', 'Массовый импорт категорий');
-    define('_AM_WEBLINKS_BULK_CAT_DSC1', 'Опишите категории');
-    define('_AM_WEBLINKS_BULK_CAT_DSC2', 'Используйте левую стрелку скобки (>)  в начале категории для определения категории как подкатегории.');
-    define('_AM_WEBLINKS_BULK_LINK', 'Массовый импорт ссылок');
-    define('_AM_WEBLINKS_BULK_LINK_DSC1', 'Введите категорию в 1-ю строку.');
-    define('_AM_WEBLINKS_BULK_LINK_DSC2', 'Опишите заголовок ссылки, адрес и объяснения, разделенных запятой(,) во 2-ой строке.');
-    define('_AM_WEBLINKS_BULK_LINK_DSC3', 'Используйте тире для разделения ссылок горизонтальной полосой (---) .');
-    define('_AM_WEBLINKS_BULK_ERROR_LAYER', 'Указано два или более подслоев в структуре дерева категорий. Это необходимо уточнить.');
-    define('_AM_WEBLINKS_BULK_ERROR_CID', 'Неверный ID категории');
-    define('_AM_WEBLINKS_BULK_ERROR_PID', 'Неверноый ID родительской категории');
-    define('_AM_WEBLINKS_BULK_ERROR_FINISH', 'Операция остановлена какой-то ошибкой');
+    define('_AM_WEBLINKS_BULK_IMPORT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_IMPORT_FILE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_CAT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_CAT_DSC1', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_CAT_DSC2', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (>)  пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_BULK_LINK', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_LINK_DSC1', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 1-пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_BULK_LINK_DSC2', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(,) пїЅпїЅ 2-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_BULK_LINK_DSC3', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (---) .');
+    define('_AM_WEBLINKS_BULK_ERROR_LAYER', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_AM_WEBLINKS_BULK_ERROR_CID', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_ERROR_PID', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_BULK_ERROR_FINISH', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
     // command
-    define('_AM_WEBLINKS_CREATE_CONFIG', 'Создать файл конфигурации');
-    define('_AM_WEBLINKS_TEST_EXEC', 'Выполнить тест для %s');
+    define('_AM_WEBLINKS_CREATE_CONFIG', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_TEST_EXEC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ %s');
 }
 
 // these words are added in v1.01
 // rename MI_xx to AM_xx
 if (!defined('_AM_WEBLINKS_INDEX_DESC')) {
-    define('_AM_WEBLINKS_INDEX_DESC', 'Вступительный текст главной страницы');
-    define('_AM_WEBLINKS_INDEX_DESC_DSC', 'Вы можете использовать этот раздел, чтобы показать некоторое описание или вводный текст. HTML допускается.');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT',
-           '<div align="center" style="color: #0000ff">Вот здесь находится введение вашей страницы.<br />Вы можете отредактировать это в "Конфигурации модуля 2".<br /></div>');
+    define('_AM_WEBLINKS_INDEX_DESC', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_INDEX_DESC_DSC', 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. HTML пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define(
+        '_AM_WEBLINKS_INDEX_DESC_DEFAULT',
+        '<div align="center" style="color: #0000ff">пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.<br>пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 2".<br></div>'
+    );
 }
 
 // these words are defined in admin.php
 // use for linkitem_define
 if (!defined('_WEBLINKS_MID')) {
-    define('_WEBLINKS_MID', 'Изменить ID');
-    define('_WEBLINKS_USERID', 'ID пользователя');
-    define('_WEBLINKS_CREATE', 'Создано');
+    define('_WEBLINKS_MID', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ID');
+    define('_WEBLINKS_USERID', 'ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_CREATE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 // these words are NOT defined in xoops 2.2.3 english
 if (!defined('_US_PASSWORD')) {
-    define('_US_PASSWORD', 'Пароль');
-    define('_US_TYPEPASSTWICE', '(введите новый пароль дважды, чтобы изменить его)');
-    define('_US_PASSNOTSAME', 'Оба пароля различны. Они должны быть идентичны.');
-    define('_US_PWDTOOSHORT', 'К сожалению, ваш пароль должен быть по крайней мере <b>%s</b> символов длинной.');
-    define('_US_VERIFYPASS', 'Подтверждение пароля');
+    define('_US_PASSWORD', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_US_TYPEPASSTWICE', '(пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ)');
+    define('_US_PASSNOTSAME', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_US_PWDTOOSHORT', 'пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ <b>%s</b> пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.');
+    define('_US_VERIFYPASS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 }
 
 if (!defined('_WEBLINKS_FROM')) {
-    define('_WEBLINKS_FROM', 'От');     // From
-    define('_WEBLINKS_EXECUTION_TIME', 'Время выполнения');     // execution time
-    define('_WEBLINKS_MEMORY_USAGE', 'Использование памяти');       // memory usage
-    define('_WEBLINKS_SEC', 'сек');     // sec
-    define('_WEBLINKS_MB', 'МБ');       // MB
-    define('_WEBLINKS_FILE', 'файл');       //file
+    define('_WEBLINKS_FROM', 'пїЅпїЅ');     // From
+    define('_WEBLINKS_EXECUTION_TIME', 'пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');     // execution time
+    define('_WEBLINKS_MEMORY_USAGE', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');       // memory usage
+    define('_WEBLINKS_SEC', 'пїЅпїЅпїЅ');     // sec
+    define('_WEBLINKS_MB', 'пїЅпїЅ');       // MB
+    define('_WEBLINKS_FILE', 'пїЅпїЅпїЅпїЅ');       //file
 
-    define('_WEBLINKS_RDF_FEED', 'RDF канал');      //RDF feed
-    define('_WEBLINKS_RSS_FEED', 'RSS канал');      //RSS feed
-    define('_WEBLINKS_ATOM_FEED', 'ATOM канал');        //ATOM feed
-    define('_WEBLINKS_NOFEED', 'Нет канала');       //No Feed
-    define('_WEBLINKS_IN', 'в');        //in
+    define('_WEBLINKS_RDF_FEED', 'RDF пїЅпїЅпїЅпїЅпїЅ');      //RDF feed
+    define('_WEBLINKS_RSS_FEED', 'RSS пїЅпїЅпїЅпїЅпїЅ');      //RSS feed
+    define('_WEBLINKS_ATOM_FEED', 'ATOM пїЅпїЅпїЅпїЅпїЅ');        //ATOM feed
+    define('_WEBLINKS_NOFEED', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');       //No Feed
+    define('_WEBLINKS_IN', 'пїЅ');        //in
 }

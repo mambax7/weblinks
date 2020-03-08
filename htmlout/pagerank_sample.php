@@ -16,7 +16,6 @@
 if (!class_exists('weblinks_htmlout_pagerank_sample')) {
     class weblinks_htmlout_pagerank_sample extends weblinks_htmlout_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -35,18 +34,18 @@ if (!class_exists('weblinks_htmlout_pagerank_sample')) {
 
         public function execute_plugin()
         {
-            $pagerank_handler =& $this->get_handler('pagerank');
+            $pagerank_handler = &$this->get_handler('pagerank');
 
             $lid = $this->get_item_by_key('lid');
             $pr  = $pagerank_handler->get_page_rank($lid);
 
             $this->set_item_by_key('show_pagerank', true);
             $this->set_item_by_key('pagerank', $pr);
+
             return true;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

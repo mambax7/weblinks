@@ -14,14 +14,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_language_convert')) {
-
     //=========================================================
     // class weblinks_language_convert
     // dummy class for english
     //=========================================================
     class weblinks_language_convert extends weblinks_language_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -32,6 +30,5 @@ if (!class_exists('weblinks_language_convert')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

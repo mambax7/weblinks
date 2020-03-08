@@ -14,7 +14,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_del_handler')) {
-
     //=========================================================
     // class weblinks_link_del_handler
     //=========================================================
@@ -29,7 +28,7 @@ if (!class_exists('weblinks_link_del_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_link_vote_handler = weblinks_get_handler('link_vote_del', $dirname);
+            $this->_link_vote_handler = weblinks_getHandler('link_vote_del', $dirname);
         }
 
         //---------------------------------------------------------
@@ -76,6 +75,5 @@ if (!class_exists('weblinks_link_del_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

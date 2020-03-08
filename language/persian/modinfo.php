@@ -35,7 +35,8 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_ADMENU4', 'اضافه کردن لينک جديد');
     define('_MI_WEBLINKS_ADMENU5', 'لينکهاي جديد در انتظار تاييد');
     define('_MI_WEBLINKS_ADMENU6', 'لينکهاي تغيير يافته جديد در انتظار تاييد');
-    define('_MI_WEBLINKS_ADMENU7', 'گزارش لينکهاي از کار افتاده');;
+    define('_MI_WEBLINKS_ADMENU7', 'گزارش لينکهاي از کار افتاده');
+
     //define("_MI_WEBLINKS_ADMENU8","چک کننده ي لينک");
 
     //-------------------------------------
@@ -43,7 +44,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Description of each config items
     //-------------------------------------
     define('_MI_WEBLINKS_POPULAR', 'تعداد بازدید های که لازم است تا لینک محبوب شود را مشخص کنید');
-    define('_MI_WEBLINKS_POPULARDSC', 'کمترين مقدار برخورودی را که لازم است تا آيکون محبوب نمايش  داده شود <br /> زماني که 0 انتخاب شود نمايش داده نمي شود ');
+    define('_MI_WEBLINKS_POPULARDSC', 'کمترين مقدار برخورودی را که لازم است تا آيکون محبوب نمايش  داده شود <br> زماني که 0 انتخاب شود نمايش داده نمي شود ');
     define('_MI_WEBLINKS_NEWLINKS', 'حداکثر تعداد لينکهايي را که در صفحه اصلي نمايش داده مي شوند مشخص کنيد ');
 
     //define('_MI_WEBLINKS_NEWLINKSDSC', 'بيشترين تعداد لينکي را که در بلاک لينک هاي جديد نمايش داده ميشوند وارد کنيد. ');
@@ -131,7 +132,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TITLESHOWDSC', 'بله را براي نشان دادن عنوان ماژول انتخاب کنيد');
 
     define('_MI_WEBLINKS_NEWDAYS', 'تعداد روزهاي را که لينک جديد محسوب مي شود را مشخص کنيد');
-    define('_MI_WEBLINKS_NEWDAYS_DSC', 'تعداد برخوردهاي لازم براي نشان دادن آيکون جديد را مشخص فرماييد<br /> زماني که 0 انتخاب شود نمايش داده نمي شود');
+    define('_MI_WEBLINKS_NEWDAYS_DSC', 'تعداد برخوردهاي لازم براي نشان دادن آيکون جديد را مشخص فرماييد<br> زماني که 0 انتخاب شود نمايش داده نمي شود');
 
     define('_MI_WEBLINKS_DESCSHORT', 'حداکثر کاراکتر براي نمايش توضيحات ليست لينکها');
     define('_MI_WEBLINKS_DESCSHORTDSC', 'حداکثر کاراکترهايي را که براي نمايش توضيحات ليست لينکها مورد استفاده قرار مي گيرد را مشخص کنيد');
@@ -157,8 +158,10 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'درون فريم بودن صفحه لينک');
 
     define('_MI_WEBLINKS_BROKEN', 'تعداد لينکهاي از کارافتاده جهت توقف نمايش');
-    define('_MI_WEBLINKS_BROKENDSC',
-           'تعداد لينکهاي از کار افتاده لازم جهت توقف نمايش را وارد کنيد<br /> زماني که کمتر از اين مقدار باشد به عنوان يک خطاي موقتي در نظر گرفته مي شدو و عملي انجام نمي شود <br />زماني که بالاي اين عدد باشد به عنوان خطاي دائمي در نظر گرفته مي شود و نمايش متوقف مي شود');
+    define(
+        '_MI_WEBLINKS_BROKENDSC',
+        'تعداد لينکهاي از کار افتاده لازم جهت توقف نمايش را وارد کنيد<br> زماني که کمتر از اين مقدار باشد به عنوان يک خطاي موقتي در نظر گرفته مي شدو و عملي انجام نمي شود <br>زماني که بالاي اين عدد باشد به عنوان خطاي دائمي در نظر گرفته مي شود و نمايش متوقف مي شود'
+    );
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'از تصاوير لينکها براي ليست لينکها استفاده شود');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'حداکثر عرض يک تصوير لينک');
@@ -180,14 +183,16 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'وارد کنيد بيشتر تعداد لينک هاي را که نمايش داده شود در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'بيشتر تعداد شاخه هاي در ده تاي برتر');
-    define('_MI_WEBLINKS_TOPTEN_CATS_DSC',
-           'وارد کنيد بيشتر تعداد شاخه هاي را که نمايش داده شوند در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". <br />timeout occurs, if too many top categories');
+    define(
+        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
+        'وارد کنيد بيشتر تعداد شاخه هاي را که نمايش داده شوند در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". <br>timeout occurs, if too many top categories'
+    );
 
     // 2006-03-26
     // REQ 3807: Description in main page
     //define('_MI_WEBLINKS_INDEX_DESC','توصيف در صفحه ي اصلي');
     //define('_MI_WEBLINKS_INDEX_DESC_DSC', 'نوشته ي توصيفات رو وارد کنيد, وقتي شما خواستيد نمايش داده شود در صفحه ي اصلي.');
-    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">متن توصيفات حاضر است.<br />شما ميتونايد متن توصيفات را ويراش کنيد   از طريق "تنضيمات ماژول"</font><br /></div>');
+    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">متن توصيفات حاضر است.<br>شما ميتونايد متن توصيفات را ويراش کنيد   از طريق "تنضيمات ماژول"</font><br></div>');
 
     // 2006-05-15
     define('_MI_WEBLINKS_ADMENU0', 'راهنما');
@@ -213,4 +218,3 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'این آگاهری رسانی را وقتی لینک جدیدی  ارسال شد دریافت کنید (if entered the comment for admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} آگاهی رسانی خودکار : لینک جدید)');
 }// --- define language begin ---
-;

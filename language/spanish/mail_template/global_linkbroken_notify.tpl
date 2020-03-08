@@ -16,6 +16,6 @@ Por favor, no responda a este mensaje.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 El Webmaster.
 {X_ADMINMAIL}

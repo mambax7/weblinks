@@ -27,7 +27,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_edit_base_handler')) {
-
     //=========================================================
     // class weblinks_link_edit_base
     //=========================================================
@@ -56,7 +55,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         // result
         public $_newid;
         public $_save_obj  = null;
-        public $_cid_array = array();
+        public $_cid_array = [];
 
         public $_banner_error_code = 0;
         public $_banner_errors     = null;
@@ -73,12 +72,12 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
             parent::__construct();
 
-            $this->_config_handler       = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', $dirname);
-            $this->_category_handler     = weblinks_get_handler('category', $dirname);
-            $this->_link_handler         = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler      = weblinks_get_handler('catlink', $dirname);
-            $this->_banner_handler       = weblinks_get_handler('banner', $dirname);
+            $this->_config_handler       = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', $dirname);
+            $this->_category_handler     = weblinks_getHandler('category', $dirname);
+            $this->_link_handler         = weblinks_getHandler('link', $dirname);
+            $this->_catlink_handler      = weblinks_getHandler('catlink', $dirname);
+            $this->_banner_handler       = weblinks_getHandler('banner', $dirname);
             $this->_notification         = weblinks_notification::getInstance($dirname);
 
             $this->_system      = happy_linux_system::getInstance();
@@ -88,7 +87,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $this->_remote_file = happy_linux_remote_file::getInstance();
 
             if (WEBLINKS_RSSC_USE) {
-                $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
+                $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
             }
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -117,35 +116,38 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return $this->_post->get_post_int('rss_flag');
         }
 
-
         //---------------------------------------------------------
         // wrapper of link_handler
         //---------------------------------------------------------
         public function &get($lid)
         {
             $lid = (int)$lid;
-            $obj =& $this->_link_handler->get($lid);
+            $obj = &$this->_link_handler->get($lid);
+
             return $obj;
         }
 
         public function check_exist_link($lid)
         {
-            $obj =& $this->get($lid);
+            $obj = &$this->get($lid);
             if (is_object($obj)) {
                 return true;
             }
+
             return false;
         }
 
         public function getCount()
         {
             $count = $this->_link_handler->getCount();
+
             return $count;
         }
 
         public function insert(&$obj)
         {
             $newid = $this->_link_handler->insert($obj);
+
             return $newid;
         }
 
@@ -157,7 +159,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         {
             $lid = $this->get_post_lid();
 
-            $obj =& $this->get($lid);
+            $obj = &$this->get($lid);
             if (!is_object($obj)) {
                 return false;
             }
@@ -167,17 +169,19 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $obj->set_var_by_global_post('height');
 
             $ret = $this->_link_handler->update($obj);
+
             return $ret;
         }
 
         // link_manage_class.php
         public function &get_remote_banner_size($banner)
         {
-            $size =& $this->_banner_handler->get_remote_banner_size($banner);
+            $size = &$this->_banner_handler->get_remote_banner_size($banner);
             if (!$size) {
                 $this->_banner_error_code = $this->_banner_handler->getErrorCode();
                 $this->_banner_errors     = $this->_banner_handler->getErrors();
             }
+
             return $size;
         }
 
@@ -215,6 +219,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function build_comment($str)
         {
             $text = ' <!-- weblinks : ' . $str . ' -->' . "\n";
+
             return $text;
         }
 
@@ -233,7 +238,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
             foreach ($cat_objs as $obj) {
                 $cid   = $obj->getVar('cid');
-                $arr   =& $this->_category_handler->get_parent_and_all_child_id($cid);
+                $arr   = &$this->_category_handler->get_parent_and_all_child_id($cid);
                 $count = $this->_link_catlink_handler->get_count_by_cid_array($arr);
 
                 $obj->setVar('link_count', $count);
@@ -254,13 +259,15 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function delete_modify(&$modify_obj)
         {
             if ($this->_DEBUG_MODIFY_DELETE) {
-                $modify_handler = weblinks_get_handler('modify', $this->_DIRNAME);
+                $modify_handler = weblinks_getHandler('modify', $this->_DIRNAME);
                 $ret            = $modify_handler->delete($modify_obj);
                 if (!$ret) {
                     $this->_set_errors($modify_handler->getErrors());
+
                     return $false;
                 }
             }
+
             return true;
         }
 
@@ -272,8 +279,9 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         {
             $link_view = weblinks_link_view::getInstance($this->_DIRNAME);
             $template  = weblinks_template::getInstance($this->_DIRNAME);
-            $link      =& $link_view->get_show_by_lid($lid);
+            $link      = &$link_view->get_show_by_lid($lid);
             $text      = $template->fetch_link_single($link);
+
             return $text;
         }
 
@@ -281,6 +289,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         {
             $url  = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/' . 'weblinks.css';
             $text = $this->_form->build_html_link_stylesheet($url);
+
             return $text;
         }
 
@@ -315,12 +324,14 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function &_create_view()
         {
             $view_obj = new weblinks_link_view($this->_DIRNAME);
+
             return $view_obj;
         }
 
         public function &_create_edit()
         {
             $edit_obj = new weblinks_link_edit($this->_DIRNAME);
+
             return $edit_obj;
         }
 
@@ -330,13 +341,14 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             if ($isNew) {
                 $obj->setNew();
             }
+
             return $obj;
         }
 
         //---------------------------------------------------------
         // check url banner rssurl
         //---------------------------------------------------------
-        public function _check_url_banner_rssurl(&$obj)
+        public function _check_url_banner_rssurl($obj)
         {
             $this->_clear_errors();
 
@@ -362,7 +374,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
                 list($rss_flag, $rss_url) = $this->_check_rssurl();
             }
 
-            return array($rss_flag, $rss_url);
+            return [$rss_flag, $rss_url];
         }
 
         //---------------------------------------------------------
@@ -373,6 +385,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             if ($this->_conf['use_pagerank'] > 0) {
                 return true;
             }
+
             return false;
         }
 
@@ -385,7 +398,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $rss_url  = '';
 
             // create rssc object
-            $rssc_obj =& $this->_rssc_edit_handler->create_new_rssc_obj();
+            $rssc_obj = &$this->_rssc_edit_handler->create_new_rssc_obj();
             if (is_object($rssc_obj)) {
                 $code     = $rssc_obj->get('auto_code');
                 $rss_flag = $rssc_obj->get('rss_flag');
@@ -396,7 +409,6 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
                     case RSSC_CODE_DISCOVER_SUCCEEDED:
                         $this->_set_errors('<b>' . _RSSC_DISCOVER_SUCCEEDED . '</b>');
                         break;
-
                     case RSSC_CODE_DISCOVER_FAILED:
                         $this->_set_errors('<span style="color: #ff0000;">' . _RSSC_DISCOVER_FAILED . '</span>');
                         break;
@@ -410,7 +422,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
                 }
             }
 
-            return array($rss_flag, $rss_url);
+            return [$rss_flag, $rss_url];
         }
 
         public function _set_errors_not_exist($lid)
@@ -421,6 +433,5 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

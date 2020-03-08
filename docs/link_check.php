@@ -29,18 +29,16 @@
 //---------------------------------------------------------
 // environment
 //---------------------------------------------------------
-$WEBLINKS_PATH    = dirname( dirname( __FILE__ ) );
-$WEBLINKS_DIRNAME = basename( $WEBLINKS_PATH );
-$XOOPS_ROOT_PATH  = dirname( dirname( $WEBLINKS_PATH ) );
+$WEBLINKS_PATH    = dirname(dirname(__FILE__));
+$WEBLINKS_DIRNAME = basename($WEBLINKS_PATH);
+$XOOPS_ROOT_PATH  = dirname(dirname($WEBLINKS_PATH));
 
 //---------------------------------------------------------
 // main
 //---------------------------------------------------------
-include $XOOPS_ROOT_PATH."/modules/".$WEBLINKS_DIRNAME."/bin/bin_api.php";
+include $XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/bin/bin_api.php';
 
-$link_check = new bin_link_check( $WEBLINKS_DIRNAME );
+$link_check = new bin_link_check($WEBLINKS_DIRNAME);
 $link_check->check();
 
 exit();
-
-?>

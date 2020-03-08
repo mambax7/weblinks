@@ -3,7 +3,7 @@
 
 //=========================================================
 // WebLinks Module
-// for weblinks 1.20 <http://linux.ohwada.jp/>
+// for weblinks 1.20 <https://linux.ohwada.jp/>
 // 2009-02-01 K.OHWADA
 //=========================================================
 
@@ -14,11 +14,13 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         $ret = weblinks_plugin_webphoto_include($opts);
         if (!$ret) {
             $false = false;
+
             return $false;
         }
 
-        $inc_class = webphoto_inc_weblinks::getInstance();
+        $inc_class = &webphoto_inc_weblinks::getInstance();
         $ret       = $inc_class->albums($opts);
+
         return $ret;
     }
 
@@ -27,11 +29,13 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         $ret = weblinks_plugin_webphoto_include($opts);
         if (!$ret) {
             $false = false;
+
             return $false;
         }
 
-        $inc_class = webphoto_inc_weblinks::getInstance();
+        $inc_class = &webphoto_inc_weblinks::getInstance();
         $ret       = $inc_class->photos($opts);
+
         return $ret;
     }
 
@@ -43,9 +47,10 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
 
         if (file_exists($file)) {
             include_once $file;
+
             return true;
         }
+
         return false;
     }
 }// --- functions end ---
-;

@@ -32,7 +32,7 @@ $test = weblinks_test_form_admin::getInstance();
 
 dev_header();
 echo "<h3>test form: admin add link</h3>\n";
-echo 'admin: ' . $test->get_admin_uname() . "<br />\n";
+echo 'admin: ' . $test->get_admin_uname() . "<br>\n";
 
 $link_url = WEBLINKS_URL . '/admin/link_manage.php';
 $list_url = WEBLINKS_URL . '/admin/link_list.php?sortid=1';
@@ -52,12 +52,12 @@ echo "<h4>scenario 1: no banner, no perfomance, no rss</h4>\n";
 $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'title'    => $title,
     'banner'   => '',
     'rss_url'  => '',
     'rss_flag' => 0,
-);
+];
 
 $ret = $test->admin_add_link($param);
 if (!$ret) {
@@ -66,10 +66,10 @@ if (!$ret) {
 
 if ($test->check_msg_and_new_link('admin add link')) {
     echo "<h4>Success !</h4>\n";
-    echo 'add link: ' . $title . " <br /><br />\n";
+    echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br />\n";
+    echo "Error: add link form failed: <br><hr>\n";
+    echo $test->get_body() . "<br>\n";
 }
 
 //---------------------------------------------------------
@@ -78,12 +78,12 @@ if ($test->check_msg_and_new_link('admin add link')) {
 echo "<h4>scenario 2: banner, no perfomance, no rss</h4>\n";
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => '',
     'rss_flag' => 0,
-);
+];
 
 $ret = $test->admin_add_link($param);
 if (!$ret) {
@@ -97,10 +97,10 @@ if (!$ret) {
 
 if ($test->check_msg_and_link('add banner')) {
     echo "<h4>Success !</h4>\n";
-    echo 'add link: ' . $title . " <br /><br />\n";
+    echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: add link form failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
 }
 
 //---------------------------------------------------------
@@ -111,12 +111,12 @@ echo "<h4>scenario 3: banner, perfomance, no rss</h4>\n";
 $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => '',
     'rss_flag' => 0,
-);
+];
 
 $ret = $test->admin_add_link($param);
 if (!$ret) {
@@ -135,10 +135,10 @@ if (!$ret) {
 
 if ($test->check_msg_and_link('update cat')) {
     echo "<h4>Success !</h4>\n";
-    echo 'add link: ' . $title . " <br /><br />\n";
+    echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: add link form failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
 }
 
 //---------------------------------------------------------
@@ -149,12 +149,12 @@ echo "<h4>scenario 4: banner, no perfomance, rss</h4>\n";
 $test->update_config_by_name('cat_count', 0);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(1),
     'rss_flag' => 2,    // rss
-);
+];
 
 if ($test->is_exist_rssc_module()) {
     $ret = $test->admin_add_link($param);
@@ -179,13 +179,13 @@ if ($test->is_exist_rssc_module()) {
 
     if ($test->check_msg_and_link('refresh')) {
         echo "<h4>Success !</h4>\n";
-        echo 'add link: ' . $title . " <br /><br />\n";
+        echo 'add link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: add link form failed: <br /><hr />\n";
-        echo $test->get_body() . "<br /><br />\n";
+        echo "Error: add link form failed: <br><hr>\n";
+        echo $test->get_body() . "<br><br>\n";
     }
 } else {
-    echo "Skip this test: RSSC module is not installed <br />\n";
+    echo "Skip this test: RSSC module is not installed <br>\n";
 }
 
 //---------------------------------------------------------
@@ -196,12 +196,12 @@ echo "<h4>scenario 5: banner, perfomance, rss</h4>\n";
 $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(2),
     'rss_flag' => 2,    // rss
-);
+];
 
 if ($test->is_exist_rssc_module()) {
     $ret = $test->admin_add_link($param);
@@ -231,16 +231,15 @@ if ($test->is_exist_rssc_module()) {
 
     if ($test->check_msg_and_link('refresh')) {
         echo "<h4>Success !</h4>\n";
-        echo 'add link: ' . $title . " <br /><br />\n";
+        echo 'add link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: add link form failed: <br /><hr />\n";
-        echo $test->get_body() . "<br /><br />\n";
+        echo "Error: add link form failed: <br><hr>\n";
+        echo $test->get_body() . "<br><br>\n";
     }
 } else {
-    echo "Skip this test: RSSC module is not installed <br />\n";
+    echo "Skip this test: RSSC module is not installed <br>\n";
 }
 
 //---------------------------------------------------------
-echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br />\n";
-dev_footer();// --- end of main ---
-;
+echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
+dev_footer(); // --- end of main ---

@@ -14,16 +14,16 @@ use in case of the confirmation.
 
 (1) Yahoo
 Maps Terms of Use
-http://help.yahoo.com/l/us/yahoo/maps/using/maps-24.html
+https://help.yahoo.com/l/us/yahoo/maps/using/maps-24.html
 Personal Use Only.
 
 (2) Google
 Terms and Conditions
-http://maps.google.com/help/terms_maps.html
+https://maps.google.com/help/terms_maps.html
 
 Can I add maps from Google Maps to my site?
-http://maps.google.com/support/bin/answer.py?answer=26392
-Yes, you can. 
+https://maps.google.com/support/bin/answer.py?answer=26392
+Yes, you can.
 The Google Maps API is available for implementation on any site that is free for consumer use
 
 2. The choice of the map site

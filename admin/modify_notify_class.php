@@ -15,7 +15,6 @@
 //=========================================================
 class admin_modify_notify extends admin_modify_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -28,9 +27,10 @@ class admin_modify_notify extends admin_modify_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_modify_notify();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -56,12 +56,11 @@ class admin_modify_notify extends admin_modify_base
         if (WEBLINKS_RSSC_USE && $rss_flag) {
             $this->_rssc_manage->add_link($lid, 'approve_new');
             exit();
-        } else {
-            $msg = _WLS_NEWLINKADDED;
-            $msg .= $this->build_comment('notify approve new link');  // for test form
-            redirect_header($this->_get_redirect_at_new(), 1, $msg);
-            exit();
         }
+        $msg = _WLS_NEWLINKADDED;
+        $msg .= $this->build_comment('notify approve new link');  // for test form
+        redirect_header($this->_get_redirect_at_new(), 1, $msg);
+        exit();
     }
 
     //---------------------------------------------------------
@@ -104,12 +103,11 @@ class admin_modify_notify extends admin_modify_base
         if (WEBLINKS_RSSC_USE) {
             $this->_rssc_manage->mod_link('approve_mod');
             exit();
-        } else {
-            $msg = _WLS_DBUPDATED;
-            $msg .= $this->build_comment('notify approve mod link');  // for test form
-            redirect_header($this->_get_redirect_at_mod(), 1, $msg);
-            exit();
         }
+        $msg = _WLS_DBUPDATED;
+        $msg .= $this->build_comment('notify approve mod link');  // for test form
+        redirect_header($this->_get_redirect_at_mod(), 1, $msg);
+        exit();
     }
 
     //---------------------------------------------------------
@@ -183,19 +181,21 @@ class admin_modify_notify extends admin_modify_base
     {
         list($subject, $body) = $this->_build_subject_body_common($mode);
 
-        $param = array(
+        $param = [
             'to_email' => $this->_email,
             'subject'  => $subject,
             'body'     => $body,
-        );
+        ];
 
         $ret = $this->_mail_send->send($param);
         if (!$ret) {
             $this->_set_errors($this->_mail_send->getErrors());
+
             return false;
         }
 
         $this->_set_log($this->_mail_send->getLogs());
+
         return true;
     }
 
@@ -217,10 +217,12 @@ class admin_modify_notify extends admin_modify_base
         $ret = $this->_mail_send->send_email_by_post(true);
         if (!$ret) {
             $this->_set_errors($this->_mail_send->getErrors());
+
             return false;
         }
 
         $this->_set_log($this->_mail_send->getLogs());
+
         return true;
     }
 

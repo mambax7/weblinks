@@ -35,14 +35,14 @@ if (empty($LID)) {
     dev_footer();
 }
 
-echo 'lid: <b>' . $LID . "</b> <br />\n";
-echo 'admin: ' . $test->get_admin_uname() . "<br />\n";
+echo 'lid: <b>' . $LID . "</b> <br>\n";
+echo 'admin: ' . $test->get_admin_uname() . "<br>\n";
 
 if ($test->is_link_owner($LID)) {
     $is_link_owner = true;
-    echo 'user: <b>' . $test->get_user_uname() . "</b> is owner <br />\n";
+    echo 'user: <b>' . $test->get_user_uname() . "</b> is owner <br>\n";
 } else {
-    echo 'user: <b>' . $test->get_user_uname() . "</b> is not owner <br />\n";
+    echo 'user: <b>' . $test->get_user_uname() . "</b> is not owner <br>\n";
 }
 
 $list_url = WEBLINKS_URL . '/admin/link_list.php?sortid=0';
@@ -58,11 +58,11 @@ echo "<h4>scenario 1: modify & approve: no banner, no perfomance, no rss, not no
 
 $test->update_config_by_name('cat_path', 0);
 $test->update_config_by_name('cat_count', 0);
-$test->update_config_by_name_array('auth_modify', array(1, 2));
-$test->update_config_by_name_array('auth_modify_auto', array(1));
+$test->update_config_by_name_array('auth_modify', [1, 2]);
+$test->update_config_by_name_array('auth_modify_auto', [1]);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => '',
@@ -70,7 +70,7 @@ $param = array(
     'rss_flag' => 0,
     'notify'   => 0,
     'return'   => 'modify request link',
-);
+];
 
 $ret = $test->user_modify_link_with_login($param);
 if (!$ret) {
@@ -93,10 +93,10 @@ if ($test->is_exist_rssc_module()) {
 
 if ($test->check_msg_and_link($msg)) {
     echo "<h4>Success !</h4>\n";
-    echo 'modify & approve mod link: ' . $title . " <br /><br />\n";
+    echo 'modify & approve mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: approve link failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: approve link failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
@@ -110,7 +110,7 @@ echo "<h4>scenario 2: modify & approve: banner, perfomance, rss, nofify</h4>\n";
 $test->update_config_by_name('cat_count', 1);
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
@@ -118,7 +118,7 @@ $param = array(
     'rss_flag' => 2,    // rss
     'notify'   => 1,    // nofity
     'return'   => 'modify request link',
-);
+];
 
 $ret = $test->user_modify_link_with_login($param);
 if (!$ret) {
@@ -151,15 +151,15 @@ if ($test->is_exist_rssc_module()) {
         }
     }
 } else {
-    echo "Skip this test: RSSC module is not installed <br />\n";
+    echo "Skip this test: RSSC module is not installed <br>\n";
 }
 
 if ($test->check_msg_and_link($msg)) {
     echo "<h4>Success !</h4>\n";
-    echo 'modify & approve mod link: ' . $title . " <br /><br />\n";
+    echo 'modify & approve mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: approve link failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: approve link failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
@@ -173,7 +173,7 @@ echo "<h4>scenario 3: modify & refuse</h4>\n";
 //$test->set_debug_print( true );
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => '',
@@ -181,7 +181,7 @@ $param = array(
     'rss_flag' => 0,
     'notify'   => 1,    // nofity
     'return'   => 'modify request link',
-);
+];
 
 $ret = $test->user_modify_link_with_login($param);
 if (!$ret) {
@@ -200,16 +200,15 @@ if (!$ret) {
 
 if ($test->match_return_msg('notify refuse mod link')) {
     echo "<h4>Success !</h4>\n";
-    echo 'modify & refuse mod link: ' . $title . " <br /><br />\n";
+    echo 'modify & refuse mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: refuse mod link failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: refuse mod link failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
 $test->logout();
 
 //---------------------------------------------------------
-echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br />\n";
-dev_footer();// --- end of main ---
-;
+echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
+dev_footer(); // --- end of main ---

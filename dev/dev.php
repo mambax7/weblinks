@@ -12,11 +12,11 @@ dev_header();
 
 echo "<h3>Development</h3>\n";
 echo '<h4 style="color: #0000ff;">Warnig</h4>' . "\n";
-echo "The following programs overwrite MySQL tables. <br />\n";
-echo "Use only in Development enviroment. <br /><br />\n";
+echo "The following programs overwrite MySQL tables. <br>\n";
+echo "Use only in Development enviroment. <br><br>\n";
 
 echo "<h4>Test Class</h4>\n";
-echo '- <a href="test_class_link_save_user.php">test class: link_save</a>' . "<br /><br />\n";
-echo '- <a href="test_class_modify_save_user.php">test class: modify_save</a>' . "<br /><br />\n";
+echo '- <a href="test_class_link_save_user.php">test class: link_save</a>' . "<br><br>\n";
+echo '- <a href="test_class_modify_save_user.php">test class: modify_save</a>' . "<br><br>\n";
 
 dev_footer();

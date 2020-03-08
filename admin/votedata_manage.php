@@ -36,14 +36,14 @@ class admin_votedata_manage extends happy_linux_manage
         $this->set_redirect('votedata_list.php', 'votedata_list.php?sortid=1');
         $this->set_flag_execute_time(true);
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_votedata_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -63,6 +63,7 @@ class admin_votedata_manage extends happy_linux_manage
             $arr = $_POST['votedata_anoymous_id'];
         }
         $this->_list_id = $arr;
+
         return $this->_list_id;
     }
 
@@ -155,15 +156,15 @@ class admin_form_votedata extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
         $this->_system       = happy_linux_system::getInstance();
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_votedata();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -183,7 +184,7 @@ class admin_form_votedata extends happy_linux_form
         $title_s = '';
 
         $lid      = $obj->get('lid');
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
         }
@@ -239,19 +240,15 @@ switch ($op) {
     case 'mod_form':
         $manage->mod_form();
         break;
-
     case 'mod_table':
         $manage->mod_table();
         break;
-
     case 'del_table':
         $manage->del_table();
         break;
-
     case 'del_all':
         $manage->del_all();
         break;
-
     default:
         xoops_cp_header();
         echo '<h4>No Action</h4>';
@@ -259,5 +256,4 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

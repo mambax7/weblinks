@@ -17,7 +17,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_req_handler')) {
-
     //=========================================================
     // class weblinks_link_req_handler
     //=========================================================
@@ -32,7 +31,7 @@ if (!class_exists('weblinks_link_req_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
+            $this->_modify_handler = weblinks_getHandler('modify', $dirname);
         }
 
         //---------------------------------------------------------
@@ -80,7 +79,7 @@ if (!class_exists('weblinks_link_req_handler')) {
         // mode 0: add, 1:mod, 2:del
         public function _add_modify_record($mode = 0)
         {
-            $save_obj =& $this->_create_modify_save();
+            $save_obj = &$this->_create_modify_save();
 
             // mod or del
             if ($mode) {
@@ -89,6 +88,7 @@ if (!class_exists('weblinks_link_req_handler')) {
                 $link_obj = $this->_link_handler->get($lid);
                 if (!is_object($link_obj)) {
                     $this->_set_errors_not_exist($lid);
+
                     return false;
                 }
 
@@ -101,12 +101,13 @@ if (!class_exists('weblinks_link_req_handler')) {
             $newid = $this->_modify_handler->insert($save_obj);
             if (!$newid) {
                 $this->_set_errors($this->_modify_handler->getErrors());
+
                 return false;
             }
 
             $this->_newid     = $newid;
-            $this->_save_obj  =& $save_obj;
-            $this->_cid_array =& $save_obj->get_cid_array();
+            $this->_save_obj  = &$save_obj;
+            $this->_cid_array = &$save_obj->get_cid_array();
 
             return $newid;
         }
@@ -117,11 +118,11 @@ if (!class_exists('weblinks_link_req_handler')) {
             if ($isNew) {
                 $obj->setNew();
             }
+
             return $obj;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

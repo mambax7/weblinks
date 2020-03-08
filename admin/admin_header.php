@@ -94,5 +94,5 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_locate.php';
 //---------------------------------------------------------
 // linkitem
 //---------------------------------------------------------
-$weblinks_linkitem_handler = weblinks_get_handler('linkitem_basic', WEBLINKS_DIRNAME);
+$weblinks_linkitem_handler = weblinks_getHandler('linkitem_basic', WEBLINKS_DIRNAME);
 $weblinks_linkitem_handler->init();

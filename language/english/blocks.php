@@ -117,4 +117,3 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0:Not show, 1:Show');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'Map Type Control');
 }// --- define language end ---
-;

@@ -52,7 +52,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 //---------------------------------------------------------
 // compatible for v1.90
@@ -109,7 +109,7 @@ if (!defined('_WEBLINKS_ERROR_LENGTH')) {
 if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
     // google map
     define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Указатель] Ширина (пиксели)');
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'Ширина информационного указателя карты<br /><b>-1</b> не указан');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'Ширина информационного указателя карты<br><b>-1</b> не указан');
     define('_AM_WEBLINKS_LINK_IMG_USE', 'Использовать %s');
 
     define('_AM_WEBLINKS_RSS_SITE', 'Этот сайт');
@@ -119,12 +119,12 @@ if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
     define('_AM_WEBLINKS_CONF_LINK_USER', 'Конфигурация регистрации ссылки пользователя');
     define('_AM_WEBLINKS_USER_NAMEFLAG', 'Выберите показ имени');
     define('_AM_WEBLINKS_USER_MAILFLAG', 'Выберите показ электронной почты');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'Значение по умолчанию, когда пользователь регистрируется<br />Администратор может изменить значение');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'Значение по умолчанию, когда пользователь регистрируется<br>Администратор может изменить значение');
     define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'Выбор пользователя');
 
     // description length
     define('_AM_WEBLINKS_DESC_LENGTH', 'Максимальная длина символов');
-    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> или административная настройка : лимит 64KB<br />');
+    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> или административная настройка : лимит 64KB<br>');
 }
 
 //---------------------------------------------------------
@@ -154,7 +154,7 @@ if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
 
     // nofitication
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'Управление оповещениями');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Настройка для каждого администратора модуля<br />Это тоже самое, что и главная страница модуля');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Настройка для каждого администратора модуля<br>Это тоже самое, что и главная страница модуля');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'Вы не можете использовать в некоторых версиях XOOPS');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'В данном случае, пожалуйста, используйте главную страницу этого модуля');
     define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: Ваш запрос изменения ссылки утвержден');
@@ -196,8 +196,8 @@ if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'Замена изображения ссылки');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'Заменить изображение, когда не установлено изображение ссылки');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'нет');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Использовать <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Использовать <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Использовать <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Использовать <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 }
 
 //---------------------------------------------------------
@@ -233,21 +233,25 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Поиск] Тип карты');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Поиск] Вид геокода');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-           'Поиск широты и долготы из адреса<br /><b>Единственный результат</b><br />GClientGeocoder - getLatLng<br /><b>Множественный результат</b><br />GClientGeocoder - getLocations');
+    define(
+        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
+        'Поиск широты и долготы из адреса<br><b>Единственный результат</b><br>GClientGeocoder - getLatLng<br><b>Множественный результат</b><br>GClientGeocoder - getLocations'
+    );
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Единственный результат: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Множественный результат: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Поиск][Япония] Использовать CSIS');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Действительно в Японии<br />Поиск широты и долготы из адреса');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Действительно в Японии<br>Поиск широты и долготы из адреса');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Поиск][Япония] Использование обратного геокода');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-           'Действительно в Японии<br />Поиск адреса из широты и долготы<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
+    define(
+        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
+        'Действительно в Японии<br>Поиск адреса из широты и долготы<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
+    );
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Указатель] Максимум символов для заголовка');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Максимальноу число символов используемых для заголовка в указателе<br /><b>-1</b> не ограничено');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Максимальноу число символов используемых для заголовка в указателе<br><b>-1</b> не ограничено');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Указатель] Максимум символов для наполнения');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Максимальноу число символов используемых для наполнения в указателе<br /><b>-1</b> не ограничено');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Максимальноу число символов используемых для наполнения в указателе<br><b>-1</b> не ограничено');
     define('_AM_WEBLINKS_GM_WORDWRAP', '[Указатель] Максимум символов для переноса строк');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Максимальноу число символов используемых для каждой строки (перенос трок) в указателе<br /><b>-1</b> не ограничено');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Максимальноу число символов используемых для каждой строки (перенос трок) в указателе<br><b>-1</b> не ограничено');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Указатель] Показывать центральный указатель');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'На главной странице и странице категории, показывать центральный указатель');
 
@@ -273,8 +277,10 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'Конфигурация HTML стиля');
     define('_AM_WEBLINKS_HEADER_MODE', 'Использовать заголовок модуля XOOPS');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC',
-           'Когда "Нет", показывать таблицу стилей и Javascript в теге body<br />Когда "Да", показывать это в теге header, используя заголовок модуля XOOPS. Однако, есть некоторые темы, которые не могут быть использованы');
+    define(
+        '_AM_WEBLINKS_HEADER_MODE_DESC',
+        'Когда "Нет", показывать таблицу стилей и Javascript в теге body<br>Когда "Да", показывать это в теге header, используя заголовок модуля XOOPS. Однако, есть некоторые темы, которые не могут быть использованы'
+    );
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'Вы можете посмотреть пример, нажав кнопку пример');
@@ -282,7 +288,7 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     define('_AM_WEBLINKS_BULK_LINK_DSC20', 'Администратор определяет регистрацию пунктов');
     define('_AM_WEBLINKS_BULK_LINK_DSC21', 'Первый параграф');
     define('_AM_WEBLINKS_BULK_LINK_DSC22', 'Второй параграф и следующие');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Введите имена зарегистрированных пунктов в 1-ой строке.<br />Введите горизонтальную полосу (---)');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Введите имена зарегистрированных пунктов в 1-ой строке.<br>Введите горизонтальную полосу (---)');
     define('_AM_WEBLINKS_BULK_LINK_DSC24', 'Опишите зарегистрированные пункты по порядку в первом параграфе, разделенных запятой(,) во 2-ой строке.');
     define('_AM_WEBLINKS_BULK_CHECK_URL', 'Проверьте установку адреса');
     define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'Проверьте установку описания');
@@ -295,7 +301,7 @@ if (!defined('_AM_WEBLINKS_USE_HIGHLIGHT')) {
     // highlight
     define('_AM_WEBLINKS_USE_HIGHLIGHT', 'Использовать подсветку ключевых слов');
     define('_AM_WEBLINKS_CHECK_MAIL', 'Проверять формат элекстронной почты');
-    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'НЕТ позволяется в любой форме. <br /> ДА проверяется, что адрес электронной почты в формате abc@efg.com, когда регистрируется ссылка. ');
+    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'НЕТ позволяется в любой форме. <br> ДА проверяется, что адрес электронной почты в формате abc@efg.com, когда регистрируется ссылка. ');
     define('_AM_WEBLINKS_NO_EMAIL', 'Не указан адрес электронной почты');
 }
 
@@ -418,20 +424,24 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Полное');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Повышение эффективности');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-           'Если повышение производительности, то вычисляются необходимые данные заранее, когда показываются, и они хранятся в базе данных.<br />Когда используется в первый раз, выполните "Список категорий" -> "Обновление путей дерева категорий"');
+    define(
+        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
+        'Если повышение производительности, то вычисляются необходимые данные заранее, когда показываются, и они хранятся в базе данных.<br>Когда используется в первый раз, выполните "Список категорий" -> "Обновление путей дерева категорий"'
+    );
     define('_AM_WEBLINKS_CAT_PATH', 'Путь дерева категорий');
-    define('_AM_WEBLINKS_CAT_PATH_DSC', 'ДА вычисляет пути дерева категорий, и он хранятся в таблице категорий.<br />НЕТ вычисляется, когда показывается.');
+    define('_AM_WEBLINKS_CAT_PATH_DSC', 'ДА вычисляет пути дерева категорий, и он хранятся в таблице категорий.<br>НЕТ вычисляется, когда показывается.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Счетчик ссылок категориий');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'ДА вычисляет счетчик ссылок категорий, и он хранятся в таблице категорий.<br />НЕТ вычисляется, когда показывается.');
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'ДА вычисляет счетчик ссылок категорий, и он хранятся в таблице категорий.<br>НЕТ вычисляется, когда показывается.');
 
     define('_AM_WEBLINKS_POST_TEXT_4', 'Все элементы отображаются на странице администрирования');
     define('_AM_WEBLINKS_LINK_REGISTER_1', 'Настройки ссылки: Текстовое поле 1');
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Конфигурация гостевой регистрации ссылки');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Использовать CAPTCHA');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA является технологией анти-спама.<br />Для этой функции нуден модуль Captcha.<br />ДА, <b>анонимные пользователи</b> должны использовать CAPTCHA когда добавляют или изменяют ссылку.<br />НЕТ не показывает поле CAPTCHA.');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA является технологией анти-спама.<br>Для этой функции нуден модуль Captcha.<br>ДА, <b>анонимные пользователи</b> должны использовать CAPTCHA когда добавляют или изменяют ссылку.<br>НЕТ не показывает поле CAPTCHA.'
+    );
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Модуль Captcha версии %s найден');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Модуль Captcha не найден');
 
@@ -595,8 +605,8 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Конфигурация размещения');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'Код страны');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Введите ccTLDs код <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Коды стран доменов верхнего уровня</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Обновить пункт, который относится к коду страны. <br/> Пункт с пометкой <span style="color:#0000ff;">#</span>');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Введите ccTLDs код <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Коды стран доменов верхнего уровня</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Обновить пункт, который относится к коду страны. <br> Пункт с пометкой <span style="color:#0000ff;">#</span>');
     define('_AM_WEBLINKS_RENEW', 'Обновить');
 
     // map
@@ -609,8 +619,10 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Конфигурация карт Google');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Использовать карты Google');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Ключ API карт Google');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'Получите ключ API на <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> при использовании карт Google.');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'Получите ключ API на <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> при использовании карт Google.'
+    );
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Имя сервера');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'Код языка');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Местоположение по умолчанию');
@@ -697,7 +709,7 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     define('_AM_WEBLINKS_USE_HITS', 'Увеличивать счетчик посещений когда переходят на сайт');
     define('_AM_WEBLINKS_USE_HITS_DSC', 'ДА позволяет увеличивать счетчик посещений, когда переходят на сайт');
     define('_AM_WEBLINKS_USE_PASSWD', 'Аутентификация по паролю');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'ДА, <b>анонимные пользователи</b> могут изменять ссылку с аутентификацией по паролю.<br />НЕТ, <br />поле пароля не показывается.');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'ДА, <b>анонимные пользователи</b> могут изменять ссылку с аутентификацией по паролю.<br>НЕТ, <br>поле пароля не показывается.');
     define('_AM_WEBLINKS_PASSWD_MIN', 'Минимальная длина требуемого пароля');
     define('_AM_WEBLINKS_POST_TEXT', 'Администратор имеет все полномочия управления');
     define('_AM_WEBLINKS_AUTH_DOHTML', 'Разрешение на использование HTML-тегов');
@@ -713,24 +725,30 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', 'Показать список категорий в подменю');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'ДА показать список верхних категорий в подменю');
     define('_AM_WEBLINKS_VIEW_URL', 'Стиль просмотра адреса');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           'NONE <br />не показывать адрес или &lt;a&gt; тег.<br />Непрямой<br /> показывать visit.php в ссылке поля взамен адреса. <br />Прямой <br />Показывать адрес в ссылке поля, через JavaScript в событии onmousedown поля посещения считаются через JavaScript.');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        'NONE <br>не показывать адрес или &lt;a&gt; тег.<br>Непрямой<br> показывать visit.php в ссылке поля взамен адреса. <br>Прямой <br>Показывать адрес в ссылке поля, через JavaScript в событии onmousedown поля посещения считаются через JavaScript.'
+    );
     define('_AM_WEBLINKS_VIEW_URL_0', 'NONE');
     define('_AM_WEBLINKS_VIEW_URL_1', 'Непрямой адрес');
     define('_AM_WEBLINKS_VIEW_URL_2', 'Прямой адрес');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Приоритет рекомендуемых сайтов');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-           'NONE <br />Не показывать.<br />Нормальное <br />Рекомендуемые сайты показываются в заголовке.<br />Высокое <br />Показывать Рекомендованные сайты наверху каждой соответствующей категории.');
+    define(
+        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
+        'NONE <br>Не показывать.<br>Нормальное <br>Рекомендуемые сайты показываются в заголовке.<br>Высокое <br>Показывать Рекомендованные сайты наверху каждой соответствующей категории.'
+    );
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Приоритет лучших сайтов');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC',
-           'NONE <br />Не показывать.<br />Нормальное <br />Лучшие сайты показываются в заголовке.<br />Высокое <br />Показывать Лучшие сайты наверху каждой соответствующей категории.');
+    define(
+        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
+        'NONE <br>Не показывать.<br>Нормальное <br>Лучшие сайты показываются в заголовке.<br>Высокое <br>Показывать Лучшие сайты наверху каждой соответствующей категории.'
+    );
     define('_AM_WEBLINKS_PRI_0', 'NONE');
     define('_AM_WEBLINKS_PRI_1', 'Нормальное');
     define('_AM_WEBLINKS_PRI_2', 'Высокое');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'Автоматическое обновление размера баннера');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'ДА <br />обновлять размер изображения баннера автоматически.');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'ДА <br>обновлять размер изображения баннера автоматически.');
     define('_AM_WEBLINKS_RSS_USE', 'Использовать RSS каналы');
-    define('_AM_WEBLINKS_RSS_USE_DSC', 'ДА <br />Получать и отображать RSS/ATOM каналы.');
+    define('_AM_WEBLINKS_RSS_USE_DSC', 'ДА <br>Получать и отображать RSS/ATOM каналы.');
 
     // bulk import
     define('_AM_WEBLINKS_BULK_IMPORT', 'Массовый импорт');
@@ -757,8 +775,10 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
 if (!defined('_AM_WEBLINKS_INDEX_DESC')) {
     define('_AM_WEBLINKS_INDEX_DESC', 'Вступительный текст главной страницы');
     define('_AM_WEBLINKS_INDEX_DESC_DSC', 'Вы можете использовать этот раздел, чтобы показать некоторое описание или вводный текст. HTML допускается.');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT',
-           '<div align="center" style="color: #0000ff">Вот здесь находится введение вашей страницы.<br />Вы можете отредактировать это в "Конфигурации модуля 2".<br /></div>');
+    define(
+        '_AM_WEBLINKS_INDEX_DESC_DEFAULT',
+        '<div align="center" style="color: #0000ff">Вот здесь находится введение вашей страницы.<br>Вы можете отредактировать это в "Конфигурации модуля 2".<br></div>'
+    );
 }
 
 // these words are defined in admin.php

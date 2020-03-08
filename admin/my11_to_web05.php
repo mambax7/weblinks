@@ -28,7 +28,7 @@ echo '<h3>category table</h3>';
 $sql1    = 'SELECT * FROM ' . $xoopsDB->prefix('mylinks_cat') . ' ORDER BY cid';
 $result1 = sql_exec($sql1);
 
-$category = array();
+$category = [];
 
 while ($row = $xoopsDB->fetchArray($result1)) {
     $cid    = $row['cid'];
@@ -68,7 +68,7 @@ while ($row = $xoopsDB->fetchArray($result2)) {
     $rating      = $row['rating'];
     $votes       = $row['votes'];
     $comments    = $row['comments'];
-    $passwd      = md5(rand(10000000, 99999999));
+    $passwd      = md5(mt_rand(10000000, 99999999));
     $cids        = "&$cid&";
 
     $banner = $shots_url . $row['logourl'];
@@ -85,7 +85,7 @@ while ($row = $xoopsDB->fetchArray($result2)) {
     $cat    = addslashes($category[$cid]);
     $search = "$url $title $cat $description";
 
-    $desc = substr($desc, 0, 100);
+    $desc = mb_substr($desc, 0, 100);
     echo "$lid: $title: $desc <br>";
 
     $sql = 'INSERT INTO ' . $xoopsDB->prefix('weblinks_link') . ' (';
@@ -116,7 +116,7 @@ function sql_exec($sql)
     global $xoopsDB;
 
     $ret = $xoopsDB->queryF($sql);
-    if ($ret != false) {
+    if (false !== $ret) {
         return $ret;
     }
 

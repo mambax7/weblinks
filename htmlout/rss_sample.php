@@ -16,7 +16,6 @@
 if (!class_exists('weblinks_htmlout_rss_sample')) {
     class weblinks_htmlout_rss_sample extends weblinks_htmlout_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -41,17 +40,17 @@ if (!class_exists('weblinks_htmlout_rss_sample')) {
             $text = '';
             if ($url) {
                 $url_s = happy_linux_sanitize_url($url);
-                $text .= '<a href="' . $url_s . '" target="_blank">';
-                $text .= $url_s . '</a> <br /><br />';
+                $text  .= '<a href="' . $url_s . '" target="_blank">';
+                $text  .= $url_s . '</a> <br><br>';
             }
             $text .= $desc_disp;
 
             $this->set('rss_content', $text);
+
             return true;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

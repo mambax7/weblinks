@@ -20,7 +20,6 @@ if (!class_exists('weblinks_modify_basic_handler')) {
     //=========================================================
     class weblinks_modify_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -47,6 +46,7 @@ if (!class_exists('weblinks_modify_basic_handler')) {
         {
             $sql   = 'SELECT count(*) FROM ' . $this->_table . ' WHERE mode=' . (int)$mode;
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
@@ -67,6 +67,5 @@ if (!class_exists('weblinks_modify_basic_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

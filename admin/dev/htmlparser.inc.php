@@ -13,14 +13,14 @@
 
 //---------------------------------------------------------
 // ORIGINAL
-// http://php-html.sourceforge.net/
+// https://php-html.sourceforge.net/
 //---------------------------------------------------------
 
 /*
  * Copyright (c) 2003 Jose Solorzano.  All rights reserved.
  * Redistribution of source must retain this copyright notice.
  *
- * Jose Solorzano (http://jexpert.us) is a software consultant.
+ * Jose Solorzano (https://jexpert.us) is a software consultant.
  *
  * Contributions by:
  * - Leo West (performance improvements)
@@ -46,7 +46,6 @@ define('NODE_TYPE_DONE', 5);
  */
 class HtmlParser
 {
-
     /**
      * Field iNodeType.
      * May be one of the NODE_TYPE_* constants above.
@@ -88,18 +87,17 @@ class HtmlParser
      * Constructs an HtmlParser instance with
      * the HTML text given.
      * @param $aHtmlText
-     * @return HtmlParser
      */
     public function __construct($aHtmlText)
     {
         $this->iHtmlText       = $aHtmlText;
-        $this->iHtmlTextLength = strlen($aHtmlText);
-        $this->iNodeAttributes = array();
+        $this->iHtmlTextLength = mb_strlen($aHtmlText);
+        $this->iNodeAttributes = [];
         $this->setTextIndex(0);
 
-        $this->BOE_ARRAY = array(' ', "\t", "\r", "\n", '=');
-        $this->B_ARRAY   = array(' ', "\t", "\r", "\n");
-        $this->BOS_ARRAY = array(' ', "\t", "\r", "\n", '/');
+        $this->BOE_ARRAY = [' ', "\t", "\r", "\n", '='];
+        $this->B_ARRAY   = [' ', "\t", "\r", "\n"];
+        $this->BOS_ARRAY = [' ', "\t", "\r", "\n", '/'];
     }
 
     /**
@@ -111,50 +109,54 @@ class HtmlParser
     public function parse()
     {
         $text = $this->skipToElement();
-        if ($text != '') {
+        if ('' != $text) {
             $this->iNodeType  = NODE_TYPE_TEXT;
             $this->iNodeName  = 'Text';
             $this->iNodeValue = $text;
+
             return true;
         }
+
         return $this->readTag();
     }
 
     public function clearAttributes()
     {
-        $this->iNodeAttributes = array();
+        $this->iNodeAttributes = [];
     }
 
     public function readTag()
     {
-        if ($this->iCurrentChar != '<') {
+        if ('<' != $this->iCurrentChar) {
             $this->iNodeType = NODE_TYPE_DONE;
+
             return false;
         }
         $this->clearAttributes();
         $this->skipMaxInTag('<', 1);
-        if ($this->iCurrentChar == '/') {
+        if ('/' == $this->iCurrentChar) {
             $this->moveNext();
             $name             = $this->skipToBlanksInTag();
             $this->iNodeType  = NODE_TYPE_ENDELEMENT;
             $this->iNodeName  = $name;
             $this->iNodeValue = '';
             $this->skipEndOfTag();
+
             return true;
         }
         $name = $this->skipToBlanksOrSlashInTag();
         if (!$this->isValidTagIdentifier($name)) {
             $comment = false;
-            if (strpos($name, '!--') === 0) {
-                $ppos = strpos($name, '--', 3);
-                if (strpos($name, '--', 3) === (strlen($name) - 2)) {
+            if (0 === mb_strpos($name, '!--')) {
+                $ppos = mb_strpos($name, '--', 3);
+                if (mb_strpos($name, '--', 3) === (mb_strlen($name) - 2)) {
                     $this->iNodeType  = NODE_TYPE_COMMENT;
                     $this->iNodeName  = 'Comment';
                     $this->iNodeValue = '<' . $name . '>';
                     $comment          = true;
                 } else {
                     $rest = $this->skipToStringInTag('-->');
-                    if ($rest != '') {
+                    if ('' != $rest) {
                         $this->iNodeType  = NODE_TYPE_COMMENT;
                         $this->iNodeName  = 'Comment';
                         $this->iNodeValue = '<' . $name . $rest;
@@ -168,6 +170,7 @@ class HtmlParser
                 $this->iNodeType  = NODE_TYPE_TEXT;
                 $this->iNodeName  = 'Text';
                 $this->iNodeValue = '<' . $name;
+
                 return true;
             }
         } else {
@@ -176,26 +179,27 @@ class HtmlParser
             $this->iNodeName  = $name;
             while ($this->skipBlanksInTag()) {
                 $attrName = $this->skipToBlanksOrEqualsInTag();
-                if ($attrName != '' && $attrName != '/') {
+                if ('' != $attrName && '/' != $attrName) {
                     $this->skipBlanksInTag();
-                    if ($this->iCurrentChar == '=') {
+                    if ('=' == $this->iCurrentChar) {
                         $this->skipEqualsInTag();
                         $this->skipBlanksInTag();
-                        $value                                        = $this->readValueInTag();
-                        $this->iNodeAttributes[strtolower($attrName)] = $value;
+                        $value                                           = $this->readValueInTag();
+                        $this->iNodeAttributes[mb_strtolower($attrName)] = $value;
                     } else {
-                        $this->iNodeAttributes[strtolower($attrName)] = '';
+                        $this->iNodeAttributes[mb_strtolower($attrName)] = '';
                     }
                 }
             }
         }
         $this->skipEndOfTag();
+
         return true;
     }
 
     public function isValidTagIdentifier($name)
     {
-        return preg_match("/^[A-Za-z0-9_\\-]+$/", $name);
+        return preg_match('/^[A-Za-z0-9_\\-]+$/', $name);
     }
 
     public function skipBlanksInTag()
@@ -227,17 +231,18 @@ class HtmlParser
     {
         $ch    = $this->iCurrentChar;
         $value = '';
-        if ($ch == "\"") {
-            $this->skipMaxInTag("\"", 1);
-            $value = $this->skipToInTag("\"");
-            $this->skipMaxInTag("\"", 1);
-        } elseif ($ch == "'") {
+        if ('"' == $ch) {
+            $this->skipMaxInTag('"', 1);
+            $value = $this->skipToInTag('"');
+            $this->skipMaxInTag('"', 1);
+        } elseif ("'" == $ch) {
             $this->skipMaxInTag("'", 1);
             $value = $this->skipToInTag("'");
             $this->skipMaxInTag("'", 1);
         } else {
             $value = $this->skipToBlanksInTag();
         }
+
         return $value;
     }
 
@@ -247,7 +252,7 @@ class HtmlParser
         if ($index >= $this->iHtmlTextLength) {
             $this->iCurrentChar = -1;
         } else {
-            $this->iCurrentChar = $this->iHtmlText{$index};
+            $this->iCurrentChar = $this->iHtmlText[$index];
         }
     }
 
@@ -255,17 +260,19 @@ class HtmlParser
     {
         if ($this->iHtmlTextIndex < $this->iHtmlTextLength) {
             $this->setTextIndex($this->iHtmlTextIndex + 1);
+
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function skipEndOfTag()
     {
-        while (($ch = $this->iCurrentChar) !== -1) {
-            if ($ch == '>') {
+        while (-1 !== ($ch = $this->iCurrentChar)) {
+            if ('>' == $ch) {
                 $this->moveNext();
+
                 return;
             }
             $this->moveNext();
@@ -275,24 +282,24 @@ class HtmlParser
     public function skipInTag($chars)
     {
         $sb = '';
-        while (($ch = $this->iCurrentChar) !== -1) {
-            if ($ch == '>') {
+        while (-1 !== ($ch = $this->iCurrentChar)) {
+            if ('>' == $ch) {
                 return $sb;
-            } else {
-                $match = false;
-                for ($idx = 0; $idx < count($chars); ++$idx) {
-                    if ($ch == $chars[$idx]) {
-                        $match = true;
-                        break;
-                    }
-                }
-                if (!$match) {
-                    return $sb;
-                }
-                $sb .= $ch;
-                $this->moveNext();
             }
+            $match = false;
+            for ($idx = 0; $idx < count($chars); ++$idx) {
+                if ($ch == $chars[$idx]) {
+                    $match = true;
+                    break;
+                }
+            }
+            if (!$match) {
+                return $sb;
+            }
+            $sb .= $ch;
+            $this->moveNext();
         }
+
         return $sb;
     }
 
@@ -300,32 +307,32 @@ class HtmlParser
     {
         $sb    = '';
         $count = 0;
-        while (($ch = $this->iCurrentChar) !== -1 && ++$count < $maxChars) {
-            if ($ch == '>') {
+        while (-1 !== ($ch = $this->iCurrentChar) && ++$count < $maxChars) {
+            if ('>' == $ch) {
                 return $sb;
-            } else {
-                $match = false;
-                for ($idx = 0; $idx < count($chars); ++$idx) {
-                    if ($ch == $chars[$idx]) {
-                        $match = true;
-                        break;
-                    }
-                }
-                if (!$match) {
-                    return $sb;
-                }
-                $sb .= $ch;
-                $this->moveNext();
             }
+            $match = false;
+            for ($idx = 0; $idx < count($chars); ++$idx) {
+                if ($ch == $chars[$idx]) {
+                    $match = true;
+                    break;
+                }
+            }
+            if (!$match) {
+                return $sb;
+            }
+            $sb .= $ch;
+            $this->moveNext();
         }
+
         return $sb;
     }
 
     public function skipToInTag($chars)
     {
         $sb = '';
-        while (($ch = $this->iCurrentChar) !== -1) {
-            $match = $ch == '>';
+        while (-1 !== ($ch = $this->iCurrentChar)) {
+            $match = '>' == $ch;
             if (!$match) {
                 for ($idx = 0; $idx < count($chars); ++$idx) {
                     if ($ch == $chars[$idx]) {
@@ -340,19 +347,21 @@ class HtmlParser
             $sb .= $ch;
             $this->moveNext();
         }
+
         return $sb;
     }
 
     public function skipToElement()
     {
         $sb = '';
-        while (($ch = $this->iCurrentChar) !== -1) {
-            if ($ch == '<') {
+        while (-1 !== ($ch = $this->iCurrentChar)) {
+            if ('<' == $ch) {
                 return $sb;
             }
             $sb .= $ch;
             $this->moveNext();
         }
+
         return $sb;
     }
 
@@ -366,13 +375,14 @@ class HtmlParser
      */
     public function skipToStringInTag($needle)
     {
-        $pos = strpos($this->iHtmlText, $needle, $this->iHtmlTextIndex);
-        if ($pos === false) {
+        $pos = mb_strpos($this->iHtmlText, $needle, $this->iHtmlTextIndex);
+        if (false === $pos) {
             return '';
         }
-        $top      = $pos + strlen($needle);
-        $retvalue = substr($this->iHtmlText, $this->iHtmlTextIndex, $top - $this->iHtmlTextIndex);
+        $top      = $pos + mb_strlen($needle);
+        $retvalue = mb_substr($this->iHtmlText, $this->iHtmlTextIndex, $top - $this->iHtmlTextIndex);
         $this->setTextIndex($top);
+
         return $retvalue;
     }
 }
@@ -384,15 +394,16 @@ function HtmlParser_ForFile($fileName)
 
 function HtmlParser_ForURL($url)
 {
-    $fp      = fopen($url, 'r');
+    $fp      = fopen($url, 'rb');
     $content = '';
     while (true) {
         $data = fread($fp, 8192);
-        if (strlen($data) == 0) {
+        if (0 == mb_strlen($data)) {
             break;
         }
         $content .= $data;
     }
     fclose($fp);
+
     return new HtmlParser($content);
 }

@@ -18,7 +18,6 @@
 //=========================================================
 class admin_link_add extends admin_link_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -31,9 +30,10 @@ class admin_link_add extends admin_link_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_add();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -48,6 +48,7 @@ class admin_link_add extends admin_link_base
     public function _print_add_form()
     {
         $this->_form->show_admin_form('submit');
+
         return true;
     }
 
@@ -64,7 +65,6 @@ class admin_link_add extends admin_link_base
         }
 
         if ($this->_exec_add_link()) {
-
             // when set banner
             if ($this->get_post_banner()) {
                 $this->_print_add_banner_form($this->_newid, 'add_banner');
@@ -85,10 +85,9 @@ class admin_link_add extends admin_link_base
             $msg .= $this->_build_comment($com);  // for test form
             redirect_header($this->_redirect_desc, 1, $msg);
             exit();
-        } else {
-            $this->_print_add_db_error();
-            exit();
         }
+        $this->_print_add_db_error();
+        exit();
     }
 
     public function _exec_add_link()
@@ -96,10 +95,12 @@ class admin_link_add extends admin_link_base
         $newid = $this->_edit_handler->admin_add_link();
         if (!$newid) {
             $this->_set_errors($this->_edit_handler->getErrors());
+
             return false;
         }
 
         $this->_newid = $newid;
+
         return $newid;
     }
 
@@ -108,8 +109,10 @@ class admin_link_add extends admin_link_base
         $ret = $this->_check_handler->check_form_addlink_by_post();
         if (!$ret) {
             $this->_set_errors($this->_check_handler->get_errors_addlink());
+
             return false;
         }
+
         return true;
     }
 
@@ -127,13 +130,13 @@ class admin_link_add extends admin_link_base
 
         if ($this->_error_title) {
             xoops_error($this->_error_title);
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $err = $this->getErrors(1);
         $err .= $this->_check_handler->get_formated_error_addlink();
         echo $this->_form->build_html_error_with_style($err);
-        echo "<br />\n";
+        echo "<br>\n";
 
         $this->_print_add_preview_form();
         $this->_print_cp_footer();
@@ -147,14 +150,14 @@ class admin_link_add extends admin_link_base
         $this->_print_cp_header();
         $this->_print_bread_op($this->_LANG_TITLE_MOD, 'add_form', _AM_WEBLINKS_ADD_BANNER);
 
-        if ($op_mode == 'add_banner') {
+        if ('add_banner' == $op_mode) {
             echo '<h4 style="color: #0000ff;">' . _WLS_NEWLINKADDED . "</h4>\n";
-            echo "<hr />\n";
+            echo "<hr>\n";
         }
 
         $this->_print_title(_AM_WEBLINKS_ADD_BANNER);
 
-        if ($op_mode == 'add_banner_preview') {
+        if ('add_banner_preview' == $op_mode) {
             $this->_print_token_error(1);
             $this->_print_error(1);
         }
@@ -191,10 +194,9 @@ class admin_link_add extends admin_link_base
             $msg .= $this->_build_comment('add banner');    // for test form
             redirect_header($this->_redirect_desc, 1, $msg);
             exit();
-        } else {
-            $this->_print_add_db_error();
-            exit();
         }
+        $this->_print_add_db_error();
+        exit();
     }
 
     // --- class end ---

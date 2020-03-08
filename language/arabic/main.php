@@ -11,7 +11,7 @@
 
 // 2007-08-01 K.OHWADA
 // _WEBLINKS_GM_CURRENT_ADDRESS
-// <br> => <br />
+// <br> => <br>
 
 // 2007-04-08 K.OHWADA
 // _WEBLINKS_GM_TYPE
@@ -64,185 +64,185 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //---------------------------------------------------------
 
     //======         singlelink.php        ======
-    define('_WLS_CATEGORY', 'ÇáÞÓã');
-    define('_WLS_HITS', 'ÇáÒíÇÑÇÊ');
-    define('_WLS_RATING', 'ÇáÊÞííã');
-    define('_WLS_VOTE', 'ÇáÊÕæíÊ');
-    define('_WLS_ONEVOTE', 'ÕæÊ æÇÍÏ');
-    define('_WLS_NUMVOTES', '%s ÕæÊ');
-    define('_WLS_RATETHISSITE', 'Þííã åÐÇ ÇáãæÞÚ');
-    define('_WLS_REPORTBROKEN', 'ÇÎÈÑäÇ Úä æÕáÉ áÇ ÊÚãá');
-    define('_WLS_TELLAFRIEND', 'ÃÎÈÑ ÕÏíÞ');
-    define('_WLS_EDITTHISLINK', 'ÊÚÏíá åÐÇ ÇáÑÇÈØ');
-    define('_WLS_MODIFY', 'ÊÚÏíá');
+    define('_WLS_CATEGORY', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_HITS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_RATING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_VOTE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ONEVOTE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NUMVOTES', '%s ï¿½ï¿½ï¿½');
+    define('_WLS_RATETHISSITE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_REPORTBROKEN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TELLAFRIEND', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_EDITTHISLINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_MODIFY', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======        submit.php        ======
-    define('_WLS_SUBMITLINKHEAD', 'ÇÑÓÇá ÑÇÈØ ÌÏíÏÉ');
-    define('_WLS_SUBMITONCE', 'ÃÑÓá ãæÞÚß ãÑÉ æÇÍÏÉ');
-    define('_WLS_DONTABUSE', 'Êã ÍÝÙ ÇáÇÓã ãÚ ÇáÇí Èí ÑÌÇÁ áÇ ÊÔÛá ÇáäÙÇã.');
-    define('_WLS_TAKESHOT', 'ÓæÝ äÃÎÐ ÕæÑÉ ãÕÛÑÉ Úä ÇáãæÞÚ æÓæÝ ÊÍÊÇÌ Çáí ÚÏÉ ÇíÇã áÇÖÇÝÊåÇ Çáí ÞÇÚÏÉ ÇáÈíÇäÇÊ.');
-    define('_WLS_ALLPENDING', 'ÓæÝ íÊã ÇáÊÍÞíÞ ãä ÇáÑÇÈØ ÞÈá ÇáäÔÑ ');
-    //define("_WLS_WHENAPPROVED","ÓæÝ äÑÓá áß Çãíá Ýí ÍÇáÉ ÇáãæÇÝÞÉ.");
-    define('_WLS_RECEIVED', 'áÞÏ ÊáÞíäÇ ãÚáæãÇÊ ãæÞÚß ÔßÑÇ áß!');
+    define('_WLS_SUBMITLINKHEAD', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SUBMITONCE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_DONTABUSE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_TAKESHOT', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_ALLPENDING', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ');
+    //define("_WLS_WHENAPPROVED","ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
+    define('_WLS_RECEIVED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½!');
 
     //======        modlink.php        ======
-    define('_WLS_REQUESTMOD', 'ØáÈ Ýí ÊÚÏíá ÑÇÈØ');
-    define('_WLS_THANKSFORINFO', 'ÔßÑÇ áåÐí ÇáãÚáæãÇÊ , ÓæÝ äÑì ØáÈß Ýí ÃÞÕÑ æÞÊ.');
+    define('_WLS_REQUESTMOD', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_THANKSFORINFO', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.');
 
-    define('_WLS_THANKSFORHELP', 'ÔßÑÇ ááãÓÇÚÏÉ áÅÈÞÇÁ ÓáÇãÉ åÐÇ ÇáÏáíá.');
-    define('_WLS_FORSECURITY', 'áÃÓÈÇÈ ÃãäíÉ ÇáÇÓã æÚäæÇä Âí Èí áÏíß ÓíÊã ÊÓÌíáåÇ ÈÔßá ãÄÞÊ.');
+    define('_WLS_THANKSFORHELP', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_FORSECURITY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
 
-    define('_WLS_SEARCHFOR', 'ÈÍË Úä'); //-no use
-    define('_WLS_ANY', 'Ãí');
-    define('_WLS_SEARCH', 'ÈÍË');
+    define('_WLS_SEARCHFOR', 'ï¿½ï¿½ï¿½ ï¿½ï¿½'); //-no use
+    define('_WLS_ANY', 'ï¿½ï¿½');
+    define('_WLS_SEARCH', 'ï¿½ï¿½ï¿½');
 
     //define("_WLS_MAIN","Main");
-    define('_WLS_SUBMITLINK', 'ÃÑÓá ÑÇÈØ');
-    define('_WLS_POPULAR', 'ÇáãÔåæÑ');
-    define('_WLS_TOPRATED', 'ÃÝÖá ÊÞííã');
+    define('_WLS_SUBMITLINK', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_POPULAR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TOPRATED', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_NEWTHISWEEK', 'ÌÏíÏ ÇáÃÓÈæÚ');
-    define('_WLS_UPTHISWEEK', 'ÍÏíË åÐÇ ÇáÃÓÈæÚ');
+    define('_WLS_NEWTHISWEEK', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_UPTHISWEEK', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_POPULARITYLTOM', 'ÇáÃßËÑ ÒíÇÑÉ (ÃÞá Åáì ÃßËÑ ÒíÇÑÇÊ)');
-    define('_WLS_POPULARITYMTOL', 'ÇáÃßËÑ ÒíÇÑÉ (ÃßËÑ Åáì ÃÞá ÒíÇÑÇÊ)');
-    define('_WLS_TITLEATOZ', 'ÇáÚäæÇä (Ç Çáì í)');
-    define('_WLS_TITLEZTOA', 'ÇáÚäæÇä (í Çáì Ç)');
-    define('_WLS_DATEOLD', 'ÇáÊÇÑíÎ (ÇáÑæÇÈØ ÇáÞÏíãÉ ÃæáÇ)');
-    define('_WLS_DATENEW', 'ÇáÊÇÑíÎ (ÇáÑæÇÈØ ÇáÌÏíÏÉ ÃæáÇ)');
-    define('_WLS_RATINGLTOH', 'ÇáÊÞíã (ãä ÇáÃÞá Åáì ÇáÃÚáì)');
-    define('_WLS_RATINGHTOL', 'ÇáÊÞííã (ãä ÇáÃÚáì Åáì ÇáÃÞá)');
+    define('_WLS_POPULARITYLTOM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)');
+    define('_WLS_POPULARITYMTOL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)');
+    define('_WLS_TITLEATOZ', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ ï¿½ï¿½ï¿½ ï¿½)');
+    define('_WLS_TITLEZTOA', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ ï¿½ï¿½ï¿½ ï¿½)');
+    define('_WLS_DATEOLD', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)');
+    define('_WLS_DATENEW', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)');
+    define('_WLS_RATINGLTOH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)');
+    define('_WLS_RATINGHTOL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½)');
 
-    //define("_WLS_NOSHOTS","áÇ íæÌÏ ÕæÑÉ ãÊæÝÑÉ");
-    //define("_WLS_DESCRIPTIONC","ÇáæÕÝ: ");
-    //define("_WLS_EMAILC","ÇáÈÑíÏ: ");
-    //define("_WLS_CATEGORYC","ÇáÞÓã: ");
-    //define("_WLS_LASTUPDATEC","ÂÎÑ ÊÍÏíË: ");
-    //define("_WLS_HITSC","ÇáÒíÇÑÇÊ: ");
-    //define("_WLS_RATINGC","ÇáÊÞíã: ");
+    //define("_WLS_NOSHOTS","ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    //define("_WLS_DESCRIPTIONC","ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_EMAILC","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_CATEGORYC","ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_LASTUPDATEC","ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_HITSC","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_RATINGC","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 
-    define('_WLS_THEREARE', 'åäÇß <b> %s </b> ãæÇÞÚ Ýí ÞÇÚÏÉ ÇáÈíÇäÇÊ');
-    define('_WLS_LATESTLIST', 'ÂÎÑ ÇáäÊÇÆÌ');
+    define('_WLS_THEREARE', 'ï¿½ï¿½ï¿½ï¿½ <b> %s </b> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LATESTLIST', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    //define("_WLS_LINKID","ÑÞã ÇáæÕáÉ: ");
-    //define("_WLS_SITETITLE","ÇÓã ÇáãæÞÚ: ");
-    //define("_WLS_SITEURL","ÚäæÇä ÇáãæÞÚ: ");
-    //define("_WLS_OPTIONS","ÎíÇÑÇÊ: ");
-    define('_WLS_LINKID', 'ÑÞã ÇáÑÇÈØ');
-    define('_WLS_SITETITLE', 'ÅÓã ÇáãæÞÚ');
-    define('_WLS_SITEURL', 'ÚäæÇä ÇáãæÞÚ');
-    define('_WLS_OPTIONS', 'ÎíÇÑÇÊ');
+    //define("_WLS_LINKID","ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_SITETITLE","ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_SITEURL","ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    //define("_WLS_OPTIONS","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    define('_WLS_LINKID', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITETITLE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITEURL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_OPTIONS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_NOTIFYAPPROVE', 'ÊÈáíÛí ãÊì íÊã ÇáãæÇÝÞÉ Úáì ÇáÑÇÈØ');
-    //define("_WLS_SHOTIMAGE","ÕæÑÉ ãÕÛÑÉ: ");
-    define('_WLS_SENDREQUEST', 'ÃÑÓá ØáÈ');
+    define('_WLS_NOTIFYAPPROVE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define("_WLS_SHOTIMAGE","ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    define('_WLS_SENDREQUEST', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
 
-    define('_WLS_VOTEAPPRE', 'ÔßÑÇ Úáí ÇáÊÕæíÊ');
-    define('_WLS_THANKURATE', 'ÔßÑÇ áß áÊÞíã åÐÇ ÇáãæÞÚ %s.');
-    define('_WLS_VOTEFROMYOU', 'ãÓÇåãÉ ÇáÇÚÖÇÁ  äÝÓß ÇäÊ ÓæÝ ÓÊÓÇÚÏ ÇáÒæÇÑ Úáí ÊÞÑíÑ Ãí ÑÇÈØ íÎÊÇÑæäÉ.');
-    define('_WLS_VOTEONCE', 'ÑÌÇÁ áÇ ÊÞííã ÇáãæÞÚ ÃßËÑ ãä ãÑÉ');
-    define('_WLS_RATINGSCALE', 'Åä ãÞíÇÓ ÇáÊÞííãÇÊ ãä 1 Çáì 10¡ ÈÜ1 íßæä ÓíøÆ æ10 íßæä ããÊÇÒ.');
-    define('_WLS_BEOBJECTIVE', 'ÑÌÇÁ ßä åÏÇÝ¡ ÅÐÇ ÇÓÊáã ßá æÇÍÏ  1 Ãæ  10¡ ÈÚÖ ÇáÊÞííãÇÊ áíÓÊ ãÝíÏÉ ÌÏÇ.');
-    define('_WLS_DONOTVOTE', 'áÇ ÊÕæøÊ áÕÇáÍß ÇáÔÎÕí.');
-    define('_WLS_RATEIT', 'ÞííãÉ!');
+    define('_WLS_VOTEAPPRE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_THANKURATE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s.');
+    define('_WLS_VOTEFROMYOU', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_VOTEONCE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½');
+    define('_WLS_RATINGSCALE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ 10ï¿½ ï¿½ï¿½1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½10 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_BEOBJECTIVE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  1 ï¿½ï¿½  10ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.');
+    define('_WLS_DONOTVOTE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_RATEIT', 'ï¿½ï¿½ï¿½ï¿½ï¿½!');
 
-    define('_WLS_INTRESTLINK', 'ÑÇÈØ ãæÞÚ ãÝíÏÉ Ýí %s');  // %s is your site name
-    define('_WLS_INTLINKFOUND', 'åäÇ ÑÇÈØ ãæÞÚ æíÈ ãÝíÏ æÌÏÊ Ýí %s');  // %s is your site name
+    define('_WLS_INTRESTLINK', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ %s');  // %s is your site name
+    define('_WLS_INTLINKFOUND', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ %s');  // %s is your site name
 
-    define('_WLS_RANK', 'ÇáÊÑÊíÈ');
+    define('_WLS_RANK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WLS_TOP10', '%s Top 10'); // %s is a link category title
 
-    define('_WLS_SEARCHRESULTS', 'äÊÇÆÌ ÇáÈÍË Úä <b>%s</b>:'); // %s is search keywords
-    define('_WLS_SORTBY', 'ÊÑÊíÈ ÍÓÈ:');
-    define('_WLS_TITLE', 'ÇáÚäæÇä');
-    define('_WLS_DATE', 'ÇáÊÇÑíÎ');
-    define('_WLS_POPULARITY', 'ÇáÃßËÑ ÒíÇÑÉ');
-    define('_WLS_CURSORTEDBY', 'ÇáãæÇÞÚ ãÑÊøÈÉ ÍÇáíÇ ÍÓÈ: %s');
-    define('_WLS_PREVIOUS', 'ÇáÓÇÈÞ');
-    define('_WLS_NEXT', 'ÇáÊÇáí');
-    define('_WLS_NOMATCH', 'áÇ íæÌÏ ÇáßËíÑ Úä ÈÍËß');
+    define('_WLS_SEARCHRESULTS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ <b>%s</b>:'); // %s is search keywords
+    define('_WLS_SORTBY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½:');
+    define('_WLS_TITLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_DATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_POPULARITY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CURSORTEDBY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: %s');
+    define('_WLS_PREVIOUS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NEXT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOMATCH', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_SUBMIT', 'ÇÑÓÇá');
-    define('_WLS_CANCEL', 'ÇáÛÇÁ');
+    define('_WLS_SUBMIT', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CANCEL', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_ALREADYREPORTED', 'áÞÏ ÞÏãÊ ÊÞÑíÑÇ ãÓÈÞÇ Úä åÐÇ ÇáÇãÑ');
-    define('_WLS_MUSTREGFIRST', 'ÂÓÝ¡ áíÓ áÏíß ÊÕÑíÍ áÅÏÇÁ åÐå ÇáÚãáíÉ. <br /> ÑÌÇÁ ÓÌøá Ãæ ÇÏÎá ÃæáÇ!');
-    define('_WLS_NORATING', 'áÇ íæÌÏ ÊÞíã ãÍÏÏ');
-    define('_WLS_CANTVOTEOWN', ' áÇ íãßäß ÇáÊÕæíÊ Úáì ãæÞÚß. <br /> ßáø ÇáÃÕæÇÊ ÊÓÌøá æÊÑÇÌÚ.');
-    define('_WLS_VOTEONCE2', 'ÕæøÊ áÕÇáÍ ÇáãæÞÚ ãÑÉ æÇÍÏÉ. <br /> ßáø ÇáÃÕæÇÊ ÊÓÌøá æÊÑÇÌÚ.');
+    define('_WLS_ALREADYREPORTED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_MUSTREGFIRST', 'ï¿½ï¿½Ý¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. <br> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!');
+    define('_WLS_NORATING', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CANTVOTEOWN', ' ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. <br> ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_VOTEONCE2', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. <br> ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
 
     //%%%%%%        Admin          %%%%%
 
-    define('_WLS_WEBLINKSCONF', 'ÎíÇÑÇÊ ÑæÇÈØ ÇáæíÈ');
-    define('_WLS_GENERALSET', 'ÎíÇÑÇÊ ÇáÑæÇÈØ ÇáÚÇãÉ');
+    define('_WLS_WEBLINKSCONF', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_GENERALSET', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     //define("_WLS_ADDMODDELETE","Add, Modify, and Delete Categories/Links");
-    define('_WLS_LINKSWAITING', 'ÇáÑæÇÈØ ÇáÌÏíÏÉ ÇáÊí ÊäÊÙÑ ÇáãæÇÝÞÉ');
-    define('_WLS_MODREQUESTS', 'ÇáÑæÇÈØ ÇáãÚÏáÉ ÇáÊí ÊäÊÙÑ ÇáãæÇÝÞÉ');
-    define('_WLS_BROKENREPORTS', 'ÊÞÇÑíÑ ÇáÑæÇÈØ ÇáÊí áÇ ÊÚãá');
+    define('_WLS_LINKSWAITING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_MODREQUESTS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_BROKENREPORTS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
     //define("_WLS_SUBMITTER","Submitter: ");
-    define('_WLS_SUBMITTER', 'ÇáãÑÓá');
+    define('_WLS_SUBMITTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_VISIT', 'ÒíÇÑÉ');
+    define('_WLS_VISIT', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //define("_WLS_SHOTMUST","Screenshot image must be a valid image file under %s directory (ex. shot.gif). Leave it blank if no image file.");
-    define('_WLS_LINKIMAGEMUST', ' ÅÏÎá ÇÓã ãáÝ æÕáÉ ÇáÕæÑÉ ÊÍÊ Ïáíá %s . (ãËÇá Úáì Ðáß: - shot.gif) ÇÊÑß ÇáÍÞá ÝÇÑÛ ÅÐÇ áíÓ åäÇß ãáÝ ááÕæÑÉ.');
+    define('_WLS_LINKIMAGEMUST', ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %s . (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: - shot.gif) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
 
-    define('_WLS_APPROVE', 'ãæÇÝÞÉ');
-    define('_WLS_DELETE', 'ÍÐÝ');
-    define('_WLS_NOSUBMITTED', 'áÇ íæÌÏ ÑæÇÈØ ãÑÓáÉ ÌÏíÏÉ.');
-    define('_WLS_ADDMAIN', 'ÃÖÝ ÞÓã ÑÆíÓí');
-    define('_WLS_TITLEC', 'ÇáÚäæÇä: ');
-    define('_WLS_IMGURL', 'ÚäæÇä ÇáÕæÑÉ (ÅÑÊÝÇÚ ÇáÕæÑÉ ÓæÝ íÚÇÏ ÊÍÌíãÉ Çáí 50): ');
-    define('_WLS_ADD', 'ÃÖÝ');
-    define('_WLS_ADDSUB', 'ÇÖÝ ÞÓã ÝÑÚí');
-    define('_WLS_IN', 'Ýí');
-    define('_WLS_ADDNEWLINK', 'ÅÖÇÝÉ ÑÇÈØ ÌÏíÏÉ');
-    define('_WLS_MODCAT', 'ÊÚÏíá ÞÓã');
-    define('_WLS_MODLINK', 'ÊÚÏíá ãæÞÚ');
-    define('_WLS_TOTALVOTES', 'ÃÕæÇÊ ÇáÑæÇÈØ (ãÌãæÚ ÇáÊÕæíÊÇÊ: %s)');
-    define('_WLS_USERTOTALVOTES', 'ÃÕæÇÊ ÇáÃÚÖÇÁ ÇáãÓÌáíä (ãÌãæÚ ÇáÊÕæíÊÇÊ: %s)');
-    define('_WLS_ANONTOTALVOTES', 'ÃÕæÇÊ ÇáÒæÇÑ (ãÌãæÚ ÇáÊÕæíÊÇÊ: %s)');
-    define('_WLS_USER', 'ÚÖæ');
-    define('_WLS_IP', 'ÑÞã ÇáÃí Èí');
-    define('_WLS_USERAVG', 'ãÊæÓØ ÇáÊÞíã');
-    define('_WLS_TOTALRATE', 'ãÌãæÚ ÇáÊÞíã');
-    define('_WLS_NOREGVOTES', 'áÇ íæÌÏ ÃÚÖÇ ãÕæÊíä');
-    define('_WLS_NOUNREGVOTES', 'áÇ íæÌÏ ÒæÇÑ ãÕæÊíä');
-    define('_WLS_VOTEDELETED', 'ÈíÇäÇÊ ÇáÊÕæíÊ ÍÐÝÊ.');
-    define('_WLS_NOBROKEN', 'áÇ íæÌÏ ÊÞÇÑíÑ Úä ÑæÇÈØ áÇ ÊÚãá.');
-    define('_WLS_IGNOREDESC', 'Ãåãá (ÃåãÇá ÇáÊÞÑíÑ æÍÐÝ ÝÞØ <b> ÊÞÑíÑ ÇáÑæÇÈØ ÇáÊí áÇ ÊÚãá </b>) ');
-    define('_WLS_DELETEDESC', 'ÅÍÐÝ (ÍÐÝ <b> ÈíÇäÇÊ ÇáãæÞÚ ÇáãõÈáÛ ÚäåÇ </b> æ<b> ÊÞÇÑíÑ ÇáÑæÇÈØ ÇáÊí áÇ ÊÚãá </b> ááÑÇÈØ.)');
-    define('_WLS_REPORTER', 'ÊÞÑíÑ ãÑÓá');
+    define('_WLS_APPROVE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_DELETE', 'ï¿½ï¿½ï¿½');
+    define('_WLS_NOSUBMITTED', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_ADDMAIN', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TITLEC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ');
+    define('_WLS_IMGURL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 50): ');
+    define('_WLS_ADD', 'ï¿½ï¿½ï¿½');
+    define('_WLS_ADDSUB', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_IN', 'ï¿½ï¿½');
+    define('_WLS_ADDNEWLINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_MODCAT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
+    define('_WLS_MODLINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TOTALVOTES', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s)');
+    define('_WLS_USERTOTALVOTES', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s)');
+    define('_WLS_ANONTOTALVOTES', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s)');
+    define('_WLS_USER', 'ï¿½ï¿½ï¿½');
+    define('_WLS_IP', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½');
+    define('_WLS_USERAVG', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TOTALRATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOREGVOTES', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOUNREGVOTES', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_VOTEDELETED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_NOBROKEN', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_IGNOREDESC', 'ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ <b> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </b>) ');
+    define('_WLS_DELETEDESC', 'ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ <b> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </b> ï¿½<b> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ </b> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.)');
+    define('_WLS_REPORTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_IGNORE', 'ÑÝÖ');
-    define('_WLS_LINKDELETED', 'ÍÐÝ ÇáÑÇÈØ.');
-    define('_WLS_BROKENDELETED', 'ÊÞÑíÑ Úä ÇáÑÇÈØ ÇáÐí áÇ íÚãá ÍÐÝ.');
+    define('_WLS_IGNORE', 'ï¿½ï¿½ï¿½');
+    define('_WLS_LINKDELETED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_BROKENDELETED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.');
     //define("_WLS_USERMODREQ","User Link Modification Requests");
-    define('_WLS_ORIGINAL', 'ÃÕáí');
-    define('_WLS_PROPOSED', 'íÞÊÑÍ');
-    define('_WLS_OWNER', 'ÇáãÇáß');
-    define('_WLS_NOMODREQ', 'áÇ íæÌÏ ØáÈ ÊÚÏíá ÑÇÈØ.');
-    define('_WLS_DBUPDATED', 'Êã ÊÍÏíË ÞÇÚÏÉ ÇáÈíÇäÇÊ ÈäÌÇÍ!');
-    define('_WLS_MODREQDELETED', 'ØáÈ ÊÚÏíá ÍõÐÝ.');
-    define('_WLS_IMGURLMAIN', 'ÚäæÇä ÇáÕæÑÉ ( ÅÎÊíÇÑíÉ: æÝÞØ ááÃÞÓÇã ÇáÑÆíÓíÉ. ÅÑÊÝÇÚ ÕæÑÉ ÓíÚÇÏ ÊÍÌíãÉ Çáì 50):');
-    define('_WLS_PARENT', 'ÇáÞÓã ÇáÑÆíÓí');
-    define('_WLS_SAVE', 'ÍÝÙ ÇáÊÛíÑÇÊ');
-    define('_WLS_CATDELETED', 'ÇáÞÓã ÍÐÝ.');
-    define('_WLS_WARNING', 'ÊÍÐíÑ: åá ÃäÊ ãÊÃßÏ ÈÃä ÊÍÐÝ åÐÇ ÇáÞÓã æßá ÇáÑæÇÈØ æÊÚáíÞÇÊåÇ¿');
-    define('_WLS_YES', 'äÚã');
-    define('_WLS_NO', 'áÇ');
-    define('_WLS_NEWCATADDED', 'Êã ÅÖÇÝÉ ÇáÞÓã ÈäÌÇÍ!');
+    define('_WLS_ORIGINAL', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_PROPOSED', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_OWNER', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOMODREQ', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_DBUPDATED', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½!');
+    define('_WLS_MODREQDELETED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_IMGURLMAIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 50):');
+    define('_WLS_PARENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SAVE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CATDELETED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.');
+    define('_WLS_WARNING', 'ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿');
+    define('_WLS_YES', 'ï¿½ï¿½ï¿½');
+    define('_WLS_NO', 'ï¿½ï¿½');
+    define('_WLS_NEWCATADDED', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½!');
     //define("_WLS_ERROREXIST","ERROR: The Link you provided is already in the database!");
     //define("_WLS_ERRORTITLE","ERROR: You need to enter a TITLE!");
     //define("_WLS_ERRORDESC","ERROR: You need to enter a DESCRIPTION!");
-    define('_WLS_NEWLINKADDED', 'ÅÖÇÝÊ ÑÇÈØ ÌÏíÏÉ Åáì ÞÇÚÏÉ ÇáÈíÇäÇÊ.');
-    define('_WLS_YOURLINK', 'ÑÇÈØ ãæÞÚß Ýí %s');
-    define('_WLS_YOUCANBROWSE', ' íãßä Ãä ÊÊÕÝÍ ÑæÇÈØ ãæÞÚäÇ Ýí %s');
+    define('_WLS_NEWLINKADDED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_YOURLINK', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ %s');
+    define('_WLS_YOUCANBROWSE', ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ %s');
     define('_WLS_HELLO', 'Hello %s');
-    define('_WLS_WEAPPROVED', 'áÞÏ ÊãÊ ÇáãæÇÝÞÉ Úáí ÑÇÈØ ÇáãæÞÚ');
-    define('_WLS_THANKSSUBMIT', 'ÔßÑÇ áÅÑÓÇáß!');
-    define('_WLS_ISAPPROVED', 'áÞÏ ÊãÊ ÇáãæÇÝÞÉ Úáí ÇáÑÇÈØ');
+    define('_WLS_WEAPPROVED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_THANKSSUBMIT', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!');
+    define('_WLS_ISAPPROVED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //---------------------------------------------------------
     // weblinks
@@ -250,131 +250,131 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
 
     //======        index.php        ======
     // guidance bar
-    define('_WLS_SUBMIT_NEW_LINK', 'ÃÖÝ ãæÞÚß');
-    define('_WLS_SITE_POPULAR', 'ÇáãæÇÞÚ ÇáÃßËÑ ÒíÇÑÉ');
-    define('_WLS_SITE_HIGHRATE', 'ÃÝÖá ÇáãæÇÞÚ ÇáãÞíãÉ');
-    define('_WLS_SITE_NEW', 'ÂÎÑ ÇáãæÇÞÚ');
-    define('_WLS_SITE_UPDATE', 'ÊÍÏíÏË ÇáãæÞÚ');
+    define('_WLS_SUBMIT_NEW_LINK', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITE_POPULAR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITE_HIGHRATE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITE_NEW', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SITE_UPDATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // corrected typo
-    define('_WLS_SITE_RECOMMEND', 'ãæÇÞÚ íäÕÍ ÝíåÇ');
+    define('_WLS_SITE_RECOMMEND', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
     // BUG 3032: "mutual site" is not suitable English
-    define('_WLS_SITE_MUTUAL', 'ÇáãæÇÞÚ ÇáãÊÈÇÏáÉ');
+    define('_WLS_SITE_MUTUAL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_SITE_RANDOM', 'ãæÞÚ ÚÔæÇÆí');
-    define('_WLS_NEW_SITELIST', 'ÂÎÑ ãæÞÚ');
+    define('_WLS_SITE_RANDOM', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NEW_SITELIST', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
     define('_WLS_NEW_ATOMFEED', 'Latest RSS/ATOM Feed');
     define('_WLS_SITE_RSS', 'RSS/ATOM Site');
     define('_WLS_ATOMFEED', 'RSS/ATOM Feed');
 
-    define('_WLS_LASTUPDATE', 'ÂÎÑ ÊÍÏíÏË');
-    define('_WLS_MORE', 'ãÒíÏ ãä ÇáÊÝÇÕíá');
+    define('_WLS_LASTUPDATE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_MORE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======         singlelink.php        ======
-    define('_WLS_DESCRIPTION', 'ÇáæÕÝ');
-    define('_WLS_PROMOTER', 'ÇáäÇÔÑ');
-    define('_WLS_ZIP', 'ÇáÑãÒ ÇáÈÑíÏí');
-    define('_WLS_ADDR', 'ÇáÚäæÇä');
-    define('_WLS_TEL', 'ÑÞã ÇáÊáÝæä');
-    define('_WLS_FAX', 'ÚÏÏ ÇáäÓÎÉ');
+    define('_WLS_DESCRIPTION', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_PROMOTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ZIP', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ADDR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_TEL', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_FAX', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======         submit.php        ======
-    define('_WLS_BANNERURL', 'ÚäæÇä ÇáÈäÑ');
-    define('_WLS_NAME', 'ÇáÃÓã');
-    define('_WLS_EMAIL', 'ÇáÈÑíÏ');
-    define('_WLS_COMPANY', 'ÔÑßÉ / ãäÙãÉ');
-    define('_WLS_STATE', 'ÇáæáÇíÉ');
-    define('_WLS_CITY', 'ÇáãÏíäÉ');
-    define('_WLS_ADDR2', 'ÚäæÇä 2');
-    define('_WLS_PUBLIC', 'äÔÑ');
-    define('_WLS_NOTPUBLIC', 'ÚÏã äÔÑ');
-    define('_WLS_NOTSELECT', 'áíÓ ãÍÏøÏ');
-    define('_WLS_SUBMIT_INDISPENSABLE', "ÚáÇãÉ ÇáäÌãÉ ' <b> * </b> ' íÚäí ÅÌÈÇÑíÉ.");
-    define('_WLS_SUBMIT_USER_COMMENT', '"ÅÑÓÇá Åáì ÇáÅÏÇÑÉ  <br /> åÐÇ ÇáÚãæÏ áä íÚÑÖ Úáì ÇáæíÈ. <br /> ÑÌÇÁ ÇßÊÈ ÚäæÇä ãæÞÚß ÍíË íæÌÏ ÑÇÈØ ãæÞÚäÇ¡ ÇÐÇ ßäÊ  ÊÑíÏ Úãá "ÊÈÇÏá ãæÇÞÚ".');
-    define('_WLS_USER_COMMENT', 'ÊÚáíÞ ááÃÏãä');
-    define('_WLS_NOT_DISPLAY', 'åÐÇ ÇáÚãæÏ áä íÚÑÖ Úáì ÇáæíÈ.');
+    define('_WLS_BANNERURL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NAME', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_EMAIL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_COMPANY', 'ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_STATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CITY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ADDR2', 'ï¿½ï¿½ï¿½ï¿½ï¿½ 2');
+    define('_WLS_PUBLIC', 'ï¿½ï¿½ï¿½');
+    define('_WLS_NOTPUBLIC', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
+    define('_WLS_NOTSELECT', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SUBMIT_INDISPENSABLE', "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ' <b> * </b> ' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
+    define('_WLS_SUBMIT_USER_COMMENT', '"ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  <br> ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. <br> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½".');
+    define('_WLS_USER_COMMENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOT_DISPLAY', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.');
 
     //======        modlink.php        ======
-    define('_WLS_MODIFYAPPROVED', 'ÊãÊ ÇáãæÇÝÞÉ Úáí ÊÚÏíá ãæÞÚß ');
-    define('_WLS_MODIFY_NOT_OWNER', 'ÑÌÇÁ ÅÖãä ÈÃäøß ÇáÔÎÕ ÇáÐí ÞÏøã ÇáÑÇÈØ ÇáÃÕáí.');
-    define('_WLS_MODIFY_PENDING', 'ÊÚÏíá ãæÞÚ ãÓÌá. ÓæÝ íÊã ÇáäÔÑ ÈÚÏ ÇáÊÍÞÞ ãä ÇáÑÇÈØ.');
-    define('_WLS_LINKSUBMITTER', 'ÑæÇÈØ ãÑÓáÉ');
+    define('_WLS_MODIFYAPPROVED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ');
+    define('_WLS_MODIFY_NOT_OWNER', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_MODIFY_PENDING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_LINKSUBMITTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======        user.php        ======
-    define('_WLS_PLEASEPASSWORD', 'ÇÏÎá ÇáÑÞã ÇáÓÑí');
-    define('_WLS_REGSTERED', 'ÚÖæ ãÓÌá');
-    define('_WLS_REGSTERED_DSC', 'Ãí ÔÎÕ íãßä Ãä íÚÏá ãÚáæãÇÊ ÑÇÈØ. <br /> ãÓÄæá ÇáãæÞÚ ÓíÏÞÞ ÇáÊÚÏíá ÞÈá ÇáäÔÑ.');
-    define('_WLS_EMAILNOTFOUND', 'ÇáÑÌÇÁ ÇáÊÃßÏ ãä ÇáÈÑíÏ');
+    define('_WLS_PLEASEPASSWORD', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_REGSTERED', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_REGSTERED_DSC', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. <br> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_EMAILNOTFOUND', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // error message
-    define('_WLS_ERROR_FILL', 'ÎØÃ: ÏÎæá %s');
-    define('_WLS_ERROR_ILLEGAL', 'ÎØÃ: ÇáÕíÛÉ ÎÇØÆÉ %s');
-    define('_WLS_ERROR_CID', 'ÎØÃ: ÊÍÏíÏ ÇáÞÓã');
-    define('_WLS_ERROR_URL_EXIST', 'ÎØÃ: ÇáãæÞÚ ãÓÌáÉ ãä Þíá. ');
-    define('_WLS_WARNING_URL_EXIST', 'ÊÍÐíÑ: Êã ÊÓÌíá ãæÞÚ ãÔÇÈÉ ãä ÞÈá. ');
-    define('_WLS_ERRORNOLINK', 'ÎØÃ: áã íÊã ÇáÚËæÑ Úáì ÇáãæÞÚ');
+    define('_WLS_ERROR_FILL', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ %s');
+    define('_WLS_ERROR_ILLEGAL', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ %s');
+    define('_WLS_ERROR_CID', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ERROR_URL_EXIST', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½. ');
+    define('_WLS_WARNING_URL_EXIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½. ');
+    define('_WLS_ERRORNOLINK', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_CATLIST', 'ÞÇÆãÉ ÇáÃÞÓÇã');
-    define('_WLS_LINKIMAGE', 'æÕáÉ ÇáÕæÑÉ: ');
-    //define("_WLS_USERID","ÑÞã ÇáÚÖæ: ");
-    define('_WLS_CATEGORYID', 'ÑÞã ÇáÞÓã: ');
-    //define("_WLS_CREATEC","ÊÇÑíÎ ÇáÊÓÌíá: ");
-    define('_WLS_TIMEUPDATE', 'ÊÍÏíË');
-    define('_WLS_NOTTIMEUPDATE', 'ÚÏã ÇáÊÍÏíË');
-    define('_WLS_LINKFLAG', 'ÊÓÌíá ãæÇÞÚ Ýí åÐÇ ÇáÞÓã');
-    define('_WLS_NOTLINKFLAG', 'ÚÏã ÊÓÌíá ãæÇÞÚ Ýí åÐÇ ÇáÞÓã');
-    define('_WLS_GOTOADMIN', 'ÇáÐåÇÈ Çáí ÕÝÍÉ ÇáÃÏãä');
+    define('_WLS_CATLIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINKIMAGE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ');
+    //define("_WLS_USERID","ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    define('_WLS_CATEGORYID', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½: ');
+    //define("_WLS_CREATEC","ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+    define('_WLS_TIMEUPDATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOTTIMEUPDATE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINKFLAG', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_NOTLINKFLAG', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_GOTOADMIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // category delete
-    define('_WLS_DELCAT', 'ÍÐÝ ÇáÞÓã');
-    define('_WLS_SUBCATEGORY', 'ÞÓã ÝÑÚí');
-    define('_WLS_SUBCATEGORY_NON', 'áÇ íæÌÏ ÞÓã ÝÑÚí');
-    define('_WLS_LINK_BELONG', 'ãæÞÚ ãÊÈÇÏáÉ');
-    define('_WLS_LINK_BELONG_NUMBER', 'ÚÏÏ ÇáÑæÇÈØ ÇáãÊÈÇÏáÉ');
-    define('_WLS_LINK_BELONG_NON', 'áÇ íæÌÏ ÑæÇÈØ ãÊÈÇÏáÉ');
-    define('_WLS_LINK_MAYBE_DELETE', 'ÑæÇÈØ ÓÊÍÐÝ');
-    define('_WLS_LINK_MAYBE_DELETE_DSC', 'äÊÇÆÌ ÇáÚãáíÉ ÞÏ ÊÎÊáÝ ÅÐÇ åäÇß ÃÞÓÇã ÝÑÚíÉ . ÇáÑæÇÈØ ÇáÃÎÑì ÞÏ ÊÍÐÝ.');
-    define('_WLS_LINK_DELETE_NON', 'áÇ íæÌÏ ÑæÇÈØ áÍÐÝåÇ');
-    define('_WLS_CATEGORY_LINK_DELETE_EXCUTE', 'ÍÐÝ ÇáÞÓã ãÚ ÇáÑæÇÈØ');
-    define('_WLS_CATEGORY_LINK_DELETED', 'Êã ÍÐÝ ÇáÞÓã ãÚ ÇáÑæÇÈØ.');
-    define('_WLS_CATEGORY_DELETED', 'ÇáÃÞÓÇã ÍÐÝÊ');
-    define('_WLS_LINK_DELETED', 'ÇáÑæÇÈØ ÍÐÝÊ');
+    define('_WLS_DELCAT', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SUBCATEGORY', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_SUBCATEGORY_NON', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_BELONG', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_BELONG_NUMBER', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_BELONG_NON', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_MAYBE_DELETE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_MAYBE_DELETE_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ . ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_LINK_DELETE_NON', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CATEGORY_LINK_DELETE_EXCUTE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_CATEGORY_LINK_DELETED', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.');
+    define('_WLS_CATEGORY_DELETED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_LINK_DELETED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
-    define('_WLS_ERROR_CATEGORY', 'ÎØÃ: áã íÊã ÊÍÏíÏ ÇáÞÓã');
-    define('_WLS_ERROR_MAX_SUBCAT', 'ÎØÃ: ÚÏÏ ÇáÃÞÓÇã ÇáãÍÏÏÉ ÊÌÇæÒ ÇáÍÏ ÇáÃÚáì áíÊã ÍÐÝåÇ Ýí ÇáæÞÊ');
-    define('_WLS_ERROR_MAX_LINK_BELONG', 'ÎØÃ: ÚÏÏ ÇáÑæÇÈØ ÇáãÊÈÇÏáÉ ÊÌÇæÒ ÇáÍÏ ÇáÃÚáì áíÊã ÍÐÝåÇ Ýí ÇáæÞÊ');
-    define('_WLS_ERROR_MAX_LINK_DEL', 'ÎØÃ: ÚÏÏ ÇáÑæÇÈØ ÇáãÍÏÏÉ ÊÌÇæÒ ÇáÍÏ ÇáÃÚáì áßí íÍÐÝ Ýí ÇáæÞÊ');
+    define('_WLS_ERROR_CATEGORY', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ERROR_MAX_SUBCAT', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ERROR_MAX_LINK_BELONG', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ERROR_MAX_LINK_DEL', 'ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // recommend site, mutual site
-    define('_WLS_MARK', 'ÚáÇãÉ');
-    define('_WLS_ADMINCOMMENT', 'ÊÚáíÞ ÇáÃÏãä');
+    define('_WLS_MARK', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WLS_ADMINCOMMENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // broken link check
-    define('_WLS_BROKEN_COUNTER', 'ÚÏÇÏ ÇáÑÇÈØ áÇ íÚãá');
+    define('_WLS_BROKEN_COUNTER', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
     // RSS/ATOM URL
     define('_WLS_RSS_URL', 'URL of RSS/ATOM');
-    define('_WLS_RSS_URL_0', 'ÚÏã ÅÓÊÚãÇá');
+    define('_WLS_RSS_URL_0', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WLS_RSS_URL_1', 'RSS type');
     define('_WLS_RSS_URL_2', 'ATOM type');
-    define('_WLS_RSS_URL_3', 'ÅÓÊßÔÇÝ Âáí');
+    define('_WLS_RSS_URL_3', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
 
     // 2005-10-20
-    define('_WLS_EMAIL_APPROVE', 'ÊÈáíÞí Ýí ÍÇáÉ ÇáãæÇÝÞÉ');
+    define('_WLS_EMAIL_APPROVE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WLS_TOPTEN_TITLE', '%s Top %u');
     // %s is a link category title
     // %u is number of links
-    define('_WLS_TOPTEN_ERROR', 'åäÇß ÇáßËíÑ ãä ÇáÃÞÓÇã ÇáÑÆíÓíÉ. ÇäÙÑ ÍÓÈ %u');
+    define('_WLS_TOPTEN_ERROR', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ %u');
     // %u is munber of categories
 
     // 2006-04-02
-    define('_WEBLINKS_MID', 'ÊÚÏíá ÑÞã');
-    define('_WEBLINKS_USERID', 'ÑÞã ÇáÚÖæ');
-    define('_WEBLINKS_CREATE', 'ÇäÔÃÊ');
+    define('_WEBLINKS_MID', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USERID', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CREATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // conflict with rssc
     //define('_HOME',  'Home');
@@ -382,43 +382,43 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define('_SAVED', 'Saved');
     //define('_CREATE', 'Create');
     //define('_CREATED','Created');
-    define('_FINISH', 'ÇáäåÇíÉ');
-    define('_FINISHED', 'íäåí');
+    define('_FINISH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_FINISHED', 'ï¿½ï¿½ï¿½ï¿½');
     //define('_EXECUTE', 'Execute');
     //define('_EXECUTED','Executed');
-    define('_PRINT', 'ØÈÇÚÉ');
-    define('_SAMPLE', 'ÚíäÉ');
+    define('_PRINT', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_SAMPLE', 'ï¿½ï¿½ï¿½ï¿½');
 
-    define('_NO_MATCH_RECORD', 'áÇ íÌæÌÏ ÓÌáÇÊ ãÊÔÇÈÉ');
-    define('_MANY_MATCH_RECORD', 'íæÌÏ ÅËäÇä Ãæ ÃßËÑ ÓÌáÇÊ ãÊÔÇÈÉ ');
-    define('_NO_CATEGORY', 'áÇ íæÌÏ ÞÓã');
-    define('_NO_LINK', 'áÇ íæÌÏ ÑÇÈØ');
-    define('_NO_TITLE', 'áÇ íæÌÏ ÚäæÇä');
-    define('_NO_URL', 'áÇ íæÌÏ ãæÞÚ');
-    define('_NO_DESCRIPTION', 'áÇ íæÌÏ æÕÝ');
+    define('_NO_MATCH_RECORD', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_MANY_MATCH_RECORD', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ');
+    define('_NO_CATEGORY', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
+    define('_NO_LINK', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_NO_TITLE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_NO_URL', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_NO_DESCRIPTION', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
 
-    define('_GOTO_MAIN', 'ÇáÐåÇÈ Çáí ÇáÑÆíÓíÉ');
-    define('_GOTO_MODULE', 'ÇáÐåÇÈ Çáí ÇáÈÑäÇãÌ');
+    define('_GOTO_MAIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_GOTO_MODULE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // config
-    define('_WEBLINKS_INIT_NOT', 'áã ÊÔÛá ÎíÇÑÇÊ ÇáÌÏæá');
-    define('_WEBLINKS_INIT_EXEC', 'ÎíÇÑÇÊ ÇáÌÏæá ÔÛáÊ');
+    define('_WEBLINKS_INIT_NOT', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_INIT_EXEC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
     define('_WEBLINKS_VERSION_NOT', 'This module is not version  %s yet. Update now');
-    define('_WEBLINKS_UPGRADE_EXEC', 'ÊØæíÑ ÎíÇÑÇÊ ÇáÌÏæá');
+    define('_WEBLINKS_UPGRADE_EXEC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // html tag
-    define('_WEBLINKS_OPTIONS', 'ÎíÇÑÇÊ');
-    define('_WEBLINKS_DOHTML', ' ÊÝÚíá ÃßæÇÏ html ');
-    define('_WEBLINKS_DOIMAGE', 'ÊÝÚíá ÇáÕæÑ');
-    define('_WEBLINKS_DOBREAK', ' ÊÝÚíá ÇáÝÞÑÉ');
-    define('_WEBLINKS_DOSMILEY', ' ÊÝÚíá ÇáÃÈÊÓÇãÇÊ');
-    define('_WEBLINKS_DOXCODE', 'ÊÝÚíá ÃßæÇÏ xoops');
+    define('_WEBLINKS_OPTIONS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DOHTML', ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ html ');
+    define('_WEBLINKS_DOIMAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DOBREAK', ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DOSMILEY', ' ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DOXCODE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ xoops');
 
-    define('_WEBLINKS_PASSWORD_INCORRECT', 'ÇáÑÞã ÇáÓÑí ÎØÃ');
+    define('_WEBLINKS_PASSWORD_INCORRECT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½');
     define('_WEBLINKS_ETC', 'etc');
     define('_WEBLINKS_AUTH_UID', 'User ID Match');
     define('_WEBLINKS_AUTH_PASSWD', 'Password Match');
-    define('_WEBLINKS_BANNER_SIZE', 'ãÞÇÓ ÇáÈäÑ');
+    define('_WEBLINKS_BANNER_SIZE', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2006-10-01 ===
     // conflict with rssc
@@ -433,7 +433,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //  define('_EXECUTED','Executed');
     //}
 
-    define('_WEBLINKS_MAP_USE', 'ÅÓÊÚãÇá ÇíÞæäÉ ÇáÎÑíØÉ');
+    define('_WEBLINKS_MAP_USE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // rssc
     define('_WEBLINKS_RSSC_LID', 'RSSC Lid');
@@ -441,60 +441,60 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_RSSC_NOT_INSTALLED', 'RSSC module ( %s ) is not installed');
     define('_WEBLINKS_RSSC_INSTALLED', 'RSSC module ( %s ) ver %s is installed');
     define('_WEBLINKS_RSSC_REQUIRE', 'Requires RSSC module ver %s or later');
-    define('_WEBLINKS_GOTO_SINGLELINK', 'ÇáÐåÇÈ Çáì ãÚáæãÇÊ ÇáÑÇÈØ');
+    define('_WEBLINKS_GOTO_SINGLELINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // warnig
-    define('_WEBLINKS_WARN_NOT_READ_URL', 'ÊÍÐíÑ: ÛíÑ ÞÇÏÑ Úáì ÞÑÇÁÉ ÇáÚäæÇä');
-    define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'ÊÍÐíÑ: ÛíÑ ÞÇÏÑ Úáì ÌáÈ ãÞÇÓÇÊ ÇáÈäÑ');
+    define('_WEBLINKS_WARN_NOT_READ_URL', 'ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    // google map: hacked by wye <http://never-ever.info/>
-    define('_WEBLINKS_GM_LATITUDE', 'ÎØ ÇáÚÑÖ');
-    define('_WEBLINKS_GM_LONGITUDE', 'ÎØ ÇáØæá');
-    define('_WEBLINKS_GM_ZOOM', 'ãÓÊæì ÇáÊÞÑíÈ');
-    define('_WEBLINKS_GM_GET_LOCATION', 'Åä ãÚáæãÇÊ ÇáãæÞÚ ãßÊÓÈÉ ãÚ ÎÑÇÆØ ÌæÌá');
+    // google map: hacked by wye <https://never-ever.info/>
+    define('_WEBLINKS_GM_LATITUDE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_LONGITUDE', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_ZOOM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_GET_LOCATION', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
     //define('_WEBLINKS_GM_GET_BUTTON', 'Get Latitude/Longitude/Zoom');
-    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'ÇáãæÞÚ ÇáÃÝÊÑÇÖí');
-    define('_WEBLINKS_GM_CURRENT_LOCATION', 'ÇáãæÞÚ ÇáÍÇáí');
+    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_CURRENT_LOCATION', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2006-11-04 ===
     // google map inline mode
-    define('_WEBLINKS_GOOGLE_MAPS', 'ÎÑÇÆØ ÌæÌá');
-    define('_WEBLINKS_JAVASCRIPT_INVALID', 'ãÊÕÝÍß áÇ íÏÚã ÌÇÝÇ ÓßÑíÊ');
-    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'ãÊÕÝÍß áÇ íãßäå ÇÓÊÎÏÇã Çæ áÇ íÏÚã ÎÑíØÉ ÌæÌá');
-    define('_WEBLINKS_GM_NEW_WINDOW', 'ÚÑÖ Ýí äÇÝÐå ÌÏíÏÉ');
-    define('_WEBLINKS_GM_INLINE', 'ÚÑÖ Ýí äÝÓ ÇáÕÝÍÉ');
-    define('_WEBLINKS_GM_DISP_OFF', 'ÊÚØíá ÇáÚÑÖ');
+    define('_WEBLINKS_GOOGLE_MAPS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_JAVASCRIPT_INVALID', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_NEW_WINDOW', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_INLINE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_DISP_OFF', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // google map: inverse Geocoder
     define('_WEBLINKS_GM_GET_LATITUDE', 'Get Latitude/Longitude/Zoom');
-    define('_WEBLINKS_GM_GET_ADDR', 'ÇÍÖÑ ÇáÚäæÇä');
+    define('_WEBLINKS_GM_GET_ADDR', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2006-12-11 ===
     // google map: Geocode
-    define('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS', 'ÈÍË ÇáÎÑíØÉ ãä ÇáÚäæÇä');
-    define('_WEBLINKS_GM_NO_MATCH_PLACE', 'áíÓ åäÇß ãßÇä áãÌÇÑÇÉ ÇáÚäæÇä');
+    define('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_NO_MATCH_PLACE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WEBLINKS_GM_JP_SEARCH_MAP_FROM_ADDRESS', 'Search Map from the address in Japan');
     define('_WEBLINKS_GM_JP_TOKYO_AC_GEOCODE', 'Japan Tokyo University');
     define('_WEBLINKS_GM_JP_MLIT_ISJ', 'Japan Ministry of Land Infrastructure and Transport');
 
     // link item
-    define('_WEBLINKS_TIME_PUBLISH', 'ÊÇÑíÎ ÇáäÔÑ');
-    define('_WEBLINKS_TIME_EXPIRE', 'ÊÇÑíÎ ÇáÃäÊåÇÁ');
-    define('_WEBLINKS_TEXTAREA', 'ßÊÇÈÉ äÕ');
+    define('_WEBLINKS_TIME_PUBLISH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TIME_EXPIRE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TEXTAREA', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½');
 
-    define('_WEBLINKS_WARN_TIME_PUBLISH', 'áã íÍä æÞÊ ÇáÇäÊåÇÁ');
-    define('_WEBLINKS_WARN_TIME_EXPIRE', 'ÇäÞÖÇÁ ÇáæÞÊ ÇáãäÊåí');
-    define('_WEBLINKS_WARN_BROKEN', 'ããßä ÇáÑÇÈØ áÇ íÚãá');
+    define('_WEBLINKS_WARN_TIME_PUBLISH', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_WARN_TIME_EXPIRE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_WARN_BROKEN', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-02-20 ===
     // forum
     define('_WEBLINKS_LATEST_FORUM', 'Leatest Forum');
-    define('_WEBLINKS_FORUM', 'ÇáãäÊÏì');
+    define('_WEBLINKS_FORUM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WEBLINKS_THREAD', 'Thead');
     define('_WEBLINKS_POST', 'Post');
-    define('_WEBLINKS_FORUM_ID', 'ÑÞã ÇáãäÊÏì');
-    define('_WEBLINKS_FORUM_SEL', 'ÊÍÏíÏ ÇáãäÊÏì');
-    define('_WEBLINKS_COMMENT_USE', 'ÇÓÊÚãÇá ÊÚáíÞ xoops');
+    define('_WEBLINKS_FORUM_ID', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_FORUM_SEL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_COMMENT_USE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ xoops');
 
     // aux
     define('_WEBLINKS_CAT_AUX_TEXT_1', 'aux_text_1');
@@ -514,34 +514,33 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_REDIRECT_JP_SITE', 'Jump to Japanese Site');
 
     // === 2007-03-25 ===
-    define('_WEBLINKS_ALBUM_ID', 'ÑÞã ÇáÃáÈæã');
-    define('_WEBLINKS_ALBUM_SEL', 'ÊÍÏíÏ ÇáÃáÈæã');
+    define('_WEBLINKS_ALBUM_ID', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ALBUM_SEL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-04-08 ===
-    define('_WEBLINKS_GM_TYPE', 'äæÚ ÎÑíØÉ ÌæÌá');
-    define('_WEBLINKS_GM_TYPE_MAP', 'ÎÑíØÉ');
-    define('_WEBLINKS_GM_TYPE_SATELLITE', 'ÓÊáÇíÊ');
+    define('_WEBLINKS_GM_TYPE', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_TYPE_MAP', 'ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_TYPE_SATELLITE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     define('_WEBLINKS_GM_TYPE_HYBRID', 'Hybrid');
 
     // === 2007-08-01 ===
-    define('_WEBLINKS_GM_CURRENT_ADDRESS', 'ÇáÚäæÇä ÇáÍÇáí');
-    define('_WEBLINKS_GM_SEARCH_LIST', 'ÞÇÆãÉ äÊíÌÉ ÇáÈÍË');
+    define('_WEBLINKS_GM_CURRENT_ADDRESS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_GM_SEARCH_LIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-09-01 ===
     // waiting list
-    define('_WEBLINKS_ADMIN_WAITING_LIST', 'ÞÇÆãÉ ÅäÊÙÇÑ ÇáÃÏãä');
-    define('_WEBLINKS_USER_WAITING_LIST', 'ÞÇÆãÉ ÅäÊÙÇÑß');
-    define('_WEBLINKS_USER_OWNER_LIST', 'ÞÇÆãÉ ãæÇÞÚß');
+    define('_WEBLINKS_ADMIN_WAITING_LIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USER_WAITING_LIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USER_OWNER_LIST', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // submit form
-    define('_WEBLINKS_TIME_PUBLISH_SET', 'ÍÏÏ æÞÊ ÇáäÔÑ');
-    define('_WEBLINKS_TIME_PUBLISH_DESC', 'ÇÐÇ áã ÊÍÏÏ æÞÊ ÇáäÔÑ , ÓæÝ ÊäÔÑ Úáí ÇáÝæÑ');
-    define('_WEBLINKS_TIME_EXPIRE_SET', 'ÍÏÏ ÇäÊåÇÁ ÇáäÔÑ');
-    define('_WEBLINKS_TIME_EXPIRE_DESC', 'ÇÐÇ áã ÊÍÏÏ ÇäÊåÇÁ ÇáäÔÑ , ÓæÝ áä ÊäÊåí');
-    define('_WEBLINKS_DEL_LINK_CONFIRM', 'ÊÃßíÏ ÇáÍÐÝ');
-    define('_WEBLINKS_DEL_LINK_REASON', 'ÓÈÈ ÇáÍÐÝ');
+    define('_WEBLINKS_TIME_PUBLISH_SET', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TIME_PUBLISH_DESC', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TIME_EXPIRE_SET', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TIME_EXPIRE_DESC', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DEL_LINK_CONFIRM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_DEL_LINK_REASON', 'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-11-01 ===
     define('_WEBLINKS_ERROR_LENGTH', 'Error: %s must be less than %s characters');
 }// --- define language end ---
-;

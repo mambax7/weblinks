@@ -13,13 +13,13 @@
 //---------------------------------------------------------
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('WEBLINKS_LANG_MP_LOADED', 1);
 
-    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Действительно в Японии</font><br />Относится к карте Японии и категории');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Действительно в Японии</font><br>Относится к карте Японии и категории');
     define('_AM_WEBLINKS_MAP_JP_LABEL', 'Метка');
     define('_AM_WEBLINKS_MAP_JP_PREF', 'Имя префектуры на карте');
     define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'Показать карту Японии на главной странице');
@@ -73,4 +73,3 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_MIYAZAKI', 'Миядзаки');
     define('_WEBLINKS_JP_OKINAWA', 'Окинава');
 }// --- define language end ---
-;

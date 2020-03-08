@@ -16,7 +16,7 @@ $test = weblinks_test_form::getInstance();
 
 dev_header();
 echo "<h3>test form: admin add category</h3>\n";
-echo 'admin: ' . $test->get_admin_uname() . "<br />\n";
+echo 'admin: ' . $test->get_admin_uname() . "<br>\n";
 
 $list_url = WEBLINKS_URL . '/admin/category_list.php?sortid=1';
 
@@ -40,10 +40,10 @@ if (!$ret) {
 
 if ($test->match_return_msg('add record')) {
     echo "<h4>Success !</h4>\n";
-    echo 'add category: ' . $title . " <br /><br />\n";
+    echo 'add category: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add_category form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br />\n";
+    echo "Error: add_category form failed: <br><hr>\n";
+    echo $test->get_body() . "<br>\n";
 }
 
 //---------------------------------------------------------
@@ -66,12 +66,11 @@ if (!$ret) {
 
 if ($test->match_return_msg('update path')) {
     echo "<h4>Success !</h4>\n";
-    echo 'add category: ' . $title . " <br /><br />\n";
+    echo 'add category: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add_category form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br />\n";
+    echo "Error: add_category form failed: <br><hr>\n";
+    echo $test->get_body() . "<br>\n";
 }
 
-echo '<a href="' . $list_url . '" target="_blank" >goto cateogry list</a>' . "<br />\n";
-dev_footer();// --- end of main ---
-;
+echo '<a href="' . $list_url . '" target="_blank" >goto cateogry list</a>' . "<br>\n";
+dev_footer(); // --- end of main ---

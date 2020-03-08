@@ -75,7 +75,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Description of each config items
     //-------------------------------------
     define('_MI_WEBLINKS_POPULAR', 'Select the number of hits for links to be marked as popular');
-    define('_MI_WEBLINKS_POPULARDSC', 'Enter the minimum number of hits to show "POPULAR" icon. <br />  If 0, no icon is shown. ');
+    define('_MI_WEBLINKS_POPULARDSC', 'Enter the minimum number of hits to show "POPULAR" icon. <br>  If 0, no icon is shown. ');
     define('_MI_WEBLINKS_NEWLINKS', 'Select the maximum number of new links displayed on top page');
 
     //define('_MI_WEBLINKS_NEWLINKSDSC', 'Enter the maximum number of links to be displayed in the "New Links" block. ');
@@ -163,7 +163,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TITLESHOWDSC', 'Select "YES" to display the module title');
 
     define('_MI_WEBLINKS_NEWDAYS', 'Select the number of days for links to be marked as new');
-    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Enter the number of hits to show "NEW" icon. <br /> If 0, no icon is displayed. ');
+    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Enter the number of hits to show "NEW" icon. <br> If 0, no icon is displayed. ');
 
     define('_MI_WEBLINKS_DESCSHORT', 'Maximum number of characters used for link list explanation ');
     define('_MI_WEBLINKS_DESCSHORTDSC', 'Enter the maximum number of characters to be used for link list explanation. ');
@@ -189,8 +189,10 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Choose whether to display target link page inside a frame');
 
     define('_MI_WEBLINKS_BROKEN', 'Number of Broken Link reports to stop a display');
-    define('_MI_WEBLINKS_BROKENDSC',
-           'Enter the number of Broken Link Reports to stop a display. <br /> When below this value, it will be regarded as a temporary error, and nothing will be done. <br />When over this value the link will no longer be displayed.');
+    define(
+        '_MI_WEBLINKS_BROKENDSC',
+        'Enter the number of Broken Link Reports to stop a display. <br> When below this value, it will be regarded as a temporary error, and nothing will be done. <br>When over this value the link will no longer be displayed.'
+    );
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Use link images for a link list');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Maximum width of a link image');
@@ -212,14 +214,16 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Enter the maximum number of links to be displayed in "Popular Site" and "Top Rated Site". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'The maximum number of categories in topten');
-    define('_MI_WEBLINKS_TOPTEN_CATS_DSC',
-           'Enter the maximum number of categories  to be displayed in "Popular Site" and "Top Rated Site". <br />timeout occurs, if too many top categories are selected');
+    define(
+        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
+        'Enter the maximum number of categories  to be displayed in "Popular Site" and "Top Rated Site". <br>timeout occurs, if too many top categories are selected'
+    );
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
     //define('_MI_WEBLINKS_INDEX_DESC','Main Page Introductory Text');
     //define('_MI_WEBLINKS_INDEX_DESC_DSC', 'You can use this section to display some descriptive or introductory text. HTML is allowed.');
-    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Here is where your page introduction goes.<br />You can edit it at "Module Configuration 2".</font><br /></div>');
+    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Here is where your page introduction goes.<br>You can edit it at "Module Configuration 2".</font><br></div>');
 
     // 2006-05-15
     define('_MI_WEBLINKS_ADMENU0', 'Index');
@@ -245,4 +249,3 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Receive notification when any new link is posted (if entered the comment for admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New Link)');
 }// --- define language begin ---
-;

@@ -18,7 +18,7 @@ include_once '../../../../mainfile.php';
 include_once XOOPS_ROOT_PATH . '/include/cp_functions.php';
 $moduleperm_handler = &xoops_getHandler('groupperm');
 if ($xoopsUser) {
-    $url_arr        = explode('/', strstr($xoopsRequestUri, '/modules/'));
+    $url_arr        = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
     $module_handler = xoops_getHandler('module');
     $xoopsModule    = $module_handler->getByDirname($url_arr[2]);
     unset($url_arr);
@@ -32,7 +32,7 @@ if ($xoopsUser) {
     exit();
 }
 // set config values for this module
-if ($xoopsModule->getVar('hasconfig') == 1 || $xoopsModule->getVar('hascomments') == 1) {
+if (1 == $xoopsModule->getVar('hasconfig') || 1 == $xoopsModule->getVar('hascomments')) {
     $config_handler    = &xoops_getHandler('config');
     $xoopsModuleConfig = &$config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 }

@@ -23,7 +23,7 @@
 
 include 'header.php';
 
-$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
 // Notice [PHP]: Undefined variable: dirname
 $weblinks_link_view = weblinks_link_view::getInstance(WEBLINKS_DIRNAME);

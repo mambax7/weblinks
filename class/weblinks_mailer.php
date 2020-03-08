@@ -27,7 +27,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_mailer')) {
-
     //=========================================================
     // class weblinks_mailer
     //=========================================================
@@ -41,8 +40,8 @@ if (!class_exists('weblinks_mailer')) {
         public $_body;
         public $_header;
 
-        public $_to_users = array();
-        public $_success  = array();
+        public $_to_users = [];
+        public $_success  = [];
 
         // debug
         public $_flag_send;
@@ -55,7 +54,7 @@ if (!class_exists('weblinks_mailer')) {
         {
             parent::__construct();
 
-            $this->_mailer =& getMailer();
+            $this->_mailer = &getMailer();
 
             $this->set_flag_send(false);
             $this->set_debug(true);
@@ -64,9 +63,10 @@ if (!class_exists('weblinks_mailer')) {
         public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_mailer();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 
@@ -106,18 +106,21 @@ if (!class_exists('weblinks_mailer')) {
         public function send($debug = false)
         {
             $ret = $this->_mailer->send($debug);
+
             return $ret;
         }
 
         public function get_mailer_success($ashtml = true)
         {
             $ret = $this->_mailer->getSuccess($ashtml);
+
             return $ret;
         }
 
         public function get_mailer_errors($ashtml = true)
         {
             $ret = $this->_mailer->getErrors($ashtml);
+
             return $ret;
         }
 
@@ -130,17 +133,16 @@ if (!class_exists('weblinks_mailer')) {
 
             global $xoopsConfig;
 
-            if ($this->_mailer->body == '' && $this->_mailer->template == '') {
+            if ('' == $this->_mailer->body && '' == $this->_mailer->template) {
                 if ($debug) {
                     $this->_set_errors(_MAIL_MSGBODY);
                 }
-                return false;
-            } elseif ($this->_mailer->template != '') {
-                $path =
-                    ($this->_mailer->templatedir != '') ? $this->_mailer->templatedir . '' . $this->_mailer->template : (XOOPS_ROOT_PATH . '/language/' . $xoopsConfig['language'] . '/mail_template/'
-                                                                                                                         . $this->_mailer->template);
 
-                if (!($fd = @fopen($path, 'r'))) {
+                return false;
+            } elseif ('' != $this->_mailer->template) {
+                $path = ('' != $this->_mailer->templatedir) ? $this->_mailer->templatedir . '' . $this->_mailer->template : (XOOPS_ROOT_PATH . '/language/' . $xoopsConfig['language'] . '/mail_template/' . $this->_mailer->template);
+
+                if (!($fd = @fopen($path, 'rb'))) {
                     if ($debug) {
                         $this->_set_errors(_MAIL_FAILOPTPL);
                     }
@@ -193,11 +195,11 @@ if (!class_exists('weblinks_mailer')) {
             $this->_header  = $header;
 
             if (!$this->_flag_send) {
-                echo nl2br($this->_sanitize($header)) . " <br /><br />\n";
+                echo nl2br($this->_sanitize($header)) . " <br><br>\n";
             }
         }
 
-        public function set_to_users(&$user)
+        public function set_to_users($user)
         {
             if (is_array($user)) {
                 $this->_to_users[] = $user;
@@ -220,15 +222,16 @@ if (!class_exists('weblinks_mailer')) {
             if ($flag_error) {
                 return false;
             }
+
             return true;
         }
 
-        public function send_user(&$user, $debug = false)
+        public function send_user($user, $debug = false)
         {
             $flag_error = false;
 
-            $this->_mailer->errors  = array();
-            $this->_mailer->success = array();
+            $this->_mailer->errors  = [];
+            $this->_mailer->success = [];
 
             $lid   = $user['lid'];
             $email = $user['email'];
@@ -275,13 +278,14 @@ if (!class_exists('weblinks_mailer')) {
                 echo "<b>$lid</b>: ";
                 echo $this->_sanitize($name) . ', ';
                 echo $this->_sanitize($email) . ', ';
-                echo $this->_sanitize($subject) . " <br />\n";
-                echo nl2br($this->_sanitize($body)) . " <br /><br />\n";
+                echo $this->_sanitize($subject) . " <br>\n";
+                echo nl2br($this->_sanitize($body)) . " <br><br>\n";
             }
 
             if ($flag_error) {
                 return false;
             }
+
             return true;
         }
 
@@ -310,14 +314,13 @@ if (!class_exists('weblinks_mailer')) {
 
             if (file_exists($dir_tpl_lang . $file_tpl)) {
                 return $dir_tpl_lang;
-            } else {
-                $dir = $MODULE_ROOT . '/language/english/mail_template/';
-                return $dir;
             }
+            $dir = $MODULE_ROOT . '/language/english/mail_template/';
+
+            return $dir;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

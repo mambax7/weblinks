@@ -19,7 +19,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_view_basic')) {
-
     //=========================================================
     // class weblinks_link_view_basic
     //=========================================================
@@ -49,8 +48,8 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->_DIRNAME      = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler   = weblinks_get_handler('link_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler   = weblinks_getHandler('link_basic', $dirname);
 
             $this->_system      = happy_linux_system::getInstance();
             $this->_block_class = weblinks_block_view::getInstance();
@@ -64,9 +63,10 @@ if (!class_exists('weblinks_link_view_basic')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_link_view_basic($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -76,12 +76,13 @@ if (!class_exists('weblinks_link_view_basic')) {
         public function &get_show_basic_by_lid($lid)
         {
             $show = false;
-            $row  =& $this->_link_handler->get_cache_by_lid($lid);
+            $row  = &$this->_link_handler->get_cache_by_lid($lid);
             if (is_array($row) && count($row)) {
                 $this->set_vars($row);
                 $this->build_show_basic();
-                $show =& $this->get_vars();
+                $show = &$this->get_vars();
             }
+
             return $show;
         }
 
@@ -231,6 +232,7 @@ if (!class_exists('weblinks_link_view_basic')) {
         public function _build_single_link_by_lid($lid)
         {
             $link = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
+
             return $link;
         }
 
@@ -241,7 +243,7 @@ if (!class_exists('weblinks_link_view_basic')) {
 
             foreach ($arr as $k => $v) {
                 // if NOT same item
-                if (!preg_match("/_s$/", $k) && !is_array($v)) {
+                if (!preg_match('/_s$/', $k) && !is_array($v)) {
                     $name = $k . '_s';
                     $val  = $this->sanitize_text($v);
                     $this->set($name, $val);
@@ -369,25 +371,28 @@ if (!class_exists('weblinks_link_view_basic')) {
 
         public function _is_warn_time_publish()
         {
-            if (($this->get('time_publish') == 0) || ($this->get('time_publish') < time())) {
+            if ((0 == $this->get('time_publish')) || ($this->get('time_publish') < time())) {
                 return false;
             }
+
             return true;
         }
 
         public function _is_warn_time_expire()
         {
-            if (($this->get('time_expire') == 0) || ($this->get('time_expire') > time())) {
+            if ((0 == $this->get('time_expire')) || ($this->get('time_expire') > time())) {
                 return false;
             }
+
             return true;
         }
 
         public function _is_warn_broken()
         {
-            if (($this->get('broken') == 0) || ($this->get('broken') < $this->_conf['broken_threshold'])) {
+            if ((0 == $this->get('broken')) || ($this->get('broken') < $this->_conf['broken_threshold'])) {
                 return false;
             }
+
             return true;
         }
 
@@ -404,6 +409,7 @@ if (!class_exists('weblinks_link_view_basic')) {
                 $this->build_kml();
                 $show = $this->get_vars();
             }
+
             return $show;
         }
 
@@ -426,21 +432,20 @@ if (!class_exists('weblinks_link_view_basic')) {
 
             if ($url_s) {
                 $text .= '<a href="' . $url_s . '">' . $url_s . '</a>';
-                $text .= "<br /><br />\n";
+                $text .= "<br><br>\n";
             }
 
             $text .= $summary;
-            $text .= "<br /><br />\n";
+            $text .= "<br><br>\n";
 
             $text .= 'from ';
             $text .= '<a href="' . $link_s . '">' . $this->_system->get_sitename() . '</a>';
-            $text .= "<br />\n";
+            $text .= "<br>\n";
 
             return $text;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

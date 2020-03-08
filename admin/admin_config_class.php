@@ -74,12 +74,13 @@ class admin_config_form extends weblinks_config2_form
         $this->load();
     }
 
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_config_form();
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -187,7 +188,7 @@ class admin_config_form extends weblinks_config2_form
         $member_handler = xoops_getHandler('member');
         $group_list     = $member_handler->getGroupList();
 
-        $list_1 = array();
+        $list_1 = [];
         foreach ($group_list as $k => $v) {
             $list_1[$v] = $k;
         }
@@ -196,7 +197,7 @@ class admin_config_form extends weblinks_config2_form
         $list_2[_WEBLINKS_AUTH_UID]    = WEBLINKS_ID_AUTH_UID;
         $list_2[_WEBLINKS_AUTH_PASSWD] = WEBLINKS_ID_AUTH_PASSWD;
 
-        return array($list_1, $list_2);
+        return [$list_1, $list_2];
     }
 
     public function print_top($form_name, $form_title)
@@ -263,9 +264,9 @@ class admin_config_form extends weblinks_config2_form
     public function show_form_country_code($title)
     {
         $dirname = 'modules/happy_linux/locate/';
-        $dir_arr =& $this->_dir->get_dirs_in_dir($dirname, false, true);
+        $dir_arr = &$this->_dir->get_dirs_in_dir($dirname, false, true);
 
-        $opts = array();
+        $opts = [];
         foreach ($dir_arr as $dir) {
             if (file_exists(XOOPS_ROOT_PATH . '/' . $dirname . '/' . $dir . '/local.php')) {
                 $opts[$dir] = $dir;
@@ -285,7 +286,7 @@ class admin_config_form extends weblinks_config2_form
         echo $this->build_token();
         echo $this->build_html_input_hidden('op', 'save');
         echo $show1;
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
         echo $this->build_html_input_submit('submit', _WEBLINKS_UPDATE);
         echo $this->build_form_end();
         echo "</td></tr>\n";
@@ -297,7 +298,7 @@ class admin_config_form extends weblinks_config2_form
         echo $this->build_html_input_submit('submit', _AM_WEBLINKS_RENEW);
         echo $this->build_form_end();
         echo "</td></tr></table>\n";
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     //---------------------------------------------------------
@@ -306,13 +307,13 @@ class admin_config_form extends weblinks_config2_form
     public function show_form_rss_cache_clear($title)
     {
         echo $this->build_lib_box_button_style($title, _HAPPY_LINUX_CONF_RSS_CACHE_CLEAR_DESC, 'rss_cache_clear', _HAPPY_LINUX_CLEAR);
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     public function show_form_template_compiled_clear($title)
     {
         echo $this->build_lib_box_button_style($title, _AM_WEBLINKS_CONF_TEMPLATE_DESC, 'template_compiled_clear', _HAPPY_LINUX_CLEAR);
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     //---------------------------------------------------------
@@ -324,7 +325,7 @@ class admin_config_form extends weblinks_config2_form
         echo $this->build_html_input_submit('submit', _WEBLINKS_UPDATE);
         echo "</td></tr></table>\n";
         echo $this->build_form_end();
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     //---------------------------------------------------------
@@ -360,7 +361,7 @@ class admin_config_form extends weblinks_config2_form
 
     public function print_form_even_odd()
     {
-        if ($this->_line_count % 2 == 0) {
+        if (0 == $this->_line_count % 2) {
             $class = 'even';
         } else {
             $class = 'odd';
@@ -472,7 +473,7 @@ class admin_config_form extends weblinks_config2_form
     public function print_error($title, $msg)
     {
         echo "<h3><font color='red'>$title</font></h3>\n";
-        echo "$msg<br /><br />\n";
+        echo "$msg<br><br>\n";
     }
 
     //---------------------------------------------------------
@@ -509,7 +510,7 @@ class admin_config_form extends weblinks_config2_form
 
     public function print_module_installed($dirname, $kind)
     {
-        if ($dirname && ($dirname != '-')) {
+        if ($dirname && ('-' != $dirname)) {
             $module = $this->_system->get_module_by_dirname($dirname);
             if (is_object($module)) {
                 $version = sprintf('%6.2f', $module->getVar('version') / 100);

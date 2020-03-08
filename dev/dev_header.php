@@ -25,13 +25,13 @@ include '../../../mainfile.php';
 
 //===== header.php begin =====
 // set module object
-$url_arr        = explode('/', strstr($xoopsRequestUri, '/modules/'));
+$url_arr        = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
 $module_handler = xoops_getHandler('module');
 $xoopsModule    = $module_handler->getByDirname($url_arr[2]);
 unset($url_arr);
 
 // set config values for this module
-if ($xoopsModule->getVar('hasconfig') == 1 || $xoopsModule->getVar('hascomments') == 1) {
+if (1 == $xoopsModule->getVar('hasconfig') || 1 == $xoopsModule->getVar('hascomments')) {
     $config_handler    = &xoops_getHandler('config');
     $xoopsModuleConfig = &$config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 }
@@ -136,7 +136,7 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 //---------------------------------------------------------
 // locate
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $country_code = $weblinks_config_handler->get_conf_by_name('country_code');
 $rss_dirname  = $weblinks_config_handler->get_conf_by_name('rss_dirname');

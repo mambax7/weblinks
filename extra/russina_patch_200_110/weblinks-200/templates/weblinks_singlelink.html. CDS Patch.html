@@ -11,7 +11,7 @@
         <{/if}>
         <{$module_name}></a> &gt;&gt;
     <span class="weblinks_bold"><{$link.title_s}></span>
-    <br/><br/>
+    <br><br>
 
     <{$weblinks_header}>
 
@@ -22,9 +22,9 @@
     <{$weblinks_guidance}>
 
     <{if $show_photo_list}>
-    <br/>
+    <br>
     <{$weblinks_photo_list}>
-    <br/>
+    <br>
     <{/if}>
 
     <{* google map : hacked by wye *}>
@@ -34,19 +34,19 @@
 
     <{if $link.warn_time_publish}>
     <span class="weblinks_waning"><{$lang_warn_time_publish}></span> :
-    <{$link.time_publish_long}><br/>
+    <{$link.time_publish_long}><br>
     <{/if}>
 
     <{if $link.warn_time_expire}>
     <span class="weblinks_waning"><{$lang_warn_time_expire}></span> :
-    <{$link.time_expire_long}><br/>
+    <{$link.time_expire_long}><br>
     <{/if}>
 
     <{if $link.warn_broken}>
     <span class="weblinks_waning"><{$lang_warn_broken}></span> :
-    <{$lang_broken_counter}> = <{$link.broken}><br/>
+    <{$lang_broken_counter}> = <{$link.broken}><br>
     <{/if}>
-    <br/>
+    <br>
 
     <div class="weblinks_singlelink_frame">
 
@@ -70,32 +70,32 @@
                 &nbsp;<img src="<{$xoops_url}>/modules/<{$dirname}>/images/arrow2.gif" border="0" alt="arrow"/>&nbsp;
                 <{/if}>
                 <{/section}>
-                <br/>
+                <br>
                 <{/section}>
                 <{* -- End path loop -- *}>
 
     </div>
-    <br/>
+    <br>
 
     <div class="weblinks_singlelink_frame">
         <{$weblinks_link_single}>
     </div>
-    <br/>
+    <br>
 
     <{if $link.textarea1_disp}>
     <div class="weblinks_singlelink_textarea1">
-        <span class="weblinks_bold"><{$lang_link_textarea1}></span><br/>
+        <span class="weblinks_bold"><{$lang_link_textarea1}></span><br>
         <{$link.textarea1_disp}>
     </div>
-    <br/>
+    <br>
     <{/if}>
 
     <{if $link.textarea2_disp}>
     <div class="weblinks_singlelink_textarea2">
-        <span class="weblinks_bold"><{$lang_link_textarea2}></span><br/>
+        <span class="weblinks_bold"><{$lang_link_textarea2}></span><br>
         <{$link.textarea2_disp}>
     </div>
-    <br/>
+    <br>
     <{/if}>
 
     <a name="rss"></a>
@@ -116,14 +116,14 @@
 
     <{if ($rss_flag == 1) || ($rss_flag == 2) || ($rss_flag == 3) }>
     <{$lang_lastupdate}>&nbsp;<{$rss_update}>
-    <br/><br/>
+    <br><br>
 
     <{* -- feed list begin -- *}>
     <div class="weblinks_singlelink_frame_feed">
         <{if $rss_show}>
         <{foreach name=weblinks_single_feed item=feed from=$feeds}>
         <div class="weblinks_feed_frame_title">
-            <a href="<{$feed.link}>" target="_blank"><span class="weblinks_feed_title"><{$feed.title}></span></a><br/>
+            <a href="<{$feed.link}>" target="_blank"><span class="weblinks_feed_title"><{$feed.title}></span></a><br>
             &nbsp; <{$smarty.const._WEBLINKS_FROM}> <a href="<{$feed.site_link}>" target="_blank"><{$feed.site_title}></a>&nbsp;
             <{if $feed.updated_long}>
             (<{$feed.updated_long}>)&nbsp;
@@ -147,7 +147,7 @@
         <span class="weblinks_blue"><{$smarty.const._WEBLINKS_NOFEED}></span>
         <{/if}>
     </div>
-    <br/>
+    <br>
     <{* -- feed list end -- *}>
 
     <{/if}>
@@ -155,8 +155,8 @@
     <a name="comment"></a>
 
     <{if $show_forum_list}>
-    <br/>
-    <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br/><br/>
+    <br>
+    <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br><br>
     <div class="weblinks_viewcat_frame">
         <{$weblinks_forum_list}>
     </div>
@@ -185,7 +185,7 @@
     <{include file="db:system_notification_select.html"}>
     <{/if}>
 
-    <hr/>
+    <hr>
     <div class="weblinks_execution_time"><{$smarty.const._WEBLINKS_EXECUTION_TIME}> : <{$execution_time}> <{$smarty.const._WEBLINKS_SEC}></div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

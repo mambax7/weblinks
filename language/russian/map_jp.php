@@ -13,64 +13,63 @@
 //---------------------------------------------------------
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('WEBLINKS_LANG_MP_LOADED', 1);
 
-    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Действительно в Японии</font><br />Относится к карте Японии и категории');
-    define('_AM_WEBLINKS_MAP_JP_LABEL', 'Метка');
-    define('_AM_WEBLINKS_MAP_JP_PREF', 'Имя префектуры на карте');
-    define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'Показать карту Японии на главной странице');
-    define('_AM_WEBLINKS_MAP_JP_SHOW_CAT', 'Показать карту Японии на странице категории');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</font><br>пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MAP_JP_LABEL', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MAP_JP_PREF', 'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_AM_WEBLINKS_MAP_JP_SHOW_CAT', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-    define('_WEBLINKS_JP_HOKKAIDO', 'Хоккайдо');
-    define('_WEBLINKS_JP_AOMORI', 'Аомори');
-    define('_WEBLINKS_JP_AKITA', 'Акита');
-    define('_WEBLINKS_JP_IWATE', 'Иватэ');
-    define('_WEBLINKS_JP_YAMAGATA', 'Ямагата');
-    define('_WEBLINKS_JP_MIYAGI', 'Мияги');
-    define('_WEBLINKS_JP_FUKUSHIMA', 'Фукусима');
-    define('_WEBLINKS_JP_ISHIKAWA', 'Исикава');
-    define('_WEBLINKS_JP_TOYAMA', 'Тояма');
-    define('_WEBLINKS_JP_NIIGATA', 'Ниигата');
-    define('_WEBLINKS_JP_FUKUI', 'Фукуи');
-    define('_WEBLINKS_JP_SHIGA', 'Сига');
-    define('_WEBLINKS_JP_TOKYO', 'Токио');
-    define('_WEBLINKS_JP_KANAGAWA', 'Канагава');
-    define('_WEBLINKS_JP_GUNMA', 'Гумма');
-    define('_WEBLINKS_JP_TOCHIGI', 'Точиги');
-    define('_WEBLINKS_JP_IBARAKI', 'Ибараки');
-    define('_WEBLINKS_JP_YAMANASHI', 'Яманаси');
-    define('_WEBLINKS_JP_SAITAMA', 'Сайтама');
-    define('_WEBLINKS_JP_CHIBA', 'Тиба');
-    define('_WEBLINKS_JP_NAGANO', 'Нагано');
-    define('_WEBLINKS_JP_GIFU', 'Гифу');
-    define('_WEBLINKS_JP_MIE', 'Ми');
-    define('_WEBLINKS_JP_AICHI', 'Айти');
-    define('_WEBLINKS_JP_SHIZUOKA', 'Сидзуока');
-    define('_WEBLINKS_JP_HYOGO', 'Хиогской');
-    define('_WEBLINKS_JP_KYOTO', 'Киото');
-    define('_WEBLINKS_JP_OSAKA', 'Осака');
-    define('_WEBLINKS_JP_NARA', 'Нара');
-    define('_WEBLINKS_JP_WAKAYAMA', 'Вакаяма');
-    define('_WEBLINKS_JP_YAMAGUCHI', 'Ямагути');
-    define('_WEBLINKS_JP_SHIMANE', 'Симанэ');
-    define('_WEBLINKS_JP_TOTTORI', 'Тоттори');
-    define('_WEBLINKS_JP_HIROSHIMA', 'Хиросима');
-    define('_WEBLINKS_JP_OKAYAMA', 'Окаяма');
-    define('_WEBLINKS_JP_EHIME', 'Эхимэ');
-    define('_WEBLINKS_JP_KAGAWA', 'Кагава');
-    define('_WEBLINKS_JP_KOCHI', 'Кочи');
-    define('_WEBLINKS_JP_TOKUSHIMA', 'Токусима');
-    define('_WEBLINKS_JP_FUKUOKA', 'Фукуока');
-    define('_WEBLINKS_JP_NAGASAKI', 'Нагасаки');
-    define('_WEBLINKS_JP_SAGA', 'Сага');
-    define('_WEBLINKS_JP_KUMAMOTO', 'Кумамото');
-    define('_WEBLINKS_JP_OITA', 'Оита');
-    define('_WEBLINKS_JP_KAGOSHIMA', 'Кагосима');
-    define('_WEBLINKS_JP_MIYAZAKI', 'Миядзаки');
-    define('_WEBLINKS_JP_OKINAWA', 'Окинава');
+    define('_WEBLINKS_JP_HOKKAIDO', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_AOMORI', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_AKITA', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_IWATE', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_YAMAGATA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_MIYAGI', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_FUKUSHIMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_ISHIKAWA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_TOYAMA', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_NIIGATA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_FUKUI', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_SHIGA', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_TOKYO', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KANAGAWA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_GUNMA', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_TOCHIGI', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_IBARAKI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_YAMANASHI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_SAITAMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_CHIBA', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_NAGANO', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_GIFU', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_MIE', 'пїЅпїЅ');
+    define('_WEBLINKS_JP_AICHI', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_SHIZUOKA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_HYOGO', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KYOTO', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_OSAKA', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_NARA', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_WAKAYAMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_YAMAGUCHI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_SHIMANE', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_TOTTORI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_HIROSHIMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_OKAYAMA', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_EHIME', 'пїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KAGAWA', 'пїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KOCHI', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_TOKUSHIMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_FUKUOKA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_NAGASAKI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_SAGA', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KUMAMOTO', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_OITA', 'пїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_KAGOSHIMA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_MIYAZAKI', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+    define('_WEBLINKS_JP_OKINAWA', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 }// --- define language end ---
-;

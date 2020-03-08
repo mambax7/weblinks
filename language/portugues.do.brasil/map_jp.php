@@ -16,11 +16,11 @@
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('WEBLINKS_LANG_MP_LOADED', 1);
 
-    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Válido no Japão</font><br />Categoria e mapa relacionados ao Japão');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Vï¿½lido no Japï¿½o</font><br>Categoria e mapa relacionados ao Japï¿½o');
     define('_AM_WEBLINKS_MAP_JP_LABEL', 'Etiqueta');
     define('_AM_WEBLINKS_MAP_JP_PREF', 'Nome da prefeitura do mapa');
-    define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'Mostrar o mapa do Japão na página index');
-    define('_AM_WEBLINKS_MAP_JP_SHOW_CAT', 'Mostrar o mapa do Japão na página da categoria');
+    define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'Mostrar o mapa do Japï¿½o na pï¿½gina index');
+    define('_AM_WEBLINKS_MAP_JP_SHOW_CAT', 'Mostrar o mapa do Japï¿½o na pï¿½gina da categoria');
 
     define('_WEBLINKS_JP_HOKKAIDO', 'Hokkaido');
     define('_WEBLINKS_JP_AOMORI', 'Aomori');
@@ -70,4 +70,3 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_MIYAZAKI', 'Miyazaki');
     define('_WEBLINKS_JP_OKINAWA', 'Okinawa');
 }// --- define language end ---
-;

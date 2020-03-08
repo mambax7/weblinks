@@ -33,10 +33,10 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/system/language/' . $XOOPS_LANGUAGE 
 }
 
 /* CDS Patch. Weblinks. 2.00. 1. BOF */
-if ((substr(XOOPS_VERSION, 0, 9) < 'XOOPS 2.5') && file_exists(XOOPS_ROOT_PATH . '/modules/system/language/' . $XOOPS_LANGUAGE . '/admin/mailusers.php')) {
+if ((mb_substr(XOOPS_VERSION, 0, 9) < 'XOOPS 2.5') && file_exists(XOOPS_ROOT_PATH . '/modules/system/language/' . $XOOPS_LANGUAGE . '/admin/mailusers.php')) {
     include_once XOOPS_ROOT_PATH . '/modules/system/language/' . $XOOPS_LANGUAGE . '/admin/mailusers.php';
 } elseif (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/mailusers.php')) {
     include_once WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/mailusers.php';
 } else {
     include_once WEBLINKS_ROOT_PATH . '/language/english/mailusers.php';
-}/* CDS Patch. Weblinks. 2.00. 1. EOF */;
+}/* CDS Patch. Weblinks. 2.00. 1. EOF */

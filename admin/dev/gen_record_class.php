@@ -59,8 +59,8 @@ class weblinks_gen_record extends weblinks_dev_handler
     public $_mid;
     public $_is_xoops_guest;
 
-    public $_com_id_arr     = array();
-    public $_com_itemid_arr = array();
+    public $_com_id_arr     = [];
+    public $_com_itemid_arr = [];
 
     public $_DEBUG_PRINT;
 
@@ -85,9 +85,10 @@ class weblinks_gen_record extends weblinks_dev_handler
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_gen_record();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -104,12 +105,13 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         echo "<h4>generete category table</h4>\n";
 
-        if ($MAX_CAT == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_CAT) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
         $imgurl_dir = XOOPS_URL . '/modules/' . WEBLINKS_DIRNAME . '/images/category/';
 
         // contant
@@ -119,13 +121,13 @@ class weblinks_gen_record extends weblinks_dev_handler
             // randum data
             $title  = 'main_' . $this->get_randum_title();
             $imgurl = $this->get_randum_category_image();
-            $orders = rand(1, 10);
+            $orders = mt_rand(1, 10);
 
             // ctegory table
             $this->insert_category($pid, $title, $imgurl, $orders);
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
 
         // contant
         $imgurl = '';
@@ -134,8 +136,8 @@ class weblinks_gen_record extends weblinks_dev_handler
             // randum data
             $title   = 'sub_' . $this->get_randum_title();
             $max_pid = (int)($MAX_PARENT + $i);
-            $pid     = rand(1, $max_pid);
-            $orders  = rand(1, 10);
+            $pid     = mt_rand(1, $max_pid);
+            $orders  = mt_rand(1, 10);
 
             // ctegory table
             $this->insert_category($pid, $title, $imgurl, $orders);
@@ -149,19 +151,20 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         echo "<h4>generete link table</h4>\n";
 
-        if ($MAX_LINK == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_LINK) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $newid = $this->insert_randum_link();
 
-            $catnum = rand(1, 3);
+            $catnum = mt_rand(1, 3);
             for ($j = 0; $j < $catnum; ++$j) {
-                $cid = rand(1, $MAX_CAT);
+                $cid = mt_rand(1, $MAX_CAT);
                 $this->insert_catlink($cid, $newid);
             }
         }
@@ -182,12 +185,13 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         echo "<h4>generete votedata table</h4>\n";
 
-        if ($MAX_VOTE == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_VOTE) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         // table name
         $votedata_table = $this->prefix('votedata');
@@ -195,9 +199,9 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         for ($i = 0; $i < $MAX_VOTE; ++$i) {
             // randum data
-            $lid             = rand(1, $MAX_LINK);
-            $ratinguser      = rand(1, 10);
-            $rating          = rand(0, 10);
+            $lid             = mt_rand(1, $MAX_LINK);
+            $ratinguser      = mt_rand(1, 10);
+            $rating          = mt_rand(0, 10);
             $ratinghostname  = $this->get_randum_ip();
             $ratingtimestamp = $this->get_randum_time();
 
@@ -205,9 +209,9 @@ class weblinks_gen_record extends weblinks_dev_handler
             $this->insert_votedata($lid, $ratinguser, $rating, $ratinghostname, $ratingtimestamp);
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
 
-        $rows2 =& $this->get_votedata_rows_groupby_lid();
+        $rows2 = &$this->get_votedata_rows_groupby_lid();
 
         foreach ($rows2 as $row2) {
             $lid   = $row2['lid'];
@@ -246,21 +250,22 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         echo "<h4>generete xoopscomments table</h4>\n";
 
-        if ($MAX_COM == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_COM) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         // table name
         $link_table = $this->prefix('link');
 
         $this->gen_comment_list($this->_mid, $MAX_COM, $MAX_LINK);
 
-        echo "<br />\n";
+        echo "<br>\n";
 
-        $rows =& $this->get_comment_rows($this->_mid);
+        $rows = &$this->get_comment_rows($this->_mid);
         foreach ($rows as $row) {
             $lid      = $row['com_itemid'];
             $comments = $row['c'];
@@ -271,8 +276,8 @@ class weblinks_gen_record extends weblinks_dev_handler
 
     public function gen_comment_list($mid, $MAX_COM, $MAX_ITEMID)
     {
-        $this->_com_id_arr     = array();
-        $this->_com_itemid_arr = array();
+        $this->_com_id_arr     = [];
+        $this->_com_itemid_arr = [];
 
         for ($i = 0; $i < $MAX_COM; ++$i) {
             $this->create_randum_comment($i, $mid, $MAX_ITEMID);
@@ -284,14 +289,15 @@ class weblinks_gen_record extends weblinks_dev_handler
     //---------------------------------------------------------
     public function &build_link_record($title, $flag_uid, $mode_dhtml, $flag_rssc_lid)
     {
-        $param = array(
+        $param = [
             'title'         => $title,
             'flag_uid'      => $flag_uid,
             'mode_dhtml'    => $mode_dhtml,
             'flag_rssc_lid' => $flag_rssc_lid,
-        );
+        ];
 
-        $ret =& $this->build_link_record_from_param($param);
+        $ret = &$this->build_link_record_from_param($param);
+
         return $ret;
     }
 
@@ -299,9 +305,9 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         $flag_rssc_lid = $this->get_from_array($param, 'flag_rssc_lid');
 
-        $arr1 =& $this->build_link_record_array_from_param($param);
+        $arr1 = &$this->build_link_record_array_from_param($param);
 
-        $cid_arr =& $this->get_randum_cid_array();
+        $cid_arr = &$this->get_randum_cid_array();
 
         list($time_publish_year, $time_publish_month, $time_publish_day, $time_publish_hour, $time_publish_min, $time_publish_sec) = $this->_strings->split_time_ymd($arr1['time_publish']);
         list($time_expire_year, $time_expire_month, $time_expire_day, $time_expire_hour, $time_expire_min, $time_expire_sec) = $this->_strings->split_time_ymd($arr1['time_expire']);
@@ -315,7 +321,7 @@ class weblinks_gen_record extends weblinks_dev_handler
             $rssc_lid_flag_update = 1;
         }
 
-        $arr2 = array(
+        $arr2 = [
             'cid'                     => $cid_arr,
 
             // time
@@ -346,20 +352,21 @@ class weblinks_gen_record extends weblinks_dev_handler
             'passwd_md5'              => md5($arr1['passwd']),
             'passwd_new'              => '',
             'passwd_2'                => '',
-        );
+        ];
 
         $arr3 = array_merge($arr1, $arr2);
+
         return $arr3;
     }
 
-    public function &build_link_record_array_from_param(&$param)
+    public function &build_link_record_array_from_param($param)
     {
         $title      = $this->get_from_array($param, 'title');
         $flag_uid   = $this->get_from_array($param, 'flag_uid');
         $mode_dhtml = $this->get_from_array($param, 'mode_dhtml');
 
         // common
-        $url     = 'http://' . $title . '/';
+        $url     = 'https://' . $title . '/';
         $rss_url = $url . $this->get_randum_title() . '.xml';
         $banner  = $this->get_randum_banner();
         $mail    = $this->get_randum_title() . '@' . $title . '.exsample.com';
@@ -398,14 +405,14 @@ class weblinks_gen_record extends weblinks_dev_handler
         //  $passwd_md5 = md5($passwd);
 
         // integer
-        $lid      = rand(10, 100);
-        $hits     = rand(10, 100);
-        $votes    = rand(10, 100);
-        $comments = rand(10, 100);
-        $broken   = rand(10, 100);
-        $width    = rand(10, 100);
-        $height   = rand(10, 100);
-        $rating   = rand(10, 100) / 10;
+        $lid      = mt_rand(10, 100);
+        $hits     = mt_rand(10, 100);
+        $votes    = mt_rand(10, 100);
+        $comments = mt_rand(10, 100);
+        $broken   = mt_rand(10, 100);
+        $width    = mt_rand(10, 100);
+        $height   = mt_rand(10, 100);
+        $rating   = mt_rand(10, 100) / 10;
 
         $nameflag  = 1;
         $mailflag  = 1;
@@ -418,7 +425,7 @@ class weblinks_gen_record extends weblinks_dev_handler
         list($gm_latitude, $gm_longitude, $gm_zoom, $gm_type) = $this->get_randum_gm_param();
 
         if ($flag_uid) {
-            $uid = rand(10, 100);
+            $uid = mt_rand(10, 100);
         } else {
             $uid = $this->_system->get_uid();
         }
@@ -436,20 +443,18 @@ class weblinks_gen_record extends weblinks_dev_handler
                 $doimage1  = 1;
                 $dobr1     = 1;
                 break;
-
             case 2:
-                $dohtml    = rand(0, 1);
-                $dosmiley  = rand(0, 1);
-                $doxcode   = rand(0, 1);
-                $doimage   = rand(0, 1);
-                $dobr      = rand(0, 1);
-                $dohtml1   = rand(0, 1);
-                $dosmiley1 = rand(0, 1);
-                $doxcode1  = rand(0, 1);
-                $doimage1  = rand(0, 1);
-                $dobr1     = rand(0, 1);
+                $dohtml    = mt_rand(0, 1);
+                $dosmiley  = mt_rand(0, 1);
+                $doxcode   = mt_rand(0, 1);
+                $doimage   = mt_rand(0, 1);
+                $dobr      = mt_rand(0, 1);
+                $dohtml1   = mt_rand(0, 1);
+                $dosmiley1 = mt_rand(0, 1);
+                $doxcode1  = mt_rand(0, 1);
+                $doimage1  = mt_rand(0, 1);
+                $dobr1     = mt_rand(0, 1);
                 break;
-
             case 0:
             default:
                 $dohtml    = 0;
@@ -467,15 +472,15 @@ class weblinks_gen_record extends weblinks_dev_handler
 
         list($time_create, $time_update) = $this->get_randum_create_time();
 
-        $time_publish = time() - rand(0, 10000);
-        $time_expire  = time() + rand(0, 10000);
-        $rssc_lid     = rand(10, 100);
+        $time_publish = time() - mt_rand(0, 10000);
+        $time_expire  = time() + mt_rand(0, 10000);
+        $rssc_lid     = mt_rand(10, 100);
 
         $forum_id    = 0;
         $comment_use = 1;
         $album_id    = 0;
 
-        $arr = array(
+        $arr = [
             'lid'          => $lid,
             'title'        => $title,
             'uid'          => $uid,
@@ -558,9 +563,10 @@ class weblinks_gen_record extends weblinks_dev_handler
             'aux_int_2'   => 0,
             'aux_text_1'  => '',
             'aux_text_2'  => '',
-        );
+        ];
 
-        $ret =& $this->assign_link($arr);
+        $ret = &$this->assign_link($arr);
+
         return $ret;
     }
 
@@ -571,6 +577,7 @@ class weblinks_gen_record extends weblinks_dev_handler
     {
         $imgurl_dir = XOOPS_URL . '/modules/' . WEBLINKS_DIRNAME . '/images/category';
         $imgurl     = $imgurl_dir . '/' . $this->get_randum_image();
+
         return $imgurl;
     }
 
@@ -580,7 +587,7 @@ class weblinks_gen_record extends weblinks_dev_handler
         $banner     = '';
 
         // once at $num times
-        if (($num == 0) || (rand(0, $num) == 0)) {
+        if ((0 == $num) || (0 == mt_rand(0, $num))) {
             $banner = $banner_dir . '/' . $this->get_randum_image();
         }
 
@@ -589,28 +596,30 @@ class weblinks_gen_record extends weblinks_dev_handler
 
     public function get_randum_image()
     {
-        $image = sprintf('%01d', rand(0, 9)) . '.gif';
+        $image = sprintf('%01d', mt_rand(0, 9)) . '.gif';
+
         return $image;
     }
 
     public function get_randum_create_time()
     {
         $time        = time();
-        $rand1       = rand(0, 365 * 24 * 60 * 60); // 1 year
-        $rand2       = rand(0, (int)($rand1 / 2));
+        $rand1       = mt_rand(0, 365 * 24 * 60 * 60); // 1 year
+        $rand2       = mt_rand(0, (int)($rand1 / 2));
         $time_create = $time - $rand1;
         $time_update = $time - $rand2;
 
-        return array($time_create, $time_update);
+        return [$time_create, $time_update];
     }
 
     public function get_randum_mark()
     {
         $mark = 0;
         // once at 10 times
-        if (rand(0, 9) == 9) {
+        if (9 == mt_rand(0, 9)) {
             $mark = 1;
         }
+
         return $mark;
     }
 
@@ -622,27 +631,29 @@ class weblinks_gen_record extends weblinks_dev_handler
     public function get_randum_title()
     {
         $title = $this->get_randum_char() . $this->get_randum_number_06();
+
         return $title;
     }
 
     public function get_randum_time()
     {
-        $time = time() - rand(0, 365 * 24 * 60 * 60); // 1 year
+        $time = time() - mt_rand(0, 365 * 24 * 60 * 60); // 1 year
         return $time;
     }
 
     public function get_randum_ip()
     {
-        $ip = '192.168.1.' . rand(1, 255);
+        $ip = '192.168.1.' . mt_rand(1, 255);
+
         return $ip;
     }
 
     public function get_randum_cid_array()
     {
-        $arr = array();
+        $arr = [];
         $i   = 0;
         for ($j = 0; $j < 100; ++$j) {
-            $cid = rand(1, $this->_MAX_CAT);
+            $cid = mt_rand(1, $this->_MAX_CAT);
             if (!in_array($cid, $arr)) {
                 $arr[] = $cid;
                 ++$i;
@@ -651,17 +662,19 @@ class weblinks_gen_record extends weblinks_dev_handler
                 break;
             }
         }
+
         return $arr;
     }
 
     public function get_randum_gm_param()
     {
-        $gm_latitude = 34.64933466571561 + rand(100, 1000000) / 1000000;;
-        $gm_longitude = 135.0 + rand(100, 1000000) / 1000000;
-        $gm_zoom      = sprintf('%02d', rand(10, 14));
-        $gm_type      = rand(0, 2);
+        $gm_latitude = 34.64933466571561 + mt_rand(100, 1000000) / 1000000;
 
-        return array($gm_latitude, $gm_longitude, $gm_zoom, $gm_type);
+        $gm_longitude = 135.0 + mt_rand(100, 1000000) / 1000000;
+        $gm_zoom      = sprintf('%02d', mt_rand(10, 14));
+        $gm_type      = mt_rand(0, 2);
+
+        return [$gm_latitude, $gm_longitude, $gm_zoom, $gm_type];
     }
 
     public function get_randum_dhtml()
@@ -670,22 +683,23 @@ class weblinks_gen_record extends weblinks_dev_handler
         $text .= '[b]' . $this->get_randum_number_04() . "[/b]\n";
         $text .= '[img]' . $this->get_randum_banner() . "[/img]\n";
         $text .= " :-D \n";
+
         return $text;
     }
 
     public function get_randum_char()
     {
-        return chr(rand(97, 122));
+        return chr(mt_rand(97, 122));
     }
 
     public function get_randum_number_04()
     {
-        return sprintf('%04d', rand(0, 9999));
+        return sprintf('%04d', mt_rand(0, 9999));
     }
 
     public function get_randum_number_06()
     {
-        return sprintf('%06d', rand(0, 999999));
+        return sprintf('%06d', mt_rand(0, 999999));
     }
 
     //---------------------------------------------------------
@@ -702,7 +716,7 @@ class weblinks_gen_record extends weblinks_dev_handler
             if ($flag_sanitize) {
                 $msg = htmlspecialchars($msg);
             }
-            echo $msg . "<br />\n";
+            echo $msg . "<br>\n";
         }
     }
 
@@ -719,16 +733,16 @@ class weblinks_gen_record extends weblinks_dev_handler
             if ($flag_sanitize) {
                 $msg = htmlspecialchars($msg);
             }
-            echo '<span style="color: #ff0000;">' . $msg . "</span><br />\n";
+            echo '<span style="color: #ff0000;">' . $msg . "</span><br>\n";
         }
     }
 
     public function print_box($title, $msg)
     {
-        echo $title . "<br />\n";
+        echo $title . "<br>\n";
         echo '<div style="border-width: 1px; border-style: solid; border-color: #808080;">';
         echo $msg;
-        echo "</div><br />\n";
+        echo "</div><br>\n";
     }
 
     public function print_blue_bold($msg, $flag_sanitize = true)
@@ -737,7 +751,7 @@ class weblinks_gen_record extends weblinks_dev_handler
             if ($flag_sanitize) {
                 $msg = htmlspecialchars($msg);
             }
-            echo '<span style="color:#0000ff; font-weight:bold">' . $msg . "</span><br />\n";
+            echo '<span style="color:#0000ff; font-weight:bold">' . $msg . "</span><br>\n";
         }
     }
 
@@ -749,16 +763,17 @@ class weblinks_gen_record extends weblinks_dev_handler
         $this->_DEBUG_PRINT = (bool)$val;
     }
 
-    public function get_from_array(&$arr, $key)
+    public function get_from_array($arr, $key)
     {
         $val = false;
         if (isset($arr[$key])) {
             $val = $arr[$key];
         }
+
         return $val;
     }
 
-    public function print_param(&$arr)
+    public function print_param($arr)
     {
         echo "<table>\n";
         foreach ($arr as $k => $v) {

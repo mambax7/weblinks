@@ -74,24 +74,24 @@ function weblinks_admin_print_bread($name1, $url1 = '', $name2 = '')
     $system = happy_linux_system::getInstance();
     $form   = happy_linux_form::getInstance();
 
-    $arr = array(
-        array(
+    $arr = [
+        [
             'name' => $system->get_module_name(),
             'url'  => 'index.php',
-        ),
-    );
+        ],
+    ];
 
     if ($name1) {
-        $arr[] = array(
+        $arr[] = [
             'name' => $name1,
             'url'  => $url1,
-        );
+        ];
     }
 
     if ($name2) {
-        $arr[] = array(
+        $arr[] = [
             'name' => $name2,
-        );
+        ];
     }
 
     echo $form->build_html_bread_crumb($arr);
@@ -103,8 +103,8 @@ function weblinks_admin_print_menu()
 
     $menu           = happy_linux_admin_menu::getInstance();
     $handler        = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
-    $link_handler   = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
-    $modify_handler = weblinks_get_handler('modify_basic', WEBLINKS_DIRNAME);
+    $link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+    $modify_handler = weblinks_getHandler('modify_basic', WEBLINKS_DIRNAME);
 
     $total_cat     = $handler->get_count_by_tablename('category');
     $total_vote    = $handler->get_count_by_tablename('votedata');
@@ -132,7 +132,7 @@ function weblinks_admin_print_menu()
     $vote_list    = _AM_WEBLINKS_VOTE_LIST . " ($total_vote)";
     $catlink_list = _AM_WEBLINKS_CATLINK_LIST . " ($total_catlink)";
 
-    $title_link = _WEBLINKS_ADMIN_LINK_MANAGE . '<br />' . _WEBLINKS_ADMIN_ADD_LINK;
+    $title_link = _WEBLINKS_ADMIN_LINK_MANAGE . '<br>' . _WEBLINKS_ADMIN_ADD_LINK;
 
     $title_brokenlinks = _WEBLINKS_ADMIN_LINK_BROKEN . " ($total_brokenlinks)";
     $title_newlinks    = _WLS_LINKSWAITING . " ($total_newlinks)";
@@ -140,13 +140,13 @@ function weblinks_admin_print_menu()
     $title_broken      = _WLS_BROKENREPORTS . " ($total_broken)";
     $title_delete      = _AM_WEBLINKS_DEL_REQS . " ($total_delete)";
 
-    $config_0 = _AM_WEBLINKS_MODULE_CONFIG_0 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_0 . ') ';
-    $config_2 = _WEBLINKS_ADMIN_MODULE_CONFIG_2 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_2 . ') ';
-    $config_3 = _AM_WEBLINKS_MODULE_CONFIG_3 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_3 . ') ';
-    $config_4 = _AM_WEBLINKS_MODULE_CONFIG_4 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_4 . ') ';
-    $config_5 = _AM_WEBLINKS_MODULE_CONFIG_5 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_5 . ') ';
-    $config_6 = _AM_WEBLINKS_MODULE_CONFIG_6 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_6 . ') ';
-    $config_7 = _AM_WEBLINKS_MODULE_CONFIG_7 . '<br /> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_7 . ') ';
+    $config_0 = _AM_WEBLINKS_MODULE_CONFIG_0 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_0 . ') ';
+    $config_2 = _WEBLINKS_ADMIN_MODULE_CONFIG_2 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_2 . ') ';
+    $config_3 = _AM_WEBLINKS_MODULE_CONFIG_3 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_3 . ') ';
+    $config_4 = _AM_WEBLINKS_MODULE_CONFIG_4 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_4 . ') ';
+    $config_5 = _AM_WEBLINKS_MODULE_CONFIG_5 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_5 . ') ';
+    $config_6 = _AM_WEBLINKS_MODULE_CONFIG_6 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_6 . ') ';
+    $config_7 = _AM_WEBLINKS_MODULE_CONFIG_7 . '<br> (' . _AM_WEBLINKS_MODULE_CONFIG_DESC_7 . ') ';
 
     $column = '(' . _AM_WEBLINKS_COLUMN_MANAGE . ')';
 
@@ -160,8 +160,7 @@ function weblinks_admin_print_menu()
 
     $feed_list = _AM_WEBLINKS_TITLE_RSSC_MANAGE . " ($total_feed)";
 
-    $menu_arr = array(
-
+    $menu_arr = [
         $config_0                       => 'index.php',
         _WEBLINKS_ADMIN_MODULE_CONFIG_1 => 'preferences.php',
         $config_2                       => 'config_manage_2.php',
@@ -206,8 +205,7 @@ function weblinks_admin_print_menu()
         _HAPPY_LINUX_AM_MODULE         => 'modules.php',
         _HAPPY_LINUX_AM_BLOCK          => 'blocks.php',
         _HAPPY_LINUX_GOTO_MODULE       => '../index.php',
-
-    );
+    ];
 
     echo $menu->build_menu_table($menu_arr, $MAX_COL);
 }

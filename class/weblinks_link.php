@@ -72,13 +72,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link')) {
-
     //=========================================================
     // class weblinks_link_base
     //=========================================================
     class weblinks_link_base extends happy_linux_object_validater
     {
-
         // result
         public $_cid_array = null;
 
@@ -98,6 +96,7 @@ if (!class_exists('weblinks_link')) {
             $name = $this->getVar('name', $format);
             $flag = $this->getVar('nameflag');
             $text = $this->name_mail_disp_common($name, $flag);
+
             return $text;
         }
 
@@ -106,6 +105,7 @@ if (!class_exists('weblinks_link')) {
             $mail = $this->getVar('mail', $format);
             $flag = $this->getVar('mailflag');
             $text = $this->name_mail_disp_common($mail, $flag);
+
             return $text;
         }
 
@@ -115,6 +115,7 @@ if (!class_exists('weblinks_link')) {
             if ($flag) {
                 $text = $value;
             }
+
             return $text;
         }
 
@@ -134,6 +135,7 @@ if (!class_exists('weblinks_link')) {
             }
 
             $text = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+
             return $text;
         }
 
@@ -153,6 +155,7 @@ if (!class_exists('weblinks_link')) {
             }
 
             $text = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+
             return $text;
         }
 
@@ -172,6 +175,7 @@ if (!class_exists('weblinks_link')) {
             }
 
             $text = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+
             return $text;
         }
 
@@ -188,6 +192,7 @@ if (!class_exists('weblinks_link')) {
             $dobr     = 1;
 
             $text = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
+
             return $text;
         }
 
@@ -197,12 +202,14 @@ if (!class_exists('weblinks_link')) {
         public function description_short($max)
         {
             $text = happy_linux_mb_shorten($this->get('description'), $max);
+
             return $text;
         }
 
         public function usercomment_short($max)
         {
             $text = happy_linux_mb_shorten($this->get('usercomment'), $max);
+
             return $text;
         }
 
@@ -213,34 +220,37 @@ if (!class_exists('weblinks_link')) {
         {
             if ($this->is_warn_broken($broken)
                 || $this->is_warn_time_publish()
-                || $this->is_warn_time_expire()
-            ) {
+                || $this->is_warn_time_expire()) {
                 return false;
             }
+
             return true;
         }
 
         public function is_warn_broken($broken)
         {
-            if (($this->get('broken') == 0) || ($this->get('broken') < $broken)) {
+            if ((0 == $this->get('broken')) || ($this->get('broken') < $broken)) {
                 return false;
             }
+
             return true;
         }
 
         public function is_warn_time_publish()
         {
-            if (($this->get('time_publish') == 0) || ($this->get('time_publish') < time())) {
+            if ((0 == $this->get('time_publish')) || ($this->get('time_publish') < time())) {
                 return false;
             }
+
             return true;
         }
 
         public function is_warn_time_expire()
         {
-            if (($this->get('time_expire') == 0) || ($this->get('time_expire') > time())) {
+            if ((0 == $this->get('time_expire')) || ($this->get('time_expire') > time())) {
                 return false;
             }
+
             return true;
         }
 
@@ -252,9 +262,10 @@ if (!class_exists('weblinks_link')) {
             return $this->_cid_array;
         }
 
-        public function &get_cid_array_form_post(&$post)
+        public function &get_cid_array_form_post($post)
         {
-            $this->_cid_array =& $this->_post->get_int_unique_array_without_from_post($post, 'cid', 0);
+            $this->_cid_array = &$this->_post->get_int_unique_array_without_from_post($post, 'cid', 0);
+
             return $this->_cid_array;
         }
 
@@ -266,7 +277,6 @@ if (!class_exists('weblinks_link')) {
     //=========================================================
     class weblinks_link extends weblinks_link_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -385,6 +395,7 @@ if (!class_exists('weblinks_link')) {
             }
 
             $user_name = $this->sanitize_format_text($user_name, $format);
+
             return $user_name;
         }
 
@@ -404,6 +415,7 @@ if (!class_exists('weblinks_link')) {
             }
 
             $user_mail = $this->sanitize_format_text($user_mail, $format);
+
             return $user_mail;
         }
 
@@ -432,14 +444,14 @@ if (!class_exists('weblinks_link')) {
         {
             parent::__construct();
 
-            $this->_banner_handler   = weblinks_get_handler('banner', $dirname);
-            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
+            $this->_banner_handler   = weblinks_getHandler('banner', $dirname);
+            $this->_pagerank_handler = weblinks_getHandler('pagerank', $dirname);
             $this->_link_validate    = weblinks_link_validate::getInstance($dirname);
 
             // BUG : not set search field
             $this->_link_validate->init();
 
-            $this->_search_list =& $this->_link_validate->get_search_list();
+            $this->_search_list = &$this->_link_validate->get_search_list();
         }
 
         //---------------------------------------------------------
@@ -546,7 +558,7 @@ if (!class_exists('weblinks_link')) {
             $banner = $this->get('banner');
 
             // return size zero, if not banner
-            $size =& $this->_banner_handler->get_remote_banner_size($banner);
+            $size = &$this->_banner_handler->get_remote_banner_size($banner);
 
             if (is_array($size) && isset($size[0]) && isset($size[1])) {
                 $this->setVar('width', $size[0]);
@@ -575,13 +587,13 @@ if (!class_exists('weblinks_link')) {
         //---------------------------------------------------------
         public function _set_obj_search(&$post)
         {
-            $cid_arr =& $this->get_cid_array_form_post($post);
+            $cid_arr = &$this->get_cid_array_form_post($post);
             $search  = $this->build_search($cid_arr);
             $this->setVar('search', $search);
         }
 
         // for import_manege
-        public function build_search(&$cid_arr)
+        public function build_search($cid_arr)
         {
             $text = '';
             foreach ($this->gets() as $k => $v) {
@@ -597,6 +609,7 @@ if (!class_exists('weblinks_link')) {
             $text .= $this->_link_validate->build_search_category($cid_arr) . ' ';
 
             $search = preg_replace("/\n|\r/", ' ', $text);
+
             return $search;
         }
 
@@ -631,15 +644,15 @@ if (!class_exists('weblinks_link')) {
         //---------------------------------------------------------
         public function __construct($dirname)
         {
-            $this->_config_handler          = weblinks_get_handler('config2_basic', $dirname);
-            $this->_category_handler        = weblinks_get_handler('category', $dirname);
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_config_handler          = weblinks_getHandler('config2_basic', $dirname);
+            $this->_category_handler        = weblinks_getHandler('category', $dirname);
+            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
             $this->_auth                    = weblinks_auth::getInstance($dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post   = happy_linux_post::getInstance();
 
-            $this->_conf =& $this->_config_handler->get_conf();
+            $this->_conf = &$this->_config_handler->get_conf();
 
             $this->_xoops_uid             = $this->_system->get_uid();
             $this->_is_xoops_module_admin = $this->_system->is_module_admin();
@@ -649,8 +662,8 @@ if (!class_exists('weblinks_link')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_link_validate($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
 
             return $instance;
@@ -666,21 +679,24 @@ if (!class_exists('weblinks_link')) {
 
         public function &get_conf_array()
         {
-            $arr =& $this->_linkitem_define_handler->get_cached_by_name();
+            $arr = &$this->_linkitem_define_handler->get_cached_by_name();
+
             return $arr;
         }
 
         public function &get_allow_list()
         {
-            $arr1 =& $this->_linkitem_define_handler->get_save_mode_list();
-            $arr2 =& $this->_auth->has_auth_desc_option();
+            $arr1 = &$this->_linkitem_define_handler->get_save_mode_list();
+            $arr2 = &$this->_auth->has_auth_desc_option();
             $arr3 = array_merge($arr1, $arr2);
+
             return $arr3;
         }
 
         public function &get_search_list()
         {
-            $arr =& $this->_linkitem_define_handler->get_search_list();
+            $arr = &$this->_linkitem_define_handler->get_search_list();
+
             return $arr;
         }
 
@@ -705,13 +721,14 @@ if (!class_exists('weblinks_link')) {
         //---------------------------------------------------------
         // uid field
         //---------------------------------------------------------
-        public function get_uid_array(&$post)
+        public function get_uid_array($post)
         {
             $uid = $this->get_uid($post);
-            return array('uid', $uid, true);
+
+            return ['uid', $uid, true];
         }
 
-        public function get_uid(&$post)
+        public function get_uid($post)
         {
             // default: submitter
             $uid = $this->get_xoops_uid();
@@ -730,10 +747,11 @@ if (!class_exists('weblinks_link')) {
         public function get_passwd_md5_new_array(&$post)
         {
             $passwd = $this->get_passwd_md5_new($post);
-            return array('passwd', $passwd, 'true');
+
+            return ['passwd', $passwd, 'true'];
         }
 
-        public function get_passwd_md5_new(&$post)
+        public function get_passwd_md5_new($post)
         {
             // admin or guest specify
             if ($this->_has_passwd() && isset($post['passwd_new']) && $post['passwd_new']) {
@@ -755,7 +773,7 @@ if (!class_exists('weblinks_link')) {
             return $passwd;
         }
 
-        public function get_passwd_md5_mod_array(&$post)
+        public function get_passwd_md5_mod_array($post)
         {
             // default
             $passwd = '';
@@ -772,20 +790,20 @@ if (!class_exists('weblinks_link')) {
                 $allow  = true;
             }
 
-            return array('passwd', $passwd, $allow);
+            return ['passwd', $passwd, $allow];
         }
 
-        public function _is_approve_passwd(&$post, $op)
+        public function _is_approve_passwd($post, $op)
         {
             // BUG: admin approve wrong password when guest submit
             if ($this->is_xoops_module_admin()
                 && isset($post['op'])
                 && ($post['op'] == $op)
                 && isset($post['passwd_md5'])
-                && $post['passwd_md5']
-            ) {
+                && $post['passwd_md5']) {
                 return true;
             }
+
             return false;
         }
 
@@ -799,13 +817,14 @@ if (!class_exists('weblinks_link')) {
             if ($this->_conf['use_passwd'] && $this->is_xoops_guest()) {
                 return true;
             }
+
             return false;
         }
 
         //---------------------------------------------------------
         // search field
         //---------------------------------------------------------
-        public function build_search_category(&$cid_arr)
+        public function build_search_category($cid_arr)
         {
             $search = '';
             if (is_array($cid_arr)) {
@@ -816,11 +835,11 @@ if (!class_exists('weblinks_link')) {
                     }
                 }
             }
+
             return $search;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

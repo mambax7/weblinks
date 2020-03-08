@@ -18,13 +18,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate')) {
-
     //=========================================================
     // class weblinks_locate
     //=========================================================
     class weblinks_locate_base extends happy_linux_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -50,16 +48,16 @@ if (!class_exists('weblinks_locate')) {
         {
             parent::__construct();
             $this->set_dirname($dirname);
-
-            //  $this->set_config_handler( weblinks_get_handler( 'config2_basic', $dirname ) );
+            //  $this->set_config_handler( weblinks_getHandler( 'config2_basic', $dirname ) );
         }
 
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_locate_factory($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -71,7 +69,7 @@ if (!class_exists('weblinks_locate')) {
             static $init;
             if (!isset($init)) {
                 $init = true;
-                $arr  =& $this->weblinks_get_value('config');
+                $arr  = &$this->weblinks_get_value('config');
                 $this->array_merge($arr);
             }
         }
@@ -85,21 +83,19 @@ if (!class_exists('weblinks_locate')) {
                 case 'config':
                     $code = $this->get_config_country_code();
                     break;
-
                 case 'default':
                     $code = $this->get_language_country_code();
                     break;
-
                 default:
                     $code = $this->get_defualt_contry_code();
                     break;
             }
 
-            $instance1 =& $this->get_instance($code);
-            $instance2 =& $this->get_instance($code, 'weblinks', $this->get_dirname());
+            $instance1 = &$this->get_instance($code);
+            $instance2 = &$this->get_instance($code, 'weblinks', $this->get_dirname());
 
-            $arr1    =& $instance1->get_vars();
-            $arr2    =& $instance2->get_vars();
+            $arr1    = &$instance1->get_vars();
+            $arr2    = &$instance2->get_vars();
             $arr_out = array_merge($arr1, $arr2);
 
             return $arr_out;
@@ -120,6 +116,5 @@ if (!class_exists('weblinks_locate')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

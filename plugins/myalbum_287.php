@@ -18,7 +18,7 @@
 
 //=========================================================
 // WebLinks Module
-// for myalbum 2.87 <http://xoops.peak.ne.jp/>
+// for myalbum 2.87 <https://xoops.peak.ne.jp/>
 // 2007-03-25 K.OHWADA
 //=========================================================
 
@@ -38,7 +38,7 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
             return $false;
         }
 
-        $arr = array();
+        $arr = [];
 
         $sql = 'SELECT * FROM ' . $table_cat . ' ORDER BY cid';
         $res = $xoopsDB->query($sql);
@@ -69,13 +69,13 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
         $cycle       = isset($opts['cycle']) ? (int)$opts['cycle'] : 60;
         $cols        = isset($opts['cols']) ? (int)$opts['cols'] : 3;
 
-        if ($album_id == 0) {
+        if (0 == $album_id) {
             return $false;
-        } elseif ($album_id == WEBLINKS_PLUGIN_ALL) {
+        } elseif (WEBLINKS_PLUGIN_ALL == $album_id) {
             $album_id = 0;  // all category
         }
 
-        $options = array(
+        $options = [
             0 => $DIRNAME,      // dirname
             1 => $width,        // box_size
             2 => $album_limit,  // photos_num
@@ -83,7 +83,7 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
             4 => $mode_sub,     // sub category
             5 => $cycle,        // cycle (sec)
             6 => $cols,         // cols
-        );
+        ];
 
         // Fatal error: Call to undefined function b_myalbum_rphoto_show()
         if (function_exists('b_myalbum_rphoto_show')) {
@@ -102,22 +102,21 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
 
         $href_base = XOOPS_URL . '/modules/' . $DIRNAME . '/photo.php?lid=';
 
-        $ret = array();
+        $ret = [];
         foreach ($block['photo'] as $photo) {
             $href    = $href_base . $photo['lid'] . '&amp;cid=' . $photo['cid'];
             $src     = $photo['thumbs_url'] . '/' . $photo['lid'] . '.' . $photo['ext'];
             $title   = $photo['title'];
             $attribs = $photo['img_attribs'];
 
-            $ret[] = array(
+            $ret[] = [
                 'href'        => $href,
                 'title'       => $title,
                 'img_src'     => $src,
                 'img_attribs' => $attribs,
-            );
+            ];
         }
 
         return $ret;
     }
 }// --- functions end ---
-;

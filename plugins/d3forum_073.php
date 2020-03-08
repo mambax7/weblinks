@@ -10,7 +10,7 @@
 
 //=========================================================
 // WebLinks Module
-// for d3forum 0.73 <http://xoops.peak.ne.jp/>
+// for d3forum 0.73 <https://xoops.peak.ne.jp/>
 // 2007-06-10 K.OHWADA
 //=========================================================
 
@@ -29,7 +29,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'd3forum';
 
         $false = false;
-        $arr   = array();
+        $arr   = [];
 
         $table_forums = $xoopsDB->prefix($DIRNAME . '_forums');
         $sql          = 'SELECT * FROM ' . $table_forums . ' ORDER BY forum_id';
@@ -39,6 +39,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
@@ -60,7 +61,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         }
 
         $false = false;
-        $arr   = array();
+        $arr   = [];
 
         // option parameter
         $DIRNAME      = isset($opts['dirname']) ? $opts['dirname'] : 'd3forum';
@@ -71,7 +72,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         $post_start   = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
         $post_order   = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
 
-        if ($forum_id_in == 0) {
+        if (0 == $forum_id_in) {
             return $false;
         }
 
@@ -99,7 +100,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         $sql1 = 'SELECT * FROM ' . $table_forums;
 
         // BUG : not show when all forum
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql1 .= ' WHERE forum_id=' . (int)$forum_id_in;
         }
 
@@ -108,10 +109,11 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
-        $forum_title = array();
+        $forum_title = [];
         while ($row1 = $xoopsDB->fetchArray($res1)) {
             $forum_title[$row1['forum_id']] = $row1['forum_title'];
         }
@@ -120,7 +122,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         $arr['forum_id']    = 0;
         $arr['forum_title'] = '';
         $arr['forum_link']  = '';
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $arr['forum_id']    = $forum_id_in;
             $arr['forum_title'] = $forum_title[$forum_id_in];
             $arr['forum_link']  = $URL_MOD . '/index.php?forum_id=' . $forum_id_in;
@@ -128,7 +130,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
 
         // latest topics
         $sql2 = 'SELECT * FROM ' . $table_topics;
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_last_post_time ' . $post_order;
@@ -138,11 +140,12 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
         while ($row2 = $xoopsDB->fetchArray($res2)) {
-            $thread_arr = array();
+            $thread_arr = [];
 
             $forum_id   = $row2['forum_id'];
             $topic_id   = $row2['topic_id'];
@@ -169,7 +172,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             }
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
-                $post_arr                = array();
+                $post_arr                = [];
                 $post_id                 = $row3['post_id'];
                 $post_arr['post_id']     = $post_id;
                 $post_arr['post_link']   = $topic_link . '#post_id' . $post_id;
@@ -212,4 +215,3 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         return $arr;
     }
 }// --- functions end ---
-;

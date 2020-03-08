@@ -6,6 +6,6 @@ You can view this link here:
 {LINK_URL}
 
 -----------
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

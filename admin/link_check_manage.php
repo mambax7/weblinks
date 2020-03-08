@@ -74,9 +74,9 @@ class admin_link_check_manage extends happy_linux_manage
         $this->set_script('link_check_manage.php');
         $this->set_flag_execute_time(true);
 
-        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler  = weblinks_get_handler('link_check', WEBLINKS_DIRNAME);
-        $this->_update_handler = weblinks_get_handler('pagerank_update', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_check_handler  = weblinks_getHandler('link_check', WEBLINKS_DIRNAME);
+        $this->_update_handler = weblinks_getHandler('pagerank_update', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
 
@@ -86,9 +86,10 @@ class admin_link_check_manage extends happy_linux_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_check_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -106,6 +107,7 @@ class admin_link_check_manage extends happy_linux_manage
         if ($this->_limit < 0) {
             $this->_limit = 0;
         }
+
         return $this->_limit;
     }
 
@@ -115,6 +117,7 @@ class admin_link_check_manage extends happy_linux_manage
         if ($this->_offset < 0) {
             $this->_offset = 0;
         }
+
         return $this->_offset;
     }
 
@@ -133,15 +136,15 @@ class admin_link_check_manage extends happy_linux_manage
 
         echo '<h4>' . _AM_WEBLINKS_LINK_CHECK_MANAGE . "</h4>\n";
         printf(_WLS_THEREARE, $total);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
         echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION;
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $this->_print_form('check', _WEBLINKS_ADMIN_LINK_BROKEN_CHECK);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $this->_print_form('update', $this->_TITLE_UPDATE);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $this->_print_cp_footer();
     }
@@ -198,7 +201,7 @@ class admin_link_check_manage extends happy_linux_manage
         $total = $this->_check_handler->get_link_count_all();
 
         if (($limit > 0) && ($next < $total)) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->_form->show_next($op, $title, $limit, $next);
         } else {
             echo '<h4>' . _HAPPY_LINUX_EXECUTED . "</h4>\n";
@@ -222,7 +225,6 @@ class admin_link_check_manage extends happy_linux_manage
 //=========================================================
 class admin_form_pagerank extends happy_linux_form_lib
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -234,9 +236,10 @@ class admin_form_pagerank extends happy_linux_form_lib
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_pagerank();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -285,16 +288,13 @@ switch ($op) {
     case 'check':
         $manage->check_link();
         break;
-
     case 'update':
         $manage->update_pagerank();
         break;
-
     default:
         $manage->main_form();
         break;
 }
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

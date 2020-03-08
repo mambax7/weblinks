@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_block')) {
-
     //=========================================================
     // class weblinks_block
     //=========================================================
@@ -21,7 +20,7 @@ if (!class_exists('weblinks_block')) {
         public $_table_category;
         public $_table_catlink;
 
-        public $_cat_cached = array();
+        public $_cat_cached = [];
 
         //---------------------------------------------------------
         // constructor
@@ -42,8 +41,9 @@ if (!class_exists('weblinks_block')) {
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {
-                $singletons[$dirname] = new weblinks_block($dirname);
+                $singletons[$dirname] = new self($dirname);
             }
+
             return $singletons[$dirname];
         }
 
@@ -123,13 +123,13 @@ if (!class_exists('weblinks_block')) {
             //  $gm_type_control = isset($options[20]) ? intval($options[20])   : 1;
 
             // time_create
-            if (($order != 'hits') && ($order != 'rating') && ($order != 'time_create')) {
+            if (('hits' != $order) && ('rating' != $order) && ('time_create' != $order)) {
                 $order = 'time_update';
             }
 
-            $lid_array = array();
+            $lid_array = [];
 
-            $block                  = array();
+            $block                  = [];
             $block['dirname']       = $DIRNAME;
             $block['lang_hits']     = _MB_WEBLINKS_HITS;
             $block['lang_rating']   = _MB_WEBLINKS_RATING;
@@ -137,21 +137,21 @@ if (!class_exists('weblinks_block')) {
             $block['lang_comments'] = _MB_WEBLINKS_COMMENTS;
             $block['lang_more']     = _MB_WEBLINKS_MORE;
 
-            $gm_links      = array();
+            $gm_links      = [];
             $show_webmap   = false;
             $webmap_div_id = '';
             $webmap_func   = '';
             $webmap_style  = '';
 
             // config
-            $conf =& weblinks_get_config($DIRNAME);
+            $conf = weblinks_get_config($DIRNAME);
             if (!isset($conf['broken_threshold'])) {
                 return $block;
             }
 
             $broken = $conf['broken_threshold'];
 
-            $link_param = array(
+            $link_param = [
                 'order'            => $order,
                 'title_length'     => $title_length,
                 'cat_title_length' => $cat_title_length,
@@ -163,7 +163,7 @@ if (!class_exists('weblinks_block')) {
 
                 // hack for multi language
                 'is_japanese_site' => weblinks_multi_is_japanese_site(),
-            );
+            ];
 
             $rows1 = $this->get_rows_order_in_link($order, $broken, $limit);
             if (!is_array($rows1) || !count($rows1)) {
@@ -202,7 +202,7 @@ if (!class_exists('weblinks_block')) {
 
             // google map
             $gm_name  = $DIRNAME . '_b_' . $order;
-            $gm_param = array(
+            $gm_param = [
                 'dirname'      => $DIRNAME,
                 'latitude'     => $gm_latitude,
                 'longitude'    => $gm_longitude,
@@ -212,7 +212,7 @@ if (!class_exists('weblinks_block')) {
                 'style_height' => $gm_height,
                 'links'        => $gm_links,
                 'conf'         => $conf,
-            );
+            ];
 
             $webmap_param = $this->_webmap_class->build_map_block($gm_param);
             if (is_array($webmap_param)) {
@@ -372,6 +372,7 @@ if (!class_exists('weblinks_block')) {
             $form .= "</td></tr>\n";
 
             $form .= "</table>\n";
+
             return $form;
         }
 
@@ -435,7 +436,7 @@ if (!class_exists('weblinks_block')) {
         // latest: dirname|10|30|0|0|7|0|50|50|1|0|0|0|1|-|0|time_update|DESC|0|0|0|0|300|1000|100|50
         // random: dirname|5 |30|0|0|0|0|50|50|0|1|1|0|1|-|1|lid        |ASC|0|0|0|0|300|1000|100|50
         //
-        // 2006-11-03 hiro <http://ishinomaki.cc/>
+        // 2006-11-03 hiro <https://ishinomaki.cc/>
         //---------------------------------------------------------
         public function generic_show($options)
         {
@@ -474,35 +475,34 @@ if (!class_exists('weblinks_block')) {
             //  $gm_control      = isset($options[27]) ? intval($options[27])   : 1;
             //  $gm_type_control = isset($options[28]) ? intval($options[28])   : 1;
 
-            if (($order != 'time_update')
-                && ($order != 'time_create')
-                && ($order != 'hits')
-                && ($order != 'rating')
-                && ($order != 'title')
-            ) {
+            if (('time_update' != $order)
+                && ('time_create' != $order)
+                && ('hits' != $order)
+                && ('rating' != $order)
+                && ('title' != $order)) {
                 $order = 'lid';
             }
 
-            if ($sort != 'DESC') {
+            if ('DESC' != $sort) {
                 $sort = 'ASC';
             }
 
-            if (($mode_link != 'recommend') && ($mode_link != 'mutual')) {
+            if (('recommend' != $mode_link) && ('mutual' != $mode_link)) {
                 $mode_link = '';
             }
 
             $show_title = 1;
-            if ($title_length == 0) {
+            if (0 == $title_length) {
                 $show_title = 0;
             }
 
-            $gm_links      = array();
+            $gm_links      = [];
             $show_webmap   = false;
             $webmap_div_id = '';
             $webmap_func   = '';
             $webmap_style  = '';
 
-            $block                  = array();
+            $block                  = [];
             $block['dirname']       = $DIRNAME;
             $block['lang_hits']     = _MB_WEBLINKS_HITS;
             $block['lang_rating']   = _MB_WEBLINKS_RATING;
@@ -514,12 +514,12 @@ if (!class_exists('weblinks_block')) {
             $block['show_mode_url'] = $show_mode_url;
 
             // config
-            $conf =& weblinks_get_config($DIRNAME);
+            $conf = weblinks_get_config($DIRNAME);
             if (!isset($conf['broken_threshold'])) {
                 return $block;
             }
 
-            $link_param = array(
+            $link_param = [
                 'order'            => $order,
                 'title_length'     => $title_length,
                 'desc_length'      => $desc_length,
@@ -528,9 +528,9 @@ if (!class_exists('weblinks_block')) {
                 'popular'          => $popular,
                 'max_width'        => $max_width,
                 'width_default'    => $width_default,
-            );
+            ];
 
-            $sql_param = array(
+            $sql_param = [
                 'flag_url_empty' => $flag_url_empty,
                 'flag_subcat'    => $flag_subcat,
                 'flag_random'    => $flag_random,
@@ -540,7 +540,7 @@ if (!class_exists('weblinks_block')) {
                 'sort'           => $sort,
                 'limit'          => $limit,
                 'broken'         => $conf['broken_threshold'],
-            );
+            ];
 
             $rows = $this->get_rows_generic_in_link($sql_param);
             if (!is_array($rows) || !count($rows)) {
@@ -558,7 +558,7 @@ if (!class_exists('weblinks_block')) {
 
             // google map
             $gm_name  = $DIRNAME . '_b_g_' . $order;
-            $gm_param = array(
+            $gm_param = [
                 'dirname'      => $DIRNAME,
                 'latitude'     => $gm_latitude,
                 'longitude'    => $gm_longitude,
@@ -568,7 +568,7 @@ if (!class_exists('weblinks_block')) {
                 'style_height' => $gm_height,
                 'links'        => $gm_links,
                 'conf'         => $conf,
-            );
+            ];
 
             $webmap_param = $this->_webmap_class->build_map_block($gm_param);
             if (is_array($webmap_param)) {
@@ -589,7 +589,6 @@ if (!class_exists('weblinks_block')) {
 
         public function generic_edit($options)
         {
-
             // base on W3C
             $SELECTED = 'selected="selected"';
             $CHECKED  = 'checked="checked"';
@@ -597,10 +596,10 @@ if (!class_exists('weblinks_block')) {
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
             // config init before get_handler(category)
-            $config_handler = weblinks_get_handler('config2_basic', $DIRNAME);
+            $config_handler = weblinks_getHandler('config2_basic', $DIRNAME);
             $config_handler->init();
 
-            $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
+            $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
             $category_handler->load_once();
 
             $DIRNAME          = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -637,7 +636,7 @@ if (!class_exists('weblinks_block')) {
             // show date
             $date_checked_0 = '';
             $date_checked_1 = '';
-            if ($show_date == 1) {
+            if (1 == $show_date) {
                 $date_checked_1 = $CHECKED;
             } else {
                 $date_checked_0 = $CHECKED;
@@ -647,9 +646,9 @@ if (!class_exists('weblinks_block')) {
             $url_sel_0 = '';
             $url_sel_1 = '';
             $url_sel_2 = '';
-            if ($show_mode_url == 1) {
+            if (1 == $show_mode_url) {
                 $url_sel_1 = $SELECTED;
-            } elseif ($show_mode_url == 2) {
+            } elseif (2 == $show_mode_url) {
                 $url_sel_2 = $SELECTED;
             } else {
                 $url_sel_0 = $SELECTED;
@@ -658,7 +657,7 @@ if (!class_exists('weblinks_block')) {
             // url empty
             $empty_checked_0 = '';
             $empty_checked_1 = '';
-            if ($flag_url_empty == 1) {
+            if (1 == $flag_url_empty) {
                 $empty_checked_1 = $CHECKED;
             } else {
                 $empty_checked_0 = $CHECKED;
@@ -670,7 +669,7 @@ if (!class_exists('weblinks_block')) {
             // sub category
             $subcat_checked_0 = '';
             $subcat_checked_1 = '';
-            if ($flag_subcat == 1) {
+            if (1 == $flag_subcat) {
                 $subcat_checked_1 = $CHECKED;
             } else {
                 $subcat_checked_0 = $CHECKED;
@@ -679,16 +678,16 @@ if (!class_exists('weblinks_block')) {
             // mode
             $mode_sel_recommend = '';
             $mode_sel_mutual    = '';
-            if ($mode_link == 'recommend') {
+            if ('recommend' == $mode_link) {
                 $mode_sel_recommend = $SELECTED;
-            } elseif ($mode_link == 'mutual') {
+            } elseif ('mutual' == $mode_link) {
                 $mode_sel_mutual = $SELECTED;
             }
 
             // random
             $random_checked_0 = '';
             $random_checked_1 = '';
-            if ($flag_random == 1) {
+            if (1 == $flag_random) {
                 $random_checked_1 = $CHECKED;
             } else {
                 $random_checked_0 = $CHECKED;
@@ -701,15 +700,15 @@ if (!class_exists('weblinks_block')) {
             $order_sel_hits   = '';
             $order_sel_rating = '';
             $order_sel_title  = '';
-            if ($order == 'time_update') {
+            if ('time_update' == $order) {
                 $order_sel_update = $SELECTED;
-            } elseif ($order == 'time_create') {
+            } elseif ('time_create' == $order) {
                 $order_sel_create = $SELECTED;
-            } elseif ($order == 'hits') {
+            } elseif ('hits' == $order) {
                 $order_sel_hits = $SELECTED;
-            } elseif ($order == 'rating') {
+            } elseif ('rating' == $order) {
                 $order_sel_rating = $SELECTED;
-            } elseif ($order == 'title') {
+            } elseif ('title' == $order) {
                 $order_sel_title = $SELECTED;
             } else {
                 $order_sel_lid = $SELECTED;
@@ -718,7 +717,7 @@ if (!class_exists('weblinks_block')) {
             // sort
             $sort_sel_asc  = '';
             $sort_sel_desc = '';
-            if ($sort == 'DESC') {
+            if ('DESC' == $sort) {
                 $sort_sel_desc = $SELECTED;
             } else {
                 $sort_sel_asc = $SELECTED;
@@ -832,7 +831,8 @@ if (!class_exists('weblinks_block')) {
             $form .= "</td></tr>\n<tr><td>";
             $form .= _MB_WEBLINKS_ORDER;
             $form .= '</td><td>';
-            $form .= _MB_WEBLINKS_ORDER_DESC . "<br />\n";;
+            $form .= _MB_WEBLINKS_ORDER_DESC . "<br>\n";
+
             $form .= '<select size="1" name="options[16]">' . "\n";
             $form .= '<option value="lid" ' . $order_sel_lid . '>';
             $form .= _MB_WEBLINKS_LINK_ID;
@@ -927,6 +927,7 @@ if (!class_exists('weblinks_block')) {
             $form .= "</td></tr>\n";
 
             $form .= "</table>\n";
+
             return $form;
         }
 
@@ -951,7 +952,7 @@ if (!class_exists('weblinks_block')) {
             list($show_banner, $banner_width) = $this->get_block_banner_disp();
             list($show_new, $show_update) = $this->get_show_new_update();
 
-            $arr = array(
+            $arr = [
                 'id'             => $lid,
                 'cid'            => $cid,
                 'hits_disp'      => $hits_disp,
@@ -976,11 +977,13 @@ if (!class_exists('weblinks_block')) {
                 'show_new'       => $show_new,
                 'show_update'    => $show_update,
                 'show_pop'       => $this->get_show_popular(),
-            );
+            ];
 
             $link = $row + $arr;
+
             return $link;
         }
+
         //---------------------------------------------------------
         // cat title
         //---------------------------------------------------------
@@ -993,13 +996,13 @@ if (!class_exists('weblinks_block')) {
             $cat_title      = '';
             $cat_title_disp = '';
 
-            if ($cat_title_length != 0) {
+            if (0 != $cat_title_length) {
                 $show_cat_title = true;
                 list($cid, $cat_title) = $this->get_cat_title($lid, $google_cid);
                 $cat_title_disp = $this->build_summary($cat_title, $cat_title_length);
             }
 
-            return array($show_cat_title, $cid, $cat_title, $cat_title_disp);
+            return [$show_cat_title, $cid, $cat_title, $cat_title_disp];
         }
 
         public function get_cat_title($lid, $google_cid)
@@ -1010,7 +1013,8 @@ if (!class_exists('weblinks_block')) {
                 $cid = $this->get_cid_in_catlink($lid);
             }
             $row = $this->get_cached_row_in_category($cid);
-            return array($cid, $row['title']);
+
+            return [$cid, $row['title']];
         }
 
         //---------------------------------------------------------
@@ -1025,14 +1029,15 @@ if (!class_exists('weblinks_block')) {
                 $google_use = true;
                 list($google_cid, $google_icon) = $this->find_google_icon($row);
             }
-            return array($google_use, $google_cid, $google_icon);
+
+            return [$google_use, $google_cid, $google_icon];
         }
 
         public function find_google_icon($link_row)
         {
             // find in link
             if ($link_row['gm_icon'] > 0) {
-                return array(0, $link_row['gm_icon']);
+                return [0, $link_row['gm_icon']];
             }
 
             $cid_array = $this->get_cid_array_in_catlink($link_row['lid']);
@@ -1041,12 +1046,12 @@ if (!class_exists('weblinks_block')) {
 
                 // find in category
                 if ($cat_row['gm_icon'] > 0) {
-                    return array($cid, $cat_row['gm_icon']);
+                    return [$cid, $cat_row['gm_icon']];
                 }
             }
 
             // not find
-            return array(0, 0);
+            return [0, 0];
         }
 
         //---------------------------------------------------------
@@ -1095,30 +1100,28 @@ if (!class_exists('weblinks_block')) {
             $where_mode    = '';
 
             // url empty
-            if ($flag_url_empty == 1) {
+            if (1 == $flag_url_empty) {
                 $where_link .= "AND l.url != '' ";
             }
 
             // all categories ( not specify )
-            if (($cid == 0) && ($flag_subcat == 1)) {
+            if ((0 == $cid) && (1 == $flag_subcat)) {
                 $sql_catlink   = '';
                 $where_catlink = '';
-
                 // specify category
             } else {
                 $sql_catlink = $this->_table_catlink . ' cl ON l.lid=cl.lid ';
 
                 // parent category only
-                if ($flag_subcat == 0) {
+                if (0 == $flag_subcat) {
                     $where_catlink = 'cl.cid=' . $cid . ' ';
-
                     // parent and all children categories
                 } else {
                     $cattree   = new XoopsTree($this->_table_category, 'cid', 'pid');
-                    $cid_array = array();
+                    $cid_array = [];
                     $cid_array = $cattree->getAllChildId($cid);
 
-                    if (count($cid_array) == 0) {
+                    if (0 == count($cid_array)) {
                         $cids = $cid;
                     } else {
                         array_push($cid_array, $cid);   // with parent
@@ -1136,9 +1139,8 @@ if (!class_exists('weblinks_block')) {
             // random mode
             if ($flag_random) {
                 $sql_orderby = 'rand()';
-
                 // normal mode
-            } elseif ($order != '' && $sort != '') {
+            } elseif ('' != $order && '' != $sort) {
                 $sql_orderby = 'l.' . $order . ' ' . $sort;
             }
 
@@ -1175,6 +1177,7 @@ if (!class_exists('weblinks_block')) {
             if (isset($arr[0])) {
                 return $arr[0];
             }
+
             return 0;
         }
 
@@ -1194,10 +1197,11 @@ if (!class_exists('weblinks_block')) {
                 false;
             }
 
-            $arr = array();
+            $arr = [];
             foreach ($rows as $row) {
                 $arr[] = $row['cid'];
             }
+
             return $arr;
         }
 
@@ -1213,6 +1217,7 @@ if (!class_exists('weblinks_block')) {
             $row = $this->get_row_in_category($cid);
             if (is_array($row)) {
                 $this->_cat_cached[$cid] = $row;
+
                 return $row;
             }
 
@@ -1236,7 +1241,7 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         public function get_rows_by_sql($sql, $limit = 0, $offset = 0)
         {
-            $arr = array();
+            $arr = [];
 
             $res = $this->_db->query($sql, $limit, $offset);
             if (!$res) {
@@ -1246,6 +1251,7 @@ if (!class_exists('weblinks_block')) {
             while ($row = $this->_db->fetchArray($res)) {
                 $arr[] = $row;
             }
+
             return $arr;
         }
 
@@ -1261,6 +1267,5 @@ if (!class_exists('weblinks_block')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

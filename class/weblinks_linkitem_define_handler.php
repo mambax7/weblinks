@@ -53,7 +53,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_linkitem_define_handler')) {
-
     //=========================================================
     // class weblinks_linkitem_define
     //=========================================================
@@ -74,7 +73,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //   1: admin & user can save
         //   2: admin can save, user cannot
 
-        public $_cached = array();
+        public $_cached = [];
 
         public $_num_etc = WEBLINKS_LINK_NUM_ETC;
 
@@ -84,7 +83,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         public function __construct($dirname)
         {
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler = weblinks_get_handler('config2_basic', $dirname);
+                $config_handler = weblinks_getHandler('config2_basic', $dirname);
                 $conf           = $config_handler->get_conf();
                 if (is_array($conf) && (count($conf) > 0)) {
                     $this->set_num_etc($conf['link_num_etc']);
@@ -95,9 +94,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_linkitem_define($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -106,7 +106,6 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         public function &get_define()
         {
-
             //---------------------------------------------------------
             // basic config
             // admin can change some field
@@ -154,10 +153,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[6]['user_form']  = 'none';
             $config[6]['admin_form'] = 'time_update';
             $config[6]['conf_form']  = 2;
-            $config[6]['options']    = array(
+            $config[6]['options']    = [
                 _WLS_NOTTIMEUPDATE => 0,
-                _WLS_TIMEUPDATE    => 1
-            );
+                _WLS_TIMEUPDATE    => 1,
+            ];
 
             //---------------------------------------------------------
             // admin can change
@@ -170,9 +169,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[13]['data_type']  = 'int_checkbox';
             $config[13]['conf_form']  = 0;
             $config[13]['save_mode']  = 2;
-            $config[13]['options']    = array(
+            $config[13]['options']    = [
                 _WLS_SITE_RECOMMEND => 1,
-            );
+            ];
 
             $config[14]['name']       = 'mutual';
             $config[14]['title']      = _WLS_SITE_MUTUAL;
@@ -182,9 +181,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[14]['data_type']  = 'int_checkbox';
             $config[14]['conf_form']  = 0;
             $config[14]['save_mode']  = 2;
-            $config[14]['options']    = array(
+            $config[14]['options']    = [
                 _WLS_SITE_MUTUAL => 1,
-            );
+            ];
 
             // not use
             $config[15]['name']  = 'cids';
@@ -255,9 +254,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[32]['admin_form'] = 'none';
             $config[32]['data_type']  = 'int_checkbox';
             $config[32]['conf_form']  = 0;
-            $config[32]['options']    = array(
+            $config[32]['options']    = [
                 _WEBLINKS_DOHTML => 1,
-            );
+            ];
 
             $config[33]['name']       = 'dosmiley';
             $config[33]['title']      = 'dosmiley';
@@ -266,9 +265,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[33]['admin_form'] = 'none';
             $config[33]['data_type']  = 'int_checkbox';
             $config[33]['conf_form']  = 0;
-            $config[33]['options']    = array(
+            $config[33]['options']    = [
                 _WEBLINKS_DOSMILEY => 1,
-            );
+            ];
 
             $config[34]['name']       = 'doxcode';
             $config[34]['title']      = 'doxcode';
@@ -277,9 +276,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[34]['admin_form'] = 'none';
             $config[34]['data_type']  = 'int_checkbox';
             $config[34]['conf_form']  = 0;
-            $config[34]['options']    = array(
+            $config[34]['options']    = [
                 _WEBLINKS_DOXCODE => 1,
-            );
+            ];
 
             $config[35]['name']       = 'doimage';
             $config[35]['title']      = 'doimage';
@@ -288,9 +287,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[35]['admin_form'] = 'none';
             $config[35]['data_type']  = 'int_checkbox';
             $config[35]['conf_form']  = 0;
-            $config[35]['options']    = array(
+            $config[35]['options']    = [
                 _WEBLINKS_DOIMAGE => 1,
-            );
+            ];
 
             $config[36]['name']       = 'dobr';
             $config[36]['title']      = 'dobr';
@@ -299,9 +298,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[36]['admin_form'] = 'none';
             $config[36]['data_type']  = 'int_checkbox';
             $config[36]['conf_form']  = 0;
-            $config[36]['options']    = array(
+            $config[36]['options']    = [
                 _WEBLINKS_DOBREAK => 1,
-            );
+            ];
 
             $config[41]['name']       = 'banner';
             $config[41]['title']      = _WLS_BANNERURL;
@@ -338,12 +337,12 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[45]['user_form']  = 'none';
             $config[45]['admin_form'] = 'none';
             $config[45]['conf_form']  = 0;
-            $config[45]['options']    = array(
+            $config[45]['options']    = [
                 _WLS_RSS_URL_0 => 0,
                 _WLS_RSS_URL_2 => 2,
                 _WLS_RSS_URL_1 => 1,
                 _WLS_RSS_URL_3 => 3,
-            );
+            ];
 
             $config[46]['name']       = 'name';
             $config[46]['title']      = _WLS_NAME;
@@ -360,10 +359,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[47]['admin_form'] = 'none';
             $config[47]['conf_form']  = 0;
             $config[47]['save_mode']  = 1;
-            $config[47]['options']    = array(
+            $config[47]['options']    = [
                 _WLS_NOTPUBLIC => 0,
                 _WLS_PUBLIC    => 1,
-            );
+            ];
 
             $config[48]['name']       = 'mail';
             $config[48]['title']      = _WLS_EMAIL;
@@ -380,10 +379,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[49]['admin_form'] = 'none';
             $config[49]['conf_form']  = 0;
             $config[49]['save_mode']  = 1;
-            $config[49]['options']    = array(
+            $config[49]['options']    = [
                 _WLS_NOTPUBLIC => 0,
                 _WLS_PUBLIC    => 1,
-            );
+            ];
 
             $config[51]['name']        = 'company';
             $config[51]['title']       = _WLS_COMPANY;
@@ -497,11 +496,11 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[64]['admin_form'] = 'radio';
             $config[64]['conf_form']  = 1;
             $config[64]['save_mode']  = 1;
-            $config[64]['options']    = array(
+            $config[64]['options']    = [
                 _WEBLINKS_GM_TYPE_MAP       => 0,
                 _WEBLINKS_GM_TYPE_SATELLITE => 1,
                 _WEBLINKS_GM_TYPE_HYBRID    => 2,
-            );
+            ];
 
             $config[66]['name']       = 'gm_icon';
             $config[66]['title']      = _WEBLINKS_GM_ICON;
@@ -537,7 +536,8 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
 
             // textarea1
             $config[81]['name']  = 'textarea1';
-            $config[81]['title'] = _WEBLINKS_TEXTAREA . ' 1';;
+            $config[81]['title'] = _WEBLINKS_TEXTAREA . ' 1';
+
             $config[81]['user_mode']  = 0;
             $config[81]['user_form']  = 'user_dhtml';
             $config[81]['admin_form'] = 'dhtml';
@@ -551,9 +551,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[82]['admin_form'] = 'none';
             $config[82]['data_type']  = 'int_checkbox';
             $config[82]['conf_form']  = 0;
-            $config[82]['options']    = array(
+            $config[82]['options']    = [
                 _WEBLINKS_DOHTML => 1,
-            );
+            ];
 
             $config[83]['name']       = 'dosmiley1';
             $config[83]['title']      = 'dosmiley1';
@@ -562,9 +562,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[83]['admin_form'] = 'none';
             $config[83]['data_type']  = 'int_checkbox';
             $config[83]['conf_form']  = 0;
-            $config[83]['options']    = array(
+            $config[83]['options']    = [
                 _WEBLINKS_DOSMILEY => 1,
-            );
+            ];
 
             $config[84]['name']       = 'doxcode1';
             $config[84]['title']      = 'doxcode1';
@@ -573,9 +573,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[84]['admin_form'] = 'none';
             $config[84]['data_type']  = 'int_checkbox';
             $config[84]['conf_form']  = 0;
-            $config[84]['options']    = array(
+            $config[84]['options']    = [
                 _WEBLINKS_DOXCODE => 1,
-            );
+            ];
 
             $config[85]['name']       = 'doimage1';
             $config[85]['title']      = 'doimage1';
@@ -584,9 +584,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[85]['admin_form'] = 'none';
             $config[85]['data_type']  = 'int_checkbox';
             $config[85]['conf_form']  = 0;
-            $config[85]['options']    = array(
+            $config[85]['options']    = [
                 _WEBLINKS_DOIMAGE => 1,
-            );
+            ];
 
             $config[86]['name']       = 'dobr1';
             $config[86]['title']      = 'dobr1';
@@ -595,12 +595,13 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[86]['admin_form'] = 'none';
             $config[86]['data_type']  = 'checkbox';
             $config[86]['conf_form']  = 0;
-            $config[86]['options']    = array(
+            $config[86]['options']    = [
                 _WEBLINKS_DOBREAK => 1,
-            );
+            ];
 
             $config[91]['name']  = 'textarea2';
-            $config[91]['title'] = _WEBLINKS_TEXTAREA . ' 2';;
+            $config[91]['title'] = _WEBLINKS_TEXTAREA . ' 2';
+
             $config[91]['user_mode']  = 0;
             $config[91]['user_form']  = 'textarea';
             $config[91]['admin_form'] = 'textarea';
@@ -638,9 +639,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $config[104]['user_form']  = 'notify';
             $config[104]['admin_form'] = 'hidden';
             $config[104]['conf_form']  = 0;
-            $config[104]['options']    = array(
+            $config[104]['options']    = [
                 _WLS_NOTIFYAPPROVE => 1,
-            );
+            ];
 
             //---------------------------------------------------------
             // admin can change
@@ -784,6 +785,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         public function load()
         {
             $this->_cached = $this->get_define();
+
             return $this->_cached;
         }
 
@@ -791,6 +793,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         {
             if (isset($this->_cached[$id][$key])) {
                 $val = $this->_cached[$id][$key];
+
                 return $val;
             }
 
@@ -821,8 +824,8 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         public $_linkitem_define;
 
         // cache
-        public $_cached_by_itemid = array();
-        public $_cached_by_name   = array();
+        public $_cached_by_itemid = [];
+        public $_cached_by_name   = [];
 
         public $_is_module_admin;
 
@@ -831,7 +834,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         public function __construct($dirname)
         {
-            $this->_linkitem_handler = weblinks_get_handler('linkitem', $dirname);
+            $this->_linkitem_handler = weblinks_getHandler('linkitem', $dirname);
             $this->_linkitem_define  = weblinks_linkitem_define::getInstance($dirname);
 
             $system                 = happy_linux_system::getInstance();
@@ -841,9 +844,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_linkitem_define_handler($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -855,8 +859,8 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $def_arr = $this->_linkitem_define->load();
             $this->_linkitem_handler->load();
 
-            $this->_cached_by_itemid = array();
-            $this->_cached_by_name   = array();
+            $this->_cached_by_itemid = [];
+            $this->_cached_by_name   = [];
 
             foreach ($def_arr as $id => $def) {
                 $name        = $this->_linkitem_define->get_cache_by_itemid_key($id, 'name');
@@ -872,7 +876,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
                 $user_mode   = $this->_linkitem_handler->get_cache_by_itemid_key($id, 'user_mode');
                 $desc        = $this->_linkitem_handler->get_cache_by_itemid_key($id, 'description');
 
-                $arr = array(
+                $arr = [
                     'item_id'     => $id,
                     'name'        => $name,
                     'title'       => htmlspecialchars($title, ENT_QUOTES),
@@ -887,7 +891,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
                     'search_mode' => $search_mode,
                     'data_type'   => $data_type,
                     'options'     => $opt,
-                );
+                ];
 
                 $this->_cached_by_itemid[$id] = $arr;
                 $this->_cached_by_name[$name] = $arr;
@@ -913,6 +917,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         {
             if (isset($this->_cached_by_itemid[$id][$key])) {
                 $val = $this->_cached_by_itemid[$id][$key];
+
                 return $val;
             }
 
@@ -923,6 +928,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         {
             if (isset($this->_cached_by_name[$name][$key])) {
                 $val = $this->_cached_by_name[$name][$key];
+
                 return $val;
             }
 
@@ -936,29 +942,30 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             $title_def = $this->get_by_itemid($id, 'title_def');
             $desc      = $this->get_by_itemid($id, 'description');
             $cap       = $this->build_caption($title, $desc, $title_def, $mode, $flag, $extra);
+
             return $cap;
         }
 
         public function build_caption($title, $desc = '', $title_def = '', $mode = 0, $flag = 0, $extra = '')
         {
-            if ($mode == 2) {
+            if (2 == $mode) {
                 $cap = "<span style='font-weight:bold;'> * $title * </span>";
             } else {
                 $cap = "<span style='font-weight:normal;'>" . $title . '</span>';
             }
 
             if ($flag && ($title != $title_def)) {
-                $cap .= "<br />\n";
+                $cap .= "<br>\n";
                 $cap .= "<span style='font-weight:normal;'> ( " . $title_def . ' ) </span>';
             }
 
             if ($extra) {
-                $cap .= "<br />\n";
+                $cap .= "<br>\n";
                 $cap .= "<span style='font-weight:normal;'>" . $extra . '</span>';
             }
 
             if ($desc) {
-                $cap .= "<br /><br />\n";
+                $cap .= "<br><br>\n";
                 $cap .= "<span style='font-weight:normal;'>" . $desc . '</span>';
             }
 
@@ -967,14 +974,14 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
 
         public function &get_save_mode_list()
         {
-            $list = array();
+            $list = [];
 
             foreach ($this->_cached_by_name as $name => $item) {
                 $flag = false;
 
-                if (($item['save_mode'] == 1) && (($item['user_mode'] > 0) || $this->_is_module_admin)) {
+                if ((1 == $item['save_mode']) && (($item['user_mode'] > 0) || $this->_is_module_admin)) {
                     $flag = true;
-                } elseif (($item['save_mode'] == 2) && $this->_is_module_admin) {
+                } elseif ((2 == $item['save_mode']) && $this->_is_module_admin) {
                     $flag = true;
                 }
 
@@ -991,17 +998,17 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
 
         public function &get_search_list()
         {
-            $list = array();
+            $list = [];
             foreach ($this->_cached_by_name as $name => $item) {
                 if ($item['search_mode']) {
                     $list[$name] = true;
                 }
             }
+
             return $list;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

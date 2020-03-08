@@ -21,7 +21,6 @@
 //=========================================================
 class admin_link_mod extends admin_link_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -30,15 +29,16 @@ class admin_link_mod extends admin_link_base
         parent::__construct();
         $this->set_edit_handler('link_mod');
 
-        $this->_votedata_handler = weblinks_get_handler('votedata', WEBLINKS_DIRNAME);
+        $this->_votedata_handler = weblinks_getHandler('votedata', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_mod();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -72,7 +72,7 @@ class admin_link_mod extends admin_link_base
         $lid = $this->get_post_lid();
 
         $this->_form->show_admin_form('modify', $lid);
-        echo "<hr />\n";
+        echo "<hr>\n";
 
         $list = admin_votedata_list::getInstance();
         $list->set_perpage($MAX_RECORD);
@@ -91,12 +91,12 @@ class admin_link_mod extends admin_link_base
             $list->set_form_name('votedata_user');
             $list->_show_by_sortid(2);
         } else {
-            echo '<b>' . _WLS_NOREGVOTES . "</b><br />\n";
+            echo '<b>' . _WLS_NOREGVOTES . "</b><br>\n";
         }
 
         if ($votes1 > $MAX_RECORD) {
             $url = 'votedata_list.php?sortid=2&amp;lid=' . $lid;
-            echo '<a href="' . $url . '">' . 'more ...' . "</a><br />\n";
+            echo '<a href="' . $url . '">' . 'more ...' . "</a><br>\n";
         }
 
         // Show Unregistered Users Votes
@@ -107,12 +107,12 @@ class admin_link_mod extends admin_link_base
             $list->set_form_name('votedata_anoymous');
             $list->_show_by_sortid(3);
         } else {
-            echo '<b>' . _WLS_NOUNREGVOTES . "</b><br />\n";
+            echo '<b>' . _WLS_NOUNREGVOTES . "</b><br>\n";
         }
 
         if ($votes2 > $MAX_RECORD) {
             $url = 'votedata_list.php?sortid=3&amp;lid=' . $lid;
-            echo '<a href="' . $url . '">' . 'more ...' . "</a><br />\n";
+            echo '<a href="' . $url . '">' . 'more ...' . "</a><br>\n";
         }
     }
 
@@ -120,7 +120,7 @@ class admin_link_mod extends admin_link_base
     {
         $lid      = $this->_obj->get('lid');
         $rssc_lid = $this->_obj->get('rssc_lid');
-        $objs     =& $this->_handler->get_objects_rssc_lid($lid, $rssc_lid);
+        $objs     = &$this->_handler->get_objects_rssc_lid($lid, $rssc_lid);
 
         if (is_array($objs) && count($objs)) {
             echo '<h4 style="color:#ff0000">' . _AM_WEBLINKS_RSSC_LID_EXIST_MORE . "</h4>\n";
@@ -130,13 +130,14 @@ class admin_link_mod extends admin_link_base
                 $url     = $this->_build_url_mod_form($obj->get('lid'));
                 echo '<li><a href="' . $url . '">' . $title_s . "</a></li>\n";
             }
-            echo "</ul><br />\n";
+            echo "</ul><br>\n";
         }
     }
 
     public function _build_url_mod_form($lid)
     {
         $url = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
+
         return $url;
     }
 
@@ -178,11 +179,10 @@ class admin_link_mod extends admin_link_base
             $msg .= $this->_build_comment('admin mod link');    // for test form
             redirect_header('link_list.php', 1, $msg);
             exit();
-        } else {
-            // Fatal error: Call to undefined method admin_link_mod::_print_mod_table_error()
-            $this->_print_mod_db_error();
-            exit();
         }
+        // Fatal error: Call to undefined method admin_link_mod::_print_mod_table_error()
+        $this->_print_mod_db_error();
+        exit();
     }
 
     public function _exec_mod_link($lid)
@@ -191,6 +191,7 @@ class admin_link_mod extends admin_link_base
         if ($ret) {
             $this->_set_errors($this->_edit_handler->getErrors());
         }
+
         return true;
     }
 
@@ -199,8 +200,10 @@ class admin_link_mod extends admin_link_base
         $ret = $this->_check_handler->check_form_modlink_for_owner_by_post();
         if (!$ret) {
             $this->_set_errors($this->_check_handler->get_errors_modlink());
+
             return false;
         }
+
         return true;
     }
 
@@ -218,17 +221,16 @@ class admin_link_mod extends admin_link_base
 
         if ($this->_error_title) {
             xoops_error($this->_error_title);
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $err = $this->getErrors(1);
         echo $this->_form->build_html_error_with_style($err);
-        echo "<br />\n";
+        echo "<br>\n";
 
         $this->_print_mod_preview_form();
         $this->_print_cp_footer();
     }
-
 
     //---------------------------------------------------------
     // mod_banner
@@ -238,9 +240,9 @@ class admin_link_mod extends admin_link_base
         $this->_print_cp_header();
         $this->_print_bread_op($this->_LANG_TITLE_MOD, 'mod_form', _AM_WEBLINKS_MOD_BANNER);
 
-        if ($op_mode == 'mod_banner') {
+        if ('mod_banner' == $op_mode) {
             echo '<h4 style="color: #0000ff;">' . _WLS_DBUPDATED . "</h4>\n";
-            echo "<hr />\n";
+            echo "<hr>\n";
         }
 
         $this->_print_title(_AM_WEBLINKS_MOD_BANNER);
@@ -276,10 +278,9 @@ class admin_link_mod extends admin_link_base
             $msg .= $this->_build_comment('mod banner');    // for test form
             redirect_header('link_list.php', 1, $msg);
             exit();
-        } else {
-            $this->_print_add_db_error();
-            exit();
         }
+        $this->_print_add_db_error();
+        exit();
     }
 
     // --- class end ---

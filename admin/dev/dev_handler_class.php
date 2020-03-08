@@ -23,7 +23,7 @@
 //=========================================================
 class weblinks_dev_handler extends happy_linux_basic_handler
 {
-    public $_LINK_FIELDS = array(
+    public $_LINK_FIELDS = [
         'lid',
         'uid',
         'cids',
@@ -97,9 +97,9 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         'height',
         'pagerank',
         'pagerank_update',
-    );
+    ];
 
-    public $_MODIFY_FIELDS = array(
+    public $_MODIFY_FIELDS = [
         'lid',
         'uid',
         'cids',
@@ -175,7 +175,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         'notify',
         'pagerank',
         'pagerank_update',
-    );
+    ];
 
     public $_xoopscomments_table;
 
@@ -194,9 +194,10 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_dev_handler();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -258,6 +259,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
         $this->query($sql);
         $newid = $this->getInsertId();
+
         return $newid;
     }
 
@@ -265,7 +267,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $category_table = $this->prefix('category');
         $sql            = 'SELECT * FROM ' . $category_table . ' WHERE cid=' . (int)$cid;
-        $row            =& $this->get_row_by_sql($sql);
+        $row            = &$this->get_row_by_sql($sql);
+
         return $row;
     }
 
@@ -293,7 +296,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
     public function &assign_link($values)
     {
-        $arr = array();
+        $arr = [];
         foreach ($this->_LINK_FIELDS as $k) {
             if (isset($values[$k])) {
                 $arr[$k] = $values[$k];
@@ -301,12 +304,13 @@ class weblinks_dev_handler extends happy_linux_basic_handler
                 $arr[$k] = null;
             }
         }
+
         return $arr;
     }
 
     public function insert_randum_link($title = '', $rss_flag = 0, $rss_url = '')
     {
-        if ($title == '') {
+        if ('' == $title) {
             $title = $this->get_randum_title();
         }
 
@@ -322,8 +326,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $description = "$title\n $time_create\n";
 
         // no url per 10
-        $url = "http://$title/";
-        if (($rss_flag == 0) && (mt_rand(0, 9) == 0)) {
+        $url = "https://$title/";
+        if ((0 == $rss_flag) && (0 == mt_rand(0, 9))) {
             $url = '';
         }
 
@@ -335,7 +339,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
         $uid = mt_rand(0, 10);
         if ($uid) {
-            $user     =& $this->_system->get_user_by_uid($uid);
+            $user     = &$this->_system->get_user_by_uid($uid);
             $name     = $user['uname'];
             $mail     = $user['email'];
             $nameflag = mt_rand(0, 1);
@@ -344,7 +348,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
         // broken per 10
         $broken = 0;
-        if (mt_rand(0, 9) == 0) {
+        if (0 == mt_rand(0, 9)) {
             $broken = mt_rand(1, 10);
         }
 
@@ -502,6 +506,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
         $this->query($sql);
         $newid = $this->getInsertId();
+
         return $newid;
     }
 
@@ -510,7 +515,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $link_table = $this->prefix('link');
         $rating     = $sum / $count;
 
-        $sql = "UPDATE $link_table SET rating=$rating, votes=$count WHERE lid=" . (int)$lid;;
+        $sql = "UPDATE $link_table SET rating=$rating, votes=$count WHERE lid=" . (int)$lid;
+
         $this->query($sql);
     }
 
@@ -518,7 +524,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $link_table = $this->prefix('link');
 
-        $sql = "UPDATE $link_table SET comments=$comments WHERE lid=" . (int)$lid;;
+        $sql = "UPDATE $link_table SET comments=$comments WHERE lid=" . (int)$lid;
+
         $this->query($sql);
     }
 
@@ -526,7 +533,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $link_table = $this->prefix('link');
         $sql        = 'SELECT * FROM ' . $link_table . ' WHERE lid=' . (int)$lid;
-        $row        =& $this->get_row_by_sql($sql);
+        $row        = &$this->get_row_by_sql($sql);
+
         return $row;
     }
 
@@ -535,7 +543,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function &assign_modify($values)
     {
-        $arr = array();
+        $arr = [];
         foreach ($this->_MODIFY_FIELDS as $k) {
             if (isset($values[$k])) {
                 $arr[$k] = $values[$k];
@@ -543,6 +551,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
                 $arr[$k] = null;
             }
         }
+
         return $arr;
     }
 
@@ -550,7 +559,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $modify_table = $this->prefix('modify');
         $sql          = 'SELECT * FROM ' . $modify_table . ' WHERE mid=' . (int)$mid;
-        $row          =& $this->get_row_by_sql($sql);
+        $row          = &$this->get_row_by_sql($sql);
+
         return $row;
     }
 
@@ -601,7 +611,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $votedata_table = $this->prefix('votedata');
         $sql            = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
-        $rows           =& $this->get_rows_by_sql($sql);
+        $rows           = &$this->get_rows_by_sql($sql);
+
         return $rows;
     }
 
@@ -624,7 +635,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
         $sql = 'SELECT * FROM ' . $config_table;
         $sql .= ' WHERE conf_name=' . $this->quote($name);
-        $row =& $this->get_row_by_sql($sql);
+        $row = &$this->get_row_by_sql($sql);
 
         $val = false;
         if (isset($row['conf_value'])) {
@@ -679,7 +690,8 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $rssc_link_table = $this->db_prefix('rssc_link');
         $sql             = 'SELECT * FROM ' . $rssc_link_table . ' WHERE lid=' . (int)$rssc_lid;
-        $row             =& $this->get_row_by_sql($sql);
+        $row             = &$this->get_row_by_sql($sql);
+
         return $row;
     }
 
@@ -690,6 +702,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     {
         $rssc_feed_table = $this->db_prefix('rssc_feed');
         $sql             = 'SELECT count(*) FROM ' . $rssc_feed_table . ' WHERE lid=' . (int)$rssc_lid;
+
         return $this->get_count_by_sql($sql);
     }
 
@@ -719,7 +732,6 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
     public function create_randum_comment($i, $mid, $MAX_ITEMID)
     {
-
         // table name
         $com_table = $this->db_prefix('xoopscomments');
 
@@ -759,7 +771,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
         $com_rootid = $newid;
         $com_pid    = 0;
 
-        if ($i % 2 == 0) {
+        if (0 == $i % 2) {
             if (isset($this->_com_itemid_arr[$com_itemid])) {
                 $pid_arr = $this->_com_itemid_arr[$com_itemid];
                 $count   = count($pid_arr) - 1;
@@ -789,10 +801,11 @@ class weblinks_dev_handler extends happy_linux_basic_handler
 
     public function &get_comment_rows($mid)
     {
-        $sql = 'SELECT com_itemid, count(com_itemid) as c ';
-        $sql .= 'FROM ' . $this->_xoopscomments_table . ' ';
-        $sql .= 'WHERE com_modid=' . $mid . ' GROUP BY com_itemid ';
-        $rows =& $this->get_rows_by_sql($sql);
+        $sql  = 'SELECT com_itemid, count(com_itemid) as c ';
+        $sql  .= 'FROM ' . $this->_xoopscomments_table . ' ';
+        $sql  .= 'WHERE com_modid=' . $mid . ' GROUP BY com_itemid ';
+        $rows = &$this->get_rows_by_sql($sql);
+
         return $rows;
     }
 
@@ -801,16 +814,18 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function is_exist_module($dirname)
     {
-        $module =& $this->_system->get_module_by_dirname($dirname);
+        $module = &$this->_system->get_module_by_dirname($dirname);
         if (is_object($module)) {
             return true;
         }
+
         return false;
     }
 
     public function get_mid_by_dirname($dirname)
     {
         $mid = $this->_system->get_mid_by_dirname($dirname);
+
         return $mid;
     }
 

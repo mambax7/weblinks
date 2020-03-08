@@ -29,13 +29,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_votedata_handler')) {
-
     //=========================================================
     // class weblinks_votedata
     //=========================================================
     class weblinks_votedata extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -59,6 +57,7 @@ if (!class_exists('weblinks_votedata_handler')) {
         {
             $uid   = $this->get('ratinguser');
             $uname = XoopsUser::getUnameFromId($uid, $usereal);
+
             return $uname;
         }
 
@@ -66,6 +65,7 @@ if (!class_exists('weblinks_votedata_handler')) {
         {
             $timestamp = $this->get('ratingtimestamp');
             $formatted = formatTimestamp($timestamp);
+
             return $formatted;
         }
 
@@ -77,7 +77,6 @@ if (!class_exists('weblinks_votedata_handler')) {
     //=========================================================
     class weblinks_votedata_handler extends happy_linux_object_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -94,11 +93,10 @@ if (!class_exists('weblinks_votedata_handler')) {
             }
         }
 
-
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -121,7 +119,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -161,6 +159,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -174,6 +173,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('ratingtimestamp', $time, '>'));
             $criteria->add(new criteria('ratinguser', 0, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -182,6 +182,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('ratinguser', 0, '>'));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -192,6 +193,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', 0, '>'));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -201,6 +203,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -212,6 +215,7 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -225,7 +229,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -238,7 +243,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratingtimestamp', 'DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -249,7 +255,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('ratinguser', $uid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -263,7 +270,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratingtimestamp', 'DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -273,7 +281,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('lid ASC, ratingid ASC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -284,7 +293,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->setSort('ratinguser ASC, ratingid ASC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -294,7 +304,8 @@ if (!class_exists('weblinks_votedata_handler')) {
             $criteria->add(new criteria('ratinguser', 0, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -306,9 +317,9 @@ if (!class_exists('weblinks_votedata_handler')) {
             $lid = (int)$lid;
             $uid = (int)$uid;
 
-            $objs =& $this->get_objects_by_lid($lid);
+            $objs = &$this->get_objects_by_lid($lid);
 
-            if (count($objs) == 0) {
+            if (0 == count($objs)) {
                 return false;
             }
 
@@ -328,13 +339,13 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // calculation
         //---------------------------------------------------------
-        public function calc_rating(&$objs)
+        public function calc_rating($objs)
         {
             $total = 0;
 
             $count = count($objs);
-            if ($count == 0) {
-                return array(0, 0);
+            if (0 == $count) {
+                return [0, 0];
             }
 
             foreach ($objs as $obj) {
@@ -343,7 +354,7 @@ if (!class_exists('weblinks_votedata_handler')) {
                 }
             }
 
-            return array($count, $total);
+            return [$count, $total];
         }
 
         public function calc_rating_by_lid($lid, $decimals = 4)
@@ -351,17 +362,17 @@ if (!class_exists('weblinks_votedata_handler')) {
             $lid      = (int)$lid;
             $decimals = (int)$decimals;
 
-            $objs =& $this->get_objects_by_lid($lid);
+            $objs = &$this->get_objects_by_lid($lid);
 
             list($count, $total) = $this->calc_rating($objs);
-            if ($count == 0) {
-                return array(0, 0);
+            if (0 == $count) {
+                return [0, 0];
             }
 
             $rating = $total / $count;
             $rating = number_format($rating, $decimals);
 
-            return array($count, $rating);
+            return [$count, $rating];
         }
 
         public function calc_rating_by_uid($uid, $decimals = 1)
@@ -369,21 +380,20 @@ if (!class_exists('weblinks_votedata_handler')) {
             $uid      = (int)$uid;
             $decimals = (int)$decimals;
 
-            $objs =& $this->get_objects_by_uid($uid);
+            $objs = &$this->get_objects_by_uid($uid);
 
             list($count, $total) = $this->calc_rating($objs);
-            if ($count == 0) {
-                return array(0, 0);
+            if (0 == $count) {
+                return [0, 0];
             }
 
             $rating = $total / $count;
             $rating = number_format($rating, $decimals);
 
-            return array($count, $rating);
+            return [$count, $rating];
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

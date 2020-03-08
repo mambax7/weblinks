@@ -43,15 +43,16 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $this->set_debug_db_sql(false);
 
-        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_test_class_user();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -70,7 +71,7 @@ class weblinks_test_class_user extends weblinks_test_class
         if ($this->_system->is_module_admin()) {
             $user = '<span style="color:#ff0000;">module admin</span>';
         }
-        echo "user mode: $user <br />\n";
+        echo "user mode: $user <br>\n";
     }
 
     //---------------------------------------------------------
@@ -93,22 +94,22 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $obj =& $this->create_link_save();
+        $obj = &$this->create_link_save();
 
         list($inputs, $expects) = $this->build_input_expect_user($obj->gets(), $param_user);
 
-        $excludes =& $this->build_excludes($mode_passwd);
+        $excludes = &$this->build_excludes($mode_passwd);
 
-        $times = array('time_create', 'time_update');
+        $times = ['time_create', 'time_update'];
 
         $obj->assign_add_object($inputs, $not_gpc, $flag_banner);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
         }
 
@@ -135,36 +136,36 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $saves =& $this->build_saves();
+        $saves = &$this->build_saves();
 
-        $obj =& $this->create_link_save();
+        $obj = &$this->create_link_save();
         $obj->assignVars($saves);
 
         list($inputs, $expects) = $this->build_input_expect_user($obj->gets(), $param_user);
 
         $expects['time_create'] = $saves['time_create'];
 
-        if ($mode_user_perm == 0) {
+        if (0 == $mode_user_perm) {
             $expects['width']  = $this->_WIDTH;
             $expects['height'] = $this->_HEIGHT;
         }
 
-        if ($mode_passwd == 0) {
+        if (0 == $mode_passwd) {
             $expects['passwd'] = $saves['passwd'];
         }
 
-        $excludes =& $this->build_excludes(1);
+        $excludes = &$this->build_excludes(1);
 
-        $times = array('time_update');
+        $times = ['time_update'];
 
         $obj->assign_mod_object($inputs, $not_gpc, $flag_banner);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
         }
 
@@ -191,22 +192,22 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $obj =& $this->create_modify_save();
+        $obj = &$this->create_modify_save();
 
         list($inputs, $expects) = $this->build_input_expect_user_modify($obj->gets(), $param_user);
 
-        $excludes =& $this->build_excludes($mode_passwd);
+        $excludes = &$this->build_excludes($mode_passwd);
 
-        $times = array('time_create', 'time_update');
+        $times = ['time_create', 'time_update'];
 
         $obj->assign_add_object($inputs, $modify_mode);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
         }
 
@@ -233,27 +234,27 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $saves =& $this->build_saves();
+        $saves = &$this->build_saves();
 
-        $obj =& $this->create_modify_save();
+        $obj = &$this->create_modify_save();
         $obj->assignVars($saves);
 
         list($inputs, $expects) = $this->build_input_expect_user_modify($obj->gets(), $param_user);
 
         $expects['time_create'] = $saves['time_create'];
 
-        $excludes =& $this->build_excludes($mode_passwd);
+        $excludes = &$this->build_excludes($mode_passwd);
 
-        $times = array('time_update');
+        $times = ['time_update'];
 
         $obj->assign_add_object($inputs, $modify_mode);
 
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $ret = $this->check_match($obj->gets(), $expects, $times, $excludes);
 
         if ($this->_flag_print_detail) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->print_box('description', $obj->description_disp());
         }
 
@@ -263,7 +264,7 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // build_input_expect
     //---------------------------------------------------------
-    public function build_input_expect_user(&$saves, &$param_user)
+    public function build_input_expect_user($saves, $param_user)
     {
         $not_gpc       = false;
         $flag_banner   = true;
@@ -275,7 +276,7 @@ class weblinks_test_class_user extends weblinks_test_class
         $mode_dhtml     = $this->get_from_array($param_user, 'mode_dhtml');
         $mode_passwd    = $this->get_from_array($param_user, 'mode_passwd');
 
-        $param = array(
+        $param = [
             'not_gpc'       => $not_gpc,
             'flag_uid'      => $flag_uid,
             'flag_banner'   => $flag_banner,
@@ -283,11 +284,11 @@ class weblinks_test_class_user extends weblinks_test_class
             'mode_dhtml'    => $mode_dhtml,
             'mode_passwd'   => $mode_passwd,
             'flag_rssc_lid' => $flag_rssc_lid,
-        );
+        ];
 
         list($inputs, $expects) = $this->build_input_expect($param);
 
-        if ($mode_user_perm == 0) {
+        if (0 == $mode_user_perm) {
             $expects['url']          = $saves['url'];
             $expects['banner']       = $saves['banner'];
             $expects['description']  = $saves['description'];
@@ -350,10 +351,10 @@ class weblinks_test_class_user extends weblinks_test_class
         $expects['rss_flag']     = $saves['rss_flag'];
         $expects['admincomment'] = $saves['admincomment'];
 
-        return array($inputs, $expects);
+        return [$inputs, $expects];
     }
 
-    public function build_input_expect_user_modify(&$saves, $param_user)
+    public function build_input_expect_user_modify($saves, $param_user)
     {
         $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $modify_mode    = $this->get_from_array($param_user, 'modify_mode');
@@ -362,8 +363,8 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $inputs['mode']   = $modify_mode;
         $inputs['notify'] = 1;
-        $inputs['mid']    = rand(10, 100);
-        $inputs['muid']   = rand(10, 100);
+        $inputs['mid']    = mt_rand(10, 100);
+        $inputs['muid']   = mt_rand(10, 100);
 
         $expects['mode']   = $modify_mode;
         $expects['notify'] = 1;
@@ -377,7 +378,7 @@ class weblinks_test_class_user extends weblinks_test_class
             $expects['rss_flag'] = $inputs['rss_flag'];
         }
 
-        return array($inputs, $expects);
+        return [$inputs, $expects];
     }
 
     //---------------------------------------------------------
@@ -388,6 +389,7 @@ class weblinks_test_class_user extends weblinks_test_class
         if ($mode && !$this->_is_xoops_guest) {
             $mode = 0;
         }
+
         return $mode;
     }
 
@@ -395,12 +397,12 @@ class weblinks_test_class_user extends weblinks_test_class
     {
         if ($mode) {
             if ($this->_is_xoops_guest) {
-                $perm = array(XOOPS_GROUP_ADMIN, XOOPS_GROUP_ANONYMOUS);
+                $perm = [XOOPS_GROUP_ADMIN, XOOPS_GROUP_ANONYMOUS];
             } else {
-                $perm = array(XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS);
+                $perm = [XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS];
             }
         } else {
-            $perm = array(XOOPS_GROUP_ADMIN);
+            $perm = [XOOPS_GROUP_ADMIN];
         }
 
         $this->update_config_by_name_array('auth_dohtml', $perm);

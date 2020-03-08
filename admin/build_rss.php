@@ -12,11 +12,11 @@ $post = happy_linux_post::getInstance();
 $type = $post->get_get_text('type');
 $mode = $post->get_get_text('mode');
 
-if ($type == 'feed') {
+if ('feed' == $type) {
     if (WEBLINKS_RSSC_EXIST) {
         include_once WEBLINKS_ROOT_PATH . '/api/build_rss_feed.php';
 
-        $feed_builder = weblinks_get_handler('build_rss_feed', WEBLINKS_DIRNAME);
+        $feed_builder = weblinks_getHandler('build_rss_feed', WEBLINKS_DIRNAME);
 
         $feed_builder->set_view_goto_title(_HAPPY_LINUX_CONF_RSS_MANAGE);
         $feed_builder->set_view_goto_url(WEBLINKS_URL . '/admin/rss_build_manage.php');
@@ -25,12 +25,11 @@ if ($type == 'feed') {
 } else {
     include_once WEBLINKS_ROOT_PATH . '/api/build_rss.php';
 
-    $rss_builder = weblinks_get_handler('build_rss', WEBLINKS_DIRNAME);
+    $rss_builder = weblinks_getHandler('build_rss', WEBLINKS_DIRNAME);
 
     $rss_builder->set_view_goto_title(_HAPPY_LINUX_CONF_RSS_MANAGE);
     $rss_builder->set_view_goto_url(WEBLINKS_URL . '/admin/rss_build_manage.php');
     $rss_builder->view($mode);
 }
 
-exit();// --- main end ---
-;
+exit(); // --- main end ---

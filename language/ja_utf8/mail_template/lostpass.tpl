@@ -7,6 +7,6 @@ IPアドレス{IP}のユーザから、{SITENAME}のリンク集のパスワー�
 {ENTRY}
 
 -----------
-{SITENAME} ({SITEURL}) 
+{SITENAME} ({SITEURL})
 webmaster
 {ADMINMAIL}

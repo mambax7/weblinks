@@ -68,7 +68,7 @@ $WEBLINKS_URL       = XOOPS_URL . '/modules/' . $WEBLINKS_DIRNAME;
 if (!preg_match('/^(\D+)(\d*)$/', $WEBLINKS_DIRNAME, $regs)) {
     echo('invalid dirname: ' . htmlspecialchars($WEBLINKS_DIRNAME));
 }
-$WEBLINKS_NUMBER = $regs[2] === '' ? '' : (int)$regs[2];
+$WEBLINKS_NUMBER = '' === $regs[2] ? '' : (int)$regs[2];
 
 include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_version.php';
 include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
@@ -77,7 +77,7 @@ include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_menu.php';
 
 $menu = weblinks_menu::getInstance($WEBLINKS_DIRNAME);
 
-if ($regs[1] == 'weblinks') {
+if ('weblinks' == $regs[1]) {
     $name_ext = ' ' . $WEBLINKS_NUMBER;
 } else {
     $name_ext = ':' . $WEBLINKS_DIRNAME;
@@ -87,7 +87,7 @@ $modversion['version'] = WEBLINKS_VERSION;
 
 $modversion['name']        = _MI_WEBLINKS_NAME . $name_ext;
 $modversion['description'] = _MI_WEBLINKS_DESC;
-$modversion['author']      = 'Kenichi OHWADA<br />( http://linux2.ohwada.net/ )';
+$modversion['author']      = 'Kenichi OHWADA<br>( https://linux2.ohwada.net/ )';
 $modversion['credits']     = '';
 $modversion['help']        = '';
 $modversion['license']     = 'GPL see LICENSE';
@@ -141,7 +141,7 @@ if ($menu->show_rating()) {
 // Submenu
 // BUG 3746: show submenu incorrectly
 
-$catlist =& $menu->get_catlist();
+$catlist = &$menu->get_catlist();
 foreach ($catlist as $cat) {
     $title                         = htmlspecialchars($cat['title'], ENT_QUOTES);
     $cid                           = (int)$cat['cid'];
@@ -157,7 +157,7 @@ foreach ($catlist as $cat) {
 $modversion['hasComments']             = 1;
 $modversion['comments']['itemName']    = 'lid';
 $modversion['comments']['pageName']    = 'singlelink.php';
-$modversion['comments']['extraParams'] = array('cid');
+$modversion['comments']['extraParams'] = ['cid'];
 
 // Comment callback functions
 $modversion['comments']['callbackFile']        = 'include/comment_functions.php';
@@ -304,7 +304,7 @@ $modversion['notification']['category'][1]['title']       = _MI_WEBLINKS_GLOBAL_
 $modversion['notification']['category'][1]['description'] = _MI_WEBLINKS_GLOBAL_NOTIFYDSC;
 
 //$modversion['notification']['category'][1]['subscribe_from'] = array('index.php','viewcat.php','singlelink.php');
-$modversion['notification']['category'][1]['subscribe_from'] = array('index.php', 'viewcat.php', 'singlelink.php', 'notification_manage.php');
+$modversion['notification']['category'][1]['subscribe_from'] = ['index.php', 'viewcat.php', 'singlelink.php', 'notification_manage.php'];
 
 // remove singlelink.php from category bookmark
 $modversion['notification']['category'][2]['name']           = 'category';

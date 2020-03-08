@@ -11,7 +11,7 @@
         <{/if}>
         <{$module_name}></a> &gt;&gt;
     <span class="weblinks_bold"><{$lang_mark_title}></span> (<{$mark_total}>)
-    <br/><br/>
+    <br><br>
 
     <{$weblinks_header}>
 
@@ -77,7 +77,7 @@
                                         <{else}>
                                         <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=7">
                                             <{/if}>
-                                            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br/>
+                                            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
                                         <{$lang_publish}> (
                                         <{if $keywords != '' }>
                                         <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=8&amp;keywords=<{$keywords}>">
@@ -90,17 +90,17 @@
                                                 <{else}>
                                                 <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=9">
                                                     <{/if}>
-                                                    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_9}>"/></a>) <br/>
+                                                    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_9}>"/></a>) <br>
                                                 <span class="weblinks_bold"><{$lang_cursortedby}></span>
     </div>
-    <hr/>
+    <hr>
     <{/if}>
-    <br/>
+    <br>
 
     <div class="weblinks_viewcat_frame">
         <{$weblinks_links_full}>
     </div>
-    <br/>
+    <br>
 
     <div class="weblinks_pagenavi">
         <{$page_navi}>
@@ -109,7 +109,7 @@
     <{else}>
 
     <span class="weblinks_error"><{$lang_nomatch}></span>
-    <hr/>
+    <hr>
 
     <{/if}>
 
@@ -118,29 +118,29 @@
     <div class="weblinks_viewmark_kml_frame">
         <img src="<{$xoops_url}>/modules/<{$dirname}>/images/google_earth.png" border="0" alt="Google Earth"/>
         <span class="weblinks_viewmark_kml_title"><{$lang_kml_list}></span>
-        <br/><br/>
-        <{$lang_kml_list_desc}><br/>
-        <{$lang_thereare}><br/>
-        <br/>
+        <br><br>
+        <{$lang_kml_list_desc}><br>
+        <{$lang_thereare}><br>
+        <br>
         <form method="get">
             <{$lang_kml_perpage}>
             <input type="text" name="kml_perpage" value="<{$kml_perpage}>"/>
             <input type="submit" name="submit" value="<{$lang_execute}>"/>
             <input type="hidden" name="mark" value="<{$mark}>"/>
         </form>
-        <br/>
+        <br>
         <{foreach item=kml from=$kml_list}>
         <a href="<{$xoops_url}>/modules/<{$dirname}>/kml/kml.php?page=<{$kml.page}>&amp;limit=<{$kml_perpage}>" target="_blank">
             [<{$smarty.const._WEBLINKS_FILE}> <{$kml.page}>]</a>
         <{/foreach}>
     </div>
-    <br/>
+    <br>
     <{* -- End kml loop -- *}>
     <{/if}>
 
     <{include file="db:system_notification_select.html"}>
 
-    <hr/>
+    <hr>
     <div class="weblinks_execution_time"><{$smarty.const._WEBLINKS_EXECUTION_TIME}> : <{$execution_time}> <{$smarty.const._WEBLINKS_SEC}></div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

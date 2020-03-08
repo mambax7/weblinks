@@ -25,7 +25,7 @@ if ($xoopsUser && $xoopsUser->isAdmin($xoopsModule->mid())) {
 }
 
 if (!$flag) {
-    echo '<font color=red>you are not admin</font><br />';
+    echo '<font color=red>you are not admin</font><br>';
     xoops_cp_footer();
     exit();
 }
@@ -46,34 +46,27 @@ switch ($op) {
     case 'trans_image':
         trans_image();
         break;
-
     case 'trans_category':
         trans_category();
         break;
-
     case 'trans_link':
         trans_link();
         break;
-
     case 'trans_votedate':
         trans_votedate();
         break;
-
     case 'trans_comment':
         trans_comment();
         break;
-
     case 'create':
         create();
-        echo '<br /><hr>';
+        echo '<br><hr>';
         first_step();
         break;
-
     case 'main':
     default:
         first_step();
         break;
-
 }
 
 xoops_cp_footer();
@@ -83,43 +76,37 @@ function first_step()
 {
     global $LIMIT;
 
-    $action = xoops_getenv('PHP_SELF');
-
-    ?>
-    <br/>
-    There are 4 steps. <br/>
-    1. transfer shot images <br/>
-    2. transfer category table <br/>
-    3. transfer link table <br/>
-    excute each <?php echo $LIMIT;
-    ?> links at a time <br/>
-    4. transfer votedate table <br/>
-    5. transfer comment table <br/>
-    <br/>
-    Preparation <br/>
-    Please enable to be writable of cache directory. <br/>
-    <br/>
-    Nitice <br/>
-    This program don't transfer modify and broken table. <br/>
-    <br/>
+    $action = xoops_getenv('PHP_SELF'); ?>
+    <br>
+    There are 4 steps. <br>
+    1. transfer shot images <br>
+    2. transfer category table <br>
+    3. transfer link table <br>
+    excute each <?php echo $LIMIT; ?> links at a time <br>
+    4. transfer votedate table <br>
+    5. transfer comment table <br>
+    <br>
+    Preparation <br>
+    Please enable to be writable of cache directory. <br>
+    <br>
+    Nitice <br>
+    This program don't transfer modify and broken table. <br>
+    <br>
     <h4>STEP 1 : transfer shot images</h4>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_image'>
         <input type='submit' value='GO STEP 1'>
     </form>
-    <br/>
+    <br>
     <h4>STEP 0 : initalize</h4>
-    Drop and create tables.<br/>
-    If you want to redo <br/>
-    <br/>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    Drop and create tables.<br>
+    If you want to redo <br>
+    <br>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='create'>
         <input type='submit' value='GO STEP 0'>
     </form>
     <?php
-
 }
 
 function trans_image()
@@ -131,11 +118,11 @@ function trans_image()
     //  $shots_dir_web = XOOPS_ROOT_PATH."/modules/weblinks/images/shots/";
     $shots_dir_web = $MODULE_ROOT . '/images/shots/';
 
-    $file_arr = array();
+    $file_arr = [];
 
     $dir = opendir($shots_dir_my);
     while ($file = readdir($dir)) {
-        if ($file == 'index.html') {
+        if ('index.html' == $file) {
             continue;
         }
 
@@ -148,7 +135,7 @@ function trans_image()
     }
 
     $count = count($file_arr);
-    echo "There are $count images <br /><br />\n";
+    echo "There are $count images <br><br>\n";
 
     $error_flag = false;
 
@@ -159,36 +146,32 @@ function trans_image()
                 $file_dest   = $shots_dir_web . $file;
 
                 if (copy($file_source, $file_dest)) {
-                    echo "$file_source -> $file_dest <br />\n";
+                    echo "$file_source -> $file_dest <br>\n";
                 } else {
-                    echo "$file: <font color='red'>copy failed : $file_source</font><br />\n";
+                    echo "$file: <font color='red'>copy failed : $file_source</font><br>\n";
                     $error_flag = true;
                 }
             }
         } else {
-            echo "<font color='red'>not writable: $shots_dir_web</font><br />\n";
+            echo "<font color='red'>not writable: $shots_dir_web</font><br>\n";
             $error_flag = true;
         }
     }
 
     if ($error_flag) {
         echo "<h4><font color='red'>some images failed</font></h4>\n";
-        echo "Plaese copy manualy <br />\n";
+        echo "Plaese copy manualy <br>\n";
     }
 
-    $action = xoops_getenv('PHP_SELF');
-
-    ?>
-    <br/>
+    $action = xoops_getenv('PHP_SELF'); ?>
+    <br>
     <hr>
     <h4>STEP 2 : transfer category table</h4>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_category'>
         <input type='submit' value='GO STEP 2'>
     </form>
     <?php
-
 }
 
 function trans_category()
@@ -221,10 +204,10 @@ function trans_category()
 
     $total = $xoopsDB->getRowsNum($res1);
 
-    echo "There are $total categorys <br /><br />\n";
+    echo "There are $total categorys <br><br>\n";
 
     global $cat_title_arr;
-    $cat_title_arr = array();
+    $cat_title_arr = [];
 
     while ($row = $xoopsDB->fetchArray($res1)) {
         $cid    = $row['cid'];
@@ -232,7 +215,7 @@ function trans_category()
         $title  = addslashes($row['title']);
         $imgurl = addslashes($row['imgurl']);
 
-        echo "$cid: $title <br />";
+        echo "$cid: $title <br>";
 
         $cat_title_arr[$cid] = $title;
 
@@ -245,20 +228,16 @@ function trans_category()
         sql_exec($sql);
     }
 
-    $action = xoops_getenv('PHP_SELF');
-
-    ?>
-    <br/>
+    $action = xoops_getenv('PHP_SELF'); ?>
+    <br>
     <hr>
     <h4>STEP 3 : transfer link table</h4>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_link'>
         <input type='hidden' name='offset' value='0'>
         <input type='submit' value='GO STEP 3'>
     </form>
     <?php
-
 }
 
 function trans_link()
@@ -349,8 +328,8 @@ function trans_link()
     $row1  = $xoopsDB->fetchRow($res1);
     $total = $row1[0];
 
-    echo "There are $total links <br />\n";
-    echo "Transfer $offset - $next th link <br /><br />";
+    echo "There are $total links <br>\n";
+    echo "Transfer $offset - $next th link <br><br>";
 
     $sql2 = "SELECT * FROM $table ORDER BY lid";
     $res2 = sql_exec($sql2, $LIMIT, $offset);
@@ -382,7 +361,7 @@ function trans_link()
                 $width  = (int)$size[0];
                 $height = (int)$size[1];
             } else {
-                echo "<font color='red'>image size error: $banner</font><br />";
+                echo "<font color='red'>image size error: $banner</font><br>";
             }
 
             $banner = addslashes($banner);
@@ -394,9 +373,9 @@ function trans_link()
         $cat    = addslashes($cat_title_arr[$cid]);
         $search = "$url $title $cat $desc";
 
-        $passwd = md5(rand(10000000, 99999999));
+        $passwd = md5(mt_rand(10000000, 99999999));
 
-        echo "$lid: $title <br />";
+        echo "$lid: $title <br>";
 
         $sql = 'INSERT INTO ' . $table_link . ' (';
         $sql .= 'lid, uid, title, url, description, ';
@@ -456,43 +435,31 @@ function form_next_link($next)
 
     $action = xoops_getenv('PHP_SELF');
     $submit = "GO next $LIMIT links";
-    $next2  = $next + $LIMIT;
-
-    ?>
-    <br/>
+    $next2  = $next + $LIMIT; ?>
+    <br>
     <hr>
     <h4>STEP 3 : transfer link table</h4>
-    Transfer <?php echo $next;
-    ?> - <?php echo $next2;
-    ?> th link<br/>
-    <br/>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    Transfer <?php echo $next; ?> - <?php echo $next2; ?> th link<br>
+    <br>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_link'>
-        <input type='hidden' name='offset' value='<?php echo $next;
-        ?>'>
-        <input type='submit' value='<?php echo $submit;
-        ?>'>
+        <input type='hidden' name='offset' value='<?php echo $next; ?>'>
+        <input type='submit' value='<?php echo $submit; ?>'>
     </form>
     <?php
-
 }
 
 function form_votedate()
 {
-    $action = xoops_getenv('PHP_SELF');
-
-    ?>
-    <br/>
+    $action = xoops_getenv('PHP_SELF'); ?>
+    <br>
     <hr>
     <h4>STEP 4 : transfer votedate table</h4>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_votedate'>
         <input type='submit' value='GO STEP 4'>
     </form>
     <?php
-
 }
 
 function trans_votedate()
@@ -509,19 +476,15 @@ function trans_votedate()
     sql_exec($sql);
 
     $action = xoops_getenv('PHP_SELF');
-    $submit = 'excute';
-
-    ?>
-    <br/>
+    $submit = 'excute'; ?>
+    <br>
     <hr>
     <h4>STEP 5 : transfer comment table</h4>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_comment'>
         <input type='submit' value='GO STEP 5'>
     </form>
     <?php
-
 }
 
 function trans_comment()
@@ -539,7 +502,7 @@ function trans_comment()
     $module         = $module_handler->getByDirname('mylinks');
     $mid_my         = $module->getVar('mid');
 
-    $com_id_arr = array();
+    $com_id_arr = [];
 
     // constant
     $com_modid = $xoopsModule->getVar('mid');
@@ -549,7 +512,7 @@ function trans_comment()
 
     $total = $xoopsDB->getRowsNum($res1);
 
-    echo "There are $total comments <br /><br />\n";
+    echo "There are $total comments <br><br>\n";
 
     while ($row1 = $xoopsDB->fetchArray($res1)) {
         $com_id       = $row1['com_id'];
@@ -572,7 +535,7 @@ function trans_comment()
         $doimage  = $row1['doimage'];
         $dobr     = $row1['dobr'];
 
-        echo "$com_id: $com_title <br />";
+        echo "$com_id: $com_title <br>";
 
         // xoopscomments table
         $sql = "INSERT INTO $table_com ";
@@ -593,7 +556,7 @@ function trans_comment()
                 $com_rootid_new = $com_id_arr[$com_pid]['com_rootid_new'];
                 $com_pid_new    = $com_id_arr[$com_pid]['com_id_new'];
             } else {
-                echo "<font color='red'>pid convert error: $com_id </font><br />";
+                echo "<font color='red'>pid convert error: $com_id </font><br>";
             }
         }
 
@@ -608,9 +571,9 @@ function trans_comment()
         $com_id_arr[$com_id]['com_rootid_new'] = $com_rootid_new;
     }
 
-    echo "<br /><hr>\n";
+    echo "<br><hr>\n";
     echo "<h4>FINISHED</h4>\n";
-    echo "<a href='index.php'>GOTO Admin Menu</a><br />\n";
+    echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
 }
 
 function create()
@@ -664,7 +627,7 @@ CREATE TABLE $table (
   editaccess varchar(255) NOT NULL default '1 2 3',
   PRIMARY KEY  (cid),
   KEY pid (pid)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
     sql_exec($sql);
@@ -719,7 +682,7 @@ CREATE TABLE $table (
   KEY uid (uid),
   KEY cids (cids),
   KEY title (title(40))
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
     sql_exec($sql);
@@ -737,7 +700,7 @@ CREATE TABLE $table (
   PRIMARY KEY  (jid),
   KEY lid (lid),
   KEY cid (cid)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
     sql_exec($sql);
@@ -758,7 +721,7 @@ CREATE TABLE $table (
   PRIMARY KEY  (ratingid),
   KEY ratinguser (ratinguser),
   KEY ratinghostname (ratinghostname)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
     sql_exec($sql);
@@ -786,12 +749,12 @@ function sql_exec($sql, $limit = 0, $offset = 0)
     global $xoopsDB;
 
     $ret = $xoopsDB->queryF($sql, $limit, $offset);
-    if ($ret != false) {
+    if (false !== $ret) {
         return $ret;
     }
 
     $error = $xoopsDB->error();
-    echo "<font color=red>$sql<br />$error</font><br />";
+    echo "<font color=red>$sql<br>$error</font><br>";
 
     return false;
 }

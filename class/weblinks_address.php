@@ -13,7 +13,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_address')) {
-
     //=========================================================
     // class weblinks_address
     //=========================================================
@@ -33,7 +32,7 @@ if (!class_exists('weblinks_address')) {
 
             $this->_PATH = XOOPS_ROOT_PATH . '/modules/' . $dirname;
 
-            $conf_handler = weblinks_get_handler('config2_basic', $dirname);
+            $conf_handler = weblinks_getHandler('config2_basic', $dirname);
 
             $conf_handler->init();
             $conf               = $conf_handler->get_conf();
@@ -43,9 +42,10 @@ if (!class_exists('weblinks_address')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_address($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -76,17 +76,18 @@ if (!class_exists('weblinks_address')) {
 
                 if (class_exists($class_locate)) {
                     $instance_locate = new $class_locate();
+
                     return $instance_locate;
                 }
             }
 
             include_once $file_default;
             $instance_locate = new $class_default();
+
             return $instance_locate;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

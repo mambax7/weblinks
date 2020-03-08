@@ -59,7 +59,8 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')
     }
 
     // --- eval begin ---
-    eval('
+    eval(
+        '
 
 function xoops_module_install_' . $WEBLINKS_DIRNAME . '( $module )
 {
@@ -71,7 +72,8 @@ function xoops_module_update_' . $WEBLINKS_DIRNAME . '( $module, $prev_version )
     return weblinks_update_base( "' . $WEBLINKS_DIRNAME . '" ,  $module, $prev_version );
 }
 
-');
+'
+    );
     // --- eval end ---
 }
 // === xoops_module_install_weblinks end ===
@@ -85,12 +87,12 @@ if (!function_exists('weblinks_install_base')) {
 
         // for Cube 2.1
         if (defined('XOOPS_CUBE_LEGACY')) {
-            $root =& XCube_Root::getSingleton();
+            $root = &XCube_Root::getSingleton();
             $root->mDelegateManager->add('Legacy.Admin.Event.ModuleInstall.' . ucfirst($DIRNAME) . '.Success', 'weblinks_message_append_oninstall');
-            $ret = array();
+            $ret = [];
         } else {
             if (!is_array($ret)) {
-                $ret = array();
+                $ret = [];
             }
         }
 
@@ -109,12 +111,12 @@ if (!function_exists('weblinks_install_base')) {
 
         // for Cube 2.1
         if (defined('XOOPS_CUBE_LEGACY')) {
-            $root =& XCube_Root::getSingleton();
+            $root = &XCube_Root::getSingleton();
             $root->mDelegateManager->add('Legacy.Admin.Event.ModuleUpdate.' . ucfirst($DIRNAME) . '.Success', 'weblinks_message_append_onupdate');
-            $msgs = array();
+            $msgs = [];
         } else {
             if (!is_array($msgs)) {
-                $msgs = array();
+                $msgs = [];
             }
         }
 
@@ -127,28 +129,25 @@ if (!function_exists('weblinks_install_base')) {
     }
 
     // for Cube 2.1
-    function weblinks_message_append_oninstall(&$module_obj, &$log)
+    function weblinks_message_append_oninstall(&$module_obj, $log)
     {
         if (is_array(@$GLOBALS['ret'])) {
             foreach ($GLOBALS['ret'] as $message) {
                 $log->add(strip_tags($message));
             }
         }
-
         // use mLog->addWarning() or mLog->addError() if necessary
     }
 
     // for Cube 2.1
-    function weblinks_message_append_onupdate(&$module_obj, &$log)
+    function weblinks_message_append_onupdate(&$module_obj, $log)
     {
         if (is_array(@$GLOBALS['msgs'])) {
             foreach ($GLOBALS['msgs'] as $message) {
                 $log->add(strip_tags($message));
             }
         }
-
         // use mLog->addWarning() or mLog->addError() if necessary
     }
-
     // === weblinks_oninstall_base end ===
 }

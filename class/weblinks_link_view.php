@@ -50,13 +50,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_view')) {
-
     //=========================================================
     // class weblinks_link_view
     //=========================================================
     class weblinks_link_view extends weblinks_link_view_basic
     {
-
         // handler
         public $_category_handler;
         public $_catlink_handler;
@@ -77,11 +75,11 @@ if (!class_exists('weblinks_link_view')) {
         {
             parent::__construct($dirname);
 
-            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
-            $this->_catlink_handler  = weblinks_get_handler('catlink_basic', $dirname);
-            $this->_banner_handler   = weblinks_get_handler('banner', $dirname);
-            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
-            $this->_rssc_handler     = weblinks_get_handler('rssc_view', $dirname);
+            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
+            $this->_catlink_handler  = weblinks_getHandler('catlink_basic', $dirname);
+            $this->_banner_handler   = weblinks_getHandler('banner', $dirname);
+            $this->_pagerank_handler = weblinks_getHandler('pagerank', $dirname);
+            $this->_rssc_handler     = weblinks_getHandler('rssc_view', $dirname);
             $this->_auth             = weblinks_auth::getInstance($dirname);
             $this->_webmap_class     = weblinks_webmap::getInstance($dirname);
 
@@ -95,9 +93,10 @@ if (!class_exists('weblinks_link_view')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_link_view($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -114,6 +113,7 @@ if (!class_exists('weblinks_link_view')) {
                 $this->build_show($flag_highlight, $keyword_array);
                 $show = $this->get_vars();
             }
+
             return $show;
         }
 
@@ -170,7 +170,7 @@ if (!class_exists('weblinks_link_view')) {
             $catpaths      = null;
 
             if (is_array($cid_arr) && count($cid_arr)) {
-                $catpaths =& $this->_category_handler->build_parent_path_multi($cid_arr);
+                $catpaths = &$this->_category_handler->build_parent_path_multi($cid_arr);
                 if (is_array($catpaths) && count($catpaths)) {
                     $show_catpaths = true;
                 }
@@ -185,7 +185,7 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         public function _set_link_image()
         {
-            $arr =& $this->_banner_handler->build_show_image_web($this->get('banner'), $this->get('width'), $this->get('height'), $this->get('url'));
+            $arr = &$this->_banner_handler->build_show_image_web($this->get('banner'), $this->get('width'), $this->get('height'), $this->get('url'));
 
             $image_url         = $arr['image_url'];
             $image_link_width  = $arr['image_link_width'];
@@ -223,7 +223,7 @@ if (!class_exists('weblinks_link_view')) {
 
             // show when url is fill
             if (($this->_conf['use_pagerank'] > 0) && $this->get('url')) {
-                if ($this->_conf['use_pagerank'] == 2) {
+                if (2 == $this->_conf['use_pagerank']) {
                     $flag_cache = true;
                 }
                 $show_pagerank = true;
@@ -252,12 +252,13 @@ if (!class_exists('weblinks_link_view')) {
             $url   = '';
             $url_s = '';
             if (WEBLINKS_RSSC_USE && $rssc_lid) {
-                $row   =& $this->_rssc_handler->get_rssc_link_by_rssc_lid($rssc_lid);
+                $row   = &$this->_rssc_handler->get_rssc_link_by_rssc_lid($rssc_lid);
                 $flag  = $row['mode'];
                 $url   = $row['url_xml'];
                 $url_s = $row['url_xml_s'];
             }
-            return array($flag, $url, $url_s);
+
+            return [$flag, $url, $url_s];
         }
 
         //---------------------------------------------------------
@@ -275,7 +276,7 @@ if (!class_exists('weblinks_link_view')) {
         {
             // BUG: not show  smile icon
             // no action, if under limit
-            if (strlen($text) > $this->_conf['descshort']) {
+            if (mb_strlen($text) > $this->_conf['descshort']) {
                 $text = $this->add_space_after_punctuation($text);
                 $text = $this->replace_return_to_space($text);
                 $text = $this->strip_space($text);
@@ -315,7 +316,7 @@ if (!class_exists('weblinks_link_view')) {
             $sitename = $this->_system->get_sitename();
             $subject  = sprintf(_WLS_INTRESTLINK, $sitename);
             $body     = sprintf(_WLS_INTLINKFOUND, $sitename) . ': ';
-            $body .= $this->_build_single_link_by_lid($lid);
+            $body     .= $this->_build_single_link_by_lid($lid);
 
             // --- effective only in Japanese environment ---
             // convert EUC-JP to SJIS
@@ -325,7 +326,7 @@ if (!class_exists('weblinks_link_view')) {
             $subject = rawurlencode($subject);
             $body    = rawurlencode($body);
 
-            return array($subject, $body);
+            return [$subject, $body];
         }
 
         //---------------------------------------------------------
@@ -343,6 +344,7 @@ if (!class_exists('weblinks_link_view')) {
             if (!$use) {
                 return false;
             }
+
             return true;
         }
 
@@ -351,6 +353,7 @@ if (!class_exists('weblinks_link_view')) {
             $ret = $this->_webmap_class->check_lat_lng_zoom($this->get('gm_latitude'), $this->get('gm_longitude'), $this->get('gm_zoom'));
 
             $this->set('google_use', $ret);
+
             return $ret;
         }
 
@@ -409,6 +412,7 @@ if (!class_exists('weblinks_link_view')) {
                 $this->build_rss($flag_user);
                 $show = $this->get_vars();
             }
+
             return $show;
         }
 
@@ -435,7 +439,7 @@ if (!class_exists('weblinks_link_view')) {
             // category
             $category = '';
 
-            $cid_arr =& $this->_catlink_handler->get_cid_array_by_lid($lid);
+            $cid_arr = &$this->_catlink_handler->get_cid_array_by_lid($lid);
             if (isset($cid_arr[0])) {
                 $cid = (int)$cid_arr[0];
                 $this->_category_handler->get_cache_row($cid);
@@ -452,6 +456,5 @@ if (!class_exists('weblinks_link_view')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

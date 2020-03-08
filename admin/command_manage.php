@@ -32,7 +32,7 @@ $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         $config_form->print_xoops_token_error();
@@ -51,11 +51,11 @@ weblinks_admin_print_header();
 weblinks_admin_print_menu();
 
 echo '<h4>' . _HAPPY_LINUX_CONF_COMMAND_MANAGE . "</h4>\n";
-echo '<a href="create_config.php">' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</a><br /><br />\n";
-echo '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ': bin/link_check.php</a>' . "<br /><br/>\n";
+echo '<a href="create_config.php">' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</a><br><br>\n";
+echo '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ': bin/link_check.php</a>' . "<br><br>\n";
 
 echo '<h4>' . _HAPPY_LINUX_CONF_BIN . "</h4>\n";
-echo _HAPPY_LINUX_CONF_BIN_DESC . "<br /><br />\n";
+echo _HAPPY_LINUX_CONF_BIN_DESC . "<br><br>\n";
 $config_form->set_form_title(_HAPPY_LINUX_CONF_BIN);
 $config_form->show_by_catid(7);
 

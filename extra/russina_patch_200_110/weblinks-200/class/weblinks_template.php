@@ -87,7 +87,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_template')) {
-
     //=========================================================
     // class weblinks_template
     //=========================================================
@@ -131,7 +130,7 @@ if (!class_exists('weblinks_template')) {
         public $_total_feed;
 
         // keyword
-        public $_keyword_array      = array();
+        public $_keyword_array      = [];
         public $_keywords_urlencode = null;
         public $_keyword_query      = null;
 
@@ -147,11 +146,11 @@ if (!class_exists('weblinks_template')) {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_config_handler     = weblinks_get_handler('config2_basic', $dirname);
-            $this->_linkitem_handler   = weblinks_get_handler('linkitem_basic', $dirname);
-            $this->_category_handler   = weblinks_get_handler('category_basic', $dirname);
-            $this->_link_count_handler = weblinks_get_handler('link_count', $dirname);
-            $this->_rssc_handler       = weblinks_get_handler('rssc_view', $dirname);
+            $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
+            $this->_linkitem_handler   = weblinks_getHandler('linkitem_basic', $dirname);
+            $this->_category_handler   = weblinks_getHandler('category_basic', $dirname);
+            $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
+            $this->_rssc_handler       = weblinks_getHandler('rssc_view', $dirname);
 
             $this->_menu          = weblinks_menu::getInstance($dirname);
             $this->_auth          = weblinks_auth::getInstance($dirname);
@@ -176,8 +175,8 @@ if (!class_exists('weblinks_template')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_template($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
 
             return $instance;
@@ -245,7 +244,7 @@ if (!class_exists('weblinks_template')) {
 
         public function fetch_header($description = null)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $this->_assign_header_common($tpl);
             $this->_assign_header_total($tpl);
@@ -254,12 +253,13 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('index_desc', $description);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_header.html'));
+
             return $text;
         }
 
         public function fetch_guidance()
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $this->_assign_header_common($tpl);
             $this->_assign_header_total($tpl);
@@ -267,13 +267,14 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('keywords', $this->_keywords_urlencode);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_guidance.html'));
+
             return $text;
         }
 
         /* CDS Patch. Weblinks. 2.00. 6. BOF */
         public function fetch_guidance_rssicon()
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $this->_assign_header_common($tpl);
             $this->_assign_header_total($tpl);
@@ -281,6 +282,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('keywords', $this->_keywords_urlencode);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_guidance_rssicon.html'));
+
             return $text;
         }
 
@@ -288,18 +290,18 @@ if (!class_exists('weblinks_template')) {
 
         public function fetch_search_form($show_mark = 0, $show_cat = 0, $show_br1 = 0, $show_br2 = 0, $subcat = 0)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $selbox = '';
             $cid    = $this->_post->get_get_int('cid');
             $mark   = $this->_post->get_get_text('mark');
 
-            if ($subcat == 0) {
+            if (0 == $subcat) {
                 $subcat = $this->_post->get_get_int('subcat');
             }
 
             $andor = $this->_post->get_get_text('andor');
-            if (($andor != 'OR') && ($andor != 'exact')) {
+            if (('OR' != $andor) && ('exact' != $andor)) {
                 $andor = 'AND';
             }
 
@@ -321,12 +323,13 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('search_cat_selbox', $selbox);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_search_form.html'));
+
             return $text;
         }
 
         public function fetch_link_single(&$link)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $link['map'] = $this->fetch_link_map($link);
 
@@ -336,48 +339,52 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('keywords', $this->_keywords_urlencode);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_link_single.html'));
+
             return $text;
         }
 
-        public function fetch_link_map(&$link)
+        public function fetch_link_map($link)
         {
             $conf_map_template = $this->_conf['map_template'];
 
             $text = '';
             if ($conf_map_template) {
-                $tpl =& $this->_create_xoops_tpl();
+                $tpl = &$this->_create_xoops_tpl();
 
                 $this->_assign_link_common($tpl);
                 $tpl->assign('link', $link);
                 $text = $tpl->fetch($this->_get_custom_file('map', $conf_map_template));
             }
+
             return $text;
         }
 
-        public function fetch_links_full(&$links)
+        public function fetch_links_full($links)
         {
             $text = '';
             foreach ($links as $link) {
                 $text .= $this->fetch_link_single($link);
             }
+
             return $text;
         }
 
         /* CDS Patch. Weblinks. 2.00. 8. BOF */
-        public function fetch_links_full_list(&$links)
+        public function fetch_links_full_list($links)
         {
-            $ret = array();
+            $ret = [];
             foreach ($links as $link) {
                 $ret[] = $this->fetch_link_single($link);
             }
+
             return $ret;
         }
 
         /* CDS Patch. Weblinks. 2.00. 8. EOF */
 
-        public function fetch_links_list(&$links)
+        public function fetch_links_list($links)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $this->_assign_link_common($tpl);
             $tpl->assign('keywords', $this->_keywords_urlencode);
@@ -389,10 +396,11 @@ if (!class_exists('weblinks_template')) {
             }
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_links_list.html'));
+
             return $text;
         }
 
-        public function fetch_category_navi(&$categories, $image_mode, $cols, $keywords)
+        public function fetch_category_navi($categories, $image_mode, $cols, $keywords)
         {
             // min is 1
             $cols = (int)$cols;
@@ -407,9 +415,9 @@ if (!class_exists('weblinks_template')) {
             }
 
             $count          = count($categories);
-            $cols_remainder =& $this->build_remainder_array($this->calc_remainder($count, $cols));
+            $cols_remainder = &$this->build_remainder_array($this->calc_remainder($count, $cols));
 
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $tpl->assign('xoops_url', XOOPS_URL);
             $tpl->assign('dirname', $this->_DIRNAME);
@@ -421,29 +429,32 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('cols_remainder', $cols_remainder);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_category_navi.html'));
+
             return $text;
         }
 
-        public function fetch_forum_list(&$threads)
+        public function fetch_forum_list($threads)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $tpl->assign('lang_forum', _WEBLINKS_FORUM);
             $tpl->assign('lang_thread', _WEBLINKS_THREAD);
             $tpl->assign('forum_threads', $threads);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_forum_list.html'));
+
             return $text;
         }
 
-        public function fetch_photo_list(&$photos)
+        public function fetch_photo_list($photos)
         {
-            $tpl =& $this->_create_xoops_tpl();
+            $tpl = &$this->_create_xoops_tpl();
 
             $tpl->assign('album_photos', $photos);
             $tpl->assign('album_cols', 3);
 
             $text = $tpl->fetch($this->_get_parts_file('weblinks_photo_list.html'));
+
             return $text;
         }
 
@@ -451,7 +462,7 @@ if (!class_exists('weblinks_template')) {
         {
             $text = '';
             if ($this->_conf['d3forum_plugin']) {
-                $tpl =& $this->_create_xoops_tpl();
+                $tpl = &$this->_create_xoops_tpl();
 
                 $tpl->assign('d3forum_dirname', $this->_conf['d3forum_dirname']);
                 $tpl->assign('d3forum_forum_id', $this->_conf['d3forum_forum_id']);
@@ -462,6 +473,7 @@ if (!class_exists('weblinks_template')) {
                 // Smarty error: unable to read resource: d3forum_comment.html
                 $text = $tpl->fetch($this->_get_parts_file('weblinks_d3forum_comment.html'));
             }
+
             return $text;
         }
 
@@ -480,17 +492,19 @@ if (!class_exists('weblinks_template')) {
             if ($remainder >= $max) {
                 $remainder = 0;
             }
+
             return $remainder;
         }
 
         public function &build_remainder_array($num)
         {
-            $arr = array();
+            $arr = [];
             if ($num > 0) {
                 for ($i = 0; $i < $num; ++$i) {
                     $arr[] = '';
                 }
             }
+
             return $arr;
         }
 
@@ -507,25 +521,29 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('xoops_requesturi', htmlspecialchars($GLOBALS['xoopsRequestUri'], ENT_QUOTES));
 
             if (is_object($xoopsUser)) {
-                $tpl->assign(array(
-                                 'xoops_isuser'  => true,
-                                 'xoops_userid'  => $xoopsUser->getVar('uid'),
-                                 'xoops_uname'   => $xoopsUser->getVar('uname'),
-                                 'xoops_isadmin' => $xoopsUserIsAdmin,
-                             ));
+                $tpl->assign(
+                    [
+                        'xoops_isuser'  => true,
+                        'xoops_userid'  => $xoopsUser->getVar('uid'),
+                        'xoops_uname'   => $xoopsUser->getVar('uname'),
+                        'xoops_isadmin' => $xoopsUserIsAdmin,
+                    ]
+                );
             }
 
             if (is_object($xoopsModule)) {
-                $tpl->assign(array(
-                                 'xoops_modulename' => $xoopsModule->getVar('name'),
-                                 'xoops_dirname'    => $xoopsModule->getVar('dirname'),
-                             ));
+                $tpl->assign(
+                    [
+                        'xoops_modulename' => $xoopsModule->getVar('name'),
+                        'xoops_dirname'    => $xoopsModule->getVar('dirname'),
+                    ]
+                );
             }
 
             return $tpl;
         }
 
-        public function _assign_header_common(&$tpl)
+        public function _assign_header_common($tpl)
         {
             $this->_assign_config_name($tpl);
 
@@ -578,7 +596,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('lang_js_invalid', _WEBLINKS_JAVASCRIPT_INVALID);
         }
 
-        public function _assign_header_total(&$tpl)
+        public function _assign_header_total($tpl)
         {
             $total_site_topten = 'top' . (int)$this->_conf['topten_links'];
 
@@ -595,7 +613,7 @@ if (!class_exists('weblinks_template')) {
             /* CDS Patch. Weblinks. 2.00. 7. EOF */
         }
 
-        public function _assign_search_common(&$tpl)
+        public function _assign_search_common($tpl)
         {
             $tpl->assign('search_google_server', $this->_conf['google_server']);
 
@@ -619,19 +637,19 @@ if (!class_exists('weblinks_template')) {
 
         public function _get_search_selected($andor, $mark)
         {
-            $selected = array();
+            $selected = [];
 
-            if ($andor == 'exact') {
+            if ('exact' == $andor) {
                 $selected['exact'] = $this->_SELECTED;
-            } elseif ($andor == 'OR') {
+            } elseif ('OR' == $andor) {
                 $selected['or'] = $this->_SELECTED;
             } else {
                 $selected['and'] = $this->_SELECTED;
             }
 
-            if ($mark == 'recommend') {
+            if ('recommend' == $mark) {
                 $selected['recommend'] = $this->_SELECTED;
-            } elseif ($mark == 'mutual') {
+            } elseif ('mutual' == $mark) {
                 $selected['mutual'] = $this->_SELECTED;
             }
 
@@ -640,16 +658,16 @@ if (!class_exists('weblinks_template')) {
 
         public function _get_search_checked($subcat)
         {
-            $checked = array();
+            $checked = [];
 
-            if ($subcat == 1) {
+            if (1 == $subcat) {
                 $checked['subcat'] = $this->_CHECKED;
             }
 
             return $checked;
         }
 
-        public function _assign_link_common(&$tpl)
+        public function _assign_link_common($tpl)
         {
             $this->_assign_config_name($tpl);
             $this->_assign_linkitem_name($tpl);
@@ -753,11 +771,11 @@ if (!class_exists('weblinks_template')) {
         //---------------------------------------------------------
         // config_handler
         //---------------------------------------------------------
-        public function _assign_config_name(&$tpl)
+        public function _assign_config_name($tpl)
         {
             foreach ($this->_conf as $k => $v) {
                 // match
-                if (strpos($k, 'lang_') === 0) {
+                if (0 === mb_strpos($k, 'lang_')) {
                     $name  = htmlspecialchars($k, ENT_QUOTES);
                     $value = htmlspecialchars($v, ENT_QUOTES);
                     $tpl->assign($name, $value);
@@ -768,9 +786,9 @@ if (!class_exists('weblinks_template')) {
         //---------------------------------------------------------
         // linkitem_handler
         //---------------------------------------------------------
-        public function _assign_linkitem_name(&$tpl)
+        public function _assign_linkitem_name($tpl)
         {
-            $conf =& $this->_linkitem_handler->get_conf();
+            $conf = &$this->_linkitem_handler->get_conf();
             foreach ($conf as $k => $v) {
                 $name  = htmlspecialchars('lang_link_' . $k, ENT_QUOTES);
                 $value = htmlspecialchars($v, ENT_QUOTES);
@@ -785,6 +803,7 @@ if (!class_exists('weblinks_template')) {
         {
             $this->_category_handler->load_once();
             $selbox = $this->_category_handler->build_selbox($cid, 1, 'cid', '', _HAPPY_LINUX_SEARCH_NOT_SELECT, 0);
+
             return $selbox;
         }
 
@@ -811,7 +830,7 @@ if (!class_exists('weblinks_template')) {
         public function set_keyword_array(&$arr)
         {
             if (is_array($arr) && count($arr)) {
-                $this->_keyword_array =& $arr;
+                $this->_keyword_array = &$arr;
                 $this->set_keywords_urlencode($this->_class_keyword->urlencode_from_array($arr));
                 $this->set_keyword_query($this->_class_keyword->convert_array_to_str($arr));
             }
@@ -847,29 +866,26 @@ if (!class_exists('weblinks_template')) {
 
         public function _get_custom_file($dir, $name)
         {
-            /* CDS Patch. Weblinks. 2.00. 1. BOF */
-            global $xoopsConfig;
+            /* CDS Patch. Weblinks. 2.00. 1. BOF */ global $xoopsConfig;
             $file_theme        = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . $this->_DIRNAME . '/' . $dir . '/' . $name;
             $file_theme_custom = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . $this->_DIRNAME . '/custom/' . $name;
             if (file_exists($file_theme_custom)) {
                 return $file_theme_custom;
             } elseif (file_exists($file_theme)) {
                 return $file_theme;
-            } else {
-                $file_orig   = $this->_dir_templates . '/' . $dir . '/' . $name;
-                $file_custom = $this->_dir_templates . '/customs/' . $name;
-
-                if (file_exists($file_custom)) {
-                    return $file_custom;
-                }
-
-                return $file_orig;
             }
+            $file_orig   = $this->_dir_templates . '/' . $dir . '/' . $name;
+            $file_custom = $this->_dir_templates . '/customs/' . $name;
+
+            if (file_exists($file_custom)) {
+                return $file_custom;
+            }
+
+            return $file_orig;
             /* CDS Patch. Weblinks. 2.00. 1. EOF */
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

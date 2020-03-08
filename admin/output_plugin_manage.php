@@ -19,7 +19,6 @@ include_once WEBLINKS_ROOT_PATH . '/htmlout/weblinks_htmlout_base.php';
 //=========================================================
 class admin_output_plugin_manage extends happy_linux_plugin_manage
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -32,9 +31,10 @@ class admin_output_plugin_manage extends happy_linux_plugin_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_output_plugin_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -68,7 +68,6 @@ switch ($op) {
             redirect_header('output_plugin_manage.php', 1, _HAPPY_LINUX_UPDATED);
         }
         break;
-
     case 'execute':
         xoops_cp_header();
         weblinks_admin_print_bread(_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE, 'output_plugin_manage.php', _HAPPY_LINUX_PLUGIN_TEST);
@@ -76,7 +75,6 @@ switch ($op) {
         xoops_cp_footer();
         exit();
         break;
-
     default:
         xoops_cp_header();
         break;
@@ -89,19 +87,18 @@ echo '<h4>' . _AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE . "</h4>\n";
 
 $config_form->set_form_title(_AM_WEBLINKS_HTMLOUT);
 $config_form->show_by_catid(39);
-echo "<br />\n";
+echo "<br>\n";
 
 $config_form->set_form_title(_AM_WEBLINKS_RSSOUT);
 $config_form->show_by_catid(40);
-echo "<br />\n";
+echo "<br>\n";
 
 $config_form->set_form_title(_AM_WEBLINKS_KMLOUT);
 $config_form->show_by_catid(41);
-echo "<br />\n";
+echo "<br>\n";
 
 $manage->show_form();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

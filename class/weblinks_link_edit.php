@@ -22,7 +22,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_edit')) {
-
     //=========================================================
     // class weblinks_link_edit
     //=========================================================
@@ -55,12 +54,12 @@ if (!class_exists('weblinks_link_edit')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler  = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler    = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
+            $this->_config_handler  = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler    = weblinks_getHandler('link', $dirname);
+            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
             $this->_link_view       = weblinks_link_view::getInstance($dirname);
             $this->_auth            = weblinks_auth::getInstance($dirname);
-            $this->_rssc_handler    = weblinks_get_handler('rssc', $dirname);
+            $this->_rssc_handler    = weblinks_getHandler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post   = happy_linux_post::getInstance();
@@ -73,7 +72,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function set_object(&$obj)
         {
-            $this->_link_obj =& $obj;
+            $this->_link_obj = &$obj;
         }
 
         //---------------------------------------------------------
@@ -81,7 +80,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_submit()
         {
-            $link_obj =& $this->_link_handler->create();
+            $link_obj = &$this->_link_handler->create();
             $this->set_object($link_obj);
             $this->set_vars($link_obj->getVarAll('s'));
 
@@ -100,9 +99,9 @@ if (!class_exists('weblinks_link_edit')) {
 
         public function build_submit_cid_arr()
         {
-            $cid_arr = array();
+            $cid_arr = [];
             if (isset($_GET['cid'])) {
-                $cid_arr = array($_GET['cid']);
+                $cid_arr = [$_GET['cid']];
             }
             $this->set('cid_arr', $cid_arr);
         }
@@ -120,7 +119,7 @@ if (!class_exists('weblinks_link_edit')) {
 
         public function build_rss_opt()
         {
-            $rss_opt = array();
+            $rss_opt = [];
             if (WEBLINKS_RSSC_USE) {
                 $rss_opt = $this->_rssc_handler->get_rss_opt();
             }
@@ -144,7 +143,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_submit_preview()
         {
-            $link_obj =& $this->_link_handler->create();
+            $link_obj = &$this->_link_handler->create();
             $this->set_object($link_obj);
 
             $this->build_preview_by_post();
@@ -202,7 +201,7 @@ if (!class_exists('weblinks_link_edit')) {
             $name_edit     = '';
             $nameflag_edit = 0;
 
-            if ($nameflag == 1) {
+            if (1 == $nameflag) {
                 $name_edit     = $this->_link_obj->getVar('name');
                 $nameflag_edit = 1;
             }
@@ -220,7 +219,7 @@ if (!class_exists('weblinks_link_edit')) {
             $mail_edit     = '';
             $mailflag_edit = 0;
 
-            if ($mailflag == 1) {
+            if (1 == $mailflag) {
                 $mail_edit     = $this->_link_obj->getVar('mail');
                 $mailflag_edit = 1;
             }
@@ -275,7 +274,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_admin_submit_preview()
         {
-            $link_obj =& $this->_link_handler->create();
+            $link_obj = &$this->_link_handler->create();
             $this->set_object($link_obj);
             $this->build_admin_preview_by_post();
 
@@ -348,7 +347,7 @@ if (!class_exists('weblinks_link_edit')) {
 
         public function build_admin_approve_cid_arr()
         {
-            $cid_arr =& $this->_link_obj->cid_array();
+            $cid_arr = &$this->_link_obj->cid_array();
             $this->set('cid_arr', $cid_arr);
         }
 
@@ -400,7 +399,7 @@ if (!class_exists('weblinks_link_edit')) {
         {
             $this->_link_view->set_vars($this->_link_obj->getVarAll());
             $this->_link_view->build_show();
-            $arr =& $this->_link_view->get_vars();
+            $arr = &$this->_link_view->get_vars();
 
             list($show_catpaths, $catpaths) = $this->_link_view->build_catpaths_by_cid_array($cid_arr);
 
@@ -422,6 +421,5 @@ if (!class_exists('weblinks_link_edit')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

@@ -51,7 +51,7 @@ if (!function_exists('b_weblinks_photo_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
         include_once $WEBLINKS_ROOT_PATH . '/plugins/album_sel.php';
 
-        $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
+        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
         $plugin           = weblinks_plugin::getInstance($DIRNAME);
 
         // config
@@ -71,7 +71,7 @@ if (!function_exists('b_weblinks_photo_show')) {
         $cat_album_mode    = $conf['cat_album_mode'];
 
         // return value
-        $block               = array();
+        $block               = [];
         $block['dirname']    = $DIRNAME;
         $block['show_title'] = $SHOW_TITLE;
 
@@ -79,39 +79,39 @@ if (!function_exists('b_weblinks_photo_show')) {
         $url     = xoops_getenv('REQUEST_URI');
         $viewcat = 'modules/' . $DIRNAME . '/viewcat.php';
 
-        if ($FLAG_WEBLINKS_CAT && strstr($url, $viewcat)) {
+        if ($FLAG_WEBLINKS_CAT && mb_strstr($url, $viewcat)) {
             $cid = isset($_GET['cid']) ? (int)$_GET['cid'] : 0;
             $category_handler->load_once();
             $album_id = $category_handler->get_album_id($cid);
 
             // same parent
-            if (($cat_album_mode == 1) && ($album_id == 0)) {
+            if ((1 == $cat_album_mode) && (0 == $album_id)) {
                 $album_id = $category_handler->get_parent_album_id($cid);
             }
         }
 
-        if ($album_id == 0) {
+        if (0 == $album_id) {
             $album_id = WEBLINKS_PLUGIN_ALL;
         }
 
-        $sel =& $plugin->get_selecter_by_id($SEL_KIND, $cat_album_sel);
+        $sel = &$plugin->get_selecter_by_id($SEL_KIND, $cat_album_sel);
         if (!$sel) {
             return $block;
         }
 
         $filename = $sel['name'];
 
-        $opts = array(
+        $opts = [
             'dirname'     => $cat_album_dirname,
             'width'       => $WIDTH,
             'album_limit' => $limit,
             'album_id'    => $album_id,
             'mode_sub'    => $MODE_SUB,
             'cycle'       => $CYCLE,
-        );
+        ];
 
         $func   = $plugin->build_plugin_func($PLUGIN_KIND, $filename);
-        $photos =& $plugin->exec_plugin($filename, $func, $opts);
+        $photos = &$plugin->exec_plugin($filename, $func, $opts);
 
         $block['album_dirname'] = $cat_album_dirname;
 
@@ -135,8 +135,8 @@ if (!function_exists('b_weblinks_photo_show')) {
         $form .= '</td><td>';
         $form .= '<input type="text" name="options[1]" value="' . (int)$options[1] . '" />' . "\n";
         $form .= "</td></tr></table>\n";
+
         return $form;
     }
-
     // --- block function begin end ---
 }

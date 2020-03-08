@@ -51,7 +51,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Sub menu titles
     define('_MI_WEBLINKS_SMNAME1', 'Invia');
     define('_MI_WEBLINKS_SMNAME2', 'Sito Popolare');
-    define('_MI_WEBLINKS_SMNAME3', 'Sito più votato');
+    define('_MI_WEBLINKS_SMNAME3', 'Sito piï¿½ votato');
 
     // Names of admin menu items
     define('_MI_WEBLINKS_ADMENU1', 'Configurazione Modulo 2');
@@ -67,8 +67,8 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Title of config items
     // Description of each config items
     //-------------------------------------
-    define('_MI_WEBLINKS_POPULAR', 'Num. di hits necessari perchè un link sia marcato come Popolare');
-    define('_MI_WEBLINKS_POPULARDSC', 'Inserire il num. minimo di hit richiesti per mostrare l\'icona "POPULAR". <br />  Se 0, non mostra alcuna icona. ');
+    define('_MI_WEBLINKS_POPULAR', 'Num. di hits necessari perchï¿½ un link sia marcato come Popolare');
+    define('_MI_WEBLINKS_POPULARDSC', 'Inserire il num. minimo di hit richiesti per mostrare l\'icona "POPULAR". <br>  Se 0, non mostra alcuna icona. ');
     define('_MI_WEBLINKS_NEWLINKS', 'Num. max di nuovi link mostrati sulla pagina principale');
 
     //define('_MI_WEBLINKS_NEWLINKSDSC', 'Enter the maximum number of links to be displayed in the "New Links" block. ');
@@ -156,7 +156,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TITLESHOWDSC', 'Scegli "SI" per visualizzare titolo modulo');
 
     define('_MI_WEBLINKS_NEWDAYS', 'Scegli per quanti giorni i link sono marcati come nuovi');
-    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Inserire num. di giorni per cui mostrare icona "NEW". <br /> Se 0, nessuna icona mostrata. ');
+    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Inserire num. di giorni per cui mostrare icona "NEW". <br> Se 0, nessuna icona mostrata. ');
 
     define('_MI_WEBLINKS_DESCSHORT', 'Num. max di caratteri usati per spiegazione lista link ');
     define('_MI_WEBLINKS_DESCSHORTDSC', 'Inserire il num. max di caratteri da usare per spiegazione lista link. ');
@@ -169,8 +169,8 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_ORDERBY3', 'Date (Registrazione in ordine discendente)');
     define('_MI_WEBLINKS_ORDERBY4', 'Voti (ordine ascendente)');
     define('_MI_WEBLINKS_ORDERBY5', 'Voti (ordine discendente)');
-    define('_MI_WEBLINKS_ORDERBY6', 'Popolarità (ordine ascendente)');
-    define('_MI_WEBLINKS_ORDERBY7', 'Popolarità (ordine discendente)');
+    define('_MI_WEBLINKS_ORDERBY6', 'Popolaritï¿½ (ordine ascendente)');
+    define('_MI_WEBLINKS_ORDERBY7', 'Popolaritï¿½ (ordine discendente)');
 
     define('_MI_WEBLINKS_SEARCH_LINKS', 'Num. di link visualizzati su pagina risultati ricerca');
     define('_MI_WEBLINKS_SEARCH_LINKSDSC', 'Inserire il num. max di link da visualizzare nella pagina risultati ricerca');
@@ -182,8 +182,10 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Scegli se visualizzare la pagina di destinazione del link dentro un frame');
 
     define('_MI_WEBLINKS_BROKEN', 'Numero rapporti Link non valido prima di bloccare visualizzazione');
-    define('_MI_WEBLINKS_BROKENDSC',
-           'Inserire quante volte il link deve essere riportato come non valido prima di bloccarne la visual. <br /> Sotto questo valore, sarà considerato errore temporaneo, e nulla verrà fatto. <br />Oltre questo valore il link non sarà più visualizzato.');
+    define(
+        '_MI_WEBLINKS_BROKENDSC',
+        'Inserire quante volte il link deve essere riportato come non valido prima di bloccarne la visual. <br> Sotto questo valore, sarï¿½ considerato errore temporaneo, e nulla verrï¿½ fatto. <br>Oltre questo valore il link non sarï¿½ piï¿½ visualizzato.'
+    );
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Usa immagini link per lista link');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Max larghezza immagine link');
@@ -197,21 +199,21 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
 
     // 2005-10-20 K.OHWADA
     define('_MI_WEBLINKS_TOPTEN_STYLE', 'Stile della topten');
-    define('_MI_WEBLINKS_TOPTEN_STYLE_DSC', 'Scegli stile in "Siti Popolari" e "Siti più votati". ');
+    define('_MI_WEBLINKS_TOPTEN_STYLE_DSC', 'Scegli stile in "Siti Popolari" e "Siti piï¿½ votati". ');
     define('_MI_WEBLINKS_TOPTEN_STYLE_0', 'Top di ogni categoria');
     define('_MI_WEBLINKS_TOPTEN_STYLE_1', 'Misto: Tutte le categorie');
 
     define('_MI_WEBLINKS_TOPTEN_LINKS', 'Num. max link in topten');
-    define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Inserire il num. max di link da visual. in "Siti Popolari" e "Siti più votati". ');
+    define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Inserire il num. max di link da visual. in "Siti Popolari" e "Siti piï¿½ votati". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'Num. max categorie in topten');
-    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Inserire il num. max di categorie da visual. in "Siti Popolari" e "Siti più votati". <br />Può esserci un timeout se si selezionano troppe categorie');
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Inserire il num. max di categorie da visual. in "Siti Popolari" e "Siti piï¿½ votati". <br>Puï¿½ esserci un timeout se si selezionano troppe categorie');
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
     //define('_MI_WEBLINKS_INDEX_DESC','Main Page Introductory Text');
     //define('_MI_WEBLINKS_INDEX_DESC_DSC', 'You can use this section to display some descriptive or introductory text. HTML is allowed.');
-    define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Qui va la tua presentazione pagina.<br />Puoi editarla in "Configurazione Modulo 2".</font><br /></div>');
+    define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Qui va la tua presentazione pagina.<br>Puoi editarla in "Configurazione Modulo 2".</font><br></div>');
 
     // 2006-05-15
     define('_MI_WEBLINKS_ADMENU0', 'Indice');
@@ -237,4 +239,3 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Ricevi notifica quando un nuovo link viene postato (se contiene commento per admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notifica : Nuovo link)');
 }// --- define language begin ---
-;

@@ -61,18 +61,18 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // Access Authority
     define('_WEBLINKS_ADMIN_AUTH', 'Permessi');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'L\'amministratore ha il pieno controllo di gestione');
-    define('_WEBLINKS_AUTH_SUBMIT', 'Può inviare un nuovo link');
+    define('_WEBLINKS_AUTH_SUBMIT', 'Puï¿½ inviare un nuovo link');
     define('_WEBLINKS_AUTH_SUBMIT_DSC', 'Specifica i gruppi autorizzati a inviare un nuovo link');
-    define('_WEBLINKS_AUTH_SUBMIT_AUTO', 'Può approvare automaticamente i nuovi link inviati');
-    define('_WEBLINKS_AUTH_SUBMIT_AUTO_DSC', 'Specifica i gruppi il cui invio di link è automaticamente approvato');
-    define('_WEBLINKS_AUTH_MODIFY', 'Può modificare');
+    define('_WEBLINKS_AUTH_SUBMIT_AUTO', 'Puï¿½ approvare automaticamente i nuovi link inviati');
+    define('_WEBLINKS_AUTH_SUBMIT_AUTO_DSC', 'Specifica i gruppi il cui invio di link ï¿½ automaticamente approvato');
+    define('_WEBLINKS_AUTH_MODIFY', 'Puï¿½ modificare');
     define('_WEBLINKS_AUTH_MODIFY_DSC', 'Specifica i gruppi autorizzati a inviare richieste di modifica link');
-    define('_WEBLINKS_AUTH_MODIFY_AUTO', 'Può approvare modifiche link');
+    define('_WEBLINKS_AUTH_MODIFY_AUTO', 'Puï¿½ approvare modifiche link');
     define('_WEBLINKS_AUTH_MODIFY_AUTO_DSC', 'Specifica i gruppi autorizzati ad approvare richieste di modifica link');
-    define('_WEBLINKS_AUTH_RATELINK', 'Può votare un link');
-    define('_WEBLINKS_AUTH_RATELINK_DSC', 'Specifica i gruppi autorizzati a votare un link.<br />Questa opzione funziona solo quando è attiva la funzione di voto.');
+    define('_WEBLINKS_AUTH_RATELINK', 'Puï¿½ votare un link');
+    define('_WEBLINKS_AUTH_RATELINK_DSC', 'Specifica i gruppi autorizzati a votare un link.<br>Questa opzione funziona solo quando ï¿½ attiva la funzione di voto.');
     define('_WEBLINKS_USE_PASSWD', 'Usa Autenticazione Password quando si modifica un link');
-    define('_WEBLINKS_USE_PASSWD_DSC', 'Se è selezionato SI, visualizza un campo Autenticazione Password, <br />per i gruppi che non sono autorizzati a inviare/approvare richieste di modifica. ');
+    define('_WEBLINKS_USE_PASSWD_DSC', 'Se ï¿½ selezionato SI, visualizza un campo Autenticazione Password, <br>per i gruppi che non sono autorizzati a inviare/approvare richieste di modifica. ');
     define('_WEBLINKS_USE_RATELINK', 'Consenti votazioni');
     define('_WEBLINKS_USE_RATELINK_DSC', 'Attiva il sistema di votazione dei link.');
     define('_WEBLINKS_AUTH_UPDATED', 'Permessi Aggiornati');
@@ -82,21 +82,29 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'Auto aggiorna RSS/ATOM feeds');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "Se attivo esegue 'Auto Discovery degli url RSS/ATOM' e 'auto aggiorna' se i link inviati includono dei link RSS/ATOM. ");
     define('_WEBLINKS_RSS_MODE_DATA', 'Dati di RSS/ATOM da mostrare');
-    define('_WEBLINKS_RSS_MODE_DATA_DSC',
-           'ATOM FEED, usa i dati nella tabella Atom feed dopo il parsing. <br />XML usa i dati dalla tabella del link prima del parsing. <br />Alcuni dati possono non essere salvati nella tabella atomfeed dopo il filtraggio. ');
+    define(
+        '_WEBLINKS_RSS_MODE_DATA_DSC',
+        'ATOM FEED, usa i dati nella tabella Atom feed dopo il parsing. <br>XML usa i dati dalla tabella del link prima del parsing. <br>Alcuni dati possono non essere salvati nella tabella atomfeed dopo il filtraggio. '
+    );
     define('_WEBLINKS_RSS_CACHE', 'Tempo di cache dei RSS/ATOM feeds');
     define('_WEBLINKS_RSS_CACHE_DSC', 'Misurato in ore.');
     define('_WEBLINKS_RSS_LIMIT', 'Numero massimo di RSS/ATOM feeds');
-    define('_WEBLINKS_RSS_LIMIT_DSC',
-           'Indica il numero massimo di RSS/ATOM feeds salvati nella tabella atomfeed<br />I dati vecchi saranno cancellati se questo valore viene superato. <br />0 per illimitato. ');
+    define(
+        '_WEBLINKS_RSS_LIMIT_DSC',
+        'Indica il numero massimo di RSS/ATOM feeds salvati nella tabella atomfeed<br>I dati vecchi saranno cancellati se questo valore viene superato. <br>0 per illimitato. '
+    );
     define('_WEBLINKS_RSS_SITE', 'Sito ricerca RSS');
-    define('_WEBLINKS_RSS_SITE_DSC', 'Indica una lista di url RSS di siti ricerca RSS. <br />Separare ciascun elemento con un a capo se se ne indica più di uno. <br />Non inserire ATOM url. ');
+    define('_WEBLINKS_RSS_SITE_DSC', 'Indica una lista di url RSS di siti ricerca RSS. <br>Separare ciascun elemento con un a capo se se ne indica piï¿½ di uno. <br>Non inserire ATOM url. ');
     define('_WEBLINKS_RSS_BLACK', 'Black list di RSS/ATOM url');
-    define('_WEBLINKS_RSS_BLACK_DSC',
-           'Indica una lista di url da rifiutare nella raccolta di RSS/ATOM feeds. <br />Separare ciascun elemento con un a capo se se ne indica più di uno. <br />E\' possibile usare regular PERL expressions. ');
+    define(
+        '_WEBLINKS_RSS_BLACK_DSC',
+        'Indica una lista di url da rifiutare nella raccolta di RSS/ATOM feeds. <br>Separare ciascun elemento con un a capo se se ne indica piï¿½ di uno. <br>E\' possibile usare regular PERL expressions. '
+    );
     define('_WEBLINKS_RSS_WHITE', 'White list di RSS/ATOM url');
-    define('_WEBLINKS_RSS_WHITE_DSC',
-           'Indica una lista di url da accettare anche se corrispondenti ad una blacklist. <br />Separare ciascun elemento con un a capo se se ne indica più di uno. <br />E\' possibile usare regular PERL expression. ');
+    define(
+        '_WEBLINKS_RSS_WHITE_DSC',
+        'Indica una lista di url da accettare anche se corrispondenti ad una blacklist. <br>Separare ciascun elemento con un a capo se se ne indica piï¿½ di uno. <br>E\' possibile usare regular PERL expression. '
+    );
     define('_WEBLINKS_RSS_URL_CHECK', 'Ci sono alcuni url link che rientrano nella blacklist. ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', 'Per favore copia e incolla dalla whitelist in basso ad un form di registrazione, se necessario. ');
     define('_WEBLINKS_RSS_UPDATED', 'Impostazioni RSS/ATOM aggiornate');
@@ -104,49 +112,51 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // RSS/ATOM
     define('_WEBLINKS_ADMIN_RSS_VIEW', 'Impostazioni visualizzazione RSS/ATOM Feeds');
     define('_WEBLINKS_RSS_MODE_TITLE', 'Usa tag HTML nel titolo');
-    define('_WEBLINKS_RSS_MODE_TITLE_DSC', 'SI visualizza i tag HTML nel titolo del link, se ce ne sono. <br />NO toglie i tag HTML dal titolo. ');
+    define('_WEBLINKS_RSS_MODE_TITLE_DSC', 'SI visualizza i tag HTML nel titolo del link, se ce ne sono. <br>NO toglie i tag HTML dal titolo. ');
     define('_WEBLINKS_RSS_MODE_CONTENT', 'Usa i tag HTML nel contenuto');
-    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', 'SI visualizza il contenuto dei link con i tag HTML, se ce ne sono. <br />NO toglie tutti i tag HTML dal contenuto visualizzato. ');
+    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', 'SI visualizza il contenuto dei link con i tag HTML, se ce ne sono. <br>NO toglie tutti i tag HTML dal contenuto visualizzato. ');
     define('_WEBLINKS_RSS_NEW', 'Seleziona il numero massimo di "nuovi RSS/ATOM feeds" visualizzati nella top page');
     define('_WEBLINKS_RSS_NEW_DSC', 'Inserire il numero massimo di nuovi RSS/ATOM feeds da visualizzare nella pagina principale.');
     define('_WEBLINKS_RSS_PERPAGE', 'Seleziona il numero massimo di RSS/ATOM feeds da visualizzare nella pagina Dettagli Link e nella pagina RSS/ATOM');
     define('_WEBLINKS_RSS_PERPAGE_DSC', 'Inserire il numero massimo di RSS/ATOM feeds che devono essere mostrati nella pagina RSS/ATOM. ');
     define('_WEBLINKS_RSS_NUM_CONTENT', 'Numero di feeds con contenuto visualizzato');
-    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'Inserire il numero di feed di cui visualizzare il contenuto nella pagina Dettagli Link. <br />Dei rimanenti viene visualizzato un sommario. ');
+    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'Inserire il numero di feed di cui visualizzare il contenuto nella pagina Dettagli Link. <br>Dei rimanenti viene visualizzato un sommario. ');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'Numero massimo di caratteri usati per il contenuto di un RSS/ATOM feed');
-    define('_WEBLINKS_RSS_MAX_CONTENT_DSC',
-           'Inserire il numero massimo di caratteri da usare per il contenuto nella pagina RSS/ATOM.  <br />Utilizzato quando "Usa i tag HTML nel contenuto" è "Sì"." ');
+    define(
+        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
+        'Inserire il numero massimo di caratteri da usare per il contenuto nella pagina RSS/ATOM.  <br>Utilizzato quando "Usa i tag HTML nel contenuto" ï¿½ "Sï¿½"." '
+    );
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'Numero massimo di caratteri usati per il sommario RSS/ATOM feed');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'Indicare il numero massimo di caratteri da usare per il sommario RSS/ATOM feed nella pagina principale. ');
 
     // use link field
     define('_WEBLINKS_ADMIN_POST', 'Impostazioni campi Link');
-    define('_WEBLINKS_ADMIN_POST_TEXT_1', 'Non Usare significa che il campo non sarà visualizzato nel form di inserimento. ');
-    define('_WEBLINKS_ADMIN_POST_TEXT_2', "Usa significa che il campo sarà mostrato nell'inserimento per consentire di inserire dati nel campo ");
+    define('_WEBLINKS_ADMIN_POST_TEXT_1', 'Non Usare significa che il campo non sarï¿½ visualizzato nel form di inserimento. ');
+    define('_WEBLINKS_ADMIN_POST_TEXT_2', "Usa significa che il campo sarï¿½ mostrato nell'inserimento per consentire di inserire dati nel campo ");
     define('_WEBLINKS_ADMIN_POST_TEXT_3', 'Obbligatorio significa che il campo DEVE essere riempito. ');
     define('_WEBLINKS_NO_USE', 'Non Usare');
     define('_WEBLINKS_USE', 'Usa');
     define('_WEBLINKS_INDISPENSABLE', 'Obbligatorio');
     define('_WEBLINKS_TYPE_DESC', 'Usa box testo XOOPS DHTML per gli inserimenti');
-    define('_WEBLINKS_TYPE_DESC_DSC', 'NO usa un normale text box.<br />SI usa box testo XOOPS DHTML per il form di inserimento. ');
+    define('_WEBLINKS_TYPE_DESC_DSC', 'NO usa un normale text box.<br>SI usa box testo XOOPS DHTML per il form di inserimento. ');
     define('_WEBLINKS_CHECK_DOUBLE', 'Respingi invio di link esistenti');
-    define('_WEBLINKS_CHECK_DOUBLE_DSC', 'NO consente di registrare link già esistenti. <br /> SI controlla se lo stesso link esiste già nel database. ');
+    define('_WEBLINKS_CHECK_DOUBLE_DSC', 'NO consente di registrare link giï¿½ esistenti. <br> SI controlla se lo stesso link esiste giï¿½ nel database. ');
     define('_WEBLINKS_POST_UPDATED', 'Impostazioni campi Link Field aggiornate');
 
     // cateogry
     define('_WEBLINKS_ADMIN_CAT_SET', 'Impostazioni Categorie');
     define('_WEBLINKS_CAT_SEL', 'Numero massimo di categorie selezionabili per i link inviati');
-    define('_WEBLINKS_CAT_SEL_DSC', 'Indicare il numero massimo di categorie che un utente può scegliere per categorizzare i link inviati');
+    define('_WEBLINKS_CAT_SEL_DSC', 'Indicare il numero massimo di categorie che un utente puï¿½ scegliere per categorizzare i link inviati');
     define('_WEBLINKS_CAT_SUB', 'Numero di sotto categorie da visualizzare');
     define('_WEBLINKS_CAT_SUB_DSC', 'Impostare il numero di sotto categorie visualizzate nella lista categoria sulla top page');
     define('_WEBLINKS_CAT_IMG_MODE', 'Scegliere immagine categoria');
-    define('_WEBLINKS_CAT_IMG_MODE_DSC', 'NESSUNA niente immagine. <br />Folder.gif mostra folder.gif. <br />Immagine da Impostazioni mostra l\'immagine preimpostata di ciascuna categoria. ');
+    define('_WEBLINKS_CAT_IMG_MODE_DSC', 'NESSUNA niente immagine. <br>Folder.gif mostra folder.gif. <br>Immagine da Impostazioni mostra l\'immagine preimpostata di ciascuna categoria. ');
     define('_WEBLINKS_CAT_IMG_MODE_0', 'NESSUNA');
     define('_WEBLINKS_CAT_IMG_MODE_1', 'folder.gif');
     define('_WEBLINKS_CAT_IMG_MODE_2', 'Immagine da Impostazioni');
     define('_WEBLINKS_CAT_IMG_WIDTH', 'Larghezza max. immagine categoria');
     define('_WEBLINKS_CAT_IMG_HEIGHT', 'Altezza max. immagine categoria');
-    define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'Usate se "Immagine da Impostazioni" è attivo. ');
+    define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'Usate se "Immagine da Impostazioni" ï¿½ attivo. ');
     define('_WEBLINKS_CAT_UPDATED', 'Impostazioni Categorie aggiornate');
 
     //======    cateogry_list.php   ======
@@ -164,7 +174,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     //======    cateogry_manage.php     ======
     define('_WEBLINKS_IMGURL_MAIN', 'URL Immagine categoria');
-    define('_WEBLINKS_IMGURL_MAIN_DSC1', 'Opzionale. <br />Le dimensioni immagine sono regolate automaticamente');
+    define('_WEBLINKS_IMGURL_MAIN_DSC1', 'Opzionale. <br>Le dimensioni immagine sono regolate automaticamente');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","Images are for the main category only. ");
 
     //======    link_list.php   ======
@@ -187,10 +197,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'Controlla link non validi');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'Controlla');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', 'Risultati Controllo');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-           'Può verificarsi un timeout, se ci sono molti link non validi. <br />Nel caso, per favore cambiare il valore numerico di limite e offset. <br />limite= 0, oppure Nessuna Restrizione.');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', 'Cliccando il <b>link ID</b> si apre la pagina di modifica link. <br /><b>Website URL</b> porterà al sito web del link se cliccato. <br />');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'Cliccando su <b>titolo website</b> si aprirà Google Search. <br />');
+    define(
+        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
+        'Puï¿½ verificarsi un timeout, se ci sono molti link non validi. <br>Nel caso, per favore cambiare il valore numerico di limite e offset. <br>limite= 0, oppure Nessuna Restrizione.'
+    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', 'Cliccando il <b>link ID</b> si apre la pagina di modifica link. <br><b>Website URL</b> porterï¿½ al sito web del link se cliccato. <br>');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'Cliccando su <b>titolo website</b> si aprirï¿½ Google Search. <br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'Massimo di link da controllare (limite)');
     define('_WEBLINKS_ADMIN_OFFSET', 'Offset (offset)');
     define('_WEBLINKS_ADMIN_CHECK', 'CONTROLLA');
@@ -215,7 +227,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOM_SITE', 'Numero di RSS/ATOM site refreshed');
     define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOMFEED', 'Numero di RSS/ATOM feeds refreshed');
     define('_WEBLINKS_ADMIN_RSS_CACHE_CLEAR', 'Azzera cache RSS/ATOM feed');
-    define('_WEBLINKS_RSS_CLEAR_NUM', 'Azzera cache degli RSS/ATOM feed in ordine di data, se vi sono più feed di quelli specificati in Configurazione Modulo 1.');
+    define('_WEBLINKS_RSS_CLEAR_NUM', 'Azzera cache degli RSS/ATOM feed in ordine di data, se vi sono piï¿½ feed di quelli specificati in Configurazione Modulo 1.');
     define('_WEBLINKS_RSS_NUMBER', 'Numero di feed');
     define('_WEBLINKS_RSS_CLEAR_LID', 'Azzera cache dei link ID specificati');
     define('_WEBLINKS_RSS_CLEAR_ALL', 'Azzera tutta la cache');
@@ -264,13 +276,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_NO_RSS_REFRESH', 'Non ci sono link RSS da aggiornare');
 
     // 2005-10-20
-    define('_WEBLINKS_LINK_APPROVED', 'Il tuo link è stato approvato');
-    define('_WEBLINKS_LINK_REFUSED', 'Il tuo link è stato respinto');
+    define('_WEBLINKS_LINK_APPROVED', 'Il tuo link ï¿½ stato approvato');
+    define('_WEBLINKS_LINK_REFUSED', 'Il tuo link ï¿½ stato respinto');
 
     // 2006-05-15
     define('_AM_WEBLINKS_INDEX_DESC', 'Testo Introduttivo Pagina Principale');
     define('_AM_WEBLINKS_INDEX_DESC_DSC', 'Puoi usare questa sezione per visualizzare un testo descrittivo o introduttivo. E\' consentito l\'uso di HTML.');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Qui va la tua introduzione pagine.<br />Puoi editarlo in "Configurazione Modulo 2".<br /></div>');
+    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Qui va la tua introduzione pagine.<br>Puoi editarlo in "Configurazione Modulo 2".<br></div>');
 
     define('_AM_WEBLINKS_ADD_CATEGORY', 'Aggiungi Nuova Categoria');
     define('_AM_WEBLINKS_ERROR_SOME', 'Ci sono alcuni messaggi di errore');
@@ -278,7 +290,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LIST_ID_DESC', 'Elencati per Nuovo ID');
 
     // config
-    define('_AM_WEBLINKS_WARNING_NOT_WRITABLE', 'La directory non è scrivibile');
+    define('_AM_WEBLINKS_WARNING_NOT_WRITABLE', 'La directory non ï¿½ scrivibile');
     define('_AM_WEBLINKS_CONF_LINK', 'Configurazione Link');
     define('_AM_WEBLINKS_CONF_LINK_IMAGE', 'Configurazione Immagini Link');
     define('_AM_WEBLINKS_CONF_VIEW', 'Visualizza Configurazione');
@@ -290,9 +302,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_USE_HITS', 'Conta reports');
     define('_AM_WEBLINKS_USE_HITS_DSC', 'SI attiva un contatore link non validi');
     define('_AM_WEBLINKS_USE_PASSWD', 'Autenticazione con password');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'SI, gli <b>utenti anonimi</b> possono modificare un link autenticandosi con password.<br />NO, <br />il campo password non viene visualizzato.');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'SI, gli <b>utenti anonimi</b> possono modificare un link autenticandosi con password.<br>NO, <br>il campo password non viene visualizzato.');
     define('_AM_WEBLINKS_PASSWD_MIN', 'Lunghezza minima password richiesta');
-    define('_AM_WEBLINKS_POST_TEXT', 'L\'amministratore ha la piena autorità di gestione');
+    define('_AM_WEBLINKS_POST_TEXT', 'L\'amministratore ha la piena autoritï¿½ di gestione');
     define('_AM_WEBLINKS_AUTH_DOHTML', 'Permesso di usare tag HTML');
     define('_AM_WEBLINKS_AUTH_DOHTML_DSC', 'Specifica i gruppo autorizzati a usare tag HTML');
     define('_AM_WEBLINKS_AUTH_DOSMILEY', 'Permesso di usare faccine');
@@ -306,24 +318,30 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', 'Mostra lista categorie in submenu');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'SI mostra la lista categorie principali nei submenu');
     define('_AM_WEBLINKS_VIEW_URL', 'Stile visualizzazione URL');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           'NESSUNO <br />nessun url o tag &lt;a&gt; viene visualizzato.<br />Indiretto<br /> visualizza visit.php nel campo href invece di URL. <br />Diretto <br />visualizza URL in campo HREF, JavaScript nel campo onmousedown e numero visite conteggiato tramite JavaScript.');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        'NESSUNO <br>nessun url o tag &lt;a&gt; viene visualizzato.<br>Indiretto<br> visualizza visit.php nel campo href invece di URL. <br>Diretto <br>visualizza URL in campo HREF, JavaScript nel campo onmousedown e numero visite conteggiato tramite JavaScript.'
+    );
     define('_AM_WEBLINKS_VIEW_URL_0', 'NESSUNO');
     define('_AM_WEBLINKS_VIEW_URL_1', 'URL Indiretto');
     define('_AM_WEBLINKS_VIEW_URL_2', 'URL Diretto');
-    define('_AM_WEBLINKS_RECOMMEND_PRI', 'Priorità dei Siti Raccomandati');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-           'NESSUNA <br />Non visualizzare.<br />Normale <br />Siti Raccomandati visualizzati nell\'header.<br />Alta <br />Visualizza Siti Raccomandati all\'inizio della rispettiva categoria.');
-    define('_AM_WEBLINKS_MUTUAL_PRI', 'Priorità dei Siti Reciprochi');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC',
-           'NESSUNA <br />Non visualizzare.<br />Normale <br />Siti Reciprochi visualizzati nell\'header.<br />Alta <br />Visualizza Siti Reciprochi all\'inizio delle rispettive categorie.');
+    define('_AM_WEBLINKS_RECOMMEND_PRI', 'Prioritï¿½ dei Siti Raccomandati');
+    define(
+        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
+        'NESSUNA <br>Non visualizzare.<br>Normale <br>Siti Raccomandati visualizzati nell\'header.<br>Alta <br>Visualizza Siti Raccomandati all\'inizio della rispettiva categoria.'
+    );
+    define('_AM_WEBLINKS_MUTUAL_PRI', 'Prioritï¿½ dei Siti Reciprochi');
+    define(
+        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
+        'NESSUNA <br>Non visualizzare.<br>Normale <br>Siti Reciprochi visualizzati nell\'header.<br>Alta <br>Visualizza Siti Reciprochi all\'inizio delle rispettive categorie.'
+    );
     define('_AM_WEBLINKS_PRI_0', 'NESSUNA');
     define('_AM_WEBLINKS_PRI_1', 'Normale');
     define('_AM_WEBLINKS_PRI_2', 'Alta');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'Auto aggiorna dimensione immagine Banner');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'SI <br />aggiorna dimensione immagine Banner automaticamente.');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'SI <br>aggiorna dimensione immagine Banner automaticamente.');
     define('_AM_WEBLINKS_RSS_USE', 'Usa RSS feed');
-    define('_AM_WEBLINKS_RSS_USE_DSC', 'SI <br />Scarica e visualizza RSS/ATOM feed.');
+    define('_AM_WEBLINKS_RSS_USE_DSC', 'SI <br>Scarica e visualizza RSS/ATOM feed.');
 
     // bulk import
     define('_AM_WEBLINKS_BULK_IMPORT', 'Bulk Import');
@@ -395,8 +413,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Localizza Configurazione');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'Codice Nazione');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Inserire codice ccTLD <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh elemento legato al country code. <br/> L\'elemento con il segno <span style="color:#0000ff;">#</span>');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Inserire codice ccTLD <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh elemento legato al country code. <br> L\'elemento con il segno <span style="color:#0000ff;">#</span>');
     define('_AM_WEBLINKS_RENEW', 'Rinnova');
 
     // map
@@ -405,15 +423,17 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'Template del Sito Mappe');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'Inserire nome file template nella directory template/map/');
 
-    // google map: hacked by wye <http://never-ever.info/>
+    // google map: hacked by wye <https://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Configurazione Google Maps');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Usa Google Maps');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'Ottieni API key da <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> Se si usa GoogleMaps.');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'Ottieni API key da <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> Se si usa GoogleMaps.'
+    );
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Nome Server');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'Language Code');
-    define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Località default');
+    define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Localitï¿½ default');
     define('_AM_WEBLINKS_CONF_GM_LATITUDE', 'Latitudine default');
     define('_AM_WEBLINKS_CONF_GM_LONGITUDE', 'Longitudine default');
     define('_AM_WEBLINKS_CONF_GM_ZOOM', 'Livello Zoom default');
@@ -459,20 +479,24 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Dettaglio Completo');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Incremento prestazioni');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-           'Per migliorare le prestazioni, i dati necessari vengono calcolati prima della visualizzazione, e salvati nel database.<br />Alla prima attivazione, eseguire "Lista categorie" -> "Aggiorna albero percorsi categorie"');
+    define(
+        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
+        'Per migliorare le prestazioni, i dati necessari vengono calcolati prima della visualizzazione, e salvati nel database.<br>Alla prima attivazione, eseguire "Lista categorie" -> "Aggiorna albero percorsi categorie"'
+    );
     define('_AM_WEBLINKS_CAT_PATH', 'Albero percorsi categorie');
-    define('_AM_WEBLINKS_CAT_PATH_DSC', 'SI memorizza nella tabella categorie l\'albero percorsi calcolato in anticipo.<br />NO calcola albero durante visualizzazione.');
+    define('_AM_WEBLINKS_CAT_PATH_DSC', 'SI memorizza nella tabella categorie l\'albero percorsi calcolato in anticipo.<br>NO calcola albero durante visualizzazione.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Conta link per categoria');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'SI memorizza nella tabella categorie il conteggio dei link.<br />NO calcola durante la visualizzazione.');
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'SI memorizza nella tabella categorie il conteggio dei link.<br>NO calcola durante la visualizzazione.');
 
     define('_AM_WEBLINKS_POST_TEXT_4', 'Tutti gli elementi sono visualizzati in pagina admin');
     define('_AM_WEBLINKS_LINK_REGISTER_1', 'Impostazioni link: Textarea1');
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Configurazione Elem. Link Register');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Usa CAPTCHA');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA è una tecnica di anti-spam.<br />Questa opzione richiede il modulo Captcha.<br />SI, <b>utenti anonimi</b> devono usare CAPTCHA quando aggiungono o modificano link.<br />NO non mostrare campi CAPTCHA.');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA ï¿½ una tecnica di anti-spam.<br>Questa opzione richiede il modulo Captcha.<br>SI, <b>utenti anonimi</b> devono usare CAPTCHA quando aggiungono o modificano link.<br>NO non mostrare campi CAPTCHA.'
+    );
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Trovato modulo Captcha ver %s');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Modulo Captcha non trovato');
 
@@ -481,13 +505,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SUBMIT_PENDING', 'Descrizione di aggiungi nuovo link: 2');
     define('_AM_WEBLINKS_SUBMIT_DOUBLE', 'Descrizione di aggiungi nuovo link: 3');
     define('_AM_WEBLINKS_SUBMIT_MAIN_DSC', 'Mostra sempre');
-    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', 'Mostra in modalità "approvazione admin richiesta"');
-    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', 'Mostra in modalità "controlla link già esistente"');
+    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', 'Mostra in modalitï¿½ "approvazione admin richiesta"');
+    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', 'Mostra in modalitï¿½ "controlla link giï¿½ esistente"');
 
     define('_AM_WEBLINKS_MODLINK_MAIN', 'Descrizione di modifica link: 1');
     define('_AM_WEBLINKS_MODLINK_PENDING', 'Descrizione di modifica link: 2');
     define('_AM_WEBLINKS_MODLINK_NOT_OWNER', 'Descrizione di modifica link: 3');
-    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', 'Mostra se in modalità "approvazione admin richiesta" e non è il proprietario');
+    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', 'Mostra se in modalitï¿½ "approvazione admin richiesta" e non ï¿½ il proprietario');
 
     define('_AM_WEBLINKS_CONF_CAT_FORUM', 'Mostra Forum in Categoria');
     define('_AM_WEBLINKS_CONF_LINK_FORUM', 'Mostra Forum in Link');
@@ -495,8 +519,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_FORUM_THREAD_LIMIT', 'Numero di Thread mostrati');
     define('_AM_WEBLINKS_FORUM_POST_LIMIT', 'Numero di Post mostrati in ciascun Thread');
     define('_AM_WEBLINKS_FORUM_POST_ORDER', 'Ordine dei Post');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'Data post più vecchio');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'Data post più recente');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'Data post piï¿½ vecchio');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'Data post piï¿½ recente');
     //define('_AM_WEBLINKS_FORUM_INSTALLED',     'Forum module ( %s ) ver %s is installed');
     //define('_AM_WEBLINKS_FORUM_NOT_INSTALLED', 'Forum module ( %s ) is not installed');
 
@@ -504,7 +528,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE', 'Aggiorna dim. immagine categoria');
 
     define('_AM_WEBLINKS_CONF_INDEX', 'Configurazione Pagina Indice');
-    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'Modalità Google Map');
+    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'Modalitï¿½ Google Map');
 
     define('_AM_WEBLINKS_CAT_SHOW_GM', 'Mostra Google map');
     define('_AM_WEBLINKS_MODE_NON', 'Non mostrare');
@@ -543,13 +567,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CAT_COLS_DESC', 'Nella pagina categorie, specifica il numero di colonne, nel mostrare le categorie al di sotto di una gerarchia');
     define('_AM_WEBLINKS_CAT_SUB_MODE', 'Range di visual. delle Sotto Categorie');
     define('_AM_WEBLINKS_CAT_SUB_MODE_1', 'Solo le categorie inferiori di un livello');
-    define('_AM_WEBLINKS_CAT_SUB_MODE_2', 'Tutte le categorie inferiori di uno e più livelli');
+    define('_AM_WEBLINKS_CAT_SUB_MODE_2', 'Tutte le categorie inferiori di uno e piï¿½ livelli');
 
     // === 2007-07-14 ===
     // highlight
     define('_AM_WEBLINKS_USE_HIGHLIGHT', 'Usa Evidenziazione keyword');
     define('_AM_WEBLINKS_CHECK_MAIL', 'Controlla Formato Email');
-    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'NO consente qualsiasi formato. <br /> SI controlla che formato email sia del tipo abc@efg.com quanso si registra un link. ');
+    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'NO consente qualsiasi formato. <br> SI controlla che formato email sia del tipo abc@efg.com quanso si registra un link. ');
     define('_AM_WEBLINKS_NO_EMAIL', 'Non settare indirizzo Email');
 
     // === 2007-08-01 ===
@@ -576,22 +600,26 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT_DESC', 'GOverviewMapControl');
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Ricerca] Tipo Mappa');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[ŒŸ?õ] Tipo di Geocode');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-           'Cerca latitudine e longitudine da indirizzo<br /><b>Risultato singolo</b><br />GClientGeocoder - getLatLng<br /><b>Più risultati</b><br />GClientGeocoder - getLocations');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[ï¿½ï¿½?ï¿½] Tipo di Geocode');
+    define(
+        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
+        'Cerca latitudine e longitudine da indirizzo<br><b>Risultato singolo</b><br>GClientGeocoder - getLatLng<br><b>Piï¿½ risultati</b><br>GClientGeocoder - getLocations'
+    );
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Risultato singolo: getLatLng');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Più risultati: getLocations');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Piï¿½ risultati: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Ricerca][Giappone] Usa CSIS');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valido in Giappone<br />Cerca latitudine e longitudine da indirizzo');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valido in Giappone<br>Cerca latitudine e longitudine da indirizzo');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Ricerca][giappone] Usa Geocode Inverso');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-           'Valido in Giappone<br />Cerca indirizzo da longitudine e latitudine<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
+    define(
+        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
+        'Valido in Giappone<br>Cerca indirizzo da longitudine e latitudine<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
+    );
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] Max caratteri per titolo');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Num. max di caratteri per Titolo nel marker<br /><b>-1</b> è illimitato');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Num. max di caratteri per Titolo nel marker<br><b>-1</b> ï¿½ illimitato');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] Max caratteri per contenuto');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Num. max caratteri usati per contenuto nel marker<br /><b>-1</b> è illimitato');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Num. max caratteri usati per contenuto nel marker<br><b>-1</b> ï¿½ illimitato');
     define('_AM_WEBLINKS_GM_WORDWRAP', '[Marker] Max caratteri per a capo');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Num. max caratteri usati in ogni riga (a capo automatico) nel marker<br /><b>-1</b> è illimitato');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Num. max caratteri usati in ogni riga (a capo automatico) nel marker<br><b>-1</b> ï¿½ illimitato');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Marker] Mostra il marker centrale');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'Mostra il marker centrale in Pagina Principale e Pagina Categorie');
 
@@ -604,7 +632,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_COLUMN_MANAGE_NOT_USE', 'Non Usare');
     define('_AM_WEBLINKS_THERE_ARE_COLUMN', 'Ci sono <b>%s</b> colonne etc nella tabella link');
     define('_AM_WEBLINKS_COLUMN_NUM', 'Numero di colonne etc aggiunte');
-    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', 'Il numero di colonne etc è maggiore del numero in tabella link');
+    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', 'Il numero di colonne etc ï¿½ maggiore del numero in tabella link');
     define('_AM_WEBLINKS_COLUMN_UNMATCH', 'Le colonne non corrispondono in tabella link e tabella modifica');
     define('_AM_WEBLINKS_PHPMYADMIN', 'Correggere tramite uno strumento di gestione, ad es. phpMyAdmin');
     define('_AM_WEBLINKS_LINK_NUM_ETC', 'Il numero di colonne etc');
@@ -617,8 +645,10 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'Configurazione Stile HTML');
     define('_AM_WEBLINKS_HEADER_MODE', 'Usa xoops module header');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC',
-           'Se "No", mostra style sheet e Javascript in body tag<br />Se "Si", li mostra nell\'header tag, usando xoops module header<br />Può non funzionare con alcuni temi');
+    define(
+        '_AM_WEBLINKS_HEADER_MODE_DESC',
+        'Se "No", mostra style sheet e Javascript in body tag<br>Se "Si", li mostra nell\'header tag, usando xoops module header<br>Puï¿½ non funzionare con alcuni temi'
+    );
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'Per vedere un esempio cliccare il bottone esempio');
@@ -626,27 +656,27 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_BULK_LINK_DSC20', 'Admin specifica register items');
     define('_AM_WEBLINKS_BULK_LINK_DSC21', 'Primo paragrafo');
     define('_AM_WEBLINKS_BULK_LINK_DSC22', 'Secondo paragrafo, e seguenti');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Inserire nomi register item sulla prima linea.<br />Inserire horizontal bar (---)');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Inserire nomi register item sulla prima linea.<br>Inserire horizontal bar (---)');
     define('_AM_WEBLINKS_BULK_LINK_DSC24', 'Descrivere register items, secondo ordine del primo paragrafo, separati da virgole(,) sulla seconda linea.');
     define('_AM_WEBLINKS_BULK_CHECK_URL', 'Attiva per settare URL');
     define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'Attiva per settare descrizione');
 
     // === 2007-09-01 ===
     // auth
-    define('_AM_WEBLINKS_AUTH_DELETE', 'Può cancellare');
+    define('_AM_WEBLINKS_AUTH_DELETE', 'Puï¿½ cancellare');
     define('_AM_WEBLINKS_AUTH_DELETE_DSC', 'Specificare gruppi autorizzati a inviare richieste cancellazione link');
-    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', 'Può approvare cancellazione link');
+    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', 'Puï¿½ approvare cancellazione link');
     define('_AM_WEBLINKS_AUTH_DELETE_AUTO_DSC', 'Specifica gruppi autorizzati ad approvare richieste cancellazione link');
 
     // nofitication
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'Gestione Notifiche');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Impostazione per ciascun amministratore modulo<br />E\' lo stesso della pagina top del modulo');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Impostazione per ciascun amministratore modulo<br>E\' lo stesso della pagina top del modulo');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'Non utilizzabile in alcune versioni di XOOPS');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'Nel caso, per favore usare le impostazioni nella top page del modulo');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta modifica link è stata approvata');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta modifica link è stata respinta');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta cancellazione link è stata approvata');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta cancellazione link è stata rifiutata');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta modifica link ï¿½ stata approvata');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta modifica link ï¿½ stata respinta');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta cancellazione link ï¿½ stata approvata');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: La tua richiesta cancellazione link ï¿½ stata rifiutata');
 
     // config
     define('_AM_WEBLINKS_ADMIN_WAITING_SHOW', 'Mostra lista attesa admin');
@@ -676,13 +706,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_MODIFIED', 'Modificato');
     define('_AM_WEBLINKS_CHECK_CONFIRM', 'Confermato');
     define('_AM_WEBLINKS_WARN_CONFIRM', 'Attenzione: Marca per "Confermato" di %s');
-    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'Ci sono due o più link che hanno lo stesso "RSSC ID"');
+    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'Ci sono due o piï¿½ link che hanno lo stesso "RSSC ID"');
 
     // web shot
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'Sostituto dell\'immagine link');
-    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'mostra miniatura sito WEB invece di immagine link, <br />usando thumbnail web service, <br />se immagine link non impostata.');
+    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'mostra miniatura sito WEB invece di immagine link, <br>usando thumbnail web service, <br>se immagine link non impostata.');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'nessuno');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Usa <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Usa <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Usa <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Usa <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 }// --- define language begin ---
-;

@@ -34,14 +34,16 @@ include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/webli
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
 
 // --- eval begin ---
-eval('
+eval(
+    '
 
 function ' . $WEBLINKS_DIRNAME . '_search( $queryarray , $andor , $limit , $offset , $uid )
 {
     return weblinks_search_base( "' . $WEBLINKS_DIRNAME . '" , $queryarray , $andor , $limit , $offset , $uid ) ;
 }
 
-');
+'
+);
 // --- eval end ---
 
 // === weblinks_search_base begin ===
@@ -55,9 +57,9 @@ if (!function_exists('weblinks_search_base')) {
         // hack for multi site
         $table_link = weblinks_multi_get_table_name($DIRNAME, 'link');
 
-        $ret = array();
+        $ret = [];
 
-        $conf =& weblinks_get_config($DIRNAME);
+        $conf = &weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $ret;
         }
@@ -65,7 +67,7 @@ if (!function_exists('weblinks_search_base')) {
         // where
         $where = weblinks_get_where_public($conf['broken_threshold']);
 
-        if ($uid != 0) {
+        if (0 != $uid) {
             $where .= ' AND ( uid = ' . $uid . ' ) ';
         }
 
@@ -138,6 +140,5 @@ if (!function_exists('weblinks_search_base')) {
 
         return $ret;
     }
-
     // === weblinks_search_base end ===
 }

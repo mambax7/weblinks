@@ -74,7 +74,7 @@ $xoopsTpl->assign('total_atomfeed', $total);
 if ($total > 0) {
     $xoopsTpl->assign('show_feeds', true);
 
-    $feed_list =& $weblinks_viewfeed->get_feed_list($keyword_array);
+    $feed_list = &$weblinks_viewfeed->get_feed_list($keyword_array);
     foreach ($feed_list as $feed) {
         $xoopsTpl->append('feeds', $feed);
     }
@@ -107,20 +107,21 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     public function __construct()
     {
-        $config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
         $this->_conf    = $config_handler->get_conf();
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
-        $this->_rssc_handler = weblinks_get_handler('rssc_view', WEBLINKS_DIRNAME);
+        $this->_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_viewfeed();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -130,6 +131,7 @@ class weblinks_viewfeed
     public function get_total()
     {
         $this->_total = $this->_rssc_handler->get_feed_count();
+
         return $this->_total;
     }
 
@@ -138,7 +140,7 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     public function &get_feed_list(&$keyword_array)
     {
-        $feed_list = array();
+        $feed_list = [];
 
         $conf_rss_perpage = $this->_conf['rss_perpage'];
 
@@ -155,7 +157,7 @@ class weblinks_viewfeed
         $this->_rssc_handler->set_feed_highlight($this->_conf['use_highlight']);
         $this->_rssc_handler->set_feed_keyword_array($keyword_array);
 
-        $feed_list =& $this->_rssc_handler->get_feed_list_latest($conf_rss_perpage, $start);
+        $feed_list = &$this->_rssc_handler->get_feed_list_latest($conf_rss_perpage, $start);
 
         return $feed_list;
     }
@@ -167,6 +169,7 @@ class weblinks_viewfeed
             $script .= '?keywords=' . $keywords;
         }
         $navi = $this->_pagenavi->build($script);
+
         return $navi;
     }
 

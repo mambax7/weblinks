@@ -31,5 +31,4 @@ $genarete->gen_votedata($MAX_VOTE, $MAX_VOTE / 4);
 $genarete->gen_comment($MAX_COM, $MAX_COM / 4);
 
 echo '<h3>end</h3>';
-dev_footer();// =====
-;
+dev_footer(); // =====

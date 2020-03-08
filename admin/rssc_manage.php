@@ -24,7 +24,7 @@ weblinks_admin_print_menu();
 echo '<h3>' . _AM_WEBLINKS_TITLE_RSSC_MANAGE . "</h3>\n";
 
 echo "<ul>\n";
-echo "<li><a href='rssc_add.php'>" . _AM_WEBLINKS_TITLE_RSSC_ADD . "</a><br /><br /></li>\n";
+echo "<li><a href='rssc_add.php'>" . _AM_WEBLINKS_TITLE_RSSC_ADD . "</a><br><br></li>\n";
 
 // --- RSSC arcive ---
 echo '<li>';
@@ -39,11 +39,10 @@ if ($url_rssc_archive) {
     echo '</a>';
 }
 
-echo "<br /><br /></li>\n";
+echo "<br><br></li>\n";
 // --- RSSC arcive end ---
 
 echo "</ul>\n";
 
 xoops_cp_footer();
-exit();// === end of main ===
-;
+exit(); // === end of main ===

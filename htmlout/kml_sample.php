@@ -57,22 +57,22 @@ if (!class_exists('weblinks_htmlout_kml_sample')) {
 
             if ($url_s) {
                 $text .= '<a href="' . $url_s . '">' . $url_s . '</a>';
-                $text .= "<br /><br />\n";
+                $text .= "<br><br>\n";
             }
 
             $text .= $summary;
-            $text .= "<br /><br />\n";
+            $text .= "<br><br>\n";
 
             $text .= 'from ';
             $text .= '<a href="' . $link_s . '">' . $this->get_xoops_sitename() . '</a>';
-            $text .= "<br />\n";
+            $text .= "<br>\n";
 
             $this->set('kml_description', $text);
+
             return true;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

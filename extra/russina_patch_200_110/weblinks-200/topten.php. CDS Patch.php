@@ -69,8 +69,8 @@ class weblinks_topten
     {
         $this->_DIRNAME = $dirname;
 
-        $config_basic_handler     = weblinks_get_handler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
+        $config_basic_handler     = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
 
         $this->_template = weblinks_template::getInstance($dirname);
         $this->_post     = happy_linux_post::getInstance();
@@ -81,9 +81,10 @@ class weblinks_topten
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_topten($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -108,11 +109,11 @@ class weblinks_topten
     {
         $this->_post_rate = $this->_post->get_get_int('rate');
 
-        if ($this->_post_rate == 1) {
+        if (1 == $this->_post_rate) {
             $this->_title     = $this->_conf['lang_site_highrate'];
             $this->_sort_name = _WLS_RATING;
             $this->_sort_db   = 'rating';
-        } elseif ($this->_post_rate == 2) {
+        } elseif (2 == $this->_post_rate) {
             $this->_title     = $this->_conf['lang_site_pagerank'];
             $this->_sort_name = _WEBLINKS_PAGERANK;
             $this->_sort_db   = 'pagerank';
@@ -126,6 +127,7 @@ class weblinks_topten
     public function get_topten_title()
     {
         $title = sprintf(_WLS_TOPTEN_TITLE, $this->_title, $this->_conf['topten_links']);
+
         return $title;
     }
 
@@ -157,23 +159,23 @@ class weblinks_topten
     //---------------------------------------------------------
     public function get_rankings()
     {
-        $links_list = array();
-        $rankings   = array();
+        $links_list = [];
+        $rankings   = [];
 
         $this->_link_view_handler->init();
 
         if ($this->_conf['topten_style']) {
-            $links_list =& $this->_get_rankings_mixed();
+            $links_list = &$this->_get_rankings_mixed();
         } else {
-            $rankings =& $this->_get_rankings_each();
+            $rankings = &$this->_get_rankings_each();
         }
 
-        return array($links_list, $rankings);
+        return [$links_list, $rankings];
     }
 
     public function &_get_rankings_each()
     {
-        $arr =& $this->_link_view_handler->get_topten_list($this->_conf['topten_cats'], $this->_get_orderby(), $this->_conf['topten_links']);
+        $arr = &$this->_link_view_handler->get_topten_list($this->_conf['topten_cats'], $this->_get_orderby(), $this->_conf['topten_links']);
 
         if (!$this->_link_view_handler->returnExistError()) {
             $this->_error = $this->_link_view_handler->getErrors(1);
@@ -184,13 +186,15 @@ class weblinks_topten
 
     public function &_get_rankings_mixed()
     {
-        $links =& $this->_link_view_handler->get_link_list_orderby($this->_get_orderby(), $this->_conf['topten_links']);
+        $links = &$this->_link_view_handler->get_link_list_orderby($this->_get_orderby(), $this->_conf['topten_links']);
+
         return $links;
     }
 
     public function _get_orderby()
     {
         $ret = $this->_sort_db . ' DESC, lid DESC';
+
         return $ret;
     }
 
@@ -259,7 +263,7 @@ $topten_error = $weblinks_topten->get_error();
 $template_links_list = $weblinks_template->fetch_links_list($links);
 
 $i                 = 0;
-$template_rankings = array();
+$template_rankings = [];
 foreach ($rankings as $rank) {
     $template_rankings[$i]['cid']   = $rank['cid'];
     $template_rankings[$i]['title'] = $rank['title'];
@@ -284,5 +288,4 @@ $xoopsTpl->assign('rankings', $template_rankings);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- main end ---
-;
+exit(); // --- main end ---

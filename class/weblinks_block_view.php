@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_block_view')) {
-
     //=========================================================
     // class weblinks_block_view
     //=========================================================
@@ -16,7 +15,7 @@ if (!class_exists('weblinks_block_view')) {
     {
         public $_myts;
 
-        public $_params = array();
+        public $_params = [];
 
         //---------------------------------------------------------
         // constructor
@@ -30,9 +29,10 @@ if (!class_exists('weblinks_block_view')) {
         public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_block_view();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 
@@ -51,8 +51,7 @@ if (!class_exists('weblinks_block_view')) {
             $this->set('dobr_multi', $this->get('dobr'));
 
             if (isset($this->_params['is_japanese_site'])
-                && $this->_params['is_japanese_site']
-            ) {
+                && $this->_params['is_japanese_site']) {
                 if ($this->get('etc1')) {
                     $this->set('title_multi', $this->get('etc1'));
                 }
@@ -69,25 +68,34 @@ if (!class_exists('weblinks_block_view')) {
 
         public function get_description_disp()
         {
-            $disp = $this->display_textarea($this->get('desc_multi'), $this->get('dohtml_multi'), $this->get('dosmiley_multi'), $this->get('doxcode_multi'), $this->get('doimage_multi'),
-                                            $this->get('dobr_multi'));
+            $disp = $this->display_textarea(
+                $this->get('desc_multi'),
+                $this->get('dohtml_multi'),
+                $this->get('dosmiley_multi'),
+                $this->get('doxcode_multi'),
+                $this->get('doimage_multi'),
+                $this->get('dobr_multi')
+            );
+
             return $disp;
         }
 
         public function get_votes_disp()
         {
             $votes = $this->get('votes');
-            if ($votes == 1) {
+            if (1 == $votes) {
                 $disp = _WLS_ONEVOTE;
             } else {
                 $disp = sprintf(_WLS_NUMVOTES, $votes);
             }
+
             return $disp;
         }
 
         public function get_rating_disp()
         {
             $disp = number_format($this->get('rating'), 2);
+
             return $disp;
         }
 
@@ -97,6 +105,7 @@ if (!class_exists('weblinks_block_view')) {
             if ($this->get('nameflag') && $this->get('name')) {
                 $disp = $this->get('name');
             }
+
             return $this->sanitize_text($disp);
         }
 
@@ -106,6 +115,7 @@ if (!class_exists('weblinks_block_view')) {
             if ($this->get('mailflag') && $this->get('mail')) {
                 $disp = $this->get('mail');
             }
+
             return $this->sanitize_text($disp);
         }
 
@@ -115,6 +125,7 @@ if (!class_exists('weblinks_block_view')) {
             if (($popular > 0) && ($this->get('hits') >= $popular)) {
                 return true;
             }
+
             return false;
         }
 
@@ -134,7 +145,7 @@ if (!class_exists('weblinks_block_view')) {
                 }
             }
 
-            return array($show_new, $show_update);
+            return [$show_new, $show_update];
         }
 
         //---------------------------------------------------------
@@ -146,12 +157,12 @@ if (!class_exists('weblinks_block_view')) {
             $show_title   = false;
             $title_disp   = '';
 
-            if ($title_length != 0) {
+            if (0 != $title_length) {
                 $show_title = true;
                 $title_disp = $this->build_summary($this->get('title_multi'), $title_length);
             }
 
-            return array($show_title, $title_disp);
+            return [$show_title, $title_disp];
         }
 
         public function get_block_desc_disp()
@@ -163,12 +174,12 @@ if (!class_exists('weblinks_block_view')) {
             // description
             $desc_html = $this->get_description_disp();
 
-            if ($desc_length != 0) {
+            if (0 != $desc_length) {
                 $show_desc  = true;
                 $desc_short = $this->build_summary($desc_html, $desc_length);
             }
 
-            return array($show_desc, $desc_short, $desc_html);
+            return [$show_desc, $desc_short, $desc_html];
         }
 
         public function get_block_banner_disp()
@@ -186,12 +197,12 @@ if (!class_exists('weblinks_block_view')) {
                     $banner_width = $max_width;
                 }
 
-                if (($width_row == 0) && ($width_default > 0)) {
+                if ((0 == $width_row) && ($width_default > 0)) {
                     $banner_width = $width_default;
                 }
             }
 
-            return array($show_banner, $banner_width);
+            return [$show_banner, $banner_width];
         }
 
         public function get_block_hits_disp()
@@ -203,11 +214,11 @@ if (!class_exists('weblinks_block_view')) {
 
             // old style
             $hits_disp = $this->get('hits');
-            if ($order == 'rating') {
+            if ('rating' == $order) {
                 $hits_disp = $rating_disp;
             }
 
-            return array($hits_disp, $rating_disp);
+            return [$hits_disp, $rating_disp];
         }
 
         //---------------------------------------------------------
@@ -223,6 +234,7 @@ if (!class_exists('weblinks_block_view')) {
             if (isset($this->_params[$k])) {
                 return $this->_params[$k];
             }
+
             return false;
         }
 
@@ -236,6 +248,5 @@ if (!class_exists('weblinks_block_view')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

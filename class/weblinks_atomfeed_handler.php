@@ -25,13 +25,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_atomfeed_handler')) {
-
     //=========================================================
     // class weblinks_atomfeed
     //=========================================================
     class weblinks_atomfeed extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -65,7 +63,6 @@ if (!class_exists('weblinks_atomfeed_handler')) {
     //=========================================================
     class weblinks_atomfeed_handler extends happy_linux_object_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -77,6 +74,5 @@ if (!class_exists('weblinks_atomfeed_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

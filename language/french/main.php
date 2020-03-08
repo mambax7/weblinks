@@ -55,11 +55,13 @@ define('_WLS_MODIFY', 'Modifier');
 define('_WLS_SUBMITLINKHEAD', 'Soumettre un nouveau lien');
 define('_WLS_SUBMITONCE', "Ne soumettez votre lien qu'une seule fois.");
 define('_WLS_DONTABUSE', "Les noms d'utilisateurs et IP sont enregistr&eacute;s, merci de ne pas abuser de ce syst&egrave;me.");
-define('_WLS_TAKESHOT', "Nous allons prendre un aperçu d'&eacute;cran de votre site web, ceci peut prendre plusieurs jours pour que votre lien soit pris en compte dans notre base de donn&eacute;es.");
-define('_WLS_ALLPENDING',
-       "La soumission du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute; apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br />il se peut qu'il s'&eacute;coule un peu de temps avant la publication des informations de ce lien.");
+define('_WLS_TAKESHOT', "Nous allons prendre un aperï¿½u d'&eacute;cran de votre site web, ceci peut prendre plusieurs jours pour que votre lien soit pris en compte dans notre base de donn&eacute;es.");
+define(
+    '_WLS_ALLPENDING',
+    "La soumission du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute; apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br>il se peut qu'il s'&eacute;coule un peu de temps avant la publication des informations de ce lien."
+);
 define('_WLS_WHENAPPROVED', 'Vous recevrez un email lorsque ce dernier sera approuv&eacute;.');
-define('_WLS_RECEIVED', 'Nous avons bien reçu les informations de votre site web. Et nous vous en remercions!');
+define('_WLS_RECEIVED', 'Nous avons bien reï¿½u les informations de votre site web. Et nous vous en remercions!');
 
 //======    modlink.php ======
 define('_WLS_REQUESTMOD', 'Demande de modification de lien');
@@ -89,7 +91,7 @@ define('_WLS_DATENEW', 'Date (Les nouveaux liens en premier)');
 define('_WLS_RATINGLTOH', 'Notation (Du plus petit au plus grand score)');
 define('_WLS_RATINGHTOL', 'Notation (du plus grand au plus petit Score)');
 
-//define("_WLS_NOSHOTS","aucun aperçu d'&eacute;cran disponible");
+//define("_WLS_NOSHOTS","aucun aperï¿½u d'&eacute;cran disponible");
 //define("_WLS_DESCRIPTIONC","Description: ");
 //define("_WLS_EMAILC","Email: ");
 //define("_WLS_CATEGORYC","Cat&eacute;gorie: ");
@@ -100,11 +102,11 @@ define('_WLS_RATINGHTOL', 'Notation (du plus grand au plus petit Score)');
 define('_WLS_THEREARE', 'Il y a <b>%s</b> Liens dans notre base de donn&eacute;es');
 define('_WLS_LATESTLIST', 'les derniers r&eacute;f&eacute;rencements');
 
-//define("_WLS_LINKID","N° de lien : ");
+//define("_WLS_LINKID","Nï¿½ de lien : ");
 //define("_WLS_SITETITLE","Titre du Site Web : ");
 //define("_WLS_SITEURL","URL du Site Web : ");
 //define("_WLS_OPTIONS","Options : ");
-define('_WLS_LINKID', 'N° de lien');
+define('_WLS_LINKID', 'Nï¿½ de lien');
 define('_WLS_SITETITLE', 'Titre de Site Web');
 define('_WLS_SITEURL', 'URL de Site Web');
 define('_WLS_OPTIONS', 'Options');
@@ -142,11 +144,13 @@ define('_WLS_SUBMIT', 'Soumettre');
 define('_WLS_CANCEL', 'Abandon');
 
 define('_WLS_ALREADYREPORTED', 'Vous nous avez d&eacute;j&agrave; soumis le rapport de lien bris&eacute; pour cette ressource.');
-define('_WLS_MUSTREGFIRST',
-       'D&eacute;sol&eacute;, vous ne disposez pas des permissions ad&eacute;quates pour mener &agrave; bien cette action.<br />Veuillez vous enregistrer ou vous identifier en premier lieu!');
+define(
+    '_WLS_MUSTREGFIRST',
+    'D&eacute;sol&eacute;, vous ne disposez pas des permissions ad&eacute;quates pour mener &agrave; bien cette action.<br>Veuillez vous enregistrer ou vous identifier en premier lieu!'
+);
 define('_WLS_NORATING', 'Aucun rang s&eacute;lectionn&eacute;.');
-define('_WLS_CANTVOTEOWN', 'Vous ne pouvez voter pour une ressource que vous avez soumise.<br />Tous les votes sont journalis&eacute;s et revus.');
-define('_WLS_VOTEONCE2', "Vous ne pouvez voter pour la ressource s&eacute;lectionn&eacute; qu'une seule fois.<br />Tous les votes sont journalis&eacute;s et revus.");
+define('_WLS_CANTVOTEOWN', 'Vous ne pouvez voter pour une ressource que vous avez soumise.<br>Tous les votes sont journalis&eacute;s et revus.');
+define('_WLS_VOTEONCE2', "Vous ne pouvez voter pour la ressource s&eacute;lectionn&eacute; qu'une seule fois.<br>Tous les votes sont journalis&eacute;s et revus.");
 
 //%%%%%%    Admin     %%%%%
 
@@ -272,16 +276,21 @@ define('_WLS_PUBLIC', 'Publi&eacute;');
 define('_WLS_NOTPUBLIC', 'Non publi&eacute;');
 define('_WLS_NOTSELECT', 'Non sp&eacute;cifi&eacute;');
 define('_WLS_SUBMIT_INDISPENSABLE', "Marquer d'une &eacute;toile '<b>*</b>' signifit que cet &eacute;l&eacute;ment est indispensable.");
-define('_WLS_SUBMIT_USER_COMMENT',
-       '"Commentaire pour les admin" doit repr&eacute;senter une opinion, une demande, etc.<br />Cette colonne ne sera pas montr&eacute;e sur le WEB.<br />Veuillez compl&eacute;ter l\'URL de votre site quand celui ci est li&eacute; &agrave; ce site, lorsque vous d&eacute;sirer le mentionner en "lien partenaire".');
+define(
+    '_WLS_SUBMIT_USER_COMMENT',
+    '"Commentaire pour les admin" doit repr&eacute;senter une opinion, une demande, etc.<br>Cette colonne ne sera pas montr&eacute;e sur le WEB.<br>Veuillez compl&eacute;ter l\'URL de votre site quand celui ci est li&eacute; &agrave; ce site, lorsque vous d&eacute;sirer le mentionner en "lien partenaire".'
+);
 define('_WLS_USER_COMMENT', "Commentaire &agrave; destination de l'utilisateur");
 define('_WLS_NOT_DISPLAY', 'Cette colonne ne sera pas montr&eacute;e sur le WEB.');
 
 //======    modlink.php ======
 define('_WLS_MODIFYAPPROVED', 'La modification de votre lien en r&eacute;f&eacute;rence a &eacute;t&eacute; approuv&eacute;e. ');
 define('_WLS_MODIFY_NOT_OWNER', 'Ne consid&eacute;rez pas automatiquement que vous &ecirc;tes le d&eacute;positaire des informations du lien.');
-define('_WLS_MODIFY_PENDING', "La modification du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute;e apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br />
-Un certain temps est n&eacute;c&eacute;ssaire afin d'aprouver le cas et consid&eacute;rer ces informations.");
+define(
+    '_WLS_MODIFY_PENDING',
+    "La modification du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute;e apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br>
+Un certain temps est n&eacute;c&eacute;ssaire afin d'aprouver le cas et consid&eacute;rer ces informations."
+);
 define('_WLS_LINKSUBMITTER', 'Emeteur du lien');
 
 //======    user.php    ======
@@ -300,8 +309,8 @@ define('_WLS_ERRORNOLINK', 'Erreur: Aucun lien trouv&eacute;');
 
 define('_WLS_CATLIST', 'Liste des cat&eacute;gories');
 define('_WLS_LINKIMAGE', 'Image du lien: ');
-define('_WLS_USERID', "N° d'utilisateur: ");
-define('_WLS_CATEGORYID', 'N° de cat&eacute;gorie: ');
+define('_WLS_USERID', "Nï¿½ d'utilisateur: ");
+define('_WLS_CATEGORYID', 'Nï¿½ de cat&eacute;gorie: ');
 define('_WLS_CREATEC', "Date d'enregistrement: ");
 define('_WLS_TIMEUPDATE', 'Mis &agrave; jour');
 define('_WLS_NOTTIMEUPDATE', 'Non mis &agrave; jour');
@@ -344,13 +353,14 @@ define('_WLS_RSS_URL_2', 'Type ATOM');
 define('_WLS_RSS_URL_3', 'Auto-d&eacute;tection');
 
 define('_WLS_ATOMFEED_DISTRIBUTE', 'Fils RSS/ATOM distribu&eacute;s devant &ecirc;tre montr&eacute;s ici.');
-define('_WLS_ATOMFEED_FIREFOX',
-       "Si vous utilisez <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, faites un bookmark de cette page, vous pouvez consulter le filet RSS/ATOM. ");
+define(
+    '_WLS_ATOMFEED_FIREFOX',
+    "Si vous utilisez <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, faites un bookmark de cette page, vous pouvez consulter le filet RSS/ATOM. "
+);
 
 // 2005-10-20
 define('_WLS_EMAIL_APPROVE', 'notifier si approuv&eacute;');
 define('_WLS_TOPTEN_TITLE', '%s Top %u');
 // %s is a link category title
 // %u is number of links
-define('_WLS_TOPTEN_ERROR', 'Il y a trop de cat&eacute;gorie principales. Affichage arr&eacute;t&eacute; &agrave; %u');// %u is munber of categories
-;
+define('_WLS_TOPTEN_ERROR', 'Il y a trop de cat&eacute;gorie principales. Affichage arr&eacute;t&eacute; &agrave; %u'); // %u is munber of categories

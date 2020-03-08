@@ -38,7 +38,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MI_LOADED')) {
@@ -78,7 +78,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Description of each config items
     //-------------------------------------
     define('_MI_WEBLINKS_POPULAR', 'Выберите количество посещений для ссылок, чтобы пометить как популярные');
-    define('_MI_WEBLINKS_POPULARDSC', 'Введите минимальное количество посещений для показа иконки "ПОПУЛЯРНЫЙ". <br />  Если 0, иконка не показывается. ');
+    define('_MI_WEBLINKS_POPULARDSC', 'Введите минимальное количество посещений для показа иконки "ПОПУЛЯРНЫЙ". <br>  Если 0, иконка не показывается. ');
     define('_MI_WEBLINKS_NEWLINKS', 'Выберите максимальное количество новых ссылок, отображаемых на главной странице');
 
     //define('_MI_WEBLINKS_NEWLINKSDSC', 'Enter the maximum number of links to be displayed in the "New Links" block. ');
@@ -166,7 +166,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TITLESHOWDSC', 'Выберите "ДА" для показа заголовка модуля');
 
     define('_MI_WEBLINKS_NEWDAYS', 'Выберите количество дней для ссылок, которые будут помечены как новые');
-    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Введите количество дней для отображения иконки "НОВОЕ". <br /> Если 0, иконка не отображается. ');
+    define('_MI_WEBLINKS_NEWDAYS_DSC', 'Введите количество дней для отображения иконки "НОВОЕ". <br> Если 0, иконка не отображается. ');
 
     define('_MI_WEBLINKS_DESCSHORT', 'Максимальное количество символов, используемых для объединения списка ссылок ');
     define('_MI_WEBLINKS_DESCSHORTDSC', 'Введите максимальное количество символов, которое будет использовано для объединения списка ссылок. ');
@@ -194,8 +194,10 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Выберите, следует ли отображать целевую страницу ссылки внутри фрейма');
 
     define('_MI_WEBLINKS_BROKEN', 'Количество отчетов о неработающей ссылке, чтобы остановить показ');
-    define('_MI_WEBLINKS_BROKENDSC',
-           'Введите количество отчетов о неработающей ссылке, чтобы остановить показ. <br /> Когда ниже этого значения, то он будет рассматриваться как временная ошибка, и ничего не будет сделано. <br />Когда это значение больше, ссылка не будет отображаться.');
+    define(
+        '_MI_WEBLINKS_BROKENDSC',
+        'Введите количество отчетов о неработающей ссылке, чтобы остановить показ. <br> Когда ниже этого значения, то он будет рассматриваться как временная ошибка, и ничего не будет сделано. <br>Когда это значение больше, ссылка не будет отображаться.'
+    );
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Использовать изображения ссылки для списка ссылок');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Максимальная ширина изображения ссылки');
@@ -217,14 +219,16 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Введите максимальное количество ссылок, которое будет отображаться в "Популярный сайт" и "Лучший сайт". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'Максимальное количество категорий в лучшей десятке');
-    define('_MI_WEBLINKS_TOPTEN_CATS_DSC',
-           'Введите максимальное количество категорий, которое будет отображаться в "Популярный сайт" и "Лучший сайт". <br />Произойдет тайм-аут, если слишком много верхних категорий выбрано');
+    define(
+        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
+        'Введите максимальное количество категорий, которое будет отображаться в "Популярный сайт" и "Лучший сайт". <br>Произойдет тайм-аут, если слишком много верхних категорий выбрано'
+    );
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
     //define('_MI_WEBLINKS_INDEX_DESC','Main Page Introductory Text');
     //define('_MI_WEBLINKS_INDEX_DESC_DSC', 'You can use this section to display some descriptive or introductory text. HTML is allowed.');
-    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Here is where your page introduction goes.<br />You can edit it at "Module Configuration 2".</font><br /></div>');
+    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">Here is where your page introduction goes.<br>You can edit it at "Module Configuration 2".</font><br></div>');
 
     // 2006-05-15
     define('_MI_WEBLINKS_ADMENU0', 'Главная');
@@ -250,4 +254,3 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Получать оповещения, когда опубликована какая-либо новая ссылка (если введен комментарий для администратора)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} авто-оповещение : Новая ссылка)');
 }// --- define language begin ---
-;

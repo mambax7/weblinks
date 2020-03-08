@@ -53,15 +53,16 @@ class rssc_add
         $this->_html_class   = happy_linux_html::getInstance();
 
         $this->_rss_utility       = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
     }
 
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_add($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -93,7 +94,6 @@ class rssc_add
             case 'link_to_rssc':
                 $this->link_to_rssc($total);
                 break;
-
             case 'main':
             default:
                 $this->form_next_link($total, 0);
@@ -103,24 +103,24 @@ class rssc_add
 
     public function print_title()
     {
-        $paths   = array();
-        $paths[] = array(
+        $paths   = [];
+        $paths[] = [
             'name' => $this->_system_class->get_module_name(),
             'url'  => 'index.php',
-        );
-        $paths[] = array(
+        ];
+        $paths[] = [
             'name' => _AM_WEBLINKS_TITLE_RSSC_MANAGE,
             'url'  => 'rssc_manage.php',
-        );
-        $paths[] = array(
-            'name' => _AM_WEBLINKS_TITLE_RSSC_ADD
-        );
+        ];
+        $paths[] = [
+            'name' => _AM_WEBLINKS_TITLE_RSSC_ADD,
+        ];
 
         echo $this->_html_class->build_html_bread_crumb($paths);
 
         echo '<h3>' . _AM_WEBLINKS_TITLE_RSSC_ADD . "</h3>\n";
         echo _AM_WEBLINKS_TITLE_RSSC_ADD_DSC;
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
     }
 
     public function link_to_rssc($total)
@@ -133,7 +133,7 @@ class rssc_add
         $start = $offset + 1;
         $next  = $offset + $this->_LIMIT;
 
-        echo "Excute $start - $next th link <br /><br />";
+        echo "Excute $start - $next th link <br><br>";
 
         $sql  = 'SELECT * FROM ' . $this->_table_link . ' ORDER BY lid';
         $rows = $this->get_rows_by_sql($sql, $this->_LIMIT, $offset);
@@ -145,20 +145,20 @@ class rssc_add
             $rssc_lid = $row['rssc_lid'];
 
             if (empty($url)) {
-                echo "$lid : skip no url <br />\n";
+                echo "$lid : skip no url <br>\n";
                 continue;
             }
 
             if ($rssc_lid) {
-                echo "$lid : skip already rss_lid <br />\n";
+                echo "$lid : skip already rss_lid <br>\n";
                 continue;
             }
 
             $ret = $this->add_rssc($lid, $title, $url);
             if ($ret) {
-                echo "$lid : added rssc <br />\n";
+                echo "$lid : added rssc <br>\n";
             } else {
-                echo "$lid : " . $this->_error . "<br />\n";
+                echo "$lid : " . $this->_error . "<br>\n";
             }
         }
 
@@ -187,27 +187,26 @@ class rssc_add
         switch ($ret2) {
             case 0:
                 return true;
-
             // update_rssc_lid
             case RSSC_CODE_LINK_ALREADY:
                 $this->_error = 'link already';
-                return false;
 
+                return false;
             // check_necessary_param
             case RSSC_CODE_DISCOVER_FAILED:
                 $this->_error = 'discover failed';
-                return false;
 
+                return false;
             // check_necessary_param
             case WEBLINKS_CODE_RSSC_NOT_FIND_PARAM:
                 $this->_error = 'not find param';
-                return false;
 
+                return false;
             // refresh_link
             case RSSC_CODE_PARSE_MSG:
                 $this->_error = $this->_rssc_edit_handler->get_parse_result();
-                return false;
 
+                return false;
             // refresh_link
             case RSSC_CODE_PARSE_FAILED:
             case RSSC_CODE_REFRESH_ERROR:
@@ -218,6 +217,7 @@ class rssc_add
                     $error = " error code $ret2 ";
                 }
                 $this->_error = $error;
+
                 return false;
         }
 
@@ -229,12 +229,14 @@ class rssc_add
         $ret = $this->_rss_utility->discover($url);
         if (!$ret) {
             $this->_error = _RSSC_DISCOVER_FAILED;
+
             return false;
         }
 
         // catch in build_rssc of weblinks_rssc_handler.php
         $_POST['rss_flag'] = $this->_rss_utility->get_xml_mode();
         $_POST['rss_url']  = $this->_rss_utility->get_xmlurl_by_mode();
+
         return true;
     }
 
@@ -245,12 +247,12 @@ class rssc_add
         $next2  = $next + $this->_LIMIT;
 
         $text = <<<EOF
-<br />
+<br>
 <hr>
 <h4>excute link table</h4>
-There are $total links <br />
-$next - $next2 th link<br />
-<br />
+There are $total links <br>
+$next - $next2 th link<br>
+<br>
 <form action="$action" method="post">
 <input type="hidden" name="op" value="link_to_rssc">
 <input type="hidden" name="offset" value="$next">
@@ -263,9 +265,9 @@ EOF;
 
     public function finish()
     {
-        echo "<br /><hr>\n";
+        echo "<br><hr>\n";
         echo "<h4>FINISHED</h4>\n";
-        echo "<a href='index.php'>GOTO Admin Menu</a><br />\n";
+        echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
     }
 
     //---------------------------------------------------------
@@ -279,6 +281,7 @@ EOF;
                 echo $sql;
                 echo $this->_db->error();
             }
+
             return 0;
         }
 
@@ -286,6 +289,7 @@ EOF;
         $count = (int)$array[0];
 
         $this->_db->freeRecordSet($res);
+
         return $count;
     }
 
@@ -297,15 +301,17 @@ EOF;
                 echo $sql;
                 echo $this->_db->error();
             }
+
             return false;
         }
 
-        $arr = array();
+        $arr = [];
         while ($row = $this->_db->fetchArray($res)) {
             $arr[] = $row;
         }
 
         $this->_db->freeRecordSet($res);
+
         return $arr;
     }
 

@@ -7,10 +7,10 @@ Puedes ver la lista de espera aquí:
 
 Información del Link nuevo :
 Title : {LINK_NAME}
-Descripción : 
+Descripción :
 {LINK_DESCRIPTION}
 
-Comentarios para el Administrador : 
+Comentarios para el Administrador :
 {LINK_USERCOMMENT}
 
 
@@ -24,6 +24,6 @@ Si se trata de un error o no desea recibir más notificaciones de este tipo, por 
 Por favor, no responda a este mensaje.
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 El Webmaster
 {X_ADMINMAIL}

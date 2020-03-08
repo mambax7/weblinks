@@ -33,7 +33,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_category_basic_handler')) {
-
     //=========================================================
     // class table_category
     //=========================================================
@@ -47,8 +46,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
         public $_conf;
 
         // cache
-        public $_cached_cid_tree = array();
-        public $_cached_info     = array();
+        public $_cached_cid_tree = [];
+        public $_cached_info     = [];
         public $_total_count     = 0;
 
         // local variable
@@ -88,7 +87,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
             $this->_tree = new XoopsTree($this->_table, 'cid', 'pid');
 
-            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
             $this->_strings       = happy_linux_strings::getInstance();
 
             $this->_conf = $config_basic_handler->get_conf();
@@ -116,15 +115,15 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
             $this->_total_count = $this->get_count_all();
 
-            $rows =& $this->get_rows_tree_order();
+            $rows = &$this->get_rows_tree_order();
 
-            $this->_cached = array();
+            $this->_cached = [];
             foreach ($rows as $row) {
                 $this->_cached[$row['cid']] = $this->_multi_replace($row);
             }
 
             if ($this->_conf['cat_path']) {
-                $this->_cached_cid_tree = array();
+                $this->_cached_cid_tree = [];
                 foreach ($rows as $row) {
                     $cid                      = $row['cid'];
                     $this->_cached_cid_tree[] = $row['cid'];
@@ -142,10 +141,11 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
         public function &_multi_replace(&$row)
         {
-            $arr =& $row;
+            $arr = &$row;
             if ($this->_flag_replace && $row['aux_text_1']) {
                 $arr['title'] = $row['aux_text_1'];
             }
+
             return $arr;
         }
 
@@ -156,6 +156,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $sql   = 'SELECT count(*) FROM ' . $this->_table . ' WHERE pid=' . (int)$pid;
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
@@ -171,7 +172,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $sql = 'SELECT * FROM ' . $this->_table;
             $sql .= ' ORDER BY tree_order ASC, orders ASC, cid ASC';
-            $arr =& $this->get_rows_by_sql($sql, $limit, $start);
+            $arr = &$this->get_rows_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -180,7 +182,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
             $sql = 'SELECT * FROM ' . $this->_table;
             $sql .= ' WHERE pid=' . (int)$pid;
             $sql .= ' ORDER BY orders ASC, cid ASC';
-            $arr =& $this->get_rows_by_sql($sql, $limit, $start);
+            $arr = &$this->get_rows_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -188,7 +191,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $sql = 'SELECT * FROM ' . $this->_table;
             $sql .= " WHERE title LIKE '" . addslashes($title) . "%' ";
-            $arr =& $this->get_rows_by_sql($sql, $limit, $start);
+            $arr = &$this->get_rows_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -200,7 +204,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
             $sql = 'SELECT cid FROM ' . $this->_table;
             $sql .= ' WHERE pid=' . (int)$pid;
             $sql .= ' ORDER BY orders ASC, cid ASC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -212,6 +217,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached[(int)$cid])) {
                 return true;
             }
+
             return false;
         }
 
@@ -219,9 +225,10 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $row = false;
             if (isset($this->_cached[$cid])) {
-                $row          =& $this->_cached[$cid];
+                $row          = &$this->_cached[$cid];
                 $row['title'] = $this->get_title($cid, 'n');
             }
+
             return $row;
         }
 
@@ -231,6 +238,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached[$cid]['lflag'])) {
                 $val = (int)$this->_cached[$cid]['lflag'];
             }
+
             return $val;
         }
 
@@ -240,6 +248,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached[$cid]['link_count'])) {
                 $val = (int)$this->_cached[$cid]['link_count'];
             }
+
             return $val;
         }
 
@@ -248,18 +257,18 @@ if (!class_exists('weblinks_category_basic_handler')) {
         //---------------------------------------------------------
         public function &get_imgurl_size($cid)
         {
-            $arr = array(
+            $arr = [
                 'imgurl'          => false,
                 'img_show_width'  => 0,
                 'img_show_height' => 0,
-            );
+            ];
 
             if (isset($this->_cached[$cid]['imgurl'])) {
-                $arr = array(
+                $arr = [
                     'imgurl'          => $this->_cached[$cid]['imgurl'],
                     'img_show_width'  => $this->_cached[$cid]['img_show_width'],
                     'img_show_height' => $this->_cached[$cid]['img_show_height'],
-                );
+                ];
             }
 
             return $arr;
@@ -267,25 +276,24 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
         public function &get_parent_imgurl_size($cid)
         {
-            $arr = array(
+            $arr = [
                 'imgurl'          => false,
                 'img_show_width'  => 0,
                 'img_show_height' => 0,
-            );
+            ];
 
-            $pid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $pid_arr = &$this->get_cached_pid_array_by_cid($cid);
 
             foreach ($pid_arr as $pid) {
-                $parent =& $this->get_imgurl_size($pid);
+                $parent = &$this->get_imgurl_size($pid);
 
                 // self
                 if ($parent['imgurl']) {
-                    $arr =& $parent;
+                    $arr = &$parent;
                     break;
                 } // parent
-                else {
-                    continue;
-                }
+
+                continue;
             }
 
             return $arr;
@@ -319,19 +327,18 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $val = null;
 
-            $pid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $pid_arr = &$this->get_cached_pid_array_by_cid($cid);
 
             foreach ($pid_arr as $pid) {
-                $parent =& $this->get_desc_disp($pid);
+                $parent = &$this->get_desc_disp($pid);
 
                 // self
                 if ($parent) {
                     $val = $parent;
                     break;
                 } // parent
-                else {
-                    continue;
-                }
+
+                continue;
             }
 
             return $val;
@@ -346,6 +353,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached[$cid]['forum_id'])) {
                 $val = (int)$this->_cached[$cid]['forum_id'];
             }
+
             return $val;
         }
 
@@ -353,19 +361,18 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $forum_id = 0;
 
-            $pid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $pid_arr = &$this->get_cached_pid_array_by_cid($cid);
 
             foreach ($pid_arr as $pid) {
-                $parent_forum_id =& $this->get_forum_id($pid);
+                $parent_forum_id = &$this->get_forum_id($pid);
 
                 // self
                 if ($parent_forum_id) {
                     $forum_id = $parent_forum_id;
                     break;
                 } // parent
-                else {
-                    continue;
-                }
+
+                continue;
             }
 
             return $forum_id;
@@ -380,6 +387,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached[$cid]['album_id'])) {
                 $val = (int)$this->_cached[$cid]['album_id'];
             }
+
             return $val;
         }
 
@@ -387,19 +395,18 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $album_id = 0;
 
-            $pid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $pid_arr = &$this->get_cached_pid_array_by_cid($cid);
 
             foreach ($pid_arr as $pid) {
-                $parent_album_id =& $this->get_album_id($pid);
+                $parent_album_id = &$this->get_album_id($pid);
 
                 // self
                 if ($parent_album_id) {
                     $album_id = $parent_album_id;
                     break;
                 } // parent
-                else {
-                    continue;
-                }
+
+                continue;
             }
 
             return $album_id;
@@ -410,7 +417,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
         //---------------------------------------------------------
         public function &get_gm_value($cid)
         {
-            $arr = array(
+            $arr = [
                 'gm_mode'      => false,
                 'gm_latitude'  => null,
                 'gm_longitude' => null,
@@ -418,12 +425,12 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 'gm_type'      => null,
                 'gm_icon'      => null,
                 'gm_location'  => null,
-            );
+            ];
 
-            $cache =& $this->get_cache($cid);
+            $cache = &$this->get_cache($cid);
 
             if (is_array($cache) && count($cache)) {
-                $arr =& $cache;
+                $arr = &$cache;
             }
 
             return $arr;
@@ -431,7 +438,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
         public function get_parent_gm_value($cid)
         {
-            $arr = array(
+            $arr = [
                 'gm_mode'      => false,
                 'gm_latitude'  => null,
                 'gm_longitude' => null,
@@ -439,12 +446,12 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 'gm_type'      => null,
                 'gm_icon'      => null,
                 'gm_location'  => null,
-            );
+            ];
 
-            $pid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $pid_arr = &$this->get_cached_pid_array_by_cid($cid);
 
             foreach ($pid_arr as $pid) {
-                $cache =& $this->get_gm_value($pid);
+                $cache = &$this->get_gm_value($pid);
 
                 if (!isset($cache['gm_mode'])) {
                     break;
@@ -454,13 +461,11 @@ if (!class_exists('weblinks_category_basic_handler')) {
                     // parent
                     case WEBLINKS_C_GM_MODE_PARENT:
                         continue;
-
                     // config or self
                     case WEBLINKS_C_GM_MODE_DEFAULT:
                     case WEBLINKS_C_GM_MODE_FOLLOWING:
-                        $arr =& $cache;
+                        $arr = &$cache;
                         break;
-
                     // not show
                     case WEBLINKS_C_GM_MODE_NON:
                     default:
@@ -481,6 +486,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 $val = $this->_cached[$cid]['title'];
             }
             $val = $this->_strings->sanitize_format_text($val, $format);
+
             return $val;
         }
 
@@ -493,15 +499,15 @@ if (!class_exists('weblinks_category_basic_handler')) {
         public function build_sub_categories($cid, $sub_num = -1, $sub_mode = 1)
         {
             $i   = 0;
-            $arr = array();
+            $arr = [];
 
-            $last_arr            = array();
+            $last_arr            = [];
             $last_arr['cid']     = -1;
             $last_arr['title']   = '...';
             $last_arr['title_s'] = '...';
 
             // bug fix: show all sub categories when $sub_num = 0
-            if ($sub_num == 0) {
+            if (0 == $sub_num) {
                 return $arr;
             }
 
@@ -509,12 +515,10 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 case 0:
                     return $arr;
                     break;
-
                 // TODO: use cache for performance
                 case 2:
                     $child_arr = $this->getAllChildId($cid);
                     break;
-
                 case 1:
                 default:
                     $child_arr = $this->get_cid_child_array_from_cache_by_cid($cid);
@@ -522,16 +526,16 @@ if (!class_exists('weblinks_category_basic_handler')) {
             }
 
             foreach ($child_arr as $ch_id) {
-                $temp_arr            =& $this->get_cache($ch_id);
+                $temp_arr            = &$this->get_cache($ch_id);
                 $temp_arr['title_s'] = $this->get_title($ch_id, 's');
 
                 // unlimited if chitem = -1
                 if (($sub_num > 0) && ($i >= $sub_num)) {
-                    $arr[] =& $last_arr;
+                    $arr[] = &$last_arr;
                     break;
                 }
 
-                $arr[] =& $temp_arr;
+                $arr[] = &$temp_arr;
                 ++$i;
             }
 
@@ -548,11 +552,11 @@ if (!class_exists('weblinks_category_basic_handler')) {
         public function build_tree()
         {
             $this->_tree_order               = 0;
-            $this->_cached_cid_tree          = array();
-            $this->_cached_info              = array();
+            $this->_cached_cid_tree          = [];
+            $this->_cached_info              = [];
             $this->_cached_info[0]['tree']   = 0;
-            $this->_cached_info[0]['parent'] = array();
-            $this->_cached_info[0]['child']  = array();
+            $this->_cached_info[0]['parent'] = [];
+            $this->_cached_info[0]['child']  = [];
 
             $this->_build_tree_recursive(0);
         }
@@ -561,16 +565,17 @@ if (!class_exists('weblinks_category_basic_handler')) {
         {
             $cid_arr = $this->get_cid_array_by_pid($pid);
 
-            if (!is_array($cid_arr) || (count($cid_arr) == 0)) {
-                $this->_cached_info[$pid]['child'] = array();
+            if (!is_array($cid_arr) || (0 == count($cid_arr))) {
+                $this->_cached_info[$pid]['child'] = [];
+
                 return false;
             }
 
             $this->_cached_info[$pid]['child'] = $cid_arr;
 
             foreach ($cid_arr as $cid) {
-                if ($pid == 0) {
-                    $parent = array($cid);
+                if (0 == $pid) {
+                    $parent = [$cid];
                 } else {
                     $parent   = $this->_cached_info[$pid]['parent'];
                     $parent[] = $cid;
@@ -589,7 +594,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
         public function _get_tree_form_db()
         {
-            $this->_cached_info = array();
+            $this->_cached_info = [];
 
             foreach ($this->_cached as $cid => $row) {
                 $parent_path                        = $this->_strings->convert_string_to_array($row['cids_parent'], '|');
@@ -607,7 +612,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             $limit = (int)$limit;
             $start = (int)$start;
 
-            if (($limit == 0) && ($start == 0)) {
+            if ((0 == $limit) && (0 == $start)) {
                 return $this->_cached_cid_tree;
             }
 
@@ -627,7 +632,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 $end = $total;
             }
 
-            $arr = array();
+            $arr = [];
 
             for ($i = $start; $i < $end; ++$i) {
                 $arr[] = $this->_cached_cid_tree[$i];
@@ -650,6 +655,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached_info[$cid]['parent'])) {
                 $val = $this->_cached_info[$cid]['parent'];
             }
+
             return $val;
         }
 
@@ -659,19 +665,21 @@ if (!class_exists('weblinks_category_basic_handler')) {
             if (isset($this->_cached_info[$cid]['child'])) {
                 $val = $this->_cached_info[$cid]['child'];
             }
+
             return $val;
         }
 
         public function get_cid_depth_from_cache_by_cid($cid)
         {
             $depth   = 0;
-            $cid_arr =& $this->get_cached_pid_array_by_cid($cid);
+            $cid_arr = &$this->get_cached_pid_array_by_cid($cid);
             if (is_array($cid_arr)) {
                 $count = count($cid_arr);
                 if ($count > 0) {
                     $depth = count($cid_arr) - 1;
                 }
             }
+
             return $depth;
         }
 
@@ -684,7 +692,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             $catpath = '';
 
             $pid_arr = $this->get_cached_pid_array_by_cid($cid);
-            if (!is_array($pid_arr) || (count($pid_arr) == 0)) {
+            if (!is_array($pid_arr) || (0 == count($pid_arr))) {
                 return $catpath;
             }
 
@@ -692,7 +700,6 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 case 2:
                     $catpath = $this->_build_cat_path_2($pid_arr, $format);
                     break;
-
                 case 1:
                 default:
                     $catpath = $this->_build_cat_path_1($pid_arr, $format);
@@ -747,16 +754,16 @@ if (!class_exists('weblinks_category_basic_handler')) {
         public function &get_parent_path($cid)
         {
             $pid_arr    = $this->get_cached_pid_array_by_cid($cid);
-            $path_array = array();
+            $path_array = [];
 
             if (is_array($pid_arr)) {
                 foreach ($pid_arr as $pid) {
                     $pid          = (int)$pid;
-                    $path_array[] = array(
+                    $path_array[] = [
                         'cid'     => $pid,
                         'title'   => $this->get_title($pid, 'n'),
                         'title_s' => $this->get_title($pid, 's'),
-                    );
+                    ];
                 }
             }
 
@@ -765,9 +772,9 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
         public function &build_parent_path_multi($cid_arr)
         {
-            $path_array = array();
+            $path_array = [];
 
-            if (count($cid_arr) == 0) {
+            if (0 == count($cid_arr)) {
                 return $path_array;
             }
 
@@ -783,10 +790,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
         //---------------------------------------------------------
         public function find_gm_icon_by_cid_array($cid_arr)
         {
-
             // search category
             foreach ($cid_arr as $cid) {
-
                 // find in category
                 $row = $this->get_cache_row($cid);
                 if ($row['gm_icon'] > 0) {
@@ -796,7 +801,6 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
             // search parent category
             foreach ($cid_arr as $cid) {
-
                 // find in parent category
                 $icon = $this->find_gm_icon_in_parent_by_cid($cid);
                 if ($icon > 0) {
@@ -815,7 +819,6 @@ if (!class_exists('weblinks_category_basic_handler')) {
             // from bottom to top
             $pid_reverse_arr = array_reverse($pid_arr);
             foreach ($pid_reverse_arr as $pid) {
-
                 // find in parent category
                 $row = $this->get_cache_row($pid);
                 if ($row['gm_icon'] > 0) {
@@ -831,7 +834,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
         //=========================================================
         public function show_selbox_multi($cid_arr = '')
         {
-            if (count($cid_arr) == 0) {
+            if (0 == count($cid_arr)) {
                 return '';
             }
 
@@ -839,7 +842,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
             foreach ($cid_arr as $cid) {
                 $title_s = $this->get_title($cid, 's');
-                $selbox .= $title_s . "<br />\n";
+                $selbox  .= $title_s . "<br>\n";
             }
 
             return $selbox;
@@ -856,7 +859,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             $selbox = '';
             $selbox .= '<select name="' . $sel_name . '"';
 
-            if ($onchange != '') {
+            if ('' != $onchange) {
                 $selbox .= ' onchange="' . $onchange . '"';
             }
 
@@ -869,7 +872,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             foreach ($this->_cached_cid_tree as $cid) {
                 $lflag = $this->get_lflag($cid);
 
-                if (($flag == 1) && ($lflag == 0)) {
+                if ((1 == $flag) && (0 == $lflag)) {
                     continue;
                 }
 
@@ -888,7 +891,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
             return $selbox;
         }
 
-        public function build_selbox_multi($cid_arr = array())
+        public function build_selbox_multi($cid_arr = [])
         {
             // show always, if cid array is empty
 
@@ -913,7 +916,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 }
 
                 $selbox .= $this->build_selbox($cid, 1, 'cid[]', '', _WLS_NOTSELECT, 1);
-                $selbox .= "<br />\n";
+                $selbox .= "<br>\n";
             }
 
             return $selbox;
@@ -925,21 +928,22 @@ if (!class_exists('weblinks_category_basic_handler')) {
         // XoopsTree::getAllChildId is recursible function
         public function &getAllChildId($cid, $order = 'cid')
         {
-            $idarray = array();
+            $idarray = [];
             $arr     = $this->_tree->getAllChildId($cid, $order, $idarray);
             $arr_out = array_unique($arr);
+
             return $arr_out;
         }
 
         public function &get_parent_and_all_child_id($cid, $order = 'cid')
         {
             $arr     = $this->getAllChildId($cid, $order);
-            $arr_out = array_unique(array_merge(array($cid), $arr));
+            $arr_out = array_unique(array_merge([$cid], $arr));
+
             return $arr_out;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

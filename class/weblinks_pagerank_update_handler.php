@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_pagerank_update_handler')) {
-
     //=========================================================
     // class weblinks_pagerank_update_handler
     //=========================================================
@@ -23,7 +22,7 @@ if (!class_exists('weblinks_pagerank_update_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
+            $this->_pagerank_handler = weblinks_getHandler('pagerank', $dirname);
 
             $this->_TITLE = 'Update PageRank';
         }
@@ -46,6 +45,5 @@ if (!class_exists('weblinks_pagerank_update_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

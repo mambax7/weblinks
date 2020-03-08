@@ -10,9 +10,9 @@
 if (!class_exists('weblinks_htmlout_base')) {
     class weblinks_htmlout_base
     {
-        public $_item_vars  = array();
-        public $_param_vars = array();
-        public $_log_vars   = array();
+        public $_item_vars  = [];
+        public $_param_vars = [];
+        public $_log_vars   = [];
 
         public $_DIRNAME;
 
@@ -70,7 +70,7 @@ if (!class_exists('weblinks_htmlout_base')) {
         // return value:
         //    array items
         //---------------------------------------------------------
-        public function execute(&$items)
+        public function execute($items)
         {
             $arr = $items;
             $this->init();
@@ -102,6 +102,7 @@ if (!class_exists('weblinks_htmlout_base')) {
         {
             $name = get_class($this);
             $name = str_replace('weblinks_htmlout_', '', $class);
+
             return $name;
         }
 
@@ -111,7 +112,7 @@ if (!class_exists('weblinks_htmlout_base')) {
         public function set_param_array(&$arr)
         {
             if (is_array($arr)) {
-                $this->_param_vars =& $arr;
+                $this->_param_vars = &$arr;
             }
         }
 
@@ -130,6 +131,7 @@ if (!class_exists('weblinks_htmlout_base')) {
             if (isset($this->_param_vars[$num])) {
                 return $this->_param_vars[$num];
             }
+
             return $default;
         }
 
@@ -138,13 +140,13 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         public function clear_item_array()
         {
-            $this->_item_vars = array();
+            $this->_item_vars = [];
         }
 
         public function set_item_array($arr)
         {
             if (is_array($arr)) {
-                $this->_item_vars =& $arr;
+                $this->_item_vars = &$arr;
             }
         }
 
@@ -173,6 +175,7 @@ if (!class_exists('weblinks_htmlout_base')) {
             if (isset($this->_item_vars[$key])) {
                 return $this->_item_vars[$key];
             }
+
             return $default;
         }
 
@@ -181,7 +184,7 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         public function clear_logs()
         {
-            $this->_log_vars = array();
+            $this->_log_vars = [];
         }
 
         public function set_logs($arr)
@@ -225,7 +228,7 @@ if (!class_exists('weblinks_htmlout_base')) {
 
         public function &get_handler($name)
         {
-            return weblinks_get_handler($name, $this->_DIRNAME);
+            return weblinks_getHandler($name, $this->_DIRNAME);
         }
 
         //---------------------------------------------------------
@@ -234,11 +237,11 @@ if (!class_exists('weblinks_htmlout_base')) {
         public function get_xoops_sitename()
         {
             global $xoopsConfig;
+
             return $xoopsConfig['sitename'];
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

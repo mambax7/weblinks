@@ -4,18 +4,18 @@ $Id: readme.txt,v 1.4 2012/04/09 10:20:04 ohwada Exp $
 Version: 2.10
 Date:   2012-04-02
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
 * Changes *
 1. Supprt Google Maps API V3
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1271&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1271&forum=5
 
 1.1 Require WEBMAP3 module
 
 1,2 The admin can set the icon of a marker in eahc category and each link.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1150
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1150
 
 The rule which determines the icon to display
 (1) Use it if set the icon in the link.
@@ -26,15 +26,15 @@ The rule which determines the icon to display
 
 1.3 The admin can set favorite icon.
 This is feature of WEBMAP3 module.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=848
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=848
 
 2. Added "Select url" in admin page
 Admin can choice the original site url or singlelink.php of Weblinks
 in the hyperlink of a title .
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1198
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1198
 
 3. Expand the number of URL characters from 255 bytes to 64 K bytes.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1279
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=1279
 
 4. Addeed following in bulk registration.
 (1) Register the comments by form entry
@@ -70,7 +70,7 @@ Date:   2011-12-29
 * Changes *
 1. Migrating to PHP 5.3
 Deprecated features in PHP 5.3.x
-http://www.php.net/manual/en/migration53.deprecated.php
+https://www.php.net/manual/en/migration53.deprecated.php
 (1) ereg
 (2) Assigning the return value of new by reference is now deprecated.
 
@@ -81,7 +81,7 @@ http://www.php.net/manual/en/migration53.deprecated.php
 
 4. bug fix
 (1) typo in weblinks_link_single.html
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1085&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1085&forum=5
 
 
 =================================================
@@ -91,11 +91,11 @@ Date:   2009-04-02
 
 * Changes *
 (1) Portuguesebr 1.94
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=451&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=451&forum=2
 
 (2) Bugfix
 Smarty error: unable to read resource: d3forum_comment.html
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=448&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=448&forum=2
 
 
 =================================================
@@ -105,10 +105,10 @@ Date:   2009-02-01
 
 * Changes *
 (1) added Webphoto in album select
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=911&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=911&forum=5
 
 (2) corrected confliction with webphoto
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=913&forum=13
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=913&forum=13
 
 
 =================================================
@@ -118,7 +118,7 @@ Date:   2009-01-04
 
 * Changes *
 (1) "not version xxx"
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=861&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=861&forum=5
 
 (2) update german mail_template
 
@@ -130,44 +130,44 @@ Date:   2008-10-18
 
 * Changes *
 1. added plugin of Newbbex
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=423&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=423&forum=2
 
 2. updated Persian
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=424&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=424&forum=2
 
 3. bug fix
 (1) cannot use &amp; for location
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=831&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=831&forum=5
 
 (2) Notice in weblinks_link_view_handler.php
-http://xoopscube.jp/modules/xhnewbb/viewtopic.php?topic_id=5862
+https://xoopscube.jp/modules/xhnewbb/viewtopic.php?topic_id=5862
 
 
 =================================================
 Version: 1.91
 Date:   2008-04-12
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
 * Changes *
 1. the admin can use $xoops_isuser in the template files
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=792
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=792
 
 2. not show PageRank without URL
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=794&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=794&forum=5
 
 3. bug fix
 (1) the guest cannot change the password after request the lost password
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=791
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=791
 
 
 =================================================
 Version: 1.90
 Date:   2008-03-05
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -206,7 +206,7 @@ plugin_a ( param_a, param_b, param_c )
 
 
 2. supported Google PageRank
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=383
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=383
 
 (1) added "High PageRank Site"
 (2) show the green bar in link list and link single
@@ -220,11 +220,11 @@ It is not the official service of Google.
 In the future, it doesn't sometimes work, too.
 
 PageRank without the Toolbar
-http://www.google.com/support/toolbar/bin/answer.py?answer=9156&topic=11773
+https://www.google.com/support/toolbar/bin/answer.py?answer=9156&topic=11773
 We currently only offer the PageRank feature through the Google Toolbar.
 
 3. supported Google KML
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=770
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=770
 
 (1) added "GoogleMaps Site", and show "KML List"
 (2) the admin can customize using the plugins
@@ -235,29 +235,29 @@ addType application/vnd.google-earth.kml+xml .kml
 -----
 
 4. added "Module Setting 7 (Menu)" in admin page
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=362
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=362
 
 (1) concentrated the setting items which relates to show the menu.
 (2) the admin can change the title of menu
 
 5. changes 50 chars to 255 chars in the category title
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=364
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=364
 
 6. changed the setting of the char length of the input field in the submit form
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=382&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=382&forum=2
 
 7. added the option which not show "Map Type Control" in block
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=730
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=730
 
 8. changed the admin can set "publish time" in bulk management
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=790&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=790&forum=5
 
 9. lang pack
 (1) updated Arabic
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
 
 (2) updated Persian
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=387&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=387&forum=2
 
 10. bug fix
 (1) fatal error in "Deletion Links Waiting for Validation"
@@ -309,17 +309,17 @@ Date:   2008-02-16
 (2) remove "[Search] Map Type"
 
 2. changed install script
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=767&forum=8
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=767&forum=8
 
 3. changed template variable xoops_module_header
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=772&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=772&forum=9
 
 4. show timeout time in "Broken Link Check"
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=381&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=381&forum=2
 
 5. bug fix
 (1) not show google map when set "satellite" in map type
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=634&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=634&forum=5
 
 (2) wrong link at google logo
 
@@ -335,10 +335,10 @@ updated German. thanks sato-san
 
 2. bug fix
 (1) Only variables should be assigned by reference
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=758&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=758&forum=5
 
 (2) in album, not show same category name
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=763&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=763&forum=5
 
 (3) Fatal error: Call to a member function on a non-object in weblinks_rssc_view_handler.php
 (4) fopen(): failed to open stream: No such file or directory in weblinks_banner_handler.php
@@ -348,17 +348,17 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=763&forum=5
 Version: 1.83
 Date:   2007-12-29
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
 * Changes *
 1. bug fix
 (1) not show smiley icon in summary
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=746&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=746&forum=5
 
 (2) not set company, address, etc into "search" field
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=754&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=754&forum=5
 
 added the tool which corrects the already registered "search" field.
 please execute "Rebuild search field" at "DB table management" in admin page.
@@ -372,20 +372,20 @@ Date:   2007-12-16
 
 * Changes *
 1. changed the method of the redirect to header().
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=742&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=742&forum=5
 
 2. bug fix
 (1) not close the a tag in viewcat template
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=737&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=737&forum=5
 
 (2) cannot register the link in bulk management
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=740&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=740&forum=5
 
 (3) fatal error in export to RSSC
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=741&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=741&forum=5
 
 (4) cannot update from v1.31
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=366&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=366&forum=2
 
 
 =================================================
@@ -399,19 +399,19 @@ added to check config table, other tables
 
 2. bug fix
 (1) user cannot preview
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=721
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=721
 
 (2) admin cannot delete link
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=729
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=729
 
 (3) user can vote minus rating
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=359&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=359&forum=2
 
 (4) TEXT columns cannot have DEFAULT values
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
 
 (5) fatal error in randum photo block
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=734&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=734&forum=5
 
 (6) not convert BB code in print
 
@@ -430,22 +430,22 @@ Date:   2007-11-11
 
 3. memory usage
 (1) reduced memory usage under 16MB
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=716&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=716&forum=5
 
 (2) show memory usage
 
-4. added http://www.websitethumbnails.net/ in thumnail service
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=339
+4. added https://www.websitethumbnails.net/ in thumnail service
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=339
 
 5. added options
 (1) the admin can specify width of Google map marker info
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=705&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=705&forum=5
 
 (2) description char length
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=347&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=347&forum=2
 
 (3) force to show username
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
 
 6. keyword
 (1) highlights keyword when come from Google search and Yahoo search
@@ -458,32 +458,32 @@ http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
 
 10. lang pack
 (1) added Italian
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
 
 (2) added Arabic
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
 
 (3) updated Spanish
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=344&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=344&forum=2
 
 (4) updated Persian
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=343&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=343&forum=2
 
 11. bug fix
 (1) anonymous users can not modify links
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=342&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=342&forum=2
 
 (2) fatal error in blocks/weblinks_plugin.php
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=718&forum=2
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=718&forum=2
 
 (3) dont show link count in Japanese map
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=722&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=722&forum=5
 
 (4) anonymous users can not register password
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=725&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=725&forum=5
 
 (5) in search, not succeed cid at next page
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=727&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=727&forum=5
 
 (6) cannot export to rssc module
 
@@ -513,7 +513,7 @@ Date:   2007-09-23
 
 * Changes *
 1. tempolary directory for banner image
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
 
 (1) check include /tmp in open_basedir
 (2) admin can specify optional directory using preload
@@ -525,14 +525,14 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
 
 3. bug fix
 (1) [4705] fatal error in bulk manage
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4705&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4705&group_id=1199&atid=971
 
 (2) [4707] weblinks_config2_basic_handler.php: Only variables should be assigned by reference
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4707&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=691&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4707&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=691&forum=5
 
 (3) not show print
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=696
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=696
 
 (4) fatal error in link broken manage
 (5) not approve link detetion request
@@ -547,16 +547,16 @@ Date:   2007-09-16
 * Changes *
 1. revised substantially link submit, modifty and delete.
 1.1 add permition to user which delete link
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=638&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=638&forum=5
 
 1.2 [4514] add permition to user which set publish and expire date
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=290&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=290&forum=2
 
 user cannot view the link if before the publish date.
 user can view his submitted link if before the publish date.
 
 1.3 notify "comment for the admin" when link submit
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
 
 (1) add the event notification for the admin, in addition to for the user.
 
@@ -570,7 +570,7 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
 not notify the event notification, if before publish time.
 
 1.4 [4068] admin can choice notify me or not, when link submit
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=171&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=171&forum=2
 
 weblinks used the event notification of XOOPS core for the regitered user,
 implemented the email notice uniquely for the guest.
@@ -580,7 +580,7 @@ abolish the email notice and integrate to the event notification.
 - [Admin] Notify me of any link modification request.
 
 1.5 [3418] admin can enter the reason in the email of link approval or refusal
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
 
 (1) weblinks used the event notification of XOOPS core for the regitered user,
 implemented the email notice uniquely for the guest.
@@ -595,7 +595,7 @@ abolish to use the event notification and integrate to the email notice uniquely
 - link_del_refuse_notify.tpl
 
 1.6 clone link
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
 
 (1) add "clone link"
 (2) add "clone link to other module"
@@ -620,19 +620,19 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
 
 2. thumbnail web service
 (1) support two thumbnail web service
-- http://mozshot.nemui.org/
-- http://img.simpleapi.net/
+- https://mozshot.nemui.org/
+- https://img.simpleapi.net/
 
 (2) show the WEB site thumbnail instead of the link image.
 using the thumbnail web service, if not set the link image.
 
 3. add options
 (1) [3030] choice the URL or singlelink.php for the random link
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=101&forum=2
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=680&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=101&forum=2
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=680&forum=5
 
 (2) [4359] countup hits in singlelink.php
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=249&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=249&forum=2
 
 4. bug fix
 (1) in global search, show link which before publish time
@@ -665,19 +665,19 @@ you enable 2 new events at "Enable Specific Events"
 Version: 1.62
 Date:   2007-09-15
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
 * Changes *
 bug fix
 (1) 4698: fatal error occure when admin add new link
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4698&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=687&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4698&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=687&forum=5
 
 (2) 4702: fatal error occure when user submit new link
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4702&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=689&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4702&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=689&forum=5
 
 
 =================================================
@@ -698,24 +698,24 @@ weblinks executes "RSS Auto Discovry" in the old version.
 
 2. bug fix
 (1) 4680: dont work radio button in block
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4680&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=663&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4680&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=663&forum=5
 
 (2) 4688: javascript error with IE6
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4688&group_id=1409&atid=1786
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=667&forum=12
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4688&group_id=1409&atid=1786
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=667&forum=12
 
 (3) 4689: number of feeds is unlimited in singlelink
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4689&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=669&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4689&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=669&forum=5
 
 (4) 4690: not set rss_url in modify table
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4690&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=670&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4690&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=670&forum=5
 
 (5) 4693: not notify "New Link Submitted"
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4693&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=674&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4693&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=674&forum=5
 
 (6) wrong link in notification of "link modification request".
 (7) not show Name (category title) in category bookmark
@@ -726,13 +726,13 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=674&forum=5
 Version: 1.60
 Date:   2007-08-05
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
 * Changes *
 1. Supported MySQL 4.1/5.x
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
 For exsample in Japanese, program fixed ujis (EUC-JP) in character code of MySQL.
 Administrator can change character code, setting happy_linux/preload/charset.php.
 
@@ -751,7 +751,7 @@ added option to choice updated date or created date
 4. HTML style
 (1) base on W3C
 checked mainly pages on W3C Markup Validator
-http://validator.w3.org/
+https://validator.w3.org/
 
 (2) xoops moduel header
 added option to show style sheet and javascript in header tag
@@ -759,13 +759,13 @@ using xoops moduel header
 
 5. Block
 (1) added option to show category title
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4651&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4651&group_id=1199&atid=974
 
 (2) added option to show link description
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=315&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=315&forum=5
 
 (3) added option to show Google Map
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=507&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=507&forum=5
 
 6. Bulk Import
 (1) added feature which admin can specify register items
@@ -776,7 +776,7 @@ Valid in Japan
 8. Multi Langage
 (1) changed German files
 (2) added Germany (de) in locate
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=323&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=323&forum=2
 
 9. Extention of etc columns
 For developer.
@@ -791,7 +791,7 @@ prepared the mechanism to add etc columns in link table and modify table
 
 11. Bug Fix
 (1) 4672: cannot delete link in "New Links Waiting for Validation"
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=658&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=658&forum=5
 
 (2) there is no URL in link broken report
 
@@ -893,7 +893,7 @@ select "Plugin Select" and "Module Select", and click "UPDATE".
 6. view style of category
 6.1 view style of category path
 add option in admin page
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=284&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=284&forum=2
 
 6.2 range of sub category
 add option in admin page
@@ -904,7 +904,7 @@ add option in admin page
 
 8. bug fix
 (1) pakaging of SQL statament
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=635
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=635
 (2) forget header in "New Links Waiting for Validation"
 (3) Notice : Undefined offset: 8 in file blocks/weblinks_top.php
 
@@ -954,7 +954,7 @@ happy_linux module v0.80 is required.
 Version: 1.43
 Date:   2007-05-12
 Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
+URL:    https://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -976,7 +976,7 @@ Email:  webmaster@ohwada.jp
 Version: 1.42
 Date:   2007-04-09
 Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
+URL:    https://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -1038,7 +1038,7 @@ added config options
 5. Bug fix
 (1) 4506: expired links not listed in admin
 (2) 4507: Fatal error: getallchildid() in category_manage.php
-(3) 4508: Fatal error: weblinks_get_handler() in weblinks_top.php
+(3) 4508: Fatal error: weblinks_getHandler() in weblinks_top.php
 (4) 4509: JavaScript error in gm_get_location.php
 (5) 4519: Fatal error: get_cid_array_by_title() in bulk_manage.php
 (6) 4520: dont work newline in textarea
@@ -1191,7 +1191,7 @@ Date:   2007-02-20
 Version: 1.30
 Date:   2006-12-17
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -1209,10 +1209,10 @@ htttp://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=559&forum=5
 2. Link items
 (1) added "Pubish time" and "Expire time"
 admin only can register this
-http://xoopscube.jp/modules/newbb/viewtopic.php?topic_id=8647&forum=17
+https://xoopscube.jp/modules/newbb/viewtopic.php?topic_id=8647&forum=17
 
 (2) added two textarea
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=529&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=529&forum=5
 admin only can register this
 textarea1 : admin can use HTML and specify options
 textarea2 : admin cannot use HTML
@@ -1222,7 +1222,7 @@ textarea2 : admin cannot use HTML
 
 4. language
 (1) update german files
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=232&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=232&forum=2
 
 5. locate
 (1) added Iran (ir)
@@ -1234,8 +1234,8 @@ added link_save and modify_save class whitch validate object for saving DB
 
 7. bug fix
 (1) 4417: language singleton done not work correctly
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4417&group_id=1199&atid=971
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=256&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4417&group_id=1199&atid=971
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=256&forum=2
 
 
 * DB table structure *
@@ -1276,7 +1276,7 @@ I cannot change them, since I dont have non-English editors.
 Version: 1.22
 Date:   2006-11-08
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -1298,21 +1298,21 @@ can use JavaScript and GoogleMaps
 (2) added random block
 
 3. corrected Enlish language files
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=241&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=241&forum=2
 
 4. bug fix
 (1) 4342: crash if more than 100 characters in description
 chenged happy_linux module
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4342&group_id=1199&atid=971
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=245&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4342&group_id=1199&atid=971
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=245&forum=2
 
 (2) 4344: Table 'weblinks_config2' doesn't exist
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4344&group_id=1199&atid=971
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=232&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4344&group_id=1199&atid=971
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=232&forum=2
 
 (3) 4349: IE cannot show google map in print.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4349&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=542&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4349&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=542&forum=5
 
 
 * update *
@@ -1345,13 +1345,13 @@ If you dont use new functions, please use v0.97 or v1.13
 
 3. bug fix
 (1) 4312: Fatal error in visit.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4312&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4312&group_id=1199&atid=971
 
 (2) 4313: same browser cannot show gm_get_location.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4313&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4313&group_id=1199&atid=971
 
 (3) 4318: cannot register bulk links
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4318&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4318&group_id=1199&atid=971
 
 (4) dont work "Accept registration of existing links"
 (5) highlight double
@@ -1447,13 +1447,13 @@ Admin delete link record with same "RSS URL" in weblinks module and RSSC module.
 1. search
 (1) show context in search result,
 corresponding to search module to be distributing in Amethyst Blue
-http://www.suin.jp/
+https://www.suin.jp/
 
 (2) highlight keywords in search result
 (3) added fuzzy search (Japanese only)
 
 2. added Google Maps
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=413&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=413&forum=5
 showing Google Maps in datail page (singlelink.php)
 
 step 1: The initial setting
@@ -1475,13 +1475,13 @@ when you want other site, you MUST create template.
 - UK Google
 3.2 separete the part of the map icon in link template, and made new map template.
 3.3 added the option to show or not a map icon in each link.
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3819&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3819&group_id=1199&atid=974
 
 4. show image in sub category.
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=194&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=194&forum=2
 
 5. added 75 and 100 in showing links in one page.
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=139&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=139&forum=2
 
 6. distribute leatest links in RDF/RSS/ATOM format.
 
@@ -1522,7 +1522,7 @@ reffer Perk's Tinyd module
 you can select language and country independently.
 In the past, program decided country, for exsample decided USA in English mode.
 In present, you can select United Kingdom and others in English mode.
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=77&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=77&forum=2
 
 10.1 use IANA's ccTLDs for the country code.
 In this time, it got ready three country, Japan (jp), USA (us), United Kingdom (uk).
@@ -1557,7 +1557,7 @@ moved the parts of template in parts and xml sub directory.
 (2) added parts sub directory
 this is for parts of main template used in template_main
 separete header and search form in weblinks_header.html
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=529&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=529&forum=5
 
 (3) added map sub directory
 this is for link button goto map site.
@@ -1642,13 +1642,13 @@ If you dont use "enable to use of HTML tags", please use v0.97.
 
 * bug fix *
 (1) 4261: cannot add category with xoops protector
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4261&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4261&group_id=1199&atid=971
 
 (2) 4278: cannot set no link list on the top page
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4278&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4278&group_id=1199&atid=971
 
 (3) 4279: Undefined index: rss_num in file singlelink.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4279&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4279&group_id=1199&atid=971
 
 
 =================================================
@@ -1665,16 +1665,16 @@ If you dont use "enable to use of HTML tags", please use v0.97.
 
 * bug fix *
 (1) 4164: number of comments is wrong
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4164&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4164&group_id=1199&atid=971
 
 (2) 4168: not show catpath in viewmark
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4168&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4168&group_id=1199&atid=971
 
 (3) 4169: not show total in index
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4169&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4169&group_id=1199&atid=971
 
 (5) not clean old feeds in singlelink
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=509&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=509&forum=5
 
 (6) category is html sanitized twice in edit form
 
@@ -1692,39 +1692,39 @@ If you dont use "enable to use of HTML tags", please use v0.97.
 
 * bug fix *
 (1) 4029: mistake table name
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4029&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4029&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
 
 (2) 4030: cannot change recommend, mutual
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4030&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=471&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4030&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=471&forum=5
 
 (3) 4032 : cannot create table in MySQL 3.23
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4032&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4032&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
 
 (4) 4060: The command line of refreshed sites are limited to 10 sites.
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4060&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=474&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4060&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=474&forum=5
 
 (5) 4085: Fatal error: Call to undefined function: weblinks_page_frame_basic()
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4085&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=482&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4085&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=482&forum=5
 
 (6) 4130: cannot show recommend mark
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4130&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=492&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4130&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=492&forum=5
 
 (7) 4152 : not show catpath in link list
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4152&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=488&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4152&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=488&forum=5
 
 (8) 4153: not show catpath in search
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4153&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=497&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4153&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=497&forum=5
 
 (9) 4154: always update time_update in admin mode
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4154&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4154&group_id=1199&atid=971
 
 
 =================================================
@@ -1741,27 +1741,27 @@ If you dont use "enable to use of HTML tags", please use v0.97.
 
 1. Added the following options.
 (1) 3023 can use HTML tags in link content
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3023&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=74&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3023&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=74&forum=2
 
 (2) choice to use or not XOOPS code in link content
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=454&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=454&forum=5
 
 (3) 3037 choice to show or not RSS/ATOM feeds
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3027&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?post_id=274&topic_id=90&forum=2
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=178&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3027&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?post_id=274&topic_id=90&forum=2
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=178&forum=5
 
 (4) 3515 choice to show or not category list in sub menu.
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3515&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=132&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3515&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=132&forum=2
 
 (5) 3802 choice to show or not link list in main page
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3802&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=142&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3802&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=142&forum=2
 
 (6) choice to show or not "recommend site" and "reciprocal site" on a higher rank
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=336&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=336&forum=5
 
 (7) choice to use or not "Report Broken Link"
 
@@ -1779,20 +1779,20 @@ In "direct", show URL and count links hits via JavaScript.
 (12) decide anonymous user's edit authority with a password.
 Anonymous user with authority can edit link information.
 Anonymous user without authority cannot see an edit form.
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3419&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3419&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
 
 (13) when user have no authority, not show "submit" and "modify" button.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=388&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=388&forum=5
 
 (14) enable to change the item name at registration and edit
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=261&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=261&forum=5
 
 3. Admin Management
 (15) renewal menue in admin page.
 
 (16) Added bulk registration of categories and links
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
 
 4. Template
 (16) adopted style sheet
@@ -1801,15 +1801,15 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
 
 5. Others
 (19) added PRINT page
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=307&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=307&forum=5
 
 (20) 3026 TITLE and URL was extended to 255 characters.
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3026&group_id=1199&atid=974
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=87&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3026&group_id=1199&atid=974
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=87&forum=2
 
 6. language pack
 (21) Added german (correspond v0.90)
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=168&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=168&forum=2
 
 
 * Change of implemantation about handling database *
@@ -1875,19 +1875,19 @@ If you dont use "module duplication", please use v0.97.
 
 BugFix
 (1) 3858 Fatal error when allow_url_fopen = off
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3858&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3858&group_id=1199&atid=971
 
 (2) 3859 Parse error in atomfeed.inc.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3859&group_id=1199&atid=971
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=441&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3859&group_id=1199&atid=971
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=441&forum=5
 
 (3) 3860 mysql error when guest report broken link
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3860&group_id=1199&atid=971
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=154&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3860&group_id=1199&atid=971
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=154&forum=2
 
 (4) 3922 Fatal error when use category image
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3922&group_id=1199&atid=971
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=161&forum=2
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3922&group_id=1199&atid=971
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=161&forum=2
 
 
 =================================================
@@ -1901,17 +1901,17 @@ If you dont use "module duplication", please use v0.97.
 
 Request
 (1) 3807: Description in main page
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3807&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3807&group_id=1199&atid=974
 
 BugFix
 (1) 3743: fatal error ocucred when six or more links waiting to apoval
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3743&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3743&group_id=1199&atid=971
 
 (2) 3746: show submenu incorrectly
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3746&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3746&group_id=1199&atid=971
 
 (3) 3799: cannot display brokenlink
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3799&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3799&group_id=1199&atid=971
 
 =================================================
 Version: 1.00
@@ -1963,28 +1963,28 @@ I cannot change them, since I dont have non-English editors.
 Version: 0.97
 Date:   2006-01-14
 Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
+URL:    https://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
 Request
 (1) 3226: ATOM 1.0 parse
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3226&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3226&group_id=1199&atid=974
 
 
 Bug fix
 (1) 3429: wrong link in admin/link_broken_check.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3429&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3429&group_id=1199&atid=971
 
 (2) 3430: sorting dont work in admin/link_list.php
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3430&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3430&group_id=1199&atid=971
 
 Language Pack
 (1) add spanish v0.96
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=126&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=126&forum=2
 
 (2) update french v0.96
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=127&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=127&forum=2
 
 
 =================================================
@@ -1995,12 +1995,12 @@ Date:   2005-11-20
 Request
 (1) 3196: direct link
 hack by snakes
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3196&group_id=1199&atid=974
-http://www.xoops.org/modules/newbb/viewtopic.php?viewmode=flat&topic_id=42078&forum=15
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3196&group_id=1199&atid=974
+https://xoops.org/modules/newbb/viewtopic.php?viewmode=flat&topic_id=42078&forum=15
 
 Bug fix
 (1) 3209: typo X-Mailer
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3209&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3209&group_id=1199&atid=971
 
 
 =================================================
@@ -2010,30 +2010,30 @@ Date:   2005-10-28
 
 Request
 (1) 3028: send apoval email to anonymous user
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3028&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3028&group_id=1199&atid=974
 
 (2) 3110: Add in this category
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3110&group_id=1199&atid=974
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3110&group_id=1199&atid=974
 
 
 Bug fix
 (1) 3031: timeout occurs if many waiting links
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3031&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3031&group_id=1199&atid=971
 
 (2) 3032: "mutual site" is not suitable English
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3032&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3032&group_id=1199&atid=971
 
 (3) 3095: the number of links does not change, if delete link
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3095&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3095&group_id=1199&atid=971
 
 (4) 3106: cannot find a relative RSS url correctly
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3106&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3106&group_id=1199&atid=971
 
 (5) 3108: errors occur when allow_url_fopen = off
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3108&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3108&group_id=1199&atid=971
 
 (6) 3111: timeout occurs in popular site if many top categories
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3111&group_id=1199&atid=971
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3111&group_id=1199&atid=971
 
 
 * added or changed files
@@ -2126,7 +2126,7 @@ added language pack
 Version: 0.9
 Date:   2005-01-20
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -2156,7 +2156,7 @@ It will discover RSS URL and collect feeds automatically, if correspond to RSS A
 User can register a link image.
 
 2.3 Map site
-Show the link to a map site "http://maps.yahoo.com/", when link infomation have the address.
+Show the link to a map site "https://maps.yahoo.com/", when link infomation have the address.
 
 
 3. Preview
@@ -2193,7 +2193,7 @@ This module have 6 Blocks.
 This module have 19 templates.
 
 All templates passed W3C Validator.
-http://validator.w3.org/
+https://validator.w3.org/
 
 
 7. Admin Nenu
@@ -2302,6 +2302,6 @@ The following are not copied.
 In mylinks, the registration method of Snapshot images is that choice from the image in the "shots" directory.
 In weblinks, it changed into the method which specifies full URL.
 The specification full URL of weblinks style is like
-"http://***/modules/weblinks/images/shots/xxx" .
+"https://***/modules/weblinks/images/shots/xxx" .
 In a transfer program, it changes automatically.
 

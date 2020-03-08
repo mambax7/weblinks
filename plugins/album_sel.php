@@ -16,7 +16,7 @@
 if (!function_exists('weblinks_plugin_album_sel')) {
     function &weblinks_plugin_album_sel()
     {
-        $sel = array();
+        $sel = [];
 
         $sel[1]['name']        = 'myalbum_287';
         $sel[1]['dirname']     = 'myalbum';
@@ -29,4 +29,3 @@ if (!function_exists('weblinks_plugin_album_sel')) {
         return $sel;
     }
 }// --- functions end ---
-;

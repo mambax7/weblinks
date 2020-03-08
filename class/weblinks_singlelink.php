@@ -44,7 +44,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_singlelink')) {
-
     //=========================================================
     // class weblinks_singlelink
     //=========================================================
@@ -61,7 +60,7 @@ if (!class_exists('weblinks_singlelink')) {
 
         public $_conf;
 
-        public $_keyword_array  = array();
+        public $_keyword_array  = [];
         public $_flag_highlight = false;
 
         //---------------------------------------------------------
@@ -71,17 +70,17 @@ if (!class_exists('weblinks_singlelink')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_basic_handler     = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler      = weblinks_get_handler('link_basic', $dirname);
-            $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
-            $this->_banner_handler    = weblinks_get_handler('banner', $dirname);
-            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
-            $this->_rssc_handler      = weblinks_get_handler('rssc', $dirname);
+            $config_basic_handler     = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler      = weblinks_getHandler('link_basic', $dirname);
+            $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+            $this->_banner_handler    = weblinks_getHandler('banner', $dirname);
+            $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);
+            $this->_rssc_handler      = weblinks_getHandler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post   = happy_linux_post::getInstance();
 
-            $this->_conf =& $config_basic_handler->get_conf();
+            $this->_conf = &$config_basic_handler->get_conf();
 
             $this->_link_view_handler->init();
         }
@@ -89,9 +88,10 @@ if (!class_exists('weblinks_singlelink')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_singlelink($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -100,7 +100,7 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         public function _update_banner_size($lid)
         {
-            $row =& $this->_link_handler->get_cache_by_lid($lid);
+            $row = &$this->_link_handler->get_cache_by_lid($lid);
             if (isset($row['banner']) && isset($row['width']) && isset($row['height'])) {
                 $banner = $row['banner'];
                 $width  = $row['width'];
@@ -109,13 +109,15 @@ if (!class_exists('weblinks_singlelink')) {
                 // read remote file, when not set
                 if ($banner && empty($width) && empty($height)) {
                     // read remote file, when not set
-                    $size =& $this->_banner_handler->get_remote_banner_size($banner);
+                    $size = &$this->_banner_handler->get_remote_banner_size($banner);
                     if (is_array($size) && isset($size[0]) && isset($size[1])) {
                         $ret = $this->_link_handler->update_banner_size($lid, $size[0], $size[1]);
+
                         return $ret;
                     }
                 }
             }
+
             return true;    // no action
         }
 
@@ -169,7 +171,8 @@ if (!class_exists('weblinks_singlelink')) {
                 $this->_update_banner_size($lid);
             }
 
-            $link =& $this->_link_view_handler->get_link_by_lid($lid);
+            $link = &$this->_link_view_handler->get_link_by_lid($lid);
+
             return $link;
         }
 
@@ -180,14 +183,14 @@ if (!class_exists('weblinks_singlelink')) {
         public function get_atomfeed($lid)
         {
             // BUG 4279: Undefined index: rss_num in file singlelink.php
-            $arr = array(
+            $arr = [
                 'rss_show'   => false,
                 'rss_num'    => 0,
                 'rss_flag'   => 0,
                 'rss_url'    => '',
                 'rss_update' => '',
-                'feeds'      => array(),
-            );
+                'feeds'      => [],
+            ];
 
             if (WEBLINKS_RSSC_USE) {
                 $arr = $this->get_atomfeed_auto($lid);
@@ -198,19 +201,19 @@ if (!class_exists('weblinks_singlelink')) {
 
         public function get_atomfeed_auto($lid)
         {
-            $arr = array(
+            $arr = [
                 'rss_show'   => false,
                 'rss_num'    => 0,
                 'rss_flag'   => 0,
                 'rss_url'    => '',
                 'rss_update' => '',
-                'feeds'      => array(),
-            );
+                'feeds'      => [],
+            ];
 
             $rssc_lid = $this->_link_view_handler->get_link_rssc_lid($lid);
 
             if ($rssc_lid) {
-                $feeds = array();
+                $feeds = [];
 
                 if ($this->_conf['rss_mode_auto']) {
                     $this->_rssc_handler->refresh_link($rssc_lid);
@@ -224,10 +227,10 @@ if (!class_exists('weblinks_singlelink')) {
                 $this->_rssc_view_handler->set_feed_highlight($this->_flag_highlight);
 
                 // current record
-                $feeds =& $this->_rssc_view_handler->get_feed_list_latest_by_rssclid($rssc_lid, $this->_conf['rss_perpage']);
+                $feeds = &$this->_rssc_view_handler->get_feed_list_latest_by_rssclid($rssc_lid, $this->_conf['rss_perpage']);
 
                 // new record after refresh
-                $rssc_link_show =& $this->_rssc_view_handler->get_rssc_link_by_rssc_lid($rssc_lid);
+                $rssc_link_show = &$this->_rssc_view_handler->get_rssc_link_by_rssc_lid($rssc_lid);
                 if (!is_array($rssc_link_show)) {
                     return $arr;
                 }
@@ -241,14 +244,14 @@ if (!class_exists('weblinks_singlelink')) {
                     $rss_show = true;
                 }
 
-                $arr = array(
+                $arr = [
                     'rss_num'    => $this->_conf['rss_num_content'],
                     'rss_show'   => $rss_show,
                     'rss_flag'   => $rss_flag,
                     'rss_url'    => $rss_url,
                     'rss_update' => $rss_update,
                     'feeds'      => $feeds,
-                );
+                ];
             }
 
             return $arr;
@@ -284,11 +287,10 @@ if (!class_exists('weblinks_singlelink')) {
         public function set_keyword_array(&$arr)
         {
             $this->_link_view_handler->set_keyword_array($arr);
-            $this->_keyword_array =& $arr;
+            $this->_keyword_array = &$arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

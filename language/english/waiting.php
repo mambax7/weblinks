@@ -16,4 +16,3 @@ if (!defined('_WEBLINKS_PI_WAITING_LANG_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', 'Mod Reqs');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'Del Reqs');
 }// --- define language end ---
-;

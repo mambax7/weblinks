@@ -83,9 +83,9 @@ class admin_link_list extends happy_linux_page_frame
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
         $this->set_flag_execute_time(true);
 
-        $config_handler        = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_modify_handler = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
-        $this->_broken_handler = weblinks_get_handler('broken', WEBLINKS_DIRNAME);
+        $config_handler        = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_getHandler('broken', WEBLINKS_DIRNAME);
 
         $this->_strings = happy_linux_strings::getInstance();
         $this->_locate  = weblinks_locate_factory::getInstance(WEBLINKS_DIRNAME);
@@ -101,9 +101,10 @@ class admin_link_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -121,7 +122,7 @@ class admin_link_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_op_sortid_array()
     {
-        $arr = array(
+        $arr = [
             'list_asc'     => 0,
             'list_desc'    => 1,
             'list_broken'  => 2,
@@ -130,17 +131,18 @@ class admin_link_list extends happy_linux_page_frame
             'list_publish' => 5,
             'list_expire'  => 6,
             'list_comment' => 7,
-        );
+        ];
+
         return $arr;
     }
 
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             _WLS_LINKID,
             _WLS_SITETITLE,
             _WLS_SITEURL,
-        );
+        ];
 
         if ($this->_flag_show_etc1) {
             array_push($arr, _WEBLINKS_ETC . ' 1');
@@ -150,11 +152,11 @@ class admin_link_list extends happy_linux_page_frame
             array_push($arr, _WEBLINKS_ETC . ' 2');
         }
 
-        if ($this->_sortid == 2) {
+        if (2 == $this->_sortid) {
             array_push($arr, _WEBLINKS_COUNT_BROKEN);
         }
 
-        if ($this->_sortid == 7) {
+        if (7 == $this->_sortid) {
             array_push($arr, _WLS_USER_COMMENT);
         }
 
@@ -175,32 +177,25 @@ class admin_link_list extends happy_linux_page_frame
             case 1:
                 $total = $this->_count_all;
                 break;
-
             case 2:
                 $total = $this->_count_broken;
                 break;
-
             case 3:
                 $total = $this->_count_non_url;
                 break;
-
             case 4:
                 $total = $this->_count_rss_flag;
                 break;
-
             case 5:
                 $total = $this->_count_time_publish_before;
                 break;
-
             case 6:
                 // BUG 4506: expired links not listed
                 $total = $this->_count_time_expire_after;
                 break;
-
             case 7:
                 $total = $this->_count_usercomment;
                 break;
-
             case 0:
             default:
                 $total = $this->_count_all;
@@ -214,36 +209,29 @@ class admin_link_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs = &$this->_handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->_handler->get_objects_broken($limit, $start);
+                $objs = &$this->_handler->get_objects_broken($limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->_handler->get_objects_non_url($limit, $start);
+                $objs = &$this->_handler->get_objects_non_url($limit, $start);
                 break;
-
             case 4:
-                $objs =& $this->_handler->get_objects_rss_flag($limit, $start);
+                $objs = &$this->_handler->get_objects_rss_flag($limit, $start);
                 break;
-
             case 5:
-                $objs =& $this->_handler->get_objects_time_publish_before($limit, $start);
+                $objs = &$this->_handler->get_objects_time_publish_before($limit, $start);
                 break;
-
             case 6:
-                $objs =& $this->_handler->get_objects_time_expire_after($limit, $start);
+                $objs = &$this->_handler->get_objects_time_expire_after($limit, $start);
                 break;
-
             case 7:
-                $objs =& $this->_handler->get_objects_usercomment_desc($limit, $start);
+                $objs = &$this->_handler->get_objects_usercomment_desc($limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_all($limit, $start);
+                $objs = &$this->_handler->get_objects_all($limit, $start);
                 break;
         }
 
@@ -276,11 +264,11 @@ class admin_link_list extends happy_linux_page_frame
         $img_link  = $this->build_html_img_tag($url_text_gif, 0, 0, 0, 'link');
         $view_link = $this->build_html_a_href_name($url_view_lid, $img_link, '', false);
 
-        $arr = array(
+        $arr = [
             $view_link . '&nbsp;&nbsp;' . $link_link,
             $link_title,
             $link_url,
-        );
+        ];
 
         if ($this->_flag_show_etc1) {
             array_push($arr, $etc1_s);
@@ -290,11 +278,11 @@ class admin_link_list extends happy_linux_page_frame
             array_push($arr, $etc2_s);
         }
 
-        if ($this->_sortid == 2) {
+        if (2 == $this->_sortid) {
             array_push($arr, $broken);
         }
 
-        if ($this->_sortid == 7) {
+        if (7 == $this->_sortid) {
             array_push($arr, $usercomment_short_s);
         }
 
@@ -314,31 +302,24 @@ class admin_link_list extends happy_linux_page_frame
             case 1:
                 $title = _WEBLINKS_ADMIN_LINK_ALL_DESC;
                 break;
-
             case 2:
                 $title = _WEBLINKS_ADMIN_LINK_BROKEN;
                 break;
-
             case 3:
                 $title = _WEBLINKS_ADMIN_LINK_NOURL;
                 break;
-
             case 4:
                 $title = _WLS_SITE_RSS;
                 break;
-
             case 5:
                 $title = _AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE;
                 break;
-
             case 6:
                 $title = _AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER;
                 break;
-
             case 7:
                 $title = _AM_WEBLINKS_LINK_USERCOMMENT_DESC;
                 break;
-
             case 0:
             default:
                 $title = _WEBLINKS_ADMIN_LINK_ALL_ASC;
@@ -347,7 +328,7 @@ class admin_link_list extends happy_linux_page_frame
 
         echo '<h4>' . _WEBLINKS_ADMIN_LINK_LIST . "</h4>\n";
         printf(_WLS_THEREARE, $this->_count_all);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<table width='80%' border='0' cellspacing='1' class='outer'>";
         echo "<tr class='odd'><td><ul>";
@@ -371,8 +352,8 @@ class admin_link_list extends happy_linux_page_frame
 
         echo '<h4>' . $title . "</h4>\n";
         echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE;
-        echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE . "<br />\n";
-        echo "<br />\n";
+        echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE . "<br>\n";
+        echo "<br>\n";
     }
 
     // --- class end ---
@@ -390,5 +371,4 @@ $list = admin_link_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

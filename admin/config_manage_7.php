@@ -12,17 +12,17 @@ include_once 'admin_header_config.php';
 // class
 $config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
-$link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+$link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         xoops_error('Token Error');
-        echo "<br />\n";
+        echo "<br>\n";
         echo $config_form->get_token_error(1);
-        echo "<br />\n";
+        echo "<br>\n";
     } else {
         $ret = $config_store->save_config();
         if ($ret) {
@@ -44,14 +44,14 @@ weblinks_admin_print_menu();
 
 $config_form->print_menu_7();
 
-echo "<br />\n";
+echo "<br>\n";
 
 $config_form->set_submit_value(_WEBLINKS_UPDATE);
 $config_form->init_form();
 
 echo '<a name="form_menu"></a>' . "\n";
 echo '<h4>' . _AM_WEBLINKS_CONF_MENU . "</h4>\n";
-echo _AM_WEBLINKS_CONF_MENU_DESC . "<br /><br />\n";
+echo _AM_WEBLINKS_CONF_MENU_DESC . "<br><br>\n";
 $config_form->show_by_catid(36, _AM_WEBLINKS_CONF_MENU);
 
 echo '<a name="form_title"></a>' . "\n";
@@ -60,5 +60,4 @@ $config_form->show_by_catid(37, _AM_WEBLINKS_CONF_TITLE);
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

@@ -8,13 +8,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout')) {
-
     //=========================================================
     // class word
     //=========================================================
     class weblinks_htmlout extends happy_linux_plugin
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -30,9 +28,10 @@ if (!class_exists('weblinks_htmlout')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_htmlout($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -47,11 +46,11 @@ if (!class_exists('weblinks_htmlout')) {
             if ($ret) {
                 $arr = $this->get_items();
             }
+
             return $arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

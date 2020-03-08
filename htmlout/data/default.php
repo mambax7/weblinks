@@ -10,36 +10,36 @@
 if (!function_exists('weblinks_htmlout_data_default')) {
     function weblinks_htmlout_data_default()
     {
-        $catpaths = array(
-            0 => array(
-                0 => array(
+        $catpaths = [
+            0 => [
+                0 => [
                     'cid'   => 12,
                     'title' => 'Asia',
-                ),
-                1 => array(
+                ],
+                1 => [
                     'cid'   => 23,
                     'title' => 'Japan',
-                ),
-            ),
-            1 => array(
-                0 => array(
+                ],
+            ],
+            1 => [
+                0 => [
                     'cid'   => 13,
                     'title' => 'Harbor',
-                ),
-                1 => array(
+                ],
+                1 => [
                     'cid'   => 24,
                     'title' => 'Yohohama',
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
 
-        $arr = array(
+        $arr = [
             'lid'             => '12345',
             'uid'             => '1',
             'cids'            => '',
             'title'           => 'Exsample Site',
-            'url'             => 'http://exsample.com/',
-            'banner'          => 'http://exsample.com/banner.gif',
+            'url'             => 'https://exsample.com/',
+            'banner'          => 'https://exsample.com/banner.gif',
             'description'     => 'exsample description',
             'name'            => 'webmaster',
             'nameflag'        => '1',
@@ -108,11 +108,9 @@ if (!function_exists('weblinks_htmlout_data_default')) {
             'pagerank'        => '1',
             'pagerank_update' => '1198634366',
             'catpaths'        => $catpaths,
-
-        );
+        ];
 
         return $arr;
     }
-
     // --- weblinks_htmlout_data_default end ---
 }

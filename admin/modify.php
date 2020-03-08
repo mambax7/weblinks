@@ -61,9 +61,9 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_modify_handler    = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
-        $this->_link_edit_handler = weblinks_get_handler('link_edit', WEBLINKS_DIRNAME);
-        $this->_link_form_handler = weblinks_get_handler('link_form', WEBLINKS_DIRNAME);
+        $this->_modify_handler    = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
+        $this->_link_edit_handler = weblinks_getHandler('link_edit', WEBLINKS_DIRNAME);
+        $this->_link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
         $this->_sendmail          = weblinks_sendmail::getInstance(WEBLINKS_DIRNAME);
         $this->_post              = weblinks_post::getInstance();
     }
@@ -71,9 +71,10 @@ class admin_modify_manage extends weblinks_error
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_modify_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -82,7 +83,6 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     public function listNewLinks()
     {
-
         // List links waiting for validation
         $total = $this->_modify_handler->get_count_new();
 
@@ -100,7 +100,7 @@ class admin_modify_manage extends weblinks_error
                 $this->list_new_link_page();
             }
         } else {
-            echo _WLS_NOSUBMITTED . "<br />\n";
+            echo _WLS_NOSUBMITTED . "<br>\n";
         }
     }
 
@@ -116,7 +116,7 @@ class admin_modify_manage extends weblinks_error
     public function list_new_link_one($mid)
     {
         $this->_link_form_handler->show_admin_form('approve', $mid);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
     }
 
     public function list_new_link_page()
@@ -132,6 +132,7 @@ class admin_modify_manage extends weblinks_error
     {
         $mid = $this->_post->get_post_get_int('mid');
         $ret = $this->delete_modify_by_mid($mid);
+
         return $ret;
     }
 
@@ -143,7 +144,7 @@ class admin_modify_manage extends weblinks_error
         $flag_send = false;
         if ($this->FLAG_EVENT_USER && $_POST['uid']) {
             $flag_send = true;
-        } elseif ($this->FLAG_EVENT_ANONYMOUS && ($_POST['uid'] == 0) && !empty($_POST['mail'])) {
+        } elseif ($this->FLAG_EVENT_ANONYMOUS && (0 == $_POST['uid']) && !empty($_POST['mail'])) {
             $flag_send = true;
         }
 
@@ -165,15 +166,16 @@ class admin_modify_manage extends weblinks_error
     public function approveCheck()
     {
         $ret = $this->_link_edit_handler->check_form_modlink($_POST);
+
         return $ret;
     }
 
     public function approveError()
     {
-        echo '<h4>' . _WLS_MODLINK . '</h4><br />';
-        echo "<hr />\n";
+        echo '<h4>' . _WLS_MODLINK . '</h4><br>';
+        echo "<hr>\n";
         echo $this->_link_edit_handler->get_error_msg_modlink();
-        echo "<hr />\n";
+        echo "<hr>\n";
 
         $this->_link_form_handler->show_admin_form('approve_preview');
     }
@@ -183,6 +185,7 @@ class admin_modify_manage extends weblinks_error
         $newid = $this->_link_edit_handler->add_link($_POST);
         if (!$newid) {
             $this->_set_errors($this->_link_edit_handler->getErrors());
+
             return false;
         }
 
@@ -210,7 +213,7 @@ class admin_modify_manage extends weblinks_error
         // send email to anonymous, appoval to new link
         // REQ 3028: send appoval email to anonymous user
 
-        if ($this->FLAG_EVENT_ANONYMOUS && ($_POST['uid'] == 0) && !empty($_POST['mail'])) {
+        if ($this->FLAG_EVENT_ANONYMOUS && (0 == $_POST['uid']) && !empty($_POST['mail'])) {
             $ret = $this->_sendmail->send_approved_to_anonymous($this->_tags);
             if (!$ret) {
                 $this->_set_errors($this->_sendmail->getErrors());
@@ -243,7 +246,7 @@ class admin_modify_manage extends weblinks_error
                 $this->list_mod_req_page();
             }
         } else {
-            echo _WLS_NOMODREQ . "<br />\n";
+            echo _WLS_NOMODREQ . "<br>\n";
         }
     }
 
@@ -259,7 +262,7 @@ class admin_modify_manage extends weblinks_error
     public function list_mod_req_one($mid)
     {
         $this->_link_form_handler->show_admin_mod_approve_form('approve', $mid);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
     }
 
     public function list_mod_req_page()
@@ -275,15 +278,16 @@ class admin_modify_manage extends weblinks_error
     public function approveModReqCheck()
     {
         $ret = $this->_link_edit_handler->check_form_modlink_for_owner($_POST);
+
         return $ret;
     }
 
     public function approveModReqError()
     {
-        echo '<h4>' . _WLS_MODREQUESTS . '</h4><br />';
-        echo "<hr />\n";
+        echo '<h4>' . _WLS_MODREQUESTS . '</h4><br>';
+        echo "<hr>\n";
         echo $this->_link_edit_handler->get_error_msg_modlink();
-        echo "<hr />\n";
+        echo "<hr>\n";
 
         $this->_link_form_handler->show_admin_mod_approve_form('preview');
     }
@@ -313,12 +317,14 @@ class admin_modify_manage extends weblinks_error
         if (!is_object($obj)) {
             $msg = "no modify record mid=$mid ";
             $this->_set_error($msg);
+
             return false;
         }
 
         $ret = $this->_modify_handler->delete($obj);
         if (!$ret) {
             $this->_set_error($this->_modify_handler->getErrors());
+
             return false;
         }
 
@@ -332,6 +338,7 @@ class admin_modify_manage extends weblinks_error
     {
         $mid = $this->_post->get_post_get_int('mid');
         $ret = $this->delete_modify_by_mid($mid);
+
         return $ret;
     }
 
@@ -405,9 +412,10 @@ class admin_list_new_links extends weblinks_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_list_new_links();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -435,23 +443,26 @@ class admin_list_new_links extends weblinks_page_frame
     //---------------------------------------------------------
     public function get_table_header()
     {
-        $arr = array(
+        $arr = [
             _WEBLINKS_MID,
             _WLS_SITETITLE,
             _WLS_SITEURL,
-        );
+        ];
+
         return $arr;
     }
 
     public function get_total()
     {
         $total = $this->_handler->get_count_by_mode($this->_mode);
+
         return $total;
     }
 
     public function &get_items($limit = 0, $start = 0)
     {
         $objs = $this->_handler->get_objects_by_mode($this->_mode, $limit, $start);
+
         return $objs;
     }
 
@@ -465,11 +476,12 @@ class admin_list_new_links extends weblinks_page_frame
 
         $url_link = $this->build_html_name_link_by_obj($obj, 'url', '', '_blank');
 
-        $arr = array(
+        $arr = [
             $id_link,
             $title,
             $url_link,
-        );
+        ];
+
         return $arr;
     }
 

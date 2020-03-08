@@ -18,4 +18,3 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', 'Ric. Mod');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'Ric. Canc');
 }// --- define language end ---
-;

@@ -65,9 +65,9 @@ class weblinks_brokenlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $config_handler        = weblinks_get_handler('config2_basic', $dirname);
-        $this->_link_handler   = weblinks_get_handler('link', $dirname);
-        $this->_broken_handler = weblinks_get_handler('broken', $dirname);
+        $config_handler        = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_handler   = weblinks_getHandler('link', $dirname);
+        $this->_broken_handler = weblinks_getHandler('broken', $dirname);
         $this->_system         = happy_linux_system::getInstance();
         $this->_post           = happy_linux_post::getInstance();
         $this->_form           = happy_linux_form::getInstance();
@@ -82,9 +82,10 @@ class weblinks_brokenlink extends happy_linux_error
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_brokenlink($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -94,12 +95,14 @@ class weblinks_brokenlink extends happy_linux_error
     public function get_post_submit()
     {
         $ret = $this->_post->get_post_text('submit');
+
         return $ret;
     }
 
     public function get_post_get_lid()
     {
         $ret = $this->_post->get_post_get_int('lid');
+
         return $ret;
     }
 
@@ -118,6 +121,7 @@ class weblinks_brokenlink extends happy_linux_error
         }
 
         $this->_title_s = $this->_link_handler->get_title($lid, 's');
+
         return 0;
     }
 
@@ -131,8 +135,7 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     public function check_broken_link($lid)
     {
-        if ($this->_system_uid != 0) {
-
+        if (0 != $this->_system_uid) {
             // Check if REG user is trying to report twice.
             $count = $this->_broken_handler->get_count_by_lid_uid($lid, $this->_system_uid);
             if ($count > 0) {
@@ -154,13 +157,14 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     public function broken_link()
     {
-        $broken_obj =& $this->_broken_handler->create();
+        $broken_obj = &$this->_broken_handler->create();
         $broken_obj->setVars($_POST);
         $broken_obj->setVar('sender', $this->_system_uid);
         $broken_obj->setVar('ip', $this->_remote_addr);
         $ret = $this->_broken_handler->insert($broken_obj);
         if (!$ret) {
             $this->_set_errors($this->_broken_handler->getErrors());
+
             return false;
         }
 
@@ -199,12 +203,12 @@ $url_singlelink = 'singlelink.php?lid=' . $lid;
 
 $check = $weblinks_brokenlink->check_access($lid);
 
-if ($check == -1) {
+if (-1 == $check) {
     redirect_header($url_singlelink, 3, _NOPERM);
     exit();
 }
 
-if ($check == -2) {
+if (-2 == $check) {
     redirect_header('index.php', 3, _WLS_ERRORNOLINK);
     exit();
 }
@@ -217,12 +221,12 @@ if ($submit) {
 
     $check = $weblinks_brokenlink->check_broken_link($lid);
 
-    if ($check == -11) {
+    if (-11 == $check) {
         redirect_header($url_singlelink, 3, _WLS_ALREADYREPORTED);
         exit();
     }
 
-    if ($check == -12) {
+    if (-12 == $check) {
         redirect_header($url_singlelink, 3, _WLS_ALREADYREPORTED);
         exit();
     }
@@ -233,7 +237,7 @@ if ($submit) {
         exit();
     }
 
-    $tags                      = array();
+    $tags                      = [];
     $tags['BROKENREPORTS_URL'] = WEBLINKS_URL . '/admin/broken_list.php';
     $notification_handler      = xoops_getHandler('notification');
     $notification_handler->triggerEvent('global', 0, 'link_broken', $tags);
@@ -266,5 +270,4 @@ if ($submit) {
     include_once XOOPS_ROOT_PATH . '/footer.php';
 }
 
-exit();// === main end ===
-;
+exit(); // === main end ===

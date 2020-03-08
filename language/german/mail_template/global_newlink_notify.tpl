@@ -7,7 +7,7 @@ Dieser kann hier angesehen werden:
 
 Linkinformation :
 Titel: {LINK_NAME}
-Beschreibung: 
+Beschreibung:
 {LINK_DESCRIPTION}
 
 -----------
@@ -21,6 +21,6 @@ Bitte antworten Sie nicht auf diese Nachricht.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

@@ -28,7 +28,7 @@
 
 include 'header.php';
 
-$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $com_itemid = 0;
@@ -43,5 +43,4 @@ if ($com_itemid > 0) {
     include XOOPS_ROOT_PATH . '/include/comment_new.php';
 }
 
-exit();// -----
-;
+exit(); // -----

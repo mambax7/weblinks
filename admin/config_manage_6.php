@@ -48,9 +48,10 @@ class admin_config_form_6 extends admin_config_form
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_config_form_6();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -78,9 +79,10 @@ class admin_config_form_6 extends admin_config_form
     public function webmap_init()
     {
         $ret = $this->_webmap_class->init_html();
-        if ($ret == 1) {
+        if (1 == $ret) {
             return true;
         }
+
         return false;
     }
 
@@ -94,7 +96,7 @@ class admin_config_form_6 extends admin_config_form
     //---------------------------------------------------------
     public function print_kml_list()
     {
-        $link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+        $link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
         $kml_perpage = isset($_GET['kml_perpage']) ? (int)$_GET['kml_perpage'] : WEBLINKS_C_KML_PERPAGE;
 
@@ -104,21 +106,21 @@ class admin_config_form_6 extends admin_config_form
         echo '<a name="gm_kml_debug"></a>' . "\n";
         echo '<h4>' . _WEBLINKS_GM_KML_DEBUG . '</h4>' . "\n";
         printf(_WLS_THEREARE, $total);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo '<form method="get">' . "\n";
         echo _WEBLINKS_KML_PERPAGE;
         echo ' <input type="text" name="kml_perpage" value="' . $kml_perpage . '" />' . "\n";
         echo ' <input type="submit" name="submit" value="' . _HAPPY_LINUX_EXECUTE . '" />' . "\n";
         echo '</form>' . "\n";
-        echo "<br />\n";
+        echo "<br>\n";
 
         for ($i = 1; $i <= $max_page; ++$i) {
             echo '<a href="build_kml.php?page=' . $i . '&amp;limit=' . $kml_perpage . '" target="_blank" >';
             echo '[page ' . $i . ']</a> ';
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     // --- class end ---
@@ -134,13 +136,13 @@ $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         xoops_error('Token Error');
-        echo "<br />\n";
+        echo "<br>\n";
         echo $config_form->get_token_error(1);
-        echo "<br />\n";
+        echo "<br>\n";
     } else {
         $ret = $config_store->save_config();
         if ($ret) {
@@ -151,13 +153,13 @@ if ($op == 'save') {
             echo $config_store->getErrors(1);
         }
     }
-} elseif ($op == 'renew') {
+} elseif ('renew' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         xoops_error('Token Error');
-        echo "<br />\n";
+        echo "<br>\n";
         echo $config_form->get_token_error(1);
-        echo "<br />\n";
+        echo "<br>\n";
     } else {
         $ret = $config_store->renew_config();
         if ($ret) {
@@ -177,7 +179,7 @@ echo $weblinks_header->build_module_header_submit();
 weblinks_admin_print_header();
 weblinks_admin_print_menu();
 $config_form->print_menu_6();
-echo "<br />\n";
+echo "<br>\n";
 $config_form->set_submit_value(_WEBLINKS_UPDATE);
 $config_form->init_form();
 
@@ -208,7 +210,7 @@ $config_form->show_form_country_code(_AM_WEBLINKS_CONF_LOCATE);
 echo '<a name="form_map"></a>' . "\n";
 echo '<h4>' . _AM_WEBLINKS_CONF_MAP . "</h4>\n";
 $config_form->show_by_catid(20, _AM_WEBLINKS_CONF_MAP);
-echo "<br />\n";
+echo "<br>\n";
 
 echo '<a name="form_google_seach"></a>' . "\n";
 echo '<h4>' . _AM_WEBLINKS_CONF_GOOGLE_SEARCH . "</h4>\n";
@@ -218,5 +220,4 @@ $config_form->print_kml_list();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

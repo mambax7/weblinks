@@ -54,7 +54,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_modify_handler')) {
-
     //=========================================================
     // class weblinks_modify_handler
     //=========================================================
@@ -79,10 +78,10 @@ if (!class_exists('weblinks_modify_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_modify_basic_handler = weblinks_get_handler('modify_basic', $dirname);
+            $this->_modify_basic_handler = weblinks_getHandler('modify_basic', $dirname);
 
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler           = weblinks_get_handler('config2_basic', $dirname);
+                $config_handler           = weblinks_getHandler('config2_basic', $dirname);
                 $conf                     = $config_handler->get_conf();
                 $this->_conf_link_num_etc = $conf['link_num_etc'];
             }
@@ -91,7 +90,7 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -103,9 +102,9 @@ if (!class_exists('weblinks_modify_handler')) {
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name = 'etc' . $i;
-                    $etc_val  = $obj->get($etc_name);
-                    $sql_etc_name .= $etc_name . ', ';
+                    $etc_name      = 'etc' . $i;
+                    $etc_val       = $obj->get($etc_name);
+                    $sql_etc_name  .= $etc_name . ', ';
                     $sql_etc_value .= $this->quote($etc_val) . ', ';
                 }
             }
@@ -312,7 +311,7 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -323,8 +322,8 @@ if (!class_exists('weblinks_modify_handler')) {
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name = 'etc' . $i;
-                    $etc_val  = $obj->get($etc_name);
+                    $etc_name    = 'etc' . $i;
+                    $etc_val     = $obj->get($etc_name);
                     $sql_etc_set .= $etc_name . '=' . $this->quote($etc_val) . ', ';
                 }
             }
@@ -455,7 +454,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $criteria->add(new criteria('mode', $mode, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -484,7 +484,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $criteria->add(new criteria('mode', $mode, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $list =& $this->getList($criteria);
+            $list = &$this->getList($criteria);
+
             return $list;
         }
 
@@ -508,10 +509,10 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         public function &get_field_name_etc_array()
         {
-            $arr_name = array();
+            $arr_name = [];
 
-            $arr_meta =& $this->get_field_meta_name_array();
-            if (!is_array($arr_meta) || (count($arr_meta) == 0)) {
+            $arr_meta = &$this->get_field_meta_name_array();
+            if (!is_array($arr_meta) || (0 == count($arr_meta))) {
                 return $arr_name;
             }
 
@@ -543,12 +544,13 @@ if (!class_exists('weblinks_modify_handler')) {
             // etci .. etcj
             for ($i = $start; $i <= $end; ++$i) {
                 $etc_name = 'etc' . $i;
-                $sql .= $etc_name . ' varchar(255) default NULL' . $comma;
+                $sql      .= $etc_name . ' varchar(255) default NULL' . $comma;
             }
 
             $sql .= ')';
 
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -572,6 +574,5 @@ if (!class_exists('weblinks_modify_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

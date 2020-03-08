@@ -54,8 +54,8 @@ $test->update_config_by_name('use_passwd', 0);
 $test->update_config_by_name('use_captcha', 0);
 $test->update_config_by_name('cat_path', 0);
 $test->update_config_by_name('cat_count', 0);
-$test->update_config_by_name_array('auth_submit', array(1));
-$test->update_config_by_name_array('auth_submit_auto', array(1));
+$test->update_config_by_name_array('auth_submit', [1]);
+$test->update_config_by_name_array('auth_submit_auto', [1]);
 
 $ret = $test->fetch($link_url);
 if (!$ret) {
@@ -65,8 +65,8 @@ if (!$ret) {
 if ($test->match_return_msg('not user')) {
     echo "<h4>Test OK !</h4>\n";
 } else {
-    echo "Error: test failed to fetch submit form <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: test failed to fetch submit form <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
@@ -76,19 +76,19 @@ if ($test->match_return_msg('not user')) {
 echo "<h4>scenario 2: permit</h4>\n";
 
 $test->update_config_by_name('use_passwd', 1);
-$test->update_config_by_name_array('auth_submit', array(1, 3));
+$test->update_config_by_name_array('auth_submit', [1, 3]);
 
 $title  = $test->get_randum_title();
 $passwd = xoops_makepass();
-$param  = array(
+$param  = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(9),
     'rss_flag' => 2,    // rss
     'passwd'   => $passwd,
-);
+];
 
-echo "passwd: $passwd <br />\n";
+echo "passwd: $passwd <br>\n";
 
 $ret = $test->user_submit_link($param);
 if (!$ret) {
@@ -97,10 +97,10 @@ if (!$ret) {
 
 if ($test->match_return_msg('submit request link')) {
     echo "<h4>Success !</h4>\n";
-    echo 'submit link: ' . $title . " <br /><br />\n";
+    echo 'submit link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: submit link form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: submit link form failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
@@ -110,19 +110,19 @@ if ($test->match_return_msg('submit request link')) {
 echo "<h4>scenario 3: permit and approve: </h4>\n";
 
 $test->update_config_by_name('cat_count', 1);
-$test->update_config_by_name_array('auth_submit_auto', array(1, 3));
+$test->update_config_by_name_array('auth_submit_auto', [1, 3]);
 
 $title  = $test->get_randum_title();
 $passwd = xoops_makepass();
-$param  = array(
+$param  = [
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(10),
     'rss_flag' => 2,    // rss
     'passwd'   => $passwd,
-);
+];
 
-echo "passwd: $passwd <br />\n";
+echo "passwd: $passwd <br>\n";
 
 $ret = $test->user_submit_link($param);
 if (!$ret) {
@@ -131,14 +131,13 @@ if (!$ret) {
 
 if ($test->match_return_msg('submit approve link')) {
     echo "<h4>Success !</h4>\n";
-    echo 'submit link: ' . $title . " <br /><br />\n";
+    echo 'submit link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: submit link form failed: <br /><hr />\n";
-    echo $test->get_body() . "<br /><br />\n";
+    echo "Error: submit link form failed: <br><hr>\n";
+    echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
 //---------------------------------------------------------
-echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br />\n";
-dev_footer();// --- end of main ---
-;
+echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
+dev_footer(); // --- end of main ---

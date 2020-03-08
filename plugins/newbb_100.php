@@ -13,7 +13,7 @@
 
 //=========================================================
 // WebLinks Module
-// for NewBB 1.00 <http://www.xoops.org/>
+// for NewBB 1.00 <https://xoops.org/>
 // 2007-02-20 K.OHWADA
 //=========================================================
 
@@ -29,7 +29,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         }
 
         $false = false;
-        $arr   = array();
+        $arr   = [];
 
         $sql = 'SELECT * FROM ' . $xoopsDB->prefix('bb_forums') . ' ORDER BY forum_id';
 
@@ -38,6 +38,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
@@ -60,7 +61,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
 
         $URL_MOD = XOOPS_URL . '/modules/newbb';
         $false   = false;
-        $arr     = array();
+        $arr     = [];
 
         // option parameter
         $forum_id_in  = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
@@ -70,7 +71,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         $post_start   = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
         $post_order   = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
 
-        if ($forum_id_in == 0) {
+        if (0 == $forum_id_in) {
             return $false;
         }
 
@@ -78,7 +79,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         $sql1 = 'SELECT * FROM ' . $xoopsDB->prefix('bb_forums');
 
         // BUG : not show when all forum
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql1 .= ' WHERE forum_id=' . (int)$forum_id_in;
         }
 
@@ -87,10 +88,11 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
-        $forum_title = array();
+        $forum_title = [];
         while ($row1 = $xoopsDB->fetchArray($res1)) {
             $forum_title[$row1['forum_id']] = $row1['forum_name'];
         }
@@ -99,7 +101,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         $arr['forum_id']    = 0;
         $arr['forum_title'] = '';
         $arr['forum_link']  = '';
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $arr['forum_id']    = $forum_id_in;
             $arr['forum_title'] = $forum_title[$forum_id_in];
             $arr['forum_link']  = $URL_MOD . '/viewforum.php?forum=' . $forum_id_in;
@@ -107,7 +109,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
 
         // latest topics
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bb_topics');
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_time ' . $post_order;
@@ -117,11 +119,12 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
         while ($row2 = $xoopsDB->fetchArray($res2)) {
-            $thread_arr = array();
+            $thread_arr = [];
             $forum_id   = $row2['forum_id'];
             $topic_id   = $row2['topic_id'];
 
@@ -151,7 +154,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
             }
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
-                $post_arr                = array();
+                $post_arr                = [];
                 $post_id                 = $row3['post_id'];
                 $post_arr['post_id']     = $post_id;
                 $post_arr['post_link']   = $topic_link . '&amp;post_id=' . $post_id . '#forumpost' . $post_id;
@@ -182,4 +185,3 @@ if (!function_exists('weblinks_plugin_forums_newbb_100')) {
         return $arr;
     }
 }// --- functions end ---
-;

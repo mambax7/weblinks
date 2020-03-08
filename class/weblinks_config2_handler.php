@@ -22,14 +22,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_config2_handler')) {
-
     //================================================================
     // class weblinks_config2
     // modify form system XoopsConfigItem
     //================================================================
     class weblinks_config2 extends happy_linux_config_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -46,7 +44,6 @@ if (!class_exists('weblinks_config2_handler')) {
     //=========================================================
     class weblinks_config2_handler extends happy_linux_config_base_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -60,6 +57,5 @@ if (!class_exists('weblinks_config2_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

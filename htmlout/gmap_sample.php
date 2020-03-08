@@ -83,7 +83,7 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
 
             $desc = '<a href="' . $url_s . '" ' . $target . '>';
             $desc .= '<b>' . $title_s . '</b>';
-            $desc .= '</a><br />';
+            $desc .= '</a><br>';
             $desc .= '<font size="-2">' . $summary . '</font>';
 
             $info = $desc;
@@ -99,6 +99,5 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

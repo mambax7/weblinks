@@ -14,14 +14,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_uk')) {
-
     //=========================================================
     // class weblinks_locate_uk
     // United Kingdom (UK)
     //=========================================================
     class weblinks_locate_uk extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -29,15 +27,14 @@ if (!class_exists('weblinks_locate_uk')) {
         {
             parent::__construct();
 
-            $arr = array(
-                'weblinks_map_template' => 'weblinks_uk_google.html'
-            );
+            $arr = [
+                'weblinks_map_template' => 'weblinks_uk_google.html',
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

@@ -7,6 +7,6 @@ You can view this link here:
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 وبمستر
 {X_ADMINMAIL}

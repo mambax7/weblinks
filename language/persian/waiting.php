@@ -14,4 +14,3 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', 'درخواست ویرایش');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'درخواست حذف');
 }// --- define language end ---
-;

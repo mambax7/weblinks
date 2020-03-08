@@ -9,93 +9,93 @@ Arkansas (AR)
 California (CA)
 > Sacramento
 Colorado (CO)
-> Denver 
+> Denver
 Connecticut (CT)
-> Hartford 
+> Hartford
 Delaware (DE)
-> Dover 
+> Dover
 Florida (FL)
-> Tallahassee 
+> Tallahassee
 Georgia (GA)
-> Atlanta 
+> Atlanta
 Hawaii (HI)
-> Honolulu 
+> Honolulu
 Idaho (ID)
-> Boise 
+> Boise
 Illinois (IL)
-> Springfield 
+> Springfield
 Indiana (IN)
-> Indianapolis 
+> Indianapolis
 Iowa (IA)
-> Des Moines 
+> Des Moines
 Kansas (KS)
-> Topeka 
+> Topeka
 Kentucky (KY)
-> Frankfort 
+> Frankfort
 Louisiana (LA)
-> Baton Rouge 
+> Baton Rouge
 Maine (ME)
-> Augusta 
+> Augusta
 Maryland (MD)
-> Annapolis 
+> Annapolis
 Massachusetts (MA)
-> Boston 
+> Boston
 Michigan (MI)
-> Lansing 
+> Lansing
 Minnesota (MN)
-> St.Paul 
+> St.Paul
 Mississippi (MS)
-> Jackson 
+> Jackson
 Missouri (MO)
-> Jefferson City 
+> Jefferson City
 Montana (MT)
-> Helena 
+> Helena
 Nebraska (NE)
-> Lincoln 
+> Lincoln
 Nevada (NV)
-> Carson City 
+> Carson City
 New Hampshire (NH)
-> Concord 
+> Concord
 New Jersey (NJ)
-> Trenton 
+> Trenton
 New Mexico (NM)
-> Santa Fe 
+> Santa Fe
 New York (NY)
 > Albany
 > New York City
 North Carolina (NC)
-> Raleigh 
+> Raleigh
 North Dakota (ND)
-> Bismarck 
+> Bismarck
 Ohio (OH)
-> Columbus 
+> Columbus
 Oklahoma (OK)
-> Oklahoma City 
+> Oklahoma City
 Oregon (OR)
-> Salem 
+> Salem
 Pennsylvania (PA)
-> Harrisburg 
+> Harrisburg
 Rhode Island (RI)
-> Providence 
+> Providence
 South Carolina (SC)
-> Columbia 
+> Columbia
 South Dakota (SD)
-> Pierre 
+> Pierre
 Tennessee (TN)
-> Nashville 
+> Nashville
 Texas (TX)
-> Austin 
+> Austin
 Utah (UT)
-> Salt Lake City 
+> Salt Lake City
 Vermont (VT)
-> Montpelier 
+> Montpelier
 Virginia (VA)
-> Richmond 
+> Richmond
 Washington (WA)
-> Olympia 
+> Olympia
 West Virginia (WV)
-> Charleston 
+> Charleston
 Wisconsin (WI)
-> Madison 
+> Madison
 Wyoming (WY)
-> Cheyenne 
+> Cheyenne

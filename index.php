@@ -67,8 +67,8 @@
 include 'header.php';
 include_once WEBLINKS_ROOT_PATH . '/api/waiting.php';
 
-$weblinks_view_handler = weblinks_get_handler('link_view', WEBLINKS_DIRNAME);
-$weblinks_rssc_handler = weblinks_get_handler('rssc_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
+$weblinks_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
 $weblinks_template     = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_header       = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_webmap       = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
@@ -94,7 +94,7 @@ $keyword_array = $weblinks_template->get_keyword_array();
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
 $show_gm  = false;
-$gm_param = array();
+$gm_param = [];
 
 //---------
 $conf['gm_use'] = 1;
@@ -103,22 +103,21 @@ if ($conf['gm_use']) {
     switch ($conf['index_gm_mode']) {
         case 1:
             $show_gm  = true;
-            $gm_param = array(
+            $gm_param = [
                 'gm_latitude'  => $conf['gm_latitude'],
                 'gm_longitude' => $conf['gm_longitude'],
                 'gm_zoom'      => $conf['gm_zoom'],
                 'gm_type'      => 0,
-            );
+            ];
             break;
-
         case 2:
             $show_gm  = true;
-            $gm_param = array(
+            $gm_param = [
                 'gm_latitude'  => $conf['index_gm_latitude'],
                 'gm_longitude' => $conf['index_gm_longitude'],
                 'gm_zoom'      => $conf['index_gm_zoom'],
                 'gm_type'      => 0,
-            );
+            ];
             break;
     }
 }
@@ -179,9 +178,9 @@ $webmap_func     = '';
 
 if ($conf_new_link) {
     if ($conf['index_mode_latest']) {
-        $link_list =& $weblinks_view_handler->get_link_list_create($conf_new_link);
+        $link_list = &$weblinks_view_handler->get_link_list_create($conf_new_link);
     } else {
-        $link_list =& $weblinks_view_handler->get_link_list_latest($conf_new_link);
+        $link_list = &$weblinks_view_handler->get_link_list_latest($conf_new_link);
     }
 
     if (is_array($link_list) && count($link_list)) {
@@ -285,5 +284,4 @@ $xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- main end ---
-;
+exit(); // --- main end ---

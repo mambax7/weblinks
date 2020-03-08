@@ -11,7 +11,7 @@
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('WEBLINKS_LANG_MP_LOADED', 1);
 
-    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '日本でのみ有効<br />日本地図とカテゴリの関連付けをする');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '日本でのみ有効<br>日本地図とカテゴリの関連付けをする');
     define('_AM_WEBLINKS_MAP_JP_LABEL', 'ラベル');
     define('_AM_WEBLINKS_MAP_JP_PREF', '地図上の県名');
     define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'トップページに日本地図を表示する');
@@ -65,4 +65,3 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_MIYAZAKI', '宮崎');
     define('_WEBLINKS_JP_OKINAWA', '沖縄');
 }// --- define language end ---
-;

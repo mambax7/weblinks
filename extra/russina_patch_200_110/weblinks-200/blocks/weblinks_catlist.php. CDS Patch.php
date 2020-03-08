@@ -16,12 +16,11 @@
 // ========================================================
 // FILE     ::  weblinks_catlist.php
 // AUTHOR   ::  Ryuji AMANO <info@ryus.biz>
-// WEB      ::  Ryu's Planning <http://ryus.biz/>
+// WEB      ::  Ryu's Planning <https://ryus.biz/>
 // ========================================================
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_catlist_show')) {
-
     //---------------------------------------------------------
     // $options
     // [0] module directory name (weblinks)
@@ -57,7 +56,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
         $mytree = new XoopsTree($table_category, 'cid', 'pid');
 
         $count   = 1;
-        $retVars = array();
+        $retVars = [];
 
         $MAX_BROKEN = 5;
 
@@ -84,7 +83,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
             $imgurl_myts = '';
             $width       = 0;
             $height      = 0;
-            if (($image_mode == 2) && ($max_width > 0) && $imgurl && ($imgurl != 'http://')) {
+            if ((2 == $image_mode) && ($max_width > 0) && $imgurl && ('https://' != $imgurl)) {
                 $imgurl_myts = htmlspecialchars($imgurl, ENT_QUOTES);
 
                 if (get_cfg_var('allow_url_fopen')) {
@@ -98,7 +97,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
                     }
                 }
 
-                if (($width == 0) && ($width_default > 0)) {
+                if ((0 == $width) && ($width_default > 0)) {
                     $width = $width_default;
                 }
             }
@@ -131,9 +130,9 @@ if (!function_exists('b_weblinks_catlist_show')) {
                 if ($subCategoriesCount > 0) {
                     $sql                 = 'SELECT cid,title FROM ' . $table_category . ' WHERE pid=' . $cid . ' ORDER BY orders ASC, cid ASC';
                     $subCategoreisResult = $xoopsDB->query($sql, $num_show, 0);
-                    $subcategories       = array();
+                    $subcategories       = [];
                     /* CDS Patch. Weblinks. 2.00. 9. BOF */
-                    $subcategories_list = array();
+                    $subcategories_list = [];
                     /* CDS Patch. Weblinks. 2.00. 9. EOF */
 
                     /* CDS Patch. Weblinks. 2.00. 9. BOF */
@@ -144,7 +143,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
                         $ch_title        = $myts->makeTboxData4Show($subCategory['title']);
                         $subcategories[] = "<a href='" . $WEBLINKS_URL . '/viewcat.php?cid=' . $ch_id . "'>" . $ch_title . '</a>';
                         /* CDS Patch. Weblinks. 2.00. 9. BOF */
-                        $subcategories_list[$i]          = array();
+                        $subcategories_list[$i]          = [];
                         $subcategories_list[$i]['id']    = $ch_id;
                         $subcategories_list[$i]['title'] = $ch_title;
                         ++$i;
@@ -162,7 +161,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
                 }
             }
 
-            $retVars['categories'][] = array(
+            $retVars['categories'][] = [
                 'id'                 => $cid,
                 'imgurl'             => $imgurl_myts,
                 'width'              => $width,
@@ -174,13 +173,14 @@ if (!function_exists('b_weblinks_catlist_show')) {
                 'totallink'          => $totallink,
                 'count'              => $count,
                 'title'              => $myts->makeTboxData4Show($title),
-            );
+            ];
 
             ++$count;
         }
 
         $retVars['dirname']    = $dirname;
         $retVars['image_mode'] = $image_mode;
+
         return $retVars;
     }
 
@@ -189,7 +189,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
     {
         $dirname = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        $image_mode_checked              = array('', '', '');
+        $image_mode_checked              = ['', '', ''];
         $image_mode_checked[$options[2]] = 'checked';
 
         $form = '<table><tr><td>';
@@ -219,6 +219,5 @@ if (!function_exists('b_weblinks_catlist_show')) {
 
         return $form;
     }
-
     // --- block function begin end ---
 }

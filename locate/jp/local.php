@@ -14,14 +14,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_jp')) {
-
     //=========================================================
     // class weblinks_locate_jp
     // Japan (JP)
     //=========================================================
     class weblinks_locate_jp extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -29,16 +27,15 @@ if (!class_exists('weblinks_locate_jp')) {
         {
             parent::__construct();
 
-            $arr = array(
-                'happy_linux_url'       => 'http://linux.ohwada.jp/',   // reset this value
+            $arr = [
+                'happy_linux_url'       => 'https://linux.ohwada.jp/',   // reset this value
                 'weblinks_map_template' => 'weblinks_jp_google.html',
-            );
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

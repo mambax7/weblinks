@@ -6,6 +6,6 @@ You can view this request here:
 {MODIFYREPORTS_URL}
 
 -----------
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

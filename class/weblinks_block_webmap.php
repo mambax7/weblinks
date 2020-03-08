@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_block_webmap')) {
-
     //=========================================================
     // class weblinks_block_webmap
     //=========================================================
@@ -32,8 +31,9 @@ if (!class_exists('weblinks_block_webmap')) {
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {
-                $singletons[$dirname] = new weblinks_block_webmap($dirname);
+                $singletons[$dirname] = new self($dirname);
             }
+
             return $singletons[$dirname];
         }
 
@@ -62,11 +62,10 @@ if (!class_exists('weblinks_block_webmap')) {
                 return false;
             }
 
-            if ($mode == 0) {
+            if (0 == $mode) {
                 return false;
-
                 // use config value
-            } elseif ($mode == 1) {
+            } elseif (1 == $mode) {
                 $latitude  = $conf['gm_latitude'];
                 $longitude = $conf['gm_longitude'];
                 $zoom      = $conf['gm_zoom'];
@@ -81,7 +80,7 @@ if (!class_exists('weblinks_block_webmap')) {
             $map_func    = $name . '_map_load';
             $style       = 'height:' . $style_height . 'px; ' . $this->_STYLE_DEFAULT;
 
-            $this->_map_class =& $this->get_map_class($webmap3_dirname);
+            $this->_map_class = &$this->get_map_class($webmap3_dirname);
             if (!is_object($this->_map_class)) {
                 return false;
             }
@@ -100,7 +99,7 @@ if (!class_exists('weblinks_block_webmap')) {
             $this->_map_class->assign_map_js_to_head();
             $this->_map_class->assign_gicon_array_to_head();
 
-            $markers = array();
+            $markers = [];
             if (is_array($links) && count($links)) {
                 foreach ($links as $link) {
                     if ($this->check_latlng_by_link($link)) {
@@ -117,26 +116,28 @@ if (!class_exists('weblinks_block_webmap')) {
             $m_param = $this->_map_class->build_markers($markers);
             $this->_map_class->fetch_markers_head($m_param);
 
-            $arr = array(
+            $arr = [
                 'show_webmap'   => $show_webmap,
                 'webmap_div_id' => $map_div_id,
                 'webmap_func'   => $map_func,
                 'webmap_style'  => $style,
-            );
+            ];
+
             return $arr;
         }
 
         public function check_webmap_dirname($dirname)
         {
-            if ($dirname == '') {
+            if ('' == $dirname) {
                 return false;
             }
-            if ($dirname == '-') {
+            if ('-' == $dirname) {
                 return false;
             }
-            if ($dirname == '---') {
+            if ('---' == $dirname) {
                 return false;
             }
+
             return true;
         }
 
@@ -155,7 +156,8 @@ if (!class_exists('weblinks_block_webmap')) {
                 return $false;
             }
 
-            $map_class =& webmap3_api_map::getSingleton($webmap_dirname);
+            $map_class = &webmap3_api_map::getSingleton($webmap_dirname);
+
             return $map_class;
         }
 
@@ -183,7 +185,7 @@ if (!class_exists('weblinks_block_webmap')) {
 
             $info = '<a href="' . $url . '" ' . $target . '>';
             $info .= '<span style="font-weight:bold">' . $title . '</span>';
-            $info .= '</a><br />';
+            $info .= '</a><br>';
             $info .= '<span style="font-size:80%">' . $summary . '</span>';
 
             if ($width > 0) {
@@ -208,12 +210,13 @@ if (!class_exists('weblinks_block_webmap')) {
             $lat = (int)($latitude * 1000000);
             $lng = (int)($longitude * 1000000);
 
-            if ($lat != 0) {
+            if (0 != $lat) {
                 return true;
             }
-            if ($lng != 0) {
+            if (0 != $lng) {
                 return true;
             }
+
             return false;
         }
 
@@ -224,6 +227,5 @@ if (!class_exists('weblinks_block_webmap')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

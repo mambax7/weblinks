@@ -80,7 +80,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_handler')) {
-
     //=========================================================
     // class weblinks_link_handler
     // NOT use other handler
@@ -113,8 +112,8 @@ if (!class_exists('weblinks_link_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $config_handler            = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_basic_handler = weblinks_get_handler('link_basic', $dirname);
+            $config_handler            = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_basic_handler = weblinks_getHandler('link_basic', $dirname);
 
             $conf = $config_handler->get_conf();
             if (is_array($conf) && (count($conf) > 0)) {
@@ -130,7 +129,7 @@ if (!class_exists('weblinks_link_handler')) {
         // insert
         // $flag_lid : for import from mylinks
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj, $flag_lid = false)
+        public function _build_insert_sql($obj, $flag_lid = false)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -149,9 +148,9 @@ if (!class_exists('weblinks_link_handler')) {
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name = 'etc' . $i;
-                    $etc_val  = $obj->get($etc_name);
-                    $sql_etc_name .= $etc_name . ', ';
+                    $etc_name      = 'etc' . $i;
+                    $etc_val       = $obj->get($etc_name);
+                    $sql_etc_name  .= $etc_name . ', ';
                     $sql_etc_value .= $this->quote($etc_val) . ', ';
                 }
             }
@@ -346,7 +345,7 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -357,8 +356,8 @@ if (!class_exists('weblinks_link_handler')) {
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
                 for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
-                    $etc_name = 'etc' . $i;
-                    $etc_val  = $obj->get($etc_name);
+                    $etc_name    = 'etc' . $i;
+                    $etc_val     = $obj->get($etc_name);
                     $sql_etc_set .= $etc_name . '=' . $this->quote($etc_val) . ', ';
                 }
             }
@@ -465,6 +464,7 @@ if (!class_exists('weblinks_link_handler')) {
         {
             $sql = 'UPDATE ' . $this->_table . ' SET broken = broken+1 WHERE lid=' . (int)$lid;
             $ret = $this->queryF($sql);
+
             return $ret;
         }
 
@@ -473,6 +473,7 @@ if (!class_exists('weblinks_link_handler')) {
         {
             $sql = 'UPDATE ' . $this->_table . " SET rss_xml = '' ";
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -485,7 +486,7 @@ if (!class_exists('weblinks_link_handler')) {
 
             $lid = (int)$lid;
 
-            $obj =& $this->get($lid);
+            $obj = &$this->get($lid);
             if (!is_object($obj)) {
                 return true;    // no action
             }
@@ -493,18 +494,20 @@ if (!class_exists('weblinks_link_handler')) {
             $obj->setVar('rating', $rating);
             $obj->setVar('votes', $votes);
             $ret = $this->update($obj);
+
             return $ret;
         }
 
         public function update_rssc_lid($lid, $rssc_lid)
         {
-            $obj =& $this->get($lid);
+            $obj = &$this->get($lid);
             if (!is_object($obj)) {
                 return true;    // no action
             }
 
             $obj->setVar('rssc_lid', $rssc_lid);
             $ret = $this->update($obj);
+
             return $ret;
         }
 
@@ -516,6 +519,7 @@ if (!class_exists('weblinks_link_handler')) {
             $obj = $this->get($lid);
             if (is_object($obj)) {
                 $ret = $this->delete($obj);
+
                 return $ret;
             }
 
@@ -530,6 +534,7 @@ if (!class_exists('weblinks_link_handler')) {
             $time  = time();
             $where = '( time_publish <> 0 AND time_publish > ' . $time . ' ) ';
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -538,6 +543,7 @@ if (!class_exists('weblinks_link_handler')) {
             $time  = time();
             $where = '( time_expire <> 0 AND time_expire < ' . $time . ' ) ';
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -545,6 +551,7 @@ if (!class_exists('weblinks_link_handler')) {
         {
             $where = "(usercomment <> '')";
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -558,15 +565,17 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('uid', $uid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
         // for admin user manage
         public function get_count_with_email()
         {
-            $sql = 'SELECT COUNT(DISTINCT mail) FROM ' . $this->_table . ' ';
-            $sql .= "WHERE mail <> '' ";
+            $sql   = 'SELECT COUNT(DISTINCT mail) FROM ' . $this->_table . ' ';
+            $sql   .= "WHERE mail <> '' ";
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
@@ -574,9 +583,10 @@ if (!class_exists('weblinks_link_handler')) {
         // for admin export to rssc
         public function get_count_rss_flag_prev_ver()
         {
-            $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' ';
-            $sql .= "WHERE ( rss_url != '' AND rss_flag != 0 AND broken < " . $this->_conf_broken . ' ) ';
+            $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' ';
+            $sql   .= "WHERE ( rss_url != '' AND rss_flag != 0 AND broken < " . $this->_conf_broken . ' ) ';
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
@@ -588,7 +598,8 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -598,7 +609,8 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('lid DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -607,7 +619,8 @@ if (!class_exists('weblinks_link_handler')) {
             // XOOPS 2.2.3 dont accept value = ''
             // BUG: dont work limit
             $where = "url = ''";
-            $objs  =& $this->get_objects_orderby_lid_by_where($where, $limit, $start);
+            $objs  = &$this->get_objects_orderby_lid_by_where($where, $limit, $start);
+
             return $objs;
         }
 
@@ -619,7 +632,8 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('broken DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -627,7 +641,8 @@ if (!class_exists('weblinks_link_handler')) {
         {
             // BUG: dont work limit
             $where = 'broken > 0';
-            $objs  =& $this->get_objects_orderby_lid_by_where($where, $limit, $start);
+            $objs  = &$this->get_objects_orderby_lid_by_where($where, $limit, $start);
+
             return $objs;
         }
 
@@ -637,14 +652,16 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('rssc_lid', 0, '<>'));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         public function &get_objects_rssc_lid($lid, $rssc_lid, $limit = 0, $start = 0)
         {
-            if ($rssc_lid == 0) {
+            if (0 == $rssc_lid) {
                 $false = false;
+
                 return $false;
             }
 
@@ -653,7 +670,8 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('rssc_lid', $rssc_lid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -662,7 +680,8 @@ if (!class_exists('weblinks_link_handler')) {
             // BUG: dont work limit
             $time  = time();
             $where = '( time_publish <> 0 AND time_publish > ' . $time . ' ) ';
-            $objs  =& $this->get_objects_orderby_lid_by_where($where, $limit, $start);
+            $objs  = &$this->get_objects_orderby_lid_by_where($where, $limit, $start);
+
             return $objs;
         }
 
@@ -671,7 +690,8 @@ if (!class_exists('weblinks_link_handler')) {
             // BUG: dont work limit
             $time  = time();
             $where = '( time_expire <> 0 AND time_expire < ' . $time . ' ) ';
-            $objs  =& $this->get_objects_orderby_lid_by_where($where, $limit, $start);
+            $objs  = &$this->get_objects_orderby_lid_by_where($where, $limit, $start);
+
             return $objs;
         }
 
@@ -682,14 +702,16 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->setSort('lid DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         public function &get_objects_orderby_lid_by_where($where, $limit = 0, $start = 0)
         {
             $sql  = 'SELECT * FROM ' . $this->_table . ' WHERE ' . $where . ' ORDER BY lid';
-            $objs =& $this->get_objects_by_sql($sql, $limit, $start);
+            $objs = &$this->get_objects_by_sql($sql, $limit, $start);
+
             return $objs;
         }
 
@@ -704,18 +726,20 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria->add(new criteria('uid', $uid, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         // for admin user manage
         public function &get_objects_with_email($limit = 0, $start = 0)
         {
-            $sql = 'SELECT * FROM ' . $this->_table . ' ';
-            $sql .= "WHERE mail <> '' ";
-            $sql .= 'GROUP BY mail ';
-            $sql .= 'ORDER BY lid';
-            $objs =& $this->get_objects_by_sql($sql, $limit, $start);
+            $sql  = 'SELECT * FROM ' . $this->_table . ' ';
+            $sql  .= "WHERE mail <> '' ";
+            $sql  .= 'GROUP BY mail ';
+            $sql  .= 'ORDER BY lid';
+            $objs = &$this->get_objects_by_sql($sql, $limit, $start);
+
             return $objs;
         }
 
@@ -723,10 +747,11 @@ if (!class_exists('weblinks_link_handler')) {
         // for admin export to rssc
         public function &get_objects_rss_flag_prev_ver($limit = 0, $start = 0)
         {
-            $sql = 'SELECT * FROM ' . $this->_table . ' ';
-            $sql .= "WHERE ( rss_url != '' AND rss_flag != 0 AND broken < " . $this->_conf_broken . ' ) ';
-            $sql .= 'ORDER BY lid';
-            $objs =& $this->get_objects_by_sql($sql, $limit, $start);
+            $sql  = 'SELECT * FROM ' . $this->_table . ' ';
+            $sql  .= "WHERE ( rss_url != '' AND rss_flag != 0 AND broken < " . $this->_conf_broken . ' ) ';
+            $sql  .= 'ORDER BY lid';
+            $objs = &$this->get_objects_by_sql($sql, $limit, $start);
+
             return $objs;
         }
 
@@ -738,7 +763,8 @@ if (!class_exists('weblinks_link_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', $title, '='));
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -747,7 +773,8 @@ if (!class_exists('weblinks_link_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', '%' . $title . '%', 'LIKE'));
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -762,7 +789,8 @@ if (!class_exists('weblinks_link_handler')) {
             $sql .= $this->build_sql_where_exclude();
             $sql .= "AND url <> '' ";
             $sql .= 'ORDER BY rand()';
-            $arr =& $this->get_first_rows_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_rows_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -774,7 +802,8 @@ if (!class_exists('weblinks_link_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $arr =& $this->getList($criteria);
+            $arr = &$this->getList($criteria);
+
             return $arr;
         }
 
@@ -784,11 +813,11 @@ if (!class_exists('weblinks_link_handler')) {
         // for admin user manage
         public function &get_lid_array_with_email($limit = 0, $start = 0)
         {
-            $user_list            = array();
-            $lid_array_with_email = array();
-            $email_store          = array();
+            $user_list            = [];
+            $lid_array_with_email = [];
+            $email_store          = [];
 
-            $objs =& $this->get_objects_all($limit, $start);
+            $objs = &$this->get_objects_all($limit, $start);
             foreach ($objs as $obj) {
                 $lid             = $obj->get('lid');
                 $user_list[$lid] = $obj->user_mail('n');
@@ -801,7 +830,7 @@ if (!class_exists('weblinks_link_handler')) {
                 }
 
                 if (in_array($email, $email_store)) {
-                    //          echo "omit $lid $email <br />\n";
+                    //          echo "omit $lid $email <br>\n";
                     continue;
                 }
 
@@ -817,10 +846,10 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         public function &get_field_name_etc_array()
         {
-            $arr_name = array();
+            $arr_name = [];
 
-            $arr_meta =& $this->get_field_meta_name_array();
-            if (!is_array($arr_meta) || (count($arr_meta) == 0)) {
+            $arr_meta = &$this->get_field_meta_name_array();
+            if (!is_array($arr_meta) || (0 == count($arr_meta))) {
                 return $arr_name;
             }
 
@@ -852,12 +881,13 @@ if (!class_exists('weblinks_link_handler')) {
             // etci .. etcj
             for ($i = $start; $i <= $end; ++$i) {
                 $etc_name = 'etc' . $i;
-                $sql .= $etc_name . ' varchar(255) default NULL' . $comma;
+                $sql      .= $etc_name . ' varchar(255) default NULL' . $comma;
             }
 
             $sql .= ')';
 
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -869,17 +899,17 @@ if (!class_exists('weblinks_link_handler')) {
             $lid_arr = $this->get_lid_array_by_title($title);
             $count   = count($lid_arr);
 
-            if (is_array($lid_arr) && ($count == 1)) {
+            if (is_array($lid_arr) && (1 == $count)) {
                 return $lid_arr[0];
             } elseif ($count > 1) {
                 return -2;  // too many
             }
 
-            if (!is_array($lid_arr) || ($count == 0)) {
-                $lid_arr2 =& $this->get_lid_array_by_title_like($title);
+            if (!is_array($lid_arr) || (0 == $count)) {
+                $lid_arr2 = &$this->get_lid_array_by_title_like($title);
                 $count2   = count($lid_arr2);
 
-                if (is_array($lid_arr2) && ($count2 == 1)) {
+                if (is_array($lid_arr2) && (1 == $count2)) {
                     return $lid_arr2[0];
                 } elseif ($count2 > 1) {
                     return -3;  // too many
@@ -891,9 +921,9 @@ if (!class_exists('weblinks_link_handler')) {
 
         public function get_lid_array_by_title($title)
         {
-            $lid_arr = array();
+            $lid_arr = [];
 
-            $objs =& $this->get_objects_by_title($title);
+            $objs = &$this->get_objects_by_title($title);
 
             if (count($objs) > 0) {
                 foreach ($objs as $obj) {
@@ -906,9 +936,9 @@ if (!class_exists('weblinks_link_handler')) {
 
         public function get_lid_array_by_title_like($title)
         {
-            $lid_arr = array();
+            $lid_arr = [];
 
-            $objs =& $this->get_objects_by_title_like($title);
+            $objs = &$this->get_objects_by_title_like($title);
 
             if (count($objs) > 0) {
                 foreach ($objs as $obj) {
@@ -959,6 +989,5 @@ if (!class_exists('weblinks_link_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

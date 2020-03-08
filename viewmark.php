@@ -70,22 +70,23 @@ class weblinks_viewmark
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_config_handler    = weblinks_get_handler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
+        $this->_config_handler    = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
         $this->_template          = weblinks_template::getInstance($dirname);
 
         $this->_class_keyword = happy_linux_keyword::getInstance();
         $this->_post          = happy_linux_post::getInstance();
 
-        $this->_conf =& $this->_config_handler->get_conf();
+        $this->_conf = &$this->_config_handler->get_conf();
     }
 
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_viewmark($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -113,13 +114,13 @@ class weblinks_viewmark
             $show_links = true;
             $links      = $this->_get_links($total, $mark, $keywords_urlencoded);
 
-            if ($mark == 'gmap') {
+            if ('gmap' == $mark) {
                 $show_kml_list = true;
                 $kml_list      = $this->_get_kml_list($total, $kml_perpage);
             }
         }
 
-        $arr = array(
+        $arr = [
             'lang_title'    => $title,
             'lang_thereare' => $thereare,
             'mark'          => $mark,
@@ -130,7 +131,7 @@ class weblinks_viewmark
             'show_mark'     => $show_mark,
             'show_links'    => $show_links,
             'show_kml_list' => $show_kml_list,
-        );
+        ];
 
         return $arr;
     }
@@ -144,16 +145,13 @@ class weblinks_viewmark
             case 'rss':
                 $title = $this->_conf['lang_site_rss'];
                 break;
-
             case 'gmap':
                 $title = $this->_conf['lang_site_gmap'];
                 break;
-
             case 'mutual':
                 $title     = $this->_conf['lang_site_mutual'];
                 $show_mark = true;
                 break;
-
             case 'recommend':
             default:
                 $mark      = 'recommend';
@@ -161,7 +159,7 @@ class weblinks_viewmark
                 $show_mark = true;
         }
 
-        return array($mark, $show_mark, $title);
+        return [$mark, $show_mark, $title];
     }
 
     public function _get_links($total, $mark, $keywords)
@@ -180,7 +178,7 @@ class weblinks_viewmark
         $sort  = $pagenavi->get_sort();
 
         // link list
-        $link_list =& $this->_link_view_handler->get_link_by_mark_sort($mark, $sort, $this->_conf['perpage'], $start);
+        $link_list = &$this->_link_view_handler->get_link_by_mark_sort($mark, $sort, $this->_conf['perpage'], $start);
 
         if ($this->_conf['view_style_mark']) {
             $links_full = $this->_template->fetch_links_full($link_list);
@@ -201,7 +199,7 @@ class weblinks_viewmark
     {
         $max_page = $this->_link_view_handler->get_gmap_kml_page($total, $perpage);
 
-        $kml_list = array();
+        $kml_list = [];
         for ($i = 1; $i <= $max_page; ++$i) {
             $kml_list[]['page'] = $i;
         }
@@ -261,5 +259,4 @@ $xoopsTpl->assign('kml_perpage', $arr['kml_perpage']);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- main end ---
-;
+exit(); // --- main end ---

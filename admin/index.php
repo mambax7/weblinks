@@ -78,9 +78,9 @@ $install     = weblinks_install::getInstance(WEBLINKS_DIRNAME);
 $op = $install->get_post_op();
 
 // email linkbroken_notify
-if ($op == 'listBrokenLinks') {
+if ('listBrokenLinks' == $op) {
     redirect_header('broken_list.php', 1, _WLS_BROKENREPORTS);
-} elseif ($op == 'init') {
+} elseif ('init' == $op) {
     if (!$admin_menu->check_token()) {
         xoops_cp_header();
         $admin_menu->print_xoops_token_error();
@@ -94,7 +94,7 @@ if ($op == 'listBrokenLinks') {
             echo $install->get_message();
         }
     }
-} elseif ($op == 'upgrade') {
+} elseif ('upgrade' == $op) {
     if (!$admin_menu->check_token()) {
         xoops_cp_header();
         $admin_menu->print_xoops_token_error();
@@ -121,8 +121,8 @@ if (!$install->check_install()) {
 } else {
     if (!is_writable($DIR_CONFIG)) {
         xoops_error(_HAPPY_LINUX_AM_DIR_NOT_WRITABLE);
-        echo "<br />\n";
-        echo $DIR_CONFIG . "<br /><br />\n";
+        echo "<br>\n";
+        echo $DIR_CONFIG . "<br><br>\n";
     }
 
     weblinks_admin_print_menu();
@@ -133,7 +133,7 @@ if (!$install->check_install()) {
     echo $class_info->build_check_dir_work();
 
     echo '<h4>' . _AM_WEBLINKS_DEBUG_CONF . "</h4>\n";
-    $debug_arr = array(
+    $debug_arr = [
         'WEBLINKS_DEBUG_ERROR',
         'WEBLINKS_DEBUG_CONFIG2_SQL',
         'WEBLINKS_DEBUG_LINKITEM_SQL',
@@ -153,7 +153,7 @@ if (!$install->check_install()) {
         'WEBLINKS_DEBUG_TIME',
         'WEBLINKS_DEV_PERMIT',
         'WEBLINKS_DEV_PERMIT_GUEST',
-    );
+    ];
 
     $class_debug->print_constant_by_array($debug_arr, _AM_WEBLINKS_ALL_GREEN);
 }
@@ -162,5 +162,4 @@ echo $class_info->build_check_memory_limit($MEMORY_WEBLINKS_REQUIRE);
 weblinks_admin_print_footer();
 echo $admin_menu->build_powerdby();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

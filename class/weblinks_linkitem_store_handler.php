@@ -27,7 +27,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_linkitem_store_handler')) {
-
     //=========================================================
     // class weblinks_linkitem_form
     //=========================================================
@@ -42,15 +41,15 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         {
             parent::__construct();
 
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
             $this->set_form_name('weblinks_linkitem');
         }
 
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_linkitem_form($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
 
             return $instance;
@@ -75,11 +74,11 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             echo $this->build_form_table_begin();
             echo $this->make_table3_title($form_title);
 
-            $options = array(
+            $options = [
                 _WEBLINKS_NO_USE        => 0,
                 _WEBLINKS_USE           => 1,
                 _WEBLINKS_INDISPENSABLE => 2,
-            );
+            ];
 
             // list from config array
             foreach ($linkitem_arr as $item_id => $linkitem) {
@@ -89,7 +88,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                 $user_mode = $linkitem['user_mode'];
                 $desc      = $linkitem['description'];
 
-                if ($conf_form == 0) {
+                if (0 == $conf_form) {
                     continue;
                 }
 
@@ -97,10 +96,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                 $name_d .= $this->build_html_input_hidden('item_ids[]', $item_id);
 
                 $ele1 = $this->build_html_input_text("title[$item_id]", $title, $SIZE);
-                $ele1 .= "<br />\n";
+                $ele1 .= "<br>\n";
                 $ele1 .= $this->build_html_textarea("description[$item_id]", $desc, $ROWS, $COLS);
 
-                if ($conf_form == 2) {
+                if (2 == $conf_form) {
                     $ele2 = $this->get_option_name($user_mode, $options);
                 } else {
                     $ele2 = $this->build_html_input_radio_select("user_mode[$item_id]", $user_mode, $options);
@@ -114,7 +113,6 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             echo $this->make_table3_submit($button);
             echo $this->build_form_table_end();
             echo $this->build_form_end();
-
             // form end
         }
 
@@ -124,6 +122,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         public function make_table3_title($title)
         {
             $text = $this->build_form_table_title($title, 3);
+
             return $text;
         }
 
@@ -134,6 +133,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             $text .= $this->build_form_td_class($ele1, 'odd');
             $text .= $this->build_form_td_class($ele2, 'odd');
             $text .= "</tr>\n";
+
             return $text;
         }
 
@@ -146,6 +146,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             $text .= $this->build_html_td_tag_end();
 
             $text .= "</tr>\n";
+
             return $text;
         }
 
@@ -179,8 +180,8 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         {
             parent::__construct();
 
-            $this->_handler        = weblinks_get_handler('linkitem', $dirname);
-            $this->_define_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_handler        = weblinks_getHandler('linkitem', $dirname);
+            $this->_define_handler = weblinks_getHandler('linkitem_define', $dirname);
             $this->_define         = weblinks_linkitem_define::getInstance($dirname);
 
             $this->_post = happy_linux_post::getInstance();
@@ -214,7 +215,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                     $description = $def['description'];
                 }
 
-                $obj =& $this->_handler->create();
+                $obj = &$this->_handler->create();
                 $obj->setVar('item_id', $item_id);
                 $obj->setVar('name', $name);
                 $obj->setVar('title', $title);
@@ -244,7 +245,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
 
             // list from Define
             foreach ($define_arr as $item_id => $def) {
-                $obj =& $this->_handler->get_by_itemid($item_id);
+                $obj = &$this->_handler->get_by_itemid($item_id);
                 if (is_object($obj)) {
                     continue;
                 }
@@ -267,7 +268,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                     $description = $def['description'];
                 }
 
-                $obj =& $this->_handler->create();
+                $obj = &$this->_handler->create();
                 $obj->setVar('item_id', $item_id);
                 $obj->setVar('name', $name);
                 $obj->setVar('title', $title);
@@ -306,7 +307,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             for ($i = 0; $i < $count; ++$i) {
                 $itemid = $itemid_arr[$i];
 
-                $obj =& $this->_handler->get_by_itemid($itemid);
+                $obj = &$this->_handler->get_by_itemid($itemid);
                 if (!is_object($obj)) {
                     continue;
                 }
@@ -358,12 +359,14 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         public function existsTable()
         {
             $ret = $this->_handler->existsTable();
+
             return $ret;
         }
 
         public function getCount()
         {
             $count = $this->_handler->getCount();
+
             return $count;
         }
 
@@ -394,6 +397,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             if (is_array($arr) && count($arr)) {
                 return true;
             }
+
             return false;
         }
 
@@ -403,12 +407,14 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         public function check_version_140()
         {
             $ret = $this->_handler->check_version_140();
+
             return $ret;
         }
 
         public function add_column_table_140()
         {
             $ret = $this->_handler->add_column_table_140();
+
             return $ret;
         }
 
@@ -422,6 +428,5 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

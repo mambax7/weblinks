@@ -85,5 +85,5 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
 include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 
 // config init
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();

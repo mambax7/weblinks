@@ -11,7 +11,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_vote_del_handler')) {
-
     //=========================================================
     // class weblinks_link_vote_del
     //=========================================================
@@ -35,11 +34,11 @@ if (!class_exists('weblinks_link_vote_del_handler')) {
 
             parent::__construct();
 
-            $this->_link_handler     = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler  = weblinks_get_handler('catlink', $dirname);
-            $this->_modify_handler   = weblinks_get_handler('modify', $dirname);
-            $this->_votedata_handler = weblinks_get_handler('votedata', $dirname);
-            $this->_broken_handler   = weblinks_get_handler('broken', $dirname);
+            $this->_link_handler     = weblinks_getHandler('link', $dirname);
+            $this->_catlink_handler  = weblinks_getHandler('catlink', $dirname);
+            $this->_modify_handler   = weblinks_getHandler('modify', $dirname);
+            $this->_votedata_handler = weblinks_getHandler('votedata', $dirname);
+            $this->_broken_handler   = weblinks_getHandler('broken', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
         }
@@ -95,6 +94,5 @@ if (!class_exists('weblinks_link_vote_del_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

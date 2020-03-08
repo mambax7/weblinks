@@ -27,19 +27,20 @@ $WEBLINKS_DIRNAME      = basename(dirname(__DIR__));
 $WEBLINKS_RSSC_DIRNAME = 'rssc';
 
 // --- eval begin ---
-eval('
+eval(
+    '
 
 function ' . $WEBLINKS_DIRNAME . '_view_blog($lid=0, $num_feed=10, $num_content=1, $max_summary=200)
 {
     return weblinks_view_blog_base( "' . $WEBLINKS_DIRNAME . '" ,$lid, $num_feed, $num_content, $max_summary);
 }
 
-');
+'
+);
 // --- eval end ---
 
 // --- weblinks_view_blog_base begin ---
 if (!function_exists('weblinks_view_blog_base')) {
-
     // happy linux files
     include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/local.php';
     include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/search.php';
@@ -128,37 +129,41 @@ if (!function_exists('weblinks_view_blog_base')) {
         $module         = $module_handler->getByDirname($WEBLINKS_RSSC_DIRNAME);
         if (!is_object($module)) {
             echo '<span style="color: #ff0000;">' . 'rssc not installed' . "</span>\n";
+
             return;
         }
 
-        if ($lid == 0) {
+        if (0 == $lid) {
             echo '<span style="color: #ff0000;">' . _MB_WEBLINKS_NO_LINK_ID . "</span>\n";
+
             return;
         }
 
-        $link_handler = weblinks_get_handler('link', $DIRNAME);
+        $link_handler = weblinks_getHandler('link', $DIRNAME);
 
-        $obj =& $link_handler->get($lid);
+        $obj = &$link_handler->get($lid);
         if (!is_object($obj)) {
             echo '<span style="color: #ff0000;">' . _MB_WEBLINKS_NO_ATOMFEED . "</span>\n";
+
             return;
         }
 
         $rssc_lid = $obj->get('rssc_lid');
         if (!$rssc_lid) {
             echo '<span style="color: #ff0000;">' . _MB_WEBLINKS_NO_ATOMFEED . "</span>\n";
+
             return;
         }
 
-        $options = array(
+        $options = [
             'num_feed'    => 10,
             'num_content' => 1,
             'max_summary' => 200,
-        );
+        ];
 
         echo rssc_view_blog_base($WEBLINKS_RSSC_DIRNAME, $rssc_lid, $options);
 
-        //  $collect = weblinks_get_handler( 'rss_atom_collect', $dirname );
+        //  $collect = weblinks_getHandler( 'rss_atom_collect', $dirname );
         //      $collect->set_num_feed(     $num_feed );
         //      $collect->set_max_summary(  $max_summary );
         //      $collect->set_mode_content( 1 );
@@ -184,13 +189,13 @@ if (!function_exists('weblinks_view_blog_base')) {
         //              {
         //                      echo "(${feed['date']})&nbsp;";
         //              }
-        //              echo "<br />\n";
+        //              echo "<br>\n";
         //              if ($i < $num_content)
         //              {
         //                  if ( $feed['content'] )
         //                  {
         //  //                      echo $feed['content'];
-        //                          echo "<br />\n";
+        //                          echo "<br>\n";
         //                      }
         //                  }
         //                  else
@@ -198,15 +203,14 @@ if (!function_exists('weblinks_view_blog_base')) {
         //                  if ( $feed['summary'] )
         //                  {
         //                          echo $feed['summary'];
-        //                          echo "<br />\n";
+        //                          echo "<br>\n";
         //                      }
         //              }
-        //              echo "<br />\n";
+        //              echo "<br>\n";
         //              echo "</li>\n";
         //          }
         //      }
         //  }
     }
-
     // --- weblinks_view_blog_base end ---
 }

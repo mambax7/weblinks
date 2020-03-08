@@ -78,7 +78,7 @@ class weblinks_search extends happy_linux_search
     public $_link_where;
     public $_feed_where;
     public $_start   = 0;
-    public $_cid_arr = array();
+    public $_cid_arr = [];
 
     public $_orderby = 'time_update DESC';
 
@@ -91,9 +91,9 @@ class weblinks_search extends happy_linux_search
         $this->set_lang_zenkaku(_HAPPY_LINUX_ZENKAKU);
         $this->set_lang_hankaku(_HAPPY_LINUX_HANKAKU);
 
-        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
-        $this->_rssc_handler      = weblinks_get_handler('rssc_view', $dirname);
-        $config_handler           = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+        $this->_rssc_handler      = weblinks_getHandler('rssc_view', $dirname);
+        $config_handler           = weblinks_getHandler('config2_basic', $dirname);
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
@@ -105,9 +105,10 @@ class weblinks_search extends happy_linux_search
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_search($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -133,18 +134,21 @@ class weblinks_search extends happy_linux_search
     public function get_post_get_mark()
     {
         $this->_post_mark = $this->_post->get_post_get_text('mark');
+
         return $this->_post_mark;
     }
 
     public function get_post_get_cid()
     {
         $this->_post_cid = $this->_post->get_post_get_int('cid');
+
         return $this->_post_cid;
     }
 
     public function get_post_get_subcat()
     {
         $this->_post_subcat = $this->_post->get_post_get_int('subcat');
+
         return $this->_post_subcat;
     }
 
@@ -168,7 +172,6 @@ class weblinks_search extends happy_linux_search
                 $this->_build_sql_search($this->_sql_query_array, null, $this->_sql_andor);
                 $this->_link_query_array = $this->_sql_query_array;
                 break;
-
             case HAPPY_LINUX_SEARCH_CODE_SQL_CAN:
                 $this->_build_sql_search($this->_query_array, $this->_candidate_keyword_array, $this->_mode_andor);
                 $this->_link_query_array = $this->_query_array;
@@ -176,6 +179,7 @@ class weblinks_search extends happy_linux_search
         }
 
         $this->_total = $this->_get_link_count();
+
         return $this->_total;
     }
 
@@ -195,7 +199,7 @@ class weblinks_search extends happy_linux_search
 
         // BUG: not show catpath in search
         $this->_link_view_handler->init();
-        $link_list =& $this->_get_link_list($search_links, $start);
+        $link_list = &$this->_get_link_list($search_links, $start);
 
         // next page
         if ($this->_total > $search_links) {
@@ -203,7 +207,7 @@ class weblinks_search extends happy_linux_search
             $navi   = $this->_pagenavi->build($script);
         }
 
-        return array($link_list, $navi);
+        return [$link_list, $navi];
     }
 
     public function _build_script()
@@ -222,6 +226,7 @@ class weblinks_search extends happy_linux_search
         if ($this->_post_subcat) {
             $script .= '&amp;subcat=' . $this->_post_subcat;
         }
+
         return $script;
     }
 
@@ -263,9 +268,9 @@ class weblinks_search extends happy_linux_search
     {
         if ($this->_post_cid) {
             if ($this->_post_subcat) {
-                $this->_cid_arr =& $this->_link_view_handler->get_cid_array_patent_children($this->_post_cid);
+                $this->_cid_arr = &$this->_link_view_handler->get_cid_array_patent_children($this->_post_cid);
             } else {
-                $this->_cid_arr = array($this->_post_cid);
+                $this->_cid_arr = [$this->_post_cid];
             }
 
             $total = $this->_link_view_handler->get_link_count_by_cid_array_where($this->_cid_arr, $this->_link_where);
@@ -279,9 +284,9 @@ class weblinks_search extends happy_linux_search
     public function &_get_link_list($limit, $start)
     {
         if ($this->_post_cid) {
-            $link_list =& $this->_link_view_handler->get_link_list_by_cid_array_where_orderby($this->_cid_arr, $this->_link_where, $this->_orderby, $limit, $start);
+            $link_list = &$this->_link_view_handler->get_link_list_by_cid_array_where_orderby($this->_cid_arr, $this->_link_where, $this->_orderby, $limit, $start);
         } else {
-            $link_list =& $this->_link_view_handler->get_link_list_by_where($this->_link_where, $limit, $start);
+            $link_list = &$this->_link_view_handler->get_link_list_by_where($this->_link_where, $limit, $start);
         }
 
         return $link_list;
@@ -293,6 +298,7 @@ class weblinks_search extends happy_linux_search
     public function get_feed_count()
     {
         $count = $this->_rssc_handler->get_feed_count_by_where($this->_feed_where);
+
         return $count;
     }
 
@@ -300,7 +306,8 @@ class weblinks_search extends happy_linux_search
     {
         $this->_rssc_handler->set_feed_max_summary($this->_conf['rss_max_summary']);
 
-        $feeds =& $this->_rssc_handler->get_feeds_by_where($this->_feed_where, $this->_sql_query_array, $this->_conf['search_links'], $this->_start);
+        $feeds = &$this->_rssc_handler->get_feeds_by_where($this->_feed_where, $this->_sql_query_array, $this->_conf['search_links'], $this->_start);
+
         return $feeds;
     }
 
@@ -358,7 +365,7 @@ $weblinks_template->assignSearch($show_mark, $show_cat, $show_br1, $show_br2);
 
 $xoopsTpl->assign('lang_atomfeed', _WLS_ATOMFEED);
 
-if ($action == 'search') {
+if ('search' == $action) {
     $xoopsTpl->assign('search_show', 0);
     $xoopsTpl->assign('search_not_show_result', '');
 
@@ -368,7 +375,7 @@ if ($action == 'search') {
 
 // if no query
 // REQ 2933: easy to understand error message
-if ($query == '') {
+if ('' == $query) {
     $xoopsTpl->assign('search_show', 0);
     $xoopsTpl->assign('search_not_show_result', _SR_PLZENTER);
 
@@ -437,7 +444,7 @@ if (WEBLINKS_RSSC_USE) {
     if ($count > 0) {
         $feed_show  = 1;
         $feed_found = sprintf(_SR_FOUND, $count);
-        $feeds      =& $weblinks_search->get_feeds();
+        $feeds      = &$weblinks_search->get_feeds();
 
         foreach ($feeds as $feed) {
             $xoopsTpl->append('feeds', $feed);
@@ -455,5 +462,4 @@ $xoopsTpl->assign('feed_reason', $feed_reason);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- main end ---
-;
+exit(); // --- main end ---

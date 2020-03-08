@@ -35,7 +35,7 @@ if (isset($_POST['op'])) {
     $op = $_POST['op'];
 }
 
-if ($op != 'excute') {
+if ('excute' != $op) {
     print_form_start();
     xoops_cp_footer();
     exit();
@@ -73,20 +73,16 @@ exit();
 
 function print_form_start()
 {
-    $action = xoops_getenv('PHP_SELF');
-
-    ?>
+    $action = xoops_getenv('PHP_SELF'); ?>
     <h4><font color='blue'>Warnig</font></h4>
-    Excute only once, after update. <br/>
-    This program overwrite MySQL tables. <br/>
-    <br/>
-    <form action='<?php echo $action;
-    ?>' method='post'>
+    Excute only once, after update. <br>
+    This program overwrite MySQL tables. <br>
+    <br>
+    <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='excute'>
         <input type='submit' value='EXCUTE'>
     </form>
     <?php
-
 }
 
 function sql_exec($sql)
@@ -94,7 +90,7 @@ function sql_exec($sql)
     global $xoopsDB;
 
     $ret = $xoopsDB->queryF($sql);
-    if ($ret != false) {
+    if (false !== $ret) {
         return $ret;
     }
 
@@ -160,11 +156,10 @@ CREATE TABLE $table_config (
   cat_img_mode   tinyint(2) unsigned NOT NULL default '0',
   cat_img_width  int(10) unsigned NOT NULL default '0',
   cat_img_height int(10) unsigned NOT NULL default '0'
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
-    $sql2 =
-        "INSERT INTO $table_config VALUES ('&1&', '&1&', '&1&', '&1&', '&1&2&3&', 1, 1, 1, 0, 0, 0, 24, 1000, 10, 10, 1, 1000, 200, '', '', '', 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 4, 5, 1, 150, 100)";
+    $sql2 = "INSERT INTO $table_config VALUES ('&1&', '&1&', '&1&', '&1&', '&1&2&3&', 1, 1, 1, 0, 0, 0, 24, 1000, 10, 10, 1, 1000, 200, '', '', '', 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 4, 5, 1, 150, 100)";
 
     sql_exec($sql1);
     sql_exec($sql2);
@@ -192,7 +187,7 @@ CREATE TABLE $table_atomfeed (
   PRIMARY KEY  (aid),
   KEY url (url),
   KEY modified (time_modified)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
     sql_exec($sql);

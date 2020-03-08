@@ -41,7 +41,7 @@ class admin_broken_list extends happy_linux_page_frame
         $this->set_submit_colspan(0, 2, 5);
         $this->set_lang_submit_value(_DELETE);
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
         $this->_system = happy_linux_system::getInstance();
     }
@@ -49,9 +49,10 @@ class admin_broken_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_broken_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -60,7 +61,7 @@ class admin_broken_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             $this->build_form_js_checkall(),
             'bid',
             _WLS_LINKID,
@@ -68,7 +69,7 @@ class admin_broken_list extends happy_linux_page_frame
             _WLS_REPORTER,
             _WLS_IP,
             _WLS_LINKSUBMITTER,
-        );
+        ];
 
         return $arr;
     }
@@ -89,7 +90,7 @@ class admin_broken_list extends happy_linux_page_frame
         $url_s           = '';
         $uid             = '';
 
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $flag_link_exist = true;
             $title_s         = $link_obj->getVar('title', 's');
@@ -122,7 +123,7 @@ class admin_broken_list extends happy_linux_page_frame
             $owner = '<a href="mailto:' . $owneremail . '">' . $owner . '</a>';
         }
 
-        $arr = array(
+        $arr = [
             $checkbox,
             $link_broken,
             $link_link,
@@ -130,7 +131,7 @@ class admin_broken_list extends happy_linux_page_frame
             $sender,
             $ip,
             $owner,
-        );
+        ];
 
         return $arr;
     }
@@ -150,5 +151,4 @@ $list->_show();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

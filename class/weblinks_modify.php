@@ -43,13 +43,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_modify')) {
-
     //=========================================================
     // class weblinks_modify
     //=========================================================
     class weblinks_modify extends weblinks_link_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -160,6 +158,7 @@ if (!class_exists('weblinks_modify')) {
         public function &cid_array()
         {
             $arr = unserialize($this->get('cids'));
+
             return $arr;
         }
 
@@ -187,7 +186,7 @@ if (!class_exists('weblinks_modify')) {
             parent::__construct();
 
             $this->_link_validate           = weblinks_link_validate::getInstance($dirname);
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
         }
 
         //---------------------------------------------------------
@@ -198,11 +197,12 @@ if (!class_exists('weblinks_modify')) {
         public function assign_add_object(&$post, $mode = 0)
         {
             // delete
-            if ($mode == 2) {
+            if (2 == $mode) {
                 $this->set('mode', $mode);
                 $this->set('muid', $this->_xoops_uid);
                 $this->setVar('notify', $post['notify']);
                 $this->setVar('usercomment', $post['reason']);
+
                 return;
             }
 
@@ -250,12 +250,11 @@ if (!class_exists('weblinks_modify')) {
             $this->set_object_with_validater();
 
             // cid array
-            $cid_arr =& $this->get_cid_array_form_post($post);
+            $cid_arr = &$this->get_cid_array_form_post($post);
             $this->set_cids_by_cid_array($cid_arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

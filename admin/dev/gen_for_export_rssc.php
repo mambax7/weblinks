@@ -18,7 +18,6 @@ include_once 'dev_header.php';
 //=========================================================
 class weblinks_genarate_rssc extends weblinks_gen_record
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -34,18 +33,19 @@ class weblinks_genarate_rssc extends weblinks_gen_record
     {
         echo "<h4>generete rssc link table</h4>\n";
 
-        if ($MAX_LINK == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_LINK) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $title = $this->get_randum_title();
             $newid = $this->insert_rssc_link($title);
 
-            $num = rand(1, 10);
+            $num = mt_rand(1, 10);
             for ($j = 1; $j < $num; ++$j) {
                 $this->insert_rssc_feed($newid, $title);
             }
@@ -56,27 +56,28 @@ class weblinks_genarate_rssc extends weblinks_gen_record
     {
         echo "<h4>generete link table</h4>\n";
 
-        if ($MAX_LINK == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_LINK) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $site_title = $this->get_randum_title();
-            $rss_url    = "http://$site_title/rss.xml";
+            $rss_url    = "https://$site_title/rss.xml";
             $rss_flag   = 1;
 
             $newid = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
 
-            $catnum = rand(1, 3);
+            $catnum = mt_rand(1, 3);
             for ($j = 0; $j < $catnum; ++$j) {
-                $cid = rand(1, $MAX_CAT);
+                $cid = mt_rand(1, $MAX_CAT);
                 $this->insert_catlink($cid, $newid);
             }
 
-            $num = rand(1, 10);
+            $num = mt_rand(1, 10);
             for ($j = 0; $j < $num; ++$j) {
                 $this->insert_atomfeed($newid, $site_title);
             }
@@ -87,25 +88,26 @@ class weblinks_genarate_rssc extends weblinks_gen_record
     {
         echo "<h4>generete link table and rssc link table</h4>\n";
 
-        if ($MAX_LINK == 0) {
-            echo "skip <br />\n";
+        if (0 == $MAX_LINK) {
+            echo "skip <br>\n";
+
             return;
         }
 
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             $site_title = $this->get_randum_title();
-            $rss_url    = "http://$site_title/rss.xml";
+            $rss_url    = "https://$site_title/rss.xml";
             $rss_flag   = 1;
             $mode       = 2;
 
             $newid        = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
             $new_rssc_lid = $this->insert_rssc_link($site_title, $mode, $rss_url);
 
-            $catnum = rand(1, 3);
+            $catnum = mt_rand(1, 3);
             for ($j = 0; $j < $catnum; ++$j) {
-                $cid = rand(1, $MAX_CAT);
+                $cid = mt_rand(1, $MAX_CAT);
                 $this->insert_catlink($cid, $newid);
             }
 
@@ -125,7 +127,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             }
 
             // for each
-            $num = rand(1, 5);
+            $num = mt_rand(1, 5);
             for ($j = 0; $j < $num; ++$j) {
                 $this->insert_atomfeed($newid, $site_title);
                 $this->insert_rssc_feed($new_rssc_lid, $site_title);
@@ -135,16 +137,16 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
     public function insert_atomfeed($lid, $site_title, $title = '', $time_created = 0)
     {
-        if ($title == '') {
+        if ('' == $title) {
             $title = $this->get_randum_title();
         }
 
-        if ($time_created == 0) {
+        if (0 == $time_created) {
             $time_created = $this->get_randum_time();
         }
 
-        $site_url      = "http://$site_title/";
-        $url           = "http://$title/";
+        $site_url      = "https://$site_title/";
+        $url           = "https://$title/";
         $time_issued   = $time_created;
         $time_modified = $time_created;
 
@@ -202,16 +204,16 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $rdf_url  = '';
         $atom_url = '';
 
-        if ($mode == 0) {
-            $mode     = rand(1, 3);
-            $rdf_url  = "http://$title/rdf.xml";
-            $rss_url  = "http://$title/rss.xml";
-            $atom_url = "http://$title/atom.xml";
+        if (0 == $mode) {
+            $mode     = mt_rand(1, 3);
+            $rdf_url  = "https://$title/rdf.xml";
+            $rss_url  = "https://$title/rss.xml";
+            $atom_url = "https://$title/atom.xml";
         }
 
-        $url          = "http://$title/";
-        $ltype        = rand(0, 1);
-        $headline     = rand(0, 10);
+        $url          = "https://$title/";
+        $ltype        = mt_rand(0, 1);
+        $headline     = mt_rand(0, 10);
         $updated_unix = $this->get_randum_time();
 
         $uid        = 1;    // admin
@@ -279,6 +281,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         $this->query($sql);
         $newid = $this->getInsertId();
+
         return $newid;
     }
 
@@ -287,16 +290,16 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         global $RSSC_DIRNAME;
         $rssc_feed_table = $this->db_prefix($RSSC_DIRNAME . '_feed');
 
-        if ($title == '') {
+        if ('' == $title) {
             $title = $this->get_randum_title();
         }
 
-        if ($updated_unix == 0) {
+        if (0 == $updated_unix) {
             $updated_unix = $this->get_randum_time();
         }
 
-        $site_link      = "http://$site_title/";
-        $link           = "http://$title/";
+        $site_link      = "https://$site_title/";
+        $link           = "https://$title/";
         $published_unix = $updated_unix;
 
         $content = "$title\n $updated_unix\n";
@@ -428,5 +431,4 @@ $genarete->gen_link_without_rssc_link($MAX_RSSC_LINK, $MAX_CAT);
 $genarete->gen_link_with_rssc_link($MAX_RSSC_LINK, $MAX_CAT);
 
 echo '<h3>end</h3>';
-dev_footer();// =====
-;
+dev_footer(); // =====

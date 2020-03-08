@@ -19,7 +19,7 @@
 if (!function_exists('weblinks_plugin_forum_sel')) {
     function &weblinks_plugin_forum_sel()
     {
-        $sel = array();
+        $sel = [];
 
         $sel[1]['name']        = 'newbb_100';
         $sel[1]['dirname']     = 'newbb';
@@ -44,4 +44,3 @@ if (!function_exists('weblinks_plugin_forum_sel')) {
         return $sel;
     }
 }// --- functions end ---
-;

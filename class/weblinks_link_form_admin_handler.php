@@ -58,7 +58,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_form_admin_handler')) {
-
     //=========================================================
     // class weblinks_link_form_admin_handler
     //=========================================================
@@ -89,7 +88,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->_flag_url_visit     = 1;
             $this->_mode_banner_size   = 0;
 
-            $this->_conf_dhtml_option = array(
+            $this->_conf_dhtml_option = [
                 'dohtml'    => true,
                 'dosmiley'  => true,
                 'doxcode'   => true,
@@ -100,7 +99,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 'doxcode1'  => true,
                 'doimage1'  => true,
                 'dobr1'     => true,
-            );
+            ];
 
             // print header
             echo $this->_header->build_module_header_submit();
@@ -119,12 +118,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
 
             // webmap
             $ret = $this->_webmap_class->init_form();
-            if ($ret == 1) {
+            if (1 == $ret) {
                 $this->_flag_webmap = true;
                 $this->_webmap_class->set_lid($id);
                 $this->_webmap_class->set_display_url();
                 echo $this->_webmap_class->get_form_js(false);
-            } elseif ($ret == -1) {
+            } elseif (-1 == $ret) {
                 xoops_error($this->_webmap_class->get_init_error());
             }
 
@@ -161,7 +160,6 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $flag_broken    = true;
                     $flag_label     = true;
                     break;
-
                 case  WEBLINKS_OP_APPROVE_NEW:  // approve_new
                 case 'approve_preview':
                     $form_title   = _WLS_MODREQUESTS;
@@ -170,7 +168,6 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $button_name  = 'refuse_new';
                     $button_value = _WLS_IGNORE;
                     break;
-
                 case 'submit':
                 case 'submit_preview':
                 default:
@@ -185,52 +182,51 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             switch ($form_mode) {
                 case 'modify':
                     $lid      = (int)$id;
-                    $edit_obj =& $this->get_edit($lid);
+                    $edit_obj = &$this->get_edit($lid);
                     if (!is_object($edit_obj)) {
-                        echo "no link record lid=$lid <br />\n";
+                        echo "no link record lid=$lid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_modify($lid);
                     break;
-
                 case  WEBLINKS_OP_APPROVE_NEW:  // approve_new
                     $mid      = (int)$id;
-                    $edit_obj =& $this->get_edit_modify($mid);
+                    $edit_obj = &$this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
-                        echo "no modify record mid=$mid <br />\n";
+                        echo "no modify record mid=$mid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_approve();
                     break;
-
                 case 'submit_preview':
-                    $edit_obj =& $this->create_edit();
+                    $edit_obj = &$this->create_edit();
                     $edit_obj->build_admin_submit_preview();
                     break;
-
                 case 'modify_preview':
                     $lid      = $this->_post->get_post_int('lid');
-                    $edit_obj =& $this->get_edit($lid);
+                    $edit_obj = &$this->get_edit($lid);
                     if (!is_object($edit_obj)) {
-                        echo "no link record lid=$lid <br />\n";
+                        echo "no link record lid=$lid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_modify_preview();
                     break;
-
                 case 'approve_preview':
                     $mid      = $this->_post->get_post_int('mid');
-                    $edit_obj =& $this->get_edit_modify($mid);
+                    $edit_obj = &$this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
-                        echo "no modify record mid=$mid <br />\n";
+                        echo "no modify record mid=$mid <br>\n";
+
                         return false;
                     }
                     $edit_obj->build_admin_approve_preview();
                     break;
-
                 case 'submit':
                 default:
-                    $edit_obj =& $this->create_edit();
+                    $edit_obj = &$this->create_edit();
                     $edit_obj->build_admin_submit();
                     break;
             }
@@ -245,7 +241,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $cid_arr = $this->get_obj_var('cid_arr');
                     if (!is_array($cid_arr) || !count($cid_arr)) {
                         xoops_error('No Category');
-                        echo "<br />\n";
+                        echo "<br>\n";
                     }
                     break;
             }
@@ -255,7 +251,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 case 'modify_preview':
                     $url   = '../singlelink.php?lid=' . $lid;
                     $title = $this->get_obj_var('title');
-                    echo '<a href="' . $url . '">' . _WEBLINKS_GOTO_SINGLELINK . ': ' . $title . "</a><br /><br />\n";
+                    echo '<a href="' . $url . '">' . _WEBLINKS_GOTO_SINGLELINK . ': ' . $title . "</a><br><br>\n";
                     break;
             }
 
@@ -266,144 +262,112 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     case 'break_line':
                         $this->add_break_line_by_id($id);
                         break;
-
                     case 'hidden':
                         $this->add_hidden_by_id($id);
                         break;
-
                     case 'label':
                         if ($flag_label) {
                             $this->add_label_by_id($id);
                         }
                         break;
-
                     case 'label_float':
                         if ($flag_label) {
                             $this->add_label_float_by_id($id);
                         }
                         break;
-
                     case 'text':
                         $this->add_text_by_id($id);
                         break;
-
                     case 'textarea':
                     case 'admincomment':
                         $this->add_textarea_by_id($id);
                         break;
-
                     case 'dhtml':
                         $this->add_dhtml_by_id($id);
                         break;
-
                     case 'url':
                         $this->add_url_by_id($id);
                         break;
-
                     case 'radio':
                         $this->add_radio_by_id($id);
                         break;
-
                     case 'checkbox':
                         $this->add_checkbox_by_id($id);
                         break;
-
                     case 'yesno':
                         $this->add_yesno_by_id($id);
                         break;
-
                     case 'mid':
                         $this->add_admin_id($id);
                         break;
-
                     case 'lid':
                         $this->add_admin_id($id);
                         break;
-
                     case 'uid':
                         $this->add_admin_uid($id);
                         break;
-
                     case 'label_time':
                         $this->add_admin_label_time($id);
                         break;
-
                     case 'time_update':
                         $this->add_admin_time_update($id);
                         break;
-
                     case 'time_publish':
                         $this->add_time_publish($id);
                         break;
-
                     case 'time_expire':
                         $this->add_time_expire($id);
                         break;
-
                     case 'cat':
                         $this->add_cat_by_id($id);
                         break;
-
                     case 'broken':
                         if ($flag_broken) {
                             $this->add_admin_broken($id);
                         }
                         break;
-
                     case 'banner':
                         $this->add_admin_banner($id);
                         break;
-
                     case 'banner_size':
                         $this->add_admin_banner_size($id);
                         break;
-
                     case 'rss_url':
                         $this->add_rss_url_by_id($id);
                         break;
-
                     case 'name':
                         $this->add_name_by_id($id);
                         break;
-
                     case 'mail':
                         $this->add_mail_by_id($id);
                         break;
-
                     case 'passwd':
                         $this->add_admin_passwd($id);
                         break;
-
                     // rssc
                     case 'rssc_lid':
                         if (WEBLINKS_RSSC_USE) {
                             $this->add_admin_rssc_lid($id);
                         }
                         break;
-
                     // google map
                     case 'gm_latitude':
                         $this->add_gm_latitude_by_id($id);
                         break;
-
                     case 'gm_icon':
                         $this->add_gm_icon_by_id($id);
                         break;
-
                     case 'gm_kml':
                         $this->add_admin_gm_kml($id);
                         break;
-
                     // forum_id
                     case 'forum_id':
                         $this->add_admin_forum_id($id);
                         break;
-
                     // album_id
                     case 'album_id':
                         $this->add_admin_album_id($id);
                         break;
-
                     case 'notify':
                     case 'none':
                     default:
@@ -428,7 +392,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // get cache
         //---------------------------------------------------------
-        public function set_saved_obj(&$obj)
+        public function set_saved_obj($obj)
         {
             $this->_saved_obj = $obj;
         }
@@ -436,6 +400,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         public function get_saved_obj_var($key, $format = 's')
         {
             $val = $this->_saved_obj->getVar($key, $format);
+
             return $val;
         }
 
@@ -458,7 +423,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 $value    = $this->get_obj_var($name);
             }
 
-            return array($cap, $name, $value, $opt, $form, $mode);
+            return [$cap, $name, $value, $opt, $form, $mode];
         }
 
         public function get_saved_param($id)
@@ -480,7 +445,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 $value    = $this->get_saved_obj_var($name);
             }
 
-            return array($cap, $name, $value, $opt, $form, $mode);
+            return [$cap, $name, $value, $opt, $form, $mode];
         }
 
         //---------------------------------------------------------
@@ -531,8 +496,8 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 $name2 = 'time_update_flag_update';
                 $val2  = $this->get_obj_var($name2);
                 $text  = formatTimestamp($value, 'l');
-                $text .= "<br />\n";
-                $text .= $this->build_html_input_radio_select($name2, $val2, $opt);
+                $text  .= "<br>\n";
+                $text  .= $this->build_html_input_radio_select($name2, $val2, $opt);
             }
             $this->add_buff($cap, $text);
         }
@@ -546,7 +511,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $lid          = $this->get_obj_var('lid');
             $broken_count = $this->_broken_handler->get_count_by_lid($lid);
             if ($broken_count) {
-                $text .= "<br />\n";
+                $text .= "<br>\n";
                 $text .= $this->build_html_highlight(' Broken Report');
             }
 
@@ -562,7 +527,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $text   = $this->build_edit_url_with_visit($name, $value, $this->URL_SIZE, $this->URL_MAX);
 
             if ($value) {
-                $text .= "<br />\n";
+                $text .= "<br>\n";
                 $text .= $this->build_html_img_tag($value, $width, $height, 0, 'banner');
             }
 
@@ -584,10 +549,9 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
 
             $text = '';
 
-            if (($this->get_obj_var('gm_latitude') != 0)
-                || ($this->get_obj_var('gm_longitude') != 0)
-                || ($this->get_obj_var('gm_zoom') != 0)
-            ) {
+            if ((0 != $this->get_obj_var('gm_latitude'))
+                || (0 != $this->get_obj_var('gm_longitude'))
+                || (0 != $this->get_obj_var('gm_zoom'))) {
                 $lid   = $this->get_obj_var('lid');
                 $url   = $this->_WEBLINKS_URL . '/admin/build_kml.php?lid=' . $lid;
                 $title = $this->_get_define_by_itemid($id, 'title');
@@ -611,7 +575,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     if ($value) {
                         $url   = WEBLINKS_RSSC_URL . '/admin/link_manage.php?op=mod_form&lid=' . $value;
                         $name2 = _RSSC_GOTO_RSSC_ADMIN_LINK;
-                        $text1 .= '<br />' . $this->build_html_a_href_name($url, $name2);
+                        $text1 .= '<br>' . $this->build_html_a_href_name($url, $name2);
                     }
                     $this->add_buff($cap1, $text1);
 
@@ -620,7 +584,6 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $text2 = $this->build_form_radio_yesno($name2, $this->get_obj_var($name2));
                     $this->add_buff($cap2, $text2);
                     break;
-
                 case 'submit':
                 case 'submit_preview':
                 default:
@@ -672,12 +635,10 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                 case 'modify_preview':
                     $this->add_passwd_mod_1($id);
                     break;
-
                 case  WEBLINKS_OP_APPROVE_NEW:  // approve_new
                 case 'approve_preview':
                     $this->add_admin_passwd_approve($id);
                     break;
-
                 case 'submit':
                 case 'submit_preview':
                 default:
@@ -713,7 +674,6 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $op         = 'mod_banner';
                     $url_cancel = 'link_list.php';
                     break;
-
                 case 'add_banner':
                 case 'add_banner_preview':
                 default:
@@ -723,7 +683,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     break;
             }
 
-            $obj =& $this->create_edit();
+            $obj = &$this->create_edit();
             $obj->build_admin_submit_preview();
 
             $this->set_obj($obj);
@@ -752,7 +712,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $ele_banner = $this->build_edit_url_with_visit('banner', $banner, $this->URL_SIZE, $this->URL_MAX);
 
             if ($banner) {
-                $ele_banner .= "<br /><br />\n";
+                $ele_banner .= "<br><br>\n";
                 $ele_banner .= $this->build_html_img_tag($banner, $width, $height, 0, 'banner');
             }
 
@@ -779,7 +739,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         {
             $url_cancel = 'link_list.php';
 
-            $obj =& $this->create_edit();
+            $obj = &$this->create_edit();
             $obj->build_admin_submit_preview();
 
             $this->set_obj($obj);
@@ -827,7 +787,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             echo $this->build_form_table_begin();
             echo $this->build_form_table_title(_AM_WEBLINKS_CLONE_MODULE);
 
-            $module_opts =& $this->_get_weblinks_module_list();
+            $module_opts = &$this->_get_weblinks_module_list();
             if (is_array($module_opts) && count($module_opts)) {
                 $ele = $this->build_html_select('dirname', 0, $module_opts);
             } else {
@@ -850,31 +810,30 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $action = xoops_getenv('PHP_SELF');
             list($name, $val) = $this->get_token();
 
-            $hiddens = array(
+            $hiddens = [
                 'op'   => 'clone_module_from',
                 'from' => $this->_system->get_mid(),
                 'lid'  => $lid,
                 $name  => $val,
-            );
+            ];
 
             xoops_confirm($hiddens, $action, _AM_WEBLINKS_CLONE_CONFIRM, _YES, false);
         }
 
         public function &_get_weblinks_module_list()
         {
-            $param = array(
+            $param = [
                 'dirname_except' => $this->_DIRNAME,
                 'file'           => 'include/weblinks_version.php',
-            );
+            ];
 
-            $modules  =& $this->_system->get_module_list($param);
-            $dirnames =& $this->_system->get_dirname_list($modules, $param);
+            $modules  = &$this->_system->get_module_list($param);
+            $dirnames = &$this->_system->get_dirname_list($modules, $param);
 
             return $dirnames;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

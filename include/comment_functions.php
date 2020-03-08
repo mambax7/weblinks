@@ -24,14 +24,16 @@ $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
 
 // --- eval begin ---
-eval('
+eval(
+    '
 
 function ' . $WEBLINKS_DIRNAME . '_com_update( $lid, $comments )
 {
     return weblinks_com_update_base( "' . $WEBLINKS_DIRNAME . '" , $lid, $comments ) ;
 }
 
-');
+'
+);
 // --- eval end ---
 
 // === weblinks_com_update_base begin ===
@@ -51,6 +53,5 @@ if (!function_exists('weblinks_com_update_base')) {
     {
         // notification mail here
     }
-
     // === weblinks_com_update_base end ===
 }

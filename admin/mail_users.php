@@ -71,7 +71,7 @@ class admin_mail_users
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
         $this->_form = admin_mail_form::getInstance();
         $this->_form->set_max_user($this->_MAX_USER);
@@ -84,9 +84,10 @@ class admin_mail_users
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_mail_users();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -101,6 +102,7 @@ class admin_mail_users
     public function _get_post_start()
     {
         $this->_start = $this->_post->get_post_int('start');
+
         return $this->_start;
     }
 
@@ -110,6 +112,7 @@ class admin_mail_users
         if ($total > ($this->_start + $this->_MAX_USER)) {
             $end = $this->_start + $this->_MAX_USER;
         }
+
         return $end;
     }
 
@@ -123,17 +126,17 @@ class admin_mail_users
 
         if (!isset($_POST['user_list']) || !is_array($_POST['user_list'])) {
             $this->_print_error_no_email();
+
             return;
         }
 
         $user_list = $_POST['user_list'];
 
-        $added    = array();
-        $added_id = array();
+        $added    = [];
+        $added_id = [];
 
         foreach ($user_list as $uid) {
             if (!in_array($uid, $added_id)) {
-
                 // Assigning the return value of new by reference is deprecated
                 $added[] = new XoopsUser($uid);
 
@@ -145,21 +148,21 @@ class admin_mail_users
         $start = $this->_get_post_start();
         $end   = $this->_calc_end($total);
 
-        $param = array(
+        $param = [
             'from_name'  => $this->_post->get_post_text('from_name'),
             'from_email' => $this->_post->get_post_text('from_email'),
             'subject'    => $this->_post->get_post_text('subject'),
             'body'       => $this->_post->get_post_text('body'),
-        );
+        ];
 
         printf(_WEBLINKS_THERE_ARE_EMAIL, $total);
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($total > 0) {
             printf(_WEBLINKS_SEND_NUM, $start + 1, $end);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
 
-            $users = array();
+            $users = [];
             for ($i = $start; $i < $end; ++$i) {
                 $users[] = $added[$i];
             }
@@ -196,6 +199,7 @@ class admin_mail_users
 
         if (!isset($_POST['user_list']) || !is_array($_POST['user_list'])) {
             $this->_print_error_no_email();
+
             return;
         }
 
@@ -209,34 +213,34 @@ class admin_mail_users
         $start = $this->_get_post_start();
         $end   = $this->_calc_end($total);
 
-        $param = array(
+        $param = [
             'from_name'  => $this->_post->get_post_text('from_name'),
             'from_email' => $this->_post->get_post_text('from_email'),
             'subject'    => $this->_post->get_post_text('subject'),
             'body'       => $this->_post->get_post_text('body'),
             'debug'      => true,
-        );
+        ];
 
         printf(_WEBLINKS_THERE_ARE_EMAIL, $total);
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($total > 0) {
             printf(_WEBLINKS_SEND_NUM, $start + 1, $end);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
 
             // send each user
             for ($i = $start; $i < $end; ++$i) {
                 $lid = (int)$user_list[$i];
-                $obj =& $this->_link_handler->get($lid);
+                $obj = &$this->_link_handler->get($lid);
 
                 $user_name = $obj->user_name('n');
                 $user_mail = $obj->user_mail('n');
 
-                $tags = array(
+                $tags = [
                     'W_LID'   => $lid,
                     'W_NAME'  => $user_name,
                     'W_EMAIL' => $user_mail,
-                );
+                ];
 
                 $param['to_emails'] = $user_mail;
                 $param['tags']      = $tags;
@@ -269,6 +273,7 @@ class admin_mail_users
         if (empty($to_email)) {
             $this->_print_error_no_email();
             $this->print_form_email();
+
             return;
         }
 
@@ -289,6 +294,7 @@ class admin_mail_users
     {
         if (!isset($_POST['memberslist_id']) || !is_array($_POST['memberslist_id'])) {
             $this->_print_error_no_email();
+
             return;
         }
 
@@ -299,6 +305,7 @@ class admin_mail_users
     {
         if (!isset($_POST['memberslist_id']) || !is_array($_POST['memberslist_id'])) {
             $this->_print_error_no_email();
+
             return;
         }
 
@@ -312,22 +319,23 @@ class admin_mail_users
 
     public function print_bread()
     {
-        $arr = array(
-            array(
+        $arr = [
+            [
                 'name' => $this->_system->get_module_name(),
                 'url'  => 'index.php',
-            ),
-            array(
+            ],
+            [
                 'name' => _WEBLINKS_ADMIN_SENDMAIL,
                 'url'  => 'mail_users.php',
-            ),
-        );
+            ],
+        ];
         echo $this->_form->build_html_bread_crumb($arr);
     }
 
     public function check_token()
     {
         $ret = $this->_form->check_token();
+
         return $ret;
     }
 
@@ -348,15 +356,16 @@ class admin_mail_form extends happy_linux_mail_form
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_mail_form();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -367,22 +376,22 @@ class admin_mail_form extends happy_linux_mail_form
     {
         $subject_caption = $this->build_mail_caption($this->_LANG_SUBJECT, $this->_LANG_MAILTAGS, _WEBLINKS_MAIL_TAGS1);
 
-        $desc2 = _WEBLINKS_MAIL_TAGS1 . "<br />\n";
-        $desc2 .= _WEBLINKS_MAIL_TAGS2 . "<br />\n";
-        $desc2 .= _WEBLINKS_MAIL_TAGS3 . "<br />\n";
+        $desc2 = _WEBLINKS_MAIL_TAGS1 . "<br>\n";
+        $desc2 .= _WEBLINKS_MAIL_TAGS2 . "<br>\n";
+        $desc2 .= _WEBLINKS_MAIL_TAGS3 . "<br>\n";
 
         $body_caption = $this->build_mail_caption($this->_LANG_BODY, $this->_LANG_MAILTAGS, $desc2);
 
         list($user_list, $users_label) = $this->get_post_memberslist_link();
 
-        $param = array(
+        $param = [
             'op'              => 'send_link',
             'user_list'       => $user_list,
             'users_label'     => $users_label,
             'subject_caption' => $subject_caption,
             'body_caption'    => $body_caption,
             'body'            => $this->get_body('{W_NAME}'),
-        );
+        ];
 
         $this->print_form($param);
     }
@@ -390,14 +399,14 @@ class admin_mail_form extends happy_linux_mail_form
     public function get_post_memberslist_link()
     {
         if (isset($_POST['memberslist_id']) && is_array($_POST['memberslist_id'])) {
-            $user_list     =& $_POST['memberslist_id'];
+            $user_list     = &$_POST['memberslist_id'];
             $link_count    = count($user_list);
             $display_names = '';
 
             for ($i = 0; $i < $link_count; ++$i) {
                 $lid = (int)$user_list[$i];
 
-                $obj         =& $this->_link_handler->get($lid);
+                $obj         = &$this->_link_handler->get($lid);
                 $user_name_s = $obj->user_name('s');
                 $user_mail_s = $obj->user_mail('s');
 
@@ -412,10 +421,10 @@ class admin_mail_form extends happy_linux_mail_form
                 $display_names .= $name_d . ', ';
             }
 
-            $users_label = substr($display_names, 0, -2);
+            $users_label = mb_substr($display_names, 0, -2);
         }
 
-        return array($user_list, $users_label);
+        return [$user_list, $users_label];
     }
 
     // --- class end ---
@@ -428,14 +437,14 @@ $mail_users = admin_mail_users::getInstance();
 
 $op = $mail_users->get_post_op();
 
-if ($op == 'form_user') {
+if ('form_user' == $op) {
     xoops_cp_header();
     weblinks_admin_print_header();
     weblinks_admin_print_menu();
     echo '<h4>' . _WEBLINKS_ADMIN_SENDMAIL . "</h4>\n";
 
     $mail_users->print_form_user();
-} elseif ($op == 'send_user') {
+} elseif ('send_user' == $op) {
     if (!$mail_users->check_token()) {
         redirect_header('mail_users.php', 5, 'Token Error');
         exit();
@@ -443,14 +452,14 @@ if ($op == 'form_user') {
 
     xoops_cp_header();
     $mail_users->send_user();
-} elseif ($op == 'form_link') {
+} elseif ('form_link' == $op) {
     xoops_cp_header();
     weblinks_admin_print_header();
     weblinks_admin_print_menu();
     echo '<h4>' . _WEBLINKS_ADMIN_SENDMAIL . "</h4>\n";
 
     $mail_users->print_form_link();
-} elseif ($op == 'send_link') {
+} elseif ('send_link' == $op) {
     if (!$mail_users->check_token()) {
         redirect_header('user_list.php', 5, 'Token Error');
         exit();
@@ -458,7 +467,7 @@ if ($op == 'form_user') {
 
     xoops_cp_header();
     $mail_users->send_link();
-} elseif ($op == 'send_email') {
+} elseif ('send_email' == $op) {
     if (!$mail_users->check_token()) {
         xoops_cp_header();
         weblinks_admin_print_header();
@@ -478,7 +487,7 @@ if ($op == 'form_user') {
 }
 
 weblinks_admin_print_footer();
-echo "<br />\n";
+echo "<br>\n";
 echo "<a href='index.php'>" . _WEBLINKS_ADMIN_GOTO_ADMIN_INDEX . "</a></br />\n";
 
 xoops_cp_footer();

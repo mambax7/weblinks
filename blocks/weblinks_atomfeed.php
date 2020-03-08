@@ -24,7 +24,6 @@ include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_atom_show')) {
-
     //---------------------------------------------------------
     // $options
     // [0] module directory name (weblinks)
@@ -59,7 +58,7 @@ if (!function_exists('b_weblinks_atom_show')) {
         $rss_dirname = $conf['rss_dirname'];
         $rss_use     = $conf['rss_use'];
 
-        $block              = array();
+        $block              = [];
         $block['lang_more'] = _MB_WEBLINKS_MORE;
         $block['dirname']   = $DIRNAME;
 
@@ -69,12 +68,14 @@ if (!function_exists('b_weblinks_atom_show')) {
         if (!is_object($module)) {
             $block['feed_show']  = 0;
             $block['lang_error'] = 'rssc not installed';
+
             return $block;
         }
 
         if (!$rss_use) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
@@ -105,9 +106,10 @@ if (!function_exists('b_weblinks_atom_show')) {
         $num = $xoopsDB->getRowsNum($res);
 
         // no atomfeed
-        if ($num == 0) {
+        if (0 == $num) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
@@ -119,17 +121,17 @@ if (!function_exists('b_weblinks_atom_show')) {
             $content       = $row['content'];
             $time_modified = $row['updated_unix'];
 
-            $feed = array();
+            $feed = [];
 
             // site_title
-            if (strlen($site_title) > $max_title) {
+            if (mb_strlen($site_title) > $max_title) {
                 $site_title = happy_linux_mb_build_summary($site_title, $max_title);
             } elseif (empty($site_title)) {
                 $site_title = '---';
             }
 
             // title
-            if (strlen($title) > $max_title) {
+            if (mb_strlen($title) > $max_title) {
                 $title = happy_linux_mb_build_summary($title, $max_title);
             } elseif (empty($title)) {
                 $title = '---';
@@ -164,13 +166,13 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         $form = 'Module Directory: &nbsp;';
         $form .= "$DIRNAME &nbsp;";
-        $form .= "<input type='hidden' name='options[0]' value='" . $DIRNAME . "' />&nbsp; <br />";
+        $form .= "<input type='hidden' name='options[0]' value='" . $DIRNAME . "' />&nbsp; <br>";
 
         $form .= '' . _MB_WEBLINKS_NUM_FEED . '&nbsp;';
-        $form .= "<input type='text' name='options[1]' value='" . $options[1] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br />';
+        $form .= "<input type='text' name='options[1]' value='" . $options[1] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br>';
 
         $form .= '' . _MB_WEBLINKS_NUM_TITLE . '&nbsp;';
-        $form .= "<input type='text' name='options[2]' value='" . $options[2] . "' />&nbsp;" . _MB_WEBLINKS_LENGTH . '<br />';
+        $form .= "<input type='text' name='options[2]' value='" . $options[2] . "' />&nbsp;" . _MB_WEBLINKS_LENGTH . '<br>';
 
         $form .= '' . _MB_WEBLINKS_NUM_SUMMARY . '&nbsp;';
         $form .= "<input type='text' name='options[3]' value='" . $options[3] . "' />&nbsp;" . _MB_WEBLINKS_LENGTH . '';
@@ -215,7 +217,7 @@ if (!function_exists('b_weblinks_atom_show')) {
         $rss_dirname = $conf['rss_dirname'];
         $rss_use     = $conf['rss_use'];
 
-        $block = array();
+        $block = [];
 
         // check exist rssc module
         $module_handler = xoops_getHandler('module');
@@ -223,21 +225,24 @@ if (!function_exists('b_weblinks_atom_show')) {
         if (!is_object($module)) {
             $block['feed_show']  = 0;
             $block['lang_error'] = 'rssc not installed';
+
             return $block;
         }
 
         if (!$rss_use) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
         $table_rssc_feed = $xoopsDB->prefix($rss_dirname . '_feed');
 
         // no link id
-        if ($lid == 0) {
+        if (0 == $lid) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_LINK_ID;
+
             return $block;
         }
 
@@ -246,14 +251,16 @@ if (!function_exists('b_weblinks_atom_show')) {
         if (!$res1) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
         $row1     = $xoopsDB->fetchArray($res1);
         $rssc_lid = $row1['rssc_lid'];
-        if ($rssc_lid == 0) {
+        if (0 == $rssc_lid) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
@@ -271,9 +278,10 @@ if (!function_exists('b_weblinks_atom_show')) {
         $num  = $xoopsDB->getRowsNum($res2);
 
         // no atomfeed
-        if ($num == 0) {
+        if (0 == $num) {
             $block['feed_show']  = 0;
             $block['lang_error'] = _MB_WEBLINKS_NO_ATOMFEED;
+
             return $block;
         }
 
@@ -286,7 +294,7 @@ if (!function_exists('b_weblinks_atom_show')) {
             $content       = $row['content'];
             $time_modified = $row['updated_unix'];
 
-            $feed = array();
+            $feed = [];
 
             // title
             if (empty($title)) {
@@ -331,22 +339,21 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         $form = 'Module Directory: &nbsp;';
         $form .= "$DIRNAME &nbsp;";
-        $form .= "<input type='hidden' name='options[0]' value='" . $DIRNAME . "' />&nbsp; <br />";
+        $form .= "<input type='hidden' name='options[0]' value='" . $DIRNAME . "' />&nbsp; <br>";
 
         $form .= '' . _MB_WEBLINKS_LINK_ID . '&nbsp;';
-        $form .= "<input type='text' name='options[1]' value='" . $options[1] . "' />&nbsp; <br />";
+        $form .= "<input type='text' name='options[1]' value='" . $options[1] . "' />&nbsp; <br>";
 
         $form .= '' . _MB_WEBLINKS_NUM_FEED . '&nbsp;';
-        $form .= "<input type='text' name='options[2]' value='" . $options[2] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br />';
+        $form .= "<input type='text' name='options[2]' value='" . $options[2] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br>';
 
         $form .= '' . _MB_WEBLINKS_NUM_CONTENT . '&nbsp;';
-        $form .= "<input type='text' name='options[3]' value='" . $options[3] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br />';
+        $form .= "<input type='text' name='options[3]' value='" . $options[3] . "' />&nbsp;" . _MB_WEBLINKS_LINKS . '<br>';
 
         $form .= '' . _MB_WEBLINKS_NUM_SUMMARY . '&nbsp;';
         $form .= "<input type='text' name='options[4]' value='" . $options[4] . "' />&nbsp;" . _MB_WEBLINKS_LENGTH . '';
 
         return $form;
     }
-
     // --- block function begin end ---
 }

@@ -7,6 +7,6 @@ IPアドレス{IP}のユーザから、{SITENAME}のリンク集のパスワード要求がありました。
 {ENTRY}
 
 -----------
-{SITENAME} ({SITEURL}) 
+{SITENAME} ({SITEURL})
 webmaster
 {ADMINMAIL}

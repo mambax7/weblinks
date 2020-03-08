@@ -19,7 +19,6 @@
 //=========================================================
 class admin_modify_mod extends admin_modify_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -32,9 +31,10 @@ class admin_modify_mod extends admin_modify_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_modify_mod();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -48,7 +48,7 @@ class admin_modify_mod extends admin_modify_base
 
         if ($total > 0) {
             if ($mid > 0) {
-                $obj =& $this->_handler->get($mid);
+                $obj = &$this->_handler->get($mid);
                 if (!is_object($obj)) {
                     // goto list_mod
                     redirect_header('modify_list.php?op=list_mod', 3, _WLS_ERRORNOLINK);
@@ -68,16 +68,16 @@ class admin_modify_mod extends admin_modify_base
             $this->_print_cp_header();
             $this->_print_bread_op(_WLS_MODREQUESTS, 'list_mod');
             echo '<h4>' . _WLS_MODREQUESTS . "</h4>\n";
-            echo sprintf(_HAPPY_LINUX_THERE_ARE, $total_s) . "<br /><br />\n";
+            echo sprintf(_HAPPY_LINUX_THERE_ARE, $total_s) . "<br><br>\n";
             $this->_form->show_admin_mod_approve_form(WEBLINKS_OP_APPROVE_MOD, $mid);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         } else {
             // BUG: forget header
             $this->_print_cp_header();
             weblinks_admin_print_menu();
             echo '<h4>' . _WLS_MODREQUESTS . "</h4>\n";
 
-            echo _WLS_NOMODREQ . "<br />\n";
+            echo _WLS_NOMODREQ . "<br>\n";
         }
 
         $this->_print_cp_footer();
@@ -103,7 +103,6 @@ class admin_modify_mod extends admin_modify_base
         }
 
         if ($this->_exec_approve_mod($mid)) {
-
             // show notification form
             if ($this->_check_notification()) {
                 $this->_print_notification_form_common(WEBLINKS_OP_APPROVE_MOD);
@@ -120,10 +119,9 @@ class admin_modify_mod extends admin_modify_base
             $msg .= $this->build_comment('approve mod link'); // for test form
             redirect_header($this->_get_redirect_at_mod(), 1, $msg);
             exit();
-        } else {
-            $this->_print_approve_mod_error('DB Error');
-            exit();
         }
+        $this->_print_approve_mod_error('DB Error');
+        exit();
     }
 
     public function _exec_approve_mod()
@@ -132,6 +130,7 @@ class admin_modify_mod extends admin_modify_base
         if (!$ret) {
             $this->_set_errors($this->_edit_handler->getErrors());
         }
+
         return true;
     }
 
@@ -150,7 +149,7 @@ class admin_modify_mod extends admin_modify_base
         $error = $this->_check_handler->get_errors_modlink('s');
         if ($error) {
             echo $this->_form->build_html_error_with_style($error);
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $this->_form->show_admin_mod_approve_form('preview', $mid);
@@ -185,7 +184,6 @@ class admin_modify_mod extends admin_modify_base
         }
 
         if ($this->_delete_modify()) {
-
             // show notification form
             if ($this->_check_notification()) {
                 $this->_print_notification_form_common('refuse_mod');

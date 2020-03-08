@@ -56,9 +56,9 @@ class admin_user_list extends happy_linux_page_frame
     public $_total_uid_with_use         = 0;
     public $_total_uid_without_use      = 0;
 
-    public $_lid_array_with_email = array();
-    public $_uid_list_with_use    = array();
-    public $_uid_list_without_use = array();
+    public $_lid_array_with_email = [];
+    public $_uid_list_with_use    = [];
+    public $_uid_list_without_use = [];
 
     public $_logo_img;
 
@@ -81,7 +81,7 @@ class admin_user_list extends happy_linux_page_frame
         $this->set_operation('send');
         $this->set_flag_execute_time(true);
 
-        $this->_users_link_handler = weblinks_get_handler('users_link', WEBLINKS_DIRNAME);
+        $this->_users_link_handler = weblinks_getHandler('users_link', WEBLINKS_DIRNAME);
         $this->_system             = happy_linux_system::getInstance();
 
         $logo_url        = XOOPS_URL . '/images/icons/email.gif';
@@ -91,9 +91,10 @@ class admin_user_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_user_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -107,17 +108,16 @@ class admin_user_list extends happy_linux_page_frame
         switch ($this->_sortid) {
             case 1:
             case 2:
-                $arr = array(
+                $arr = [
                     $input,
                     _WLS_NAME,
                     _WLS_SITETITLE,
                     _WLS_EMAIL,
-                );
+                ];
                 break;
-
             case 0:
             default:
-                $arr = array(
+                $arr = [
                     $input,
                     _WLS_LINKID,
                     _WLS_SITETITLE,
@@ -125,7 +125,7 @@ class admin_user_list extends happy_linux_page_frame
                     _WLS_EMAIL,
                     _WEBLINKS_SUBMITTER,
                     _WEBLINKS_UID_EMAIL,
-                );
+                ];
                 break;
         }
 
@@ -142,11 +142,9 @@ class admin_user_list extends happy_linux_page_frame
             case 1:
                 $total = $this->_total_uid_with_use;
                 break;
-
             case 2:
                 $total = $this->_total_uid_without_use;
                 break;
-
             case 0:
             default:
                 $total = $this->_total_with_email;
@@ -160,16 +158,14 @@ class admin_user_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $lines =& $this->_users_link_handler->get_uid_list_with_use($limit, $start);
+                $lines = &$this->_users_link_handler->get_uid_list_with_use($limit, $start);
                 break;
-
             case 2:
-                $lines =& $this->_users_link_handler->get_uid_list_without_use($limit, $start);
+                $lines = &$this->_users_link_handler->get_uid_list_without_use($limit, $start);
                 break;
-
             case 0:
             default:
-                $lines =& $this->_handler->get_objects_with_email($limit, $start);
+                $lines = &$this->_handler->get_objects_with_email($limit, $start);
                 break;
         }
 
@@ -181,19 +177,18 @@ class admin_user_list extends happy_linux_page_frame
         switch ($this->_sortid) {
             case 1:
             case 2:
-                $arr =& $this->_get_cols_uid($line);
+                $arr = &$this->_get_cols_uid($line);
                 break;
-
             case 0:
             default:
-                $arr =& $this->_get_cols_lid($line);
+                $arr = &$this->_get_cols_lid($line);
                 break;
         }
 
         return $arr;
     }
 
-    public function &_get_cols_lid(&$obj)
+    public function &_get_cols_lid($obj)
     {
         $submitter_p = '---';
 
@@ -224,7 +219,7 @@ class admin_user_list extends happy_linux_page_frame
             $user_mail_p = $this->build_xoops_mailto_with_logo($system_mail);
         }
 
-        $arr = array(
+        $arr = [
             $input_p,
             $linkid_p,
             $title_p,
@@ -232,12 +227,12 @@ class admin_user_list extends happy_linux_page_frame
             $email_p,
             $submitter_p,
             $user_mail_p,
-        );
+        ];
 
         return $arr;
     }
 
-    public function &_get_cols_uid(&$line)
+    public function &_get_cols_uid($line)
     {
         $uid = $line;
 
@@ -257,7 +252,7 @@ class admin_user_list extends happy_linux_page_frame
                 $modlink_url = 'link_manage.php?op=modLink&lid=' . $lid;
 
                 $lid_list .= $this->build_html_a_href_name($modlink_url, $title_s);
-                $lid_list .= "<br />\n";
+                $lid_list .= "<br>\n";
             }
         }
 
@@ -267,12 +262,12 @@ class admin_user_list extends happy_linux_page_frame
         $submitter_p = $this->build_xoops_url_userinfo($uid, $uname_s);
         $email_p     = $this->build_xoops_mailto_with_logo($email_s);
 
-        $arr = array(
+        $arr = [
             $input_p,
             $submitter_p,
             $lid_list,
             $email_p,
-        );
+        ];
 
         return $arr;
     }
@@ -280,9 +275,9 @@ class admin_user_list extends happy_linux_page_frame
     public function _build_uname($uid, $uname_s)
     {
         $input = "<input type='hidden' name='memberslist_uname[" . $uid . "]' id='memberslist_uname[]' value='" . $uname_s . "' />";
+
         return $input;
     }
-
 
     //---------------------------------------------------------
     // print
@@ -294,12 +289,10 @@ class admin_user_list extends happy_linux_page_frame
                 $title = _WEBLINKS_ADMIN_USER_LINK;
                 $desc  = '';
                 break;
-
             case 2:
                 $title = _WEBLINKS_ADMIN_USER_NOLINK;
                 $desc  = '';
                 break;
-
             case 0:
             default:
                 $title = _WEBLINKS_ADMIN_USER_EMAIL;
@@ -317,18 +310,18 @@ class admin_user_list extends happy_linux_page_frame
         echo "<li><a href='user_list.php?sortid=2'>" . _WEBLINKS_ADMIN_USER_NOLINK . '</a> (' . $this->_total_uid_without_use . ") </li>\n";
         echo "<ul/>\n";
         echo "</td></tr></table>\n";
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<h4>$title</h4>\n";
-        echo "$desc<br /><br />\n";
+        echo "$desc<br><br>\n";
     }
 
     public function _main_proc_extra()
     {
         printf(_WEBLINKS_THERE_ARE_USER, $this->_total);
-        echo "<br />\n";
+        echo "<br>\n";
         printf(_WEBLINKS_USER_NUM, $this->_start + 1, $this->_end);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
     }
 
     public function _print_form_begin()
@@ -338,7 +331,6 @@ class admin_user_list extends happy_linux_page_frame
             case 2:
                 $op = 'form_user';
                 break;
-
             case 0:
             default:
                 $op = 'form_link';
@@ -357,7 +349,6 @@ class admin_user_list extends happy_linux_page_frame
             case 2:
                 $colspan = 2;
                 break;
-
             case 0:
             default:
                 $colspan = 5;
@@ -382,5 +373,4 @@ $list = admin_user_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

@@ -33,9 +33,9 @@ class admin_table_manage_search extends happy_linux_error
         parent::__construct();
 
         // handlder
-        $this->_link_handler     = weblinks_get_handler('link', WEBLINKS_DIRNAME);
-        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_catlink_handler  = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
+        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_catlink_handler  = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
 
         $this->_post   = happy_linux_post::getInstance();
         $this->_system = happy_linux_system::getInstance();
@@ -51,9 +51,10 @@ class admin_table_manage_search extends happy_linux_error
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_table_manage_search();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -91,6 +92,7 @@ class admin_table_manage_search extends happy_linux_error
 
         if (!$this->_form->check_token()) {
             xoops_error('Token Error');
+
             return false;
         }
 
@@ -98,24 +100,24 @@ class admin_table_manage_search extends happy_linux_error
         $next   = $this->_LIMIT + $offset;
 
         $total = $this->_link_handler->getCount();
-        $objs  =& $this->_link_handler->get_objects_all($this->_LIMIT, $offset);
+        $objs  = &$this->_link_handler->get_objects_all($this->_LIMIT, $offset);
 
-        echo "total $total links <br />\n";
-        echo "execute $offset -> $next <br /><br />\n";
+        echo "total $total links <br>\n";
+        echo "execute $offset -> $next <br><br>\n";
 
         foreach ($objs as $obj) {
             $lid             = $obj->get('lid');
-            $cid_arr         =& $this->_catlink_handler->get_cid_array_by_lid($lid);
+            $cid_arr         = &$this->_catlink_handler->get_cid_array_by_lid($lid);
             $save_obj        = new weblinks_link_save(WEBLINKS_DIRNAME);
-            $save_obj->_vars =& $obj->_vars;
+            $save_obj->_vars = &$obj->_vars;
             $search          = $save_obj->build_search($cid_arr);
             $this->_update_link($lid, $search);
 
             $msg = "$lid : $search";
-            echo $this->_sanitize($this->_shorten_text($msg, 100)) . " ... <br />\n";
+            echo $this->_sanitize($this->_shorten_text($msg, 100)) . " ... <br>\n";
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
 
         // next
         if ($total > $next) {
@@ -131,24 +133,25 @@ class admin_table_manage_search extends happy_linux_error
         $sql = 'UPDATE ' . $this->_link_table . ' SET ';
         $sql .= 'search=' . $this->_link_handler->quote($search);
         $sql .= ' WHERE lid=' . (int)$lid;
+
         return $this->_link_handler->query($sql);
     }
 
     public function build_bread_crumb()
     {
-        $arr = array(
-            array(
+        $arr = [
+            [
                 'name' => $this->_system->get_module_name(),
                 'url'  => 'index.php',
-            ),
-            array(
+            ],
+            [
                 'name' => _HAPPY_LINUX_CONF_TABLE_MANAGE,
                 'url'  => 'table_manage.php',
-            ),
-            array(
+            ],
+            [
                 'name' => $this->_TITLE,
-            ),
-        );
+            ],
+        ];
 
         return $this->_form->build_html_bread_crumb($arr);
     }
@@ -172,15 +175,12 @@ switch ($op) {
     case 'rebuild':
         $manage->rebuild_search();
         break;
-
     case 'menu':
     default:
         $manage->menu();
         break;
-
 }
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

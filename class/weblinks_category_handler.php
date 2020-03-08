@@ -77,7 +77,6 @@ if (!class_exists('weblinks_category_handler')) {
     //=========================================================
     class weblinks_category extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -182,9 +181,9 @@ if (!class_exists('weblinks_category_handler')) {
         public $_conf;
 
         // cache
-        public $_cached_objs    = array();
-        public $_tree_array     = array();
-        public $_cat_info_array = array();
+        public $_cached_objs    = [];
+        public $_tree_array     = [];
+        public $_cat_info_array = [];
         public $_total_count    = 0;
 
         //---------------------------------------------------------
@@ -204,8 +203,8 @@ if (!class_exists('weblinks_category_handler')) {
 
             $this->_tree = new XoopsTree($this->_table, 'cid', 'pid');
 
-            $config_basic_handler          = weblinks_get_handler('config2_basic', $dirname);
-            $this->_category_basic_handler = weblinks_get_handler('category_basic', $dirname);
+            $config_basic_handler          = weblinks_getHandler('config2_basic', $dirname);
+            $this->_category_basic_handler = weblinks_getHandler('category_basic', $dirname);
             $this->_strings                = happy_linux_strings::getInstance();
 
             $this->_conf = $config_basic_handler->get_conf();
@@ -215,7 +214,7 @@ if (!class_exists('weblinks_category_handler')) {
         // basic function
         // $flag_cid : for import from mylinks
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj, $flag_cid = false)
+        public function _build_insert_sql($obj, $flag_cid = false)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -341,7 +340,7 @@ if (!class_exists('weblinks_category_handler')) {
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -413,6 +412,7 @@ if (!class_exists('weblinks_category_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('pid', $pid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -424,7 +424,8 @@ if (!class_exists('weblinks_category_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -434,7 +435,8 @@ if (!class_exists('weblinks_category_handler')) {
             $criteria->setSort('cid DESC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -445,7 +447,8 @@ if (!class_exists('weblinks_category_handler')) {
             $criteria->setSort('orders ASC, cid ASC');
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -454,7 +457,8 @@ if (!class_exists('weblinks_category_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', $title, '='));
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -463,7 +467,8 @@ if (!class_exists('weblinks_category_handler')) {
             $title    = addslashes($title);
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('title', '%' . $title . '%', 'LIKE'));
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -475,10 +480,10 @@ if (!class_exists('weblinks_category_handler')) {
             $this->build_tree();
             $cid_arr = $this->get_tree($limit, $start);
 
-            $objs = array();
+            $objs = [];
 
             foreach ($cid_arr as $cid) {
-                $objs[] =& $this->get($cid);
+                $objs[] = &$this->get($cid);
             }
 
             return $objs;
@@ -491,9 +496,9 @@ if (!class_exists('weblinks_category_handler')) {
         // BUG 4519: Fatal error: Call to undefined function: get_cid_array_by_title()
         public function &get_cid_array_by_title($title)
         {
-            $cid_arr = array();
+            $cid_arr = [];
 
-            $objs =& $this->get_objects_by_title($title);
+            $objs = &$this->get_objects_by_title($title);
 
             if (count($objs) > 0) {
                 foreach ($objs as $obj) {
@@ -506,9 +511,9 @@ if (!class_exists('weblinks_category_handler')) {
 
         public function &get_cid_array_by_title_like($title)
         {
-            $cid_arr = array();
+            $cid_arr = [];
 
-            $objs =& $this->get_objects_by_title_like($title);
+            $objs = &$this->get_objects_by_title_like($title);
 
             if (count($objs) > 0) {
                 foreach ($objs as $obj) {
@@ -534,32 +539,37 @@ if (!class_exists('weblinks_category_handler')) {
 
         public function &get_tree($limit = 0, $start = 0)
         {
-            $ret =& $this->_category_basic_handler->get_tree();
+            $ret = &$this->_category_basic_handler->get_tree();
+
             return $ret;
         }
 
         public function &get_cat_info_array()
         {
-            $ret =& $this->_category_basic_handler->get_cat_info_array();
+            $ret = &$this->_category_basic_handler->get_cat_info_array();
+
             return $ret;
         }
 
         // BUG 4507: Fatal error: Call to undefined function: getallchildid()
         public function &getAllChildId($cid, $order = 'cid')
         {
-            $ret =& $this->_category_basic_handler->getAllChildId($cid, $order);
+            $ret = &$this->_category_basic_handler->getAllChildId($cid, $order);
+
             return $ret;
         }
 
         public function &get_parent_and_all_child_id($cid, $order = 'cid')
         {
-            $ret =& $this->_category_basic_handler->get_parent_and_all_child_id($cid, $order);
+            $ret = &$this->_category_basic_handler->get_parent_and_all_child_id($cid, $order);
+
             return $ret;
         }
 
         public function &get_parent_path($cid)
         {
-            $ret =& $this->_category_basic_handler->get_parent_path($cid);
+            $ret = &$this->_category_basic_handler->get_parent_path($cid);
+
             return $ret;
         }
 
@@ -588,7 +598,7 @@ if (!class_exists('weblinks_category_handler')) {
             return $this->_category_basic_handler->build_selbox($preset_id, $none, $sel_name, $onchange, $none_name, $flag);
         }
 
-        public function build_selbox_multi($cid_arr = array())
+        public function build_selbox_multi($cid_arr = [])
         {
             return $this->_category_basic_handler->build_selbox_multi($cid_arr);
         }
@@ -603,11 +613,11 @@ if (!class_exists('weblinks_category_handler')) {
             if ($cid) {
                 return $this->_category_basic_handler->get_title($cid, $format);
             }
+
             return WEBLINKS_C_CAT_TOP;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

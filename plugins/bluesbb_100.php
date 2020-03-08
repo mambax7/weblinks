@@ -13,7 +13,7 @@
 
 //=========================================================
 // WebLinks Module
-// for BluesBB 1.00 <http://www.bluish.jp/>
+// for BluesBB 1.00 <https://www.bluish.jp/>
 // 2007-02-20 K.OHWADA
 //=========================================================
 
@@ -29,7 +29,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         }
 
         $false = false;
-        $arr   = array();
+        $arr   = [];
 
         $sql = 'SELECT * FROM ' . $xoopsDB->prefix('bluesbb_topic') . ' ORDER BY topic_id';
 
@@ -38,6 +38,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
@@ -60,7 +61,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
 
         $URL_MOD = XOOPS_URL . '/modules/bluesbb';
         $false   = false;
-        $arr     = array();
+        $arr     = [];
 
         // option parameter
         $forum_id_in  = isset($opts['forum_id']) ? (int)$opts['forum_id'] : 0;
@@ -70,7 +71,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         $post_start   = isset($opts['post_start']) ? (int)$opts['post_start'] : 0;
         $post_order   = isset($opts['post_order']) ? $opts['post_order'] : 'DESC';
 
-        if ($forum_id_in == 0) {
+        if (0 == $forum_id_in) {
             return $false;
         }
 
@@ -78,7 +79,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         $sql1 = 'SELECT * FROM ' . $xoopsDB->prefix('bluesbb_topic');
 
         // BUG : not show when all forum
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql1 .= ' WHERE topic_id=' . (int)$forum_id_in;
         }
 
@@ -87,11 +88,12 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
-        $forum_title_arr = array();
-        $topic_style_arr = array();
+        $forum_title_arr = [];
+        $topic_style_arr = [];
         while ($row1 = $xoopsDB->fetchArray($res1)) {
             $forum_title_arr[$row1['topic_id']] = $row1['topic_name'];
             $topic_style_arr[$row1['topic_id']] = $row1['topic_style'];
@@ -101,7 +103,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         $arr['forum_id']    = 0;
         $arr['forum_title'] = '';
         $arr['forum_link']  = '';
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $arr['forum_id']    = $forum_id_in;
             $arr['forum_title'] = $forum_title_arr[$forum_id_in];
             $arr['forum_link']  = $URL_MOD . '/topic.php?top=' . $forum_id_in;
@@ -110,7 +112,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         // latest topics
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bluesbb');
         $sql2 .= ' WHERE res_id = 0 ';
-        if ($forum_id_in != WEBLINKS_PLUGIN_ALL) {
+        if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
             $sql2 .= ' AND topic_id=' . (int)$forum_id_in;
         }
         $sql2 .= ' ORDER BY post_time ' . $post_order;
@@ -120,11 +122,12 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
             if ($DEBUG) {
                 echo $xoopsDB->error();
             }
+
             return $false;
         }
 
         while ($row2 = $xoopsDB->fetchArray($res2)) {
-            $thread_arr = array();
+            $thread_arr = [];
             $topic_id   = $row2['topic_id'];
             $thread_id  = $row2['thread_id'];
 
@@ -153,7 +156,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
             }
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
-                $post_arr = array();
+                $post_arr = [];
                 $post_id  = $row3['post_id'];
                 $res_id   = $row3['res_id'];
 
@@ -162,11 +165,9 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
                     case '1':
                         $lt = 'l50#p' . $post_id;
                         break;
-
                     case '2':
                         $lt = ++$res_id;
                         break;
-
                     case '3':
                         $lt = $post_id;
                         break;
@@ -190,4 +191,3 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         return $arr;
     }
 }// --- functions end ---
-;

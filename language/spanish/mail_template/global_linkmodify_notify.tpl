@@ -6,6 +6,6 @@ Puedes ver la solicitud aquí:
 {MODIFYREPORTS_URL}
 
 -----------
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 El Webmaster
 {X_ADMINMAIL}

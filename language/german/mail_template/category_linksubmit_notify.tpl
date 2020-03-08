@@ -7,10 +7,10 @@ Hinzugefügten Link hier betrachten:
 
 Information zum Link:
 Titel: {LINK_NAME}
-Beschreibung: 
+Beschreibung:
 {LINK_DESCRIPTION}
 
-Kommentar an den Admin: 
+Kommentar an den Admin:
 {LINK_USERCOMMENT}
 
 
@@ -26,6 +26,6 @@ Bitte antworten Sie nicht auf diese Nachricht.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

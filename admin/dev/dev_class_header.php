@@ -111,7 +111,7 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 //---------------------------------------------------------
 // locate
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $country_code = $weblinks_config_handler->get_conf_by_name('country_code');
 $rss_dirname  = $weblinks_config_handler->get_conf_by_name('rss_dirname');

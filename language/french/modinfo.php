@@ -39,7 +39,7 @@
 define('_MI_WEBLINKS_NAME', 'Liens Web');
 
 // A brief description of this module
-define('_MI_WEBLINKS_DESC', "Cr&eacute;ation d'une section de liens web où les utilisateurs peuvent rechercher/soumettre/coter diff&eacute;rents sites web.");
+define('_MI_WEBLINKS_DESC', "Cr&eacute;ation d'une section de liens web oï¿½ les utilisateurs peuvent rechercher/soumettre/coter diff&eacute;rents sites web.");
 
 // Names of blocks for this module (Not all module has blocks)
 define('_MI_WEBLINKS_BNAME1', 'Liens r&eacute;cents');
@@ -66,7 +66,7 @@ define('_MI_WEBLINKS_ADMENU7', 'Rapport de liens bris&eacute;s');
 // Description of each config items
 //-------------------------------------
 define('_MI_WEBLINKS_POPULAR', 'S&eacute;lectionnez le nombre de clics pour qu\'un lien soit marqu&eacute; comme populaire');
-define('_MI_WEBLINKS_POPULARDSC', 'Entrez le nombre minimum de clics pour afficher l\'icone "POPULAIRE". <br /> Lorsque vous s&eacute;lectionnez 0, vous ne montrez pas cette icone. ');
+define('_MI_WEBLINKS_POPULARDSC', 'Entrez le nombre minimum de clics pour afficher l\'icone "POPULAIRE". <br> Lorsque vous s&eacute;lectionnez 0, vous ne montrez pas cette icone. ');
 define('_MI_WEBLINKS_NEWLINKS', 'S&eacute;lectionnez le nombre maximum de nouveaux liens &agrave; montrer sur la page d\'accueil');
 
 //define('_MI_WEBLINKS_NEWLINKSDSC', 'Entrez le nombre maximum de nouveaux liens &agrave; monter dans le bloc "Nouveaux liens". ');
@@ -154,7 +154,7 @@ define('_MI_WEBLINKS_TITLESHOW', 'Montrer le titre du module');
 define('_MI_WEBLINKS_TITLESHOWDSC', 'S&eacute;lectionnez "OUI" pour montrer le titre du module');
 
 define('_MI_WEBLINKS_NEWDAYS', 'S&eacute;lectionnez le nombre de jours pendant lesquels les liens seront consid&eacute;r&eacute;s comme nouveaux');
-define('_MI_WEBLINKS_NEWDAYS_DSC', 'Entrez le nombre de clics n&eacute;cessaires pour afficher l\'icone "Nouveau". <br /> Si vous s&eacute;lectionnez 0, l\'icone ne sera pas montr&eacute;e. ');
+define('_MI_WEBLINKS_NEWDAYS_DSC', 'Entrez le nombre de clics n&eacute;cessaires pour afficher l\'icone "Nouveau". <br> Si vous s&eacute;lectionnez 0, l\'icone ne sera pas montr&eacute;e. ');
 
 define('_MI_WEBLINKS_DESCSHORT', 'Nombre maximum de caract&egrave;res &agrave; utiliser dans la fiche de description des liens');
 define('_MI_WEBLINKS_DESCSHORTDSC', 'Entrez le nombre maximum de caract&egrave;res &agrave; utiliser dans la fiche de description des liens. ');
@@ -180,8 +180,10 @@ define('_MI_WEBLINKS_USEFRAMES', 'D&eacute;sirez vous montrer la page li&eacute;
 define('_MI_WEBLINKS_USEFRAMEDSC', 'Montre la page du lien dans une frame');
 
 define('_MI_WEBLINKS_BROKEN', 'Nombre de comptabilisation de liens bris&eacute;s n&eacute;cessaire pour en arr&ecirc;ter l\'affichage');
-define('_MI_WEBLINKS_BROKENDSC',
-       'Entrez le nombre de comptabilisations de liens bris&eacute;s n&eacute;cessaires pour en arr&ecirc;ter l\'affichage. <br /> En dessous de cette valeur cet &eacute;tat sera consid&eacute;r&eacute; comme une erreur temporaire, et il n\'y aura pas de cons&eacute;quences. <br />Au dessus de cette valeur num&eacute;rique, cet &eacute;tat sera consid&eacute;r&eacute; comme une erreur fixe, et l\'affichage sera interrompu.');
+define(
+    '_MI_WEBLINKS_BROKENDSC',
+    'Entrez le nombre de comptabilisations de liens bris&eacute;s n&eacute;cessaires pour en arr&ecirc;ter l\'affichage. <br> En dessous de cette valeur cet &eacute;tat sera consid&eacute;r&eacute; comme une erreur temporaire, et il n\'y aura pas de cons&eacute;quences. <br>Au dessus de cette valeur num&eacute;rique, cet &eacute;tat sera consid&eacute;r&eacute; comme une erreur fixe, et l\'affichage sera interrompu.'
+);
 
 define('_MI_WEBLINKS_LISTIMAGE_USE', 'Utiliser des images de liens pour une liste de liens');
 define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Largeur maximale de l\'image de lien');
@@ -203,5 +205,7 @@ define('_MI_WEBLINKS_TOPTEN_LINKS', 'Nombre maximum de liens Top10');
 define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Entrer le nombre maximum de liens &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". ');
 
 define('_MI_WEBLINKS_TOPTEN_CATS', 'Nombre maximum de cat&eacute;gories dans le Top10');
-define('_MI_WEBLINKS_TOPTEN_CATS_DSC',
-       'Entrer le nombre maximum de cat&eacute;gories &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". <br />un timeout apparait lorsqu\'il y a trop de cat&eacute;gories principales');
+define(
+    '_MI_WEBLINKS_TOPTEN_CATS_DSC',
+    'Entrer le nombre maximum de cat&eacute;gories &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". <br>un timeout apparait lorsqu\'il y a trop de cat&eacute;gories principales'
+);

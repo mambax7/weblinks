@@ -15,14 +15,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_ir')) {
-
     //=========================================================
     // class weblinks_locate_ir
     // Iran (ir)
     //=========================================================
     class weblinks_locate_ir extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -32,15 +30,14 @@ if (!class_exists('weblinks_locate_ir')) {
 
             // yahoo does not support in Iran
             // and then substitue in USA
-            $arr = array(
-                'weblinks_map_template' => 'weblinks_us_yahoo.html'
-            );
+            $arr = [
+                'weblinks_map_template' => 'weblinks_us_yahoo.html',
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

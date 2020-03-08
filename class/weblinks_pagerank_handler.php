@@ -29,7 +29,7 @@ if (!class_exists('weblinks_pagerank_handler')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
+            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
             $this->_pagerank     = happy_linux_get_singleton('pagerank');
 
             $this->_CACHE_TIME_LONG  = 30 * 24 * 60 * 60; // one month
@@ -53,8 +53,7 @@ if (!class_exists('weblinks_pagerank_handler')) {
             $pr = $pagerank;
 
             if ($flag_force
-                || ($flag_cache && !$this->_check_time($pagerank, $pagerank_update))
-            ) {
+                || ($flag_cache && !$this->_check_time($pagerank, $pagerank_update))) {
                 $pr = $this->get_page_rank_from_google($url, $pagerank);
                 $this->_update($lid, $pr);
             }
@@ -76,7 +75,6 @@ if (!class_exists('weblinks_pagerank_handler')) {
                 case _HAPPY_LINUX_PAGERANK_C_CONN:
                     $this->_set_errors($this->_pagerank->errstr);
                     break;
-
                 case _HAPPY_LINUX_PAGERANK_C_RANK:
                     $this->_set_errors($this->_pagerank->google_url);
                     $this->_set_errors($this->_pagerank->contents);
@@ -115,6 +113,5 @@ if (!class_exists('weblinks_pagerank_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

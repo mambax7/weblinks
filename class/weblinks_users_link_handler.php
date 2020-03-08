@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_users_link_handler')) {
-
     //=========================================================
     // class weblinks_users_link_handler
     // handling for table_link & table_catlink
@@ -45,7 +44,8 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= 'WHERE u.uid = l.uid ';
             $sql .= 'ORDER BY u.uid';
 
-            $ret =& $this->get_count_by_sql($sql);
+            $ret = &$this->get_count_by_sql($sql);
+
             return $ret;
         }
 
@@ -58,7 +58,8 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= $this->_table_weblinks_link . ' l ';
             $sql .= ') ';
 
-            $ret =& $this->get_count_by_sql($sql, $limit, $start);
+            $ret = &$this->get_count_by_sql($sql, $limit, $start);
+
             return $ret;
         }
 
@@ -73,7 +74,8 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= 'WHERE u.uid = l.uid ';
             $sql .= 'ORDER BY u.uid';
 
-            $ret =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $ret = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $ret;
         }
 
@@ -87,12 +89,12 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= ') ';
             $sql .= 'ORDER BY u.uid';
 
-            $ret =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $ret = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $ret;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

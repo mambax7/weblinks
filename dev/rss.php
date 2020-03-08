@@ -20,5 +20,4 @@ $xml  = str_replace('{host}', $host, $tpl);
 happy_linux_http_output('pass');
 header('Content-type: application/xml;charset=utf-8');
 echo $xml;
-exit();// --- main end ---
-;
+exit(); // --- main end ---

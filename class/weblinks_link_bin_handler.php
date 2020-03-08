@@ -11,7 +11,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_bin_handler')) {
-
     //=========================================================
     // class weblinks_link_bin_handler
     // this class using for command line
@@ -20,7 +19,6 @@ if (!class_exists('weblinks_link_bin_handler')) {
     //=========================================================
     class weblinks_link_bin_handler extends happy_linux_basic_handler
     {
-
         // hack for multi language
         public $_flag_replace = false;
 
@@ -56,11 +54,11 @@ if (!class_exists('weblinks_link_bin_handler')) {
         {
             $sql = 'UPDATE ' . $this->_table . ' SET broken = broken+1 WHERE lid=' . (int)$lid;
             $ret = $this->query($sql);
+
             return $ret;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

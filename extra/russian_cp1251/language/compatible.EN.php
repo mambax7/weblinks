@@ -106,7 +106,7 @@ if (!defined('_WEBLINKS_ERROR_LENGTH')) {
 if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
     // google map
     define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Marker] Width (pixel)');
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'Width of map marker info<br /><b>-1</b> is unspecifid');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'Width of map marker info<br><b>-1</b> is unspecifid');
     define('_AM_WEBLINKS_LINK_IMG_USE', 'Use %s');
 
     define('_AM_WEBLINKS_RSS_SITE', 'This Site');
@@ -116,12 +116,12 @@ if (!defined('_AM_WEBLINKS_GM_MARKER_WIDTH')) {
     define('_AM_WEBLINKS_CONF_LINK_USER', 'User Link Register Configuration');
     define('_AM_WEBLINKS_USER_NAMEFLAG', 'Select view of nameflag');
     define('_AM_WEBLINKS_USER_MAILFLAG', 'Select view of mailflag');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'The default value when the user register<br />The admin can change value');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'The default value when the user register<br>The admin can change value');
     define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'The user choice');
 
     // description length
     define('_AM_WEBLINKS_DESC_LENGTH', 'Max length of charcters');
-    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> or the admin : 64KB limit<br />');
+    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> or the admin : 64KB limit<br>');
 }
 
 //---------------------------------------------------------
@@ -151,7 +151,7 @@ if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
 
     // nofitication
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'Notification Management');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Setting for each module administrator<br />It is the same as the top page of the module');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'Setting for each module administrator<br>It is the same as the top page of the module');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', "You cannot use in some XOOPS's version");
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'In the case, please use in the top page of this module');
     define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: Your modification request link is approved');
@@ -193,8 +193,8 @@ if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'The substitution of the link image');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'The substitute image when not set the link image');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'none');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 }
 
 //---------------------------------------------------------
@@ -230,21 +230,25 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Search] Map Type');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Search] Kind of Geocode');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-           'Search latitude and longitude from address<br /><b>Single Result</b><br />GClientGeocoder - getLatLng<br /><b>More Results</b><br />GClientGeocoder - getLocations');
+    define(
+        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
+        'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations'
+    );
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Single Result: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'More Results: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Search][Japan] Use CSIS');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br />Search latitude and longitude from address');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br>Search latitude and longitude from address');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Search][Japan] Use Inverse Geocode');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-           'Valid in Japan<br />Search address from latitude and longitude<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
+    define(
+        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
+        'Valid in Japan<br>Search address from latitude and longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
+    );
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] Maximum characters for Title');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Maximum number of characters used for Title in the marker<br /><b>-1</b> is unlimited');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Maximum number of characters used for Title in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] Maximum characters for Content');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Maximum number of characters used for Content in the marker<br /><b>-1</b> is unlimited');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'Maximum number of characters used for Content in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_WORDWRAP', '[Marker] Maximum characters for wordwarp');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Maximum number of characters used for per line (wordwrap) in the marker<br /><b>-1</b> is unlimited');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'Maximum number of characters used for per line (wordwrap) in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Marker] Show the center marker');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'In Main page and Category page, show the center marker');
 
@@ -270,8 +274,10 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML Style Configuration');
     define('_AM_WEBLINKS_HEADER_MODE', 'Use xoops module header');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC',
-           'When "No", show style sheet and Javascript in body tag<br />When "Yes", show them in header tag, using xoops module header<br />there are same themes which can not be used');
+    define(
+        '_AM_WEBLINKS_HEADER_MODE_DESC',
+        'When "No", show style sheet and Javascript in body tag<br>When "Yes", show them in header tag, using xoops module header<br>there are same themes which can not be used'
+    );
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'You can see sample, click sample button');
@@ -279,7 +285,7 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     define('_AM_WEBLINKS_BULK_LINK_DSC20', 'Admin specify register items');
     define('_AM_WEBLINKS_BULK_LINK_DSC21', 'First paragraph');
     define('_AM_WEBLINKS_BULK_LINK_DSC22', 'Second paragraph, and following');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Input the register item names on the 1st line.<br />Input horizontal bar (---)');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'Input the register item names on the 1st line.<br>Input horizontal bar (---)');
     define('_AM_WEBLINKS_BULK_LINK_DSC24', 'Describe the register items, by the order of in the first paragraph, divided by a comma(,) on the 2nd line.');
     define('_AM_WEBLINKS_BULK_CHECK_URL', 'Check to set URL');
     define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'Check to set description');
@@ -292,7 +298,7 @@ if (!defined('_AM_WEBLINKS_USE_HIGHLIGHT')) {
     // highlight
     define('_AM_WEBLINKS_USE_HIGHLIGHT', 'Use keyword Highlight');
     define('_AM_WEBLINKS_CHECK_MAIL', 'Check Email Format');
-    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'NO allows any format. <br /> YES checks that email format is like abc@efg.com when register link. ');
+    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'NO allows any format. <br> YES checks that email format is like abc@efg.com when register link. ');
     define('_AM_WEBLINKS_NO_EMAIL', 'Not Set Email Address');
 }
 
@@ -415,20 +421,24 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Full detail');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Performance improvement');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-           'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br />When using in first time, execute "category list" -> "Update category path tree"');
+    define(
+        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
+        'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"'
+    );
     define('_AM_WEBLINKS_CAT_PATH', 'Category path tree');
-    define('_AM_WEBLINKS_CAT_PATH_DSC', 'YES computes the category path tree, and it stores in the category table.<br />NO computes when showing.');
+    define('_AM_WEBLINKS_CAT_PATH_DSC', 'YES computes the category path tree, and it stores in the category table.<br>NO computes when showing.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Category link count');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'YES computes the category link count, and it stores in the category table.<br />NO computes when showing.');
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', 'YES computes the category link count, and it stores in the category table.<br>NO computes when showing.');
 
     define('_AM_WEBLINKS_POST_TEXT_4', 'All items are displayed in admin page');
     define('_AM_WEBLINKS_LINK_REGISTER_1', 'Link settings: Textarea1');
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Link Register Item Configuration');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Use CAPTCHA');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA is technique for anti-spam.<br />This feature Need Captcha module.<br />YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br />NO does not show CAPTCHA field.');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.'
+    );
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha module ver %s is finded');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha module is not finded');
 
@@ -592,8 +602,8 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Locate Configration');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'County Code');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br/> The item with the <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br> The item with the <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', 'Renew');
 
     // map
@@ -606,8 +616,10 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps Configration');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Use Google Maps');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'Get the API key on <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> When you use GoogleMaps.');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'Get the API key on <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> When you use GoogleMaps.'
+    );
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Server Name');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'Language Code');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'default Location');
@@ -690,11 +702,11 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     define('_AM_WEBLINKS_CONF_TOPTEN', 'TopTen Configration');
     define('_AM_WEBLINKS_CONF_SEARCH', 'Seach Configration');
     define('_AM_WEBLINKS_USE_BROKENLINK', 'Use to report a broken link');
-    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', 'When select YES, <br />enable to report a broken link');
+    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', 'When select YES, <br>enable to report a broken link');
     define('_AM_WEBLINKS_USE_HITS', 'Use to countup a link');
-    define('_AM_WEBLINKS_USE_HITS_DSC', 'When select YES, <br />enable to countup a link visit counter');
+    define('_AM_WEBLINKS_USE_HITS_DSC', 'When select YES, <br>enable to countup a link visit counter');
     define('_AM_WEBLINKS_USE_PASSWD', 'Password authentication');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'When select YES, <br /><b>anoymous user</b> can modify a link with password authentication.<br />When select NO, <br />password filed is not displayed.');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'When select YES, <br><b>anoymous user</b> can modify a link with password authentication.<br>When select NO, <br>password filed is not displayed.');
     define('_AM_WEBLINKS_PASSWD_MIN', 'Minimum length of password required');
     define('_AM_WEBLINKS_POST_TEXT', 'The administrator has all management authority');
     define('_AM_WEBLINKS_AUTH_DOHTML', 'Authority to use HTML tags');
@@ -708,27 +720,35 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     define('_AM_WEBLINKS_AUTH_DOBR', 'Authority to use linebreak');
     define('_AM_WEBLINKS_AUTH_DOBR_DSC', 'Specify the group which can grant the authority to use linebreak');
     define('_AM_WEBLINKS_SHOW_CATLIST', 'Show category list in submenu');
-    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'When select YES, <br />show top category list in submenu');
+    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'When select YES, <br>show top category list in submenu');
     define('_AM_WEBLINKS_VIEW_URL', 'URL view style');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           'When select "none", <br />not display url and &lt;a&gt; tag.<br />When select "indirect", <br />display visit.php in href field instead of URL. <br />When select "direct", <br />display url in href field, JavaScript in onmousedown field and hits is counted via JavaScript.');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        'When select "none", <br>not display url and &lt;a&gt; tag.<br>When select "indirect", <br>display visit.php in href field instead of URL. <br>When select "direct", <br>display url in href field, JavaScript in onmousedown field and hits is counted via JavaScript.'
+    );
     define('_AM_WEBLINKS_VIEW_URL_0', 'none');
     define('_AM_WEBLINKS_VIEW_URL_1', 'indirect url');
     define('_AM_WEBLINKS_VIEW_URL_2', 'direct url');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Priority of recommend site');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-           'When select "none", <br />not display.<br />When select "normal", <br />display in header.<br />When select "higher", <br />display on higher rank in each category.');
+    define(
+        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
+        'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.'
+    );
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Priority of reciprocal site');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC',
-           'When select "none", <br />not display.<br />When select "normal", <br />display in header.<br />When select "higher", <br />display on higher rank in each category.');
+    define(
+        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
+        'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.'
+    );
     define('_AM_WEBLINKS_PRI_0', 'none');
     define('_AM_WEBLINKS_PRI_1', 'normal');
     define('_AM_WEBLINKS_PRI_2', 'higher');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'Auto update of Banner image size');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
-           'When select YES, <br />update Banner image size automatically, when show a link list or a link detail information, if Banner image size is not able to get at registration and change link information.');
+    define(
+        '_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
+        'When select YES, <br>update Banner image size automatically, when show a link list or a link detail information, if Banner image size is not able to get at registration and change link information.'
+    );
     define('_AM_WEBLINKS_RSS_USE', 'Use RSS feed');
-    define('_AM_WEBLINKS_RSS_USE_DSC', 'When select YES, <br />get and display RSS/ATOM feed.');
+    define('_AM_WEBLINKS_RSS_USE_DSC', 'When select YES, <br>get and display RSS/ATOM feed.');
 
     // bulk import
     define('_AM_WEBLINKS_BULK_IMPORT', 'Bulk Import');
@@ -755,7 +775,7 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
 if (!defined('_AM_WEBLINKS_INDEX_DESC')) {
     define('_AM_WEBLINKS_INDEX_DESC', 'Description at Main page');
     define('_AM_WEBLINKS_INDEX_DESC_DSC', 'Enter description note, when you want to display at a main page.');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Here are description note.<br />You can edit description note at "Module Configuration 2".<br /></div>');
+    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Here are description note.<br>You can edit description note at "Module Configuration 2".<br></div>');
 }
 
 // these words are defined in admin.php
@@ -776,16 +796,16 @@ if (!defined('_US_PASSWORD')) {
 }
 
 if (!defined('_WEBLINKS_FROM')) {
-    define('_WEBLINKS_FROM', 'From');       // От
-    define('_WEBLINKS_EXECUTION_TIME', 'execution time');       // Время выполнения
-    define('_WEBLINKS_MEMORY_USAGE', 'memory usage');       // Использование памяти
-    define('_WEBLINKS_SEC', 'sec');     // сек
-    define('_WEBLINKS_MB', 'MB');       // МБ
-    define('_WEBLINKS_FILE', 'file');       //файл
+    define('_WEBLINKS_FROM', 'From');       // пїЅпїЅ
+    define('_WEBLINKS_EXECUTION_TIME', 'execution time');       // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_MEMORY_USAGE', 'memory usage');       // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_SEC', 'sec');     // пїЅпїЅпїЅ
+    define('_WEBLINKS_MB', 'MB');       // пїЅпїЅ
+    define('_WEBLINKS_FILE', 'file');       //пїЅпїЅпїЅпїЅ
 
-    define('_WEBLINKS_RDF_FEED', 'RDF feed');       //RDF канал
-    define('_WEBLINKS_RSS_FEED', 'RSS feed');       //RSS канал
-    define('_WEBLINKS_ATOM_FEED', 'ATOM feed');     //ATOM канал
-    define('_WEBLINKS_NOFEED', 'No Feed');      //Нет канала
-    define('_WEBLINKS_IN', 'in');       //в
+    define('_WEBLINKS_RDF_FEED', 'RDF feed');       //RDF пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_RSS_FEED', 'RSS feed');       //RSS пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_ATOM_FEED', 'ATOM feed');     //ATOM пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_NOFEED', 'No Feed');      //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_IN', 'in');       //пїЅ
 }

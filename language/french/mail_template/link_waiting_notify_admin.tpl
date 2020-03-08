@@ -11,6 +11,6 @@ Email: {SITE_EMAIL}
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Le webmestre
 {X_ADMINMAIL}

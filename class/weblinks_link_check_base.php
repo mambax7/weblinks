@@ -11,7 +11,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_check_base')) {
-
     //=========================================================
     // class weblinks_link_check_base
     //=========================================================
@@ -41,7 +40,7 @@ if (!class_exists('weblinks_link_check_base')) {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_link_handler = weblinks_get_handler('link_bin', $dirname);
+            $this->_link_handler = weblinks_getHandler('link_bin', $dirname);
         }
 
         //---------------------------------------------------------
@@ -52,12 +51,13 @@ if (!class_exists('weblinks_link_check_base')) {
             $this->_time_start = time();
             $this->_total_link = $this->get_link_count_all();
 
-            $lid_array        =& $this->_get_lid_array($limit, $offset);
+            $lid_array        = &$this->_get_lid_array($limit, $offset);
             $lid_num          = count($lid_array);
             $this->_num_check = $lid_num;
 
-            if ($lid_num == 0) {
+            if (0 == $lid_num) {
                 $this->_print_write_data($this->_get_no_record());
+
                 return true;    // no action
             }
 
@@ -71,7 +71,7 @@ if (!class_exists('weblinks_link_check_base')) {
                     echo $lid;
                 }
 
-                $row =& $this->_get_link_row($lid);
+                $row = &$this->_get_link_row($lid);
                 $url = $row['url'];
 
                 // next, if url is null
@@ -87,7 +87,7 @@ if (!class_exists('weblinks_link_check_base')) {
             }
 
             if ($this->_flag_echo_lid) {
-                echo "<br />\n";
+                echo "<br>\n";
             }
 
             $this->_print_write_data($this->_get_html_end());
@@ -122,7 +122,8 @@ if (!class_exists('weblinks_link_check_base')) {
         {
             $time_now = $this->_get_time_now();
             $text     = '<h4>' . $this->_TITLE . "</h4>\n";
-            $text .= _WEBLINKS_ADMIN_TIME_START . " $time_now<br /><br />\n";
+            $text     .= _WEBLINKS_ADMIN_TIME_START . " $time_now<br><br>\n";
+
             return $text;
         }
 
@@ -134,7 +135,7 @@ if (!class_exists('weblinks_link_check_base')) {
             $text = '';
             $text .= $this->_get_link_broken_list();
 
-            $text .= _WEBLINKS_ADMIN_TIME_END . ' ' . $time_now . '<br /><br />' . "\n";
+            $text .= _WEBLINKS_ADMIN_TIME_END . ' ' . $time_now . '<br><br>' . "\n";
             $text .= '<table><tr>';
             $text .= '<tr><td>' . _WEBLINKS_ADMIN_LINK_NUM_ALL . '</td>';
             $text .= '<td>' . $this->_total_link . ' ' . _WEBLINKS_ADMIN_NUM . '</td></tr>' . "\n";
@@ -168,7 +169,8 @@ if (!class_exists('weblinks_link_check_base')) {
         public function _get_no_record()
         {
             $text = '<h4>' . $this->_TITLE . "</h4>\n";
-            $text .= _NO_MATCH_RECORD . "<br /><br />\n";
+            $text .= _NO_MATCH_RECORD . "<br><br>\n";
+
             return $text;
         }
 
@@ -178,6 +180,7 @@ if (!class_exists('weblinks_link_check_base')) {
         public function _get_time_now()
         {
             $text = date('Y-m-d H:i:s');
+
             return $text;
         }
 
@@ -187,6 +190,7 @@ if (!class_exists('weblinks_link_check_base')) {
             $min  = (int)($time / 60);
             $sec  = $time - 60 * $min;
             $text = sprintf(_WEBLINKS_ADMIN_MIN_SEC, $min, $sec);
+
             return $text;
         }
 
@@ -194,6 +198,7 @@ if (!class_exists('weblinks_link_check_base')) {
         {
             list($usec, $sec) = explode(' ', microtime());
             $time = (float)$sec + (float)$usec;
+
             return $time;
         }
 
@@ -245,6 +250,5 @@ if (!class_exists('weblinks_link_check_base')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

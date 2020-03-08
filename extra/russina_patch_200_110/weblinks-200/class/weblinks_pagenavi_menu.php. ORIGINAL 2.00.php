@@ -20,13 +20,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_pagenavi_menu')) {
-
     //=========================================================
     // class weblinks_pagenavi_menu
     //=========================================================
     class weblinks_pagenavi_menu extends happy_linux_pagenavi
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -49,8 +47,8 @@ if (!class_exists('weblinks_pagenavi_menu')) {
         public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_pagenavi_menu();
+            if (null === $instance) {
+                $instance = new static();
             }
 
             return $instance;
@@ -59,7 +57,7 @@ if (!class_exists('weblinks_pagenavi_menu')) {
         //=========================================================
         // template
         //=========================================================
-        public function assign_navi(&$tpl, $script)
+        public function assign_navi($tpl, $script)
         {
             $show_navi = false;
             $navi      = '';
@@ -75,7 +73,7 @@ if (!class_exists('weblinks_pagenavi_menu')) {
             $this->assign_navi_orderby($tpl);
         }
 
-        public function assign_navi_orderby(&$tpl)
+        public function assign_navi_orderby($tpl)
         {
             // bug fix: Call-time pass-by-reference
 
@@ -100,6 +98,5 @@ if (!class_exists('weblinks_pagenavi_menu')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

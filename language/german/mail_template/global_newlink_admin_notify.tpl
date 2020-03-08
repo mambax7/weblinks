@@ -7,10 +7,10 @@ Hier besuchen:
 
 Infos zum neuen Link :
 Titel : {LINK_NAME}
-Beschreibung : 
+Beschreibung :
 {LINK_DESCRIPTION}
 
-Kommentar für den Admin : 
+Kommentar für den Admin :
 {LINK_USERCOMMENT}
 
 
@@ -25,6 +25,6 @@ Bitte antworten Sie nicht auf diese Nachricht.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Webmaster
 {X_ADMINMAIL}

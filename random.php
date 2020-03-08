@@ -25,20 +25,20 @@
 
 include 'header.php';
 
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler   = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
 $conf    = $weblinks_config_handler->get_conf();
 $lid_arr = $weblinks_link_handler->get_lid_array_by_random(1);
 
 // jump this site, if no data
-if (count($lid_arr) == 0) {
+if (0 == count($lid_arr)) {
     redirect_header(WEBLINKS_URL, 3, _WLS_NOMATCH);
 }
 
 $lid = (int)$lid_arr[0];
 
-if ($conf['mode_random_jump'] == 1) {
+if (1 == $conf['mode_random_jump']) {
     $url_s = WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
 } else {
     if ($conf['use_hits']) {

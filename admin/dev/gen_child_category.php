@@ -54,5 +54,4 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
 echo '<h3>end</h3>';
 echo "$MAX_CAT categories in cateogry $PID_START <br>\n";
 
-dev_footer();// =====
-;
+dev_footer(); // =====

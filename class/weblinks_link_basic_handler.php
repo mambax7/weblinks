@@ -27,7 +27,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_basic_handler')) {
-
     //=========================================================
     // class weblinks_link_basic_handler
     //=========================================================
@@ -44,7 +43,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             parent::__construct($dirname);
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_getHandler('config2_basic', $dirname);
             $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
@@ -68,6 +67,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             $sql = 'UPDATE ' . $this->_table . ' SET hits = hits+1 WHERE lid=' . (int)$lid;
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -87,28 +87,30 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             $row = false;
             if (isset($this->_cached[$lid])) {
-                $row =& $this->_cached[$lid];
+                $row = &$this->_cached[$lid];
             } else {
-                $row =& $this->get_by_lid($lid);
+                $row = &$this->get_by_lid($lid);
                 if (is_array($row) && count($row)) {
-                    $this->_cached[$lid] =& $row;
+                    $this->_cached[$lid] = &$row;
                 }
             }
+
             return $row;
         }
 
         public function &get_by_lid($lid)
         {
-            $row =& $this->get_row_by_id($lid);
+            $row = &$this->get_row_by_id($lid);
             if ($this->_flag_replace && is_array($row) && count($row)) {
-                $row =& $this->_multi_replace($row);
+                $row = &$this->_multi_replace($row);
             }
+
             return $row;
         }
 
         public function &_multi_replace(&$row)
         {
-            $arr =& $row;
+            $arr = &$row;
             if ($row['etc1']) {
                 $arr['title'] = $row['etc1'];
             }
@@ -126,6 +128,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
                 $arr['doimage']     = $row['doimage1'];
                 $arr['dobr']        = $row['dobr1'];
             }
+
             return $arr;
         }
 
@@ -136,10 +139,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function get_title($lid, $format = 'n')
         {
             $val = false;
-            $row =& $this->get_cache_by_lid($lid);
+            $row = &$this->get_cache_by_lid($lid);
             if (isset($row['title'])) {
                 $val = $this->_strings->sanitize_format_text($row['title']);
             }
+
             return $val;
         }
 
@@ -147,10 +151,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function get_url($lid, $format = 'n')
         {
             $val = false;
-            $row =& $this->get_cache_by_lid($lid);
+            $row = &$this->get_cache_by_lid($lid);
             if (isset($row['url'])) {
                 $val = $this->_strings->sanitize_format_url($row['url']);
             }
+
             return $val;
         }
 
@@ -158,10 +163,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function get_forum_id($lid)
         {
             $val = false;
-            $row =& $this->get_cache_by_lid($lid);
+            $row = &$this->get_cache_by_lid($lid);
             if (isset($row['forum_id'])) {
                 $val = (int)$row['forum_id'];
             }
+
             return $val;
         }
 
@@ -169,10 +175,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function get_album_id($lid)
         {
             $val = false;
-            $row =& $this->get_cache_by_lid($lid);
+            $row = &$this->get_cache_by_lid($lid);
             if (isset($row['album_id'])) {
                 $val = (int)$row['album_id'];
             }
+
             return $val;
         }
 
@@ -180,10 +187,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function get_rssc_lid($lid)
         {
             $val = false;
-            $row =& $this->get_cache_by_lid($lid);
+            $row = &$this->get_cache_by_lid($lid);
             if (isset($row['rssc_lid'])) {
                 $val = (int)$row['rssc_lid'];
             }
+
             return $val;
         }
 
@@ -194,6 +202,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             $where = $this->build_sql_where_exclude();
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -202,6 +211,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $where = $this->build_sql_where_exclude();
             $where .= 'AND ' . $mark . ' = 1 ';
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -212,6 +222,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
                 $where .= 'AND ' . $this->build_sql_where_exclude();
             }
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -221,6 +232,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
             // XOOPS 2.2.3 dont accept value = ''
             $where = "url = ''";
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -229,6 +241,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             $where = '(broken <> 0 AND broken >= 0)';
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -237,8 +250,9 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $broken = (int)$this->_conf['broken_threshold'];
             $time   = time();
             $where  = ' ( broken = 0 OR broken < ' . $broken . ' ) ';
-            $where .= 'AND ( time_publish = 0 OR time_publish < ' . $time . ' ) ';
-            $where .= 'AND ( time_expire = 0 OR time_expire > ' . $time . ' ) ';
+            $where  .= 'AND ( time_publish = 0 OR time_publish < ' . $time . ' ) ';
+            $where  .= 'AND ( time_expire = 0 OR time_expire > ' . $time . ' ) ';
+
             return $where;
         }
 
@@ -247,8 +261,9 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $broken = (int)$this->_conf['broken_threshold'];
             $time   = time();
             $where  = ' ( l.broken = 0 OR l.broken < ' . $broken . ' ) ';
-            $where .= 'AND ( l.time_publish = 0 OR l.time_publish < ' . $time . ' ) ';
-            $where .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';
+            $where  .= 'AND ( l.time_publish = 0 OR l.time_publish < ' . $time . ' ) ';
+            $where  .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';
+
             return $where;
         }
 
@@ -256,6 +271,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ' . $where;
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
@@ -267,12 +283,14 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $where = '( gm_latitude <> 0 OR gm_longitude <> 0 OR gm_zoom <> 0 ) ';
             $where .= 'AND ' . $this->build_sql_where_exclude();
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
         public function get_gmap_kml_page($total, $limit)
         {
             $page = ceil($total / $limit);
+
             return $page;
         }
 
@@ -285,7 +303,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->build_sql_where_exclude();
             $sql .= ' ORDER BY time_update DESC, lid DESC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $offset);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $offset);
+
             return $arr;
         }
 
@@ -295,7 +314,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->build_sql_where_exclude();
             $sql .= 'ORDER BY ' . $orderby;
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -309,7 +329,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql .= $this->build_sql_where_exclude();
             $sql .= 'AND ' . $mark . ' = 1 ';
             $sql .= 'ORDER BY ' . $orderby;
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -323,7 +344,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql .= $this->build_sql_where_exclude();
             $sql .= 'AND rssc_lid <> 0 ';
             $sql .= 'ORDER BY ' . $orderby;
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -336,7 +358,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql .= $this->build_sql_where_exclude();
             $sql .= 'AND ( gm_latitude <> 0 OR gm_longitude <> 0 OR gm_zoom <> 0 ) ';
             $sql .= 'ORDER BY ' . $orderby;
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -344,7 +367,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
         public function &get_lid_array_by_where($where, $limit = 0, $start = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ' . $where . ' ORDER BY time_update DESC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -355,7 +379,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql .= $this->build_sql_where_exclude();
             $sql .= "AND url <> '' ";
             $sql .= 'ORDER BY rand()';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
@@ -365,12 +390,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
             $sql .= 'uid = ' . $uid;
             $sql .= ' ORDER BY time_update DESC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

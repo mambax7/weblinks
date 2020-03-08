@@ -29,13 +29,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_linkitem_handler')) {
-
     //================================================================
     // class weblinks_linkitem
     //================================================================
     class weblinks_linkitem extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -63,8 +61,8 @@ if (!class_exists('weblinks_linkitem_handler')) {
     //================================================================
     class weblinks_linkitem_handler extends happy_linux_object_handler
     {
-        public $_cached_by_itemid = array();
-        public $_cached_by_name   = array();
+        public $_cached_by_itemid = [];
+        public $_cached_by_name   = [];
 
         //---------------------------------------------------------
         // constructor
@@ -80,7 +78,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -111,7 +109,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -141,13 +139,14 @@ if (!class_exists('weblinks_linkitem_handler')) {
                 $flag_init_load = 1;
                 $this->load();
             }
+
             return $this->_cached_by_itemid;
         }
 
         public function load()
         {
-            $this->_cached_by_itemid = array();
-            $this->_cached_by_name   = array();
+            $this->_cached_by_itemid = [];
+            $this->_cached_by_name   = [];
 
             $objs = $this->getObjects();
             foreach ($objs as $obj) {
@@ -174,6 +173,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
         {
             if (isset($this->_cached_by_itemid[$id])) {
                 $val = $this->_cached_by_itemid[$id];
+
                 return $val;
             }
 
@@ -184,6 +184,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
         {
             if (isset($this->_cached_by_itemid[$id][$key])) {
                 $val = $this->_cached_by_itemid[$id][$key];
+
                 return $val;
             }
 
@@ -194,6 +195,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
         {
             if (isset($this->_cached_by_name[$name])) {
                 $val = $this->_cached_by_name[$name];
+
                 return $val;
             }
 
@@ -204,6 +206,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
         {
             if (isset($this->_cached_by_name[$name][$key])) {
                 $val = $this->_cached_by_name[$name][$key];
+
                 return $val;
             }
 
@@ -218,7 +221,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
             $obj = false;
 
             $sql   = 'SELECT * FROM ' . $this->_table . ' WHERE item_id=' . (int)$id;
-            $objs  =& $this->get_objects_by_sql($sql);
+            $objs  = &$this->get_objects_by_sql($sql);
             $count = count($objs);
 
             if ($count <= 0) {
@@ -230,7 +233,7 @@ if (!class_exists('weblinks_linkitem_handler')) {
             }
 
             if (isset($objs[0]) && is_object($objs[0])) {
-                $obj =& $objs[0];
+                $obj = &$objs[0];
             }
 
             return $obj;
@@ -238,6 +241,5 @@ if (!class_exists('weblinks_linkitem_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

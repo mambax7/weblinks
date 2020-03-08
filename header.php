@@ -201,7 +201,7 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 //---------------------------------------------------------
 // config
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
 $rss_use     = $weblinks_config_handler->get_conf_by_name('rss_use');
@@ -209,7 +209,7 @@ $rss_use     = $weblinks_config_handler->get_conf_by_name('rss_use');
 //---------------------------------------------------------
 // linkitem
 //---------------------------------------------------------
-$weblinks_linkitem_handler = weblinks_get_handler('linkitem_basic', WEBLINKS_DIRNAME);
+$weblinks_linkitem_handler = weblinks_getHandler('linkitem_basic', WEBLINKS_DIRNAME);
 $weblinks_linkitem_handler->init();
 
 //---------------------------------------------------------

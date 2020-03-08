@@ -11,7 +11,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_map_jp')) {
-
     //=========================================================
     // class table_category
     //=========================================================
@@ -19,7 +18,7 @@ if (!class_exists('weblinks_map_jp')) {
     {
         public $_DIRNAME;
 
-        public $_LABEL_ARRAY = array(
+        public $_LABEL_ARRAY = [
             'hokkaido',
             'aomori',
             'iwate',
@@ -67,7 +66,7 @@ if (!class_exists('weblinks_map_jp')) {
             'miyazaki',
             'kagoshima',
             'okinawa',
-        );
+        ];
 
         public $_config_handler;
         public $_category_handler;
@@ -82,9 +81,9 @@ if (!class_exists('weblinks_map_jp')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler     = weblinks_get_handler('config2_basic', $dirname);
-            $this->_category_handler   = weblinks_get_handler('category_basic', $dirname);
-            $this->_link_count_handler = weblinks_get_handler('link_count', $dirname);
+            $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
+            $this->_category_handler   = weblinks_getHandler('category_basic', $dirname);
+            $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
 
             $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.html';
         }
@@ -92,9 +91,10 @@ if (!class_exists('weblinks_map_jp')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_map_jp($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -104,7 +104,7 @@ if (!class_exists('weblinks_map_jp')) {
         public function fetch_template($pref = null)
         {
             if (empty($pref)) {
-                $pref =& $this->get_pref_count_array();
+                $pref = &$this->get_pref_count_array();
             }
 
             $tpl = new XoopsTpl();
@@ -112,26 +112,28 @@ if (!class_exists('weblinks_map_jp')) {
             $tpl->assign('dirname', $this->_DIRNAME);
             $tpl->assign('pref', $pref);
             $text = $tpl->fetch($this->_template);
+
             return $text;
         }
 
         public function &get_pref_count_array($pref = null)
         {
             if (empty($pref)) {
-                $pref =& $this->get_conf_pref_array();
+                $pref = &$this->get_conf_pref_array();
             }
 
-            $arr = array();
+            $arr = [];
             foreach ($pref as $k => $v) {
                 $cid  = $v['cid'];
                 $name = $v['name'];
 
-                $arr[$k] = array(
+                $arr[$k] = [
                     'cid'   => $cid,
                     'name'  => htmlspecialchars($name, ENT_QUOTES),
                     'count' => $this->_link_count_handler->get_all_link_count_by_cid($cid),
-                );
+                ];
             }
+
             return $arr;
         }
 
@@ -139,38 +141,40 @@ if (!class_exists('weblinks_map_jp')) {
         {
             $conf = $this->_config_handler->get_conf();
             $arr  = unserialize($conf['map_jp_info']);
+
             return $arr;
         }
 
         public function &get_label_pref_array()
         {
-            $arr = array();
+            $arr = [];
             foreach ($this->_LABEL_ARRAY as $k) {
-                $lang = '_WEBLINKS_JP_' . strtoupper($k);
+                $lang = '_WEBLINKS_JP_' . mb_strtoupper($k);
                 if (defined($lang)) {
                     $name = constant($lang);
 
-                    $arr[$k] = array(
+                    $arr[$k] = [
                         'name' => $name,
                         'cid'  => $this->_get_cid_by_like_title($name),
-                    );
+                    ];
                 }
             }
+
             return $arr;
         }
 
         public function _get_cid_by_like_title($title)
         {
             $cid  = '';
-            $rows =& $this->_category_handler->get_rows_by_like_title($title);
+            $rows = &$this->_category_handler->get_rows_by_like_title($title);
             if (is_array($rows) && isset($rows[0]['cid'])) {
                 $cid = (int)$rows[0]['cid'];
             }
+
             return $cid;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

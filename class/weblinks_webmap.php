@@ -8,7 +8,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_webmap')) {
-
     //=========================================================
     // class google map
     //=========================================================
@@ -45,7 +44,7 @@ if (!class_exists('weblinks_webmap')) {
 
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_getHandler('config2_basic', $dirname);
 
             $this->_conf = $config_handler->get_conf();
 
@@ -59,9 +58,10 @@ if (!class_exists('weblinks_webmap')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_webmap($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -94,6 +94,7 @@ if (!class_exists('weblinks_webmap')) {
             if (!$this->check_webmap_dirname($dirname)) {
                 return false;
             }
+
             return $dirname;
         }
 
@@ -102,6 +103,7 @@ if (!class_exists('weblinks_webmap')) {
             if (_C_WEBMAP3_VERSION < WEBLINKS_WEBMAP3_VERSION) {
                 return false;
             }
+
             return true;
         }
 
@@ -112,6 +114,7 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_html_class->set_display_iframe_url($this->_URL_IFRAME);
+
             return $this->_html_class->build_display_iframe();
         }
 
@@ -136,7 +139,8 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_flag_webmap = true;
-            $this->_html_class  =& webmap3_api_html::getSingleton($webmap_dirname);
+            $this->_html_class  = &webmap3_api_html::getSingleton($webmap_dirname);
+
             return 1;
         }
 
@@ -147,19 +151,21 @@ if (!class_exists('weblinks_webmap')) {
                 return false;
             }
 
-            $map_class =& $this->get_map_class($webmap_dirname);
+            $map_class = &$this->get_map_class($webmap_dirname);
             if (!is_object($map_class)) {
                 return false;
             }
 
             $this->_flag_webmap = true;
-            $this->_map_class   =& $map_class;
+            $this->_map_class   = &$map_class;
+
             return true;
         }
 
         public function get_init_error()
         {
             $msg = sprintf(_WEBLINKS_WEBMAP3_REQUIRE, WEBLINKS_WEBMAP3_VERSION);
+
             return $mas;
         }
 
@@ -185,6 +191,7 @@ if (!class_exists('weblinks_webmap')) {
 
             $this->_flag_webmap = true;
             $this->_form_class  = webmap3_api_form::getSingleton($webmap_dirname);
+
             return 1;
         }
 
@@ -295,7 +302,7 @@ if (!class_exists('weblinks_webmap')) {
             $this->_map_class->assign_map_js_to_head();
             $this->_map_class->assign_gicon_array_to_head();
 
-            $markers = array();
+            $markers = [];
             if (is_array($links) && count($links)) {
                 foreach ($links as $link) {
                     if ($this->check_latlng_by_link($link)) {
@@ -312,11 +319,12 @@ if (!class_exists('weblinks_webmap')) {
             $param = $this->_map_class->build_markers($markers);
             $this->_map_class->fetch_markers_head($param);
 
-            $arr = array(
+            $arr = [
                 'show_webmap'   => $show_webmap,
                 'webmap_div_id' => $this->_map_div_id,
                 'webmap_func'   => $this->_map_func,
-            );
+            ];
+
             return $arr;
         }
 
@@ -326,15 +334,12 @@ if (!class_exists('weblinks_webmap')) {
                 case 1:
                     $map_type = 'satellite';
                     break;
-
                 case 2:
                     $map_type = 'hybrid';
                     break;
-
                 case 3:
                     $map_type = 'terrain';
                     break;
-
                 case 0:
                 default:
                     $map_type = 'roadmap';
@@ -375,7 +380,7 @@ if (!class_exists('weblinks_webmap')) {
             $this->_map_class->assign_map_js_to_head();
             $this->_map_class->assign_gicon_array_to_head();
 
-            $markers = array();
+            $markers = [];
             if ($this->check_latlng_by_link($link)) {
                 $show_webmap = true;
                 $markers[]   = $this->build_marker_single($link);
@@ -388,11 +393,12 @@ if (!class_exists('weblinks_webmap')) {
             $param = $this->_map_class->build_markers($markers);
             $this->_map_class->fetch_markers_head($param);
 
-            $arr = array(
+            $arr = [
                 'show_webmap'   => $show_webmap,
                 'webmap_div_id' => $this->_map_div_id,
                 'webmap_func'   => $this->_map_func,
-            );
+            ];
+
             return $arr;
         }
 
@@ -416,12 +422,14 @@ if (!class_exists('weblinks_webmap')) {
         {
             $url   = $this->_url_singlelink . '?lid=' . $link['lid'];
             $url_s = $this->sanitize($url);
+
             return $this->build_info_common($link, $url_s);
         }
 
         public function build_info_single($link)
         {
             $url_s = $this->sanitize($link['url']);
+
             return $this->build_info_common($link, $url_s);
         }
 
@@ -435,6 +443,5 @@ if (!class_exists('weblinks_webmap')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

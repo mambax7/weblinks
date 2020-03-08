@@ -115,7 +115,7 @@ include_once WEBLINKS_ROOT_PATH . '/admin/admin_functions.php';
 //---------------------------------------------------------
 // config
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
 $rss_use     = $weblinks_config_handler->get_conf_by_name('rss_use');

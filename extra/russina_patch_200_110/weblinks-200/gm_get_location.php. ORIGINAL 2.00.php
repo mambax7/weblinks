@@ -28,7 +28,7 @@
 
 //================================================================
 // WebLinks Module
-// 2006-10-01 wye <http://never-ever.info/>
+// 2006-10-01 wye <https://never-ever.info/>
 //================================================================
 
 //---------------------------------------------------------
@@ -40,7 +40,7 @@
 include 'header.php';
 include_once XOOPS_ROOT_PATH . '/class/template.php';
 
-$config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
 $system         = happy_linux_system::getInstance();
 $post           = happy_linux_post::getInstance();
 $strings        = happy_linux_strings::getInstance();
@@ -56,10 +56,10 @@ $show_close    = false;
 $show_disp_off = false;
 
 // opener mode
-if (($mode == '') || ($mode == 'opener')) {
+if (('' == $mode) || ('opener' == $mode)) {
     $map_height = 450;
     $show_close = true;
-} elseif ($mode == 'parent') {
+} elseif ('parent' == $mode) {
     $map_height    = 300;
     $show_disp_off = true;
 }
@@ -127,19 +127,16 @@ if ($conf['gm_apikey']) {
 
     $tpl->display($template);
 } else {
-
     // --- raw HTML begin ---
     ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-        <title>weblinks - <?php echo $lang_title_utf8_s;
-            ?></title>
+        <title>weblinks - <?php echo $lang_title_utf8_s; ?></title>
     </head>
     <body>
-    <h3><?php echo $lang_title_utf8_s;
-        ?></h3>
+    <h3><?php echo $lang_title_utf8_s; ?></h3>
     <h4 style="color: #ff0000;">not set google map api key</h4>
     </body>
     </html>

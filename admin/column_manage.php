@@ -33,10 +33,10 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_link_handler           = weblinks_get_handler('link', WEBLINKS_DIRNAME);
-        $this->_modify_handler         = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
-        $this->_config_handler         = weblinks_get_handler('config2', WEBLINKS_DIRNAME);
-        $this->_linkitem_store_handler = weblinks_get_handler('linkitem_store', WEBLINKS_DIRNAME);
+        $this->_link_handler           = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_modify_handler         = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
+        $this->_config_handler         = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
+        $this->_linkitem_store_handler = weblinks_getHandler('linkitem_store', WEBLINKS_DIRNAME);
 
         $this->_form = admin_column_form::getInstance();
         $this->_post = happy_linux_post::getInstance();
@@ -45,9 +45,10 @@ class admin_column_manage extends happy_linux_error
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_column_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -73,10 +74,11 @@ class admin_column_manage extends happy_linux_error
 
         if ($num <= 0) {
             $msg = sprintf(_HAPPY_LINUX_ERR_FILL, _AM_WEBLINKS_COLUMN_NUM);
+
             return $msg;
         }
 
-        $etc_arr =& $this->_link_handler->get_field_name_etc_array();
+        $etc_arr = &$this->_link_handler->get_field_name_etc_array();
         $count   = count($etc_arr);
         $start   = $count + 1;
         $end     = $count + $num;
@@ -103,8 +105,9 @@ class admin_column_manage extends happy_linux_error
         }
 
         if (!$this->returnExistError()) {
-            $msg = "DB Error <br />\n";
+            $msg = "DB Error <br>\n";
             $msg .= $this->getErrors('s');
+
             return $msg;
         }
 
@@ -117,17 +120,17 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function check_etc_column()
     {
-        $link_etc_arr   =& $this->_link_handler->get_field_name_etc_array();
-        $modify_etc_arr =& $this->_modify_handler->get_field_name_etc_array();
+        $link_etc_arr   = &$this->_link_handler->get_field_name_etc_array();
+        $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
 
         $count = count($link_etc_arr);
 
-        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br />\n";
+        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br>\n";
 
         foreach ($link_etc_arr as $name) {
-            echo '- ' . $name . " <br />\n";
+            echo '- ' . $name . " <br>\n";
         }
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($link_etc_arr != $modify_etc_arr) {
         }
@@ -135,21 +138,21 @@ class admin_column_manage extends happy_linux_error
 
     public function print_form()
     {
-        $link_etc_arr   =& $this->_link_handler->get_field_name_etc_array();
-        $modify_etc_arr =& $this->_modify_handler->get_field_name_etc_array();
+        $link_etc_arr   = &$this->_link_handler->get_field_name_etc_array();
+        $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
 
         $count = count($link_etc_arr);
 
-        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br />\n";
+        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br>\n";
 
         foreach ($link_etc_arr as $name) {
-            echo '- ' . $name . " <br />\n";
+            echo '- ' . $name . " <br>\n";
         }
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($link_etc_arr != $modify_etc_arr) {
-            $msg = _AM_WEBLINKS_COLUMN_UNMATCH . "<br />\n";
-            $msg .= _AM_WEBLINKS_PHPMYADMIN . "<br />\n";
+            $msg = _AM_WEBLINKS_COLUMN_UNMATCH . "<br>\n";
+            $msg .= _AM_WEBLINKS_PHPMYADMIN . "<br>\n";
             $this->print_error_in_div($msg, false);
         }
 
@@ -159,6 +162,7 @@ class admin_column_manage extends happy_linux_error
     public function check_token()
     {
         $ret = $this->_form->check_token();
+
         return $ret;
     }
 
@@ -181,7 +185,7 @@ class admin_column_form extends happy_linux_form_lib
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
         $this->_system       = happy_linux_system::getInstance();
         $this->_post         = happy_linux_post::getInstance();
     }
@@ -189,9 +193,10 @@ class admin_column_form extends happy_linux_form_lib
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_column_form();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -224,7 +229,7 @@ $manage = admin_column_manage::getInstance();
 $op    = $manage->get_post_op();
 $error = '';
 
-if ($op == 'add_column') {
+if ('add_column' == $op) {
     if (!$manage->check_token()) {
         redirect_header('column_manage.php', 5, 'Token Error');
         exit();
@@ -237,7 +242,7 @@ xoops_cp_header();
 weblinks_admin_print_header();
 weblinks_admin_print_menu();
 echo '<h4>' . _AM_WEBLINKS_COLUMN_MANAGE . "</h4>\n";
-echo _AM_WEBLINKS_COLUMN_MANAGE_DESC . "<br /><br />\n";
+echo _AM_WEBLINKS_COLUMN_MANAGE_DESC . "<br><br>\n";
 
 if (WEBLINKS_USE_LINK_NUM_ETC) {
     if ($error) {

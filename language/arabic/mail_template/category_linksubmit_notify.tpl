@@ -7,10 +7,10 @@ You can view this link submission here :
 
 New link information :
 Title : {LINK_NAME}
-Description : 
+Description :
 {LINK_DESCRIPTION}
 
-Comment for admin : 
+Comment for admin :
 {LINK_USERCOMMENT}
 
 
@@ -25,6 +25,6 @@ Please do not reply to this message.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

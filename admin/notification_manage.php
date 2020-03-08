@@ -34,9 +34,10 @@ class admin_notification_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_notification_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -57,6 +58,7 @@ class admin_notification_manage
         include XOOPS_ROOT_PATH . '/include/notification_select.php';
 
         $text = $xoopsTpl->fetch($this->_TEMPLATE);
+
         return $text;
     }
 
@@ -85,21 +87,19 @@ END_OF_TEXT;
             case 'xoops_cube_21':
                 $ret = false;
                 break;
-
             case 'xoops_22':
                 $ret = false;
                 break;
-
             case 'xoops_20':
             default:
                 $ret = true;
                 break;
         }
 
-        echo "<br />\n";
-        echo _AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE . "<br />\n";
-        echo '<a href="' . $url . '">' . _AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE . '</a><br />' . "\n";
-        echo "<br />\n";
+        echo "<br>\n";
+        echo _AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE . "<br>\n";
+        echo '<a href="' . $url . '">' . _AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE . '</a><br>' . "\n";
+        echo "<br>\n";
 
         $this->_admin->_print_judge($ver);
 
@@ -119,7 +119,7 @@ weblinks_admin_print_header();
 weblinks_admin_print_menu();
 
 echo '<h3>' . _AM_WEBLINKS_NOTIFICATION_MANAGE . "</h3>\n";
-echo _AM_WEBLINKS_NOTIFICATION_MANAGE_DESC . "<br />\n";
+echo _AM_WEBLINKS_NOTIFICATION_MANAGE_DESC . "<br>\n";
 
 $ret = $manage->print_xoops_version();
 if ($ret) {

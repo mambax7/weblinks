@@ -38,7 +38,7 @@ class admin_votedata_list extends happy_linux_page_frame
         $this->set_operation('del_all');
         $this->set_lang_submit_value(_DELETE);
 
-        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
     }
@@ -46,9 +46,10 @@ class admin_votedata_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_votedata_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -65,7 +66,7 @@ class admin_votedata_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_table_header()
     {
-        $arr1 = array(
+        $arr1 = [
             $this->build_form_js_checkall(),
             'ratingid',
             _WLS_LINKID,
@@ -76,9 +77,9 @@ class admin_votedata_list extends happy_linux_page_frame
             _WLS_USERAVG,
             _WLS_TOTALRATE,
             _WLS_DATE,
-        );
+        ];
 
-        $arr2 = array(
+        $arr2 = [
             $this->build_form_js_checkall(),
             'ratingid',
             _WLS_USER,
@@ -87,7 +88,7 @@ class admin_votedata_list extends happy_linux_page_frame
             _WLS_USERAVG,
             _WLS_TOTALRATE,
             _WLS_DATE,
-        );
+        ];
 
         switch ($this->_sortid) {
             case 2:
@@ -98,7 +99,6 @@ class admin_votedata_list extends happy_linux_page_frame
                     $arr = $arr1;
                 }
                 break;
-
             case 0:
             case 1:
             default:
@@ -117,11 +117,9 @@ class admin_votedata_list extends happy_linux_page_frame
             case 2:
                 $total = $this->_get_total_user();
                 break;
-
             case 3:
                 $total = $this->_get_total_anon();
                 break;
-
             case 0:
             case 1:
             default:
@@ -139,6 +137,7 @@ class admin_votedata_list extends happy_linux_page_frame
         } else {
             $total = $this->_handler->get_count_user();
         }
+
         return $total;
     }
 
@@ -149,6 +148,7 @@ class admin_votedata_list extends happy_linux_page_frame
         } else {
             $total = $this->_handler->get_count_by_uid(0);
         }
+
         return $total;
     }
 
@@ -156,28 +156,25 @@ class admin_votedata_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs = &$this->_handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
                 if ($this->_lid) {
-                    $objs =& $this->_handler->get_objects_user_by_lid($this->_lid, $limit, $start);
+                    $objs = &$this->_handler->get_objects_user_by_lid($this->_lid, $limit, $start);
                 } else {
-                    $objs =& $this->_handler->get_objects_orderby_uid($limit, $start);
+                    $objs = &$this->_handler->get_objects_orderby_uid($limit, $start);
                 }
                 break;
-
             case 3:
                 if ($this->_lid) {
-                    $objs =& $this->_handler->get_objects_by_lid_uid($this->_lid, 0, $limit, $start);
+                    $objs = &$this->_handler->get_objects_by_lid_uid($this->_lid, 0, $limit, $start);
                 } else {
-                    $objs =& $this->_handler->get_objects_anoymous($limit, $start);
+                    $objs = &$this->_handler->get_objects_anoymous($limit, $start);
                 }
                 break;
-
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_asc($limit, $start);
+                $objs = &$this->_handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -207,7 +204,7 @@ class admin_votedata_list extends happy_linux_page_frame
             list($uservotes, $useravgrating) = $this->_handler->calc_rating_by_uid($ratinguser);
         }
 
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
         }
@@ -217,7 +214,7 @@ class admin_votedata_list extends happy_linux_page_frame
         $link_vote = $this->_build_page_id_link_by_obj($obj, 'ratingid', $jump_vote);
         $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
 
-        $arr1 = array(
+        $arr1 = [
             $checkbox,
             $link_vote,
             $link_link,
@@ -228,9 +225,9 @@ class admin_votedata_list extends happy_linux_page_frame
             $useravgrating,
             $uservotes,
             $formatted_date,
-        );
+        ];
 
-        $arr2 = array(
+        $arr2 = [
             $checkbox,
             $link_vote,
             $ratingusername,
@@ -239,7 +236,7 @@ class admin_votedata_list extends happy_linux_page_frame
             $useravgrating,
             $uservotes,
             $formatted_date,
-        );
+        ];
 
         switch ($this->_sortid) {
             case 2:
@@ -250,7 +247,6 @@ class admin_votedata_list extends happy_linux_page_frame
                     $arr = $arr1;
                 }
                 break;
-
             case 0:
             case 1:
             default:
@@ -273,7 +269,7 @@ class admin_votedata_list extends happy_linux_page_frame
 
         echo '<h4>' . _AM_WEBLINKS_VOTE_LIST . "</h4>\n";
         printf(_WLS_THEREARE, $total_all);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $script_asc  = $this->_get_script_asc();
         $script_desc = $this->_get_script_desc();
@@ -281,26 +277,23 @@ class admin_votedata_list extends happy_linux_page_frame
         $script_anon = $this->_get_script_by_sortid(3);
 
         echo "<ul>\n";
-        echo '<li><a href="' . $script_asc . '">' . $this->_LANG_ID_ASC . '</a> (' . $total_all . ") <br /><br /></li>\n";
-        echo '<li><a href="' . $script_desc . '">' . $this->_LANG_ID_DESC . '</a> (' . $total_all . ") <br /><br /></li>\n";
-        echo '<li><a href="' . $script_user . '">' . _AM_WEBLINKS_VOTE_USER . '</a> (' . $total_user . ") <br /><br /></li>\n";
-        echo '<li><a href="' . $script_anon . '">' . _AM_WEBLINKS_VOTE_ANON . '</a> (' . $total_anon . ") <br /><br /></li>\n";
+        echo '<li><a href="' . $script_asc . '">' . $this->_LANG_ID_ASC . '</a> (' . $total_all . ") <br><br></li>\n";
+        echo '<li><a href="' . $script_desc . '">' . $this->_LANG_ID_DESC . '</a> (' . $total_all . ") <br><br></li>\n";
+        echo '<li><a href="' . $script_user . '">' . _AM_WEBLINKS_VOTE_USER . '</a> (' . $total_user . ") <br><br></li>\n";
+        echo '<li><a href="' . $script_anon . '">' . _AM_WEBLINKS_VOTE_ANON . '</a> (' . $total_anon . ") <br><br></li>\n";
         echo "</ul>\n";
-        echo "<br />\n";
+        echo "<br>\n";
 
         switch ($this->_sortid) {
             case 1:
                 $title = $this->_LANG_ID_DESC;
                 break;
-
             case 2:
                 $title = _AM_WEBLINKS_VOTE_USER;
                 break;
-
             case 3:
                 $title = _AM_WEBLINKS_VOTE_ANON;
                 break;
-
             case 0:
             default:
                 $title = $this->_LANG_ID_ASC;
@@ -310,12 +303,12 @@ class admin_votedata_list extends happy_linux_page_frame
         echo '<h4>' . $title . "</h4>\n";
 
         if ($this->_lid) {
-            $link_obj =& $this->_link_handler->get($this->_lid);
+            $link_obj = &$this->_link_handler->get($this->_lid);
             if (is_object($link_obj)) {
                 $title     = $link_obj->get('title');
                 $jump_link = 'link_manage.php?op=mod_form&lid=' . $this->_lid;
                 $text      = $this->build_html_a_href_name($jump_link, $title);  // class build_html
-                echo $text . "<br /><br />\n";
+                echo $text . "<br><br>\n";
             }
         }
     }
@@ -341,6 +334,7 @@ class admin_votedata_list extends happy_linux_page_frame
             $script = $this->_get_script() . '?sortid=';
         }
         $script .= $sortid;
+
         return $script;
     }
 
@@ -350,6 +344,7 @@ class admin_votedata_list extends happy_linux_page_frame
         if ($this->_lid) {
             $script .= '?lid=' . $this->_lid;
         }
+
         return $script;
     }
 

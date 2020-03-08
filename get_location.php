@@ -36,9 +36,9 @@ class weblinks_get_location
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
-        $this->_cat_handler  = weblinks_get_handler('category_basic', $dirname);
-        $this->_conf_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+        $this->_cat_handler  = weblinks_getHandler('category_basic', $dirname);
+        $this->_conf_handler = weblinks_getHandler('config2_basic', $dirname);
 
         $this->_conf_handler->init();
         $this->_conf = $this->_conf_handler->get_conf();
@@ -47,9 +47,10 @@ class weblinks_get_location
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_get_location($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -62,12 +63,13 @@ class weblinks_get_location
         require XOOPS_ROOT_PATH . '/modules/' . $webmap3_dirname . '/include/api.php';
         if (!class_exists('webmap3_api_get_location')) {
             echo $this->error();
+
             return false;
         }
 
         list($flag, $lat, $lng, $zoom, $addr) = $this->get_latlng();
 
-        $api_class =& webmap3_api_get_location::getSingleton($webmap3_dirname);
+        $api_class = &webmap3_api_get_location::getSingleton($webmap3_dirname);
 
         $api_class->set_latitude($lat);
         $api_class->set_longitude($lng);
@@ -105,7 +107,7 @@ class weblinks_get_location
                 }
 
                 $temp = $this->build_address($row['state'], $row['city'], $row['addr']);
-                if ($temp != '') {
+                if ('' != $temp) {
                     $addr = $temp;
                 }
             }
@@ -118,27 +120,28 @@ class weblinks_get_location
                     $lng  = $row['gm_longitude'];
                     $zoom = $row['gm_zoom'];
                 }
-                if ($row['gm_location'] != '') {
+                if ('' != $row['gm_location']) {
                     $addr = $row['gm_location'];
                 }
             }
         }
 
-        return array($flag, $lat, $lng, $zoom, $addr);
+        return [$flag, $lat, $lng, $zoom, $addr];
     }
 
     public function build_address($state, $city, $addr)
     {
         $address_class = weblinks_address::getInstance($this->_DIRNAME);
         $locate_class  = $address_class->get_instance_locate();
+
         return $locate_class->build_address($state, $city, $addr);
     }
 
     public function error()
     {
         $text = <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" >
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <title>get location</title>

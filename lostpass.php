@@ -70,7 +70,7 @@ class weblinks_lostpass extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_link_handler = weblinks_get_handler('link', $dirname);
+        $this->_link_handler = weblinks_getHandler('link', $dirname);
 
         $this->_mail_template = happy_linux_mail_template::getInstance($dirname);
         $this->_system        = happy_linux_system::getInstance();
@@ -81,9 +81,10 @@ class weblinks_lostpass extends happy_linux_error
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_lostpass($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -93,12 +94,14 @@ class weblinks_lostpass extends happy_linux_error
     public function get_post_lid()
     {
         $this->_post_lid = $this->_post->get_post_int('lid');
+
         return $this->_post_lid;
     }
 
     public function get_post_email()
     {
         $this->_post_email = $this->_post->get_post_text('email');
+
         return $this->_post_email;
     }
 
@@ -109,7 +112,7 @@ class weblinks_lostpass extends happy_linux_error
     {
         $email = $this->get_post_email();
 
-        $obj =& $this->_link_handler->get($lid);
+        $obj = &$this->_link_handler->get($lid);
         if (!is_object($obj)) {
             return -1;
         }
@@ -152,7 +155,7 @@ class weblinks_lostpass extends happy_linux_error
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $this->_DIRNAME;
         $entry        = $WEBLINKS_URL . '/modlink.php?lid=' . $this->_post_lid . '&code=' . $this->_passwd;
 
-        $xoopsMailer =& getMailer();
+        $xoopsMailer = &getMailer();
         $xoopsMailer->useMail();
         $xoopsMailer->setTemplateDir($dir_tpl);
         $xoopsMailer->setTemplate($file_tpl);
@@ -170,6 +173,7 @@ class weblinks_lostpass extends happy_linux_error
         $ret = $xoopsMailer->send(true);
         if (!$ret) {
             $this->_set_errors($xoopsMailer->getErrors(false));
+
             return false;
         }
 
@@ -187,6 +191,7 @@ class weblinks_lostpass extends happy_linux_error
         if ($this->_DEBUG_MAIL) {
             $msg .= $this->getErrors('s');
         }
+
         return $msg;
     }
 
@@ -198,6 +203,7 @@ class weblinks_lostpass extends happy_linux_error
             $name = $this->_system->get_uname();
         }
         $this->_name = $name;
+
         return $name;
     }
 
@@ -217,22 +223,22 @@ $singlelink = 'singlelink.php?lid=' . $lid;
 
 $ret = $weblinks_lostpass->update_password($lid);
 
-if ($ret == -1) {
+if (-1 == $ret) {
     redirect_header('index.php', 3, _WLS_ERRORNOLINK);
     exit();
 }
 
-if ($ret == -2) {
+if (-2 == $ret) {
     redirect_header($singlelink, 3, 'Token Error');
     exit();
 }
 
-if ($ret == -3) {
+if (-3 == $ret) {
     redirect_header($singlelink, 3, _WLS_EMAILNOTFOUND);
     exit();
 }
 
-if ($ret == -4) {
+if (-4 == $ret) {
     redirect_header($singlelink, 3, _US_MAILPWDNG);
     exit();
 }
@@ -244,5 +250,4 @@ if (!$ret) {
 }
 
 redirect_header($singlelink, 1, $weblinks_lostpass->get_msg_success());
-exit();// --- main end ---
-;
+exit(); // --- main end ---

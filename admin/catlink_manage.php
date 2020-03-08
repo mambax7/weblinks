@@ -37,15 +37,15 @@ class admin_catlink_manage extends happy_linux_manage
         $this->set_redirect('catlink_list.php', 'catlink_list.php?sortid=1');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_catlink_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -93,15 +93,15 @@ class admin_form_catlink extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_catlink();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -124,12 +124,12 @@ class admin_form_catlink extends happy_linux_form
         $cat_title_s  = '';
         $link_title_s = '';
 
-        $cat_obj =& $this->_category_handler->get($cid);
+        $cat_obj = &$this->_category_handler->get($cid);
         if (is_object($cat_obj)) {
             $cat_title_s = $cat_obj->getVar('title', 's');
         }
 
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $link_title_s = $link_obj->getVar('title', 's');
         }
@@ -180,19 +180,15 @@ switch ($op) {
     case 'mod_form':
         $manage->mod_form();
         break;
-
     case 'mod_table':
         $manage->mod_table();
         break;
-
     case 'del_table':
         $manage->del_table();
         break;
-
     case 'del_all':
         $manage->del_all();
         break;
-
     default:
         xoops_cp_header();
         echo '<h4>No Action</h4>';
@@ -200,5 +196,4 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

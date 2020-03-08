@@ -21,7 +21,6 @@ include_once WEBLINKS_ROOT_PATH . '/api/build_rss.php';
 //=========================================================
 // main
 //=========================================================
-$weblinks_build_handler = weblinks_get_handler('build_rss', WEBLINKS_DIRNAME);
+$weblinks_build_handler = weblinks_getHandler('build_rss', WEBLINKS_DIRNAME);
 $weblinks_build_handler->build_for_link();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

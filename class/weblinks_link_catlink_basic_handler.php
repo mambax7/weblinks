@@ -34,7 +34,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_catlink_basic_handler')) {
-
     //=========================================================
     // class weblinks_link_catlink_basic_handler
     // handling for table_link & table_catlink
@@ -65,7 +64,7 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             $this->_table_link    = $this->prefix('link');
             $this->_table_catlink = $this->prefix('catlink');
 
-            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
 
             $conf               = $config_basic_handler->get_conf();
             $this->_conf_broken = $conf['broken_threshold'];
@@ -76,7 +75,8 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
         //---------------------------------------------------------
         public function get_count_by_cid($cid)
         {
-            $cid_arr = array($cid);
+            $cid_arr = [$cid];
+
             return $this->get_count_by_cid_array_where($cid_arr);
         }
 
@@ -88,12 +88,13 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
         // for search
         public function get_count_by_cid_array_where(&$cid_arr, $where_in = null)
         {
-            if (!is_array($cid_arr) || count($cid_arr) == 0) {
+            if (!is_array($cid_arr) || 0 == count($cid_arr)) {
                 return false;
             }
 
             $where = $this->_build_where_by_cid_array_where($cid_arr, $where_in);
             $count = $this->get_count_by_where($where);
+
             return $count;
         }
 
@@ -105,14 +106,16 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             $sql .= ' WHERE ' . $where;
 
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
-        public function build_sql_where_strict(&$cid_arr)
+        public function build_sql_where_strict($cid_arr)
         {
             $where = $this->build_sql_where_exclude();
             $where .= ' AND ' . $this->build_sql_where_cid_arr($cid_arr);
             $where .= ' AND l.lid=c.lid';
+
             return $where;
         }
 
@@ -122,10 +125,11 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             $where = ' l.broken < ' . (int)$this->_conf_broken . ' ';
             $where .= 'AND ( l.time_publish = 0 OR l.time_publish <= ' . $time . ' ) ';
             $where .= 'AND ( l.time_expire = 0 OR l.time_expire > ' . $time . ' ) ';
+
             return $where;
         }
 
-        public function build_sql_where_cid_arr(&$cid_arr)
+        public function build_sql_where_cid_arr($cid_arr)
         {
             $count = count($cid_arr);
 
@@ -134,6 +138,7 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
                 $where .= ' OR c.cid=' . $cid_arr[$i] . ' ';
             }
             $where .= ' ) ';
+
             return $where;
         }
 
@@ -143,6 +148,7 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             if ($where_in) {
                 $where .= ' AND ' . $where_in;
             }
+
             return $where;
         }
 
@@ -151,7 +157,8 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
         //---------------------------------------------------------
         public function &get_lid_array_by_cid_orderby($cid, $orderby = null, $limit = 0, $start = 0)
         {
-            $cid_arr = array($cid);
+            $cid_arr = [$cid];
+
             return $this->get_lid_array_by_cid_array_where_orderby($cid_arr, null, $orderby, $limit, $start);
         }
 
@@ -164,8 +171,9 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
         // for search
         public function &get_lid_array_by_cid_array_where_orderby(&$cid_arr, $where_in = null, $orderby_in = null, $limit = 0, $start = 0)
         {
-            if (!is_array($cid_arr) || count($cid_arr) == 0) {
+            if (!is_array($cid_arr) || 0 == count($cid_arr)) {
                 $false = false;
+
                 return $false;
             }
 
@@ -178,7 +186,8 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
                 $orderby = 'l.lid ASC';
             }
 
-            $arr =& $this->get_lid_array_by_where_orderby($where, $orderby, $limit, $start);
+            $arr = &$this->get_lid_array_by_where_orderby($where, $orderby, $limit, $start);
+
             return $arr;
         }
 
@@ -190,12 +199,12 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             $sql .= ' WHERE ' . $where . ' ';
             $sql .= ' ORDER BY ' . $orderby;
 
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $start);
+
             return $arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

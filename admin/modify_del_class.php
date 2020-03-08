@@ -15,7 +15,6 @@
 //=========================================================
 class admin_modify_del extends admin_modify_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -28,9 +27,10 @@ class admin_modify_del extends admin_modify_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_modify_del();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -44,7 +44,7 @@ class admin_modify_del extends admin_modify_base
 
         if ($total > 0) {
             if ($mid > 0) {
-                $obj =& $this->_handler->get($mid);
+                $obj = &$this->_handler->get($mid);
                 if (!is_object($obj)) {
                     redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
                     exit();
@@ -63,15 +63,15 @@ class admin_modify_del extends admin_modify_base
             $this->_print_cp_header();
             $this->_print_bread_op(_AM_WEBLINKS_DEL_REQS, 'list_del');
             echo '<h4>' . _AM_WEBLINKS_DEL_REQS . "</h4>\n";
-            echo sprintf(_HAPPY_LINUX_THERE_ARE, $total_s) . "<br /><br />\n";
+            echo sprintf(_HAPPY_LINUX_THERE_ARE, $total_s) . "<br><br>\n";
             $this->_print_approve_del_form($mid);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         } else {
             $this->_print_cp_header();
             weblinks_admin_print_menu();
             echo '<h4>' . _AM_WEBLINKS_DEL_REQS . "</h4>\n";
 
-            echo _AM_WEBLINKS_NO_DEL_REQ . "<br />\n";
+            echo _AM_WEBLINKS_NO_DEL_REQ . "<br>\n";
         }
 
         $this->_print_cp_footer();
@@ -79,7 +79,7 @@ class admin_modify_del extends admin_modify_base
 
     public function _print_approve_del_form($mid)
     {
-        $obj =& $this->_handler->get($mid);
+        $obj = &$this->_handler->get($mid);
         if (!is_object($obj)) {
             redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
             exit();
@@ -104,14 +104,14 @@ class admin_modify_del extends admin_modify_base
         $this->_print_bread_op(_AM_WEBLINKS_DEL_REQS, 'list_del');
         echo '<h4>' . _AM_WEBLINKS_DEL_REQS . "</h4>\n";
 
-        $this->_print_approve_del_confirm_form($mid);;
+        $this->_print_approve_del_confirm_form($mid);
 
         $this->_print_cp_footer();
     }
 
     public function _print_approve_del_confirm_form($mid)
     {
-        $obj =& $this->_handler->get($mid);
+        $obj = &$this->_handler->get($mid);
         if (!is_object($obj)) {
             redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
             exit();
@@ -142,7 +142,6 @@ class admin_modify_del extends admin_modify_base
         }
 
         if ($this->_exec_approve_del()) {
-
             // show notification form
             if ($this->_check_notification()) {
                 $this->_print_notification_form_common(WEBLINKS_OP_APPROVE_DEL);
@@ -153,10 +152,9 @@ class admin_modify_del extends admin_modify_base
             $msg .= $this->build_comment('approve del link'); // for test form
             redirect_header($this->_get_redirect_at_mod(), 1, $msg);
             exit();
-        } else {
-            $this->_print_approve_del_error('DB Error');
-            exit();
         }
+        $this->_print_approve_del_error('DB Error');
+        exit();
     }
 
     public function _exec_approve_del()
@@ -165,6 +163,7 @@ class admin_modify_del extends admin_modify_base
         if (!$ret) {
             $this->_set_errors($this->_edit_handler->getErrors());
         }
+
         return true;
     }
 
@@ -211,7 +210,6 @@ class admin_modify_del extends admin_modify_base
         }
 
         if ($this->_delete_modify()) {
-
             // show notification form
             if ($this->_check_notification()) {
                 $this->_print_notification_form_common('refuse_del');

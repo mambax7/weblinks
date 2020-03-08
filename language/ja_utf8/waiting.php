@@ -17,4 +17,3 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', '修正申請');
     define('_WEBLINKS_PI_WAITING_DELREQS', '削除申請');
 }// --- define language end ---
-;

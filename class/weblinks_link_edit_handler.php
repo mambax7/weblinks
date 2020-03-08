@@ -56,14 +56,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_edit_handler')) {
-
     //=========================================================
     // class weblinks_link_edit_handler
     // this is facade class
     //=========================================================
     class weblinks_link_edit_handler extends weblinks_link_edit_base_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -71,10 +69,10 @@ if (!class_exists('weblinks_link_edit_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_link_add_handler = weblinks_get_handler('link_add', $dirname);
-            $this->_link_mod_handler = weblinks_get_handler('link_mod', $dirname);
-            $this->_link_del_handler = weblinks_get_handler('link_del', $dirname);
-            $this->_link_req_handler = weblinks_get_handler('link_req', $dirname);
+            $this->_link_add_handler = weblinks_getHandler('link_add', $dirname);
+            $this->_link_mod_handler = weblinks_getHandler('link_mod', $dirname);
+            $this->_link_del_handler = weblinks_getHandler('link_del', $dirname);
+            $this->_link_req_handler = weblinks_getHandler('link_req', $dirname);
         }
 
         //---------------------------------------------------------
@@ -180,6 +178,5 @@ if (!class_exists('weblinks_link_edit_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

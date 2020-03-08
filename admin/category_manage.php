@@ -110,12 +110,12 @@ class admin_category_manage extends happy_linux_manage
         $this->set_module_dirname('weblinks');
         $this->set_flag_execute_time(true);
 
-        $this->_config_handler       = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_link_vote_handler    = weblinks_get_handler('link_vote_del', WEBLINKS_DIRNAME);
-        $this->_link_handler         = weblinks_get_handler('link', WEBLINKS_DIRNAME);
-        $this->_catlink_handler      = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
-        $this->_banner_handler       = weblinks_get_handler('banner', WEBLINKS_DIRNAME);
-        $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', WEBLINKS_DIRNAME);
+        $this->_config_handler       = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_link_vote_handler    = weblinks_getHandler('link_vote_del', WEBLINKS_DIRNAME);
+        $this->_link_handler         = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_catlink_handler      = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
+        $this->_banner_handler       = weblinks_getHandler('banner', WEBLINKS_DIRNAME);
+        $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', WEBLINKS_DIRNAME);
 
         $this->_strings    = happy_linux_strings::getInstance();
         $this->_time_class = happy_linux_time::getInstance();
@@ -129,12 +129,12 @@ class admin_category_manage extends happy_linux_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_category_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
-
 
     //---------------------------------------------------------
     // POST param
@@ -151,6 +151,7 @@ class admin_category_manage extends happy_linux_manage
         } elseif (isset($_GET['op'])) {
             $op = $_GET['op'];
         }
+
         return $op;
     }
 
@@ -172,9 +173,10 @@ class admin_category_manage extends happy_linux_manage
 
     public function _print_add_form()
     {
-        $obj =& $this->_handler->create();
+        $obj = &$this->_handler->create();
         $obj->set('lflag', 1);
         $this->_form->_show_add($obj);
+
         return true;
     }
 
@@ -203,10 +205,9 @@ class admin_category_manage extends happy_linux_manage
             $msg .= $this->_build_comment('add record');    // for test form
             redirect_header($this->_redirect_desc, 1, $msg);
             exit();
-        } else {
-            $this->_print_add_db_error();
-            exit();
         }
+        $this->_print_add_db_error();
+        exit();
     }
 
     public function _check_add_table()
@@ -228,7 +229,7 @@ class admin_category_manage extends happy_linux_manage
     {
         $title = $this->_post->get_post_text('title');
 
-        $obj =& $this->_handler->create();
+        $obj = &$this->_handler->create();
         $obj->set_vars_by_post();
         $obj->set_pid_by_post();
         $obj->set_desc_by_post();
@@ -253,10 +254,11 @@ class admin_category_manage extends happy_linux_manage
         $newid = $this->_handler->insert($obj);
         if (!$newid) {
             $this->_set_errors($this->_handler->getErrors());
+
             return false;
         }
 
-        $tags                  = array();
+        $tags                  = [];
         $tags['CATEGORY_NAME'] = $title;
         $tags['CATEGORY_URL']  = WEBLINKS_URL . '/viewcat.php?cid=' . $newid;
         $notification_handler  = xoops_getHandler('notification');
@@ -303,10 +305,9 @@ class admin_category_manage extends happy_linux_manage
             $msg .= $this->_build_comment('mod record');    // for test form
             redirect_header($this->_redirect_asc, 1, $msg);
             exit();
-        } else {
-            $this->_print_mod_db_error();
-            exit();
         }
+        $this->_print_mod_db_error();
+        exit();
     }
 
     public function _check_mod_table()
@@ -323,7 +324,7 @@ class admin_category_manage extends happy_linux_manage
 
         $this->_modid = $this->_get_post_get_id();
 
-        $obj =& $this->_obj;
+        $obj = &$this->_obj;
         $obj->set_vars_by_post();
         $obj->set_desc_by_post();
 
@@ -342,8 +343,10 @@ class admin_category_manage extends happy_linux_manage
         if (!$this->_handler->update($obj)) {
             $this->_set_errors($this->_LANG_FAIL_MOD);
             $this->_set_errors($this->_handler->getErrors());
+
             return false;
         }
+
         return true;
     }
 
@@ -373,7 +376,7 @@ class admin_category_manage extends happy_linux_manage
         $MAX_LINK_BELONG = 10;
         $MAX_LINK_DEL    = 10;
 
-        if ($ok == 1) {
+        if (1 == $ok) {
             echo '<h3>' . _WLS_DELCAT . "</h3>\n";
         } else {
             echo "<h3 style='color: #0000ff'>" . _WLS_WARNING . "</h3>\n";
@@ -383,7 +386,7 @@ class admin_category_manage extends happy_linux_manage
         echo '<h4>' . _WLS_CATEGORY . "</h4>\n";
 
         $title_s = $this->_obj->getVar('title', 's');
-        echo "$cid: $title_s <br />\n";
+        echo "$cid: $title_s <br>\n";
 
         // sub categories
         echo '<h4>' . _WLS_SUBCATEGORY . "</h4>\n";
@@ -395,18 +398,18 @@ class admin_category_manage extends happy_linux_manage
             foreach ($sub_arr as $sub) {
                 $obj2    = $this->_handler->get($sub);
                 $title_s = $obj2->getVar('title', 's');
-                echo "$sub: $title_s <br />\n";
+                echo "$sub: $title_s <br>\n";
             }
         } else {
-            echo _WLS_SUBCATEGORY_NON . "<br />\n";
+            echo _WLS_SUBCATEGORY_NON . "<br>\n";
         }
 
         // limit over
         if ($sub_count > $MAX_SUBCAT_DEL) {
-            echo "<br />\n";
+            echo "<br>\n";
             echo $this->_form->build_html_highlight(_WLS_ERROR_MAX_SUBCAT);
-            echo " ($MAX_SUBCAT_DEL) <br />\n";
-            echo "<hr />\n";
+            echo " ($MAX_SUBCAT_DEL) <br>\n";
+            echo "<hr>\n";
             $this->_print_cp_footer_with_goto_list();
             exit();
         }
@@ -414,32 +417,31 @@ class admin_category_manage extends happy_linux_manage
         // all link belonging to this category
         echo '<h4>' . _WLS_LINK_BELONG . "</h4>\n";
 
-        $cid_arr        = array_merge(array($cid), $sub_arr);
+        $cid_arr        = array_merge([$cid], $sub_arr);
         $lid_arr        = $this->_catlink_handler->get_lid_array_by_cid_array($cid_arr);
         $cid_count      = count($cid_arr);
         $link_count     = count($lid_arr);
         $link_del_count = 0;
 
         if ($link_count > 0) {
-            echo _WLS_LINK_BELONG_NUMBER . ': ' . count($lid_arr) . "<br />\n";
+            echo _WLS_LINK_BELONG_NUMBER . ': ' . count($lid_arr) . "<br>\n";
             echo '<h4>' . _WLS_LINK_MAYBE_DELETE . "</h4>\n";
 
             if ($cid_count > 0) {
-                echo _WLS_LINK_MAYBE_DELETE_DSC . "<br /><br />\n";
+                echo _WLS_LINK_MAYBE_DELETE_DSC . "<br><br>\n";
             }
 
             foreach ($lid_arr as $lid) {
-
                 // get the number of the categories belonging to this link
                 $num = $this->_catlink_handler->get_count_by_lid($lid);
 
                 // the link belongs only to this category
-                if ($num == 1) {
+                if (1 == $num) {
                     $link_obj = $this->_link_handler->get($lid);
 
                     if (is_object($link_obj)) {
                         $link_title_s = $link_obj->getVar('title', 's');
-                        echo "link: $lid: $link_title_s <br />\n";
+                        echo "link: $lid: $link_title_s <br>\n";
                     } else {
                         $msg = "link not exist lid = $lid";
                         $this->print_error($msg);
@@ -449,36 +451,36 @@ class admin_category_manage extends happy_linux_manage
                 }
             }
 
-            if ($link_del_count == 0) {
+            if (0 == $link_del_count) {
                 echo $this->_form->build_html_highlight(_WLS_LINK_DELETE_NON, '#0000ff');
             }
         } else {
-            echo _WLS_LINK_BELONG_NON . "<br />\n";
+            echo _WLS_LINK_BELONG_NON . "<br>\n";
         }
 
         // limit over
         if ($link_del_count > $MAX_LINK_DEL) {
-            echo "<br />\n";
+            echo "<br>\n";
             echo $this->_form->build_html_highlight(_WLS_ERROR_MAX_LINK_DEL);
-            echo " ($MAX_LINK_DEL) <br />\n";
-            echo "<hr />\n";
+            echo " ($MAX_LINK_DEL) <br>\n";
+            echo "<hr>\n";
             $this->_print_cp_footer_with_goto_list();
             exit();
         }
 
         // limit over
         if ($link_count > $MAX_LINK_BELONG) {
-            echo "<br />\n";
+            echo "<br>\n";
             echo $this->_form->build_html_highlight(_WLS_ERROR_MAX_LINK_BELONG);
-            echo " ($MAX_LINK_BELONG) <br />\n";
-            echo "<hr />\n";
+            echo " ($MAX_LINK_BELONG) <br>\n";
+            echo "<hr>\n";
             $this->_print_cp_footer_with_goto_list();
             exit();
         }
 
         // excute
-        if ($ok == 1) {
-            echo "<br /><hr />\n";
+        if (1 == $ok) {
+            echo "<br><hr>\n";
             echo '<h4>' . _WLS_CATEGORY_LINK_DELETE_EXCUTE . "</h4>\n";
 
             $flag_error = false;
@@ -502,21 +504,21 @@ class admin_category_manage extends happy_linux_manage
                 $this->print_error(_AM_WEBLINKS_ERROR_SOME);
             }
 
-            echo "<hr />\n";
+            echo "<hr>\n";
 
             if ($this->_conf_cat_path_count) {
                 $this->_form->update_path();
             }
 
             $this->_print_cp_footer_with_goto_list();
+
             return;
         } // confirm
-        else {
-            $this->_form->del_cat_ok($cid);
-            xoops_cp_footer();
-            return;
-        }
 
+        $this->_form->del_cat_ok($cid);
+        xoops_cp_footer();
+
+        return;
         xoops_cp_footer();  // dummy
     }
 
@@ -530,17 +532,16 @@ class admin_category_manage extends happy_linux_manage
         $lid_arr = $this->_catlink_handler->get_lid_array_by_cid($cid);
 
         foreach ($lid_arr as $lid) {
-
             // get the number of the categories belonging to this link
             $num = $this->_catlink_handler->get_count_by_lid($lid);
 
             // delete this link, if it belongs only to this category
-            if ($num == 1) {
+            if (1 == $num) {
                 $link_obj = $this->_link_handler->get($lid);
 
                 if (is_object($link_obj)) {
                     $title_s = $link_obj->getVar('title', 's');
-                    echo "$lid: $title_s <br />\n";
+                    echo "$lid: $title_s <br>\n";
                 } else {
                     $flag_error = true;
                     $msg        = "link not exist lid = $lid ";
@@ -562,7 +563,7 @@ class admin_category_manage extends happy_linux_manage
 
         if (is_object($obj)) {
             $title_s = $obj->getVar('title', 's');
-            echo _WLS_CATEGORY_DELETED . ": $cid: $title_s <br />\n";
+            echo _WLS_CATEGORY_DELETED . ": $cid: $title_s <br>\n";
 
             $ret = $this->_handler->delete($obj);
             if (!$ret) {
@@ -582,13 +583,14 @@ class admin_category_manage extends happy_linux_manage
         if ($flag_error) {
             return false;
         }
+
         return true;
     }
 
     public function _print_cp_footer_with_goto_list()
     {
-        echo "<br />\n";
-        echo '- <a href="category_list.php">' . _WEBLINKS_ADMIN_CATEGORY_LIST . "</a><br />\n";
+        echo "<br>\n";
+        echo '- <a href="category_list.php">' . _WEBLINKS_ADMIN_CATEGORY_LIST . "</a><br>\n";
         xoops_cp_footer();
     }
 
@@ -627,7 +629,7 @@ class admin_category_manage extends happy_linux_manage
         foreach ($order_arr as $key => $value) {
             $cid    = (int)$key;
             $orders = (int)$value;
-            $obj    =& $this->_handler->get($cid);
+            $obj    = &$this->_handler->get($cid);
 
             if (is_object($obj)) {
                 $obj->setVar('orders', $orders);
@@ -662,12 +664,10 @@ class admin_category_manage extends happy_linux_manage
                 $title = _AM_WEBLINKS_ADD_CATEGORY;
                 $op    = 'add_form';
                 break;
-
             case 'mod':
                 $title = _WLS_MODCAT;
                 $op    = 'mod_form';
                 break;
-
             default:
             case 'update_path':
                 $title = _AM_WEBLINKS_UPDATE_CAT_PATH;
@@ -696,7 +696,7 @@ class admin_category_manage extends happy_linux_manage
         if ($this->_exec_update_path()) {
             $time = $this->_time_class->get_elapse_time();
             $msg  = _WLS_DBUPDATED . " : $time sec ";
-            $msg .= $this->_build_comment('update path');   // for test form
+            $msg  .= $this->_build_comment('update path');   // for test form
             redirect_header($url_end, 1, $msg);
             exit();
         }
@@ -714,7 +714,7 @@ class admin_category_manage extends happy_linux_manage
         $this->_handler->build_tree();
 
         foreach ($this->_handler->get_cat_info_array() as $cid => $info) {
-            if ($cid == 0) {
+            if (0 == $cid) {
                 continue;
             }
 
@@ -723,10 +723,10 @@ class admin_category_manage extends happy_linux_manage
             $child  = implode('|', $info['child']);
             $count  = 0;
 
-            $arr   =& $this->_handler->get_parent_and_all_child_id($cid);
+            $arr   = &$this->_handler->get_parent_and_all_child_id($cid);
             $count = $this->_link_catlink_handler->get_count_by_cid_array($arr);
 
-            $obj =& $this->_handler->get($cid);
+            $obj = &$this->_handler->get($cid);
             $obj->setVar('tree_order', $tree);
             $obj->setVar('cids_parent', $parent);
             $obj->setVar('cids_child', $child);
@@ -766,7 +766,7 @@ class admin_category_manage extends happy_linux_manage
         if ($this->_exec_update_image_size()) {
             $time = $this->_time_class->get_elapse_time();
             $msg  = _WLS_DBUPDATED . " : $time sec ";
-            $msg .= $this->_build_comment('update image size'); // for test form
+            $msg  .= $this->_build_comment('update image size'); // for test form
             redirect_header($url_end, 1, $msg);
             exit();
         }
@@ -781,10 +781,10 @@ class admin_category_manage extends happy_linux_manage
 
     public function _exec_update_image_size()
     {
-        $list =& $this->_handler->getList();
+        $list = &$this->_handler->getList();
 
         foreach ($list as $cid) {
-            $obj =& $this->_handler->get($cid);
+            $obj = &$this->_handler->get($cid);
 
             $imgurl = $obj->get('imgurl');
             if (empty($imgurl)) {
@@ -793,7 +793,7 @@ class admin_category_manage extends happy_linux_manage
 
             list($orig_width, $orig_height, $show_width, $show_height) = $this->_get_image_size($imgurl);
 
-            if (($orig_width == 0) || ($orig_height == 0)) {
+            if ((0 == $orig_width) || (0 == $orig_height)) {
                 continue;
             }
 
@@ -820,15 +820,15 @@ class admin_category_manage extends happy_linux_manage
     {
         $size = $this->_banner_handler->get_cat_image_size($url);
         if (!$size) {
-            return array(0, 0, 0, 0);
+            return [0, 0, 0, 0];
         }
 
-        $arr = array(
+        $arr = [
             $size['orig_width'],
             $size['orig_height'],
             $size['show_width'],
             $size['show_height'],
-        );
+        ];
 
         return $arr;
     }
@@ -838,17 +838,17 @@ class admin_category_manage extends happy_linux_manage
     //---------------------------------------------------------
     public function test()
     {
-        $arr = array(
+        $arr = [
             'cid'    => 0,
             'title'  => 'TEST',
             'lflag'  => 1,
             'orders' => 0,
             'pid'    => 0,
-            'imgurl' => 'http://TEST/',
-        );
+            'imgurl' => 'https://TEST/',
+        ];
 
         xoops_cp_header();
-        $obj =& $this->_handler->create();
+        $obj = &$this->_handler->create();
         $obj->assignVars($arr);
         $this->_form->_show_add_preview($obj);
         xoops_cp_footer();
@@ -894,8 +894,8 @@ class admin_form_category extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_handler        = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_handler        = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
         $this->_plugin         = weblinks_plugin::getInstance(WEBLINKS_DIRNAME);
         $this->_header         = weblinks_header::getInstance(WEBLINKS_DIRNAME);
         $this->_webmap_class   = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
@@ -910,9 +910,10 @@ class admin_form_category extends happy_linux_form
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_category();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -926,12 +927,12 @@ class admin_form_category extends happy_linux_form
         echo $this->_header->build_module_header_submit();
 
         $ret = $this->_webmap_class->init_form();
-        if ($ret == 1) {
+        if (1 == $ret) {
             $this->_flag_webmap = true;
             $this->_webmap_class->set_cid($cid);
             $this->_webmap_class->set_display_url();
             echo $this->_webmap_class->get_form_js(false);
-        } elseif ($ret == -1) {
+        } elseif (-1 == $ret) {
             xoops_error($this->_webmap_class->get_init_error());
         }
 
@@ -943,7 +944,6 @@ class admin_form_category extends happy_linux_form
                 $op         = 'mod_table';
                 $button_val = _WLS_MODIFY;
                 break;
-
             case HAPPY_LINUX_MODE_ADD:
             case HAPPY_LINUX_MODE_ADD_PREVIEW:
             default:
@@ -981,7 +981,7 @@ class admin_form_category extends happy_linux_form
         echo $this->build_form_table_begin();
         echo $this->build_form_table_title($form_title);
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             echo $this->build_form_table_line(_WLS_CATEGORYID, '<b>' . $cid . '</b>');
         }
 
@@ -1025,7 +1025,7 @@ class admin_form_category extends happy_linux_form
         }
 
         $button = $this->build_html_input_submit('post', $button_val);
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             $button .= ' ' . $this->build_html_input_submit('delete', _DELETE);
             $button .= ' ' . $this->build_html_input_button_cancel('cancel', _CANCEL);
         }
@@ -1055,39 +1055,42 @@ class admin_form_category extends happy_linux_form
 
     public function _build_cat_lflag($value = 1)
     {
-        $opt = array(
+        $opt = [
             _WLS_NOTLINKFLAG => 0,
             _WLS_LINKFLAG    => 1,
-        );
+        ];
 
         $ele = $this->build_form_table_radio_select('', 'lflag', $value, $opt);
+
         return $ele;
     }
 
     public function _build_cat_gm_mode()
     {
         $val = $this->_obj->getVar('gm_mode', 'n');
-        $opt = array(
+        $opt = [
             _AM_WEBLINKS_MODE_NON       => WEBLINKS_C_GM_MODE_NON,
             _AM_WEBLINKS_MODE_DEFAULT   => WEBLINKS_C_GM_MODE_DEFAULT,
             _AM_WEBLINKS_MODE_PARENT    => WEBLINKS_C_GM_MODE_PARENT,
             _AM_WEBLINKS_MODE_FOLLOWING => WEBLINKS_C_GM_MODE_FOLLOWING,
-        );
+        ];
 
         $ele = $this->build_form_table_radio_select(_AM_WEBLINKS_CAT_SHOW_GM, 'gm_mode', $val, $opt);
+
         return $ele;
     }
 
     public function _build_cat_gm_type()
     {
         $val = $this->_obj->getVar('gm_icon', 'n');
-        $opt = array(
+        $opt = [
             _WEBLINKS_GM_TYPE_MAP       => 0,
             _WEBLINKS_GM_TYPE_SATELLITE => 1,
             _WEBLINKS_GM_TYPE_HYBRID    => 2,
-        );
+        ];
 
         $ele = $this->build_form_table_radio_select(_WEBLINKS_GM_TYPE, 'gm_type', $val, $opt);
+
         return $ele;
     }
 
@@ -1096,6 +1099,7 @@ class admin_form_category extends happy_linux_form
         $cap  = $this->build_form_caption(_WEBLINKS_GM_LOCATION, _AM_WEBLINKS_CAT_GM_LOCATION_DSC);
         $ele  = $this->build_obj_text('gm_location');
         $line = $this->build_form_table_line($cap, $ele);
+
         return $line;
     }
 
@@ -1105,6 +1109,7 @@ class admin_form_category extends happy_linux_form
         $val  = $this->_obj->getVar('gm_icon', 'n');
         $ele  = $this->_webmap_class->build_ele_icon($val);
         $line = $this->build_form_table_line($cap, $ele);
+
         return $line;
     }
 
@@ -1115,10 +1120,11 @@ class admin_form_category extends happy_linux_form
         $text .= $this->_webmap_class->build_form_iframe();
         $text .= $this->build_html_td_tag_end();
         $text .= $this->build_html_tr_tag_end();
+
         return $text;
     }
 
-    public function _build_cat_desc(&$obj)
+    public function _build_cat_desc($obj)
     {
         $name_dhtml = 'weblinks_description';
         $value      = $obj->getVar('description', 'n');
@@ -1126,10 +1132,11 @@ class admin_form_category extends happy_linux_form
         $cols       = 50;
 
         $text = $this->build_form_dhtml_textarea($name_dhtml, $value, $rows, $cols);
+
         return $text;
     }
 
-    public function _build_cat_desc_opt(&$obj)
+    public function _build_cat_desc_opt($obj)
     {
         $text = $this->_build_cat_opt($obj, 'dohtml');
         $text .= $this->_build_cat_opt($obj, 'dosmiley');
@@ -1138,29 +1145,30 @@ class admin_form_category extends happy_linux_form
 
         $name    = 'dobr';
         $value   = $obj->getVar($name, 'n');
-        $options = array(
+        $options = [
             _WEBLINKS_DOBREAK => 1,
-        );
-        $text .= $this->build_html_input_checkbox_select($name, $value, $options);
+        ];
+        $text    .= $this->build_html_input_checkbox_select($name, $value, $options);
 
         return $text;
     }
 
-    public function _build_cat_opt(&$obj, $name)
+    public function _build_cat_opt($obj, $name)
     {
         $value      = $obj->getVar($name, 'n');
-        $const_name = '_WEBLINKS_' . strtoupper($name);
+        $const_name = '_WEBLINKS_' . mb_strtoupper($name);
         $const      = constant($const_name);
-        $options    = array(
+        $options    = [
             $const => 1,
-        );
+        ];
 
         $text = $this->build_html_input_checkbox_select($name, $value, $options);
-        $text .= "<br />\n";
+        $text .= "<br>\n";
+
         return $text;
     }
 
-    public function _build_cat_imgurl(&$obj)
+    public function _build_cat_imgurl($obj)
     {
         $imgurl      = $obj->getVar('imgurl', 'e');
         $orig_width  = $obj->getVar('img_orig_width');
@@ -1172,7 +1180,7 @@ class admin_form_category extends happy_linux_form
 
         $imgurl_disp = $imgurl;
         if (empty($imgurl_disp)) {
-            $imgurl_disp = 'http://';
+            $imgurl_disp = 'https://';
         }
 
         $imgurl_cap  = $this->build_form_caption(_WEBLINKS_IMGURL_MAIN, $imgurl_desc);
@@ -1187,11 +1195,11 @@ class admin_form_category extends happy_linux_form
         $text .= $this->substute_blank($imgurl_text);
 
         if ($imgurl) {
-            $text .= "<br /><br />\n";
+            $text .= "<br><br>\n";
             $text .= $this->build_html_img_tag($imgurl, $show_width, $show_height, 0, 'category image');
-            $text .= "<br />\n";
+            $text .= "<br>\n";
             $text .= $orig_width . ' x ' . $orig_height;
-            $text .= "<br />\n";
+            $text .= "<br>\n";
         }
 
         $text .= $this->build_html_td_tag_end();
@@ -1249,48 +1257,38 @@ switch ($op) {
     case 'add_table':
         $manage->add_table();
         break;
-
     case 'modCat':
     case 'mod_form':
         $manage->mod_form();
         break;
-
     case 'modCatS':
     case 'mod_table':
         $manage->mod_table();
         break;
-
     case 'delCat':
     case 'delete':
     case 'del_cat':
         $manage->del_cat();
         break;
-
     case 'reorderCat':
     case 'reorder_cat':
         $manage->reorder_cat();
         break;
-
     case 'update_path_form':
         $manage->update_path_form();
         break;
-
     case 'update_path':
         $manage->update_path();
         break;
-
     case 'update_image_size_form':
         $manage->update_image_size_form();
         break;
-
     case 'update_image_size':
         $manage->update_image_size();
         break;
-
     case 'test':
         $manage->test();
         break;
-
     case 'main':
     case 'add_form':
     default:
@@ -1298,5 +1296,4 @@ switch ($op) {
         break;
 }
 
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

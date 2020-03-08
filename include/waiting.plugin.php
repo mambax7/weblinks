@@ -10,7 +10,8 @@
 $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 
 // --- eval begin ---
-eval('
+eval(
+    '
 
 function b_waiting_' . $WEBLINKS_DIRNAME . '()
 {
@@ -47,24 +48,26 @@ function ' . $WEBLINKS_DIRNAME . '_user_waiting( $uid, $limit=0, $offset=0 )
     return weblinks_user_waiting_base( "' . $WEBLINKS_DIRNAME . '", $uid, $limit, $offset ) ;
 }
 
-');
+'
+);
 // --- eval end ---
 
 // === weblinks_waiting_base begin ===
 if (!function_exists('b_waiting_weblinks_base')) {
     function &b_waiting_weblinks_base($dirname)
     {
-        $arr    = array();
+        $arr    = [];
         $arr[0] = weblinks_waiting_waitings_base($dirname);
         $arr[1] = weblinks_waiting_modreqs_base($dirname);
         $arr[2] = weblinks_waiting_delreqs_base($dirname);
         $arr[3] = weblinks_waiting_brokens_base($dirname);
+
         return $arr;
     }
 
     function &weblinks_waiting_waitings_base($dirname)
     {
-        $arr = array();
+        $arr = [];
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
@@ -86,7 +89,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
     function &weblinks_waiting_modreqs_base($dirname)
     {
-        $arr = array();
+        $arr = [];
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
@@ -108,7 +111,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
     function &weblinks_waiting_delreqs_base($dirname)
     {
-        $arr = array();
+        $arr = [];
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
@@ -130,7 +133,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
     function &weblinks_waiting_brokens_base($dirname)
     {
-        $arr = array();
+        $arr = [];
 
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
@@ -167,15 +170,16 @@ if (!function_exists('b_waiting_weblinks_base')) {
         $res = $xoopsDB->query($sql, $limit, $offset);
         if (!$res) {
             $false = false;
+
             return $false;
         }
 
-        $arr = array();
+        $arr = [];
         while ($row = $xoopsDB->fetchArray($res)) {
             $arr[] = $row;
         }
+
         return $arr;
     }
-
     // === weblinks_waiting_base end ===
 }

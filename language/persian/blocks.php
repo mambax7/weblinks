@@ -94,4 +94,3 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0:نمایش نده, 1:نمایش');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'کنترل نوع نقشه');
 }// --- define language end ---
-;

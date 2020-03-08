@@ -20,7 +20,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_build_rss_feed_handler')) {
-
     //=========================================================
     // class weblinks_build_rss_feed_handler
     //=========================================================
@@ -46,7 +45,7 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
             $this->set_atom_template($DIR_XML . '/weblinks_build_feed_atom.html');
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
+            $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);
         }
 
         //---------------------------------------------------------
@@ -82,6 +81,5 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

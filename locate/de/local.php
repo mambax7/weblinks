@@ -11,14 +11,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_de')) {
-
     //=========================================================
     // class weblinks_locate_de
     // Germany (DE)
     //=========================================================
     class weblinks_locate_de extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -26,15 +24,14 @@ if (!class_exists('weblinks_locate_de')) {
         {
             parent::__construct();
 
-            $arr = array(
-                'weblinks_map_template' => 'weblinks_de_google.html'
-            );
+            $arr = [
+                'weblinks_map_template' => 'weblinks_de_google.html',
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

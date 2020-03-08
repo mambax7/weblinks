@@ -5,7 +5,7 @@
 
 // 2007-08-01 K.OHWADA
 // _WEBLINKS_GM_CURRENT_ADDRESS
-// <br> => <br />
+// <br> => <br>
 
 // 2007-04-08 K.OHWADA
 // _WEBLINKS_GM_TYPE
@@ -74,8 +74,8 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_SUBMITLINKHEAD', 'Invia Nuovo Link');
     define('_WLS_SUBMITONCE', 'Invia il tuo link una volta sola.');
     define('_WLS_DONTABUSE', 'Nome Utente e IP sono salvati, per cui non abusare del sistema per favore.');
-    define('_WLS_TAKESHOT', 'Prenderemo uno screenshot del tuo sito web e ci potrà volere qualche giorno prima che il link al sito sia aggiunto al nostro database.');
-    define('_WLS_ALLPENDING', "L\'invio Link sarà registrato e sarà pubblicato dopo la verifica. ");
+    define('_WLS_TAKESHOT', 'Prenderemo uno screenshot del tuo sito web e ci potrï¿½ volere qualche giorno prima che il link al sito sia aggiunto al nostro database.');
+    define('_WLS_ALLPENDING', "L\'invio Link sarï¿½ registrato e sarï¿½ pubblicato dopo la verifica. ");
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', 'Abbiamo ricevuto le informazioni sul tuo Sito web. Grazie!');
 
@@ -93,19 +93,19 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_MAIN', 'Principale');
     define('_WLS_SUBMITLINK', 'Invia Link');
     define('_WLS_POPULAR', 'Popolare');
-    define('_WLS_TOPRATED', 'Più votato');
+    define('_WLS_TOPRATED', 'Piï¿½ votato');
 
     define('_WLS_NEWTHISWEEK', 'Nuovi questa settimana');
     define('_WLS_UPTHISWEEK', 'Aggiornati questa settimana');
 
-    define('_WLS_POPULARITYLTOM', 'Popolarità (dai meno ai più cliccati)');
-    define('_WLS_POPULARITYMTOL', 'Popolarità (dai più ai meno cliccati)');
+    define('_WLS_POPULARITYLTOM', 'Popolaritï¿½ (dai meno ai piï¿½ cliccati)');
+    define('_WLS_POPULARITYMTOL', 'Popolaritï¿½ (dai piï¿½ ai meno cliccati)');
     define('_WLS_TITLEATOZ', 'Titolo (A > Z)');
     define('_WLS_TITLEZTOA', 'Titolo (Z > A)');
     define('_WLS_DATEOLD', 'Data (Link vecchi per primi)');
     define('_WLS_DATENEW', 'Date (Link nuovi per primi)');
-    define('_WLS_RATINGLTOH', 'Voti (Da punteggio più basso al più alto)');
-    define('_WLS_RATINGHTOL', 'Voti (Da punteggio più alto al più basso)');
+    define('_WLS_RATINGLTOH', 'Voti (Da punteggio piï¿½ basso al piï¿½ alto)');
+    define('_WLS_RATINGHTOL', 'Voti (Da punteggio piï¿½ alto al piï¿½ basso)');
 
     define('_WLS_NOSHOTS', 'Nessuno Screenshot disponibile');
     define('_WLS_DESCRIPTIONC', 'Descrizione: ');
@@ -116,28 +116,28 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RATINGC', 'Votazione: ');
 
     define('_WLS_THEREARE', 'Ci sono <b>%s</b> Link nel nostro Database');
-    define('_WLS_LATESTLIST', 'Aggiunte più recenti');
+    define('_WLS_LATESTLIST', 'Aggiunte piï¿½ recenti');
 
     define('_WLS_LINKID', 'Link ID');
     define('_WLS_SITETITLE', 'Titolo Sito');
     define('_WLS_SITEURL', 'URL Sito');
     define('_WLS_OPTIONS', 'Opzioni');
 
-    define('_WLS_NOTIFYAPPROVE', 'Notificami quando questo link è approvato');
+    define('_WLS_NOTIFYAPPROVE', 'Notificami quando questo link ï¿½ approvato');
     define('_WLS_SHOTIMAGE', 'Screenshot: ');
     define('_WLS_SENDREQUEST', 'Invia Richiesta');
 
-    define('_WLS_VOTEAPPRE', 'Il tuo voto è apprezzato.');
+    define('_WLS_VOTEAPPRE', 'Il tuo voto ï¿½ apprezzato.');
     define('_WLS_THANKURATE', 'Grazie per il tempo dedicato per votare un sito qui su %s.');
-    define('_WLS_VOTEFROMYOU', 'Il riscontro da utenti come te aiuterà altri visitatori a decidere meglio quali link scegliere.');
-    define('_WLS_VOTEONCE', 'Per favore non votare lo stesso sito più di una volta.');
-    define('_WLS_RATINGSCALE', 'La scala è 1 - 10, dove 1 indica scadente e 10 indica eccellente.');
+    define('_WLS_VOTEFROMYOU', 'Il riscontro da utenti come te aiuterï¿½ altri visitatori a decidere meglio quali link scegliere.');
+    define('_WLS_VOTEONCE', 'Per favore non votare lo stesso sito piï¿½ di una volta.');
+    define('_WLS_RATINGSCALE', 'La scala ï¿½ 1 - 10, dove 1 indica scadente e 10 indica eccellente.');
     define('_WLS_BEOBJECTIVE', 'Per favore sii obbiettivo, se tutti ricevono 1 o 10 le votazioni non sono molto utili.');
     define('_WLS_DONOTVOTE', 'Non votare per il tuo stesso sito.');
     define('_WLS_RATEIT', 'Votalo!');
 
     define('_WLS_INTRESTLINK', 'Link Sito Interessante su %s');  // %s is your site name
-    define('_WLS_INTLINKFOUND', 'Questo è un link a un sito interessante che ho trovato su %s');  // %s is your site name
+    define('_WLS_INTLINKFOUND', 'Questo ï¿½ un link a un sito interessante che ho trovato su %s');  // %s is your site name
 
     define('_WLS_RANK', 'Posizione');
     define('_WLS_TOP10', '%s Top 10'); // %s is a link category title
@@ -146,7 +146,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_SORTBY', 'Ordinati per:');
     define('_WLS_TITLE', 'Titolo');
     define('_WLS_DATE', 'Data');
-    define('_WLS_POPULARITY', 'Popolarità');
+    define('_WLS_POPULARITY', 'Popolaritï¿½');
     define('_WLS_CURSORTEDBY', 'Siti attualmente ordinati per: %s');
     define('_WLS_PREVIOUS', 'Precedente');
     define('_WLS_NEXT', 'Seguente');
@@ -155,11 +155,11 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_SUBMIT', 'Invia');
     define('_WLS_CANCEL', 'Annulla');
 
-    define('_WLS_ALREADYREPORTED', 'Hai già inviato una segnalazione link non valido per questa risorsa.');
-    define('_WLS_MUSTREGFIRST', 'Spiacente, non hai il permesso di eseguire questa azione.<br />Per favore prima registrati o loggati!');
+    define('_WLS_ALREADYREPORTED', 'Hai giï¿½ inviato una segnalazione link non valido per questa risorsa.');
+    define('_WLS_MUSTREGFIRST', 'Spiacente, non hai il permesso di eseguire questa azione.<br>Per favore prima registrati o loggati!');
     define('_WLS_NORATING', 'Nessun voto selezionato.');
-    define('_WLS_CANTVOTEOWN', 'Non puoi votare una risorsa inviata da te stesso.<br />Tutti i voti sono loggati e verificati.');
-    define('_WLS_VOTEONCE2', 'Vota per la risorsa selezionata solo una volta.<br />tutti i voti sono loggati e verificati.');
+    define('_WLS_CANTVOTEOWN', 'Non puoi votare una risorsa inviata da te stesso.<br>Tutti i voti sono loggati e verificati.');
+    define('_WLS_VOTEONCE2', 'Vota per la risorsa selezionata solo una volta.<br>tutti i voti sono loggati e verificati.');
 
     //%%%%%%    Admin     %%%%%
 
@@ -176,14 +176,14 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_VISIT', 'Visita');
 
     //define("_WLS_SHOTMUST","Screenshot image must be a valid image file under %s directory (ex. shot.gif). Leave it blank if no image file.");
-    define('_WLS_LINKIMAGEMUST', " Inserisci nome file immagine link sotto directory %s. (es. shot.gif) Lascia il campo vuoto se non c'è file immagine. ");
+    define('_WLS_LINKIMAGEMUST', " Inserisci nome file immagine link sotto directory %s. (es. shot.gif) Lascia il campo vuoto se non c'ï¿½ file immagine. ");
 
     define('_WLS_APPROVE', 'Approva');
     define('_WLS_DELETE', 'Cancella');
     define('_WLS_NOSUBMITTED', 'Nessun Nuovo Link Inviato.');
     define('_WLS_ADDMAIN', 'Aggiungi una categoria PRINCIPALE');
     define('_WLS_TITLEC', 'Titolo: ');
-    define('_WLS_IMGURL', 'URL Immagine (OPZIONALEL Altezza immagine sarà ridim. a 50): ');
+    define('_WLS_IMGURL', 'URL Immagine (OPZIONALEL Altezza immagine sarï¿½ ridim. a 50): ');
     define('_WLS_ADD', 'Aggiungi');
     define('_WLS_ADDSUB', 'Aggiungi una SOTTO-Categoria');
     define('_WLS_IN', 'in');
@@ -220,12 +220,12 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOMODREQ', 'Nessuna Richiesta modifica link.');
     define('_WLS_DBUPDATED', 'Database Aggiornato con Successo!');
     define('_WLS_MODREQDELETED', 'Richiesta Modifica Cancellata.');
-    define('_WLS_IMGURLMAIN', 'URL Immagine (OPZIONALE e valida solo per categorie principali. Altezza immagine sarà ridim. a 50): ');
+    define('_WLS_IMGURLMAIN', 'URL Immagine (OPZIONALE e valida solo per categorie principali. Altezza immagine sarï¿½ ridim. a 50): ');
     define('_WLS_PARENT', 'Categoria Padre:');
     define('_WLS_SAVE', 'Salva Modifiche');
     define('_WLS_CATDELETED', 'Categoria cancellata.');
     define('_WLS_WARNING', 'ATTENZIONE: Sei sicuro di voler cancellare questa categoria e TUTTI i suoi link e commenti?');
-    define('_WLS_YES', 'Sì');
+    define('_WLS_YES', 'Sï¿½');
     define('_WLS_NO', 'No');
     define('_WLS_NEWCATADDED', 'Nuova Categoria aggiunta con successo!');
     //define("_WLS_ERROREXIST","ERROR: The Link you provided is already in the database!");
@@ -247,7 +247,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Invia Nuovo Link');
     define('_WLS_SITE_POPULAR', 'Sito popolare');
-    define('_WLS_SITE_HIGHRATE', 'Sito più votato');
+    define('_WLS_SITE_HIGHRATE', 'Sito piï¿½ votato');
     define('_WLS_SITE_NEW', 'Sito recente');
     define('_WLS_SITE_UPDATE', 'Sito aggiornato');
 
@@ -258,13 +258,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_SITE_MUTUAL', 'Sito reciproco');
 
     define('_WLS_SITE_RANDOM', 'Sito Casuale');
-    define('_WLS_NEW_SITELIST', 'Sito più recente');
-    define('_WLS_NEW_ATOMFEED', 'RSS/ATOM Feed più recente');
+    define('_WLS_NEW_SITELIST', 'Sito piï¿½ recente');
+    define('_WLS_NEW_ATOMFEED', 'RSS/ATOM Feed piï¿½ recente');
     define('_WLS_SITE_RSS', 'Sito RSS/ATOM');
     define('_WLS_ATOMFEED', 'RSS/ATOM Feed');
 
     define('_WLS_LASTUPDATE', 'Ultimo Aggiornamento');
-    define('_WLS_MORE', 'Più dettagli');
+    define('_WLS_MORE', 'Piï¿½ dettagli');
 
     //======     singlelink.php ======
     define('_WLS_DESCRIPTION', 'Descrizione');
@@ -280,35 +280,37 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EMAIL', 'Email');
     define('_WLS_COMPANY', 'Company/Organization');
     define('_WLS_STATE', 'Stato');
-    define('_WLS_CITY', 'Città');
+    define('_WLS_CITY', 'Cittï¿½');
     define('_WLS_ADDR2', 'Indirizzo 2');
     define('_WLS_PUBLIC', 'Pubblica');
     define('_WLS_NOTPUBLIC', 'Non pubblicare');
     define('_WLS_NOTSELECT', 'Non specificato');
     define('_WLS_SUBMIT_INDISPENSABLE', "Asterisco '<b>*</b>' indica elemento obbligatorio.");
-    define('_WLS_SUBMIT_USER_COMMENT',
-           '"Commento ad Admin" indica una opinione, richiesta, ecc.<br />Questa colonna non è mostrata su WEB.<br />Per favore inserisci URL del tuo sito se linka a questo sito, se vuoi essere indicato come "Link Reciproco".');
+    define(
+        '_WLS_SUBMIT_USER_COMMENT',
+        '"Commento ad Admin" indica una opinione, richiesta, ecc.<br>Questa colonna non ï¿½ mostrata su WEB.<br>Per favore inserisci URL del tuo sito se linka a questo sito, se vuoi essere indicato come "Link Reciproco".'
+    );
     define('_WLS_USER_COMMENT', 'Commento ad Admin');
-    define('_WLS_NOT_DISPLAY', 'Questa colonna non è mostrata sul WEB.');
+    define('_WLS_NOT_DISPLAY', 'Questa colonna non ï¿½ mostrata sul WEB.');
 
     //======    modlink.php ======
-    define('_WLS_MODIFYAPPROVED', 'La tua richiesta di modifica link è stata approvata. ');
+    define('_WLS_MODIFYAPPROVED', 'La tua richiesta di modifica link ï¿½ stata approvata. ');
     define('_WLS_MODIFY_NOT_OWNER', 'Per favore assicurati di essere la persona che ha inviato il link originale.');
-    define('_WLS_MODIFY_PENDING', 'Modifica link registrata. Sarà pubblicata dopo la verifica.');
+    define('_WLS_MODIFY_PENDING', 'Modifica link registrata. Sarï¿½ pubblicata dopo la verifica.');
     define('_WLS_LINKSUBMITTER', 'Link Submitter');
 
     //======    user.php    ======
     define('_WLS_PLEASEPASSWORD', 'Inserisci password');
     define('_WLS_REGSTERED', 'Utente Registrato');
-    define('_WLS_REGSTERED_DSC', 'Chiunque può modificare le informazioni dei link. <br />Il Webmaster controllerà la modifica prima di pubblicarla.');
+    define('_WLS_REGSTERED_DSC', 'Chiunque puï¿½ modificare le informazioni dei link. <br>Il Webmaster controllerï¿½ la modifica prima di pubblicarla.');
     define('_WLS_EMAILNOTFOUND', "L'indirizzo E-mail non corrisponde.");
 
     // error message
     define('_WLS_ERROR_FILL', 'Errore: Inserisci %s');
     define('_WLS_ERROR_ILLEGAL', 'Errore: Formato errato %s');
     define('_WLS_ERROR_CID', 'Errore: Scegli categoria');
-    define('_WLS_ERROR_URL_EXIST', 'Errore: Il link è stato già registrato. ');
-    define('_WLS_WARNING_URL_EXIST', 'Attenzione: Un link simile è stato già registrato. ');
+    define('_WLS_ERROR_URL_EXIST', 'Errore: Il link ï¿½ stato giï¿½ registrato. ');
+    define('_WLS_WARNING_URL_EXIST', 'Attenzione: Un link simile ï¿½ stato giï¿½ registrato. ');
     define('_WLS_ERRORNOLINK', 'Errore: Link non trovato');
 
     define('_WLS_CATLIST', 'Lista Categorie');
@@ -357,7 +359,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'auto discovery');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "Se usi <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark questa pagina, per consultare il nostro RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "Se usi <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark questa pagina, per consultare il nostro RSS/ATOM feed. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Notificami se approvato');
@@ -385,7 +387,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_PRINT', 'Stampa');
     define('_SAMPLE', 'Esempio');
     define('_NO_MATCH_RECORD', 'Non ci sono record corrispondenti');
-    define('_MANY_MATCH_RECORD', 'Ci sono due o più record corrispondenti');
+    define('_MANY_MATCH_RECORD', 'Ci sono due o piï¿½ record corrispondenti');
     define('_NO_CATEGORY', 'Nessuna Categoria');
     define('_NO_LINK', 'Nessun Link');
     define('_NO_TITLE', 'Nessun Titolo');
@@ -395,9 +397,9 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_GOTO_MODULE', 'Vai al Modulo');
 
     // config
-    define('_WEBLINKS_INIT_NOT', 'La tabella config non è inizializzata');
+    define('_WEBLINKS_INIT_NOT', 'La tabella config non ï¿½ inizializzata');
     define('_WEBLINKS_INIT_EXEC', 'Tabella Config inizializzata');
-    define('_WEBLINKS_VERSION_NOT', 'Questo modulo non è alla versione %s. Aggiorna ora');
+    define('_WEBLINKS_VERSION_NOT', 'Questo modulo non ï¿½ alla versione %s. Aggiorna ora');
     define('_WEBLINKS_UPGRADE_EXEC', 'Aggiorna la tabella config');
 
     // html tag
@@ -440,20 +442,20 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Attanzione: Impossibile leggere url');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Attenzione: Impossibile verificare dimensione banner');
 
-    // google map: hacked by wye <http://never-ever.info/>
+    // google map: hacked by wye <https://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitudine');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitudine');
     define('_WEBLINKS_GM_ZOOM', 'Livello Zoom');
-    define('_WEBLINKS_GM_GET_LOCATION', 'Le informazioni sulla località sono prese da GoogleMaps');
+    define('_WEBLINKS_GM_GET_LOCATION', 'Le informazioni sulla localitï¿½ sono prese da GoogleMaps');
     //define('_WEBLINKS_GM_GET_BUTTON', 'Get Latitude/Longitude/Zoom');
-    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'Località Default');
-    define('_WEBLINKS_GM_CURRENT_LOCATION', 'Località attuale');
+    define('_WEBLINKS_GM_DEFAULT_LOCATION', 'Localitï¿½ Default');
+    define('_WEBLINKS_GM_CURRENT_LOCATION', 'Localitï¿½ attuale');
 
     // === 2006-11-04 ===
     // google map inline mode
     define('_WEBLINKS_GOOGLE_MAPS', 'Google Maps');
     define('_WEBLINKS_JAVASCRIPT_INVALID', 'Il tuo browser non utilizza JavaScript');
-    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'Il tuo browser non può accedere a GoogleMaps');
+    define('_WEBLINKS_GM_NOT_COMPATIBLE', 'Il tuo browser non puï¿½ accedere a GoogleMaps');
     define('_WEBLINKS_GM_NEW_WINDOW', 'Visual. in Nuova Finestra');
     define('_WEBLINKS_GM_INLINE', 'Visual. Inline');
     define('_WEBLINKS_GM_DISP_OFF', 'Disabilita visual.');
@@ -475,7 +477,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_TIME_EXPIRE', 'Ora Scadenza');
     define('_WEBLINKS_TEXTAREA', 'Textarea');
 
-    define('_WEBLINKS_WARN_TIME_PUBLISH', 'L\'ora pubblicazione non è ancora trascorsa');
+    define('_WEBLINKS_WARN_TIME_PUBLISH', 'L\'ora pubblicazione non ï¿½ ancora trascorsa');
     define('_WEBLINKS_WARN_TIME_EXPIRE', 'L\'ora scadenza sta passando');
     define('_WEBLINKS_WARN_BROKEN', 'Questo link potrebbe non essere valido');
 
@@ -528,10 +530,9 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
 
     // submit form
     define('_WEBLINKS_TIME_PUBLISH_SET', 'Imposta ora di pubblicazione');
-    define('_WEBLINKS_TIME_PUBLISH_DESC', 'Se non marcato, l\'ora di pubblicazione non sarà indicata');
+    define('_WEBLINKS_TIME_PUBLISH_DESC', 'Se non marcato, l\'ora di pubblicazione non sarï¿½ indicata');
     define('_WEBLINKS_TIME_EXPIRE_SET', 'Imposta ora di scadenza');
-    define('_WEBLINKS_TIME_EXPIRE_DESC', 'Se non marcato, l\'ora di scadenza non sarà indicata');
+    define('_WEBLINKS_TIME_EXPIRE_DESC', 'Se non marcato, l\'ora di scadenza non sarï¿½ indicata');
     define('_WEBLINKS_DEL_LINK_CONFIRM', 'Conferma per cancellare');
     define('_WEBLINKS_DEL_LINK_REASON', 'Motivo della cancellazione');
 }// --- define language end ---
-;

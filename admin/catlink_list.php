@@ -34,16 +34,17 @@ class admin_catlink_list extends happy_linux_page_frame
         $this->set_lang_title('catlink list');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler     = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_catlink_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -52,13 +53,13 @@ class admin_catlink_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             'jid',
             _WLS_CATEGORYID,
             _WLS_TITLEC,
             _WLS_LINKID,
             _WLS_SITETITLE,
-        );
+        ];
 
         return $arr;
     }
@@ -72,12 +73,12 @@ class admin_catlink_list extends happy_linux_page_frame
         $cat_title_s  = '';
         $link_title_s = '';
 
-        $cat_obj =& $this->_category_handler->get($cid);
+        $cat_obj = &$this->_category_handler->get($cid);
         if (is_object($cat_obj)) {
             $cat_title_s = $cat_obj->getVar('title', 's');
         }
 
-        $link_obj =& $this->_link_handler->get($lid);
+        $link_obj = &$this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $link_title_s = $link_obj->getVar('title', 's');
         }
@@ -89,13 +90,13 @@ class admin_catlink_list extends happy_linux_page_frame
         $link_cat     = $this->_build_page_id_link_by_obj($obj, 'cid', $jump_cat);
         $link_link    = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
 
-        $arr = array(
+        $arr = [
             $link_catlink,
             $link_cat,
             $cat_title_s,
             $link_link,
             $link_title_s,
-        );
+        ];
 
         return $arr;
     }
@@ -114,5 +115,4 @@ $list = admin_catlink_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

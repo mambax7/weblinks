@@ -10,11 +10,11 @@ Puede ver toda la categoría aquí:
 
 Información del Link nuevo :
 Title : {LINK_NAME}
-Descripción : 
+Descripción :
 {LINK_DESCRIPTION}
 
 -------------------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 webmaster
 {X_ADMINMAIL}

@@ -22,13 +22,13 @@
 
 include 'header.php';
 
-$weblinks_view_handler = weblinks_get_handler('link_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
 
 xoops_header(false);
 echo '</head><body>';
-echo "<br />\n";
+echo "<br>\n";
 echo '<h3 align="center">' . _WLS_CATLIST . '</h3>';
-echo "<hr />\n";
+echo "<hr>\n";
 echo '<table align="center"><tr><td>';
 
 // --- category list ---
@@ -37,12 +37,12 @@ $catlist = $weblinks_view_handler->get_all_catlist();
 
 foreach ($catlist as $cat) {
     $url = WEBLINKS_URL . '/viewcat.php?cid=' . $cat['cid'];
-    echo "<a href='" . $url . "' target='_blank'><b>" . $cat['path'] . '</b></a>&nbsp;(' . $cat['count'] . ")<br />\n";
+    echo "<a href='" . $url . "' target='_blank'><b>" . $cat['path'] . '</b></a>&nbsp;(' . $cat['count'] . ")<br>\n";
 }
 
 echo "</td></tr></table>\n";
-echo "<hr />\n";
+echo "<hr>\n";
 echo "<div style='text-align:center;'><input value='" . _CLOSE . "' type='button' onclick='window.close();' /></div>";
-echo "<br />\n";
+echo "<br>\n";
 
 xoops_footer();

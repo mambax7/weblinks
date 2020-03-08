@@ -69,8 +69,8 @@ class admin_manage_link_broken_check extends happy_linux_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_link_broken_check();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -90,6 +90,7 @@ class admin_manage_link_broken_check extends happy_linux_manage
         if ($this->_limit < 0) {
             $this->_limit = 0;
         }
+
         return $this->_limit;
     }
 
@@ -99,6 +100,7 @@ class admin_manage_link_broken_check extends happy_linux_manage
         if ($this->_offset < 0) {
             $this->_offset = 0;
         }
+
         return $this->_offset;
     }
 
@@ -117,8 +119,8 @@ class admin_manage_link_broken_check extends happy_linux_manage
 
         echo '<h4>' . _WEBLINKS_ADMIN_LINK_BROKEN_CHECK . "</h4>\n";
         printf(_WLS_THEREARE, $total_link);
-        echo "<br /><br />\n";
-        echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION . "<br />\n";
+        echo "<br><br>\n";
+        echo _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION . "<br>\n";
 
         $this->_print_form();
         $this->_print_cp_footer();
@@ -154,7 +156,7 @@ class admin_manage_link_broken_check extends happy_linux_manage
 
         $next = $offset + $limit;
         if (($limit > 0) && ($next < $total_link)) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->_form->show_next($limit, $next);
         } else {
             echo '<h4>' . _HAPPY_LINUX_EXECUTED . "</h4>\n";
@@ -178,7 +180,6 @@ class admin_manage_link_broken_check extends happy_linux_manage
 //=========================================================
 class admin_form_link_broken_check extends happy_linux_form_lib
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -190,9 +191,10 @@ class admin_form_link_broken_check extends happy_linux_form_lib
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_link_broken_check();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -241,12 +243,10 @@ switch ($op) {
     case 'check':
         $manage->check_link();
         break;
-
     default:
         $manage->main_form();
         break;
 }
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

@@ -19,6 +19,6 @@ Veuillez ne pas répondre à ce message.
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Le Webmestre
 {X_ADMINMAIL}

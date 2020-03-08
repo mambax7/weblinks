@@ -32,7 +32,7 @@ class rssc_lid_mod
         $this->_table_rssc_link = $this->_db->prefix($this->_RSSC_DIRNAME . '_link');
 
         $this->_rss_utility       = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
     }
 
     public function check_admin()
@@ -42,6 +42,7 @@ class rssc_lid_mod
         if ($xoopsUser && $xoopsUser->isAdmin($xoopsModule->mid())) {
             return true;
         }
+
         return false;
     }
 
@@ -60,11 +61,9 @@ class rssc_lid_mod
                 $this->clear_rssc_lid();
                 $this->form_next_link(0);
                 break;
-
             case 'rssc_to_link':
                 $this->rssc_to_link();
                 break;
-
             case 'main':
             default:
                 $this->form_clear();
@@ -87,8 +86,8 @@ class rssc_lid_mod
         $row1  = $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo "There are $total rssc links <br />\n";
-        echo "Transfer $offset - $next th link <br /><br />";
+        echo "There are $total rssc links <br>\n";
+        echo "Transfer $offset - $next th link <br><br>";
 
         $sql2 = 'SELECT * FROM ' . $this->_table_rssc_link . ' ORDER BY lid';
         $res2 = $this->sql_exec($sql2, $this->_LIMIT, $offset);
@@ -100,7 +99,7 @@ class rssc_lid_mod
 
             $ret = $this->mod_rssc_lid($p1, $lid);
             if ($ret) {
-                echo "$lid : modified link <br />\n";
+                echo "$lid : modified link <br>\n";
             }
         }
 
@@ -117,7 +116,6 @@ class rssc_lid_mod
         $sql .= ' SET rssc_lid=0';
 
         return $this->sql_exec($sql);
-
         //  echo " $sql <br>\n";
         //  return true;
     }
@@ -129,7 +127,6 @@ class rssc_lid_mod
         $sql .= ' WHERE lid=' . $weblinks_lid;
 
         return $this->sql_exec($sql);
-
         //  echo " $sql <br>\n";
         //  return true;
     }
@@ -137,64 +134,53 @@ class rssc_lid_mod
     public function sql_exec($sql, $limit = 0, $offset = 0)
     {
         $ret = $this->_db->queryF($sql, $limit, $offset);
-        if ($ret != false) {
+        if (false !== $ret) {
             return $ret;
         }
 
         $error = $this->_db->error();
-        echo "<font color=red>$sql<br />$error</font><br />";
+        echo "<font color=red>$sql<br>$error</font><br>";
 
         return false;
     }
 
     public function form_clear()
     {
-        $action = xoops_getenv('PHP_SELF');
-
-        ?>
-        <br/>
+        $action = xoops_getenv('PHP_SELF'); ?>
+        <br>
         <hr>
         <h4>clear rssc_lid</h4>
-        <br/>
-        <form action='<?php echo $action;
-        ?>' method='post'>
+        <br>
+        <form action='<?php echo $action; ?>' method='post'>
             <input type='hidden' name='op' value='clear_rssc_lid'>
             <input type='submit' value='Clear'>
         </form>
         <?php
-
     }
 
     public function form_next_link($next)
     {
         $action = xoops_getenv('PHP_SELF');
         $submit = "GO next $this->_LIMIT links";
-        $next2  = $next + $this->_LIMIT;
-        ?>
-        <br/>
+        $next2  = $next + $this->_LIMIT; ?>
+        <br>
         <hr>
         <h4>next link table</h4>
-        <?php echo $next;
-        ?> - <?php echo $next2;
-        ?> th link<br/>
-        <br/>
-        <form action='<?php echo $action;
-        ?>' method='post'>
+        <?php echo $next; ?> - <?php echo $next2; ?> th link<br>
+        <br>
+        <form action='<?php echo $action; ?>' method='post'>
             <input type='hidden' name='op' value='rssc_to_link'>
-            <input type='hidden' name='offset' value='<?php echo $next;
-            ?>'>
-            <input type='submit' value='<?php echo $submit;
-            ?>'>
+            <input type='hidden' name='offset' value='<?php echo $next; ?>'>
+            <input type='submit' value='<?php echo $submit; ?>'>
         </form>
         <?php
-
     }
 
     public function finish()
     {
-        echo "<br /><hr>\n";
+        echo "<br><hr>\n";
         echo "<h4>FINISHED</h4>\n";
-        echo "<a href='index.php'>GOTO Admin Menu</a><br />\n";
+        echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
     }
 
     // --- class end ---

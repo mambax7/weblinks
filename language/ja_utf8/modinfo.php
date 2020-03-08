@@ -72,7 +72,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     // Description of each config items
     //-------------------------------------
     define('_MI_WEBLINKS_POPULAR', '「人気リンク」になるためのヒット数');
-    define('_MI_WEBLINKS_POPULARDSC', '「POPLUAR」アイコンが表示されるためのヒット数を指定してください。<br />0 を指定すると、アイコンは表示されない。');
+    define('_MI_WEBLINKS_POPULARDSC', '「POPLUAR」アイコンが表示されるためのヒット数を指定してください。<br>0 を指定すると、アイコンは表示されない。');
     define('_MI_WEBLINKS_NEWLINKS', '「新着リンク」を表示する件数');
     define('_MI_WEBLINKS_NEWLINKSDSC', 'トップページに「新着リンク」を表示する最大件数を指定してください。');
     define('_MI_WEBLINKS_PERPAGE', 'リンク情報を１ページ毎に表示する件数');
@@ -152,7 +152,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TITLESHOWDSC', 'モジュールのタイトル名を表示のときは、「はい」を選択してください。');
 
     define('_MI_WEBLINKS_NEWDAYS', '「新着リンク」になるための日数');
-    define('_MI_WEBLINKS_NEWDAYS_DSC', '「NEW」アイコンが表示されるための日数を指定してください。<br />0 を指定すると、アイコンは表示されない。');
+    define('_MI_WEBLINKS_NEWDAYS_DSC', '「NEW」アイコンが表示されるための日数を指定してください。<br>0 を指定すると、アイコンは表示されない。');
 
     define('_MI_WEBLINKS_DESCSHORT', 'リンク情報の説明の最大文字数');
     define('_MI_WEBLINKS_DESCSHORTDSC', 'リンク一覧表示で説明を表示する最大文字数を指定してください。');
@@ -178,7 +178,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'リンクページをフレーム内に表示するかどうか');
 
     define('_MI_WEBLINKS_BROKEN', '表示を止める「リンク切れ」回数');
-    define('_MI_WEBLINKS_BROKENDSC', 'リンクの表示を止めるための「リンク切れ」回数を指定してください。<br />この数値以下であれば、一時的な障害と見なし、何もしません。<br />この数値以上になれば、固定的な障害と見なし、リンクの表示を止めます');
+    define('_MI_WEBLINKS_BROKENDSC', 'リンクの表示を止めるための「リンク切れ」回数を指定してください。<br>この数値以下であれば、一時的な障害と見なし、何もしません。<br>この数値以上になれば、固定的な障害と見なし、リンクの表示を止めます');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'リンク一覧表示にリンク画像を使用する');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'リンク一覧表示の画像幅の最大値');
@@ -200,13 +200,13 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', '「人気リンク」と「高評価リンク」を表示する最大のリンク件数を指定してください。');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', '「人気リンク」を表示するカテゴリ数');
-    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', '「人気リンク」と「高評価リンク」を表示する最大のカテゴリ数を指定してください。<br />カテゴリ数が多すぎるとタイムアウトします');
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', '「人気リンク」と「高評価リンク」を表示する最大のカテゴリ数を指定してください。<br>カテゴリ数が多すぎるとタイムアウトします');
 
     // 2006-03-26
     // REQ 3807: Description in main page
     //define('_MI_WEBLINKS_INDEX_DESC','メインページの説明');
     //define('_MI_WEBLINKS_INDEX_DESC_DSC', 'メインページに表示するときは、説明文を指定してください。');
-    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">ここには説明文を表示します。<br />説明文は「モジュールの設定１」にて編集できます。</font><br /></div>');
+    //define('_MI_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center"><font color="blue">ここには説明文を表示します。<br>説明文は「モジュールの設定１」にて編集できます。</font><br></div>');
 
     // 2006-05-15
     define('_MI_WEBLINKS_ADMENU0', '目次');
@@ -232,4 +232,3 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', '新規リンクが掲載された場合に通知する (管理者宛コメントの記載あり)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE}: 新規リンクが掲載されました');
 }// --- define language begin ---
-;

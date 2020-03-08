@@ -54,17 +54,17 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
 // class
 $config_form       = admin_config_form::getInstance();
 $config_store      = admin_config_store::getInstance();
-$link_form_handler = weblinks_get_handler('link_form', WEBLINKS_DIRNAME);
+$link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         xoops_error('Token Error');
-        echo "<br />\n";
+        echo "<br>\n";
         echo $config_form->get_token_error(1);
-        echo "<br />\n";
+        echo "<br>\n";
     } else {
         $ret = $config_store->save_config();
         if ($ret) {
@@ -84,7 +84,7 @@ $config_store->print_style_sheet();
 weblinks_admin_print_header();
 weblinks_admin_print_menu();
 $config_form->print_menu_4();
-echo "<br />\n";
+echo "<br>\n";
 $config_form->set_submit_value(_WEBLINKS_UPDATE);
 $config_form->init_form();
 
@@ -132,5 +132,4 @@ $config_form->show_by_catid(27, _AM_WEBLINKS_CONF_D3FORUM);
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

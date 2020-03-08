@@ -60,7 +60,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_INDEX', '管理者目次');
 
     // BUG 2931: unmatch popup menu 'prefrence' and index menu 'module setting'
-    define('_WEBLINKS_ADMIN_MODULE_CONFIG_1', 'モジュールの設定１<br />(一般設定) ');
+    define('_WEBLINKS_ADMIN_MODULE_CONFIG_1', 'モジュールの設定１<br>(一般設定) ');
 
     define('_WEBLINKS_ADMIN_MODULE_CONFIG_2', 'モジュールの設定２');
     //define("_WEBLINKS_ADMIN_ADDMODDEL_CATEGORY","カテゴリの追加／修正／削除");
@@ -81,11 +81,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_AUTH_MODIFY_AUTO', 'リンク編集の自動承認の権限');
     define('_WEBLINKS_AUTH_MODIFY_AUTO_DSC', 'リンクを編集したときに自動承認される権限を与えられるグループを指定する');
     define('_WEBLINKS_AUTH_RATELINK', 'サイト評価の権限');
-    define('_WEBLINKS_AUTH_RATELINK_DSC', 'サイトを評価する権限を与えられるグループを指定する<br />「サイト評価を使用する」が「はい」の場合に有効です。');
+    define('_WEBLINKS_AUTH_RATELINK_DSC', 'サイトを評価する権限を与えられるグループを指定する<br>「サイト評価を使用する」が「はい」の場合に有効です。');
     define('_WEBLINKS_USE_PASSWD', 'リンク編集時のパスワード認証');
-    define('_WEBLINKS_USE_PASSWD_DSC', '「はい」を選択すると、<br />リンク編集時に自動承認の権限が与えられていない場合は、<br />パスワード認証画面が表示されます。');
+    define('_WEBLINKS_USE_PASSWD_DSC', '「はい」を選択すると、<br>リンク編集時に自動承認の権限が与えられていない場合は、<br>パスワード認証画面が表示されます。');
     define('_WEBLINKS_USE_RATELINK', 'サイト評価を使用する');
-    define('_WEBLINKS_USE_RATELINK_DSC', '「はい」を選択すると、<br />「このサイトを評価する」と「評価」結果を表示します。');
+    define('_WEBLINKS_USE_RATELINK_DSC', '「はい」を選択すると、<br>「このサイトを評価する」と「評価」結果を表示します。');
     define('_WEBLINKS_AUTH_UPDATED', 'アクセス権限を更新した');
 
     // RSS/ATOM
@@ -95,18 +95,20 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOM記事の自動更新');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', '「はい」を選択すると、詳細表示のときにRSS/ATOMのURLの自動検出と記事の自動更新を実行します。');
     define('_WEBLINKS_RSS_MODE_DATA', '表示するRSS/ATOMのデータ');
-    define('_WEBLINKS_RSS_MODE_DATA_DSC',
-           '「ATOM FEED」を選択すると、atomfeedテーブルにある構文解析後のデータを使用します。<br />「XML」を選択すると、linkテーブルにある構文解析前のXMLデータを使用します。<br />atomfeedテーブルは、フィルタ処理が入っているので、全てのデータが保存されていないことがあります。');
+    define(
+        '_WEBLINKS_RSS_MODE_DATA_DSC',
+        '「ATOM FEED」を選択すると、atomfeedテーブルにある構文解析後のデータを使用します。<br>「XML」を選択すると、linkテーブルにある構文解析前のXMLデータを使用します。<br>atomfeedテーブルは、フィルタ処理が入っているので、全てのデータが保存されていないことがあります。'
+    );
     define('_WEBLINKS_RSS_CACHE', 'RSS/ATOMのキャッシュ時間');
     define('_WEBLINKS_RSS_CACHE_DSC', '設定値は１時間単位です。');
     define('_WEBLINKS_RSS_LIMIT', 'RSS/ATOM記事の最大の件数');
-    define('_WEBLINKS_RSS_LIMIT_DSC', 'atomfeed テーブルに格納するRSS/ATOM記事の最大の件数を指定する<br />この値を超えると日付の古い方からクリアされる。<br />0 は制限なし。');
+    define('_WEBLINKS_RSS_LIMIT_DSC', 'atomfeed テーブルに格納するRSS/ATOM記事の最大の件数を指定する<br>この値を超えると日付の古い方からクリアされる。<br>0 は制限なし。');
     define('_WEBLINKS_RSS_SITE', 'RSS検索サイト');
-    define('_WEBLINKS_RSS_SITE_DSC', 'RSS検索サイトのRSSのURLの一覧を指定する。<br />複数指定するときは改行で区切る。<br />ATOMのURLは指定できない。');
+    define('_WEBLINKS_RSS_SITE_DSC', 'RSS検索サイトのRSSのURLの一覧を指定する。<br>複数指定するときは改行で区切る。<br>ATOMのURLは指定できない。');
     define('_WEBLINKS_RSS_BLACK', 'RSS/ATOMのブラックリスト');
-    define('_WEBLINKS_RSS_BLACK_DSC', 'RSS/ATOMから記事を収集するときに拒否するURLの一覧を指定する。<br />複数指定するときは改行で区切る。<br />perl形式の正規表現が使用できる');
+    define('_WEBLINKS_RSS_BLACK_DSC', 'RSS/ATOMから記事を収集するときに拒否するURLの一覧を指定する。<br>複数指定するときは改行で区切る。<br>perl形式の正規表現が使用できる');
     define('_WEBLINKS_RSS_WHITE', 'RSS/ATOMのホワイトリスト');
-    define('_WEBLINKS_RSS_WHITE_DSC', 'ブラックリストに一致した場合でも登録するURLの一覧を指定する。<br />複数指定するときは改行で区切る。<br />perl形式の正規表現が使用できる');
+    define('_WEBLINKS_RSS_WHITE_DSC', 'ブラックリストに一致した場合でも登録するURLの一覧を指定する。<br>複数指定するときは改行で区切る。<br>perl形式の正規表現が使用できる');
     define('_WEBLINKS_RSS_URL_CHECK', 'リンク情報のURLに、ブラックリストと一致するものがあります。');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', '必要であれば、下段のホワイトリストの内容を、登録フォームにコピー＆ペーストしてください。');
     define('_WEBLINKS_RSS_UPDATED', 'RSS/ATOMの設定を更新した');
@@ -114,19 +116,25 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // RSS/ATOM view
     define('_WEBLINKS_ADMIN_RSS_VIEW', 'RSS/ATOMの表示の設定');
     define('_WEBLINKS_RSS_MODE_TITLE', 'タイトルのHTMLタグの表示');
-    define('_WEBLINKS_RSS_MODE_TITLE_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+    define('_WEBLINKS_RSS_MODE_TITLE_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
     define('_WEBLINKS_RSS_MODE_CONTENT', '本文のHTMLタグの表示');
-    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
-    define('_WEBLINKS_RSS_NEW', '「新着RSS/ATOM記事」を表示する件数
-');
+    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
+    define(
+        '_WEBLINKS_RSS_NEW',
+        '「新着RSS/ATOM記事」を表示する件数
+'
+    );
     define('_WEBLINKS_RSS_NEW_DSC', 'トップページに「新着RSS/ATOM記事」を表示する最大件数を指定してください。。');
-    define('_WEBLINKS_RSS_PERPAGE', 'RSS/ATOM記事を１ページ毎に表示する件数
-');
+    define(
+        '_WEBLINKS_RSS_PERPAGE',
+        'RSS/ATOM記事を１ページ毎に表示する件数
+'
+    );
     define('_WEBLINKS_RSS_PERPAGE_DSC', 'リンク詳細ページとRSS/ATOM記事ページで１ページあたりに表示する最大件数を指定してください。');
     define('_WEBLINKS_RSS_NUM_CONTENT', 'RSS/ATOM記事に本文を表示する件数');
-    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'リンク詳細ページにRSS/ATOM記事の本文を表示する記事数を指定してください。<br />その件数以上の記事には要約を表示する。');
+    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'リンク詳細ページにRSS/ATOM記事の本文を表示する記事数を指定してください。<br>その件数以上の記事には要約を表示する。');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'RSS/ATOM記事の最大文字数');
-    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'RSS/ATOM記事のページでRSS/ATOM記事を表示する最大文字数を指定してください。<br />「本文のHTMLタグの表示」が「いいえ」のときに有効です。');
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'RSS/ATOM記事のページでRSS/ATOM記事を表示する最大文字数を指定してください。<br>「本文のHTMLタグの表示」が「いいえ」のときに有効です。');
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'RSS/ATOM記事の要約の最大文字数');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'トップページでRSS/ATOM記事の要約を表示する最大文字数を指定してください。');
 
@@ -139,9 +147,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USE', '使用');
     define('_WEBLINKS_INDISPENSABLE', '必須');
     define('_WEBLINKS_TYPE_DESC', '登録フォームの説明欄の形式');
-    define('_WEBLINKS_TYPE_DESC_DSC', '「いいえ」を選択すると、通常のテキストボックスが使用します。<br />「はい」を選択すると、XOOPSのDHTML形式を使用します。');
+    define('_WEBLINKS_TYPE_DESC_DSC', '「いいえ」を選択すると、通常のテキストボックスが使用します。<br>「はい」を選択すると、XOOPSのDHTML形式を使用します。');
     define('_WEBLINKS_CHECK_DOUBLE', '同じリンク先の登録をチェックする');
-    define('_WEBLINKS_CHECK_DOUBLE_DSC', '「いいえ」を選択すると、同じリンク先が登録できます。<br />「はい」を選択すると、同じリンク先が登録されていないかチェックします。');
+    define('_WEBLINKS_CHECK_DOUBLE_DSC', '「いいえ」を選択すると、同じリンク先が登録できます。<br>「はい」を選択すると、同じリンク先が登録されていないかチェックします。');
     define('_WEBLINKS_POST_UPDATED', 'リンク登録項目の設定を更新した');
 
     // cateogry
@@ -151,10 +159,10 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_SUB', 'サブカテゴリの最大表示数');
 
     //define('_WEBLINKS_CAT_SUB_DSC','トップページのカテゴリ一覧表示において、サブカテゴリの最大表示数を指定してください。');
-    define('_WEBLINKS_CAT_SUB_DSC', 'カテゴリページにおいて、２つ下のカテゴリ (サブカテゴリ) を表示するときの、最大表示数を指定する<br /><b>0</b> は表示しない<br /><b>-1</b> は制限なし');
+    define('_WEBLINKS_CAT_SUB_DSC', 'カテゴリページにおいて、２つ下のカテゴリ (サブカテゴリ) を表示するときの、最大表示数を指定する<br><b>0</b> は表示しない<br><b>-1</b> は制限なし');
 
     define('_WEBLINKS_CAT_IMG_MODE', 'カテゴリ表示のカテゴリ画像の指定');
-    define('_WEBLINKS_CAT_IMG_MODE_DSC', '「なし」のときは、画像を表示しない。<br />「folder.gif」のときは、folder.gif を表示する。<br />「設定した画像」のときは、カテゴリ毎に設定された画像を表示する。');
+    define('_WEBLINKS_CAT_IMG_MODE_DSC', '「なし」のときは、画像を表示しない。<br>「folder.gif」のときは、folder.gif を表示する。<br>「設定した画像」のときは、カテゴリ毎に設定された画像を表示する。');
     //define("_WEBLINKS_CAT_IMG_MODE_0","なし");
     define('_WEBLINKS_CAT_IMG_MODE_1', 'folder.gif');
     define('_WEBLINKS_CAT_IMG_MODE_2', '設定した画像');
@@ -178,7 +186,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     //======    cateogry_manage.php     ======
     define('_WEBLINKS_IMGURL_MAIN', 'カテゴリ画像URL');
-    define('_WEBLINKS_IMGURL_MAIN_DSC1', 'オプションです。<br />画像ファイルの大きさは自動的に調整されます。');
+    define('_WEBLINKS_IMGURL_MAIN_DSC1', 'オプションです。<br>画像ファイルの大きさは自動的に調整されます。');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","メイン・カテゴリで有効です。");
 
     //======    link_list.php   ======
@@ -201,9 +209,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'リンク切れの検査');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', '検査');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', '検査結果');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', 'リンク数が多いと、タイムアウトすることがあります。<br />そのときは、limit と offset の数値を変更してください。<br />limit=0 は制限なしです。<br />');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '<b>リンクID</b> をクリックすると、リンク修正のページが開きます。<br /><b>ウェブサイトURL</b> をクリックすると、該当するURLが開きます。<br />');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '<b>ウェブサイト名</b> をクリックすると、google検索が開きます。<br />');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', 'リンク数が多いと、タイムアウトすることがあります。<br>そのときは、limit と offset の数値を変更してください。<br>limit=0 は制限なしです。<br>');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '<b>リンクID</b> をクリックすると、リンク修正のページが開きます。<br><b>ウェブサイトURL</b> をクリックすると、該当するURLが開きます。<br>');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '<b>ウェブサイト名</b> をクリックすると、google検索が開きます。<br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'リンク数の上限(limit)');
     define('_WEBLINKS_ADMIN_OFFSET', 'オフセット(offset)');
     define('_WEBLINKS_ADMIN_TIME_START', '開始時刻');
@@ -282,7 +290,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // 2006-05-15
     define('_AM_WEBLINKS_INDEX_DESC', 'メインページの説明');
     define('_AM_WEBLINKS_INDEX_DESC_DSC', 'メインページに表示するときは、説明文を指定してください。');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ここには説明文を表示します。<br />説明文は「モジュールの設定２」にて編集できます。<br /></div>');
+    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ここには説明文を表示します。<br>説明文は「モジュールの設定２」にて編集できます。<br></div>');
 
     // category
     define('_AM_WEBLINKS_ADD_CATEGORY', '新規カテゴリの追加');
@@ -299,11 +307,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_TOPTEN', 'トップ10の設定');
     define('_AM_WEBLINKS_CONF_SEARCH', '検索の設定');
     define('_AM_WEBLINKS_USE_BROKENLINK', '「リンク切れ報告」の使用');
-    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', '「はい」を選択すると、<br />「リンク切れ報告」が使用できます');
+    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', '「はい」を選択すると、<br>「リンク切れ報告」が使用できます');
     define('_AM_WEBLINKS_USE_HITS', 'ジャンプの "ヒット数" の使用');
-    define('_AM_WEBLINKS_USE_HITS_DSC', '「はい」を選択すると、<br />登録されたサイトにジャンプするときに、"ヒット数" がカウントアップされます');
+    define('_AM_WEBLINKS_USE_HITS_DSC', '「はい」を選択すると、<br>登録されたサイトにジャンプするときに、"ヒット数" がカウントアップされます');
     define('_AM_WEBLINKS_USE_PASSWD', 'パスワードの権限');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', '「はい」を選択すると、<br /><b>ゲスト</b> はパスワード認証によりリンクの変更ができます。<br />「いいえ」を選択すると、<br />パスワード欄は表示されない。');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', '「はい」を選択すると、<br><b>ゲスト</b> はパスワード認証によりリンクの変更ができます。<br>「いいえ」を選択すると、<br>パスワード欄は表示されない。');
     define('_AM_WEBLINKS_PASSWD_MIN', 'パスワードの最小の文字数');
     define('_AM_WEBLINKS_POST_TEXT', 'サイト管理者は全ての管理権限を持っている');
     define('_AM_WEBLINKS_AUTH_DOHTML', 'HTMLタグの権限');
@@ -317,24 +325,26 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_AUTH_DOBR', '改行の権限');
     define('_AM_WEBLINKS_AUTH_DOBR_DSC', '改行を使用する権限を与えられるグループを指定する');
     define('_AM_WEBLINKS_SHOW_CATLIST', 'サブメニューへのカテゴリ一覧の表示');
-    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '「はい」を選択すると、<br />サブメニューにカテゴリ一覧を表示する');
+    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '「はい」を選択すると、<br>サブメニューにカテゴリ一覧を表示する');
     define('_AM_WEBLINKS_VIEW_URL', 'URLの表示形式');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           '「非表示」を選択すると、<br />URL は &lt;a&gt; タグに表示されない。<br />「間接表示」を選択すると、<br />href 属性に URLではなく、visit.php を表示する。<br />「直接表示」を選択すると、<br />href 属性に URL を表示し、onmousedown 属性に JavaScript を表示し、JavaScript を経由してヒット数をカウントする。<br />');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        '「非表示」を選択すると、<br>URL は &lt;a&gt; タグに表示されない。<br>「間接表示」を選択すると、<br>href 属性に URLではなく、visit.php を表示する。<br>「直接表示」を選択すると、<br>href 属性に URL を表示し、onmousedown 属性に JavaScript を表示し、JavaScript を経由してヒット数をカウントする。<br>'
+    );
     define('_AM_WEBLINKS_VIEW_URL_0', '非表示');
     define('_AM_WEBLINKS_VIEW_URL_1', '間接表示');
     define('_AM_WEBLINKS_VIEW_URL_2', '直接表示');
     define('_AM_WEBLINKS_RECOMMEND_PRI', '「おすすめサイト」の優先度');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', '「非表示」を選択すると、表示されない。<br />「通常」を選択すると、メニュー・バーに表示する。<br />「優先」を選択すると、カテゴリ毎に上位に表示される。');
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', '「非表示」を選択すると、表示されない。<br>「通常」を選択すると、メニュー・バーに表示する。<br>「優先」を選択すると、カテゴリ毎に上位に表示される。');
     define('_AM_WEBLINKS_MUTUAL_PRI', '「相互リンク」の優先度');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', '「非表示」を選択すると、表示されない。<br />「通常」を選択すると、メニュー・バーに表示する。<br />「優先」を選択すると、カテゴリ毎に上位に表示される。');
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', '「非表示」を選択すると、表示されない。<br>「通常」を選択すると、メニュー・バーに表示する。<br>「優先」を選択すると、カテゴリ毎に上位に表示される。');
     define('_AM_WEBLINKS_PRI_0', '未使用');
     define('_AM_WEBLINKS_PRI_1', '通常');
     define('_AM_WEBLINKS_PRI_2', '優先');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'バナー・サイズの自動取得');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', '「はい」を選択すると、<br />バナー・サイズが登録・変更時に取得できなかった場合に、リンク一覧やリンク詳細を表示するときに、再度 自動的に取得する。<br />');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', '「はい」を選択すると、<br>バナー・サイズが登録・変更時に取得できなかった場合に、リンク一覧やリンク詳細を表示するときに、再度 自動的に取得する。<br>');
     define('_AM_WEBLINKS_RSS_USE', 'RSS 記事の使用');
-    define('_AM_WEBLINKS_RSS_USE_DSC', '「はい」を選択すると、<br />RSS/ATOM 記事を取得し表示する');
+    define('_AM_WEBLINKS_RSS_USE_DSC', '「はい」を選択すると、<br>RSS/ATOM 記事を取得し表示する');
 
     // bulk import
     define('_AM_WEBLINKS_BULK_IMPORT', '一括登録');
@@ -406,8 +416,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', '場所の設定');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '国コード');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs を入力する <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '国コードに関連する項目を再設定する<br/> <span style="color:#0000ff;">#</span> 印がついている項目');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs を入力する <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '国コードに関連する項目を再設定する<br> <span style="color:#0000ff;">#</span> 印がついている項目');
     define('_AM_WEBLINKS_RENEW', '再設定');
 
     // map
@@ -416,12 +426,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', '地図サイトのテンプレート');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'template/map/ ディレクトリにあるテンプレート・ファイルを指定する');
 
-    // google map: hacked by wye <http://never-ever.info/>
+    // google map: hacked by wye <https://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps の設定');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Google Maps を使用する');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'GoogleMapsを利用する場合は <br /> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> で <br /> API key を取得してください');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'GoogleMapsを利用する場合は <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> で <br> API key を取得してください'
+    );
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'サーバー名');
     define('_AM_WEBLINKS_CONF_GM_LANG', '言語コード');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', '省略時の場所名');
@@ -459,9 +471,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // config
     define('_AM_WEBLINKS_SYSTEM_POST_LINK', 'リンク登録時の投稿数');
-    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', '「はい」を選択すると、<br />リンクを登録したときに、XOOPSユーザの投稿数をカウントアップします。');
+    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', '「はい」を選択すると、<br>リンクを登録したときに、XOOPSユーザの投稿数をカウントアップします。');
     define('_AM_WEBLINKS_SYSTEM_POST_RATE', '評価時の投稿数');
-    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', '「はい」を選択すると、<br />評価をしたときに、XOOPSユーザの投稿数をカウントアップします。');
+    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', '「はい」を選択すると、<br>評価をしたときに、XOOPSユーザの投稿数をカウントアップします。');
 
     define('_AM_WEBLINKS_VIEW_STYLE_CAT', 'カテゴリ・ページの表示形式');
     define('_AM_WEBLINKS_VIEW_STYLE_MARK', 'おすすめサイト・ページの表示形式');
@@ -470,19 +482,21 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', '詳細');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', '性能向上');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', '性能向上のために、表示するときに必要な情報を事前に計算し、データベースに格納します<br />初めて使用するときは、「カテゴリ一覧」->「パス・ツリー情報の更新」を実行すること');
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', '性能向上のために、表示するときに必要な情報を事前に計算し、データベースに格納します<br>初めて使用するときは、「カテゴリ一覧」->「パス・ツリー情報の更新」を実行すること');
     define('_AM_WEBLINKS_CAT_PATH', 'カテゴリのパス・ツリー情報');
-    define('_AM_WEBLINKS_CAT_PATH_DSC', '「はい」を選択すると、<br />カテゴリのパス・ツリー情報を事前に計算し、カテゴリ・テーブルに格納します。<br />「いいえ」を選択すると、<br />表示するときに計算します。');
+    define('_AM_WEBLINKS_CAT_PATH_DSC', '「はい」を選択すると、<br>カテゴリのパス・ツリー情報を事前に計算し、カテゴリ・テーブルに格納します。<br>「いいえ」を選択すると、<br>表示するときに計算します。');
     define('_AM_WEBLINKS_CAT_COUNT', 'カテゴリのリンク数');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC', '「はい」を選択すると、<br />カテゴリ毎のリンク数を事前に計算し、カテゴリ・テーブルに格納します。<br />「いいえ」を選択すると、<br />表示するときに計算します。');
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', '「はい」を選択すると、<br>カテゴリ毎のリンク数を事前に計算し、カテゴリ・テーブルに格納します。<br>「いいえ」を選択すると、<br>表示するときに計算します。');
 
     define('_AM_WEBLINKS_POST_TEXT_4', '管理者の投稿画面には全ての項目が表示される');
     define('_AM_WEBLINKS_LINK_REGISTER_1', 'リンク登録: textarea1 の設定');
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'ゲストのリンク登録項目の設定');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'CAPTCHA (画像認証) を使用する');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA は画像認証によるスパム対策です。<br />使用するには、Captcha モジュールが必要です。<br />「はい」を選択すると、<br /><b>ゲスト</b> のときはリンクの登録と変更時に CAPTCHA を使用します。<br />「いいえ」を選択すると、<br />CAPTCHA 欄は表示されない。');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA は画像認証によるスパム対策です。<br>使用するには、Captcha モジュールが必要です。<br>「はい」を選択すると、<br><b>ゲスト</b> のときはリンクの登録と変更時に CAPTCHA を使用します。<br>「いいえ」を選択すると、<br>CAPTCHA 欄は表示されない。'
+    );
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha モジュール ver %s が見つかりました');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha モジュールは見つかりません');
 
@@ -587,19 +601,19 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[検索] 地図の形式');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[検索] ジオコードの種類');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', '住所から緯度・経度を検索する<br /><b>単一の検索</b><br />GClientGeocoder - getLatLng<br /><b>複数の検索</b><br />GClientGeocoder - getLocations');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', '住所から緯度・経度を検索する<br><b>単一の検索</b><br>GClientGeocoder - getLatLng<br><b>複数の検索</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', '単一の検索: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', '複数の検索: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[検索][日本] 東京大学 CSIS を使用する');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '日本でのみ有効<br />住所から緯度・経度を検索する<br /><a href="http://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">東京大学 シンプルジオコーディング実験</a>');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '日本でのみ有効<br>住所から緯度・経度を検索する<br><a href="https://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">東京大学 シンプルジオコーディング実験</a>');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[検索][日本] 逆ジオコードを使用する');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '日本でのみ有効<br />緯度・経度から住所を検索する<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '日本でのみ有効<br>緯度・経度から住所を検索する<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] タイトルの文字数');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'マーカーに表示するタイトルの文字数<br /><b>-1</b> は制限なし');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'マーカーに表示するタイトルの文字数<br><b>-1</b> は制限なし');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] 本文の文字数');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'マーカーに表示する本文の文字数<br /><b>-1</b> は制限なし');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'マーカーに表示する本文の文字数<br><b>-1</b> は制限なし');
     define('_AM_WEBLINKS_GM_WORDWRAP', '[Marker] 本文の１行の文字数');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'マーカーに表示する本文の１行あたり (wordwrap) の文字数<br /><b>-1</b> は制限なし');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'マーカーに表示する本文の１行あたり (wordwrap) の文字数<br><b>-1</b> は制限なし');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Marker] 中心マーカーを表示する');
     define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'トップページとカテゴリぺージにて、中心位置にマーカーを表示する');
 
@@ -625,7 +639,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML 表記に関する設定');
     define('_AM_WEBLINKS_HEADER_MODE', 'xoops module header を使用する');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC', '「いいえ」のときは、スタイルシートと Javascript の指定を body タグ内に表示します<br />「はい」のときは、xoops module header を使用して、header タグ内に表示します<br />テーマによっては使用できないものがあります');
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', '「いいえ」のときは、スタイルシートと Javascript の指定を body タグ内に表示します<br>「はい」のときは、xoops module header を使用して、header タグ内に表示します<br>テーマによっては使用できないものがあります');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', '[見本]をクリックすると、見本が見れます');
@@ -633,7 +647,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_BULK_LINK_DSC20', '管理者が登録項目を指定する');
     define('_AM_WEBLINKS_BULK_LINK_DSC21', '第１段落');
     define('_AM_WEBLINKS_BULK_LINK_DSC22', '第２段落 以降');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', '１行目に、登録項目名 を記述する<br />横棒(---)で区切る');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', '１行目に、登録項目名 を記述する<br>横棒(---)で区切る');
     define('_AM_WEBLINKS_BULK_LINK_DSC24', '２行目以降に、第１段落で指定した順番に、登録内容をカンマ(,)で区切って記述する');
     define('_AM_WEBLINKS_BULK_CHECK_URL', 'URLが設定されているか検査する');
     define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', '説明文が設定されているか検査する');
@@ -647,7 +661,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // nofitication
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'イベント通知の設定');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'モジュール管理者 別の設定です<br />モジュールのトップページと同じものです');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'モジュール管理者 別の設定です<br>モジュールのトップページと同じものです');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'XOOPS のバージョンによっては使用できません');
     define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'その場合は、モジュールのトップページを使用してください');
     define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: リンク修正依頼が承認されました');
@@ -660,7 +674,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_USER_WAITING_NUM', 'ユーザの承認待ちリストの件数');
     define('_AM_WEBLINKS_USER_OWNER_NUM', 'ユーザの登録リストの件数');
     define('_AM_WEBLINKS_USE_HITS_SINGLELINK', 'リンク詳細の "ヒット数" の使用');
-    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC', '「ジャンプの "ヒット数" の使用」が「はい」のときに有効<br />「はい」を選択すると、<br />リンク詳細 singlelink を表示したときに、ヒット数 がカウントアップされます');
+    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC', '「ジャンプの "ヒット数" の使用」が「はい」のときに有効<br>「はい」を選択すると、<br>リンク詳細 singlelink を表示したときに、ヒット数 がカウントアップされます');
     define('_AM_WEBLINKS_MODE_RANDOM', 'ランダムジャンプの飛び先');
     define('_AM_WEBLINKS_MODE_RANDOM_URL', '登録されたサイトのURL');
     define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', 'モジュール内のsinglelink');
@@ -687,16 +701,19 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // web shot
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'リンク画像の代替');
-    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'リンク画像が設定されていないときに、サムネイル WEB サービスを利用して、
-WEBサイトのサムネイルを表示する');
+    define(
+        '_AM_WEBLINKS_LINK_IMG_THUMB_DSC',
+        'リンク画像が設定されていないときに、サムネイル WEB サービスを利用して、
+WEBサイトのサムネイルを表示する'
+    );
     define('_AM_WEBLINKS_LINK_IMG_NON', 'なし');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="http://mozshot.nemui.org/" target="_blank">MozShot</a> を利用する');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a> を利用する');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="https://mozshot.nemui.org/" target="_blank">MozShot</a> を利用する');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a> を利用する');
 
     // === 2007-11-01 ===
     // google map
     define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Marker] 横幅 (pixel)');
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'マーカーの吹出しの横幅<br /><b>-1</b> は指定なし');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'マーカーの吹出しの横幅<br><b>-1</b> は指定なし');
     define('_AM_WEBLINKS_LINK_IMG_USE', '%s を利用する');
 
     define('_AM_WEBLINKS_RSS_SITE', 'サイトの表示');
@@ -706,12 +723,12 @@ WEBサイトのサムネイルを表示する');
     define('_AM_WEBLINKS_CONF_LINK_USER', 'ユーザのリンク登録項目の設定');
     define('_AM_WEBLINKS_USER_NAMEFLAG', '名前表示 nameflag の選択');
     define('_AM_WEBLINKS_USER_MAILFLAG', 'メール表示 mailflag の選択');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'ユーザが登録する場合の初期値<br />管理者は変更できる');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'ユーザが登録する場合の初期値<br>管理者は変更できる');
     define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'ユーザが選択する');
 
     // description length
     define('_AM_WEBLINKS_DESC_LENGTH', '文字数の制限');
-    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> あるいは 管理者は 64KB 制限<br />');
+    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> あるいは 管理者は 64KB 制限<br>');
 
     // === 2008-02-17 ===
     // config
@@ -730,7 +747,7 @@ WEBサイトのサムネイルを表示する');
     // pagerank
     define('_AM_WEBLINKS_LINK_CHECK_MANAGE', 'リンク検査管理');
     define('_AM_WEBLINKS_USE_PAGERANK', 'PageRank の表示');
-    define('_AM_WEBLINKS_USE_PAGERANK_DESC', '「表示する」を選択すると、<br />メニュー・バーとリンク概要とリンク詳細に表示する。');
+    define('_AM_WEBLINKS_USE_PAGERANK_DESC', '「表示する」を選択すると、<br>メニュー・バーとリンク概要とリンク詳細に表示する。');
     define('_AM_WEBLINKS_USE_PAGERANK_NON', '表示しない');
     define('_AM_WEBLINKS_USE_PAGERANK_SHOW', '表示する');
     define('_AM_WEBLINKS_USE_PAGERANK_CACHE', '取得した PageRank をキャッシュして、表示する');
@@ -752,14 +769,16 @@ WEBサイトのサムネイルを表示する');
     define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>注意</b> インターネットを使って、RSSのURLを自動検出するため、時間がかかります');
 
     define('_AM_WEBLINKS_BULK_COMMENT', 'コメント一括登録');
-    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', 'リンクのタイトル, uid, コメントのタイトル, コメントの本文 をカンマ(,)で区切って記述する<br />uid は省略可。管理者のuid で代用される<br/ >コメントのタイトル は省略可。リンクのタイトル で代用される');
+    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', 'リンクのタイトル, uid, コメントのタイトル, コメントの本文 をカンマ(,)で区切って記述する<br>uid は省略可。管理者のuid で代用される<br/ >コメントのタイトル は省略可。リンクのタイトル で代用される');
     define('_AM_WEBLINKS_NO_COMMENT', 'コメントがない');
     define('_AM_WEBLINKS_COMMENT_ADDED', 'コメントを追加した');
-    define('_AM_WEBLINKS_BULK_DSC1', 'カンマと改行を特別な記法で記述できます<br />カンマ(,)は \2c と記述する<br/ >改行は \n と記述する');
+    define('_AM_WEBLINKS_BULK_DSC1', 'カンマと改行を特別な記法で記述できます<br>カンマ(,)は \2c と記述する<br/ >改行は \n と記述する');
 
     define('_AM_WEBLINKS_TITLE_LINK_GEOCODING', 'リンクの緯度・経度の一覧');
-    define('_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
-           '住所から緯度・経度を検索します<br />すでに登録されているものは検索されません<br />検索結果は<span style="color:#0000ff">青字</span>で表示されます<br />検索できなかったときは<span style="color:#ff0000">赤字</span>で表示されます<br /><b>注意</b> インターネットを使って、緯度・経度を検索するため、時間がかかります');
+    define(
+        '_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
+        '住所から緯度・経度を検索します<br>すでに登録されているものは検索されません<br>検索結果は<span style="color:#0000ff">青字</span>で表示されます<br>検索できなかったときは<span style="color:#ff0000">赤字</span>で表示されます<br><b>注意</b> インターネットを使って、緯度・経度を検索するため、時間がかかります'
+    );
     define('_AM_WEBLINKS_SEARCHED_ADDRESS', '検索された住所');
     define('_AM_WEBLINKS_GOTO_NEXT_PAGE', '次のページへ');
     define('_AM_WEBLINKS_LAST_PAGE', 'ここは最後のページです');
@@ -770,4 +789,3 @@ WEBサイトのサムネイルを表示する');
     define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', '緯度・経度の場所を示すメモ');
     define('_AM_WEBLINKS_CAT_GM_ICON_DSC', '(default) のときは 親カテゴリのアイコンが継承される');
 }// --- define language end ---
-;

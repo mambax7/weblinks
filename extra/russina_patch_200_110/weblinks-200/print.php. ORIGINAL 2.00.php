@@ -39,7 +39,7 @@ $weblinks_template   = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 $lid = $weblinks_singlelink->get_get_lid();
 
 // link
-$link_show =& $weblinks_singlelink->get_link($lid);
+$link_show = &$weblinks_singlelink->get_link($lid);
 if (!$link_show) {
     redirect_header('index.php', 2, _WLS_NOMATCH);
     exit();
@@ -66,14 +66,14 @@ $xoopsTpl->assign('xoops_sitename', $site_name);
 $xoopsTpl->assign('module_name', $module_name);
 
 // google map
-$conf =& $weblinks_singlelink->get_conf();
+$conf = &$weblinks_singlelink->get_conf();
 
 // BUG 4349: IE cannot show google map
 $xoopsTpl->assign('gm_use', $link_show['flag_gm_use']);
 $xoopsTpl->assign('gm_server', $conf['gm_server']);
 $xoopsTpl->assign('gm_apikey', $conf['gm_apikey']);
 
-$catpath_arr =& $weblinks_singlelink->get_catpath_arr($lid);
+$catpath_arr = &$weblinks_singlelink->get_catpath_arr($lid);
 foreach ($catpath_arr as $catpath) {
     $xoopsTpl->append('catpaths', $catpath);
 }

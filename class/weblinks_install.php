@@ -25,7 +25,6 @@
 //=========================================================
 
 if (!class_exists('weblinks_install')) {
-
     //=========================================================
     // class weblinks_install
     //=========================================================
@@ -65,9 +64,10 @@ if (!class_exists('weblinks_install')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_install($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -102,141 +102,169 @@ if (!class_exists('weblinks_install')) {
         {
             if (!$this->exists_config_table()) {
                 $this->_set_error('NOT config2 table');
+
                 return false;
             }
 
             if (!$this->exists_table($this->_linkitem_table)) {
                 $this->_set_error('NOT linkitem table');
+
                 return false;
             }
 
             if (!$this->_check_linkitem_140()) {
                 $this->_set_error('NOT linkitem 140');
+
                 return false;
             }
 
             if (!$this->_check_update_linkitem()) {
                 $this->_set_error('NOT update linkitem');
+
                 return false;
             }
 
             if (!$this->_check_config2_renew()) {
                 $this->_set_error('NOT renew config2');
+
                 return false;
             }
 
             if (!$this->_check_linkitem_renew()) {
                 $this->_set_error('NOT nenew linkitem');
+
                 return false;
             }
 
             if (!$this->_check_category_210()) {
                 $this->_set_error('NOT category 210');
+
                 return false;
             }
 
             if (!$this->_check_category_190()) {
                 $this->_set_error('NOT category 190');
+
                 return false;
             }
 
             if (!$this->_check_category_142()) {
                 $this->_set_error('NOT category 142');
+
                 return false;
             }
 
             if (!$this->_check_category_141()) {
                 $this->_set_error('NOT category 141');
+
                 return false;
             }
 
             if (!$this->_check_category_140()) {
                 $this->_set_error('NOT category 140');
+
                 return false;
             }
 
             if (!$this->_check_link_210()) {
                 $this->_set_error('NOT link 210');
+
                 return false;
             }
 
             if (!$this->_check_link_190()) {
                 $this->_set_error('NOT link 190');
+
                 return false;
             }
 
             if (!$this->_check_link_142()) {
                 $this->_set_error('NOT link 142');
+
                 return false;
             }
 
             if (!$this->_check_link_141()) {
                 $this->_set_error('NOT link 141');
+
                 return false;
             }
 
             if (!$this->_check_link_140()) {
                 $this->_set_error('NOT link 140');
+
                 return false;
             }
 
             if (!$this->_check_link_130()) {
                 $this->_set_error('NOT link 130');
+
                 return false;
             }
 
             if (!$this->_check_link_120()) {
                 $this->_set_error('NOT link 120');
+
                 return false;
             }
 
             if (!$this->_check_link_110()) {
                 $this->_set_error('NOT link 110');
+
                 return false;
             }
 
             if (!$this->_check_modify_210()) {
                 $this->_set_error('NOT modify 210');
+
                 return false;
             }
 
             if (!$this->_check_modify_190()) {
                 $this->_set_error('NOT modify 190');
+
                 return false;
             }
 
             if (!$this->_check_modify_142()) {
                 $this->_set_error('NOT modify 142');
+
                 return false;
             }
 
             if (!$this->_check_modify_141()) {
                 $this->_set_error('NOT modify 141');
+
                 return false;
             }
 
             if (!$this->_check_modify_140()) {
                 $this->_set_error('NOT modify 140');
+
                 return false;
             }
 
             if (!$this->_check_modify_130()) {
                 $this->_set_error('NOT modify 130');
+
                 return false;
             }
 
             if (!$this->_check_modify_120()) {
                 $this->_set_error('NOT modify 120');
+
                 return false;
             }
 
             if (!$this->_check_modify_110()) {
                 $this->_set_error('NOT modify 110');
+
                 return false;
             }
 
             if (!$this->check_update_config()) {
                 $this->_set_error('NOT update config2');
+
                 return false;
             }
 
@@ -312,9 +340,10 @@ if (!class_exists('weblinks_install')) {
         //---------------------------------------------------------
         public function _check_config2_renew()
         {
-            $name_arr = array(
-                'cat_path'  // v1.40
-            );
+            $name_arr = [
+                'cat_path',  // v1.40
+            ];
+
             return $this->exists_config_item_by_name_array($name_arr);
         }
 
@@ -337,7 +366,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
   description text NOT NULL,
   PRIMARY KEY (id),
   KEY item_id (item_id)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
             return $this->query($sql);
@@ -346,27 +375,29 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         public function _check_init_linkitem()
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table;
+
             return $this->get_count_by_sql($sql);
         }
 
         public function _check_update_linkitem()
         {
-            $linkitem_arr =& $this->_get_linkitem_name_array();
+            $linkitem_arr = &$this->_get_linkitem_name_array();
 
             foreach ($this->_linkitem_define->get_define() as $def) {
                 if (!in_array($def['name'], $linkitem_arr)) {
                     return false;
                 }
             }
+
             return true;
         }
 
         public function &_get_linkitem_name_array()
         {
-            $arr = array();
+            $arr = [];
 
             $sql  = 'SELECT * FROM ' . $this->_linkitem_table . ' ORDER BY item_id ASC';
-            $rows =& $this->get_rows_by_sql($sql);
+            $rows = &$this->get_rows_by_sql($sql);
 
             if (is_array($rows) && (count($rows) > 0)) {
                 foreach ($rows as $row) {
@@ -414,12 +445,12 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->return_errors();
         }
 
-        public function _insert_linkitem_by_def($id, &$def)
+        public function _insert_linkitem_by_def($id, $def)
         {
             return $this->_insert_linkitem($this->_build_linkitem_insert_row($id, $def));
         }
 
-        public function &_build_linkitem_insert_row($item_id, &$def)
+        public function &_build_linkitem_insert_row($item_id, $def)
         {
             //print_r( $def );
 
@@ -440,23 +471,23 @@ CREATE TABLE ' . $this->_linkitem_table . " (
                 $description = $def['description'];
             }
 
-            $row = array(
+            $row = [
                 'item_id'     => $item_id,
                 'name'        => $name,
                 'title'       => $title,
                 'user_mode'   => $user_mode,
                 'description' => $description,
-            );
+            ];
 
             return $row;
         }
 
-        public function _insert_linkitem(&$row)
+        public function _insert_linkitem($row)
         {
             return $this->query($this->_build_insert_linkitem_sql($row));
         }
 
-        public function _build_insert_linkitem_sql(&$row)
+        public function _build_insert_linkitem_sql($row)
         {
             $aux_int_1  = 0;
             $aux_int_2  = 0;
@@ -495,33 +526,37 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         public function _get_linkitem_count_by_itemid($id)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table . ' WHERE item_id=' . (int)$id;
+
             return $this->get_count_by_sql($sql);
         }
 
         public function _get_linkitem_count_by_name($name)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table . ' WHERE name=' . $this->quote($name);
+
             return $this->get_count_by_sql($sql);
         }
 
         public function _check_linkitem_renew()
         {
-            $name_arr = array(
+            $name_arr = [
                 'map_use',  // 1.20
                 'forum_id', // 1.40.2
-                'renew_1'   // 1.60
-            );
+                'renew_1',   // 1.60
+            ];
+
             return $this->_exists_linkitem_item_by_name_array($name_arr);
         }
 
-        public function _exists_linkitem_item_by_name_array(&$name_arr)
+        public function _exists_linkitem_item_by_name_array($name_arr)
         {
             foreach ($name_arr as $name) {
                 $count = $this->_get_linkitem_count_by_name($name);
-                if ($count == 0) {
+                if (0 == $count) {
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -536,6 +571,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
   ALTER TABLE ' . $this->_linkitem_table . ' ADD COLUMN (
   description text default NULL
 )';
+
             return $this->query($sql);
         }
 
@@ -549,7 +585,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
 
         public function _check_category_190()
         {
-            return $this->preg_match_column_type_array($this->_category_table, 'title', array('varchar(255)', 'varbinary(255)'));
+            return $this->preg_match_column_type_array($this->_category_table, 'title', ['varchar(255)', 'varbinary(255)']);
         }
 
         public function _check_category_142()
@@ -776,6 +812,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
 )";
 
             return $this->query($sql);
+
             return $ret;
         }
 
@@ -875,6 +912,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
     url text NOT NULL
 ';
             $ret2 = $this->query($sql2);
+
             return ($ret1 && $ret2);
         }
 
@@ -1016,6 +1054,5 @@ CREATE TABLE ' . $this->_linkitem_table . " (
 
         // --- class end ---
     }
-
     // === class end ===
 }

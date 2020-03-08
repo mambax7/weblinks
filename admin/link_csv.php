@@ -54,10 +54,10 @@ class link_csv
     public $_table_rssc_link = '';
 
     public $_error                = '';
-    public $_uid_uname_array      = array();
-    public $_category_title_array = array();
+    public $_uid_uname_array      = [];
+    public $_category_title_array = [];
 
-    public $_FIELD_NAME_ARRAY = array(
+    public $_FIELD_NAME_ARRAY = [
         'lid'             => _WLS_LINKID,
         'uid'             => _WEBLINKS_USERID,
         'cids'            => _WLS_CATEGORY,
@@ -133,7 +133,7 @@ class link_csv
         'pagerank_update' => _WEBLINKS_PAGERANK_UPDATE,
         'gm_icon'         => _WEBLINKS_GM_ICON,
         'uid_uname'       => _WLS_REGSTERED,
-    );
+    ];
 
     public $_DIRNAME;
     public $_DEBUG = true;
@@ -162,9 +162,10 @@ class link_csv
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new link_csv($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -188,7 +189,6 @@ class link_csv
                     xoops_cp_footer();
                 }
                 break;
-
             case 'main':
             default:
                 xoops_cp_header();
@@ -217,7 +217,7 @@ class link_csv
         $count = $this->get_count_by_sql($sql);
 
         $option = '';
-        if (strtolower(_CHARSET) != 'utf-8') {
+        if ('utf-8' != mb_strtolower(_CHARSET)) {
             $option = '<option value="' . _CHARSET . '">' . _CHARSET . '</option>';
         }
 
@@ -250,18 +250,18 @@ EOF;
 
     public function print_title()
     {
-        $paths   = array();
-        $paths[] = array(
+        $paths   = [];
+        $paths[] = [
             'name' => $this->_system_class->get_module_name(),
             'url'  => 'index.php',
-        );
-        $paths[] = array(
+        ];
+        $paths[] = [
             'name' => _WEBLINKS_ADMIN_LINK_LIST,
             'url'  => 'link_list.php',
-        );
-        $paths[] = array(
-            'name' => _AM_WEBLINKS_TITLE_LINK_CSV
-        );
+        ];
+        $paths[] = [
+            'name' => _AM_WEBLINKS_TITLE_LINK_CSV,
+        ];
 
         echo $this->_html_class->build_html_bread_crumb($paths);
 
@@ -276,6 +276,7 @@ EOF;
         if (!is_dir(XOOPS_TRUST_PATH)) {
             return false;
         }
+
         return true;
     }
 
@@ -332,29 +333,28 @@ EOF;
         // links
         $rows = $this->get_links();
         foreach ($rows as $row) {
-
             // each link
             $line = '';
             foreach ($fields as $field) {
-                if ($field == 'uid_uname') {
+                if ('uid_uname' == $field) {
                     $v = $this->get_uid_uname($row);
-                } elseif ($field == 'cids') {
+                } elseif ('cids' == $field) {
                     $v = $this->get_cids($row);
-                } elseif ($field == 'time_create') {
+                } elseif ('time_create' == $field) {
                     $v = $this->get_time_create($row);
-                } elseif ($field == 'time_update') {
+                } elseif ('time_update' == $field) {
                     $v = $this->get_time_update($row);
-                } elseif ($field == 'time_publish') {
+                } elseif ('time_publish' == $field) {
                     $v = $this->get_time_publish($row);
-                } elseif ($field == 'time_expire') {
+                } elseif ('time_expire' == $field) {
                     $v = $this->get_time_expire($row);
-                } elseif ($field == 'pagerank_update') {
+                } elseif ('pagerank_update' == $field) {
                     $v = $this->get_pagerank_update($row);
-                } elseif ($field == 'rss_url') {
+                } elseif ('rss_url' == $field) {
                     $v = $this->get_rss_url($row);
-                } elseif ($field == 'search') {
+                } elseif ('search' == $field) {
                     $v = '-';
-                } elseif ($field == 'passwd') {
+                } elseif ('passwd' == $field) {
                     $v = '-';
                 } else {
                     $v = $row[$field];
@@ -370,12 +370,13 @@ EOF;
         // file close
         $this->close();
 
-        if (strtolower($encoding) != strtolower(_CHARSET)) {
+        if (mb_strtolower($encoding) != mb_strtolower(_CHARSET)) {
             $file_full = $this->convert_encoding($file_full, $encoding);
         }
 
         // download
         $this->download($file_full, $file_name);
+
         return true;
     }
 
@@ -395,6 +396,7 @@ EOF;
     {
         $now = date('YmdHis');
         $str = 'csv' . $now . '.csv';
+
         return $str;
     }
 
@@ -405,6 +407,7 @@ EOF;
             $ret = mkdir($dir);
             if (!$ret) {
                 $this->_error = 'NOT mkdir: ' . $dir;
+
                 return false;
             }
         }
@@ -414,6 +417,7 @@ EOF;
             $ret = mkdir($dir);
             if (!$ret) {
                 $this->_error = 'NOT mkdir: ' . $dir;
+
                 return false;
             }
         }
@@ -423,6 +427,7 @@ EOF;
             $ret = mkdir($dir);
             if (!$ret) {
                 $this->_error = 'NOT mkdir: ' . $dir;
+
                 return false;
             }
         }
@@ -432,11 +437,13 @@ EOF;
 
     public function open($file)
     {
-        $this->_fp = fopen($file, 'w');
+        $this->_fp = fopen($file, 'wb');
         if (!$this->_fp) {
             $this->_error = 'NOT open file: ' . $file;
+
             return false;
         }
+
         return true;
     }
 
@@ -455,13 +462,14 @@ EOF;
         if (isset($this->_FIELD_NAME_ARRAY[$field])) {
             return $this->_FIELD_NAME_ARRAY[$field];
         }
+
         return $field;
     }
 
     public function get_uid_uname($row)
     {
         $uid = (int)$row['uid'];
-        if ($uid == 0) {
+        if (0 == $uid) {
             $uid = 1;
         }
 
@@ -471,6 +479,7 @@ EOF;
 
         $uname                        = $this->get_xoops_users_uname($uid);
         $this->_uid_uname_array[$uid] = $uname;
+
         return $uname;
     }
 
@@ -483,8 +492,9 @@ EOF;
         foreach ($rows as $row) {
             $cid   = (int)$row['cid'];
             $title = $this->get_cached_category_title($cid);
-            $str .= $cid . ' : ' . $title . ", \n";
+            $str   .= $cid . ' : ' . $title . ", \n";
         }
+
         return $str;
     }
 
@@ -503,6 +513,7 @@ EOF;
         if ($row['time_publish'] > 0) {
             return date('Y-m-d H:i:s', $row['time_publish']);
         }
+
         return '-';
     }
 
@@ -511,6 +522,7 @@ EOF;
         if ($row['time_expire'] > 0) {
             return date('Y-m-d H:i:s', $row['time_expire']);
         }
+
         return '-';
     }
 
@@ -519,6 +531,7 @@ EOF;
         if ($row['pagerank_update'] > 0) {
             return date('Y-m-d H:i:s', $row['pagerank_update']);
         }
+
         return '-';
     }
 
@@ -528,6 +541,7 @@ EOF;
         if ($rssc_lid > 0) {
             return $this->get_rssc_link_rssurl($rssc_lid);
         }
+
         return '-';
     }
 
@@ -536,11 +550,11 @@ EOF;
         $sql  = 'SHOW COLUMNS FROM ' . $this->_table_link;
         $rows = $this->get_rows_by_sql($sql);
 
-        $fields = array();
+        $fields = [];
         foreach ($rows as $row) {
             $field    = $row['Field'];
             $fields[] = $field;
-            if ($field == 'uid') {
+            if ('uid' == $field) {
                 $fields[] = 'uid_uname';
             }
         }
@@ -564,6 +578,7 @@ EOF;
     public function get_links()
     {
         $sql = 'SELECT * FROM ' . $this->_table_link . ' ORDER BY lid';
+
         return $this->get_rows_by_sql($sql, 100);
     }
 
@@ -571,6 +586,7 @@ EOF;
     {
         $sql = 'SELECT cid FROM ' . $this->_table_catlink;
         $sql .= ' WHERE lid=' . $lid;
+
         return $this->get_rows_by_sql($sql);
     }
 
@@ -582,6 +598,7 @@ EOF;
 
         $title                             = $this->get_category_title($cid);
         $this->_category_title_array[$cid] = $title;
+
         return $title;
     }
 
@@ -603,7 +620,7 @@ EOF;
         $sql  = 'SELECT * FROM ' . $this->_table_config2 . ' ORDER BY id';
         $rows = $this->get_rows_by_sql($sql);
 
-        $arr = array();
+        $arr = [];
         foreach ($rows as $row) {
             $arr[$row['conf_name']] = $row['conf_value'];
         }
@@ -616,7 +633,7 @@ EOF;
         $sql  = 'SELECT * FROM ' . $this->_table_linkitem . ' ORDER BY id';
         $rows = $this->get_rows_by_sql($sql);
 
-        $arr = array();
+        $arr = [];
         foreach ($rows as $row) {
             $arr[$row['name']] = $row['description'];
         }
@@ -643,15 +660,14 @@ EOF;
             case 1:
                 $url = $row['rdf_url'];
                 break;
-
             case 2:
                 $url = $row['rss_url'];
                 break;
-
             case 3:
                 $url = $row['atom_url'];
                 break;
         }
+
         return $url;
     }
 
@@ -663,6 +679,7 @@ EOF;
                 echo $sql;
                 echo $this->_db->error();
             }
+
             return 0;
         }
 
@@ -670,6 +687,7 @@ EOF;
         $count = (int)$array[0];
 
         $this->_db->freeRecordSet($res);
+
         return $count;
     }
 
@@ -681,15 +699,17 @@ EOF;
                 echo $sql;
                 echo $this->_db->error();
             }
+
             return false;
         }
 
-        $arr = array();
+        $arr = [];
         while ($row = $this->_db->fetchArray($res)) {
             $arr[] = $row;
         }
 
         $this->_db->freeRecordSet($res);
+
         return $arr;
     }
 
@@ -701,12 +721,14 @@ EOF;
                 echo $sql;
                 echo $this->_db->error();
             }
+
             return false;
         }
 
         $row = $this->_db->fetchArray($res);
 
         $this->_db->freeRecordSet($res);
+
         return $row;
     }
 
@@ -720,6 +742,7 @@ EOF;
         }
 
         file_put_contents($file_out, $text);
+
         return $file_out;
     }
 

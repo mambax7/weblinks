@@ -14,14 +14,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_ru')) {
-
     //=========================================================
     // class weblinks_locate_ru
     // Russia (RU)
     //=========================================================
     class weblinks_locate_ru extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -29,15 +27,14 @@ if (!class_exists('weblinks_locate_ru')) {
         {
             parent::__construct();
 
-            $arr = array(
-                'weblinks_map_template' => 'weblinks_ru_google.html'
-            );
+            $arr = [
+                'weblinks_map_template' => 'weblinks_ru_google.html',
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

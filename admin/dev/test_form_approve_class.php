@@ -14,7 +14,6 @@
 //=========================================================
 class weblinks_test_form_approve extends weblinks_test_form_admin
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -30,9 +29,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_test_form_approve();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -79,11 +79,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
 
         if (!isset($form_values['mid'])) {
             $this->print_error('Error: cannot get mid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_admin_modify($form_values);
+        $form = &$this->build_form_admin_modify($form_values);
 
         if ($flag_refuse_new) {
             $form['refuse_new'] = 'refuse_new';
@@ -107,13 +108,14 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $form_values = $this->get_form_values();
         if (!isset($form_values['_hidden_lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
         $this->_lid = $form_values['_hidden_lid'];
 
-        $form =& $this->build_form_approve_notify($form_values);
+        $form = &$this->build_form_approve_notify($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -126,7 +128,8 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     public function admin_add_link_add_rssc_from_post()
     {
         if (!$this->is_exist_rssc_module()) {
-            echo "Skip this test: RSSC module is not installed <br />\n";
+            echo "Skip this test: RSSC module is not installed <br>\n";
+
             return true;
         }
 
@@ -135,11 +138,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $form_values = $this->get_form_values();
         if (!isset($form_values['link_lid'])) {
             $this->print_error('Error: cannot get lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_rssc($form_values);
+        $form = &$this->build_form_rssc($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -154,11 +158,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $form_values = $this->get_form_values();
         if (!isset($form_values['rssc_lid'])) {
             $this->print_error('Error: cannot get rssc_lid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_refresh($form_values);
+        $form = &$this->build_form_refresh($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -201,11 +206,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $form_values = $this->get_form_values();
         if (!isset($form_values['to_email'])) {
             $this->print_error('Error: cannot get to_email ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_refuse_notify($form_values);
+        $form = &$this->build_form_refuse_notify($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
@@ -257,11 +263,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $form_values = $this->get_form_values();
         if (!isset($form_values['mid'])) {
             $this->print_error('Error: cannot get mid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_admin_modify($form_values);
+        $form = &$this->build_form_admin_modify($form_values);
 
         if ($flag_ignore) {
             $form['ignore'] = 'ignore';
@@ -308,7 +315,6 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return $this->_admin_refuse_send_notify();
     }
 
-
     //---------------------------------------------------------
     // approve del link
     //---------------------------------------------------------
@@ -334,7 +340,7 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
 
     public function admin_fetch_approve_del($mid = null)
     {
-        //  echo "admin_fetch_approve_del <br />\n";
+        //  echo "admin_fetch_approve_del <br>\n";
 
         if (empty($mid)) {
             $mid = $this->get_newid();
@@ -350,17 +356,18 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
 
     public function admin_approve_del($flag_ignore = false)
     {
-        //  echo "admin_approve_del <br />\n";
+        //  echo "admin_approve_del <br>\n";
 
         $form_values = $this->get_form_values();
         if (!isset($form_values['mid'])) {
-            echo " admin_approve_del <br />\n";
+            echo " admin_approve_del <br>\n";
             $this->print_error('Error: cannot get mid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
-        $form =& $this->build_form_admin_delete($form_values);
+        $form = &$this->build_form_admin_delete($form_values);
 
         if ($flag_ignore) {
             $form['refuse_del'] = 'refuse_del';
@@ -378,19 +385,21 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     {
         $form_values = $this->get_form_values();
         if (!isset($form_values['mid'])) {
-            echo " admin_approve_del_confirm <br />\n";
+            echo " admin_approve_del_confirm <br>\n";
             $this->print_error('Error: cannot get mid ');
-            echo $this->get_body() . "<br /><br />\n";
+            echo $this->get_body() . "<br><br>\n";
+
             return false;
         }
 
         $this->_mid = $form_values['mid'];
-        $form       =& $this->build_form_approve_del_confirm($form_values);
+        $form       = &$this->build_form_approve_del_confirm($form_values);
 
         $ret = $this->submit_form($form['action'], $form);
         if (!$ret) {
             return false;
         }
+
         return true;
     }
 
@@ -404,7 +413,7 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     public function admin_refuse_del_with_login($mid = null)
     {
-        //  echo "admin_refuse_del_with_login <br />\n";
+        //  echo "admin_refuse_del_with_login <br>\n";
 
         $ret = $this->login_admin();
         if (!$ret) {
@@ -449,12 +458,12 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
             $v['title'] = $this->_build_form_array['title'];
         }
 
-        $arr =& $this->assign_modify($v);
+        $arr = &$this->assign_modify($v);
 
         $arr['weblinks_description'] = $arr['description'];
         $arr['weblinks_textarea1']   = $arr['textarea1'];
 
-        $arr['action']                  = 'http://localhost' . $v['action'];
+        $arr['action']                  = 'https://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET']          = $v['XOOPS_G_TICKET'];
         $arr['op']                      = $v['op'];
         $arr['cid']                     = $v['cid_arr'];
@@ -488,8 +497,8 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $_hidden_url      = isset($v['_hidden_url']) ? $v['_hidden_url'] : '';
         $_hidden_rss_url  = isset($v['_hidden_rss_url']) ? $v['_hidden_rss_url'] : '';
 
-        $arr = array(
-            'action'           => 'http://localhost' . $v['action'],
+        $arr = [
+            'action'           => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET'   => $v['XOOPS_G_TICKET'],
             'op'               => $v['op'],
             '_hidden_lid'      => $_hidden_lid,
@@ -502,15 +511,15 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
             'from_email'       => $v['from_email'],
             'subject'          => $v['subject'],
             'body'             => $v['body'],
-        );
+        ];
 
         return $arr;
     }
 
     public function &build_form_refuse_notify($v)
     {
-        $arr = array(
-            'action'         => 'http://localhost' . $v['action'],
+        $arr = [
+            'action'         => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op'             => $v['op'],
             'to_email'       => $v['to_email'],
@@ -518,31 +527,31 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
             'from_email'     => $v['from_email'],
             'subject'        => $v['subject'],
             'body'           => $v['body'],
-        );
+        ];
 
         return $arr;
     }
 
     public function &build_form_admin_delete($v)
     {
-        $arr = array(
-            'action'         => 'http://localhost' . $v['action'],
+        $arr = [
+            'action'         => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op'             => $v['op'],
             'mid'            => $v['mid'],
-        );
+        ];
 
         return $arr;
     }
 
     public function &build_form_approve_del_confirm($v)
     {
-        $arr = array(
-            'action'         => 'http://localhost' . $v['action'],
+        $arr = [
+            'action'         => 'https://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op'             => $v['op'],
             'mid'            => $v['mid'],
-        );
+        ];
 
         return $arr;
     }

@@ -35,9 +35,9 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
 
-// 2006-11-03 hiro <http://ishinomaki.cc/>
+// 2006-11-03 hiro <https://ishinomaki.cc/>
 // add b_weblinks_generic_show()
 
 // 2006-05-15 K.OHWADA
@@ -61,7 +61,6 @@ include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/funct
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_top_show')) {
-
     //---------------------------------------------------------
     // $options
     // [0] module directory name (weblinks)
@@ -136,11 +135,11 @@ if (!function_exists('b_weblinks_top_show')) {
         $gm_type_control = isset($options[20]) ? (int)$options[20] : 1;
 
         // time_create
-        if (($order != 'hits') && ($order != 'rating') && ($order != 'time_create')) {
+        if (('hits' != $order) && ('rating' != $order) && ('time_create' != $order)) {
             $order = 'time_update';
         }
 
-        $link_param = array(
+        $link_param = [
             'order'            => $order,
             'title_length'     => $title_length,
             'cat_title_length' => $cat_title_length,
@@ -154,11 +153,11 @@ if (!function_exists('b_weblinks_top_show')) {
 
             // hack for multi language
             'is_japanese_site' => weblinks_multi_is_japanese_site(),
-        );
+        ];
 
-        $lid_array = array();
+        $lid_array = [];
 
-        $block                  = array();
+        $block                  = [];
         $block['dirname']       = $DIRNAME;
         $block['lang_hits']     = _MB_WEBLINKS_HITS;
         $block['lang_rating']   = _MB_WEBLINKS_RATING;
@@ -174,7 +173,7 @@ if (!function_exists('b_weblinks_top_show')) {
         $gm_name = $DIRNAME . '_b_' . $order;
 
         // config
-        $conf =& weblinks_get_config($DIRNAME);
+        $conf = &weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $block;
         }
@@ -197,16 +196,16 @@ if (!function_exists('b_weblinks_top_show')) {
 
             $cid       = 0;
             $cat_title = '';
-            if ($cat_title_length != 0) {
+            if (0 != $cat_title_length) {
                 $cid       = b_weblinks_get_cid_in_catlink($table_catlink, $lid);
                 $cat_title = b_weblinks_get_title_in_category($table_category, $cid);
             }
 
-            $arr              =& $row1;
+            $arr              = &$row1;
             $arr['cid']       = $cid;
             $arr['cat_title'] = $cat_title;
 
-            $link                =& b_weblinks_build_link($arr, $link_param);
+            $link                = &b_weblinks_build_link($arr, $link_param);
             $block['links'][]    = $link;
             $block['gm_links'][] = $link;
         }
@@ -215,9 +214,9 @@ if (!function_exists('b_weblinks_top_show')) {
         if ($SHOW_RECOMMEND && $LIMIT_RECOMMEND) {
             $where3 = $where1;
             $where3 .= 'AND ( recommend = 1 ) ';
-            $sql3 = 'SELECT * FROM ' . $table_link;
-            $sql3 .= ' WHERE ' . $where3;
-            $sql3 .= ' ORDER BY rand()';
+            $sql3   = 'SELECT * FROM ' . $table_link;
+            $sql3   .= ' WHERE ' . $where3;
+            $sql3   .= ' ORDER BY rand()';
 
             $res3 = $xoopsDB->query($sql3, $LIMIT_RECOMMEND, 0);
             if (!$res3) {
@@ -225,7 +224,7 @@ if (!function_exists('b_weblinks_top_show')) {
             }
 
             while ($row3 = $xoopsDB->fetchArray($res3)) {
-                $link                       =& b_weblinks_build_link($row3, $link_param);
+                $link                       = &b_weblinks_build_link($row3, $link_param);
                 $block['recommend_links'][] = $link;
 
                 // not in latest link
@@ -238,14 +237,14 @@ if (!function_exists('b_weblinks_top_show')) {
         $block['show_recommend'] = $SHOW_RECOMMEND;
 
         // google map
-        $gm_param = array(
+        $gm_param = [
             'gm_mode'      => $gm_mode,
             'gm_latitude'  => $gm_latitude,
             'gm_longitude' => $gm_longitude,
             'gm_zoom'      => $gm_zoom,
-        );
+        ];
 
-        $gm_arr =& b_weblinks_build_gmap($gm_param, $conf);
+        $gm_arr = &b_weblinks_build_gmap($gm_param, $conf);
 
         $block['gm_server']       = $conf['gm_server'];
         $block['gm_apikey']       = $conf['gm_apikey'];
@@ -399,6 +398,7 @@ if (!function_exists('b_weblinks_top_show')) {
         $form .= '<input type="text" name="options[20]" value="' . $gm_type_control . '" />' . "\n";
         $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
         $form .= "</td></tr></table>\n";
+
         return $form;
     }
 
@@ -462,7 +462,7 @@ if (!function_exists('b_weblinks_top_show')) {
     // latest: dirname|10|30|0|0|7|0|50|50|1|0|0|0|1|-|0|time_update|DESC|0|0|0|0|300|1000|100|50
     // random: dirname|5 |30|0|0|0|0|50|50|0|1|1|0|1|-|1|lid        |ASC|0|0|0|0|300|1000|100|50
     //
-    // 2006-11-03 hiro <http://ishinomaki.cc/>
+    // 2006-11-03 hiro <https://ishinomaki.cc/>
     //---------------------------------------------------------
 
     function b_weblinks_generic_show($options)
@@ -503,20 +503,20 @@ if (!function_exists('b_weblinks_top_show')) {
         $gm_control      = isset($options[27]) ? (int)$options[27] : 1;
         $gm_type_control = isset($options[28]) ? (int)$options[28] : 1;
 
-        if (($order != 'time_update') && ($order != 'time_create') && ($order != 'hits') && ($order != 'rating') && ($order != 'title')) {
+        if (('time_update' != $order) && ('time_create' != $order) && ('hits' != $order) && ('rating' != $order) && ('title' != $order)) {
             $order = 'lid';
         }
 
-        if ($sort != 'DESC') {
+        if ('DESC' != $sort) {
             $sort = 'ASC';
         }
 
-        if (($mode_link != 'recommend') && ($mode_link != 'mutual')) {
+        if (('recommend' != $mode_link) && ('mutual' != $mode_link)) {
             $mode_link = '';
         }
 
         $show_title = 1;
-        if ($title_length == 0) {
+        if (0 == $title_length) {
             $show_title = 0;
         }
 
@@ -526,7 +526,7 @@ if (!function_exists('b_weblinks_top_show')) {
 
         $gm_name = $DIRNAME . '_b_g_' . $order;
 
-        $block                  = array();
+        $block                  = [];
         $block['dirname']       = $DIRNAME;
         $block['lang_hits']     = _MB_WEBLINKS_HITS;
         $block['lang_rating']   = _MB_WEBLINKS_RATING;
@@ -537,7 +537,7 @@ if (!function_exists('b_weblinks_top_show')) {
         $block['show_date']     = $show_date;
         $block['show_mode_url'] = $show_mode_url;
 
-        $link_param = array(
+        $link_param = [
             'order'            => $order,
             'title_length'     => $title_length,
             'desc_length'      => $desc_length,
@@ -548,10 +548,10 @@ if (!function_exists('b_weblinks_top_show')) {
             'width_default'    => $width_default,
             'gm_desc_length'   => $gm_desc_length,
             'gm_wordwrap'      => $gm_wordwrap,
-        );
+        ];
 
         // config
-        $conf =& weblinks_get_config($DIRNAME);
+        $conf = &weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $block;
         }
@@ -565,12 +565,12 @@ if (!function_exists('b_weblinks_top_show')) {
         $where_mode    = '';
 
         // url empty
-        if ($flag_url_empty == 1) {
+        if (1 == $flag_url_empty) {
             $where_link .= "AND l.url != '' ";
         }
 
         // all categories ( not specify )
-        if (($cid == 0) && ($flag_subcat == 1)) {
+        if ((0 == $cid) && (1 == $flag_subcat)) {
             $sql_catlink   = '';
             $where_catlink = '';
         } // specify category
@@ -578,15 +578,15 @@ if (!function_exists('b_weblinks_top_show')) {
             $sql_catlink = $table_catlink . ' cl ON l.lid=cl.lid ';
 
             // parent category only
-            if ($flag_subcat == 0) {
+            if (0 == $flag_subcat) {
                 $where_catlink = 'cl.cid=' . $cid . ' ';
             } // parent and all children categories
             else {
                 $cattree   = new XoopsTree($table_category, 'cid', 'pid');
-                $cid_array = array();
+                $cid_array = [];
                 $cid_array = $cattree->getAllChildId($cid);
 
-                if (count($cid_array) == 0) {
+                if (0 == count($cid_array)) {
                     $cids = $cid;
                 } else {
                     array_push($cid_array, $cid);   // with parent
@@ -605,7 +605,7 @@ if (!function_exists('b_weblinks_top_show')) {
         if ($flag_random) {
             $sql_orderby = 'rand()';
         } // normal mode
-        elseif ($order != '' && $sort != '') {
+        elseif ('' != $order && '' != $sort) {
             $sql_orderby = 'l.' . $order . ' ' . $sort;
         }
 
@@ -641,29 +641,29 @@ if (!function_exists('b_weblinks_top_show')) {
 
             $cid       = 0;
             $cat_title = '';
-            if ($cat_title_length != 0) {
+            if (0 != $cat_title_length) {
                 $cid       = b_weblinks_get_cid_in_catlink($table_catlink, $lid);
                 $cat_title = b_weblinks_get_title_in_category($table_category, $cid);
             }
 
-            $arr              =& $row;
+            $arr              = &$row;
             $arr['cid']       = $cid;
             $arr['cat_title'] = $cat_title;
 
-            $link                =& b_weblinks_build_link($arr, $link_param);
+            $link                = &b_weblinks_build_link($arr, $link_param);
             $block['links'][]    = $link;
             $block['gm_links'][] = $link;
         }
 
         // google map
-        $gm_param = array(
+        $gm_param = [
             'gm_mode'      => $gm_mode,
             'gm_latitude'  => $gm_latitude,
             'gm_longitude' => $gm_longitude,
             'gm_zoom'      => $gm_zoom,
-        );
+        ];
 
-        $gm_arr =& b_weblinks_build_gmap($gm_param, $conf);
+        $gm_arr = &b_weblinks_build_gmap($gm_param, $conf);
 
         $block['gm_server']       = $conf['gm_server'];
         $block['gm_apikey']       = $conf['gm_apikey'];
@@ -691,7 +691,7 @@ if (!function_exists('b_weblinks_top_show')) {
 
     function b_weblinks_generic_edit($options)
     {
-        // BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler()
+        // BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler()
 
         // base on W3C
         $SELECTED = 'selected="selected"';
@@ -714,10 +714,10 @@ if (!function_exists('b_weblinks_top_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
 
         // config init before get_handler(category)
-        $config_handler = weblinks_get_handler('config2_basic', $DIRNAME);
+        $config_handler = weblinks_getHandler('config2_basic', $DIRNAME);
         $config_handler->init();
 
-        $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
+        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
         $category_handler->load_once();
 
         $DIRNAME          = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -754,7 +754,7 @@ if (!function_exists('b_weblinks_top_show')) {
         // show date
         $date_checked_0 = '';
         $date_checked_1 = '';
-        if ($show_date == 1) {
+        if (1 == $show_date) {
             $date_checked_1 = $CHECKED;
         } else {
             $date_checked_0 = $CHECKED;
@@ -764,9 +764,9 @@ if (!function_exists('b_weblinks_top_show')) {
         $url_sel_0 = '';
         $url_sel_1 = '';
         $url_sel_2 = '';
-        if ($show_mode_url == 1) {
+        if (1 == $show_mode_url) {
             $url_sel_1 = $SELECTED;
-        } elseif ($show_mode_url == 2) {
+        } elseif (2 == $show_mode_url) {
             $url_sel_2 = $SELECTED;
         } else {
             $url_sel_0 = $SELECTED;
@@ -775,7 +775,7 @@ if (!function_exists('b_weblinks_top_show')) {
         // url empty
         $empty_checked_0 = '';
         $empty_checked_1 = '';
-        if ($flag_url_empty == 1) {
+        if (1 == $flag_url_empty) {
             $empty_checked_1 = $CHECKED;
         } else {
             $empty_checked_0 = $CHECKED;
@@ -787,7 +787,7 @@ if (!function_exists('b_weblinks_top_show')) {
         // sub category
         $subcat_checked_0 = '';
         $subcat_checked_1 = '';
-        if ($flag_subcat == 1) {
+        if (1 == $flag_subcat) {
             $subcat_checked_1 = $CHECKED;
         } else {
             $subcat_checked_0 = $CHECKED;
@@ -796,16 +796,16 @@ if (!function_exists('b_weblinks_top_show')) {
         // mode
         $mode_sel_recommend = '';
         $mode_sel_mutual    = '';
-        if ($mode_link == 'recommend') {
+        if ('recommend' == $mode_link) {
             $mode_sel_recommend = $SELECTED;
-        } elseif ($mode_link == 'mutual') {
+        } elseif ('mutual' == $mode_link) {
             $mode_sel_mutual = $SELECTED;
         }
 
         // random
         $random_checked_0 = '';
         $random_checked_1 = '';
-        if ($flag_random == 1) {
+        if (1 == $flag_random) {
             $random_checked_1 = $CHECKED;
         } else {
             $random_checked_0 = $CHECKED;
@@ -818,15 +818,15 @@ if (!function_exists('b_weblinks_top_show')) {
         $order_sel_hits   = '';
         $order_sel_rating = '';
         $order_sel_title  = '';
-        if ($order == 'time_update') {
+        if ('time_update' == $order) {
             $order_sel_update = $SELECTED;
-        } elseif ($order == 'time_create') {
+        } elseif ('time_create' == $order) {
             $order_sel_create = $SELECTED;
-        } elseif ($order == 'hits') {
+        } elseif ('hits' == $order) {
             $order_sel_hits = $SELECTED;
-        } elseif ($order == 'rating') {
+        } elseif ('rating' == $order) {
             $order_sel_rating = $SELECTED;
-        } elseif ($order == 'title') {
+        } elseif ('title' == $order) {
             $order_sel_title = $SELECTED;
         } else {
             $order_sel_lid = $SELECTED;
@@ -835,7 +835,7 @@ if (!function_exists('b_weblinks_top_show')) {
         // sort
         $sort_sel_asc  = '';
         $sort_sel_desc = '';
-        if ($sort == 'DESC') {
+        if ('DESC' == $sort) {
             $sort_sel_desc = $SELECTED;
         } else {
             $sort_sel_asc = $SELECTED;
@@ -949,7 +949,8 @@ if (!function_exists('b_weblinks_top_show')) {
         $form .= "</td></tr>\n<tr><td>";
         $form .= _MB_WEBLINKS_ORDER;
         $form .= '</td><td>';
-        $form .= _MB_WEBLINKS_ORDER_DESC . "<br />\n";;
+        $form .= _MB_WEBLINKS_ORDER_DESC . "<br>\n";
+
         $form .= '<select size="1" name="options[16]">' . "\n";
         $form .= '<option value="lid" ' . $order_sel_lid . '>';
         $form .= _MB_WEBLINKS_LINK_ID;
@@ -1031,6 +1032,7 @@ if (!function_exists('b_weblinks_top_show')) {
         $form .= '<input type="text" name="options[28]" value="' . $gm_type_control . '" />' . "\n";
         $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
         $form .= "</td></tr></table>\n";
+
         return $form;
     }
 
@@ -1054,6 +1056,7 @@ if (!function_exists('b_weblinks_top_show')) {
             $row = $xoopsDB->fetchArray($res);
             $cid = $row['cid'];
         }
+
         return $cid;
     }
 
@@ -1073,13 +1076,14 @@ if (!function_exists('b_weblinks_top_show')) {
             $row   = $xoopsDB->fetchArray($res);
             $title = $row['title'];
         }
+
         return $title;
     }
 
     //---------------------------------------------------------
     // utility
     //---------------------------------------------------------
-    function &b_weblinks_build_link(&$row, &$param)
+    function &b_weblinks_build_link($row, $param)
     {
         $myts = MyTextSanitizer::getInstance();
 
@@ -1152,19 +1156,19 @@ if (!function_exists('b_weblinks_top_show')) {
             }
         }
 
-        if (($gm_latitude != 0) || ($gm_longitude != 0) || ($gm_zoom != 0)) {
+        if ((0 != $gm_latitude) || (0 != $gm_longitude) || (0 != $gm_zoom)) {
             $flag_gm_use = true;
         }
 
         $rates = sprintf('%.1f', $rating);
 
         // title
-        if ($title_length != 0) {
+        if (0 != $title_length) {
             $show_title = true;
             $title_s    = b_weblinks_build_summary($title, $title_length);
         }
 
-        if ($cat_title_length != 0) {
+        if (0 != $cat_title_length) {
             $show_cat_title = true;
             $cat_title_s    = b_weblinks_build_summary($cat_title, $cat_title_length);
         }
@@ -1172,17 +1176,17 @@ if (!function_exists('b_weblinks_top_show')) {
         // description
         $desc_html = $myts->displayTarea($desc, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
 
-        if ($desc_length != 0) {
+        if (0 != $desc_length) {
             $show_desc  = true;
             $desc_short = b_weblinks_build_summary($desc_html, $desc_length);
         }
 
-        if ($gm_desc_length != 0) {
+        if (0 != $gm_desc_length) {
             $show_gm_desc = true;
             $gm_desc_wrap = b_weblinks_build_summary($desc_html, $gm_desc_length);
 
             if ($gm_wordwrap > 0) {
-                $gm_desc_wrap = wordwrap($gm_desc_wrap, $gm_wordwrap, '<br />');
+                $gm_desc_wrap = wordwrap($gm_desc_wrap, $gm_wordwrap, '<br>');
             }
         }
 
@@ -1194,7 +1198,7 @@ if (!function_exists('b_weblinks_top_show')) {
                 $width = $max_width;
             }
 
-            if (($width == 0) && ($width_default > 0)) {
+            if ((0 == $width) && ($width_default > 0)) {
                 $width = $width_default;
             }
         }
@@ -1216,7 +1220,7 @@ if (!function_exists('b_weblinks_top_show')) {
         }
 
         // old style
-        if ($order == 'rating') {
+        if ('rating' == $order) {
             $hits = $rates;
         }
 
@@ -1231,7 +1235,7 @@ if (!function_exists('b_weblinks_top_show')) {
             $mail = $row['mail'];
         }
 
-        $link = array(
+        $link = [
             'id'          => $lid,
             'lid'         => $lid,
             'cid'         => $cid,
@@ -1267,7 +1271,7 @@ if (!function_exists('b_weblinks_top_show')) {
             'gm_desc_wrap'   => $gm_desc_wrap,
             'show_gm_desc'   => $show_gm_desc,
             'flag_gm_use'    => $flag_gm_use,
-        );
+        ];
 
         return $link;
     }
@@ -1277,13 +1281,14 @@ if (!function_exists('b_weblinks_top_show')) {
     {
         $text = happy_linux_mb_build_summary($str, $max);
         $text = happy_linux_sanitize_text($text);
+
         return $text;
     }
 
     //---------------------------------------------------------
     // gmap
     //---------------------------------------------------------
-    function &b_weblinks_build_gmap(&$param, &$conf)
+    function &b_weblinks_build_gmap($param, $conf)
     {
         $show_gmap      = false;
         $gm_load_server = false;
@@ -1312,20 +1317,20 @@ if (!function_exists('b_weblinks_top_show')) {
         }
 
         // use config value
-        if ($gm_mode == 1) {
+        if (1 == $gm_mode) {
             $gm_latitude  = $conf['gm_latitude'];
             $gm_longitude = $conf['gm_longitude'];
             $gm_zoom      = $conf['gm_zoom'];
         }
 
-        $arr = array(
+        $arr = [
             'show_gmap'      => $show_gmap,
             'gm_load_server' => $gm_load_server,
             'gm_load_block'  => $gm_load_block,
             'gm_latitude'    => $gm_latitude,
             'gm_longitude'   => $gm_longitude,
             'gm_zoom'        => $gm_zoom,
-        );
+        ];
 
         return $arr;
     }
@@ -1334,8 +1339,7 @@ if (!function_exists('b_weblinks_top_show')) {
     {
         $dirname = $block['dirname'];
 
-        /* CDS Patch. Weblinks. 2.00. 1. BOF */
-        global $xoopsConfig;
+        /* CDS Patch. Weblinks. 2.00. 1. BOF */ global $xoopsConfig;
         $dir_theme = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . $dirname . '/parts';
         if (file_exists($dir_theme . '/weblinks_gm_block.html')) {
             $template = $dir_theme . '/weblinks_gm_block.html';
@@ -1348,8 +1352,8 @@ if (!function_exists('b_weblinks_top_show')) {
         $tpl->assign('xoops_url', XOOPS_URL);
         $tpl->assign('block', $block);
         $text = $tpl->fetch($template);
+
         return $text;
     }
-
     // --- block function begin end ---
 }

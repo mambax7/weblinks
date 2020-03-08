@@ -53,13 +53,13 @@ if (empty($LID)) {
     dev_footer();
 }
 
-echo 'lid: <b>' . $LID . "</b> <br />\n";
+echo 'lid: <b>' . $LID . "</b> <br>\n";
 
 if ($test->is_link_owner($LID)) {
     $is_link_owner = true;
-    echo 'user: <b>' . $test->get_user_uname() . "</b> is owner <br />\n";
+    echo 'user: <b>' . $test->get_user_uname() . "</b> is owner <br>\n";
 } else {
-    echo 'user: <b>' . $test->get_user_uname() . '</b> <span style="color:#ff0000;">is not owner</span> <br />' . "\n";
+    echo 'user: <b>' . $test->get_user_uname() . '</b> <span style="color:#ff0000;">is not owner</span> <br>' . "\n";
 }
 
 $link_url = WEBLINKS_URL . '/modlink.php';
@@ -77,8 +77,8 @@ echo "<h4>scenario 1: not permit</h4>\n";
 
 $test->update_config_by_name('cat_path', 0);
 $test->update_config_by_name('cat_count', 0);
-$test->update_config_by_name_array('auth_modify', array(1));
-$test->update_config_by_name_array('auth_modify_auto', array(1));
+$test->update_config_by_name_array('auth_modify', [1]);
+$test->update_config_by_name_array('auth_modify_auto', [1]);
 
 $link_form_url = $link_url . '?lid=' . $LID;
 $ret           = $test->fetch($link_form_url);
@@ -89,7 +89,7 @@ if (!$ret) {
 if ($test->match_return_msg('not permit')) {
     echo "<h4>Test OK !</h4>\n";
 } else {
-    echo "Error: test failed to fetch modify form <br />\n";
+    echo "Error: test failed to fetch modify form <br>\n";
     $test->print_body(true);
     dev_footer();
 }
@@ -99,16 +99,16 @@ if ($test->match_return_msg('not permit')) {
 //---------------------------------------------------------
 echo "<h4>scenario 2: permit for registered user</h4>\n";
 
-$test->update_config_by_name_array('auth_modify', array(1, 2));
+$test->update_config_by_name_array('auth_modify', [1, 2]);
 
 $title = 'req-' . $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(7),
     'rss_flag' => 2,    // rss
-);
+];
 
 $ret = $test->user_modify_link($param);
 if (!$ret) {
@@ -117,9 +117,9 @@ if (!$ret) {
 
 if ($test->match_return_msg('modify request link')) {
     echo "<h4>Success !</h4>\n";
-    echo 'modify link: ' . $title . " <br /><br />\n";
+    echo 'modify link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: modify link form failed: <br />\n";
+    echo "Error: modify link form failed: <br>\n";
     $test->print_body(true);
     dev_footer();
 }
@@ -129,19 +129,19 @@ if ($test->match_return_msg('modify request link')) {
 //---------------------------------------------------------
 echo "<h4>scenario 3: permit and approve for owner: no banner, no perfomance, no rss</h4>\n";
 
-$test->update_config_by_name_array('auth_modify', array(1, WEBLINKS_ID_AUTH_UID));
-$test->update_config_by_name_array('auth_modify_auto', array(1, WEBLINKS_ID_AUTH_UID));
+$test->update_config_by_name_array('auth_modify', [1, WEBLINKS_ID_AUTH_UID]);
+$test->update_config_by_name_array('auth_modify_auto', [1, WEBLINKS_ID_AUTH_UID]);
 
 $flag_ok = false;
 
 $title = $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => '',
     'rss_url'  => '',
     'rss_flag' => 0,    // non
-);
+];
 
 if ($is_link_owner) {
     $ret = $test->user_modify_link($param);
@@ -152,7 +152,7 @@ if ($is_link_owner) {
     if ($test->check_msg_and_link('modify approve link')) {
         $flag_ok = true;
         echo "<h4>Success !</h4>\n";
-        echo 'modify link: ' . $title . " <br /><br />\n";
+        echo 'modify link: ' . $title . " <br><br>\n";
     }
 } else {
     $link_form_url = $link_url . '?lid=' . $LID;
@@ -168,7 +168,7 @@ if ($is_link_owner) {
 }
 
 if (!$flag_ok) {
-    echo "Error: modify link form failed: <br />\n";
+    echo "Error: modify link form failed: <br>\n";
     $test->print_body(true);
     dev_footer();
 }
@@ -183,13 +183,13 @@ $test->update_config_by_name('cat_count', 1);
 $flag_ok = false;
 
 $title = 'mod-' . $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => $test->build_rss_url(8),
     'rss_flag' => 2,    // rss
-);
+];
 
 if ($is_link_owner) {
     $ret = $test->user_modify_link($param);
@@ -200,7 +200,7 @@ if ($is_link_owner) {
     if ($test->check_msg_and_link('modify approve link')) {
         $flag_ok = true;
         echo "<h4>Success !</h4>\n";
-        echo 'modify link: ' . $title . " <br /><br />\n";
+        echo 'modify link: ' . $title . " <br><br>\n";
     }
 } else {
     $link_form_url = $link_url . '?lid=' . $LID;
@@ -216,7 +216,7 @@ if ($is_link_owner) {
 }
 
 if (!$flag_ok) {
-    echo "Error: modify link form failed: <br />\n";
+    echo "Error: modify link form failed: <br>\n";
     $test->print_body(true);
     dev_footer();
 }
@@ -241,17 +241,17 @@ if (!$ret) {
 $flag_ok = false;
 
 $title = 'mod-' . $test->get_randum_title();
-$param = array(
+$param = [
     'lid'      => $LID,
     'title'    => $title,
     'banner'   => $test->get_randum_banner(0),
     'rss_url'  => WEBLINKS_URL . '/dev/rss_4.xml',
     'rss_flag' => 2,    // rss
-);
+];
 
 // other user has permission
 if ($test->is_link_owner_other($LID)) {
-    echo 'user: <b>' . $test->get_other_uname() . "</b> is owner <br />\n";
+    echo 'user: <b>' . $test->get_other_uname() . "</b> is owner <br>\n";
 
     $ret = $test->user_modify_link($param);
     if (!$ret) {
@@ -261,11 +261,11 @@ if ($test->is_link_owner_other($LID)) {
     if ($test->check_msg_and_link('modify approve link')) {
         $flag_ok = true;
         echo "<h4>Success !</h4>\n";
-        echo 'modify link: ' . $title . " <br /><br />\n";
+        echo 'modify link: ' . $title . " <br><br>\n";
     }
 } // other user has no permission
 else {
-    echo 'user: <b>' . $test->get_other_uname() . "</b> is not owner <br />\n";
+    echo 'user: <b>' . $test->get_other_uname() . "</b> is not owner <br>\n";
 
     $link_form_url = $link_url . '?lid=' . $LID;
     $ret           = $test->fetch($link_form_url);
@@ -280,12 +280,11 @@ else {
 }
 
 if (!$flag_ok) {
-    echo "Error: modify link form failed: <br />\n";
+    echo "Error: modify link form failed: <br>\n";
     $test->print_body(true);
     dev_footer();
 }
 
 //---------------------------------------------------------
-echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br />\n";
-dev_footer();// --- end of main ---
-;
+echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
+dev_footer(); // --- end of main ---

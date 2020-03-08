@@ -105,4 +105,3 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_DESC_LENGTH', 'Lunghezza del Contenuto nel marker mappa');
     define('_MB_WEBLINKS_GM_WORDWRAP', 'Lunghezza a capo nel marker mappa');
 }// --- define language end ---
-;

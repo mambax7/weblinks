@@ -84,9 +84,10 @@ class admin_category_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_category_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -103,11 +104,11 @@ class admin_category_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             _WLS_CATEGORYID,
             _WLS_PARENT,
             _WLS_TITLEC,
-        );
+        ];
 
         if ($this->_flag_show_aux_text_1) {
             $arr[] = $this->_aux_text_1;
@@ -119,7 +120,7 @@ class admin_category_list extends happy_linux_page_frame
 
         $arr[] = _WEBLINKS_NUM_SUBCAT;
 
-        if ($this->_sortid == WEBLINKS_CAT_LIST_ORDER) {
+        if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $arr[] = _WEBLINKS_CAT_ORDER;
         }
 
@@ -134,7 +135,6 @@ class admin_category_list extends happy_linux_page_frame
             case WEBLINKS_CAT_LIST_ORDER:
                 $total = $this->_handler->get_count_by_pid($pid);
                 break;
-
             case WEBLINKS_CAT_LIST_ID_ASC:
             case WEBLINKS_CAT_LIST_ID_DESC:
             case WEBLINKS_CAT_LIST_TREE:
@@ -152,6 +152,7 @@ class admin_category_list extends happy_linux_page_frame
         if (isset($_GET['pid'])) {
             $pid = (int)$_GET['pid'];
         }
+
         return $pid;
     }
 
@@ -161,20 +162,17 @@ class admin_category_list extends happy_linux_page_frame
 
         switch ($this->_sortid) {
             case WEBLINKS_CAT_LIST_ID_DESC:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs = &$this->_handler->get_objects_desc($limit, $start);
                 break;
-
             case WEBLINKS_CAT_LIST_TREE:
-                $objs =& $this->_handler->get_objects_tree($limit, $start);
+                $objs = &$this->_handler->get_objects_tree($limit, $start);
                 break;
-
             case WEBLINKS_CAT_LIST_ORDER:
-                $objs =& $this->_handler->get_objects_by_pid($pid, $limit, $start);
+                $objs = &$this->_handler->get_objects_by_pid($pid, $limit, $start);
                 break;
-
             case WEBLINKS_CAT_LIST_ID_ASC:
             default:
-                $objs =& $this->_handler->get_objects_all($limit, $start);
+                $objs = &$this->_handler->get_objects_all($limit, $start);
                 break;
         }
 
@@ -208,11 +206,11 @@ class admin_category_list extends happy_linux_page_frame
         $img_folder    = $this->build_html_img_tag($url_folder_gif, 0, 0, 0, 'folder');
         $view_category = $this->build_html_a_href_name($url_view_cid, $img_folder, '', false);
 
-        $arr = array(
+        $arr = [
             $view_category . '&nbsp;&nbsp;' . $link_category,
             $link_ptitle,
             $depth_d . '&nbsp;&nbsp;' . $link_title,
-        );
+        ];
 
         if ($this->_flag_show_aux_text_1) {
             array_push($arr, $aux_text_1_s);
@@ -224,12 +222,12 @@ class admin_category_list extends happy_linux_page_frame
 
         array_push($arr, $num_sub);
 
-        if ($this->_sortid == WEBLINKS_CAT_LIST_ORDER) {
+        if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $ele_orders = $this->build_html_input_text("orders[$cid]", $orders, 5);
             array_push($arr, $ele_orders);
         }
 
-        return array($arr, $depth);
+        return [$arr, $depth];
     }
 
     //---------------------------------------------------------
@@ -241,15 +239,12 @@ class admin_category_list extends happy_linux_page_frame
             case WEBLINKS_CAT_LIST_ID_DESC:
                 $title = _AM_WEBLINKS_LIST_ID_DESC;
                 break;
-
             case WEBLINKS_CAT_LIST_TREE:
                 $title = _WEBLINKS_ORDER_TREE;
                 break;
-
             case WEBLINKS_CAT_LIST_ORDER:
                 $title = _WEBLINKS_CAT_ORDER;
                 break;
-
             case WEBLINKS_CAT_LIST_ID_ASC:
             default:
                 $title = _AM_WEBLINKS_LIST_ID_ASC;
@@ -260,7 +255,7 @@ class admin_category_list extends happy_linux_page_frame
 
         echo '<h4>' . _WEBLINKS_ADMIN_CATEGORY_LIST . "</h4>\n";
         printf(_WEBLINKS_THERE_ARE_CATEGORY, $total_all);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<table width='80%' border='0' cellspacing='1' class='outer'>";
         echo "<tr class='odd'><td>";
@@ -268,7 +263,7 @@ class admin_category_list extends happy_linux_page_frame
         echo "<li><a href='category_list.php?sortid=1'>" . _AM_WEBLINKS_LIST_ID_DESC . "</a></li>\n";
         echo "<li><a href='category_list.php?sortid=2'>" . _WEBLINKS_ORDER_TREE . "</a></li>\n";
         echo "<li><a href='category_list.php?sortid=3'>" . _WEBLINKS_CAT_ORDER . "</a></li>\n";
-        echo "<br />\n";
+        echo "<br>\n";
         echo "<li><a href='category_manage.php?op=update_path_form'>" . _AM_WEBLINKS_UPDATE_CAT_PATH . "</a></li>\n";
         echo "<li><a href='category_manage.php?op=update_image_size_form'>" . _AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE . "</a></li>\n";
         echo "</td></tr></table>\n";
@@ -280,11 +275,11 @@ class admin_category_list extends happy_linux_page_frame
     {
         list($col_arr, $depth) = $this->_get_cols($item);
 
-        if ($this->_sortid == WEBLINKS_CAT_LIST_ORDER) {
+        if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $class = '';
-        } elseif ($depth == 0) {
+        } elseif (0 == $depth) {
             $class = 'head';
-        } elseif ($depth == 1) {
+        } elseif (1 == $depth) {
             $class = 'even';
         } else {
             $class = 'odd';
@@ -301,7 +296,7 @@ class admin_category_list extends happy_linux_page_frame
 
     public function _print_form_begin()
     {
-        if ($this->_sortid == WEBLINKS_CAT_LIST_ORDER) {
+        if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $pid = $this->_post->get_post_get_int('pid');
             $this->set_flag_form(1);
             echo $this->_build_page_form_begin();
@@ -311,7 +306,7 @@ class admin_category_list extends happy_linux_page_frame
 
     public function _print_table_submit()
     {
-        if ($this->_sortid == WEBLINKS_CAT_LIST_ORDER) {
+        if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $colspan = 4;
             if ($this->_flag_show_aux_text_1) {
                 ++$colspan;
@@ -339,5 +334,4 @@ $list = admin_category_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

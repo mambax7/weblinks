@@ -8,7 +8,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('_WEBLINKS_PI_WAITING_LANG_LOADED')) {
@@ -19,4 +19,3 @@ if (!defined('_WEBLINKS_PI_WAITING_LANG_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', 'Запросы изменения');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'Запросы удаления');
 }// --- define language end ---
-;

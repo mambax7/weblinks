@@ -8,14 +8,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_address_jp')) {
-
     //=========================================================
     // class weblinks_address_jp
     // Japan (JP)
     //=========================================================
     class weblinks_address_jp
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -45,6 +43,5 @@ if (!class_exists('weblinks_address_jp')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

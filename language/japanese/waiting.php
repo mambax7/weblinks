@@ -17,4 +17,3 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_MODREQS', '½¤Àµ¿½ÀÁ');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'ºï½ü¿½ÀÁ');
 }// --- define language end ---
-;

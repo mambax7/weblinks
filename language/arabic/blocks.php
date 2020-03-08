@@ -109,4 +109,3 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     // === 2007-10-10 ===
     define('_MB_WEBLINKS_GM_MARKER_WIDTH', 'Width of map marker');
 }// --- define language end ---
-;

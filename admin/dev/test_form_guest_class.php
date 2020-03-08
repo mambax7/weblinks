@@ -15,7 +15,6 @@
 //=========================================================
 class weblinks_test_form_guest extends weblinks_test_form
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -27,9 +26,10 @@ class weblinks_test_form_guest extends weblinks_test_form
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_test_form_guest();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -68,7 +68,7 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // guest delete
     //---------------------------------------------------------
-    public function guest_delete_password(&$param)
+    public function guest_delete_password($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
 
@@ -101,35 +101,35 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // build_link_form
     //---------------------------------------------------------
-    public function &build_form_password(&$param)
+    public function &build_form_password($param)
     {
         $lid     = isset($param['lid']) ? $param['lid'] : 0;
         $passwd  = isset($param['passwd']) ? $param['passwd'] : null;
         $request = isset($param['request']) ? $param['request'] : null;
 
-        $arr = array(
+        $arr = [
             'lid'        => $lid,
             'passwd_old' => $passwd,
             'request'    => $request,
-        );
+        ];
 
         return $arr;
     }
 
-    public function &build_form_del_password(&$param)
+    public function &build_form_del_password($param)
     {
         $lid     = isset($param['lid']) ? $param['lid'] : 0;
         $passwd  = isset($param['passwd']) ? $param['passwd'] : null;
         $request = isset($param['request']) ? $param['request'] : null;
 
-        $arr = array(
+        $arr = [
             'XOOPS_G_TICKET' => $this->get_ticket(),
             'delete'         => 'delete',
             'lid'            => $lid,
             'passwd_old'     => $passwd,
             'request'        => $request,
             'notify'         => 0,
-        );
+        ];
 
         return $arr;
     }
@@ -142,12 +142,13 @@ class weblinks_test_form_guest extends weblinks_test_form
         global $xoopsModule;
         $mid = $xoopsModule->getVar('mid');
 
-        $groups_guest = array(XOOPS_GROUP_ANONYMOUS);
+        $groups_guest = [XOOPS_GROUP_ANONYMOUS];
 
         $groupperm_handler = xoops_getHandler('groupperm');
         if ($groupperm_handler->checkRight('module_read', $mid, $groups_guest)) {
             return true;
         }
+
         return false;
     }
 

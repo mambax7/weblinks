@@ -26,13 +26,13 @@ $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         xoops_error('Token Error');
-        echo "<br />\n";
+        echo "<br>\n";
         echo $config_form->get_token_error(1);
-        echo "<br />\n";
+        echo "<br>\n";
     } else {
         $ret = $config_store->save_config();
         if ($ret) {
@@ -43,7 +43,7 @@ if ($op == 'save') {
             echo $config_store->getErrors(1);
         }
     }
-} elseif ($op == 'template_compiled_clear') {
+} elseif ('template_compiled_clear' == $op) {
     if (!$config_form->check_token()) {
         xoops_cp_header();
         $config_form->print_xoops_token_error();
@@ -66,7 +66,7 @@ $config_form->init_form();
 
 echo '<a name="form_acess"></a>' . "\n";
 echo '<h4>' . _WEBLINKS_ADMIN_AUTH . "</h4>\n";
-echo '<ul><li>' . _WEBLINKS_ADMIN_AUTH_TEXT . "</li></ul><br />\n";
+echo '<ul><li>' . _WEBLINKS_ADMIN_AUTH_TEXT . "</li></ul><br>\n";
 $config_form->show_form_auth(_WEBLINKS_ADMIN_AUTH);
 
 echo '<a name="form_cat"></a>' . "\n";
@@ -99,7 +99,7 @@ $config_form->show_by_catid(33, _AM_WEBLINKS_CONF_HTML_STYLE);
 
 echo '<a name="form_performance"></a>' . "\n";
 echo '<h4>' . _AM_WEBLINKS_CONF_PERFORMANCE . "</h4>\n";
-echo _AM_WEBLINKS_CONF_PERFORMANCE_DSC . "<br /><br />\n";
+echo _AM_WEBLINKS_CONF_PERFORMANCE_DSC . "<br><br>\n";
 $config_form->show_by_catid(6, _AM_WEBLINKS_CONF_PERFORMANCE);
 
 echo '<a name="form_template"></a>' . "\n";
@@ -108,5 +108,4 @@ $config_form->show_form_template_compiled_clear(_HAPPY_LINUX_CONF_TPL_COMPILED_C
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

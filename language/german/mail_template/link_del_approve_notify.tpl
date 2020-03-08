@@ -7,6 +7,6 @@ Name: {SITE_NAME}
 URL:  {SITE_URL}
 
 -----------
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Webmaster
 {X_ADMINMAIL}

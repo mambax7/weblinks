@@ -38,8 +38,8 @@
 
 include 'header.php';
 
-$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler   = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler   = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
 
 $weblinks_post   = happy_linux_post::getInstance();
 $weblinks_system = happy_linux_system::getInstance();
@@ -49,7 +49,7 @@ $ROWS          = '70px,100%';
 $COLS          = '*';
 $FLAG_REDIRECT = true;
 
-$conf          =& $weblinks_config_handler->get_conf();
+$conf          = &$weblinks_config_handler->get_conf();
 $conf_use_hits = $conf['use_hits'];
 $conf_frame    = $conf['frame'];
 
@@ -73,7 +73,7 @@ if ($conf_use_hits) {
 
 $sitename = $weblinks_system->get_sitename();
 
-if ($conf_frame == 1) {
+if (1 == $conf_frame) {
     header('Content-Type:text/html; charset=' . _CHARSET);
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
@@ -92,7 +92,7 @@ if ($conf_frame == 1) {
     header('Location: ' . $url_u);
     exit();
 } else {
-    echo "<html><head><meta http-equiv=\"Refresh\" content=\"0; URL=" . $url_s . "\"></meta></head><body></body></html>";
+    echo '<html><head><meta http-equiv="Refresh" content="0; URL=' . $url_s . '"></meta></head><body></body></html>';
 }
 
 exit();

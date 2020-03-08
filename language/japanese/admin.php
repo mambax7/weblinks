@@ -33,7 +33,7 @@
 // _AM_WEBLINKS_TIME_PUBLISH
 
 // 2006-10-25 K.OHWADA
-// ¸í»úÄûÀµ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 // 2006-10-05 K.OHWADA
 // _AM_WEBLINKS_MODULE_CONFIG_3
@@ -50,735 +50,775 @@
 // WebLinks Module
 // language for admin
 // 2004-10-24 K.OHWADA
-// EUC-JP Í­Êþ¼«±óÊýÍè
+// EUC-JP Í­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //=========================================================
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('WEBLINKS_LANG_AM_LOADED', 1);
 
-    define('_WEBLINKS_ADMIN_INDEX', '´ÉÍý¼ÔÌÜ¼¡');
+    define('_WEBLINKS_ADMIN_INDEX', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½');
 
     // BUG 2931: unmatch popup menu 'prefrence' and index menu 'module setting'
-    define('_WEBLINKS_ADMIN_MODULE_CONFIG_1', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£±<br />(°ìÈÌÀßÄê) ');
+    define('_WEBLINKS_ADMIN_MODULE_CONFIG_1', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£±<br>(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ');
 
-    define('_WEBLINKS_ADMIN_MODULE_CONFIG_2', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£²');
-    //define("_WEBLINKS_ADMIN_ADDMODDEL_CATEGORY","¥«¥Æ¥´¥ê¤ÎÄÉ²Ã¡¿½¤Àµ¡¿ºï½ü");
-    define('_WEBLINKS_ADMIN_ADD_LINK', '¿·µ¬¥ê¥ó¥¯¤ÎÄÉ²Ã');
-    define('_WEBLINKS_ADMIN_OTHERFUNC', '¤½¤ÎÂ¾¤Îµ¡Ç½');
-    define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', '´ÉÍý¼ÔÌÜ¼¡¤Ø');
+    define('_WEBLINKS_ADMIN_MODULE_CONFIG_2', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£²');
+    //define("_WEBLINKS_ADMIN_ADDMODDEL_CATEGORY","ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½É²Ã¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    define('_WEBLINKS_ADMIN_ADD_LINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½É²ï¿½');
+    define('_WEBLINKS_ADMIN_OTHERFUNC', 'ï¿½ï¿½ï¿½ï¿½Â¾ï¿½Îµï¿½Ç½');
+    define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½');
 
     //======    config.php  ======
-    // ¥¢¥¯¥»¥¹¸¢¸Â
-    define('_WEBLINKS_ADMIN_AUTH', '¥¢¥¯¥»¥¹¸¢¸Â¤ÎÀßÄê');
-    define('_WEBLINKS_ADMIN_AUTH_TEXT', '¥µ¥¤¥È´ÉÍý¼Ô¤ÏÁ´¤Æ¤Î´ÉÍý¸¢¸Â¤ò»ý¤Ã¤Æ¤¤¤ë');
-    define('_WEBLINKS_AUTH_SUBMIT', '¿·µ¬¥ê¥ó¥¯ÅÐÏ¿¤Î¸¢¸Â');
-    define('_WEBLINKS_AUTH_SUBMIT_DSC', '¿·µ¬¥ê¥ó¥¯¤òÅÐÏ¿¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_WEBLINKS_AUTH_SUBMIT_AUTO', '¿·µ¬¥ê¥ó¥¯ÅÐÏ¿¤Î¼«Æ°¾µÇ§¤Î¸¢¸Â');
-    define('_WEBLINKS_AUTH_SUBMIT_AUTO_DSC', '¿·µ¬¥ê¥ó¥¯¤òÅÐÏ¿¤·¤¿¤È¤­¤Ë¼«Æ°¾µÇ§¤µ¤ì¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_WEBLINKS_AUTH_MODIFY', '¥ê¥ó¥¯ÊÔ½¸¤Î¸¢¸Â');
-    define('_WEBLINKS_AUTH_MODIFY_DSC', '¥ê¥ó¥¯¤òÊÔ½¸¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_WEBLINKS_AUTH_MODIFY_AUTO', '¥ê¥ó¥¯ÊÔ½¸¤Î¼«Æ°¾µÇ§¤Î¸¢¸Â');
-    define('_WEBLINKS_AUTH_MODIFY_AUTO_DSC', '¥ê¥ó¥¯¤òÊÔ½¸¤·¤¿¤È¤­¤Ë¼«Æ°¾µÇ§¤µ¤ì¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_WEBLINKS_AUTH_RATELINK', '¥µ¥¤¥ÈÉ¾²Á¤Î¸¢¸Â');
-    define('_WEBLINKS_AUTH_RATELINK_DSC', '¥µ¥¤¥È¤òÉ¾²Á¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë<br />¡Ö¥µ¥¤¥ÈÉ¾²Á¤ò»ÈÍÑ¤¹¤ë¡×¤¬¡Ö¤Ï¤¤¡×¤Î¾ì¹ç¤ËÍ­¸ú¤Ç¤¹¡£');
-    define('_WEBLINKS_USE_PASSWD', '¥ê¥ó¥¯ÊÔ½¸»þ¤Î¥Ñ¥¹¥ï¡¼¥ÉÇ§¾Ú');
-    define('_WEBLINKS_USE_PASSWD_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥ê¥ó¥¯ÊÔ½¸»þ¤Ë¼«Æ°¾µÇ§¤Î¸¢¸Â¤¬Í¿¤¨¤é¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤Ï¡¢<br />¥Ñ¥¹¥ï¡¼¥ÉÇ§¾Ú²èÌÌ¤¬É½¼¨¤µ¤ì¤Þ¤¹¡£');
-    define('_WEBLINKS_USE_RATELINK', '¥µ¥¤¥ÈÉ¾²Á¤ò»ÈÍÑ¤¹¤ë');
-    define('_WEBLINKS_USE_RATELINK_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¡Ö¤³¤Î¥µ¥¤¥È¤òÉ¾²Á¤¹¤ë¡×¤È¡ÖÉ¾²Á¡×·ë²Ì¤òÉ½¼¨¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_AUTH_UPDATED', '¥¢¥¯¥»¥¹¸¢¸Â¤ò¹¹¿·¤·¤¿');
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    define('_WEBLINKS_ADMIN_AUTH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_AUTH_TEXT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½Æ¤Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¤ï¿½ï¿½ï¿½Ã¤Æ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_SUBMIT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_SUBMIT_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_SUBMIT_AUTO', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½Î¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_SUBMIT_AUTO_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_MODIFY', 'ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_MODIFY_DSC', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_MODIFY_AUTO', 'ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Î¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_MODIFY_AUTO_DSC', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_RATELINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_RATELINK_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br>ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½×¤ï¿½ï¿½Ö¤Ï¤ï¿½ï¿½×¤Î¾ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USE_PASSWD', 'ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½Î¥Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½Ç§ï¿½ï¿½');
+    define('_WEBLINKS_USE_PASSWD_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½Î¸ï¿½ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½<br>ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½Ç§ï¿½Ú²ï¿½ï¿½Ì¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USE_RATELINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USE_RATELINK_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½Ö¤ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½È¤ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤È¡ï¿½É¾ï¿½ï¿½ï¿½×·ï¿½Ì¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_AUTH_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¤ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // RSS/ATOM
-    define('_WEBLINKS_ADMIN_RSS', 'RSS/ATOM¤ÎÀßÄê');
-    //define('_WEBLINKS_RSS_POST','RSS/ATOM¤ÎURL¤ÎÅê¹Æ¤òµö²Ä¤¹¤ë');
-    //define('_WEBLINKS_RSS_POST_DSC','¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢RSS/ATOM¤ÎURL¤ÎÅê¹ÆÍó¤òÉ½¼¨¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOMµ­»ö¤Î¼«Æ°¹¹¿·');
-    define('_WEBLINKS_RSS_MODE_AUTO_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢¾ÜºÙÉ½¼¨¤Î¤È¤­¤ËRSS/ATOM¤ÎURL¤Î¼«Æ°¸¡½Ð¤Èµ­»ö¤Î¼«Æ°¹¹¿·¤ò¼Â¹Ô¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_RSS_MODE_DATA', 'É½¼¨¤¹¤ëRSS/ATOM¤Î¥Ç¡¼¥¿');
-    define('_WEBLINKS_RSS_MODE_DATA_DSC',
-           '¡ÖATOM FEED¡×¤òÁªÂò¤¹¤ë¤È¡¢atomfeed¥Æ¡¼¥Ö¥ë¤Ë¤¢¤ë¹½Ê¸²òÀÏ¸å¤Î¥Ç¡¼¥¿¤ò»ÈÍÑ¤·¤Þ¤¹¡£<br />¡ÖXML¡×¤òÁªÂò¤¹¤ë¤È¡¢link¥Æ¡¼¥Ö¥ë¤Ë¤¢¤ë¹½Ê¸²òÀÏÁ°¤ÎXML¥Ç¡¼¥¿¤ò»ÈÍÑ¤·¤Þ¤¹¡£<br />atomfeed¥Æ¡¼¥Ö¥ë¤Ï¡¢¥Õ¥£¥ë¥¿½èÍý¤¬Æþ¤Ã¤Æ¤¤¤ë¤Î¤Ç¡¢Á´¤Æ¤Î¥Ç¡¼¥¿¤¬ÊÝÂ¸¤µ¤ì¤Æ¤¤¤Ê¤¤¤³¤È¤¬¤¢¤ê¤Þ¤¹¡£');
-    define('_WEBLINKS_RSS_CACHE', 'RSS/ATOM¤Î¥­¥ã¥Ã¥·¥å»þ´Ö');
-    define('_WEBLINKS_RSS_CACHE_DSC', 'ÀßÄêÃÍ¤Ï£±»þ´ÖÃ±°Ì¤Ç¤¹¡£');
-    define('_WEBLINKS_RSS_LIMIT', 'RSS/ATOMµ­»ö¤ÎºÇÂç¤Î·ï¿ô');
-    define('_WEBLINKS_RSS_LIMIT_DSC', 'atomfeed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ëRSS/ATOMµ­»ö¤ÎºÇÂç¤Î·ï¿ô¤ò»ØÄê¤¹¤ë<br />¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br />0 ¤ÏÀ©¸Â¤Ê¤·¡£');
-    define('_WEBLINKS_RSS_SITE', 'RSS¸¡º÷¥µ¥¤¥È');
-    define('_WEBLINKS_RSS_SITE_DSC', 'RSS¸¡º÷¥µ¥¤¥È¤ÎRSS¤ÎURL¤Î°ìÍ÷¤ò»ØÄê¤¹¤ë¡£<br />Ê£¿ô»ØÄê¤¹¤ë¤È¤­¤Ï²þ¹Ô¤Ç¶èÀÚ¤ë¡£<br />ATOM¤ÎURL¤Ï»ØÄê¤Ç¤­¤Ê¤¤¡£');
-    define('_WEBLINKS_RSS_BLACK', 'RSS/ATOM¤Î¥Ö¥é¥Ã¥¯¥ê¥¹¥È');
-    define('_WEBLINKS_RSS_BLACK_DSC', 'RSS/ATOM¤«¤éµ­»ö¤ò¼ý½¸¤¹¤ë¤È¤­¤ËµñÈÝ¤¹¤ëURL¤Î°ìÍ÷¤ò»ØÄê¤¹¤ë¡£<br />Ê£¿ô»ØÄê¤¹¤ë¤È¤­¤Ï²þ¹Ô¤Ç¶èÀÚ¤ë¡£<br />perl·Á¼°¤ÎÀµµ¬É½¸½¤¬»ÈÍÑ¤Ç¤­¤ë');
-    define('_WEBLINKS_RSS_WHITE', 'RSS/ATOM¤Î¥Û¥ï¥¤¥È¥ê¥¹¥È');
-    define('_WEBLINKS_RSS_WHITE_DSC', '¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë°ìÃ×¤·¤¿¾ì¹ç¤Ç¤âÅÐÏ¿¤¹¤ëURL¤Î°ìÍ÷¤ò»ØÄê¤¹¤ë¡£<br />Ê£¿ô»ØÄê¤¹¤ë¤È¤­¤Ï²þ¹Ô¤Ç¶èÀÚ¤ë¡£<br />perl·Á¼°¤ÎÀµµ¬É½¸½¤¬»ÈÍÑ¤Ç¤­¤ë');
-    define('_WEBLINKS_RSS_URL_CHECK', '¥ê¥ó¥¯¾ðÊó¤ÎURL¤Ë¡¢¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤È°ìÃ×¤¹¤ë¤â¤Î¤¬¤¢¤ê¤Þ¤¹¡£');
-    define('_WEBLINKS_RSS_URL_CHECK_DSC', 'É¬Í×¤Ç¤¢¤ì¤Ð¡¢²¼ÃÊ¤Î¥Û¥ï¥¤¥È¥ê¥¹¥È¤ÎÆâÍÆ¤ò¡¢ÅÐÏ¿¥Õ¥©¡¼¥à¤Ë¥³¥Ô¡¼¡õ¥Ú¡¼¥¹¥È¤·¤Æ¤¯¤À¤µ¤¤¡£');
-    define('_WEBLINKS_RSS_UPDATED', 'RSS/ATOM¤ÎÀßÄê¤ò¹¹¿·¤·¤¿');
+    define('_WEBLINKS_ADMIN_RSS', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_WEBLINKS_RSS_POST','RSS/ATOMï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½');
+    //define('_WEBLINKS_RSS_POST_DSC','ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½RSS/ATOMï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_AUTO_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½Üºï¿½É½ï¿½ï¿½ï¿½Î¤È¤ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½URLï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½Ð¤Èµï¿½ï¿½ï¿½ï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹Ô¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_DATA', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Î¥Ç¡ï¿½ï¿½ï¿½');
+    define(
+        '_WEBLINKS_RSS_MODE_DATA_DSC',
+        'ï¿½ï¿½ATOM FEEDï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½atomfeedï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë¤ï¿½ï¿½ë¹½Ê¸ï¿½ï¿½ï¿½Ï¸ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½XMLï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½linkï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë¤ï¿½ï¿½ë¹½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½XMLï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>atomfeedï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ï¡ï¿½ï¿½Õ¥ï¿½ï¿½ë¥¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¤Æ¤ï¿½ï¿½ï¿½Î¤Ç¡ï¿½ï¿½ï¿½ï¿½Æ¤Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½'
+    );
+    define('_WEBLINKS_RSS_CACHE', 'RSS/ATOMï¿½Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_CACHE_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½Í¤Ï£ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½Ì¤Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_LIMIT', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Î·ï¿½ï¿½');
+    define('_WEBLINKS_RSS_LIMIT_DSC', 'atomfeed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¥¯ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½ë¡£<br>0 ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_SITE', 'RSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_SITE_DSC', 'RSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½RSSï¿½ï¿½URLï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ë¡£<br>Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½È¤ï¿½ï¿½Ï²ï¿½ï¿½Ô¤Ç¶ï¿½ï¿½Ú¤ë¡£<br>ATOMï¿½ï¿½URLï¿½Ï»ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_BLACK', 'RSS/ATOMï¿½Î¥Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½ï¿½');
+    define('_WEBLINKS_RSS_BLACK_DSC', 'RSS/ATOMï¿½ï¿½ï¿½éµ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ëµï¿½ï¿½Ý¤ï¿½ï¿½ï¿½URLï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ë¡£<br>Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½È¤ï¿½ï¿½Ï²ï¿½ï¿½Ô¤Ç¶ï¿½ï¿½Ú¤ë¡£<br>perlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_WHITE', 'RSS/ATOMï¿½Î¥Û¥ï¥¤ï¿½È¥ê¥¹ï¿½ï¿½');
+    define('_WEBLINKS_RSS_WHITE_DSC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Ë°ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½URLï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ë¡£<br>Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½È¤ï¿½ï¿½Ï²ï¿½ï¿½Ô¤Ç¶ï¿½ï¿½Ú¤ë¡£<br>perlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_URL_CHECK', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½ï¿½URLï¿½Ë¡ï¿½ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤È°ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_URL_CHECK_DSC', 'É¬ï¿½×¤Ç¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ê¤Î¥Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½Ï¿ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_UPDATED', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // RSS/ATOM view
-    define('_WEBLINKS_ADMIN_RSS_VIEW', 'RSS/ATOM¤ÎÉ½¼¨¤ÎÀßÄê');
-    define('_WEBLINKS_RSS_MODE_TITLE', '¥¿¥¤¥È¥ë¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-    define('_WEBLINKS_RSS_MODE_TITLE_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-    define('_WEBLINKS_RSS_MODE_CONTENT', 'ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-    define('_WEBLINKS_RSS_NEW', '¡Ö¿·ÃåRSS/ATOMµ­»ö¡×¤òÉ½¼¨¤¹¤ë·ï¿ô
-');
-    define('_WEBLINKS_RSS_NEW_DSC', '¥È¥Ã¥×¥Ú¡¼¥¸¤Ë¡Ö¿·ÃåRSS/ATOMµ­»ö¡×¤òÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£¡£');
-    define('_WEBLINKS_RSS_PERPAGE', 'RSS/ATOMµ­»ö¤ò£±¥Ú¡¼¥¸Ëè¤ËÉ½¼¨¤¹¤ë·ï¿ô
-');
-    define('_WEBLINKS_RSS_PERPAGE_DSC', '¥ê¥ó¥¯¾ÜºÙ¥Ú¡¼¥¸¤ÈRSS/ATOMµ­»ö¥Ú¡¼¥¸¤Ç£±¥Ú¡¼¥¸¤¢¤¿¤ê¤ËÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-    define('_WEBLINKS_RSS_NUM_CONTENT', 'RSS/ATOMµ­»ö¤ËËÜÊ¸¤òÉ½¼¨¤¹¤ë·ï¿ô');
-    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', '¥ê¥ó¥¯¾ÜºÙ¥Ú¡¼¥¸¤ËRSS/ATOMµ­»ö¤ÎËÜÊ¸¤òÉ½¼¨¤¹¤ëµ­»ö¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£<br />¤½¤Î·ï¿ô°Ê¾å¤Îµ­»ö¤Ë¤ÏÍ×Ìó¤òÉ½¼¨¤¹¤ë¡£');
-    define('_WEBLINKS_RSS_MAX_CONTENT', 'RSS/ATOMµ­»ö¤ÎºÇÂçÊ¸»ú¿ô');
-    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'RSS/ATOMµ­»ö¤Î¥Ú¡¼¥¸¤ÇRSS/ATOMµ­»ö¤òÉ½¼¨¤¹¤ëºÇÂçÊ¸»ú¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£<br />¡ÖËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨¡×¤¬¡Ö¤¤¤¤¤¨¡×¤Î¤È¤­¤ËÍ­¸ú¤Ç¤¹¡£');
-    define('_WEBLINKS_RSS_MAX_SUMMARY', 'RSS/ATOMµ­»ö¤ÎÍ×Ìó¤ÎºÇÂçÊ¸»ú¿ô');
-    define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', '¥È¥Ã¥×¥Ú¡¼¥¸¤ÇRSS/ATOMµ­»ö¤ÎÍ×Ìó¤òÉ½¼¨¤¹¤ëºÇÂçÊ¸»ú¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
+    define('_WEBLINKS_ADMIN_RSS_VIEW', 'RSS/ATOMï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_TITLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_TITLE_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_WEBLINKS_RSS_MODE_CONTENT', 'ï¿½ï¿½Ê¸ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define(
+        '_WEBLINKS_RSS_NEW',
+        'ï¿½Ö¿ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+'
+    );
+    define('_WEBLINKS_RSS_NEW_DSC', 'ï¿½È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½Ë¡Ö¿ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_WEBLINKS_RSS_PERPAGE',
+        'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ò£±¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+'
+    );
+    define('_WEBLINKS_RSS_PERPAGE_DSC', 'ï¿½ï¿½ó¥¯¾ÜºÙ¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_NUM_CONTENT', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'ï¿½ï¿½ó¥¯¾ÜºÙ¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ëµ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½Ê¾ï¿½Îµï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_WEBLINKS_RSS_MAX_CONTENT', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Î¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MAX_SUMMARY', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'ï¿½È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // use link field
-    define('_WEBLINKS_ADMIN_POST', '¥ê¥ó¥¯ÅÐÏ¿¹àÌÜ¤ÎÀßÄê');
-    define('_WEBLINKS_ADMIN_POST_TEXT_1', '¡ÖÌ¤»ÈÍÑ¡×¤òÁªÂò¤¹¤ë¤È¡¢¥æ¡¼¥¶¡¼Åê¹ÆÍó¤ËÉ½¼¨¤·¤Þ¤»¤ó¡£');
-    define('_WEBLINKS_ADMIN_POST_TEXT_2', '¡Ö»ÈÍÑ¡×¤òÁªÂò¤¹¤ë¤È¡¢¥æ¡¼¥¶¡¼Åê¹ÆÍó¤ËÉ½¼¨¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_ADMIN_POST_TEXT_3', '¡ÖÉ¬¿Ü¡×¤òÁªÂò¤¹¤ë¤È¡¢¥æ¡¼¥¶¡¼Åê¹ÆÍó¤ËÉ½¼¨¤·¡¢É¬¿Ü¹àÌÜ¤È¤Ê¤ê¤Þ¤¹¡£');
-    define('_WEBLINKS_NO_USE', 'Ì¤»ÈÍÑ');
-    define('_WEBLINKS_USE', '»ÈÍÑ');
-    define('_WEBLINKS_INDISPENSABLE', 'É¬¿Ü');
-    define('_WEBLINKS_TYPE_DESC', 'ÅÐÏ¿¥Õ¥©¡¼¥à¤ÎÀâÌÀÍó¤Î·Á¼°');
-    define('_WEBLINKS_TYPE_DESC_DSC', '¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢ÄÌ¾ï¤Î¥Æ¥­¥¹¥È¥Ü¥Ã¥¯¥¹¤¬»ÈÍÑ¤·¤Þ¤¹¡£<br />¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢XOOPS¤ÎDHTML·Á¼°¤ò»ÈÍÑ¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_CHECK_DOUBLE', 'Æ±¤¸¥ê¥ó¥¯Àè¤ÎÅÐÏ¿¤ò¥Á¥§¥Ã¥¯¤¹¤ë');
-    define('_WEBLINKS_CHECK_DOUBLE_DSC', '¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢Æ±¤¸¥ê¥ó¥¯Àè¤¬ÅÐÏ¿¤Ç¤­¤Þ¤¹¡£<br />¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢Æ±¤¸¥ê¥ó¥¯Àè¤¬ÅÐÏ¿¤µ¤ì¤Æ¤¤¤Ê¤¤¤«¥Á¥§¥Ã¥¯¤·¤Þ¤¹¡£');
-    define('_WEBLINKS_POST_UPDATED', '¥ê¥ó¥¯ÅÐÏ¿¹àÌÜ¤ÎÀßÄê¤ò¹¹¿·¤·¤¿');
+    define('_WEBLINKS_ADMIN_POST', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_POST_TEXT_1', 'ï¿½ï¿½Ì¤ï¿½ï¿½ï¿½Ñ¡×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_POST_TEXT_2', 'ï¿½Ö»ï¿½ï¿½Ñ¡×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_POST_TEXT_3', 'ï¿½ï¿½É¬ï¿½Ü¡×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¬ï¿½Ü¹ï¿½ï¿½Ü¤È¤Ê¤ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NO_USE', 'Ì¤ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USE', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_INDISPENSABLE', 'É¬ï¿½ï¿½');
+    define('_WEBLINKS_TYPE_DESC', 'ï¿½ï¿½Ï¿ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_TYPE_DESC_DSC', 'ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½Ì¾ï¿½Î¥Æ¥ï¿½ï¿½ï¿½ï¿½È¥Ü¥Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½XOOPSï¿½ï¿½DHTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CHECK_DOUBLE', 'Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CHECK_DOUBLE_DSC', 'ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¤¬ï¿½ï¿½Ï¿ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¤¬ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_POST_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // cateogry
-    define('_WEBLINKS_ADMIN_CAT_SET', '¥«¥Æ¥´¥ê¤ÎÀßÄê');
-    define('_WEBLINKS_CAT_SEL', 'ÁªÂò¤Ç¤­¤ë¥«¥Æ¥´¥ê¤ÎºÇÂç¿ô');
-    define('_WEBLINKS_CAT_SEL_DSC', '£±¤Ä¤Î¥ê¥ó¥¯¤¬ÁªÂò¤Ç¤­¤ë¥«¥Æ¥´¥ê¤ÎºÇÂç¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-    define('_WEBLINKS_CAT_SUB', '¥µ¥Ö¥«¥Æ¥´¥ê¤ÎºÇÂçÉ½¼¨¿ô');
+    define('_WEBLINKS_ADMIN_CAT_SET', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_SEL', 'ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ë¥«ï¿½Æ¥ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_SEL_DSC', 'ï¿½ï¿½ï¿½Ä¤Î¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ë¥«ï¿½Æ¥ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_SUB', 'ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½');
 
-    //define('_WEBLINKS_CAT_SUB_DSC','¥È¥Ã¥×¥Ú¡¼¥¸¤Î¥«¥Æ¥´¥ê°ìÍ÷É½¼¨¤Ë¤ª¤¤¤Æ¡¢¥µ¥Ö¥«¥Æ¥´¥ê¤ÎºÇÂçÉ½¼¨¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-    define('_WEBLINKS_CAT_SUB_DSC', '¥«¥Æ¥´¥ê¥Ú¡¼¥¸¤Ë¤ª¤¤¤Æ¡¢£²¤Ä²¼¤Î¥«¥Æ¥´¥ê (¥µ¥Ö¥«¥Æ¥´¥ê) ¤òÉ½¼¨¤¹¤ë¤È¤­¤Î¡¢ºÇÂçÉ½¼¨¿ô¤ò»ØÄê¤¹¤ë<br /><b>0</b> ¤ÏÉ½¼¨¤·¤Ê¤¤<br /><b>-1</b> ¤ÏÀ©¸Â¤Ê¤·');
+    //define('_WEBLINKS_CAT_SUB_DSC','ï¿½È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_SUB_DSC', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½) ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br><b>0</b> ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½<br><b>-1</b> ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½');
 
-    define('_WEBLINKS_CAT_IMG_MODE', '¥«¥Æ¥´¥êÉ½¼¨¤Î¥«¥Æ¥´¥ê²èÁü¤Î»ØÄê');
-    define('_WEBLINKS_CAT_IMG_MODE_DSC',
-           '¡Ö¤Ê¤·¡×¤Î¤È¤­¤Ï¡¢²èÁü¤òÉ½¼¨¤·¤Ê¤¤¡£<br />¡Öfolder.gif¡×¤Î¤È¤­¤Ï¡¢folder.gif ¤òÉ½¼¨¤¹¤ë¡£<br />¡ÖÀßÄê¤·¤¿²èÁü¡×¤Î¤È¤­¤Ï¡¢¥«¥Æ¥´¥êËè¤ËÀßÄê¤µ¤ì¤¿²èÁü¤òÉ½¼¨¤¹¤ë¡£');
-    //define("_WEBLINKS_CAT_IMG_MODE_0","¤Ê¤·");
+    define('_WEBLINKS_CAT_IMG_MODE', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½');
+    define(
+        '_WEBLINKS_CAT_IMG_MODE_DSC',
+        'ï¿½Ö¤Ê¤ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½folder.gifï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½folder.gif ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ì¤¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£'
+    );
+    //define("_WEBLINKS_CAT_IMG_MODE_0","ï¿½Ê¤ï¿½");
     define('_WEBLINKS_CAT_IMG_MODE_1', 'folder.gif');
-    define('_WEBLINKS_CAT_IMG_MODE_2', 'ÀßÄê¤·¤¿²èÁü');
-    define('_WEBLINKS_CAT_IMG_WIDTH', '¥«¥Æ¥´¥êÉ½¼¨¤Î²èÁüÉý¤ÎºÇÂçÃÍ');
-    define('_WEBLINKS_CAT_IMG_HEIGHT', '¥«¥Æ¥´¥êÉ½¼¨¤Î²èÁü¹â¤ÎºÇÂçÃÍ');
-    define('_WEBLINKS_CAT_IMG_SIZE_DSC', '¡ÖÀßÄê¤·¤¿²èÁü¡×¤Î¤È¤­¤ËÍ­¸ú¡£');
-    define('_WEBLINKS_CAT_UPDATED', '¥«¥Æ¥´¥ê¤ÎÀßÄê¤ò¹¹¿·¤·¤¿');
+    define('_WEBLINKS_CAT_IMG_MODE_2', 'ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_IMG_WIDTH', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_IMG_HEIGHT', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_CAT_UPDATED', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======    cateogry_list.php   ======
-    define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', '¥«¥Æ¥´¥ê´ÉÍý');
-    define('_WEBLINKS_ADMIN_CATEGORY_LIST', '¥«¥Æ¥´¥ê°ìÍ÷');
-    //define("_WEBLINKS_ORDER_ID","ID ½ç");
-    define('_WEBLINKS_ORDER_TREE', '¥Ä¥ê¡¼½ç');
-    define('_WEBLINKS_CAT_ORDER', '¥«¥Æ¥´¥ê¤ÎÊÂ¤Ó½ç');
-    define('_WEBLINKS_THERE_ARE_CATEGORY', '¸½ºß¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë¤Ï <b>%s</b> ·ï¤Î¥«¥Æ¥´¥ê¤¬ÅÐÏ¿¤µ¤ì¤Æ¤¤¤Þ¤¹¡£');
-    define('_WEBLINKS_ADMIN_CATEGORY_NOTICE_1', '<b>¥«¥Æ¥´¥êID</b> ¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢¥«¥Æ¥´¥ê½¤Àµ¤Î¥Ú¡¼¥¸¤¬³«¤­¤Þ¤¹¡£');
-    define('_WEBLINKS_ADMIN_CATEGORY_NOTICE_2', '<b>¿Æ¥«¥Æ¥´¥ê</b> ¤¢¤ë¤¤¤Ï <b>¥¿¥¤¥È¥ë</b> ¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢¤½¤Î¥«¥Æ¥´¥ê¤ÎÊÂ¤Ó½ç¤¬³«¤­¤Þ¤¹¡£');
-    define('_WEBLINKS_NO_CATEGORY', '³ºÅö¤¹¤ë¥«¥Æ¥´¥ê¤Ï¤¢¤ê¤Þ¤»¤ó');
-    define('_WEBLINKS_NUM_SUBCAT', '¥µ¥Ö¥«¥Æ¥´¥ê¿ô');
-    define('_WEBLINKS_ORDERS_UPDATED', '¥«¥Æ¥´¥ê¤ÎÊÂ¤Ó½ç¤ò¹¹¿·¤·¤¿');
+    define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define("_WEBLINKS_ORDER_ID","ID ï¿½ï¿½");
+    define('_WEBLINKS_ORDER_TREE', 'ï¿½Ä¥ê¡¼ï¿½ï¿½');
+    define('_WEBLINKS_CAT_ORDER', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ó½ï¿½');
+    define('_WEBLINKS_THERE_ARE_CATEGORY', 'ï¿½ï¿½ï¿½ß¥Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ <b>%s</b> ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ê¤¬ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_CATEGORY_NOTICE_1', '<b>ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ID</b> ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê½¤ï¿½ï¿½ï¿½Î¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_CATEGORY_NOTICE_2', '<b>ï¿½Æ¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½</b> ï¿½ï¿½ï¿½ë¤¤ï¿½ï¿½ <b>ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½</b> ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ó½ç¤¬ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NO_CATEGORY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥«ï¿½Æ¥ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NUM_SUBCAT', 'ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ORDERS_UPDATED', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ó½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     //======    cateogry_manage.php     ======
-    define('_WEBLINKS_IMGURL_MAIN', '¥«¥Æ¥´¥ê²èÁüURL');
-    define('_WEBLINKS_IMGURL_MAIN_DSC1', '¥ª¥×¥·¥ç¥ó¤Ç¤¹¡£<br />²èÁü¥Õ¥¡¥¤¥ë¤ÎÂç¤­¤µ¤Ï¼«Æ°Åª¤ËÄ´À°¤µ¤ì¤Þ¤¹¡£');
-    //define("_WEBLINKS_IMGURL_MAIN_DSC2","¥á¥¤¥ó¡¦¥«¥Æ¥´¥ê¤ÇÍ­¸ú¤Ç¤¹¡£");
+    define('_WEBLINKS_IMGURL_MAIN', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URL');
+    define('_WEBLINKS_IMGURL_MAIN_DSC1', 'ï¿½ï¿½ï¿½×¥ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç¤­ï¿½ï¿½ï¿½Ï¼ï¿½Æ°Åªï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    //define("_WEBLINKS_IMGURL_MAIN_DSC2","ï¿½á¥¤ï¿½ó¡¦¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½");
 
     //======    link_list.php   ======
-    define('_WEBLINKS_ADMIN_LINK_MANAGE', '¥ê¥ó¥¯´ÉÍý');
-    define('_WEBLINKS_ADMIN_LINK_LIST', '¥ê¥ó¥¯°ìÍ÷');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN', '¥ê¥ó¥¯ÀÚ¤ì¤Î°ìÍ÷É½¼¨');
-    define('_WEBLINKS_ADMIN_LINK_ALL_ASC', 'Á´¤Æ¤Î¥ê¥ó¥¯¤Î°ìÍ÷É½¼¨¡ÊID ½ç¡Ë');
-    define('_WEBLINKS_ADMIN_LINK_ALL_DESC', 'Á´¤Æ¤Î¥ê¥ó¥¯¤Î°ìÍ÷É½¼¨¡ÊID µÕ½ç¡Ë');
-    define('_WEBLINKS_ADMIN_LINK_NOURL', 'URL¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¥ê¥ó¥¯¤Î°ìÍ÷É½¼¨');
-    define('_WEBLINKS_COUNT_BROKEN', '¥ê¥ó¥¯ÀÚ¤ì²ó¿ô');
-    define('_WEBLINKS_NO_LINK', '³ºÅö¤¹¤ë¥ê¥ó¥¯¾ðÊó¤Ï¤¢¤ê¤Þ¤»¤ó');
-    define('_WEBLINKS_ADMIN_PRESENT_SAVE', '¤³¤³¤ËÉ½¼¨¤µ¤ì¤Æ¤¤¤ë¤Î¤Ï¡¢¸½ºßÊÝÂ¸¤µ¤ì¤Æ¤¤¤ë¥Ç¡¼¥¿¤Ç¤¹¡£');
+    define('_WEBLINKS_ADMIN_LINK_MANAGE', 'ï¿½ï¿½ó¥¯´ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_LIST', 'ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN', 'ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½Î°ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_ALL_ASC', 'ï¿½ï¿½ï¿½Æ¤Î¥ï¿½ó¥¯¤Î°ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ID ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_ALL_DESC', 'ï¿½ï¿½ï¿½Æ¤Î¥ï¿½ó¥¯¤Î°ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ID ï¿½Õ½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_NOURL', 'URLï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ó¥¯¤Î°ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_WEBLINKS_COUNT_BROKEN', 'ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NO_LINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½Î¤Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
 
     //======    link_manage.php     ======
-    //define("_WEBLINKS_USERID","¥æ¡¼¥¶ ID");
-    //define("_WEBLINKS_CREATE","ÅÐÏ¿Æü");
+    //define("_WEBLINKS_USERID","ï¿½æ¡¼ï¿½ï¿½ ID");
+    //define("_WEBLINKS_CREATE","ï¿½ï¿½Ï¿ï¿½ï¿½");
 
     //======    link_broken_check.php   ======
-    define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', '¥ê¥ó¥¯¤Î¸¡ºº¤È¹¹¿·');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', '¥ê¥ó¥¯ÀÚ¤ì¤Î¸¡ºº');
-    define('_WEBLINKS_ADMIN_BROKEN_CHECK', '¸¡ºº');
-    define('_WEBLINKS_ADMIN_BROKEN_RESULT', '¸¡ºº·ë²Ì');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-           '¥ê¥ó¥¯¿ô¤¬Â¿¤¤¤È¡¢¥¿¥¤¥à¥¢¥¦¥È¤¹¤ë¤³¤È¤¬¤¢¤ê¤Þ¤¹¡£<br />¤½¤Î¤È¤­¤Ï¡¢limit ¤È offset ¤Î¿ôÃÍ¤òÊÑ¹¹¤·¤Æ¤¯¤À¤µ¤¤¡£<br />limit=0 ¤ÏÀ©¸Â¤Ê¤·¤Ç¤¹¡£<br />');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '<b>¥ê¥ó¥¯ID</b> ¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢¥ê¥ó¥¯½¤Àµ¤Î¥Ú¡¼¥¸¤¬³«¤­¤Þ¤¹¡£<br /><b>¥¦¥§¥Ö¥µ¥¤¥ÈURL</b> ¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢³ºÅö¤¹¤ëURL¤¬³«¤­¤Þ¤¹¡£<br />');
-    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '<b>¥¦¥§¥Ö¥µ¥¤¥ÈÌ¾</b> ¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢google¸¡º÷¤¬³«¤­¤Þ¤¹¡£<br />');
-    define('_WEBLINKS_ADMIN_LIMIT', '¥ê¥ó¥¯¿ô¤Î¾å¸Â(limit)');
-    define('_WEBLINKS_ADMIN_OFFSET', '¥ª¥Õ¥»¥Ã¥È(offset)');
-    define('_WEBLINKS_ADMIN_TIME_START', '³«»Ï»þ¹ï');
-    define('_WEBLINKS_ADMIN_TIME_END', '½ªÎ»»þ¹ï');
-    define('_WEBLINKS_ADMIN_TIME_ELAPSE', '·Ð²á»þ´Ö');
-    define('_WEBLINKS_ADMIN_LINK_NUM_ALL', 'Á´¥ê¥ó¥¯¿ô');
-    define('_WEBLINKS_ADMIN_LINK_NUM_CHECK', '¸¡ºº¤·¤¿¥ê¥ó¥¯¿ô');
-    define('_WEBLINKS_ADMIN_LINK_NUM_BROKEN', '¥ê¥ó¥¯ÀÚ¤ì¤Î¥ê¥ó¥¯¿ô');
-    define('_WEBLINKS_ADMIN_NUM', '·ï');
-    define('_WEBLINKS_ADMIN_MIN_SEC', '%s Ê¬ %s ÉÃ');
-    define('_WEBLINKS_ADMIN_CHECK_NEXT', '¼¡¤Î %s ·ï¤ò¸¡ºº¤¹¤ë');
-    //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Æ±»þ¤ËRSS/ATOM¤Î¼«Æ°¸¡½Ð¤ò¹Ô¤¤¤Þ¤¹");
+    define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'ï¿½ï¿½ó¥¯¤Î¸ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_BROKEN_RESULT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
+        'ï¿½ï¿½ó¥¯¿ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¥¢ï¿½ï¿½ï¿½È¤ï¿½ï¿½ë¤³ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½limit ï¿½ï¿½ offset ï¿½Î¿ï¿½ï¿½Í¤ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>limit=0 ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½<br>'
+    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '<b>ï¿½ï¿½ï¿½ID</b> ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ó¥¯½ï¿½ï¿½ï¿½ï¿½Î¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br><b>ï¿½ï¿½ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½URL</b> ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '<b>ï¿½ï¿½ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾</b> ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½googleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>');
+    define('_WEBLINKS_ADMIN_LIMIT', 'ï¿½ï¿½ó¥¯¿ï¿½ï¿½Î¾ï¿½ï¿½(limit)');
+    define('_WEBLINKS_ADMIN_OFFSET', 'ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½Ã¥ï¿½(offset)');
+    define('_WEBLINKS_ADMIN_TIME_START', 'ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_TIME_END', 'ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_TIME_ELAPSE', 'ï¿½Ð²ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_NUM_ALL', 'ï¿½ï¿½ï¿½ï¿½ó¥¯¿ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_NUM_CHECK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¿ï¿½');
+    define('_WEBLINKS_ADMIN_LINK_NUM_BROKEN', 'ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½Î¥ï¿½ó¥¯¿ï¿½');
+    define('_WEBLINKS_ADMIN_NUM', 'ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_MIN_SEC', '%s Ê¬ %s ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_CHECK_NEXT', 'ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ò¸¡ºï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Æ±ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½Ð¤ï¿½Ô¤ï¿½ï¿½Þ¤ï¿½");
 
     //======    rss_manage.php  ======
-    define('_WEBLINKS_ADMIN_RSS_MANAGE', 'RSS/ATOM´ÉÍý');
-    define('_WEBLINKS_ADMIN_RSS_REFRESH', 'RSS/ATOM¤Î¥­¥ã¥Ã¥·¥å¹¹¿·');
-    define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', '¥ê¥ó¥¯¾ðÊó¤Î¥­¥ã¥Ã¥·¥å¹¹¿·');
-    define('_WEBLINKS_ADMIN_RSS_REFRESH_SITE', 'RSS¸¡º÷¥µ¥¤¥È¤Î¥­¥ã¥Ã¥·¥å¹¹¿·');
-    define('_WEBLINKS_ADMIN_NUM_REFRESH_RSS_URL', '¹¹¿·¤·¤¿RSS/ATOM¤ÎURL¿ô');
-    define('_WEBLINKS_ADMIN_NUM_REFRESH_RSS_SITE', '¹¹¿·¤·¤¿RSS/ATOM¤Î¥µ¥¤¥È¿ô');
-    define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOM_SITE', '¹¹¿·¤·¤¿ATOM FEED¤Î¥µ¥¤¥È¿ô');
-    define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOMFEED', '¹¹¿·¤·¤¿ATOM FEED¤Îµ­»ö¿ô');
-    define('_WEBLINKS_ADMIN_RSS_CACHE_CLEAR', 'RSS/ATOM¤Î¥­¥ã¥Ã¥·¥å¡¦¥¯¥ê¥¢');
-    define('_WEBLINKS_RSS_CLEAR_NUM', '»ØÄê¤·¤¿·ï¿ô°Ê¾å¤Ê¤é¤Ð¡¢ÆüÉÕ¤Î¸Å¤¤½ç¤Ë¥¯¥ê¥¢¤¹¤ë');
-    define('_WEBLINKS_RSS_NUMBER', '·ï¿ô');
-    define('_WEBLINKS_RSS_CLEAR_LID', '¥ê¥ó¥¯ID¤ò»ØÄê¤·¤Æ¥¯¥ê¥¢¤¹¤ë');
-    define('_WEBLINKS_RSS_CLEAR_ALL', 'Á´¤Æ¥¯¥ê¥¢¤¹¤ë');
-    define('_WEBLINKS_NUM_RSS_CLEAR_LINK', '¥¯¥ê¥¢¤·¤¿RSS/ATOM¤Î¥­¥ã¥Ã¥·¥å');
-    define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', '¥¯¥ê¥¢¤·¤¿RSS/ATOMµ­»ö¤Î¿ô');
+    define('_WEBLINKS_ADMIN_RSS_MANAGE', 'RSS/ATOMï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_RSS_REFRESH', 'RSS/ATOMï¿½Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¹¹ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¹¹ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_RSS_REFRESH_SITE', 'RSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¹¹ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_NUM_REFRESH_RSS_URL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½URLï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_NUM_REFRESH_RSS_SITE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Î¥ï¿½ï¿½ï¿½ï¿½È¿ï¿½');
+    define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOM_SITE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ATOM FEEDï¿½Î¥ï¿½ï¿½ï¿½ï¿½È¿ï¿½');
+    define('_WEBLINKS_ADMIN_NUM_REFRESH_ATOMFEED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ATOM FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_RSS_CACHE_CLEAR', 'RSS/ATOMï¿½Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¡¦ï¿½ï¿½ï¿½ê¥¢');
+    define('_WEBLINKS_RSS_CLEAR_NUM', 'ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ê¤ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_NUMBER', 'ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_CLEAR_LID', 'ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¥ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_RSS_CLEAR_ALL', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'ï¿½ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'ï¿½ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½');
 
     //======    user_list.php   ======
-    define('_WEBLINKS_ADMIN_USER_MANAGE', '¥æ¡¼¥¶´ÉÍý');
-    define('_WEBLINKS_ADMIN_USER_EMAIL', '£Å¥á¡¼¥ë¥¢¥É¥ì¥¹¤ò»ý¤Ä¥æ¡¼¥¶¤Î°ìÍ÷');
-    define('_WEBLINKS_ADMIN_USER_LINK', '¥ê¥ó¥¯¾ðÊó¤òÅÐÏ¿¤·¤Æ¤¤¤ëÅÐÏ¿¥æ¡¼¥¶¤Î°ìÍ÷');
-    define('_WEBLINKS_ADMIN_USER_NOLINK', '¥ê¥ó¥¯¾ðÊó¤òÅÐÏ¿¤·¤Æ¤¤¤Ê¤¤ÅÐÏ¿¥æ¡¼¥¶¤Î°ìÍ÷');
-    define('_WEBLINKS_ADMIN_USER_EMAIL_DSC', '½ÅÊ£¤·¤Æ¤¤¤ë£Å¥á¡¼¥ë¥¢¥É¥ì¥¹¤Ï£±¤Ä¤À¤±É½¼¨¤µ¤ì¤Þ¤¹');
-    //define("_WEBLINKS_ADMIN_USER_LINK_DSC", "XOOPS¥³¥¢¤Î¡Ö¥á¥Ã¥»¡¼¥¸¤ÎÁ÷¿®¡×¤ò»ÈÍÑ¤·¤Þ¤¹");
-    //define("_WEBLINKS_USER_ALL", "¡ÊÁ´¤Æ¡Ë");
-    //define("_WEBLINKS_USER_MAX", "¡Ê %s ¿ÍËè¡Ë");
-    define('_WEBLINKS_THERE_ARE_USER', '<b>%s</b> ¿Í¤Î¥æ¡¼¥¶¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
-    define('_WEBLINKS_USER_NUM', '%s ¿ÍÌÜ¤«¤é %s ¿ÍÌÜ¤Þ¤Ç¤òÉ½¼¨¤·¤Þ¤¹');
-    define('_WEBLINKS_USER_NOFOUND', '¾ò·ï¤Ë¹ç¤¦¥æ¡¼¥¶¤¬¸«¤Ä¤«¤ê¤Þ¤»¤ó¤Ç¤·¤¿');
-    define('_WEBLINKS_UID_EMAIL', 'Åê¹Æ¼Ô¤Î£Å¥á¡¼¥ë¥¢¥É¥ì¥¹');
+    define('_WEBLINKS_ADMIN_USER_MANAGE', 'ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_USER_EMAIL', 'ï¿½Å¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½ï¿½ï¿½ï¿½Ä¥æ¡¼ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_USER_LINK', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½æ¡¼ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_USER_NOLINK', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½Ï¿ï¿½æ¡¼ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_ADMIN_USER_EMAIL_DSC', 'ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½Å¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½Ï£ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    //define("_WEBLINKS_ADMIN_USER_LINK_DSC", "XOOPSï¿½ï¿½ï¿½ï¿½ï¿½Î¡Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½");
+    //define("_WEBLINKS_USER_ALL", "ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½");
+    //define("_WEBLINKS_USER_MAX", "ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½");
+    define('_WEBLINKS_THERE_ARE_USER', '<b>%s</b> ï¿½Í¤Î¥æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_USER_NUM', '%s ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½Ü¤Þ¤Ç¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_WEBLINKS_USER_NOFOUND', 'ï¿½ï¿½ï¿½Ë¹ç¤¦ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_UID_EMAIL', 'ï¿½ï¿½Æ¼Ô¤Î£Å¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹');
 
     //======    mail_users.php  ======
-    define('_WEBLINKS_ADMIN_SENDMAIL', '£Å¥á¡¼¥ë¤ÎÁ÷¿®');
-    define('_WEBLINKS_THERE_ARE_EMAIL', '<b>%s</b> ¿Í°¸¤Î£Å¥á¡¼¥ë¤¬¤¢¤ê¤Þ¤¹');
-    define('_WEBLINKS_SEND_NUM', '%s ¿ÍÌÜ¤«¤é %s ¿ÍÌÜ¤Þ¤Ç¤òÁ÷¿®¤·¤Þ¤¹');
-    //define("_WEBLINKS_SEND_NEXT","¼¡¤Î %s ·ï¤òÁ÷¿®¤¹¤ë");
-    //define("_WEBLINKS_SUBJECT_FROM", "%s ¤«¤é¤Î¤ªÃÎ¤é¤»");
-    //define("_WEBLINKS_HELLO", "%s ¤µ¤ó ¤³¤ó¤Ë¤Á¤Ï");
-    define('_WEBLINKS_MAIL_TAGS1', '{W_NAME} ¤Ï¥æ¡¼¥¶Ì¾¤òÉ½¼¨¤·¤Þ¤¹');
-    define('_WEBLINKS_MAIL_TAGS2', '{W_EMAIL} ¤Ï¥æ¡¼¥¶¤Î¥á¡¼¥ë¥¢¥É¥ì¥¹¤òÉ½¼¨¤·¤Þ¤¹');
-    define('_WEBLINKS_MAIL_TAGS3', '{W_LID} ¤Ï¥ê¥ó¥¯ID¤òÉ½¼¨¤·¤Þ¤¹');
+    define('_WEBLINKS_ADMIN_SENDMAIL', 'ï¿½Å¥á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_THERE_ARE_EMAIL', '<b>%s</b> ï¿½Í°ï¿½ï¿½Î£Å¥á¡¼ï¿½ë¤¬ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_WEBLINKS_SEND_NUM', '%s ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½Ü¤Þ¤Ç¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    //define("_WEBLINKS_SEND_NEXT","ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    //define("_WEBLINKS_SUBJECT_FROM", "%s ï¿½ï¿½ï¿½ï¿½Î¤ï¿½ï¿½Î¤é¤»");
+    //define("_WEBLINKS_HELLO", "%s ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½");
+    define('_WEBLINKS_MAIL_TAGS1', '{W_NAME} ï¿½Ï¥æ¡¼ï¿½ï¿½Ì¾ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_WEBLINKS_MAIL_TAGS2', '{W_EMAIL} ï¿½Ï¥æ¡¼ï¿½ï¿½ï¿½Î¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_WEBLINKS_MAIL_TAGS3', '{W_LID} ï¿½Ï¥ï¿½ï¿½IDï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
 
     // general
-    //define('_WEBLINKS_WEBMASTER', 'WEB´ÉÍý¼Ô');
-    define('_WEBLINKS_SUBMITTER', 'Åê¹Æ¼Ô');
-    //define("_WEBLINKS_MID","½¤Àµ ID");
-    define('_WEBLINKS_UPDATE', '¹¹¿·');
-    define('_WEBLINKS_SET_DEFAULT', '¥Ç¥Õ¥©¥ë¥ÈÃÍ¤òÀßÄê¤¹¤ë');
-    define('_WEBLINKS_CLEAR', '¥¯¥ê¥¢');
-    define('_WEBLINKS_CHECK', '¸¡ºº');
-    define('_WEBLINKS_NON', '²¿¤â¤·¤Ê¤¤');
-    //define("_WEBLINKS_SENDMAIL", "£Å¥á¡¼¥ë¤òÁ÷¿®¤¹¤ë");
+    //define('_WEBLINKS_WEBMASTER', 'WEBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_SUBMITTER', 'ï¿½ï¿½Æ¼ï¿½');
+    //define("_WEBLINKS_MID","ï¿½ï¿½ï¿½ï¿½ ID");
+    define('_WEBLINKS_UPDATE', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_SET_DEFAULT', 'ï¿½Ç¥Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_WEBLINKS_CLEAR', 'ï¿½ï¿½ï¿½ê¥¢');
+    define('_WEBLINKS_CHECK', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_NON', 'ï¿½ï¿½ï¿½â¤·ï¿½Ê¤ï¿½');
+    //define("_WEBLINKS_SENDMAIL", "ï¿½Å¥á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
     // 2005-08-09
     // BUG 2827: RSS refresh: Invalid argument supplied for foreach()
-    define('_WEBLINKS_ADMIN_NO_LINK_BROKEN_CHECK', '¸¡ºº¤¹¤ë¥ê¥ó¥¯¤¬¤Ê¤¤');
-    define('_WEBLINKS_ADMIN_NO_RSS_REFRESH', '¹¹¿·¤¹¤ë¥ê¥ó¥¯¤¬¤Ê¤¤');
+    define('_WEBLINKS_ADMIN_NO_LINK_BROKEN_CHECK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ê¤ï¿½');
+    define('_WEBLINKS_ADMIN_NO_RSS_REFRESH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ê¤ï¿½');
 
     // 2005-10-20
-    define('_WEBLINKS_LINK_APPROVED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯ÅÐÏ¿°ÍÍê¤¬¾µÇ§¤µ¤ì¤Þ¤·¤¿');
-    define('_WEBLINKS_LINK_REFUSED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯ÅÐÏ¿°ÍÍê¤¬µñÈÝ¤µ¤ì¤Þ¤·¤¿');
+    define('_WEBLINKS_LINK_APPROVED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_WEBLINKS_LINK_REFUSED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½ï¿½Ý¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
     // 2006-05-15
-    define('_AM_WEBLINKS_INDEX_DESC', '¥á¥¤¥ó¥Ú¡¼¥¸¤ÎÀâÌÀ');
-    define('_AM_WEBLINKS_INDEX_DESC_DSC', '¥á¥¤¥ó¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ë¤È¤­¤Ï¡¢ÀâÌÀÊ¸¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">¤³¤³¤Ë¤ÏÀâÌÀÊ¸¤òÉ½¼¨¤·¤Þ¤¹¡£<br />ÀâÌÀÊ¸¤Ï¡Ö¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£²¡×¤Ë¤ÆÊÔ½¸¤Ç¤­¤Þ¤¹¡£<br /></div>');
+    define('_AM_WEBLINKS_INDEX_DESC', 'ï¿½á¥¤ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_INDEX_DESC_DSC', 'ï¿½á¥¤ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ï¿½ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½Ï¡Ö¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£²ï¿½×¤Ë¤ï¿½ï¿½Ô½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br></div>');
 
     // category
-    define('_AM_WEBLINKS_ADD_CATEGORY', '¿·µ¬¥«¥Æ¥´¥ê¤ÎÄÉ²Ã');
-    define('_AM_WEBLINKS_ERROR_SOME', '¤¤¤¯¤Ä¤«¥¨¥é¡¼¡¦¥á¥Ã¥»¡¼¥¸¤¬¤¢¤ê¤Þ¤¹');
-    define('_AM_WEBLINKS_LIST_ID_ASC', 'ID Àµ½ç');
-    define('_AM_WEBLINKS_LIST_ID_DESC', 'ID µÕ½ç');
+    define('_AM_WEBLINKS_ADD_CATEGORY', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½É²ï¿½');
+    define('_AM_WEBLINKS_ERROR_SOME', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½ï¿½é¡¼ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_LIST_ID_ASC', 'ID ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LIST_ID_DESC', 'ID ï¿½Õ½ï¿½');
 
     // config
-    //define('_AM_WEBLINKS_WARNING_NOT_WRITABLE','¥Ç¥¤¥ì¥¯¥È¥ê¤Î½ñ¹þ¤ßµö²Ä¤¬¤Ê¤¤');
+    //define('_AM_WEBLINKS_WARNING_NOT_WRITABLE','ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½Î½ï¿½ï¿½ï¿½ßµï¿½ï¿½Ä¤ï¿½ï¿½Ê¤ï¿½');
 
-    define('_AM_WEBLINKS_CONF_LINK', '¥ê¥ó¥¯¾ðÊó¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_LINK_IMAGE', '¥ê¥ó¥¯²èÁü¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_VIEW', 'É½¼¨¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_TOPTEN', '¥È¥Ã¥×10¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_SEARCH', '¸¡º÷¤ÎÀßÄê');
-    define('_AM_WEBLINKS_USE_BROKENLINK', '¡Ö¥ê¥ó¥¯ÀÚ¤ìÊó¹ð¡×¤Î»ÈÍÑ');
-    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¡Ö¥ê¥ó¥¯ÀÚ¤ìÊó¹ð¡×¤¬»ÈÍÑ¤Ç¤­¤Þ¤¹');
-    define('_AM_WEBLINKS_USE_HITS', '¥¸¥ã¥ó¥×¤Î "¥Ò¥Ã¥È¿ô" ¤Î»ÈÍÑ');
-    define('_AM_WEBLINKS_USE_HITS_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />ÅÐÏ¿¤µ¤ì¤¿¥µ¥¤¥È¤Ë¥¸¥ã¥ó¥×¤¹¤ë¤È¤­¤Ë¡¢"¥Ò¥Ã¥È¿ô" ¤¬¥«¥¦¥ó¥È¥¢¥Ã¥×¤µ¤ì¤Þ¤¹');
-    define('_AM_WEBLINKS_USE_PASSWD', '¥Ñ¥¹¥ï¡¼¥É¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_USE_PASSWD_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br /><b>¥²¥¹¥È</b> ¤Ï¥Ñ¥¹¥ï¡¼¥ÉÇ§¾Ú¤Ë¤è¤ê¥ê¥ó¥¯¤ÎÊÑ¹¹¤¬¤Ç¤­¤Þ¤¹¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥Ñ¥¹¥ï¡¼¥ÉÍó¤ÏÉ½¼¨¤µ¤ì¤Ê¤¤¡£');
-    define('_AM_WEBLINKS_PASSWD_MIN', '¥Ñ¥¹¥ï¡¼¥É¤ÎºÇ¾®¤ÎÊ¸»ú¿ô');
-    define('_AM_WEBLINKS_POST_TEXT', '¥µ¥¤¥È´ÉÍý¼Ô¤ÏÁ´¤Æ¤Î´ÉÍý¸¢¸Â¤ò»ý¤Ã¤Æ¤¤¤ë');
-    define('_AM_WEBLINKS_AUTH_DOHTML', 'HTML¥¿¥°¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DOHTML_DSC', 'HTML¥¿¥°¤ò»ÈÍÑ¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_AUTH_DOSMILEY', '¥¹¥Þ¥¤¥ê¡¼¥¢¥¤¥³¥ó¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DOSMILEY_DSC', '¥¹¥Þ¥¤¥ê¡¼¥¢¥¤¥³¥ó¤ò»ÈÍÑ¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_AUTH_DOXCODE', 'XOOPS¥³¡¼¥É¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DOXCODE_DSC', 'XOOPS¥³¡¼¥É¤ò»ÈÍÑ¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_AUTH_DOIMAGE', '²èÁü¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DOIMAGE_DSC', '²èÁü¤ò»ÈÍÑ¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_AUTH_DOBR', '²þ¹Ô¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DOBR_DSC', '²þ¹Ô¤ò»ÈÍÑ¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_SHOW_CATLIST', '¥µ¥Ö¥á¥Ë¥å¡¼¤Ø¤Î¥«¥Æ¥´¥ê°ìÍ÷¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥µ¥Ö¥á¥Ë¥å¡¼¤Ë¥«¥Æ¥´¥ê°ìÍ÷¤òÉ½¼¨¤¹¤ë');
-    define('_AM_WEBLINKS_VIEW_URL', 'URL¤ÎÉ½¼¨·Á¼°');
-    define('_AM_WEBLINKS_VIEW_URL_DSC',
-           '¡ÖÈóÉ½¼¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />URL ¤Ï &lt;a&gt; ¥¿¥°¤ËÉ½¼¨¤µ¤ì¤Ê¤¤¡£<br />¡Ö´ÖÀÜÉ½¼¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />href Â°À­¤Ë URL¤Ç¤Ï¤Ê¤¯¡¢visit.php ¤òÉ½¼¨¤¹¤ë¡£<br />¡ÖÄ¾ÀÜÉ½¼¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />href Â°À­¤Ë URL ¤òÉ½¼¨¤·¡¢onmousedown Â°À­¤Ë JavaScript ¤òÉ½¼¨¤·¡¢JavaScript ¤ò·ÐÍ³¤·¤Æ¥Ò¥Ã¥È¿ô¤ò¥«¥¦¥ó¥È¤¹¤ë¡£<br />');
-    define('_AM_WEBLINKS_VIEW_URL_0', 'ÈóÉ½¼¨');
-    define('_AM_WEBLINKS_VIEW_URL_1', '´ÖÀÜÉ½¼¨');
-    define('_AM_WEBLINKS_VIEW_URL_2', 'Ä¾ÀÜÉ½¼¨');
-    define('_AM_WEBLINKS_RECOMMEND_PRI', '¡Ö¤ª¤¹¤¹¤á¥µ¥¤¥È¡×¤ÎÍ¥ÀèÅÙ');
-    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', '¡ÖÈóÉ½¼¨¡×¤òÁªÂò¤¹¤ë¤È¡¢É½¼¨¤µ¤ì¤Ê¤¤¡£<br />¡ÖÄÌ¾ï¡×¤òÁªÂò¤¹¤ë¤È¡¢¥á¥Ë¥å¡¼¡¦¥Ð¡¼¤ËÉ½¼¨¤¹¤ë¡£<br />¡ÖÍ¥Àè¡×¤òÁªÂò¤¹¤ë¤È¡¢¥«¥Æ¥´¥êËè¤Ë¾å°Ì¤ËÉ½¼¨¤µ¤ì¤ë¡£');
-    define('_AM_WEBLINKS_MUTUAL_PRI', '¡ÖÁê¸ß¥ê¥ó¥¯¡×¤ÎÍ¥ÀèÅÙ');
-    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', '¡ÖÈóÉ½¼¨¡×¤òÁªÂò¤¹¤ë¤È¡¢É½¼¨¤µ¤ì¤Ê¤¤¡£<br />¡ÖÄÌ¾ï¡×¤òÁªÂò¤¹¤ë¤È¡¢¥á¥Ë¥å¡¼¡¦¥Ð¡¼¤ËÉ½¼¨¤¹¤ë¡£<br />¡ÖÍ¥Àè¡×¤òÁªÂò¤¹¤ë¤È¡¢¥«¥Æ¥´¥êËè¤Ë¾å°Ì¤ËÉ½¼¨¤µ¤ì¤ë¡£');
-    define('_AM_WEBLINKS_PRI_0', 'Ì¤»ÈÍÑ');
-    define('_AM_WEBLINKS_PRI_1', 'ÄÌ¾ï');
-    define('_AM_WEBLINKS_PRI_2', 'Í¥Àè');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO', '¥Ð¥Ê¡¼¡¦¥µ¥¤¥º¤Î¼«Æ°¼èÆÀ');
-    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
-           '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥Ð¥Ê¡¼¡¦¥µ¥¤¥º¤¬ÅÐÏ¿¡¦ÊÑ¹¹»þ¤Ë¼èÆÀ¤Ç¤­¤Ê¤«¤Ã¤¿¾ì¹ç¤Ë¡¢¥ê¥ó¥¯°ìÍ÷¤ä¥ê¥ó¥¯¾ÜºÙ¤òÉ½¼¨¤¹¤ë¤È¤­¤Ë¡¢ºÆÅÙ ¼«Æ°Åª¤Ë¼èÆÀ¤¹¤ë¡£<br />');
-    define('_AM_WEBLINKS_RSS_USE', 'RSS µ­»ö¤Î»ÈÍÑ');
-    define('_AM_WEBLINKS_RSS_USE_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />RSS/ATOM µ­»ö¤ò¼èÆÀ¤·É½¼¨¤¹¤ë');
+    define('_AM_WEBLINKS_CONF_LINK', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_LINK_IMAGE', 'ï¿½ï¿½ó¥¯²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_VIEW', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_TOPTEN', 'ï¿½È¥Ã¥ï¿½10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_SEARCH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_BROKENLINK', 'ï¿½Ö¥ï¿½ï¿½ï¿½Ú¤ï¿½ï¿½ï¿½ï¿½×¤Î»ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_BROKENLINK_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½Ö¥ï¿½ï¿½ï¿½Ú¤ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_USE_HITS', 'ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ "ï¿½Ò¥Ã¥È¿ï¿½" ï¿½Î»ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_HITS_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ì¤¿ï¿½ï¿½ï¿½ï¿½ï¿½È¤Ë¥ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½"ï¿½Ò¥Ã¥È¿ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_USE_PASSWD', 'ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br><b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</b> ï¿½Ï¥Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½Ç§ï¿½Ú¤Ë¤ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_PASSWD_MIN', 'ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ÎºÇ¾ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_POST_TEXT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½Æ¤Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¤ï¿½ï¿½ï¿½Ã¤Æ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOHTML', 'HTMLï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOHTML_DSC', 'HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOSMILEY', 'ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ê¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOSMILEY_DSC', 'ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ê¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOXCODE', 'XOOPSï¿½ï¿½ï¿½ï¿½ï¿½É¤Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOXCODE_DSC', 'XOOPSï¿½ï¿½ï¿½ï¿½ï¿½É¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOIMAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOIMAGE_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOBR', 'ï¿½ï¿½ï¿½Ô¤Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DOBR_DSC', 'ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_SHOW_CATLIST', 'ï¿½ï¿½ï¿½Ö¥ï¿½Ë¥å¡¼ï¿½Ø¤Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ï¿½Ö¥ï¿½Ë¥å¡¼ï¿½Ë¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_URL', 'URLï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_VIEW_URL_DSC',
+        'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>URL ï¿½ï¿½ &lt;a&gt; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½<br>ï¿½Ö´ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>href Â°ï¿½ï¿½ï¿½ï¿½ URLï¿½Ç¤Ï¤Ê¤ï¿½ï¿½ï¿½visit.php ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½ï¿½Ä¾ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>href Â°ï¿½ï¿½ï¿½ï¿½ URL ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½onmousedown Â°ï¿½ï¿½ï¿½ï¿½ JavaScript ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JavaScript ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½Æ¥Ò¥Ã¥È¿ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¤ï¿½ï¿½ë¡£<br>'
+    );
+    define('_AM_WEBLINKS_VIEW_URL_0', 'ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_URL_1', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_URL_2', 'Ä¾ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RECOMMEND_PRI', 'ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¥µï¿½ï¿½ï¿½È¡×¤ï¿½Í¥ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ì¾ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½ï¿½Í¥ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½Ì¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_WEBLINKS_MUTUAL_PRI', 'ï¿½ï¿½ï¿½ï¿½ß¥ï¿½ó¥¯¡×¤ï¿½Í¥ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ì¾ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½ï¿½Í¥ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½Ì¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_WEBLINKS_PRI_0', 'Ì¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_PRI_1', 'ï¿½Ì¾ï¿½');
+    define('_AM_WEBLINKS_PRI_2', 'Í¥ï¿½ï¿½');
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'ï¿½Ð¥Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
+        'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½Ð¥Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¾ÜºÙ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°Åªï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>'
+    );
+    define('_AM_WEBLINKS_RSS_USE', 'RSS ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RSS_USE_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>RSS/ATOM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // bulk import
-    define('_AM_WEBLINKS_BULK_IMPORT', '°ì³çÅÐÏ¿');
-    define('_AM_WEBLINKS_BULK_IMPORT_FILE', '¥Õ¥¡¥¤¥ë¤«¤é¤Î°ì³çÅÐÏ¿¤Î¥Ç¥â');
-    define('_AM_WEBLINKS_BULK_CAT', '¥«¥Æ¥´¥ê°ì³çÅÐÏ¿');
-    define('_AM_WEBLINKS_BULK_CAT_DSC1', '¥«¥Æ¥´¥ê ¤òµ­½Ò¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_CAT_DSC2', '»Ò¥«¥Æ¥´¥ê¤Ï¡¢¹ÔÆ¬¤Ëº¸Ìð°õ³ç¸Ì(>)¤òµ­½Ò¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_LINK', '¥ê¥ó¥¯°ì³çÅÐÏ¿');
-    define('_AM_WEBLINKS_BULK_LINK_DSC1', '£±¹ÔÌÜ¤Ë¡¢¥«¥Æ¥´¥ê ¤òµ­½Ò¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_LINK_DSC2', '£²¹ÔÌÜ°Ê¹ß¤Ë¡¢¥¿¥¤¥È¥ë, URL, ÀâÌÀ ¤ò¥«¥ó¥Þ(,)¤Ç¶èÀÚ¤Ã¤Æµ­½Ò¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_LINK_DSC3', '²£ËÀ (---) ¤Ç¶èÀÚ¤ë¤È¡¢·«ÊÖ¤·¤Æ»ØÄê¤Ç¤­¤ë');
-    define('_AM_WEBLINKS_BULK_ERROR_LAYER', '¥«¥Æ¥´¥ê¤Î³¬ÁØ¹½Â¤¤Ç£²ÃÊ³¬°Ê¾å ²¼¤ò»ØÄê¤·¤Æ¤¤¤Þ¤¹');
-    define('_AM_WEBLINKS_BULK_ERROR_CID', '¥«¥Æ¥´¥êÈÖ¹æ¤¬Àµ¤·¤¯¤Ê¤¤');
-    define('_AM_WEBLINKS_BULK_ERROR_PID', '¿Æ¤Î¥«¥Æ¥´¥êÈÖ¹æ¤¬Àµ¤·¤¯¤Ê¤¤');
-    define('_AM_WEBLINKS_BULK_ERROR_FINISH', '¥¨¥é¡¼¤Ë¤è¤ê½ªÎ»¤·¤¿');
+    define('_AM_WEBLINKS_BULK_IMPORT', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿');
+    define('_AM_WEBLINKS_BULK_IMPORT_FILE', 'ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ë¤«ï¿½ï¿½Î°ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½Î¥Ç¥ï¿½');
+    define('_AM_WEBLINKS_BULK_CAT', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿');
+    define('_AM_WEBLINKS_BULK_CAT_DSC1', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ ï¿½òµ­½Ò¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_CAT_DSC2', 'ï¿½Ò¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½Æ¬ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(>)ï¿½òµ­½Ò¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK', 'ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½ï¿½Ï¿');
+    define('_AM_WEBLINKS_BULK_LINK_DSC1', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ü¤Ë¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ ï¿½òµ­½Ò¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC2', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ü°Ê¹ß¤Ë¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½, URL, ï¿½ï¿½ï¿½ï¿½ ï¿½ò¥«¥ï¿½ï¿½(,)ï¿½Ç¶ï¿½ï¿½Ú¤Ã¤Æµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC3', 'ï¿½ï¿½ï¿½ï¿½ (---) ï¿½Ç¶ï¿½ï¿½Ú¤ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Æ»ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_ERROR_LAYER', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î³ï¿½ï¿½Ø¹ï¿½Â¤ï¿½Ç£ï¿½ï¿½Ê³ï¿½ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_BULK_ERROR_CID', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Ö¹æ¤¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_BULK_ERROR_PID', 'ï¿½Æ¤Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Ö¹æ¤¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_BULK_ERROR_FINISH', 'ï¿½ï¿½ï¿½é¡¼ï¿½Ë¤ï¿½ê½ªÎ»ï¿½ï¿½ï¿½ï¿½');
 
     // command
-    //define('_AM_WEBLINKS_CREATE_CONFIG', 'ÀßÄê¥Õ¥¡¥¤¥ë¤ÎÀ¸À®');
-    //define('_AM_WEBLINKS_TEST_EXEC', '¥Æ¥¹¥È¼Â¹Ô %s');
+    //define('_AM_WEBLINKS_CREATE_CONFIG', 'ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_TEST_EXEC', 'ï¿½Æ¥ï¿½ï¿½È¼Â¹ï¿½ %s');
 
     // === 2006-10-05 ===
     // menu
-    define('_AM_WEBLINKS_MODULE_CONFIG_3', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£³');
-    define('_AM_WEBLINKS_MODULE_CONFIG_4', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£´');
-    define('_AM_WEBLINKS_VOTE_LIST', 'ÅêÉ¼°ìÍ÷');
-    define('_AM_WEBLINKS_CATLINK_LIST', 'CatLink °ìÍ÷');
-    //define('_AM_WEBLINKS_COMMAND_MANAGE', '¥³¥Þ¥ó¥É´ÉÍý');
-    define('_AM_WEBLINKS_TABLE_MANAGE', 'DB¥Æ¡¼¥Ö¥ë´ÉÍý');
-    define('_AM_WEBLINKS_IMPORT_MANAGE', '¥¤¥ó¥Ý¡¼¥È´ÉÍý');
-    define('_AM_WEBLINKS_EXPORT_MANAGE', '¥¨¥­¥¹¥Ý¡¼¥È´ÉÍý');
+    define('_AM_WEBLINKS_MODULE_CONFIG_3', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£³');
+    define('_AM_WEBLINKS_MODULE_CONFIG_4', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£´');
+    define('_AM_WEBLINKS_VOTE_LIST', 'ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CATLINK_LIST', 'CatLink ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_COMMAND_MANAGE', 'ï¿½ï¿½ï¿½Þ¥ï¿½É´ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_TABLE_MANAGE', 'DBï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_IMPORT_MANAGE', 'ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½ï¿½È´ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_EXPORT_MANAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½ï¿½È´ï¿½ï¿½ï¿½');
 
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_2', '¸¢¸Â¡¢¥«¥Æ¥´¥ê¡¢Â¾');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_3', '¥ê¥ó¥¯');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_4', 'RSS¡¢¥Õ¥©¡¼¥é¥à¡¤ÃÏ¿Þ');
-    define('_AM_WEBLINKS_LINK_REGISTER', '¥ê¥ó¥¯ÅÐÏ¿: ÀâÌÀ (description) ¤ÎÀßÄê');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_2', 'ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¢Â¾');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_3', 'ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_4', 'RSSï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½à¡¤ï¿½Ï¿ï¿½');
+    define('_AM_WEBLINKS_LINK_REGISTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿: ï¿½ï¿½ï¿½ï¿½ (description) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // bin configuration
-    //define('_AM_WEBLINKS_FORM_BIN', '¥³¥Þ¥ó¥ÉÀßÄê');
-    //define('_AM_WEBLINKS_FORM_BIN_DESC', 'bin ¥³¥Þ¥ó¥É¤Ë»ÈÍÑ¤¹¤ë');
-    //define('_AM_WEBLINKS_CONF_BIN_PASS','¥Ñ¥¹¥ï¡¼¥É');
+    //define('_AM_WEBLINKS_FORM_BIN', 'ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_FORM_BIN_DESC', 'bin ï¿½ï¿½ï¿½Þ¥ï¿½É¤Ë»ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_CONF_BIN_PASS','ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½');
     //define('_AM_WEBLINKS_CONF_BIN_PASS_DESC','');
-    //define('_AM_WEBLINKS_CONF_BIN_SEND','¥á¡¼¥ë¤òÁ÷¿®¤¹¤ë');
+    //define('_AM_WEBLINKS_CONF_BIN_SEND','ï¿½á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     //define('_AM_WEBLINKS_CONF_BIN_SEND_DESC','');
-    //define('_AM_WEBLINKS_CONF_BIN_MAILTO','¥á¡¼¥ëÁ÷¿®Àè');
+    //define('_AM_WEBLINKS_CONF_BIN_MAILTO','ï¿½á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
     //define('_AM_WEBLINKS_CONF_BIN_MAILTO_DESC','');
 
     // rssc
-    //define('_AM_WEBLINKS_RSS_DIRNAME','RSSC¥â¥¸¥å¡¼¥ë¤ÎDirname');
+    //define('_AM_WEBLINKS_RSS_DIRNAME','RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½Dirname');
     //define('_AM_WEBLINKS_RSS_DIRNAME_DESC','');
 
     // link manage
-    define('_AM_WEBLINKS_DEL_LINK', '¥ê¥ó¥¯ºï½ü');
-    define('_AM_WEBLINKS_ADD_RSSC', 'RSSC¥â¥¸¥å¡¼¥ë¤Ø¤Î¥ê¥ó¥¯ÄÉ²Ã');
-    define('_AM_WEBLINKS_MOD_RSSC', 'RSSC¥â¥¸¥å¡¼¥ë¤Î¥ê¥ó¥¯ÊÑ¹¹');
-    define('_AM_WEBLINKS_REFRESH_RSSC', 'RSSC¥â¥¸¥å¡¼¥ë¤ÎRSS¹¹¿·');
-    define('_AM_WEBLINKS_APPROVE', '¥ê¥ó¥¯ÄÉ²Ã¤Î¾µÇ§');
-    define('_AM_WEBLINKS_APPROVE_MOD', '¥ê¥ó¥¯ÊÑ¹¹¤Î¾µÇ§');
-    define('_AM_WEBLINKS_RSSC_LID_SAVED', 'RSSC lid ¤òÊÝÂ¸¤·¤¿');
-    define('_AM_WEBLINKS_GOTO_LINK_LIST', '¥ê¥ó¥¯°ìÍ÷¤Ø');
-    define('_AM_WEBLINKS_GOTO_LINK_EDIT', '¥ê¥ó¥¯ÊÑ¹¹¤Ø');
-    define('_AM_WEBLINKS_ADD_BANNER', '¥Ð¥Ê¡¼¤Î²èÁü¥µ¥¤¥º¤ÎÄÉ²Ã');
-    define('_AM_WEBLINKS_MOD_BANNER', '¥Ð¥Ê¡¼¤Î²èÁü¥µ¥¤¥º¤ÎÊÑ¹¹');
+    define('_AM_WEBLINKS_DEL_LINK', 'ï¿½ï¿½ó¥¯ºï¿½ï¿½');
+    define('_AM_WEBLINKS_ADD_RSSC', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Ø¤Î¥ï¿½ï¿½ï¿½É²ï¿½');
+    define('_AM_WEBLINKS_MOD_RSSC', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥ï¿½ï¿½ï¿½Ñ¹ï¿½');
+    define('_AM_WEBLINKS_REFRESH_RSSC', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½RSSï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_APPROVE', 'ï¿½ï¿½ï¿½ï¿½É²Ã¤Î¾ï¿½Ç§');
+    define('_AM_WEBLINKS_APPROVE_MOD', 'ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Î¾ï¿½Ç§');
+    define('_AM_WEBLINKS_RSSC_LID_SAVED', 'RSSC lid ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GOTO_LINK_LIST', 'ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GOTO_LINK_EDIT', 'ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_ADD_BANNER', 'ï¿½Ð¥Ê¡ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É²ï¿½');
+    define('_AM_WEBLINKS_MOD_BANNER', 'ï¿½Ð¥Ê¡ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½');
 
     // vote list
-    define('_AM_WEBLINKS_VOTE_USER', 'ÅÐÏ¿¥æ¡¼¥¶¤ÎÅêÉ¼');
-    define('_AM_WEBLINKS_VOTE_ANON', '¥²¥¹¥È¤ÎÅêÉ¼');
+    define('_AM_WEBLINKS_VOTE_USER', 'ï¿½ï¿½Ï¿ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼');
+    define('_AM_WEBLINKS_VOTE_ANON', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½É¼');
 
     // locate
-    define('_AM_WEBLINKS_CONF_LOCATE', '¾ì½ê¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '¹ñ¥³¡¼¥É');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs ¤òÆþÎÏ¤¹¤ë <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '¹ñ¥³¡¼¥É¤Ë´ØÏ¢¤¹¤ë¹àÌÜ¤òºÆÀßÄê¤¹¤ë<br/> <span style="color:#0000ff;">#</span> °õ¤¬¤Ä¤¤¤Æ¤¤¤ë¹àÌÜ');
-    define('_AM_WEBLINKS_RENEW', 'ºÆÀßÄê');
+    define('_AM_WEBLINKS_CONF_LOCATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'ï¿½ñ¥³¡ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½ <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'ï¿½ñ¥³¡ï¿½ï¿½É¤Ë´ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br> <span style="color:#0000ff;">#</span> ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RENEW', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // map
-    define('_AM_WEBLINKS_CONF_MAP', 'ÃÏ¿Þ¥µ¥¤¥È¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_MAP_USE', 'ÃÏ¿Þ¥µ¥¤¥È¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'ÃÏ¿Þ¥µ¥¤¥È¤Î¥Æ¥ó¥×¥ì¡¼¥È');
-    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'template/map/ ¥Ç¥£¥ì¥¯¥È¥ê¤Ë¤¢¤ë¥Æ¥ó¥×¥ì¡¼¥È¡¦¥Õ¥¡¥¤¥ë¤ò»ØÄê¤¹¤ë');
+    define('_AM_WEBLINKS_CONF_MAP', 'ï¿½Ï¿Þ¥ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_MAP_USE', 'ï¿½Ï¿Þ¥ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'ï¿½Ï¿Þ¥ï¿½ï¿½ï¿½ï¿½È¤Î¥Æ¥ï¿½×¥ì¡¼ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'template/map/ ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½Ë¤ï¿½ï¿½ï¿½Æ¥ï¿½×¥ì¡¼ï¿½È¡ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
 
-    // google map: hacked by wye <http://never-ever.info/>
-    define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps ¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_GM_USE', 'Google Maps ¤ò»ÈÍÑ¤¹¤ë');
+    // google map: hacked by wye <https://never-ever.info/>
+    define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_GM_USE', 'Google Maps ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-           'GoogleMaps¤òÍøÍÑ¤¹¤ë¾ì¹ç¤Ï <br /> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> ¤Ç <br /> API key ¤ò¼èÆÀ¤·¤Æ¤¯¤À¤µ¤¤');
-    define('_AM_WEBLINKS_CONF_GM_SERVER', '¥µ¡¼¥Ð¡¼Ì¾');
-    define('_AM_WEBLINKS_CONF_GM_LANG', '¸À¸ì¥³¡¼¥É');
-    define('_AM_WEBLINKS_CONF_GM_LOCATION', '¾ÊÎ¬»þ¤Î¾ì½êÌ¾');
-    define('_AM_WEBLINKS_CONF_GM_LATITUDE', '¾ÊÎ¬»þ¤Î°ÞÅÙ');
-    define('_AM_WEBLINKS_CONF_GM_LONGITUDE', '¾ÊÎ¬»þ¤Î·ÐÅÙ');
-    define('_AM_WEBLINKS_CONF_GM_ZOOM', '¾ÊÎ¬»þ¤Î¥º¡¼¥à¥ì¥Ù¥ë');
+    define(
+        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
+        'GoogleMapsï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> ï¿½ï¿½ <br> API key ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_CONF_GM_SERVER', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ì¾');
+    define('_AM_WEBLINKS_CONF_GM_LANG', 'ï¿½ï¿½ï¿½ì¥³ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_GM_LOCATION', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ì¾');
+    define('_AM_WEBLINKS_CONF_GM_LATITUDE', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_GM_LONGITUDE', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_GM_ZOOM', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¥ï¿½');
 
     // google search
-    define('_AM_WEBLINKS_CONF_GOOGLE_SEARCH', 'Google ¸¡º÷¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_GOOGLE_SERVER', '¥µ¡¼¥Ð¡¼Ì¾');
-    define('_AM_WEBLINKS_CONF_GOOGLE_LANG', '¸À¸ì¥³¡¼¥É');
+    define('_AM_WEBLINKS_CONF_GOOGLE_SEARCH', 'Google ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_GOOGLE_SERVER', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ì¾');
+    define('_AM_WEBLINKS_CONF_GOOGLE_LANG', 'ï¿½ï¿½ï¿½ì¥³ï¿½ï¿½ï¿½ï¿½');
 
     // template
-    //define('_AM_WEBLINKS_CONF_TEMPLATE','¥Æ¥ó¥×¥ì¡¼¥È¤Î¥­¥ã¥Ã¥·¥å¡¦¥¯¥ê¥¢');
-    define('_AM_WEBLINKS_CONF_TEMPLATE_DESC', 'template/parts/ template/xml/ template/map/ ¥Ç¥£¥ì¥¯¥È¥ê¤Ë¤¢¤ë¥Æ¥ó¥×¥ì¡¼¥È¤òÊÑ¹¹¤·¤¿¤È¤­¤Ë¤Ï¡¢¼Â¹Ô¤¹¤ë¤³¤È');
+    //define('_AM_WEBLINKS_CONF_TEMPLATE','ï¿½Æ¥ï¿½×¥ì¡¼ï¿½È¤Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½å¡¦ï¿½ï¿½ï¿½ê¥¢');
+    define('_AM_WEBLINKS_CONF_TEMPLATE_DESC', 'template/parts/ template/xml/ template/map/ ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½Ë¤ï¿½ï¿½ï¿½Æ¥ï¿½×¥ì¡¼ï¿½È¤ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¤Ï¡ï¿½ï¿½Â¹Ô¤ï¿½ï¿½ë¤³ï¿½ï¿½');
 
     // === 2006-12-11 ===
     // link item
-    //define('_AM_WEBLINKS_TIME_PUBLISH','È¯¹ÔÆü¤òÀßÄê¤¹¤ë');
-    //define('_AM_WEBLINKS_TIME_PUBLISH_DESC','ÀßÄê¤·¤Ê¤¤¤È¤­¤Ï¡¢¾ï¤ËÉ½¼¨¤µ¤ì¤ë');
-    //define('_AM_WEBLINKS_TIME_EXPIRE','½ªÎ»Æü¤òÀßÄê¤¹¤ë');
-    //define('_AM_WEBLINKS_TIME_EXPIRE_DESC','ÀßÄê¤·¤Ê¤¤¤È¤­¤Ï¡¢¾ï¤ËÉ½¼¨¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE', 'È¯¹ÔÆü°ÊÁ°¤Î¥ê¥ó¥¯°ìÍ÷');
-    define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', '½ªÎ»Æü°Ê¹ß¤Î¥ê¥ó¥¯°ìÍ÷');
+    //define('_AM_WEBLINKS_TIME_PUBLISH','È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    //define('_AM_WEBLINKS_TIME_PUBLISH_DESC','ï¿½ï¿½ï¿½ê¤·ï¿½Ê¤ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_TIME_EXPIRE','ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    //define('_AM_WEBLINKS_TIME_EXPIRE_DESC','ï¿½ï¿½ï¿½ê¤·ï¿½Ê¤ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE', 'È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯°ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ê¹ß¤Î¥ï¿½ó¥¯°ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_SERVER_ENV', '¥µ¡¼¥Ð¡¼´Ä¶­ÊÑ¿ô');
-    define('_AM_WEBLINKS_DEBUG_CONF', '¥Ç¥Ð¥Ã¥¯ÊÑ¿ô');
-    define('_AM_WEBLINKS_ALL_GREEN', 'Á´¤ÆÀµ¾ï');
+    define('_AM_WEBLINKS_SERVER_ENV', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ä¶ï¿½ï¿½Ñ¿ï¿½');
+    define('_AM_WEBLINKS_DEBUG_CONF', 'ï¿½Ç¥Ð¥Ã¥ï¿½ï¿½Ñ¿ï¿½');
+    define('_AM_WEBLINKS_ALL_GREEN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-02-20 ===
     // performance
-    define('_AM_WEBLINKS_UPDATE_CAT_PATH', '¥Ñ¥¹¡¦¥Ä¥ê¡¼¾ðÊó¤Î¹¹¿·');
-    define('_AM_WEBLINKS_UPDATE_CAT_COUNT', '¥«¥Æ¥´¥ê¤Î¥ê¥ó¥¯¿ô¤Î¹¹¿·');
-    define('_AM_WEBLINKS_CAT_COUNT_UPDATED', '¥«¥Æ¥´¥ê¤Î¥ê¥ó¥¯¿ô¤ò¹¹¿·¤·¤¿');
+    define('_AM_WEBLINKS_UPDATE_CAT_PATH', 'ï¿½Ñ¥ï¿½ï¿½ï¿½ï¿½Ä¥ê¡¼ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_UPDATE_CAT_COUNT', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¿ï¿½ï¿½Î¹ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_COUNT_UPDATED', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¿ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // config
-    define('_AM_WEBLINKS_SYSTEM_POST_LINK', '¥ê¥ó¥¯ÅÐÏ¿»þ¤ÎÅê¹Æ¿ô');
-    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥ê¥ó¥¯¤òÅÐÏ¿¤·¤¿¤È¤­¤Ë¡¢XOOPS¥æ¡¼¥¶¤ÎÅê¹Æ¿ô¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤·¤Þ¤¹¡£');
-    define('_AM_WEBLINKS_SYSTEM_POST_RATE', 'É¾²Á»þ¤ÎÅê¹Æ¿ô');
-    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />É¾²Á¤ò¤·¤¿¤È¤­¤Ë¡¢XOOPS¥æ¡¼¥¶¤ÎÅê¹Æ¿ô¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤·¤Þ¤¹¡£');
+    define('_AM_WEBLINKS_SYSTEM_POST_LINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½');
+    define('_AM_WEBLINKS_SYSTEM_POST_LINK_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½XOOPSï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SYSTEM_POST_RATE', 'É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½');
+    define('_AM_WEBLINKS_SYSTEM_POST_RATE_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>É¾ï¿½ï¿½ï¿½ò¤·¤ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½XOOPSï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_VIEW_STYLE_CAT', '¥«¥Æ¥´¥ê¡¦¥Ú¡¼¥¸¤ÎÉ½¼¨·Á¼°');
-    define('_AM_WEBLINKS_VIEW_STYLE_MARK', '¤ª¤¹¤¹¤á¥µ¥¤¥È¡¦¥Ú¡¼¥¸¤ÎÉ½¼¨·Á¼°');
-    define('_AM_WEBLINKS_VIEW_STYLE_MARK_DSC', '¤ª¤¹¤¹¤á¥µ¥¤¥È¡¢Áê¸ß¥ê¥ó¥¯¥µ¥¤¥È¡¢RSS/ATOM ÂÐ±þ¥µ¥¤¥È ¤ËÅ¬ÍÑ¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_VIEW_STYLE_0', '³µÍ×');
-    define('_AM_WEBLINKS_VIEW_STYLE_1', '¾ÜºÙ');
+    define('_AM_WEBLINKS_VIEW_STYLE_CAT', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¦ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_STYLE_MARK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¥µï¿½ï¿½ï¿½È¡ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_STYLE_MARK_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¥µï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ß¥ï¿½ó¥¯¥ï¿½ï¿½ï¿½ï¿½È¡ï¿½RSS/ATOM ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¬ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_STYLE_0', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_STYLE_1', 'ï¿½Üºï¿½');
 
-    define('_AM_WEBLINKS_CONF_PERFORMANCE', 'À­Ç½¸þ¾å');
-    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-           'À­Ç½¸þ¾å¤Î¤¿¤á¤Ë¡¢É½¼¨¤¹¤ë¤È¤­¤ËÉ¬Í×¤Ê¾ðÊó¤ò»öÁ°¤Ë·×»»¤·¡¢¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë³ÊÇ¼¤·¤Þ¤¹<br />½é¤á¤Æ»ÈÍÑ¤¹¤ë¤È¤­¤Ï¡¢¡Ö¥«¥Æ¥´¥ê°ìÍ÷¡×->¡Ö¥Ñ¥¹¡¦¥Ä¥ê¡¼¾ðÊó¤Î¹¹¿·¡×¤ò¼Â¹Ô¤¹¤ë¤³¤È');
-    define('_AM_WEBLINKS_CAT_PATH', '¥«¥Æ¥´¥ê¤Î¥Ñ¥¹¡¦¥Ä¥ê¡¼¾ðÊó');
-    define('_AM_WEBLINKS_CAT_PATH_DSC',
-           '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥«¥Æ¥´¥ê¤Î¥Ñ¥¹¡¦¥Ä¥ê¡¼¾ðÊó¤ò»öÁ°¤Ë·×»»¤·¡¢¥«¥Æ¥´¥ê¡¦¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤·¤Þ¤¹¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />É½¼¨¤¹¤ë¤È¤­¤Ë·×»»¤·¤Þ¤¹¡£');
-    define('_AM_WEBLINKS_CAT_COUNT', '¥«¥Æ¥´¥ê¤Î¥ê¥ó¥¯¿ô');
-    define('_AM_WEBLINKS_CAT_COUNT_DSC',
-           '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥«¥Æ¥´¥êËè¤Î¥ê¥ó¥¯¿ô¤ò»öÁ°¤Ë·×»»¤·¡¢¥«¥Æ¥´¥ê¡¦¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤·¤Þ¤¹¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />É½¼¨¤¹¤ë¤È¤­¤Ë·×»»¤·¤Þ¤¹¡£');
+    define('_AM_WEBLINKS_CONF_PERFORMANCE', 'ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
+        'ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½Î¤ï¿½ï¿½ï¿½Ë¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½É¬ï¿½×¤Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·×»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½Æ»ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->ï¿½Ö¥Ñ¥ï¿½ï¿½ï¿½ï¿½Ä¥ê¡¼ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ï¿½×¤ï¿½Â¹Ô¤ï¿½ï¿½ë¤³ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_CAT_PATH', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥Ñ¥ï¿½ï¿½ï¿½ï¿½Ä¥ê¡¼ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_CAT_PATH_DSC',
+        'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥Ñ¥ï¿½ï¿½ï¿½ï¿½Ä¥ê¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·×»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¦ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë·×»ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_CAT_COUNT', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¿ï¿½');
+    define(
+        '_AM_WEBLINKS_CAT_COUNT_DSC',
+        'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·×»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¦ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë·×»ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½'
+    );
 
-    define('_AM_WEBLINKS_POST_TEXT_4', '´ÉÍý¼Ô¤ÎÅê¹Æ²èÌÌ¤Ë¤ÏÁ´¤Æ¤Î¹àÌÜ¤¬É½¼¨¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_LINK_REGISTER_1', '¥ê¥ó¥¯ÅÐÏ¿: textarea1 ¤ÎÀßÄê');
+    define('_AM_WEBLINKS_POST_TEXT_4', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Æ²ï¿½ï¿½Ì¤Ë¤ï¿½ï¿½ï¿½ï¿½Æ¤Î¹ï¿½ï¿½Ü¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LINK_REGISTER_1', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿: textarea1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CONF_LINK_GUEST', '¥²¥¹¥È¤Î¥ê¥ó¥¯ÅÐÏ¿¹àÌÜ¤ÎÀßÄê');
-    define('_AM_WEBLINKS_USE_CAPTCHA', 'CAPTCHA (²èÁüÇ§¾Ú) ¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_USE_CAPTCHA_DSC',
-           'CAPTCHA ¤Ï²èÁüÇ§¾Ú¤Ë¤è¤ë¥¹¥Ñ¥àÂÐºö¤Ç¤¹¡£<br />»ÈÍÑ¤¹¤ë¤Ë¤Ï¡¢Captcha ¥â¥¸¥å¡¼¥ë¤¬É¬Í×¤Ç¤¹¡£<br />¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br /><b>¥²¥¹¥È</b> ¤Î¤È¤­¤Ï¥ê¥ó¥¯¤ÎÅÐÏ¿¤ÈÊÑ¹¹»þ¤Ë CAPTCHA ¤ò»ÈÍÑ¤·¤Þ¤¹¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />CAPTCHA Íó¤ÏÉ½¼¨¤µ¤ì¤Ê¤¤¡£');
-    define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha ¥â¥¸¥å¡¼¥ë ver %s ¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
-    define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha ¥â¥¸¥å¡¼¥ë¤Ï¸«¤Ä¤«¤ê¤Þ¤»¤ó');
+    define('_AM_WEBLINKS_CONF_LINK_GUEST', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_CAPTCHA', 'CAPTCHA (ï¿½ï¿½ï¿½ï¿½Ç§ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
+        'CAPTCHA ï¿½Ï²ï¿½ï¿½ï¿½Ç§ï¿½Ú¤Ë¤ï¿½ë¥¹ï¿½Ñ¥ï¿½ï¿½Ðºï¿½ï¿½Ç¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½Ë¤Ï¡ï¿½Captcha ï¿½â¥¸ï¿½å¡¼ï¿½ë¤¬É¬ï¿½×¤Ç¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br><b>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</b> ï¿½Î¤È¤ï¿½ï¿½Ï¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ CAPTCHA ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>CAPTCHA ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ ver %s ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Ï¸ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CONF_SUBMIT', 'ÅÐÏ¿¥Õ¥©¡¼¥à¤ÎÀâÌÀ');
-    define('_AM_WEBLINKS_SUBMIT_MAIN', '¿·µ¬ÅÐÏ¿¤ÎÀâÌÀ£±');
-    define('_AM_WEBLINKS_SUBMIT_PENDING', '¿·µ¬ÅÐÏ¿¤ÎÀâÌÀ£²');
-    define('_AM_WEBLINKS_SUBMIT_DOUBLE', '¿·µ¬ÅÐÏ¿¤ÎÀâÌÀ£³');
-    define('_AM_WEBLINKS_SUBMIT_MAIN_DSC', '¾ï¤ËÉ½¼¨¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', '¡Ö´ÉÍý¼Ô¤¬¾µÇ§¤¹¤ë¡×¥â¡¼¥É¤Î¤È¤­¤ËÉ½¼¨¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', '¡ÖÆ±¤¸¥ê¥ó¥¯Àè¤ÎÅÐÏ¿¤ò¥Á¥§¥Ã¥¯¤¹¤ë¡×¥â¡¼¥É¤Î¤È¤­¤ËÉ½¼¨¤µ¤ì¤ë');
+    define('_AM_WEBLINKS_CONF_SUBMIT', 'ï¿½ï¿½Ï¿ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_MAIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_PENDING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_DOUBLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_MAIN_DSC', 'ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_PENDING_DSC', 'ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½×¥â¡¼ï¿½É¤Î¤È¤ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBMIT_DOUBLE_DSC', 'ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½×¥â¡¼ï¿½É¤Î¤È¤ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_MODLINK_MAIN', '¥ê¥ó¥¯ÊÑ¹¹¤ÎÀâÌÀ£±');
-    define('_AM_WEBLINKS_MODLINK_PENDING', '¥ê¥ó¥¯ÊÑ¹¹¤ÎÀâÌÀ£²');
-    define('_AM_WEBLINKS_MODLINK_NOT_OWNER', '¥ê¥ó¥¯ÊÑ¹¹¤ÎÀâÌÀ£³');
-    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', '¡Ö´ÉÍý¼Ô¤¬¾µÇ§¤¹¤ë¡×¥â¡¼¥É¤Ç¡¢Åê¹Æ¼Ô¤Ç¤Ê¤¤¤È¤­¤Ë¡¢É½¼¨¤µ¤ì¤ë');
+    define('_AM_WEBLINKS_MODLINK_MAIN', 'ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODLINK_PENDING', 'ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODLINK_NOT_OWNER', 'ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODLINK_NOT_OWNER_DSC', 'ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½×¥â¡¼ï¿½É¤Ç¡ï¿½ï¿½ï¿½Æ¼Ô¤Ç¤Ê¤ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CONF_CAT_FORUM', '¥«¥Æ¥´¥ê¤Î¥Õ¥©¡¼¥é¥àÉ½¼¨');
-    define('_AM_WEBLINKS_CONF_LINK_FORUM', '¥ê¥ó¥¯¤Î¥Õ¥©¡¼¥é¥àÉ½¼¨');
-    //define('_AM_WEBLINKS_FORUM_SEL', '¥Õ¥©¡¼¥é¥à¡¦¥â¥¸¥å¡¼¥ë¤ÎÁªÂò');
-    define('_AM_WEBLINKS_FORUM_THREAD_LIMIT', 'É½¼¨¤¹¤ë¥¹¥ì¥Ã¥É¿ô');
-    define('_AM_WEBLINKS_FORUM_POST_LIMIT', 'É½¼¨¤¹¤ë¥¹¥ì¥Ã¥ÉËè¤ÎÅê¹Æ¿ô');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER', 'Åê¹Æ¤ÎÊÂ¤Ó½ç');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'Åê¹ÆÆü¤Î¸Å¤¤½ç');
-    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'Åê¹ÆÆü¤Î¿·¤·¤¤½ç');
-    //define('_AM_WEBLINKS_FORUM_INSTALLED',     '¥Õ¥©¡¼¥é¥à¡¦¥â¥¸¥å¡¼¥ë ( %s ) ver %s ¤Ï¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤ë');
-    //define('_AM_WEBLINKS_FORUM_NOT_INSTALLED', '¥Õ¥©¡¼¥é¥à¡¦¥â¥¸¥å¡¼¥ë ( %s ) ¤Ï¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤Ê¤¤');
+    define('_AM_WEBLINKS_CONF_CAT_FORUM', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_LINK_FORUM', 'ï¿½ï¿½ó¥¯¤Î¥Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_FORUM_SEL', 'ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½à¡¦ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_FORUM_THREAD_LIMIT', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥¹ï¿½ï¿½Ã¥É¿ï¿½');
+    define('_AM_WEBLINKS_FORUM_POST_LIMIT', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥¹ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER', 'ï¿½ï¿½Æ¤ï¿½ï¿½Â¤Ó½ï¿½');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_0', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¸Å¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_FORUM_POST_ORDER_1', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_FORUM_INSTALLED',     'ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½à¡¦ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ ( %s ) ver %s ï¿½Ï¥ï¿½ï¿½ó¥¹¥È¡ï¿½ï¿½ë¤µï¿½ï¿½Æ¤ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_FORUM_NOT_INSTALLED', 'ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½à¡¦ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ ( %s ) ï¿½Ï¥ï¿½ï¿½ó¥¹¥È¡ï¿½ï¿½ë¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
 
     // === 2007-03-25 ===
-    define('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE', '¥«¥Æ¥´¥ê¤Î²èÁü¥µ¥¤¥º¤Î¹¹¿·');
+    define('_AM_WEBLINKS_UPDATE_CAT_IMAGE_SIZE', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CONF_INDEX', '¥È¥Ã¥×¥Ú¡¼¥¸¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'Google Map ¥â¡¼¥É');
+    define('_AM_WEBLINKS_CONF_INDEX', 'ï¿½È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_INDEX_GM_MODE', 'Google Map ï¿½â¡¼ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CAT_SHOW_GM', 'Google Map ¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_MODE_NON', 'É½¼¨¤·¤Ê¤¤');
-    define('_AM_WEBLINKS_MODE_DEFAULT', '¥Ç¥Õ¥©¥ë¥È¤ÎÀßÄêÃÍ');
-    define('_AM_WEBLINKS_MODE_PARENT', '¿Æ¥«¥Æ¥´¥ê¤ÈÆ±¤¸');
-    define('_AM_WEBLINKS_MODE_FOLLOWING', '²¼µ­¤ÎÀßÄêÃÍ');
+    define('_AM_WEBLINKS_CAT_SHOW_GM', 'Google Map ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_NON', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_MODE_DEFAULT', 'ï¿½Ç¥Õ¥ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_PARENT', 'ï¿½Æ¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_FOLLOWING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CONF_CAT_ALBUM', '¥«¥Æ¥´¥ê¤Î¥¢¥ë¥Ð¥àÉ½¼¨');
-    define('_AM_WEBLINKS_CONF_LINK_ALBUM', '¥ê¥ó¥¯¤Î¥¢¥ë¥Ð¥àÉ½¼¨');
-    //define('_AM_WEBLINKS_ALBUM_SEL', '¥¢¥ë¥Ð¥à¡¦¥â¥¸¥å¡¼¥ë¤ÎÁªÂò');
-    define('_AM_WEBLINKS_ALBUM_LIMIT', 'É½¼¨¤¹¤ë¼Ì¿¿¤Î¿ô');
-    define('_AM_WEBLINKS_WHEN_OMIT', '¾ÊÎ¬»þ¤Î½èÍý');
-    define('_AM_WEBLINKS_MODULE_INSTALLED', '%s ¥â¥¸¥å¡¼¥ë ( %s ) ver %s ¤Ï¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤ë');
-    define('_AM_WEBLINKS_MODULE_NOT_INSTALLED', '%s ¥â¥¸¥å¡¼¥ë ( %s ) ¤Ï¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤Ê¤¤');
+    define('_AM_WEBLINKS_CONF_CAT_ALBUM', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½Ð¥ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_LINK_ALBUM', 'ï¿½ï¿½ó¥¯¤Î¥ï¿½ï¿½ï¿½Ð¥ï¿½É½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_ALBUM_SEL', 'ï¿½ï¿½ï¿½ï¿½Ð¥à¡¦ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_ALBUM_LIMIT', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½Î¿ï¿½');
+    define('_AM_WEBLINKS_WHEN_OMIT', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODULE_INSTALLED', '%s ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ ( %s ) ver %s ï¿½Ï¥ï¿½ï¿½ó¥¹¥È¡ï¿½ï¿½ë¤µï¿½ï¿½Æ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODULE_NOT_INSTALLED', '%s ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ ( %s ) ï¿½Ï¥ï¿½ï¿½ó¥¹¥È¡ï¿½ï¿½ë¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
 
     // === 2007-04-08 ===
-    define('_AM_WEBLINKS_CAT_DESC_MODE', 'ÀâÌÀ¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_CAT_SHOW_FORUM', '¥Õ¥©¡¼¥é¥à¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_CAT_SHOW_ALBUM', '¥¢¥ë¥Ð¥à¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_MODE_SETTING', 'ÀßÄê¤·¤¿ÆâÍÆ');
-    define('_AM_WEBLINKS_MODE_OMIT_PARENT', '¾ÊÎ¬»þ¤Ï¿Æ¥«¥Æ¥´¥ê¤ÈÆ±¤¸');
+    define('_AM_WEBLINKS_CAT_DESC_MODE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_SHOW_FORUM', 'ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_SHOW_ALBUM', 'ï¿½ï¿½ï¿½ï¿½Ð¥ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_SETTING', 'ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_OMIT_PARENT', 'ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ï¿Æ¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½');
 
     // === 2007-06-10 ===
     // d3forum
-    define('_AM_WEBLINKS_CONF_D3FORUM', 'd3forum ¥â¥¸¥å¡¼¥ë¤Î¥³¥á¥ó¥ÈÅý¹ç');
-    define('_AM_WEBLINKS_PLUGIN_SEL', '¥×¥é¥°¥¤¥ó¤ÎÁªÂò');
-    define('_AM_WEBLINKS_DIRNAME_SEL', '¥â¥¸¥å¡¼¥ë¤ÎÁªÂò');
-    define('_AM_WEBLINKS_D3FORUM_VIEW', '¥³¥á¥ó¥È¤ÎÉ½¼¨ÊýË¡');
+    define('_AM_WEBLINKS_CONF_D3FORUM', 'd3forum ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_PLUGIN_SEL', 'ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_DIRNAME_SEL', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_D3FORUM_VIEW', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½É½ï¿½ï¿½ï¿½ï¿½Ë¡');
 
     // category
-    define('_AM_WEBLINKS_CAT_PATH_STYLE', '¥«¥Æ¥´¥ê¥Ñ¥¹¤ÎÉ½¼¨·Á¼°');
+    define('_AM_WEBLINKS_CAT_PATH_STYLE', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ñ¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // category page
-    define('_AM_WEBLINKS_CONF_CAT_PAGE', '¥«¥Æ¥´¥ê¤Ú¡¼¥¸¤ÎÀßÄê');
-    define('_AM_WEBLINKS_CAT_COLS', '¥«¥Æ¥´¥êÉ½¼¨¤Î²£¤ÎÎó¿ô');
-    define('_AM_WEBLINKS_CAT_COLS_DESC', '¥«¥Æ¥´¥ê¥Ú¡¼¥¸¤Ë¤ª¤¤¤Æ¡¢£±¤Ä²¼¤Î¥«¥Æ¥´¥ê¤òÉ½¼¨¤¹¤ë¤È¤­¤Î¡¢²£¤ÎÎó¿ô (column) ¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_CAT_SUB_MODE', '¥µ¥Ö¥«¥Æ¥´¥ê¤ÎÉ½¼¨ÈÏ°Ï');
-    define('_AM_WEBLINKS_CAT_SUB_MODE_1', '£±¤Ä²¼¤Î¥«¥Æ¥´¥ê¤Î¤ß');
-    define('_AM_WEBLINKS_CAT_SUB_MODE_2', '£²¤Ä²¼°Ê¹ß¤Î¥«¥Æ¥´¥ê¤ò´Þ¤á¤ë');
+    define('_AM_WEBLINKS_CONF_CAT_PAGE', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_COLS', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_COLS_DESC', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (column) ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_SUB_MODE', 'ï¿½ï¿½ï¿½Ö¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Ï°ï¿½');
+    define('_AM_WEBLINKS_CAT_SUB_MODE_1', 'ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¤ï¿½');
+    define('_AM_WEBLINKS_CAT_SUB_MODE_2', 'ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Ê¹ß¤Î¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½');
 
     // === 2007-07-14 ===
     // highlight
-    define('_AM_WEBLINKS_USE_HIGHLIGHT', '¥­¡¼¥ï¡¼¥É¡¦¥Ï¥¤¥é¥¤¥È¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_CHECK_MAIL', '¥á¡¼¥ë¤Î·Á¼°¤ò¥Á¥§¥Ã¥¯¤¹¤ë');
-    define('_AM_WEBLINKS_CHECK_MAIL_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢ÅÐÏ¿¤¹¤ë¥á¡¼¥ë¥¢¥É¥ì¥¹¤¬ abc@efg.com ¤Î¤è¤¦¤Ê·Á¼°¤Ç¤¢¤ë¤«¥Á¥§¥Ã¥¯¤·¤Þ¤¹¡£');
-    //define('_AM_WEBLINKS_NO_EMAIL', '¥á¡¼¥ë¥¢¥É¥ì¥¹¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤¤');
+    define('_AM_WEBLINKS_USE_HIGHLIGHT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½É¡ï¿½ï¿½Ï¥ï¿½ï¿½é¥¤ï¿½È¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CHECK_MAIL', 'ï¿½á¡¼ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CHECK_MAIL_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½ï¿½ abc@efg.com ï¿½Î¤è¤¦ï¿½Ê·ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ë¤«ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_NO_EMAIL', 'ï¿½á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
 
     // === 2007-08-01 ===
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_0', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_0', 'ÌÜ¼¡');
-    define('_AM_WEBLINKS_MODULE_CONFIG_5', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£µ');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_5', '¥ê¥ó¥¯ÅÐÏ¿¹àÌÜ');
-    define('_AM_WEBLINKS_MODULE_CONFIG_6', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£¶');
+    define('_AM_WEBLINKS_MODULE_CONFIG_0', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_0', 'ï¿½Ü¼ï¿½');
+    define('_AM_WEBLINKS_MODULE_CONFIG_5', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£µ');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_5', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODULE_CONFIG_6', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£¶');
     define('_AM_WEBLINKS_MODULE_CONFIG_DESC_6', 'Google Map');
 
     // google map
-    define('_AM_WEBLINKS_GM_MAP_CONT', '¥Þ¥Ã¥×¡¦¥³¥ó¥È¥í¡¼¥ë');
+    define('_AM_WEBLINKS_GM_MAP_CONT', 'ï¿½Þ¥Ã¥×¡ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_GM_MAP_CONT_DESC', 'GLargeMapControl, GSmallMapControl, GSmallZoomControl');
-    define('_AM_WEBLINKS_GM_MAP_CONT_NON', 'É½¼¨¤·¤Ê¤¤');
-    define('_AM_WEBLINKS_GM_MAP_CONT_LARGE', 'Âç¤­¤¤¥³¥ó¥È¥í¡¼¥ë: Large');
-    define('_AM_WEBLINKS_GM_MAP_CONT_SMALL', '¾®¤µ¤¤¥³¥ó¥È¥í¡¼¥ë: Small');
-    define('_AM_WEBLINKS_GM_MAP_CONT_ZOOM', '¥º¡¼¥à: Zoom');
-    define('_AM_WEBLINKS_GM_USE_TYPE_CONT', 'ÃÏ¿Þ·Á¼°¥Ü¥¿¥ó¤ò»ÈÍÑ¤¹¤ë');
+    define('_AM_WEBLINKS_GM_MAP_CONT_NON', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_GM_MAP_CONT_LARGE', 'ï¿½ç¤­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½: Large');
+    define('_AM_WEBLINKS_GM_MAP_CONT_SMALL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½: Small');
+    define('_AM_WEBLINKS_GM_MAP_CONT_ZOOM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: Zoom');
+    define('_AM_WEBLINKS_GM_USE_TYPE_CONT', 'ï¿½Ï¿Þ·ï¿½ï¿½ï¿½ï¿½Ü¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_GM_USE_TYPE_CONT_DESC', 'GMapTypeControl');
-    define('_AM_WEBLINKS_GM_USE_SCALE_CONT', 'µ÷Î¥É½¼¨¤ò»ÈÍÑ¤¹¤ë');
+    define('_AM_WEBLINKS_GM_USE_SCALE_CONT', 'ï¿½ï¿½Î¥É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_GM_USE_SCALE_CONT_DESC', 'GScaleControl');
-    define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT', '±¦²¼¤Î¾®¤µ¤¤ÃÏ¿Þ¤ò»ÈÍÑ¤¹¤ë');
+    define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT', 'ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿Þ¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT_DESC', 'GOverviewMapControl');
-    define('_AM_WEBLINKS_GM_MAP_TYPE', '[¸¡º÷] ÃÏ¿Þ¤Î·Á¼°');
+    define('_AM_WEBLINKS_GM_MAP_TYPE', '[ï¿½ï¿½ï¿½ï¿½] ï¿½Ï¿Þ¤Î·ï¿½ï¿½ï¿½');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[¸¡º÷] ¥¸¥ª¥³¡¼¥É¤Î¼ïÎà');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', '½»½ê¤«¤é°ÞÅÙ¡¦·ÐÅÙ¤ò¸¡º÷¤¹¤ë<br /><b>Ã±°ì¤Î¸¡º÷</b><br />GClientGeocoder - getLatLng<br /><b>Ê£¿ô¤Î¸¡º÷</b><br />GClientGeocoder - getLocations');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Ã±°ì¤Î¸¡º÷: getLatLng');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Ê£¿ô¤Î¸¡º÷: getLocations');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[¸¡º÷][ÆüËÜ] ÅìµþÂç³Ø CSIS ¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC',
-           'ÆüËÜ¤Ç¤Î¤ßÍ­¸ú<br />½»½ê¤«¤é°ÞÅÙ¡¦·ÐÅÙ¤ò¸¡º÷¤¹¤ë<br /><a href="http://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">ÅìµþÂç³Ø ¥·¥ó¥×¥ë¥¸¥ª¥³¡¼¥Ç¥£¥ó¥°¼Â¸³</a>');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[¸¡º÷][ÆüËÜ] µÕ¥¸¥ª¥³¡¼¥É¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-           'ÆüËÜ¤Ç¤Î¤ßÍ­¸ú<br />°ÞÅÙ¡¦·ÐÅÙ¤«¤é½»½ê¤ò¸¡º÷¤¹¤ë<br /><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] ¥¿¥¤¥È¥ë¤ÎÊ¸»ú¿ô');
-    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', '¥Þ¡¼¥«¡¼¤ËÉ½¼¨¤¹¤ë¥¿¥¤¥È¥ë¤ÎÊ¸»ú¿ô<br /><b>-1</b> ¤ÏÀ©¸Â¤Ê¤·');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] ËÜÊ¸¤ÎÊ¸»ú¿ô');
-    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', '¥Þ¡¼¥«¡¼¤ËÉ½¼¨¤¹¤ëËÜÊ¸¤ÎÊ¸»ú¿ô<br /><b>-1</b> ¤ÏÀ©¸Â¤Ê¤·');
-    define('_AM_WEBLINKS_GM_WORDWRAP', '[Marker] ËÜÊ¸¤Î£±¹Ô¤ÎÊ¸»ú¿ô');
-    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', '¥Þ¡¼¥«¡¼¤ËÉ½¼¨¤¹¤ëËÜÊ¸¤Î£±¹Ô¤¢¤¿¤ê (wordwrap) ¤ÎÊ¸»ú¿ô<br /><b>-1</b> ¤ÏÀ©¸Â¤Ê¤·');
-    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Marker] Ãæ¿´¥Þ¡¼¥«¡¼¤òÉ½¼¨¤¹¤ë');
-    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', '¥È¥Ã¥×¥Ú¡¼¥¸¤È¥«¥Æ¥´¥ê¤Ú¡¼¥¸¤Ë¤Æ¡¢Ãæ¿´°ÌÃÖ¤Ë¥Þ¡¼¥«¡¼¤òÉ½¼¨¤¹¤ë');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤Î¼ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'ï¿½ï¿½ï¿½ê¤«ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ò¸¡ºï¿½ï¿½ï¿½ï¿½ï¿½<br><b>Ã±ï¿½ï¿½Î¸ï¿½ï¿½ï¿½</b><br>GClientGeocoder - getLatLng<br><b>Ê£ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½</b><br>GClientGeocoder - getLocations');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Ã±ï¿½ï¿½Î¸ï¿½ï¿½ï¿½: getLatLng');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Ê£ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½: getLocations');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[ï¿½ï¿½ï¿½ï¿½][ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CSIS ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC',
+        'ï¿½ï¿½ï¿½Ü¤Ç¤Î¤ï¿½Í­ï¿½ï¿½<br>ï¿½ï¿½ï¿½ê¤«ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ò¸¡ºï¿½ï¿½ï¿½ï¿½ï¿½<br><a href="https://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×¥ë¥¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ó¥°¼Â¸ï¿½</a>'
+    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[ï¿½ï¿½ï¿½ï¿½][ï¿½ï¿½ï¿½ï¿½] ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
+        'ï¿½ï¿½ï¿½Ü¤Ç¤Î¤ï¿½Í­ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ï¿½ï¿½é½»ï¿½ï¿½ò¸¡ºï¿½ï¿½ï¿½ï¿½ï¿½<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
+    );
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥¿ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½<br><b>-1</b> ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] ï¿½ï¿½Ê¸ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GM_DESC_LENGTH_DESC', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½<br><b>-1</b> ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½');
+    define('_AM_WEBLINKS_GM_WORDWRAP', '[Marker] ï¿½ï¿½Ê¸ï¿½Î£ï¿½ï¿½Ô¤ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GM_WORDWRAP_DESC', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½Î£ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ (wordwrap) ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½<br><b>-1</b> ï¿½ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½');
+    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER', '[Marker] ï¿½æ¿´ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GM_USE_CENTER_MARKER_DESC', 'ï¿½È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½Ë¤Æ¡ï¿½ï¿½æ¿´ï¿½ï¿½ï¿½Ö¤Ë¥Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // map jp
-    define('_AM_WEBLINKS_MAP_JP_MANAGE', 'ÆüËÜÃÏ¿Þ¤ÎÀßÄê');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿Þ¤ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // column
-    define('_AM_WEBLINKS_COLUMN_MANAGE', '¥«¥é¥à´ÉÍý');
-    define('_AM_WEBLINKS_COLUMN_MANAGE_DESC', 'link ¥Æ¡¼¥Ö¥ë¤È modify ¥Æ¡¼¥Ö¥ë¤Ë etc ¥«¥é¥à¤òÄÉ²Ã¤¹¤ë');
-    define('_AM_WEBLINKS_COLUMN_MANAGE_NOT_USE', '»ÈÍÑ¤Ç¤­¤Þ¤»¤ó');
-    define('_AM_WEBLINKS_THERE_ARE_COLUMN', 'link ¥Æ¡¼¥Ö¥ë¤Ë <b>%s</b> ·ï¤Î etc ¥«¥é¥à¤¬¤¢¤ê¤Þ¤¹');
-    define('_AM_WEBLINKS_COLUMN_NUM', 'ÄÉ²Ã¤¹¤ë etc ¥«¥é¥à¿ô');
-    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', '»ÈÍÑ¤¹¤ë etc ¥«¥é¥à¿ô¤¬ link ¥Æ¡¼¥Ö¥ë¤Î¥«¥é¥à¿ô¤è¤êÂ¿¤¤');
-    define('_AM_WEBLINKS_COLUMN_UNMATCH', 'link ¥Æ¡¼¥Ö¥ë¤È modify ¥Æ¡¼¥Ö¥ë¤Î¥«¥é¥à¤¬°ìÃ×¤·¤Ê¤¤');
-    define('_AM_WEBLINKS_PHPMYADMIN', 'phpMyAdmin ¤Ê¤É¤Î´ÉÍý¥Ä¡¼¥ë¤Ç½¤Àµ¤·¤Æ¤¯¤À¤µ¤¤');
-    define('_AM_WEBLINKS_LINK_NUM_ETC', '»ÈÍÑ¤¹¤ë etc ¥«¥é¥à¿ô');
+    define('_AM_WEBLINKS_COLUMN_MANAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_COLUMN_MANAGE_DESC', 'link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ modify ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ etc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É²Ã¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_COLUMN_MANAGE_NOT_USE', 'ï¿½ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_THERE_ARE_COLUMN', 'link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ <b>%s</b> ï¿½ï¿½ï¿½ etc ï¿½ï¿½ï¿½ï¿½à¤¬ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_COLUMN_NUM', 'ï¿½É²Ã¤ï¿½ï¿½ï¿½ etc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_COLUMN_BIGGER_USE', 'ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ etc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½');
+    define('_AM_WEBLINKS_COLUMN_UNMATCH', 'link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ modify ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Î¥ï¿½ï¿½ï¿½à¤¬ï¿½ï¿½ï¿½×¤ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_PHPMYADMIN', 'phpMyAdmin ï¿½Ê¤É¤Î´ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LINK_NUM_ETC', 'ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ etc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // latest
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST', '¿·Ãå¥µ¥¤¥È¤ÎÊÂ¤Ó½ç');
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST_UPDATE', '¹¹¿·Æü¤Î¿·¤·¤¤½ç');
-    define('_AM_WEBLINKS_INDEX_MODE_LATEST_CREATE', 'ÅÐÏ¿Æü¤Î¿·¤·¤¤½ç');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST', 'ï¿½ï¿½ï¿½å¥µï¿½ï¿½ï¿½È¤ï¿½ï¿½Â¤Ó½ï¿½');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST_UPDATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_INDEX_MODE_LATEST_CREATE', 'ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // header
-    define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML É½µ­¤Ë´Ø¤¹¤ëÀßÄê');
-    define('_AM_WEBLINKS_HEADER_MODE', 'xoops module header ¤ò»ÈÍÑ¤¹¤ë');
-    define('_AM_WEBLINKS_HEADER_MODE_DESC',
-           '¡Ö¤¤¤¤¤¨¡×¤Î¤È¤­¤Ï¡¢¥¹¥¿¥¤¥ë¥·¡¼¥È¤È Javascript ¤Î»ØÄê¤ò body ¥¿¥°Æâ¤ËÉ½¼¨¤·¤Þ¤¹<br />¡Ö¤Ï¤¤¡×¤Î¤È¤­¤Ï¡¢xoops module header ¤ò»ÈÍÑ¤·¤Æ¡¢header ¥¿¥°Æâ¤ËÉ½¼¨¤·¤Þ¤¹<br />¥Æ¡¼¥Þ¤Ë¤è¤Ã¤Æ¤Ï»ÈÍÑ¤Ç¤­¤Ê¤¤¤â¤Î¤¬¤¢¤ê¤Þ¤¹');
+    define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML É½ï¿½ï¿½ï¿½Ë´Ø¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_HEADER_MODE', 'xoops module header ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_HEADER_MODE_DESC',
+        'ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¥·ï¿½ï¿½ï¿½È¤ï¿½ Javascript ï¿½Î»ï¿½ï¿½ï¿½ï¿½ body ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½Ö¤Ï¤ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½xoops module header ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Æ¡ï¿½header ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½Æ¡ï¿½ï¿½Þ¤Ë¤ï¿½Ã¤Æ¤Ï»ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½'
+    );
 
     // bulk
-    define('_AM_WEBLINKS_BULK_SAMPLE', '[¸«ËÜ]¤ò¥¯¥ê¥Ã¥¯¤¹¤ë¤È¡¢¸«ËÜ¤¬¸«¤ì¤Þ¤¹');
-    define('_AM_WEBLINKS_BULK_LINK_DSC10', 'ÅÐÏ¿¹àÌÜ¤Ï¸ÇÄê');
-    define('_AM_WEBLINKS_BULK_LINK_DSC20', '´ÉÍý¼Ô¤¬ÅÐÏ¿¹àÌÜ¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_LINK_DSC21', 'Âè£±ÃÊÍî');
-    define('_AM_WEBLINKS_BULK_LINK_DSC22', 'Âè£²ÃÊÍî °Ê¹ß');
-    define('_AM_WEBLINKS_BULK_LINK_DSC23', '£±¹ÔÌÜ¤Ë¡¢ÅÐÏ¿¹àÌÜÌ¾ ¤òµ­½Ò¤¹¤ë<br />²£ËÀ(---)¤Ç¶èÀÚ¤ë');
-    define('_AM_WEBLINKS_BULK_LINK_DSC24', '£²¹ÔÌÜ°Ê¹ß¤Ë¡¢Âè£±ÃÊÍî¤Ç»ØÄê¤·¤¿½çÈÖ¤Ë¡¢ÅÐÏ¿ÆâÍÆ¤ò¥«¥ó¥Þ(,)¤Ç¶èÀÚ¤Ã¤Æµ­½Ò¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_CHECK_URL', 'URL¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤«¸¡ºº¤¹¤ë');
-    define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'ÀâÌÀÊ¸¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤«¸¡ºº¤¹¤ë');
+    define('_AM_WEBLINKS_BULK_SAMPLE', '[ï¿½ï¿½ï¿½ï¿½]ï¿½ò¥¯¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC10', 'ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤Ï¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC20', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC21', 'ï¿½è£±ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC22', 'ï¿½è£²ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC23', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ü¤Ë¡ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ì¾ ï¿½òµ­½Ò¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½(---)ï¿½Ç¶ï¿½ï¿½Ú¤ï¿½');
+    define('_AM_WEBLINKS_BULK_LINK_DSC24', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ü°Ê¹ß¤Ë¡ï¿½ï¿½è£±ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Ë¡ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Æ¤ò¥«¥ï¿½ï¿½(,)ï¿½Ç¶ï¿½ï¿½Ú¤Ã¤Æµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_CHECK_URL', 'URLï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½ë¤«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_CHECK_DESCRIPTION', 'ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½ë¤«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // === 2007-09-01 ===
     // auth
-    define('_AM_WEBLINKS_AUTH_DELETE', '¥ê¥ó¥¯ºï½ü¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DELETE_DSC', '¥ê¥ó¥¯¤òºï½ü¤¹¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
-    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', '¥ê¥ó¥¯ºï½ü¤Î¼«Æ°¾µÇ§¤Î¸¢¸Â');
-    define('_AM_WEBLINKS_AUTH_DELETE_AUTO_DSC', '¥ê¥ó¥¯¤òºï½ü¤·¤¿¤È¤­¤Ë¼«Æ°¾µÇ§¤µ¤ì¤ë¸¢¸Â¤òÍ¿¤¨¤é¤ì¤ë¥°¥ë¡¼¥×¤ò»ØÄê¤¹¤ë');
+    define('_AM_WEBLINKS_AUTH_DELETE', 'ï¿½ï¿½ó¥¯ºï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DELETE_DSC', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DELETE_AUTO', 'ï¿½ï¿½ó¥¯ºï¿½ï¿½ï¿½Î¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½Î¸ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_AUTH_DELETE_AUTO_DSC', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¼ï¿½Æ°ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ë¸¢ï¿½Â¤ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ë¥°ï¿½ë¡¼ï¿½×¤ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
 
     // nofitication
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE', '¥¤¥Ù¥ó¥ÈÄÌÃÎ¤ÎÀßÄê');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', '¥â¥¸¥å¡¼¥ë´ÉÍý¼Ô ÊÌ¤ÎÀßÄê¤Ç¤¹<br />¥â¥¸¥å¡¼¥ë¤Î¥È¥Ã¥×¥Ú¡¼¥¸¤ÈÆ±¤¸¤â¤Î¤Ç¤¹');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'XOOPS ¤Î¥Ð¡¼¥¸¥ç¥ó¤Ë¤è¤Ã¤Æ¤Ï»ÈÍÑ¤Ç¤­¤Þ¤»¤ó');
-    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', '¤½¤Î¾ì¹ç¤Ï¡¢¥â¥¸¥å¡¼¥ë¤Î¥È¥Ã¥×¥Ú¡¼¥¸¤ò»ÈÍÑ¤·¤Æ¤¯¤À¤µ¤¤');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯½¤Àµ°ÍÍê¤¬¾µÇ§¤µ¤ì¤Þ¤·¤¿');
-    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯½¤Àµ°ÍÍê¤¬µñÈÝ¤µ¤ì¤Þ¤·¤¿');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯ºï½ü°ÍÍê¤¬¾µÇ§¤µ¤ì¤Þ¤·¤¿');
-    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: ¥ê¥ó¥¯ºï½ü°ÍÍê¤¬µñÈÝ¤µ¤ì¤Þ¤·¤¿');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE', 'ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½ï¿½ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_DESC', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¤ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½<br>ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½Î¤Ç¤ï¿½');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_NOT_USE', 'XOOPS ï¿½Î¥Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½Ã¤Æ¤Ï»ï¿½ï¿½Ñ¤Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_NOTIFICATION_MANAGE_PLEASE', 'ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ï¡ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥È¥Ã¥×¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ó¥¯½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBJ_LINK_MOD_REFUSED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ó¥¯½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½ï¿½Ý¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ó¥¯ºï¿½ï¿½ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED', '[{X_SITENAME}] {X_MODULE}: ï¿½ï¿½ó¥¯ºï¿½ï¿½ï¿½ï¿½ï¿½ê¤¬ï¿½ï¿½ï¿½Ý¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
     // config
-    define('_AM_WEBLINKS_ADMIN_WAITING_SHOW', '´ÉÍý¼Ô¤Î¾µÇ§ÂÔ¤Á¥ê¥¹¥È¤òÉ½¼¨¤¹¤ë');
-    define('_AM_WEBLINKS_USER_WAITING_NUM', '¥æ¡¼¥¶¤Î¾µÇ§ÂÔ¤Á¥ê¥¹¥È¤Î·ï¿ô');
-    define('_AM_WEBLINKS_USER_OWNER_NUM', '¥æ¡¼¥¶¤ÎÅÐÏ¿¥ê¥¹¥È¤Î·ï¿ô');
-    define('_AM_WEBLINKS_USE_HITS_SINGLELINK', '¥ê¥ó¥¯¾ÜºÙ¤Î "¥Ò¥Ã¥È¿ô" ¤Î»ÈÍÑ');
-    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC',
-           '¡Ö¥¸¥ã¥ó¥×¤Î "¥Ò¥Ã¥È¿ô" ¤Î»ÈÍÑ¡×¤¬¡Ö¤Ï¤¤¡×¤Î¤È¤­¤ËÍ­¸ú<br />¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥ê¥ó¥¯¾ÜºÙ singlelink ¤òÉ½¼¨¤·¤¿¤È¤­¤Ë¡¢¥Ò¥Ã¥È¿ô ¤¬¥«¥¦¥ó¥È¥¢¥Ã¥×¤µ¤ì¤Þ¤¹');
-    define('_AM_WEBLINKS_MODE_RANDOM', '¥é¥ó¥À¥à¥¸¥ã¥ó¥×¤ÎÈô¤ÓÀè');
-    define('_AM_WEBLINKS_MODE_RANDOM_URL', 'ÅÐÏ¿¤µ¤ì¤¿¥µ¥¤¥È¤ÎURL');
-    define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', '¥â¥¸¥å¡¼¥ëÆâ¤Îsinglelink');
+    define('_AM_WEBLINKS_ADMIN_WAITING_SHOW', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤Î¾ï¿½Ç§ï¿½Ô¤ï¿½ï¿½ê¥¹ï¿½È¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_WAITING_NUM', 'ï¿½æ¡¼ï¿½ï¿½ï¿½Î¾ï¿½Ç§ï¿½Ô¤ï¿½ï¿½ê¥¹ï¿½È¤Î·ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_OWNER_NUM', 'ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ê¥¹ï¿½È¤Î·ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_HITS_SINGLELINK', 'ï¿½ï¿½ó¥¯¾ÜºÙ¤ï¿½ "ï¿½Ò¥Ã¥È¿ï¿½" ï¿½Î»ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC',
+        'ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½×¤ï¿½ "ï¿½Ò¥Ã¥È¿ï¿½" ï¿½Î»ï¿½ï¿½Ñ¡×¤ï¿½ï¿½Ö¤Ï¤ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½Í­ï¿½ï¿½<br>ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½ó¥¯¾Üºï¿½ singlelink ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½Ò¥Ã¥È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½ï¿½Þ¤ï¿½'
+    );
+    define('_AM_WEBLINKS_MODE_RANDOM', 'ï¿½ï¿½ï¿½ï¿½ï¿½à¥¸ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_MODE_RANDOM_URL', 'ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ì¤¿ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½URL');
+    define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½singlelink');
 
     // request list
-    define('_AM_WEBLINKS_DEL_REQS', '¾µÇ§ÂÔ¤Á¤Îºï½ü¥ê¥ó¥¯');
-    define('_AM_WEBLINKS_NO_DEL_REQ', '¥ê¥ó¥¯ºï½ü¥ê¥¯¥¨¥¹¥È¤Ï¤¢¤ê¤Þ¤»¤ó');
-    define('_AM_WEBLINKS_DEL_REQ_DELETED', 'ºï½ü¥ê¥¯¥¨¥¹¥È¤òºï½ü¤·¤Þ¤·¤¿');
+    define('_AM_WEBLINKS_DEL_REQS', 'ï¿½ï¿½Ç§ï¿½Ô¤ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_NO_DEL_REQ', 'ï¿½ï¿½ó¥¯ºï¿½ï¿½ï¿½ê¥¯ï¿½ï¿½ï¿½ï¿½ï¿½È¤Ï¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_DEL_REQ_DELETED', 'ï¿½ï¿½ï¿½ï¿½ê¥¯ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
     // link list
-    define('_AM_WEBLINKS_LINK_USERCOMMENT_DESC', '´ÉÍý¼Ô°¸¥³¥á¥ó¥È¤Î¤¢¤ë¥ê¥ó¥¯°ìÍ÷ (IDµÕ½ç)');
+    define('_AM_WEBLINKS_LINK_USERCOMMENT_DESC', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¤ï¿½ï¿½ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½ (IDï¿½Õ½ï¿½)');
 
     // clone
-    define('_AM_WEBLINKS_CLONE_LINK', '¥ê¥ó¥¯¤ÎÊ£À½');
-    define('_AM_WEBLINKS_CLONE_MODULE', 'Â¾¤Î¥â¥¸¥å¡¼¥ë¤Ø¤Î¥ê¥ó¥¯¤ÎÊ£À½');
-    define('_AM_WEBLINKS_CLONE_CONFIRM', 'Ê£À½¤·¤Þ¤¹¤«');
-    define('_AM_WEBLINKS_NO_MODULE', '³ºÅö¤¹¤ë¥â¥¸¥å¡¼¥ë¤¬¤Ê¤¤');
+    define('_AM_WEBLINKS_CLONE_LINK', 'ï¿½ï¿½ó¥¯¤ï¿½Ê£ï¿½ï¿½');
+    define('_AM_WEBLINKS_CLONE_MODULE', 'Â¾ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½Ø¤Î¥ï¿½ó¥¯¤ï¿½Ê£ï¿½ï¿½');
+    define('_AM_WEBLINKS_CLONE_CONFIRM', 'Ê£ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_NO_MODULE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â¥¸ï¿½å¡¼ï¿½ë¤¬ï¿½Ê¤ï¿½');
 
     // link form
-    define('_AM_WEBLINKS_MODIFIED', 'ÊÑ¹¹¤¢¤ê');
-    define('_AM_WEBLINKS_CHECK_CONFIRM', '³ÎÇ§¤·¤¿');
-    define('_AM_WEBLINKS_WARN_CONFIRM', 'Ãí°Õ: %s ¤Î¡Ö³ÎÇ§¤·¤¿¡×¤Ë¥Á¥§¥Ã¥¯¤·¤Æ¤¯¤À¤µ¤¤');
-    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'Æ±¤¸¡ÖRSSC ID¡×¤ò»ý¤ÄÊ£¿ô¤Î¥ê¥ó¥¯¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
+    define('_AM_WEBLINKS_MODIFIED', 'ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CHECK_CONFIRM', 'ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_WARN_CONFIRM', 'ï¿½ï¿½ï¿½: %s ï¿½Î¡Ö³ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ï¿½×¤Ë¥ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RSSC_LID_EXIST_MORE', 'Æ±ï¿½ï¿½ï¿½ï¿½RSSC IDï¿½×¤ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
     // web shot
-    define('_AM_WEBLINKS_LINK_IMG_THUMB', '¥ê¥ó¥¯²èÁü¤ÎÂåÂØ');
-    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', '¥ê¥ó¥¯²èÁü¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¤È¤­¤Ë¡¢¥µ¥à¥Í¥¤¥ë WEB ¥µ¡¼¥Ó¥¹¤òÍøÍÑ¤·¤Æ¡¢
-WEB¥µ¥¤¥È¤Î¥µ¥à¥Í¥¤¥ë¤òÉ½¼¨¤¹¤ë');
-    define('_AM_WEBLINKS_LINK_IMG_NON', '¤Ê¤·');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="http://mozshot.nemui.org/" target="_blank">MozShot</a> ¤òÍøÍÑ¤¹¤ë');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a> ¤òÍøÍÑ¤¹¤ë');
+    define('_AM_WEBLINKS_LINK_IMG_THUMB', 'ï¿½ï¿½ó¥¯²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_LINK_IMG_THUMB_DSC',
+        'ï¿½ï¿½ó¥¯²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ï¿½ WEB ï¿½ï¿½ï¿½ï¿½ï¿½Ó¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½Æ¡ï¿½
+WEBï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_LINK_IMG_NON', 'ï¿½Ê¤ï¿½');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="https://mozshot.nemui.org/" target="_blank">MozShot</a> ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a> ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
 
     // === 2007-11-01 ===
     // google map
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Marker] ²£Éý (pixel)');
-    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', '¥Þ¡¼¥«¡¼¤Î¿á½Ð¤·¤Î²£Éý<br /><b>-1</b> ¤Ï»ØÄê¤Ê¤·');
-    define('_AM_WEBLINKS_LINK_IMG_USE', '%s ¤òÍøÍÑ¤¹¤ë');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH', '[Marker] ï¿½ï¿½ï¿½ï¿½ (pixel)');
+    define('_AM_WEBLINKS_GM_MARKER_WIDTH_DESC', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½Ð¤ï¿½ï¿½Î²ï¿½ï¿½ï¿½<br><b>-1</b> ï¿½Ï»ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_LINK_IMG_USE', '%s ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_RSS_SITE', '¥µ¥¤¥È¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_RSS_FEED', 'RSSµ­»ö¤ÎÉ½¼¨');
+    define('_AM_WEBLINKS_RSS_SITE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RSS_FEED', 'RSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
 
     // nameflag mainflag
-    define('_AM_WEBLINKS_CONF_LINK_USER', '¥æ¡¼¥¶¤Î¥ê¥ó¥¯ÅÐÏ¿¹àÌÜ¤ÎÀßÄê');
-    define('_AM_WEBLINKS_USER_NAMEFLAG', 'Ì¾Á°É½¼¨ nameflag ¤ÎÁªÂò');
-    define('_AM_WEBLINKS_USER_MAILFLAG', '¥á¡¼¥ëÉ½¼¨ mailflag ¤ÎÁªÂò');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', '¥æ¡¼¥¶¤¬ÅÐÏ¿¤¹¤ë¾ì¹ç¤Î½é´üÃÍ<br />´ÉÍý¼Ô¤ÏÊÑ¹¹¤Ç¤­¤ë');
-    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', '¥æ¡¼¥¶¤¬ÁªÂò¤¹¤ë');
+    define('_AM_WEBLINKS_CONF_LINK_USER', 'ï¿½æ¡¼ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_NAMEFLAG', 'Ì¾ï¿½ï¿½É½ï¿½ï¿½ nameflag ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_MAILFLAG', 'ï¿½á¡¼ï¿½ï¿½É½ï¿½ï¿½ mailflag ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_DESC', 'ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Ñ¹ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL', 'ï¿½æ¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½');
 
     // description length
-    define('_AM_WEBLINKS_DESC_LENGTH', 'Ê¸»ú¿ô¤ÎÀ©¸Â');
-    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> ¤¢¤ë¤¤¤Ï ´ÉÍý¼Ô¤Ï 64KB À©¸Â<br />');
+    define('_AM_WEBLINKS_DESC_LENGTH', 'Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_DESC_LENGTH_DSC', '<b>-1</b> ï¿½ï¿½ï¿½ë¤¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ 64KB ï¿½ï¿½ï¿½ï¿½<br>');
 
     // === 2008-02-17 ===
     // config
-    define('_AM_WEBLINKS_MODULE_CONFIG_7', '¥â¥¸¥å¡¼¥ë¤ÎÀßÄê£·');
-    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_7', '¥á¥Ë¥å¡¼');
-    define('_AM_WEBLINKS_CONF_MENU', '¥á¥Ë¥å¡¼¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_CONF_MENU_DESC', '¥á¥Ë¥å¡¼¤ÎÉ½¼¨¤Ë´ØÏ¢¤¹¤ëÀßÄê');
-    define('_AM_WEBLINKS_CONF_TITLE', '¥á¥Ë¥å¡¼¤Î¥¿¥¤¥È¥ë');
+    define('_AM_WEBLINKS_MODULE_CONFIG_7', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£·');
+    define('_AM_WEBLINKS_MODULE_CONFIG_DESC_7', 'ï¿½ï¿½Ë¥å¡¼');
+    define('_AM_WEBLINKS_CONF_MENU', 'ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_MENU_DESC', 'ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½É½ï¿½ï¿½ï¿½Ë´ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CONF_TITLE', 'ï¿½ï¿½Ë¥å¡¼ï¿½Î¥ï¿½ï¿½ï¿½ï¿½È¥ï¿½');
 
     // htmlout
-    define('_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE', '½ÐÎÏ¥×¥é¥°¥¤¥ó´ÉÍý');
-    define('_AM_WEBLINKS_HTMLOUT', 'HTML ½ÐÎÏ¥×¥é¥°¥¤¥ó');
-    define('_AM_WEBLINKS_RSSOUT', 'RSS ½ÐÎÏ¥×¥é¥°¥¤¥ó');
-    define('_AM_WEBLINKS_KMLOUT', 'KML ½ÐÎÏ¥×¥é¥°¥¤¥ó');
+    define('_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE', 'ï¿½ï¿½ï¿½Ï¥×¥é¥°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_HTMLOUT', 'HTML ï¿½ï¿½ï¿½Ï¥×¥é¥°ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_RSSOUT', 'RSS ï¿½ï¿½ï¿½Ï¥×¥é¥°ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_KMLOUT', 'KML ï¿½ï¿½ï¿½Ï¥×¥é¥°ï¿½ï¿½ï¿½ï¿½');
 
     // pagerank
-    define('_AM_WEBLINKS_LINK_CHECK_MANAGE', '¥ê¥ó¥¯¸¡ºº´ÉÍý');
-    define('_AM_WEBLINKS_USE_PAGERANK', 'PageRank ¤ÎÉ½¼¨');
-    define('_AM_WEBLINKS_USE_PAGERANK_DESC', '¡ÖÉ½¼¨¤¹¤ë¡×¤òÁªÂò¤¹¤ë¤È¡¢<br />¥á¥Ë¥å¡¼¡¦¥Ð¡¼¤È¥ê¥ó¥¯³µÍ×¤È¥ê¥ó¥¯¾ÜºÙ¤ËÉ½¼¨¤¹¤ë¡£');
-    define('_AM_WEBLINKS_USE_PAGERANK_NON', 'É½¼¨¤·¤Ê¤¤');
-    define('_AM_WEBLINKS_USE_PAGERANK_SHOW', 'É½¼¨¤¹¤ë');
-    define('_AM_WEBLINKS_USE_PAGERANK_CACHE', '¼èÆÀ¤·¤¿ PageRank ¤ò¥­¥ã¥Ã¥·¥å¤·¤Æ¡¢É½¼¨¤¹¤ë');
+    define('_AM_WEBLINKS_LINK_CHECK_MANAGE', 'ï¿½ï¿½ó¥¯¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_PAGERANK', 'PageRank ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_PAGERANK_DESC', 'ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½<br>ï¿½ï¿½Ë¥å¡¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½È¥ï¿½ó¥¯³ï¿½ï¿½×¤È¥ï¿½ó¥¯¾ÜºÙ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_WEBLINKS_USE_PAGERANK_NON', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_USE_PAGERANK_SHOW', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_USE_PAGERANK_CACHE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PageRank ï¿½ò¥­¥ï¿½Ã¥ï¿½ï¿½å¤·ï¿½Æ¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
     // kml
-    define('_AM_WEBLINKS_KML_USE', 'KML ¤ÎÉ½¼¨');
+    define('_AM_WEBLINKS_KML_USE', 'KML ï¿½ï¿½É½ï¿½ï¿½');
 
     //---------------------------------------------------------
     // 2012-04-02 v2.10
     //---------------------------------------------------------
-    define('_AM_WEBLINKS_VIEW_URL_SUMMARY', '³µÍ×¤Î¥ê¥ó¥¯Àè');
-    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_DSC', '¥«¥Æ¥´¥ê¡¢¤ª¤¹¤¹¤á¥µ¥¤¥È¤Ê¤É¤Ç¡¢³µÍ× ¤òÁªÂò¤·¤¿¤È¤­¤ËÅ¬ÍÑ¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_0', '¥µ¥¤¥È¤Îurl');
-    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_1', 'Weblinks¤Îsinglelink');
+    define('_AM_WEBLINKS_VIEW_URL_SUMMARY', 'ï¿½ï¿½ï¿½×¤Î¥ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_DSC', 'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ê¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¥µï¿½ï¿½ï¿½È¤Ê¤É¤Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ò¤·¤ï¿½ï¿½È¤ï¿½ï¿½ï¿½Å¬ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_0', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½url');
+    define('_AM_WEBLINKS_VIEW_URL_SUMMARY_1', 'Weblinksï¿½ï¿½singlelink');
 
-    define('_AM_WEBLINKS_TITLE_RSSC_MANAGE', 'RSSC ´ÉÍý');
-    define('_AM_WEBLINKS_TITLE_RSSC_ARCHIVE', 'RSSC ¥¢¡¼¥«¥¤¥Ö´ÉÍý');
-    define('_AM_WEBLINKS_TITLE_RSSC_ADD', '¥ê¥ó¥¯¤Ë RSS URL ¤òÄÉ²Ã¤¹¤ë');
-    define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>Ãí°Õ</b> ¥¤¥ó¥¿¡¼¥Í¥Ã¥È¤ò»È¤Ã¤Æ¡¢RSS¤ÎURL¤ò¼«Æ°¸¡½Ð¤¹¤ë¤¿¤á¡¢»þ´Ö¤¬¤«¤«¤ê¤Þ¤¹');
+    define('_AM_WEBLINKS_TITLE_RSSC_MANAGE', 'RSSC ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_TITLE_RSSC_ARCHIVE', 'RSSC ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_TITLE_RSSC_ADD', 'ï¿½ï¿½ó¥¯¤ï¿½ RSS URL ï¿½ï¿½ï¿½É²Ã¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>ï¿½ï¿½ï¿½</b> ï¿½ï¿½ï¿½ó¥¿¡ï¿½ï¿½Í¥Ã¥È¤ï¿½È¤Ã¤Æ¡ï¿½RSSï¿½ï¿½URLï¿½ï¿½Æ°ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ë¤¿ï¿½á¡¢ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
 
-    define('_AM_WEBLINKS_BULK_COMMENT', '¥³¥á¥ó¥È°ì³çÅÐÏ¿');
-    define('_AM_WEBLINKS_BULK_COMMENT_DSC1',
-           '¥ê¥ó¥¯¤Î¥¿¥¤¥È¥ë, uid, ¥³¥á¥ó¥È¤Î¥¿¥¤¥È¥ë, ¥³¥á¥ó¥È¤ÎËÜÊ¸ ¤ò¥«¥ó¥Þ(,)¤Ç¶èÀÚ¤Ã¤Æµ­½Ò¤¹¤ë<br />uid ¤Ï¾ÊÎ¬²Ä¡£´ÉÍý¼Ô¤Îuid ¤ÇÂåÍÑ¤µ¤ì¤ë<br/ >¥³¥á¥ó¥È¤Î¥¿¥¤¥È¥ë ¤Ï¾ÊÎ¬²Ä¡£¥ê¥ó¥¯¤Î¥¿¥¤¥È¥ë ¤ÇÂåÍÑ¤µ¤ì¤ë');
-    define('_AM_WEBLINKS_NO_COMMENT', '¥³¥á¥ó¥È¤¬¤Ê¤¤');
-    define('_AM_WEBLINKS_COMMENT_ADDED', '¥³¥á¥ó¥È¤òÄÉ²Ã¤·¤¿');
-    define('_AM_WEBLINKS_BULK_DSC1', '¥«¥ó¥Þ¤È²þ¹Ô¤òÆÃÊÌ¤Êµ­Ë¡¤Çµ­½Ò¤Ç¤­¤Þ¤¹<br />¥«¥ó¥Þ(,)¤Ï \2c ¤Èµ­½Ò¤¹¤ë<br/ >²þ¹Ô¤Ï \n ¤Èµ­½Ò¤¹¤ë');
+    define('_AM_WEBLINKS_BULK_COMMENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½Ï¿');
+    define(
+        '_AM_WEBLINKS_BULK_COMMENT_DSC1',
+        'ï¿½ï¿½ó¥¯¤Î¥ï¿½ï¿½ï¿½ï¿½È¥ï¿½, uid, ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½È¥ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½Ê¸ ï¿½ò¥«¥ï¿½ï¿½(,)ï¿½Ç¶ï¿½ï¿½Ú¤Ã¤Æµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½<br>uid ï¿½Ï¾ï¿½Î¬ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½uid ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½<br/ >ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½È¥ï¿½ ï¿½Ï¾ï¿½Î¬ï¿½Ä¡ï¿½ï¿½ï¿½ó¥¯¤Î¥ï¿½ï¿½ï¿½ï¿½È¥ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½'
+    );
+    define('_AM_WEBLINKS_NO_COMMENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_WEBLINKS_COMMENT_ADDED', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½É²Ã¤ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_BULK_DSC1', 'ï¿½ï¿½ï¿½ï¿½Þ¤È²ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½Ì¤Êµï¿½Ë¡ï¿½Çµï¿½ï¿½Ò¤Ç¤ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½(,)ï¿½ï¿½ \2c ï¿½Èµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½<br/ >ï¿½ï¿½ï¿½Ô¤ï¿½ \n ï¿½Èµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_TITLE_LINK_GEOCODING', '¥ê¥ó¥¯¤Î°ÞÅÙ¡¦·ÐÅÙ¤Î°ìÍ÷');
-    define('_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
-           '½»½ê¤«¤é°ÞÅÙ¡¦·ÐÅÙ¤ò¸¡º÷¤·¤Þ¤¹<br />¤¹¤Ç¤ËÅÐÏ¿¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ï¸¡º÷¤µ¤ì¤Þ¤»¤ó<br />¸¡º÷·ë²Ì¤Ï<span style="color:#0000ff">ÀÄ»ú</span>¤ÇÉ½¼¨¤µ¤ì¤Þ¤¹<br />¸¡º÷¤Ç¤­¤Ê¤«¤Ã¤¿¤È¤­¤Ï<span style="color:#ff0000">ÀÖ»ú</span>¤ÇÉ½¼¨¤µ¤ì¤Þ¤¹<br /><b>Ãí°Õ</b> ¥¤¥ó¥¿¡¼¥Í¥Ã¥È¤ò»È¤Ã¤Æ¡¢°ÞÅÙ¡¦·ÐÅÙ¤ò¸¡º÷¤¹¤ë¤¿¤á¡¢»þ´Ö¤¬¤«¤«¤ê¤Þ¤¹');
-    define('_AM_WEBLINKS_SEARCHED_ADDRESS', '¸¡º÷¤µ¤ì¤¿½»½ê');
-    define('_AM_WEBLINKS_GOTO_NEXT_PAGE', '¼¡¤Î¥Ú¡¼¥¸¤Ø');
-    define('_AM_WEBLINKS_LAST_PAGE', '¤³¤³¤ÏºÇ¸å¤Î¥Ú¡¼¥¸¤Ç¤¹');
-    define('_AM_WEBLINKS_GEO_ADD', '¥ê¥ó¥¯¤Ë°ÞÅÙ¡¦·ÐÅÙ¤òÄÉ²Ã¤¹¤ë');
+    define('_AM_WEBLINKS_TITLE_LINK_GEOCODING', 'ï¿½ï¿½ó¥¯¤Î°ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤Î°ï¿½ï¿½ï¿½');
+    define(
+        '_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
+        'ï¿½ï¿½ï¿½ê¤«ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ò¸¡ºï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½Î¤Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½<span style="color:#0000ff">ï¿½Ä»ï¿½</span>ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½ï¿½È¤ï¿½ï¿½ï¿½<span style="color:#ff0000">ï¿½Ö»ï¿½</span>ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>ï¿½ï¿½ï¿½</b> ï¿½ï¿½ï¿½ó¥¿¡ï¿½ï¿½Í¥Ã¥È¤ï¿½È¤Ã¤Æ¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ò¸¡ºï¿½ï¿½ï¿½ï¿½ë¤¿ï¿½á¡¢ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½'
+    );
+    define('_AM_WEBLINKS_SEARCHED_ADDRESS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¤¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_GOTO_NEXT_PAGE', 'ï¿½ï¿½ï¿½Î¥Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_LAST_PAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ÏºÇ¸ï¿½Î¥Ú¡ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_WEBLINKS_GEO_ADD', 'ï¿½ï¿½ó¥¯¤Ë°ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤ï¿½ï¿½É²Ã¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_TITLE_LINK_CSV', '¥ê¥ó¥¯¾ðÊó¤òCSV·Á¼°¤Ç¥À¥¦¥ó¥í¡¼¥É¤¹¤ë');
+    define('_AM_WEBLINKS_TITLE_LINK_CSV', 'ï¿½ï¿½ó¥¯¾ï¿½ï¿½ï¿½ï¿½CSVï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ï¿½ï¿½ï¿½');
 
-    define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', '°ÞÅÙ¡¦·ÐÅÙ¤Î¾ì½ê¤ò¼¨¤¹¥á¥â');
-    define('_AM_WEBLINKS_CAT_GM_ICON_DSC', '(default) ¤Î¤È¤­¤Ï ¿Æ¥«¥Æ¥´¥ê¤Î¥¢¥¤¥³¥ó¤¬·Ñ¾µ¤µ¤ì¤ë');
+    define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', 'ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤Î¾ï¿½ï¿½ò¼¨¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_WEBLINKS_CAT_GM_ICON_DSC', '(default) ï¿½Î¤È¤ï¿½ï¿½ï¿½ ï¿½Æ¥ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¤¬·Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 }// --- define language end ---
-;

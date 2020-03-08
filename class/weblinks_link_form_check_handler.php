@@ -20,7 +20,7 @@
 // _check_mail_by_post()
 
 // 2007-05-18 K.OHWADA
-// show raw HTML as <h4 style="color: #ff0000;">xxx<br /></h4>
+// show raw HTML as <h4 style="color: #ff0000;">xxx<br></h4>
 // get_error_msg_addlink() -> get_errors_addlink()
 // get_error_msg_modlink() -> get_errors_modlink()
 
@@ -47,7 +47,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_form_check_handler')) {
-
     //=========================================================
     // class weblinks_link_form_check_handler
     //=========================================================
@@ -64,13 +63,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
         // config
         public $_conf;
-        public $_conf_desc_option = array();
+        public $_conf_desc_option = [];
 
         // error message
         public $error_msg_flag_lid_full = 0;
         public $error_msg_flag_lid_part = 0;
-        public $error_msg_lid_arr_full  = array();
-        public $error_msg_lid_arr_part  = array();
+        public $error_msg_lid_arr_full  = [];
+        public $error_msg_lid_arr_part  = [];
         public $_formated_error_addlink;
 
         //---------------------------------------------------------
@@ -82,9 +81,9 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler   = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler     = weblinks_get_handler('link', $dirname);
-            $this->_linkitem_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_config_handler   = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler     = weblinks_getHandler('link', $dirname);
+            $this->_linkitem_handler = weblinks_getHandler('linkitem_define', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post   = happy_linux_post::getInstance();
@@ -98,6 +97,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         public function get_post_url()
         {
             $url = $this->_post->get_post_text('url');
+
             return $url;
         }
 
@@ -131,12 +131,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $this->_check_form_common(true, false, false);
             $this->_check_form_approve_mod_user();
+
             return $this->returnExistError();
         }
 
         public function _check_form_common($is_owner = true, $flag_new = true, $flag_usercomment_indispensable = false)
         {
-            $linkitem_arr =& $this->_get_linkitem_load();
+            $linkitem_arr = &$this->_get_linkitem_load();
 
             $this->_clear_errors();
 
@@ -149,61 +150,49 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 switch ($name) {
                     case 'usercomment':
                         // check if owner, or modify if not owner
-                        if (($is_owner && ($mode == 2))
-                            || $flag_usercomment_indispensable
-                        ) {
+                        if (($is_owner && (2 == $mode))
+                            || $flag_usercomment_indispensable) {
                             $this->_check_fill_by_post($name, $title);
                         }
                         break;
-
                     case 'name':
                         // check if owner
-                        if ($is_owner && ($mode == 2)) {
+                        if ($is_owner && (2 == $mode)) {
                             $this->_check_fill_by_post($name, $title);
                         }
                         break;
-
                     case 'mail':
                         $this->_check_mail_by_post($name, $title, $mode, $is_owner);
                         break;
-
                     case 'url':
                         $this->_check_url_by_post($name, $title, $mode, $flag_new);
                         break;
-
                     case 'banner':
                         $this->_check_banner_by_post($name, $title, $mode);
                         break;
-
                     case 'rss_url':
                         // BUG 4702: Notice [PHP]: Use of undefined constant HAPPY_LINUX_RSS_MODE_RDF
                         if (WEBLINKS_RSSC_USE) {
                             $this->_check_rss_url_by_post($name, $title, $mode);
                         }
                         break;
-
                     case 'description':
                         $this->_check_desc_by_post($name, $title, $mode);
                         break;
-
                     case 'textarea1':
                         $this->_check_textarea1_by_post($name, $title, $mode);
                         break;
-
                     case 'cat':
                         $this->_check_cat_by_post($name, $title, $mode);
                         break;
-
                     case 'passwd':
                         $this->_check_passwd_by_post($name, $title, $flag_new);
                         break;
-
                     case 'captcha':
                         $this->_check_captcha_by_post();
                         break;
-
                     default:
-                        if ($mode == 2) {
+                        if (2 == $mode) {
                             $this->_check_fill_by_post($name, $title);
                         }
                         break;
@@ -221,6 +210,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if (!$this->_post->is_post_fill($name)) {
                 $msg = sprintf(_WLS_ERROR_FILL, $title);
                 $this->_set_errors($msg);
+
                 return false;
             }
 
@@ -234,7 +224,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 $desc = $_POST['weblinks_description'];
             }
 
-            if (($mode == 2) && ($desc === '')) {
+            if ((2 == $mode) && ('' === $desc)) {
                 $msg = sprintf(_WLS_ERROR_FILL, $title);
                 $this->_set_errors($msg);
             }
@@ -255,7 +245,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         public function _check_length($title, $str, $max)
         {
             // user & guest
-            if (!$this->_system->is_module_admin() && ($max > 0) && (strlen($str) > $max)) {
+            if (!$this->_system->is_module_admin() && ($max > 0) && (mb_strlen($str) > $max)) {
                 $msg = sprintf(_WEBLINKS_ERROR_LENGTH, $title, $max);
                 $this->_set_errors($msg);
             }
@@ -265,7 +255,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $flag_cid = false;
             foreach ($_POST['cid'] as $cid) {
-                if ((int)$cid != 0) {
+                if (0 != (int)$cid) {
                     $flag_cid = true;
                 }
             }
@@ -280,7 +270,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $flag_err = false;
 
-            if (($mode == 2) && $is_owner) {
+            if ((2 == $mode) && $is_owner) {
                 if (!$this->_post->is_post_url_fill($name)) {
                     $msg1 = sprintf(_WLS_ERROR_FILL, $title);
                     $this->_set_errors($msg1);
@@ -299,6 +289,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if ($flag_err) {
                 return false;
             }
+
             return true;
         }
 
@@ -307,10 +298,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $name1 = 'passwd_new';
             $name2 = 'passwd_2';
 
-            if (!isset($_POST[$name1]) || ($_POST[$name1] == '')) {
+            if (!isset($_POST[$name1]) || ('' == $_POST[$name1])) {
                 if ($flag_new && $this->_conf['use_passwd'] && $this->_system->is_guest()) {
                     $msg = sprintf(_WLS_ERROR_FILL, $title);
                     $this->_set_errors($msg);
+
                     return false;
                 }
 
@@ -320,15 +312,17 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $pass1 = $this->_post->get_post_text($name1);
             $pass2 = $this->_post->get_post_text($name2);
 
-            if (strlen($pass1) < $this->_conf['passwd_min']) {
+            if (mb_strlen($pass1) < $this->_conf['passwd_min']) {
                 $msg = _WEBLINKS_ERROR . ': ' . sprintf(_US_PWDTOOSHORT, $this->_conf['passwd_min']);
                 $this->_set_errors($msg);
+
                 return false;
             }
 
             if ($pass1 != $pass2) {
                 $msg = _WEBLINKS_ERROR . ': ' . _US_PASSNOTSAME;
                 $this->_set_errors($msg);
+
                 return false;
             }
 
@@ -342,9 +336,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 include_once XOOPS_ROOT_PATH . '/modules/captcha/include/api.php';
                 if (!$captcha_api->validate_post_if_guest()) {
                     $this->_set_errors(_WEBLINKS_ERROR_CAPTCHA);
+
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -380,7 +376,6 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 case HAPPY_LINUX_RSS_MODE_AUTO:
                     $flag_check_fill = true;
                     break;
-
                 case HAPPY_LINUX_RSS_MODE_NON:
                 default:
                     $flag_check_fill = false;
@@ -396,13 +391,15 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
         public function _check_url_fill($name, $title, $mode)
         {
-            if ($mode == 2) {
+            if (2 == $mode) {
                 if (!$this->_post->is_post_url_fill($name)) {
                     $msg = sprintf(_WLS_ERROR_FILL, $title);
                     $this->_set_errors($msg);
+
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -411,8 +408,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if (!$this->_post->is_post_url_llegal($name)) {
                 $msg = sprintf(_WLS_ERROR_ILLEGAL, $title);
                 $this->_set_errors($msg);
+
                 return false;
             }
+
             return true;
         }
 
@@ -420,8 +419,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $this->error_msg_flag_lid_full = 0;
             $this->error_msg_flag_lid_part = 0;
-            $this->error_msg_lid_arr_full  = array();
-            $this->error_msg_lid_arr_part  = array();
+            $this->error_msg_lid_arr_full  = [];
+            $this->error_msg_lid_arr_part  = [];
 
             if ($this->_conf['check_double'] >= 1) {
                 $ret = $this->_check_url_full($url);
@@ -430,7 +429,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 }
             }
 
-            if ($this->_conf['check_double'] == 2) {
+            if (2 == $this->_conf['check_double']) {
                 $ret = $this->_check_url_part($url);
                 if (!$ret) {
                     return false;   // warning
@@ -442,18 +441,18 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
         public function _check_url_full($url)
         {
-            if (($url == '') || ($url == 'http://')) {
+            if (('' == $url) || ('https://' == $url)) {
                 return true;
             }   // no check
 
-            $this->error_msg_lid_arr_full =& $this->_get_link_lid_array_by_url($url);
+            $this->error_msg_lid_arr_full = &$this->_get_link_lid_array_by_url($url);
 
             if (count($this->error_msg_lid_arr_full)) {
-
                 // BUG: check_url_double dont work correctly
                 $this->_set_error_flag();
 
                 $this->error_msg_flag_lid_full = 1;
+
                 return false;   // NG
             }
 
@@ -462,13 +461,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
         public function _check_url_part($url)
         {
-            if (($url == '') || ($url == 'http://')) {
+            if (('' == $url) || ('https://' == $url)) {
                 return true;
             }   // no check
 
-            $arr_out = array();
+            $arr_out = [];
 
-            $lid_arr =& $this->_get_link_lid_array();
+            $lid_arr = &$this->_get_link_lid_array();
 
             foreach ($lid_arr as $lid) {
                 $flag = 0;
@@ -499,6 +498,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if (count($this->error_msg_lid_arr_part) > 0) {
                 $this->_set_error_flag();
                 $this->error_msg_flag_lid_part = 1;
+
                 return false;   // NG
             }
 
@@ -511,10 +511,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         public function _check_form_approve_mod_user()
         {
             $lid = $this->_post->get_post_int('lid');
-            $obj =& $this->_link_handler->get($lid);
+            $obj = &$this->_link_handler->get($lid);
             if (!is_object($obj)) {
                 $msg = _NO_LINK . ': lid = ' . $lid;
                 $this->_set_errors($msg);
+
                 return false;
             }
 
@@ -523,17 +524,17 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_check_confirm('mail', $obj);
         }
 
-        public function _check_confirm($name, &$obj)
+        public function _check_confirm($name, $obj)
         {
             $confirm_name = $name . '_confirm';
 
             // the post value is different from the value in link table
             if (!$this->_post->get_post_int($confirm_name)
-                && ($this->_post->get_post_text($name) != $obj->get($name))
-            ) {
+                && ($this->_post->get_post_text($name) != $obj->get($name))) {
                 $title = $this->_get_linkitem_by_name($name, 'title');
                 $msg   = sprintf(_AM_WEBLINKS_WARN_CONFIRM, $title);
                 $this->_set_errors($msg);
+
                 return false;
             }
 
@@ -552,11 +553,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
             $text = '';
             if ($this->error_msg_flag_lid_full) {
-                $text .= '<br />' . _WLS_ERROR_URL_EXIST . "<br />\n";
+                $text .= '<br>' . _WLS_ERROR_URL_EXIST . "<br>\n";
                 $text .= $this->_build_html_error_url($this->error_msg_lid_arr_full);
             }
             if ($this->error_msg_flag_lid_part) {
-                $text .= '<br />' . _WLS_WARNING_URL_EXIST . "<br />\n";
+                $text .= '<br>' . _WLS_WARNING_URL_EXIST . "<br>\n";
                 $text .= $this->_build_html_error_url($this->error_msg_lid_arr_part);
             }
             $this->_formated_error_addlink = $text;
@@ -572,6 +573,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         public function &get_errors_modlink($format = 'n')
         {
             $ret = $this->getErrors($format);
+
             return $ret;
         }
 
@@ -599,6 +601,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $lid_s      = sprintf('%03d', $lid);
             $url_single = WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
             $text       = '<li><a href="' . $url_single . '" target="_blank">' . $lid_s . ': ' . $title_s . "</a></li>\n";
+
             return $text;
         }
 
@@ -607,7 +610,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         public function &_get_link_lid_array()
         {
-            $ret =& $this->_link_handler->getList();
+            $ret = &$this->_link_handler->getList();
+
             return $ret;
         }
 
@@ -615,7 +619,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         {
             $criteria = new criteriaCompo();
             $criteria->add(new criteria('url', $url, '='));
-            $ret =& $this->_link_handler->getList($criteria);
+            $ret = &$this->_link_handler->getList($criteria);
+
             return $ret;
         }
 
@@ -624,7 +629,8 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         public function &_get_linkitem_load()
         {
-            $ret =& $this->_linkitem_handler->load();
+            $ret = &$this->_linkitem_handler->load();
+
             return $ret;
         }
 
@@ -640,6 +646,5 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

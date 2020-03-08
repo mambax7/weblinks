@@ -25,7 +25,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_menu')) {
-
     //=========================================================
     // class weblinks_menu
     // this class is used by xoops_version.php
@@ -68,8 +67,8 @@ if (!class_exists('weblinks_menu')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_menu($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
 
             return $instance;
@@ -85,7 +84,7 @@ if (!class_exists('weblinks_menu')) {
             if (!isset($flag_init_load)) {
                 $flag_init_load = 1;
 
-                $arr =& $this->get_config();
+                $arr = &$this->get_config();
 
                 if (isset($arr['auth_submit'])) {
                     $arr['auth_submit_arr'] = unserialize($arr['auth_submit']);
@@ -99,6 +98,7 @@ if (!class_exists('weblinks_menu')) {
         {
             if (isset($this->_config_cached[$name])) {
                 $ret = $this->_config_cached[$name];
+
                 return $ret;
             }
 
@@ -110,7 +110,7 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         public function &get_config()
         {
-            $arr = array();
+            $arr = [];
 
             // BUG 4344: Error message: Table 'weblinks_config2' doesn't exist
             if ($this->exists_table($this->_table_config)) {
@@ -127,13 +127,12 @@ if (!class_exists('weblinks_menu')) {
 
         public function &get_top_category()
         {
-            $arr = array();
+            $arr = [];
 
             $sql = 'SELECT * FROM ' . $this->_table_category . ' WHERE pid=0 ORDER BY orders, cid';
             $res = $this->_db->query($sql);
 
             while ($row = $this->_db->fetchArray($res)) {
-
                 // hack for multi language
                 if ($this->_flag_replace) {
                     $title_multi = $row[$this->_replace_cat_title];
@@ -144,6 +143,7 @@ if (!class_exists('weblinks_menu')) {
 
                 $arr[] = $row;
             }
+
             return $arr;
         }
 
@@ -159,10 +159,10 @@ if (!class_exists('weblinks_menu')) {
                 return false;
             }
 
-            $table_name = strtolower($table);
+            $table_name = mb_strtolower($table);
 
             while ($myrow = $this->_db->fetchRow($res)) {
-                $name = strtolower($myrow[0]);
+                $name = mb_strtolower($myrow[0]);
 
                 if ($name == $table_name) {
                     return true;
@@ -185,6 +185,7 @@ if (!class_exists('weblinks_menu')) {
             if ($this->get_by_name('use_hits') || $this->get_by_name('use_hits_singlelink')) {
                 return true;
             }
+
             return false;
         }
 
@@ -195,10 +196,11 @@ if (!class_exists('weblinks_menu')) {
 
         public function &get_catlist()
         {
-            $arr = array();
+            $arr = [];
             if ($this->get_by_name('show_catlist')) {
-                $arr =& $this->get_top_category();
+                $arr = &$this->get_top_category();
             }
+
             return $arr;
         }
 
@@ -259,12 +261,12 @@ if (!class_exists('weblinks_menu')) {
         public function get_xoops_groups()
         {
             global $xoopsUser;
-            $groups = array();
+            $groups = [];
 
             if (is_object($xoopsUser)) {
                 $groups = $xoopsUser->getGroups();
             } else {
-                $groups = array(XOOPS_GROUP_ANONYMOUS);
+                $groups = [XOOPS_GROUP_ANONYMOUS];
             }
 
             return $groups;
@@ -272,6 +274,5 @@ if (!class_exists('weblinks_menu')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

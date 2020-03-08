@@ -11,6 +11,6 @@ Email: {SITE_EMAIL}
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 وبمستر
 {X_ADMINMAIL}

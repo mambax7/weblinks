@@ -138,15 +138,16 @@ class admin_link_menu
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_menu();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -181,6 +182,7 @@ class admin_link_menu
         } elseif (isset($_GET['op'])) {
             $op = $_GET['op'];
         }
+
         return $op;
     }
 
@@ -549,152 +551,118 @@ switch ($op) {
     case 'add_table':
         $manage->add_link();
         break;
-
     case 'modLink':
     case 'mod_form':
         $manage->mod_form();
         break;
-
     case 'modLinkS':
     case 'mod_link':
     case 'mod_table':
         $manage->mod_link();
         break;
-
     case 'add_banner':
         $manage->add_banner();
         break;
-
     case 'mod_banner':
         $manage->mod_banner();
         break;
-
-    case 'del_form';
+    case 'del_form':
         $manage->del_form();
         break;
-
     case 'delLink':
-    case 'delete_link';
-    case 'del_link';
-    case 'del_table';
+    case 'delete_link':
+    case 'del_link':
+    case 'del_table':
         $manage->del_link();
         break;
-
-    case 'clone_link';
+    case 'clone_link':
         $manage->clone_link();
         break;
-
-    case 'clone_module';
+    case 'clone_module':
         $manage->clone_module();
         break;
-
-    case 'clone_module_to';
+    case 'clone_module_to':
         $manage->clone_module_to();
         break;
-
-    case 'clone_module_from';
+    case 'clone_module_from':
         $manage->clone_module_from();
         break;
-
     case 'update_cat_form':
         $manage->update_cat_form();
         break;
-
     case 'update_cat':
         $manage->update_cat();
         break;
-
     case 'add_rssc':
         $manage->add_rssc();
         break;
-
     case 'mod_rssc':
         $manage->mod_rssc();
         break;
-
     case 'refresh_link':
         $manage->refresh_rssc();
         break;
-
     case 'listNewLinks':
     case 'list_new':
         $manage->list_new();
         break;
-
     case WEBLINKS_OP_APPROVE_NEW:   // approve_new
         $manage->approve_new();
         break;
-
     case 'delNewLink':
-    case 'delete_new';
-    case 'del_new';
-    case 'refuse_new';
+    case 'delete_new':
+    case 'del_new':
+    case 'refuse_new':
         $manage->refuse_new();
         break;
-
     case 'listModReq':
     case 'list_mod':
         $manage->list_mod();
         break;
-
     case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
         $manage->approve_mod();
         break;
-
-    case 'ignore';
+    case 'ignore':
     case 'ignoreModReq':
     case 'del_mod':
-    case 'refuse_mod';
+    case 'refuse_mod':
         $manage->refuse_mod();
         break;
-
     case 'list_del':
         $manage->list_del();
         break;
-
     case 'approve_del_confirm':
         $manage->approve_del_confirm();
         break;
-
     case WEBLINKS_OP_APPROVE_DEL:   // approve_del
         $manage->approve_del();
         break;
-
-    case 'refuse_del';
+    case 'refuse_del':
         $manage->refuse_del();
         break;
-
     case 'send_approve_new':
         $manage->send_approve_new();
         break;
-
     case 'send_refuse_new':
         $manage->send_refuse_new();
         break;
-
     case 'send_approve_mod':
         $manage->send_approve_mod();
         break;
-
     case 'send_refuse_mod':
         $manage->send_refuse_mod();
         break;
-
     case 'send_approve_del':
         $manage->send_approve_del();
         break;
-
     case 'send_refuse_del':
         $manage->send_refuse_del();
         break;
-
     case 'main':
     case 'add_form':
     default:
         $manage->add_form();
         break;
-
 }
 
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

@@ -10,7 +10,7 @@
 
 Информация новой ссылки :
 Заголовок : {LINK_NAME}
-Описание : 
+Описание :
 {LINK_DESCRIPTION}
 
 
@@ -25,6 +25,6 @@
 
 -----------
 
-{X_SITENAME} ({X_SITEURL}) 
+{X_SITENAME} ({X_SITEURL})
 Web-мастер
 {X_ADMINMAIL}

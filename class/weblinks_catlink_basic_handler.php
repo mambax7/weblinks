@@ -11,13 +11,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_catlink_basic_handler')) {
-
     //=========================================================
     // class weblinks_catlink_basic_handler
     //=========================================================
     class weblinks_catlink_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -44,12 +42,12 @@ if (!class_exists('weblinks_catlink_basic_handler')) {
         public function &get_cid_array_by_lid($lid, $limit = 0, $offset = 0)
         {
             $sql = 'SELECT cid FROM ' . $this->_table . ' WHERE lid=' . (int)$lid;
-            $arr =& $this->get_first_row_by_sql($sql);
+            $arr = &$this->get_first_row_by_sql($sql);
+
             return $arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

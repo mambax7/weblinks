@@ -48,7 +48,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_config2_basic_handler')) {
-
     //=========================================================
     // class weblinks_config2_basic_handler
     // this class handle MySQL table directly
@@ -94,16 +93,16 @@ if (!class_exists('weblinks_config2_basic_handler')) {
                 $happy_linux_time->print_lap_time('weblinks_config2_basic_handler');
             }
 
-            $arr =& $this->_get_config_data();
+            $arr = &$this->_get_config_data();
 
             // if not initial
-            if (!is_array($arr) || (count($arr) == 0)) {
+            if (!is_array($arr) || (0 == count($arr))) {
                 return false;
             }
 
-            $arr['rss_site_arr']  =& $this->_conv_to_array($arr['rss_site']);
-            $arr['rss_black_arr'] =& $this->_conv_to_array($arr['rss_black']);
-            $arr['rss_white_arr'] =& $this->_conv_to_array($arr['rss_white']);
+            $arr['rss_site_arr']  = &$this->_conv_to_array($arr['rss_site']);
+            $arr['rss_black_arr'] = &$this->_conv_to_array($arr['rss_black']);
+            $arr['rss_white_arr'] = &$this->_conv_to_array($arr['rss_white']);
 
             // added in v1.60
             if (isset($arr['link_num_etc'])) {
@@ -128,7 +127,8 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         //=========================================================
         public function &_conv_to_array($str)
         {
-            $ret =& $this->convert_string_to_array($str, "\n");
+            $ret = &$this->convert_string_to_array($str, "\n");
+
             return $ret;
         }
 
@@ -157,6 +157,5 @@ if (!class_exists('weblinks_config2_basic_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

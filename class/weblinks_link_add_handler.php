@@ -14,13 +14,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_link_add_handler')) {
-
     //=========================================================
     // class weblinks_link_add_handler
     //=========================================================
     class weblinks_link_add_handler extends weblinks_link_edit_base_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -50,7 +48,7 @@ if (!class_exists('weblinks_link_add_handler')) {
 
             if (WEBLINKS_RSSC_USE && $this->get_post_rss_flag()) {
                 $ret = $this->_rssc_edit_handler->add_rssc($newid);
-                if ($ret != 0) {
+                if (0 != $ret) {
                     $this->_set_errors($this->_rssc_edit_handler->getErrors());
                 }
                 $this->_rssc_error_code = $ret;
@@ -80,43 +78,47 @@ if (!class_exists('weblinks_link_add_handler')) {
             }
 
             $this->_newid = $newid;
+
             return $newid;
         }
 
         public function admin_clone_link($lid)
         {
-            $obj =& $this->_link_handler->get($lid);
+            $obj = &$this->_link_handler->get($lid);
             if (!is_object($obj)) {
                 $this->_set_errors_not_exist($lid);
+
                 return false;
             }
 
-            $cid_arr =& $this->_catlink_handler->get_cid_array_by_lid($lid);
+            $cid_arr = &$this->_catlink_handler->get_cid_array_by_lid($lid);
 
             return $this->_clone_link_common($obj, $cid_arr);
         }
 
         public function admin_clone_module_from($module_id, $lid)
         {
-            $module =& $this->_system->get_module_by_mid($module_id);
+            $module = &$this->_system->get_module_by_mid($module_id);
             if (!is_object($module)) {
                 $msg = 'no module module_id = ' . $module_id;
                 $this->_set_errors($msg);
+
                 return false;
             }
 
             $dirname = $module->getVar('dirname', 'n');
 
-            $other_link_handler = weblinks_get_handler('link', $dirname);
+            $other_link_handler = weblinks_getHandler('link', $dirname);
 
-            $obj =& $other_link_handler->get($lid);
+            $obj = &$other_link_handler->get($lid);
             if (!is_object($obj)) {
                 $this->_set_errors_not_exist($lid);
+
                 return false;
             }
 
             // category is unkonown because the module is different
-            $cid_arr = array();
+            $cid_arr = [];
 
             return $this->_clone_link_common($obj, $cid_arr);
         }
@@ -132,20 +134,20 @@ if (!class_exists('weblinks_link_add_handler')) {
             $rss_url  = '';
 
             // create link object
-            $obj =& $this->_create_add_link_by_arr($_POST, false, true);
+            $obj = &$this->_create_add_link_by_arr($_POST, false, true);
 
             // check url, banner & check rss url
             list($rss_flag, $rss_url) = $this->_check_url_banner_rssurl($obj);
 
             // create edit object
-            $edit_obj =& $this->_create_edit();
+            $edit_obj = &$this->_create_edit();
             $edit_obj->set_object($obj);
             $edit_obj->build_preview_for_template($this->_cid_array);
 
             $edit_obj->set('rss_flag', $rss_flag);
             $edit_obj->set('rss_url', $this->_strings->sanitize_url($rss_url));
 
-            $show =& $edit_obj->get_vars();
+            $show = &$edit_obj->get_vars();
 
             return $show;
         }
@@ -164,6 +166,7 @@ if (!class_exists('weblinks_link_add_handler')) {
             $ret = $this->_catlink_handler->add_link_by_lid_cid_array($newid, $this->_cid_array);
             if (!$ret) {
                 $this->_set_errors($this->_catlink_handler->getErrors());
+
                 return false;
             }
 
@@ -186,16 +189,18 @@ if (!class_exists('weblinks_link_add_handler')) {
             $newid = $this->_link_handler->insert($obj);
             if (!$newid) {
                 $this->_set_errors($this->_link_handler->getErrors());
+
                 return false;
             }
 
             $this->_newid     = $newid;
-            $this->_save_obj  =& $obj;
-            $this->_cid_array =& $cid_arr;
+            $this->_save_obj  = &$obj;
+            $this->_cid_array = &$cid_arr;
 
             $ret = $this->_catlink_handler->add_link_by_lid_cid_array($newid, $this->_cid_array);
             if (!$ret) {
                 $this->_set_errors($this->_catlink_handler->getErrors());
+
                 return false;
             }
 
@@ -207,16 +212,17 @@ if (!class_exists('weblinks_link_add_handler')) {
             // modify
             $this->_mid = $this->get_post_mid();
 
-            $save_obj =& $this->_create_add_link_by_arr($_POST, false, $flag_banner);
+            $save_obj = &$this->_create_add_link_by_arr($_POST, false, $flag_banner);
 
             $newid = $this->_link_handler->insert($save_obj);
             if (!$newid) {
                 $this->_set_errors($this->_link_handler->getErrors());
+
                 return false;
             }
 
             $this->_newid    = $newid;
-            $this->_save_obj =& $save_obj;
+            $this->_save_obj = &$save_obj;
 
             return $newid;
         }
@@ -224,10 +230,10 @@ if (!class_exists('weblinks_link_add_handler')) {
         // $not_gpc for bulk manage
         public function &_create_add_link_by_arr(&$post, $not_gpc = false, $flag_banner = false)
         {
-            $save_obj =& $this->_create_link_save();
+            $save_obj = &$this->_create_link_save();
             $save_obj->assign_add_object($post, $not_gpc, $flag_banner, $this->_get_flag_pagerank());
 
-            $this->_cid_array         =& $save_obj->get_cid_array();
+            $this->_cid_array         = &$save_obj->get_cid_array();
             $this->_banner_error_code = $save_obj->get_banner_error_code();
             $this->_banner_errors     = $save_obj->get_banner_errors();
 
@@ -236,6 +242,5 @@ if (!class_exists('weblinks_link_add_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

@@ -17,7 +17,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_rssc_view_handler')) {
-
     //=========================================================
     // class weblinks_rssc_view_handler
     //=========================================================
@@ -41,7 +40,7 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         public $_feed_max_summary       = 250;
         public $_feed_max_title         = -1;   // unlimited
         public $_feed_max_content       = -1;   // unlimited
-        public $_feed_keyword_array     = array();
+        public $_feed_keyword_array     = [];
         public $_feed_highlight         = false;
 
         //---------------------------------------------------------
@@ -51,9 +50,9 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         {
             parent::__construct();
 
-            // Fatal error: Call to undefined function: rssc_get_handler()
+            // Fatal error: Call to undefined function: rssc_getHandler()
             if (WEBLINKS_RSSC_EXIST && function_exists('rssc_get_handler')) {
-                $this->_rssc_view_handler =& rssc_get_handler('view', WEBLINKS_RSSC_DIRNAME);
+                $this->_rssc_view_handler = rssc_getHandler('view', WEBLINKS_RSSC_DIRNAME);
             }
 
             global $xoopsModule;
@@ -67,7 +66,8 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         //---------------------------------------------------------
         public function &get_rssc_link_by_rssc_lid($rssc_lid)
         {
-            $row =& $this->_rssc_view_handler->get_link_by_lid($rssc_lid);
+            $row = &$this->_rssc_view_handler->get_link_by_lid($rssc_lid);
+
             return $row;
         }
 
@@ -78,6 +78,7 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         public function get_feed_count_all()
         {
             $count = $this->_rssc_view_handler->get_feed_count_all();
+
             return $count;
         }
 
@@ -88,12 +89,14 @@ if (!class_exists('weblinks_rssc_view_handler')) {
             if (WEBLINKS_RSSC_USE) {
                 $count = $this->_rssc_view_handler->get_feed_count_by_mid($this->_mid);
             }
+
             return $count;
         }
 
         public function get_feed_count_by_where($where)
         {
             $count = $this->_rssc_view_handler->get_feed_count_by_where($where);
+
             return $count;
         }
 
@@ -112,8 +115,9 @@ if (!class_exists('weblinks_rssc_view_handler')) {
                 $this->_rssc_view_handler->set_highlight($this->_feed_highlight);
                 $this->_rssc_view_handler->setFeedLimit($limit);
                 $this->_rssc_view_handler->setFeedStart($start);
-                $feeds =& $this->_rssc_view_handler->get_feed_list_by_mid($this->_mid);
+                $feeds = &$this->_rssc_view_handler->get_feed_list_by_mid($this->_mid);
             }
+
             return $feeds;
         }
 
@@ -129,7 +133,7 @@ if (!class_exists('weblinks_rssc_view_handler')) {
             $this->_rssc_view_handler->set_highlight($this->_feed_highlight);
 
             // BUG 4689: number of feeds is unlimited in singlelink
-            $feeds =& $this->_rssc_view_handler->get_feeds_by_lid($rssc_lid, $limit, $start);
+            $feeds = &$this->_rssc_view_handler->get_feeds_by_lid($rssc_lid, $limit, $start);
 
             return $feeds;
         }
@@ -144,7 +148,8 @@ if (!class_exists('weblinks_rssc_view_handler')) {
             $this->_rssc_view_handler->set_keyword_array($query_array);
             $this->_rssc_view_handler->set_highlight(true);
 
-            $feeds =& $this->_rssc_view_handler->get_feeds_by_where($where, $limit, $start);
+            $feeds = &$this->_rssc_view_handler->get_feeds_by_where($where, $limit, $start);
+
             return $feeds;
         }
 
@@ -204,7 +209,7 @@ if (!class_exists('weblinks_rssc_view_handler')) {
         public function set_feed_keyword_array(&$arr)
         {
             if (is_array($arr) && count($arr)) {
-                $this->_feed_keyword_array =& $arr;
+                $this->_feed_keyword_array = &$arr;
             }
         }
 
@@ -215,6 +220,5 @@ if (!class_exists('weblinks_rssc_view_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

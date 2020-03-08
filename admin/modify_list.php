@@ -45,7 +45,7 @@ class admin_modify_list extends happy_linux_page_frame
         $this->set_max_sortid(4);
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
 
-        $this->_broken_handler = weblinks_get_handler('broken', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_getHandler('broken', WEBLINKS_DIRNAME);
 
         $this->_strings = happy_linux_strings::getInstance();
     }
@@ -53,9 +53,10 @@ class admin_modify_list extends happy_linux_page_frame
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_modify_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -64,23 +65,24 @@ class admin_modify_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_op_sortid_array()
     {
-        $arr = array(
+        $arr = [
             'list_asc'  => 0,
             'list_desc' => 1,
             'list_new'  => 2,
             'list_mod'  => 3,
             'list_del'  => 4,
-        );
+        ];
+
         return $arr;
     }
 
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             _WEBLINKS_MID,
             _WLS_LINKID,
             _WLS_SITETITLE,
-        );
+        ];
 
         return $arr;
     }
@@ -96,19 +98,15 @@ class admin_modify_list extends happy_linux_page_frame
             case 1:
                 $total = $this->_total_all;
                 break;
-
             case 2:
                 $total = $this->_total_new;
                 break;
-
             case 3:
                 $total = $this->_total_mod;
                 break;
-
             case 4:
                 $total = $this->_total_del;
                 break;
-
             case 0:
             default:
                 $total = $this->_total_all;
@@ -122,24 +120,20 @@ class admin_modify_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs = &$this->_handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->_handler->get_objects_new($limit, $start);
+                $objs = &$this->_handler->get_objects_new($limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->_handler->get_objects_mod($limit, $start);
+                $objs = &$this->_handler->get_objects_mod($limit, $start);
                 break;
-
             case 4:
-                $objs =& $this->_handler->get_objects_del($limit, $start);
+                $objs = &$this->_handler->get_objects_del($limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_asc($limit, $start);
+                $objs = &$this->_handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -153,7 +147,7 @@ class admin_modify_list extends happy_linux_page_frame
         $mode    = $obj->get('mode');
         $title_s = $obj->getVar('title', 's');
 
-        if ($mode == 1) {
+        if (1 == $mode) {
             $jump_mod  = 'link_manage.php?op=list_mod&mid=';
             $jump_link = 'link_manage.php?op=mod_form&lid=';
             $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
@@ -168,13 +162,11 @@ class admin_modify_list extends happy_linux_page_frame
                 $jump_link = 'link_manage.php?op=mod_form&lid=';
                 $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
                 break;
-
             case 2:
                 $jump_mod  = 'link_manage.php?op=list_del&mid=';
                 $jump_link = 'link_manage.php?op=mod_form&lid=';
                 $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link);
                 break;
-
             case 0:
             default:
                 $jump_mod  = 'link_manage.php?op=list_new&mid=';
@@ -184,11 +176,11 @@ class admin_modify_list extends happy_linux_page_frame
 
         $link_mod = $this->_build_page_id_link_by_obj($obj, 'mid', $jump_mod);
 
-        $arr = array(
+        $arr = [
             $link_mod,
             $link_link,
             $title_s,
-        );
+        ];
 
         return $arr;
     }
@@ -202,19 +194,15 @@ class admin_modify_list extends happy_linux_page_frame
             case 1:
                 $title = _WEBLINKS_ADMIN_LINK_ALL_DESC;
                 break;
-
             case 2:
                 $title = _WLS_LINKSWAITING;
                 break;
-
             case 3:
                 $title = _WLS_MODREQUESTS;
                 break;
-
             case 4:
                 $title = _AM_WEBLINKS_DEL_REQS;
                 break;
-
             case 0:
             default:
                 $title = _WEBLINKS_ADMIN_LINK_ALL_ASC;
@@ -228,7 +216,7 @@ class admin_modify_list extends happy_linux_page_frame
 
         echo '<h4>' . _WEBLINKS_ADMIN_LINK_LIST . "</h4>\n";
         printf(_WLS_THEREARE, $total_all);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<table width='80%' border='0' cellspacing='1' class='outer'>";
         echo "<tr class='odd'><td>";
@@ -241,7 +229,7 @@ class admin_modify_list extends happy_linux_page_frame
 
         echo '<h4>' . $title . "</h4>\n";
 
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     // --- class end ---
@@ -260,5 +248,4 @@ $list->_show();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

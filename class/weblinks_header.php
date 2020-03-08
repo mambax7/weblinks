@@ -20,7 +20,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_header')) {
-
     //=========================================================
     // class weblinks_header
     //=========================================================
@@ -44,7 +43,7 @@ if (!class_exists('weblinks_header')) {
             $this->_DIRNAME      = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $config_handler     = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler     = weblinks_getHandler('config2_basic', $dirname);
             $this->_conf        = $config_handler->get_conf();
             $this->_header_mode = $this->_conf['header_mode'];
         }
@@ -52,9 +51,10 @@ if (!class_exists('weblinks_header')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_header($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -66,7 +66,7 @@ if (!class_exists('weblinks_header')) {
         {
             $header = $this->_build_module_header($flag_gmap);
 
-            if ($this->_header_mode == 1) {
+            if (1 == $this->_header_mode) {
                 $this->_assign_xoops_module_header($header);
                 $this->_assign_weblinks_module_header('');
             } else {
@@ -77,7 +77,7 @@ if (!class_exists('weblinks_header')) {
         // submit.php modify.php
         public function assign_module_header_submit()
         {
-            if ($this->_header_mode == 1) {
+            if (1 == $this->_header_mode) {
                 $this->_assign_xoops_module_header($this->build_module_header_submit());
             }
         }
@@ -86,9 +86,10 @@ if (!class_exists('weblinks_header')) {
         public function get_module_header_submit()
         {
             $text = '';
-            if ($this->_header_mode == 0) {
+            if (0 == $this->_header_mode) {
                 $text = $this->build_module_header_submit();
             }
+
             return $text;
         }
 
@@ -99,6 +100,7 @@ if (!class_exists('weblinks_header')) {
 
             $text = $this->_build_weblinks_css();
             $text .= $this->_envelop_script($temp);
+
             return $text;
         }
 
@@ -107,6 +109,7 @@ if (!class_exists('weblinks_header')) {
         {
             $text = $this->_build_weblinks_css();
             $text .= $this->_build_map_jp_css();
+
             return $text;
         }
 
@@ -118,6 +121,7 @@ if (!class_exists('weblinks_header')) {
             $text = $this->_build_weblinks_css();
             $text .= $this->_build_map_jp_css();
             $text .= $this->_envelop_script($this->_build_visit_js());
+
             return $text;
         }
 
@@ -127,6 +131,7 @@ if (!class_exists('weblinks_header')) {
 
             $text = $this->_build_weblinks_css();
             $text .= $this->_envelop_script($temp);
+
             return $text;
         }
 
@@ -147,6 +152,7 @@ if (!class_exists('weblinks_header')) {
                 define('WEBLINKS_GM_LOCAL_LOADED', 1);
                 $text = $this->_build_weblinks_gmap_js();
             }
+
             return $text;
         }
 
@@ -158,12 +164,14 @@ if (!class_exists('weblinks_header')) {
         public function _build_css($file)
         {
             $text = '<link href="' . $this->_WEBLINKS_URL . '/' . $file . '" rel="stylesheet" type="text/css" media="all" />' . "\n";
+
             return $text;
         }
 
         public function _build_js($file)
         {
             $text = '<script src="' . $this->_WEBLINKS_URL . '/' . $file . '" type="text/javascript" ></script>' . "\n";
+
             return $text;
         }
 
@@ -214,6 +222,5 @@ END_OF_TEXT;
 
         // --- class end ---
     }
-
     // === class end ===
 }

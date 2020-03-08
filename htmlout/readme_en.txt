@@ -10,7 +10,7 @@ how to make HTML output plugin
 
 htmlout/foobar.php
 ------
-if( !class_exists('weblinks_htmlout_foobar') ) 
+if( !class_exists('weblinks_htmlout_foobar') )
 {
 
 class weblinks_htmlout_foobar extends weblinks_htmlout_base
@@ -18,21 +18,21 @@ class weblinks_htmlout_foobar extends weblinks_htmlout_base
 
 function weblinks_htmlout_foobar( $dirname )
 {
-	$this->weblinks_htmlout_base( $dirname );
+    $this->weblinks_htmlout_base( $dirname );
 }
 
 function description()
 {
-	// write in English
-	return "this is foobar description";
+    // write in English
+    return "this is foobar description";
 }
 
 function execute_plugin()
 {
-	$content = $this->get_item_by_key( 'content' );
-	$converted = xxx;	// please write your proccess
-	$this->set_item_by_key( 'content', $converted );
-	return true;
+    $content = $this->get_item_by_key( 'content' );
+    $converted = xxx;   // please write your proccess
+    $this->set_item_by_key( 'content', $converted );
+    return true;
 }
 
 } // class end

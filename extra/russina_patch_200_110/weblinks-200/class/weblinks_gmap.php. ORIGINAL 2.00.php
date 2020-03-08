@@ -12,7 +12,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_gmap')) {
-
     //=========================================================
     // class google map
     //=========================================================
@@ -38,8 +37,8 @@ if (!class_exists('weblinks_gmap')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler          = weblinks_get_handler('config2_basic', $dirname);
-            $this->_linkitem_handler = weblinks_get_handler('linkitem_basic', $dirname);
+            $config_handler          = weblinks_getHandler('config2_basic', $dirname);
+            $this->_linkitem_handler = weblinks_getHandler('linkitem_basic', $dirname);
             $this->_strings          = happy_linux_strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
@@ -53,16 +52,17 @@ if (!class_exists('weblinks_gmap')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_gmap($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
         //---------------------------------------------------------
         // template
         //---------------------------------------------------------
-        public function fetch_list(&$links, $param, $css_map = 'weblinks_gm_map_index')
+        public function fetch_list($links, $param, $css_map = 'weblinks_gm_map_index')
         {
             $tpl = new XoopsTpl();
             $this->_assign_common($tpl, $param);
@@ -75,32 +75,34 @@ if (!class_exists('weblinks_gmap')) {
             }
 
             $text = $tpl->fetch($this->_template_list);
+
             return $text;
         }
 
-        public function fetch_single(&$link)
+        public function fetch_single($link)
         {
             $tpl = new XoopsTpl();
             $this->_assign_common($tpl);
             $tpl->assign('link', $link);
 
             $text = $tpl->fetch($this->_template_single);
+
             return $text;
         }
 
-        public function _assign_common(&$tpl, $param = null)
+        public function _assign_common($tpl, $param = null)
         {
             $gm_latitude  = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
             $gm_longitude = isset($param['gm_longitude']) ? $param['gm_longitude'] : 0;
             $gm_zoom      = isset($param['gm_zoom']) ? $param['gm_zoom'] : 0;
             $gm_type      = isset($param['gm_type']) ? $param['gm_type'] : 0;
 
-            $linkitem =& $this->_linkitem_handler->get_conf();
+            $linkitem = &$this->_linkitem_handler->get_conf();
 
             $gm_type_str = '';
-            if ($gm_type == 1) {
+            if (1 == $gm_type) {
                 $gm_type_str = 'satellite';
-            } elseif ($gm_type == 2) {
+            } elseif (2 == $gm_type) {
                 $gm_type_str = 'hybrid';
             }
 
@@ -136,6 +138,7 @@ if (!class_exists('weblinks_gmap')) {
         public function build_form_iframe()
         {
             $text = '<div id="weblinks_gm_iframe"></div>';
+
             return $text;
         }
 
@@ -148,27 +151,27 @@ if (!class_exists('weblinks_gmap')) {
             $url_gm_get   = $WEBLINKS_URL . '/gm_get_location.php?mode=opener';
             $url_image    = $WEBLINKS_URL . '/images/google_maps.gif';
 
-            $text = '<a name="google_map_desc"></a>' . "\n";;
+            $text = '<a name="google_map_desc"></a>' . "\n";
+
             $text .= '<a href="' . $url_gm_get . '" target="_blank">';
             $text .= '<img src="' . $url_image . '" border="0" alt="google map" />';
             $text .= '</a> ';
             $text .= _WEBLINKS_GM_GET_LOCATION;
-            $text .= "<br />\n";
+            $text .= "<br>\n";
             $text .= '<a href="' . $url_gm_get . '" target="_blank">';
             $text .= _WEBLINKS_GM_NEW_WINDOW;
-            $text .= "</a> <br />\n";
+            $text .= "</a> <br>\n";
             $text .= '<a href="#google_map_desc" onclick="weblinks_gm_window_open()">';
             $text .= _WEBLINKS_GM_NEW_WINDOW . 'window.open';
-            $text .= "</a> <br />\n";
+            $text .= "</a> <br>\n";
             $text .= '<a href="#google_map_desc" onclick="weblinks_gm_disp_on()">';
             $text .= _WEBLINKS_GM_INLINE;
-            $text .= "</a> <br />\n";
+            $text .= "</a> <br>\n";
 
             return $text;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

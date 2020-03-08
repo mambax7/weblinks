@@ -18,7 +18,6 @@ include_once 'dev_header.php';
 //=========================================================
 class weblinks_genarate_mylinks extends weblinks_gen_record
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -38,7 +37,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     public function gen_mylinks_category($MAX_CAT, $MAX_PARENT)
     {
         echo "<h4>generete category table</h4>\n";
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
         $imgurl_dir = XOOPS_URL . '/modules/mylinks/images/category/';
 
         // contant
@@ -47,7 +46,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         for ($i = 0; $i < $MAX_PARENT; ++$i) {
             // randum data
             $title  = 'main_' . $this->get_randum_title();
-            $imgurl = $imgurl_dir . sprintf('%01d', rand(0, 9)) . '.gif';
+            $imgurl = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
 
             // category table
             $this->insert_mylinks_category($pid, $title, $imgurl);
@@ -64,7 +63,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
             // randum data
             $title   = 'sub_' . $this->get_randum_title();
             $max_pid = (int)($MAX_PARENT + $i);
-            $pid     = rand(1, $max_pid);
+            $pid     = mt_rand(1, $max_pid);
 
             // ctegory table
             $this->insert_mylinks_category($pid, $title, $imgurl);
@@ -108,7 +107,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     public function gen_mylinks_link($MAX_LINK, $MAX_CAT)
     {
         echo "<h4>generete link table</h4>\n";
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         // table name
         $link_table = $this->db_prefix('mylinks_links');
@@ -122,15 +121,15 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_LINK; ++$i) {
             // randum data
-            $cid       = rand(1, $MAX_CAT);
-            $submitter = rand(0, 10);
-            $hits      = rand(0, 100);
+            $cid       = mt_rand(1, $MAX_CAT);
+            $submitter = mt_rand(0, 10);
+            $hits      = mt_rand(0, 100);
             $title     = $this->get_randum_title();
             $logourl   = $this->get_randum_image();
             $date      = $this->get_randum_time();
 
             // other
-            $url  = "http://$title/";
+            $url  = "https://$title/";
             $desc = "$title\n $date\n";
 
             // link table
@@ -171,7 +170,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     public function gen_mylinks_votedata($MAX_VOTE, $MAX_LINK)
     {
         echo "<h4>generete votedata table</h4>\n";
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         // table name
         $votedata_table = $this->db_prefix('mylinks_votedata');
@@ -179,9 +178,9 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
 
         for ($i = 0; $i < $MAX_VOTE; ++$i) {
             // randum data
-            $lid             = rand(1, $MAX_LINK);
-            $ratinguser      = rand(1, 10);
-            $rating          = rand(0, 10);
+            $lid             = mt_rand(1, $MAX_LINK);
+            $ratinguser      = mt_rand(1, 10);
+            $rating          = mt_rand(0, 10);
             $ratinghostname  = $this->get_randum_ip();
             $ratingtimestamp = $this->get_randum_time();
 
@@ -196,7 +195,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         echo '<br>';
 
         $sql2  = "SELECT lid, count(lid) as c, sum(rating) as s FROM $votedata_table GROUP BY lid ";
-        $rows2 =& $this->get_rows_by_sql($sql2);
+        $rows2 = &$this->get_rows_by_sql($sql2);
 
         foreach ($rows2 as $row2) {
             $lid   = $row2['lid'];
@@ -216,7 +215,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     public function gen_mylinks_comment($MAX_COM, $MAX_LINK)
     {
         echo "<h4>generete xoopscomments table</h4>\n";
-        srand((double)microtime() * 1000000);
+        mt_srand((float)microtime() * 1000000);
 
         $mid = $this->get_mid_by_dirname('mylinks');
 
@@ -225,9 +224,9 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
 
         $this->gen_comment_list($mid, $MAX_COM, $MAX_LINK);
 
-        echo "<br />\n";
+        echo "<br>\n";
 
-        $rows =& $this->get_comment_rows($mid);
+        $rows = &$this->get_comment_rows($mid);
         foreach ($rows as $row) {
             $itemid = $row['com_itemid'];
             $count  = $row['c'];
@@ -269,5 +268,4 @@ $genarete->gen_mylinks_votedata($MAX_VOTE, $MAX_VOTE / 4);
 $genarete->gen_mylinks_comment($MAX_COM, $MAX_COM / 4);
 
 echo '<h3>end</h3>';
-dev_footer();// =====
-;
+dev_footer(); // =====

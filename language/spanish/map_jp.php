@@ -16,7 +16,7 @@
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('WEBLINKS_LANG_MP_LOADED', 1);
 
-    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Valid in Japan</font><br />Relates Japan map and category');
+    define('_AM_WEBLINKS_MAP_JP_MANAGE_DESC', '<font color="#ff0000" size="+2">Valid in Japan</font><br>Relates Japan map and category');
     define('_AM_WEBLINKS_MAP_JP_LABEL', 'Label');
     define('_AM_WEBLINKS_MAP_JP_PREF', 'Prefecture name on the map');
     define('_AM_WEBLINKS_MAP_JP_SHOW_INDEX', 'Show Japan map in Index page');
@@ -70,4 +70,3 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_MIYAZAKI', 'Miyazaki');
     define('_WEBLINKS_JP_OKINAWA', 'Okinawa');
 }// --- define language end ---
-;

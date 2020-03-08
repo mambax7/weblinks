@@ -43,7 +43,7 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
     for ($i = 1; $i <= $MAX_CAT; ++$i) {
         // category table
         $cat_title = $pid . ': ' . $genarete->get_randum_title();
-        $imgurl    = $imgurl_dir . sprintf('%01d', rand(0, 9)) . '.gif';
+        $imgurl    = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
         $cid       = $genarete->insert_mylinks_category($pid, $cat_title, $imgurl);
 
         // link table
@@ -58,5 +58,4 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
 echo "<h3>end</h3>\n";
 echo "$MAX_CAT categories in cateogry $PID_START <br>\n";
 
-dev_footer();// =====
-;
+dev_footer(); // =====

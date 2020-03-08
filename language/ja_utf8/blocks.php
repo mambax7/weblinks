@@ -122,4 +122,3 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0:非表示, 1:表示');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'mapの地図形式ボタン');
 }// --- define language end ---
-;

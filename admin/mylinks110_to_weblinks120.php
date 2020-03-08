@@ -69,10 +69,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_post   = happy_linux_post::getInstance();
         $this->_form   = happy_linux_form_lib::getInstance();
 
-        $this->_weblinks_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler     = weblinks_get_handler('link', WEBLINKS_DIRNAME);
-        $this->_weblinks_catlink_handler  = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
-        $this->_weblinks_votedata_handler = weblinks_get_handler('votedata', WEBLINKS_DIRNAME);
+        $this->_weblinks_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler     = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_catlink_handler  = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
+        $this->_weblinks_votedata_handler = weblinks_getHandler('votedata', WEBLINKS_DIRNAME);
         $this->_weblinks_votedata_table   = $this->prefix('votedata');
 
         $this->_weblinks_category_handler->set_debug_db_error(1);
@@ -97,8 +97,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_import_mylinks();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -110,12 +110,14 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function get_post_op()
     {
         $this->_op = $this->_post->get_post_get('op');
+
         return $this->_op;
     }
 
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_get('limit');
+
         return $this->_limit;
     }
 
@@ -123,6 +125,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
     {
         $this->_offset = $this->_post->get_post_get('offset');
         $this->_next   = $this->_offset + $this->_LIMIT;
+
         return $this->_offset;
     }
 
@@ -132,24 +135,23 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function menu()
     {
         ?>
-        <br/>
-        There are 4 steps. <br/>
-        1. import shot images <br/>
-        2. import category table <br/>
-        3. import link table <br/>
-        4. import votedate table <br/>
-        5. import comment table <br/>
-        excute each <?php echo $this->_LIMIT;
-        ?> records at a time <br/>
-        <br/>
-        Preparation <br/>
-        Please enable to be writable of cache directory. <br/>
-        <br/>
-        Nitice <br/>
-        This program don't import modify and broken table. <br/>
+        <br>
+        There are 4 steps. <br>
+        1. import shot images <br>
+        2. import category table <br>
+        3. import link table <br>
+        4. import votedate table <br>
+        5. import comment table <br>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br>
+        <br>
+        Preparation <br>
+        Please enable to be writable of cache directory. <br>
+        <br>
+        Nitice <br>
+        This program don't import modify and broken table. <br>
         <h4 style="color:#ff0000;">Warnig</h4>
-        Excute only once, after install. <br/>
-        This program overwrite MySQL tables. <br/>
+        Excute only once, after install. <br>
+        This program overwrite MySQL tables. <br>
         <?php
 
         $this->_form_image();
@@ -166,11 +168,11 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_mylinks_shots_dir  = XOOPS_ROOT_PATH . '/modules/' . $this->_MYLINKS_DIRNAME . '/images/shots/';
         $this->_weblinks_shots_dir = WEBLINKS_ROOT_PATH . '/images/shots/';
 
-        $file_arr = array();
+        $file_arr = [];
 
         $dir = opendir($this->_mylinks_shots_dir);
         while ($file = readdir($dir)) {
-            if ($file == 'index.html') {
+            if ('index.html' == $file) {
                 continue;
             }
 
@@ -183,7 +185,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
         }
 
         $count = count($file_arr);
-        echo "There are $count images <br /><br />\n";
+        echo "There are $count images <br><br>\n";
 
         $error_flag = false;
 
@@ -194,21 +196,21 @@ class admin_import_mylinks extends happy_linux_basic_handler
                     $file_dest   = $this->_weblinks_shots_dir . $file;
 
                     if (copy($file_source, $file_dest)) {
-                        echo "$file_source -> $file_dest <br />\n";
+                        echo "$file_source -> $file_dest <br>\n";
                     } else {
-                        echo "$file: <font color='red'>copy failed : $file_source</font><br />\n";
+                        echo "$file: <font color='red'>copy failed : $file_source</font><br>\n";
                         $error_flag = true;
                     }
                 }
             } else {
-                echo "<font color='red'>not writable: $this->_weblinks_shots_dir</font><br />\n";
+                echo "<font color='red'>not writable: $this->_weblinks_shots_dir</font><br>\n";
                 $error_flag = true;
             }
         }
 
         if ($error_flag) {
             echo "<h4><font color='red'>some images failed</font></h4>\n";
-            echo "Plaese copy manualy <br />\n";
+            echo "Plaese copy manualy <br>\n";
         }
 
         $this->_form_category();
@@ -245,10 +247,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
         echo '<h4>STEP 2 : import category table</h4>';
         $sql1  = 'SELECT * FROM ' . $this->_mylinks_cat_table . ' ORDER BY cid';
-        $rows1 =& $this->get_rows_by_sql($sql1);
+        $rows1 = &$this->get_rows_by_sql($sql1);
         $total = count($rows1);
 
-        echo "There are $total categorys in mylinks<br /><br />\n";
+        echo "There are $total categorys in mylinks<br><br>\n";
 
         $lflag  = 1;
         $orders = 1;
@@ -259,9 +261,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
             $title  = $row['title'];
             $imgurl = $row['imgurl'];
 
-            echo "$cid: $title <br />";
+            echo "$cid: $title <br>";
 
-            $obj =& $this->_weblinks_category_handler->create();
+            $obj = &$this->_weblinks_category_handler->create();
             $obj->set('cid', $cid);
             $obj->set('pid', $pid);
             $obj->set('title', $title);
@@ -346,10 +348,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $offset = $this->get_post_offset();
 
         $sql1  = 'SELECT count(*) FROM ' . $this->_mylinks_links_table;
-        $total =& $this->get_count_by_sql($sql1);
+        $total = &$this->get_count_by_sql($sql1);
 
         $sql2  = 'SELECT * FROM ' . $this->_mylinks_links_table . ' ORDER BY lid';
-        $rows2 =& $this->get_rows_by_sql($sql2, $this->_LIMIT, $offset);
+        $rows2 = &$this->get_rows_by_sql($sql2, $this->_LIMIT, $offset);
 
         $next = $this->_next;
         if ($this->_next > $total) {
@@ -357,8 +359,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
         }
 
         echo "<h4>STEP 3: link table</h4>\n";
-        echo "There are $total links in mylinks<br />\n";
-        echo "Import $offset - $next th link <br /><br />";
+        echo "There are $total links in mylinks<br>\n";
+        echo "Import $offset - $next th link <br><br>";
 
         // init category list
         $this->_weblinks_category_handler->load();
@@ -377,9 +379,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
             $time_update = $time_create;
             $logourl     = $row['logourl'];
 
-            echo "$lid: $title <br />";
+            echo "$lid: $title <br>";
 
-            $cid_arr = array($cid);
+            $cid_arr = [$cid];
             $banner  = '';
             $width   = 0;
             $height  = 0;
@@ -393,7 +395,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
                     $width  = (int)$size[0];
                     $height = (int)$size[1];
                 } else {
-                    echo "<font color='red'>image size error: $banner</font><br />";
+                    echo "<font color='red'>image size error: $banner</font><br>";
                 }
             }
 
@@ -426,7 +428,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
             $sql2 = $this->_weblinks_link_handler->_build_insert_sql($obj, true);
             $res2 = $this->_weblinks_link_handler->query($sql2);
 
-            $res3 = $this->_weblinks_catlink_handler->add_link_by_lid_cid_array($lid, array($cid));
+            $res3 = $this->_weblinks_catlink_handler->add_link_by_lid_cid_array($lid, [$cid]);
         }
 
         if ($total > $next) {
@@ -439,8 +441,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function get_mylinks_description($lid)
     {
         $sql  = 'SELECT * FROM ' . $this->_mylinks_text_table . ' WHERE lid=' . $lid;
-        $row  =& $this->get_row_by_sql($sql);
+        $row  = &$this->get_row_by_sql($sql);
         $desc = $row['description'];
+
         return $desc;
     }
 
@@ -465,15 +468,15 @@ class admin_import_mylinks extends happy_linux_basic_handler
     {
         echo '<h4>STEP 5 : import xoopscomments table</h4>';
 
-        $com_id_arr = array();
+        $com_id_arr = [];
 
-        $sql1 = 'SELECT * FROM ' . $this->_xoopscomments_table . ' ';
-        $sql1 .= 'WHERE com_modid=' . $this->_mylinks_mid . ' ';
-        $sql1 .= 'ORDER BY com_id ';
+        $sql1  = 'SELECT * FROM ' . $this->_xoopscomments_table . ' ';
+        $sql1  .= 'WHERE com_modid=' . $this->_mylinks_mid . ' ';
+        $sql1  .= 'ORDER BY com_id ';
         $rows1 = &$this->get_rows_by_sql($sql1);
         $total = count($rows1);
 
-        echo "There are $total comments <br /><br />\n";
+        echo "There are $total comments <br><br>\n";
 
         foreach ($rows1 as $row) {
             $com_id       = $row['com_id'];
@@ -495,7 +498,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
             $doimage      = $row['doimage'];
             $dobr         = $row['dobr'];
 
-            echo "$com_id: $com_title <br />";
+            echo "$com_id: $com_title <br>";
 
             // xoopscomments table
             $sql2 = 'INSERT INTO ' . $this->_xoopscomments_table . ' (';
@@ -517,7 +520,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
                     $com_rootid_new = $com_id_arr[$com_pid]['com_rootid_new'];
                     $com_pid_new    = $com_id_arr[$com_pid]['com_id_new'];
                 } else {
-                    echo "<font color='red'>pid convert error: $com_id </font><br />";
+                    echo "<font color='red'>pid convert error: $com_id </font><br>";
                 }
             }
 
@@ -579,12 +582,14 @@ class admin_import_mylinks extends happy_linux_basic_handler
         if ($this->_mylinks_mid) {
             return true;
         }
+
         return false;
     }
 
     public function get_source_msg_not_installed()
     {
         $msg = $this->_MYLINKS_DIRNAME . " module is not installed \n";
+
         return $msg;
     }
 
@@ -593,9 +598,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function _print_finish()
     {
-        echo "<br /><hr />\n";
+        echo "<br><hr>\n";
         echo "<h4>FINISHED</h4>\n";
-        echo '<a href="index.php">GOTO Admin Menu</a>' . "<br />\n";
+        echo '<a href="index.php">GOTO Admin Menu</a>' . "<br>\n";
     }
 
     public function _form_re_create()
@@ -605,8 +610,8 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $submit = 'GO STEP 0';
 
         echo '<h4>' . $title . "</h4>\n";
-        echo "Drop and create tables.<br />\n";
-        echo "If you want to redo <br />\n";
+        echo "Drop and create tables.<br>\n";
+        echo "If you want to redo <br>\n";
         $this->_print_form_next($title, $op, $submit);
     }
 
@@ -646,7 +651,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $submit = 'GO next ' . $this->_LIMIT . ' links';
         $op     = 'import_link';
 
-        echo "<br /><hr />\n";
+        echo "<br><hr>\n";
         echo '<h4>' . $title . "</h4>\n";
         $this->_print_form_next($title, $op, $submit, $offset);
     }
@@ -673,12 +678,12 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
     public function _print_form_next($title, $op, $submit, $offset = 0)
     {
-        echo "<br /><hr />\n";
+        echo "<br><hr>\n";
         echo '<h4>' . $title . "</h4>\n";
 
         if ($offset) {
             $next = $offset + $this->_LIMIT;
-            echo 'Import ' . $offset . ' - ' . $next . " th record<br />\n";
+            echo 'Import ' . $offset . ' - ' . $next . " th record<br>\n";
         }
 
         // show form
@@ -692,6 +697,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function check_token()
     {
         $ret = $this->_form->check_token();
+
         return $ret;
     }
 
@@ -707,7 +713,7 @@ $import = admin_import_mylinks::getInstance();
 
 weblinks_admin_print_bread(_AM_WEBLINKS_IMPORT_MANAGE, 'import_manage.php', 'mylinks');
 echo '<h3>' . 'Imort from mylinks module' . "</h3>\n";
-echo "Import DB mylinks 1.10 to weblinks 1.20 or later <br /><br />\n";
+echo "Import DB mylinks 1.10 to weblinks 1.20 or later <br><br>\n";
 
 if (!$import->exist_source_module()) {
     xoops_error($import->get_source_msg_not_installed());
@@ -725,7 +731,6 @@ switch ($op) {
             $import->import_image();
         }
         break;
-
     case 'import_category':
         if (!$import->check_token()) {
             xoops_error('Token Error');
@@ -733,7 +738,6 @@ switch ($op) {
             $import->import_category();
         }
         break;
-
     case 'import_link':
         if (!$import->check_token()) {
             xoops_error('Token Error');
@@ -741,7 +745,6 @@ switch ($op) {
             $import->import_link();
         }
         break;
-
     case 'import_votedate':
         if (!$import->check_token()) {
             xoops_error('Token Error');
@@ -749,7 +752,6 @@ switch ($op) {
             $import->import_votedate();
         }
         break;
-
     case 'import_comment':
         if (!$import->check_token()) {
             xoops_error('Token Error');
@@ -757,7 +759,6 @@ switch ($op) {
             $import->import_comment();
         }
         break;
-
     case 're_create':
         if (!$import->check_token()) {
             xoops_error('Token Error');
@@ -765,12 +766,10 @@ switch ($op) {
             $import->re_create();
         }
         break;
-
     case 'menu':
     default:
         $import->menu();
         break;
-
 }
 
 xoops_cp_footer();

@@ -39,9 +39,10 @@ class admin_manage_geocoding extends happy_linux_manage
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_geocoding($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -54,6 +55,7 @@ class admin_manage_geocoding extends happy_linux_manage
         if (isset($_POST['mod_all'])) {
             $op = 'mod_all';
         }
+
         return $op;
     }
 
@@ -76,7 +78,7 @@ class admin_manage_geocoding extends happy_linux_manage
     public function &_get_obj_mod_all()
     {
         $id = $this->_id;
-        if ($id == 0) {
+        if (0 == $id) {
             return $this->_obj;
         }
 
@@ -90,6 +92,7 @@ class admin_manage_geocoding extends happy_linux_manage
         $this->_obj->setVar('gm_latitude', $this->_latitude_list[$id]);
         $this->_obj->setVar('gm_longitude', $this->_longitude_list[$id]);
         $this->_obj->setVar('gm_zoom', $this->_ZOOM_DEFAULT);
+
         return $this->_obj;
     }
 
@@ -134,7 +137,7 @@ class admin_list_geocoding extends happy_linux_page_frame
 
         $this->_system_class = happy_linux_system::getInstance();
 
-        $config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $config_handler = weblinks_getHandler('config2_basic', $dirname);
         $config_handler->init();
         $this->_conf = $config_handler->get_conf();
     }
@@ -142,9 +145,10 @@ class admin_list_geocoding extends happy_linux_page_frame
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_list_geocoding($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -160,19 +164,19 @@ class admin_list_geocoding extends happy_linux_page_frame
     public function _init_locate()
     {
         $address_class       = weblinks_address::getInstance($this->_DIRNAME);
-        $this->_locate_class =& $address_class->get_instance_locate();
+        $this->_locate_class = &$address_class->get_instance_locate();
     }
 
     public function _init_api()
     {
         $webmap_dirname = $this->_conf['webmap3_dirname'];
-        if ($webmap_dirname == '') {
+        if ('' == $webmap_dirname) {
             return;
         }
-        if ($webmap_dirname == '-') {
+        if ('-' == $webmap_dirname) {
             return;
         }
-        if ($webmap_dirname == '---') {
+        if ('---' == $webmap_dirname) {
             return;
         }
 
@@ -187,7 +191,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         }
 
         $this->_flag_webmap = true;
-        $this->_api_class   =& webmap3_api_geocoding::getSingleton($webmap_dirname);
+        $this->_api_class   = &webmap3_api_geocoding::getSingleton($webmap_dirname);
     }
 
     //---------------------------------------------------------
@@ -195,7 +199,7 @@ class admin_list_geocoding extends happy_linux_page_frame
     //---------------------------------------------------------
     public function &_get_table_header()
     {
-        $arr = array(
+        $arr = [
             _WLS_LINKID,
             _WLS_SITETITLE,
             _WLS_STATE,
@@ -205,7 +209,8 @@ class admin_list_geocoding extends happy_linux_page_frame
             _AM_WEBLINKS_SEARCHED_ADDRESS,
             _WEBLINKS_GM_LATITUDE,
             _WEBLINKS_GM_LONGITUDE,
-        );
+        ];
+
         return $arr;
     }
 
@@ -232,7 +237,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         $style    = '';
         $checkbox = '-';
 
-        if ($zoom == 0) {
+        if (0 == $zoom) {
             $search = $this->_locate_class->build_address($state, $city, $addr);
 
             if ($search) {
@@ -263,7 +268,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         $disp_lat .= $this->build_html_input_hidden($name_lat, $latitude);
         $disp_lng .= $this->build_html_input_hidden($name_lng, $longitude);
 
-        $arr = array(
+        $arr = [
             $link_link,
             $this->sanitize_text($title),
             $this->sanitize_text($state),
@@ -273,7 +278,8 @@ class admin_list_geocoding extends happy_linux_page_frame
             $disp_result,
             $disp_lat,
             $disp_lng,
-        );
+        ];
+
         return $arr;
     }
 
@@ -294,11 +300,12 @@ class admin_list_geocoding extends happy_linux_page_frame
             return false;
         }
 
-        $arr = array(
+        $arr = [
             'address'   => $results[0]['formatted_address'],
             'latitude'  => $results[0]['lat'],
             'longitude' => $results[0]['lng'],
-        );
+        ];
+
         return $arr;
     }
 
@@ -307,25 +314,25 @@ class admin_list_geocoding extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _print_top()
     {
-        $paths   = array();
-        $paths[] = array(
+        $paths   = [];
+        $paths[] = [
             'name' => $this->_system_class->get_module_name(),
             'url'  => 'index.php',
-        );
-        $paths[] = array(
+        ];
+        $paths[] = [
             'name' => _WEBLINKS_ADMIN_LINK_LIST,
             'url'  => 'link_list.php',
-        );
-        $paths[] = array(
-            'name' => _AM_WEBLINKS_TITLE_LINK_GEOCODING
-        );
+        ];
+        $paths[] = [
+            'name' => _AM_WEBLINKS_TITLE_LINK_GEOCODING,
+        ];
 
         echo $this->build_html_bread_crumb($paths);
         echo '<h4>' . _AM_WEBLINKS_TITLE_LINK_GEOCODING . "</h4>\n";
         echo _AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC;
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
         printf(_WLS_THEREARE, $this->_total_all);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
     }
 
     //---------------------------------------------------------
@@ -337,6 +344,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         $text .= $this->_build_page_col_submit_null($colspan1);
         $text .= $this->_build_page_col_submit_next($colspan2);
         $text .= $this->_build_page_col_submit_add($colspan3);
+
         return $text;
     }
 
@@ -359,6 +367,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         $text = $this->build_html_td_tag_begin($this->_SUBMIT_ALIGN, $this->_SUBMIT_VALIGN, $colspan, $this->_SUBMIT_ROWSPAN, $this->_SUBMIT_CLASS);
         $text .= $str;
         $text .= $this->build_html_td_tag_end();
+
         return $text;
     }
 
@@ -367,6 +376,7 @@ class admin_list_geocoding extends happy_linux_page_frame
         $text = $this->build_html_td_tag_begin($this->_SUBMIT_ALIGN, $this->_SUBMIT_VALIGN, $colspan, $this->_SUBMIT_ROWSPAN, $this->_SUBMIT_CLASS);
         $text .= $this->build_html_input_submit('mod_all', _ADD);
         $text .= $this->build_html_td_tag_end();
+
         return $text;
     }
 
@@ -392,7 +402,6 @@ switch ($op) {
     case 'mod_all':
         $manage->main_mod_all();
         break;
-
     default:
         xoops_cp_header();
         $list->_show();
@@ -400,5 +409,4 @@ switch ($op) {
         break;
 }
 
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

@@ -71,7 +71,7 @@ $weblinks_webmap     = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
 // BUG 2932: dont work correctly when register_long_arrays = off
 $lid = $weblinks_singlelink->get_get_lid();
 
-$conf            =& $weblinks_singlelink->get_conf();
+$conf            = &$weblinks_singlelink->get_conf();
 $is_module_admin = $weblinks_singlelink->is_module_admin();
 
 $weblinks_template->set_keyword_by_request();
@@ -85,7 +85,7 @@ $weblinks_singlelink->set_highlight($conf['use_highlight']);
 $weblinks_singlelink->set_keyword_array($keyword_array);
 
 // link
-$link_show =& $weblinks_singlelink->get_link($lid);
+$link_show = &$weblinks_singlelink->get_link($lid);
 if (!$link_show) {
     redirect_header('index.php', 3, _WLS_NOMATCH);
     exit();
@@ -94,8 +94,7 @@ if (!$link_show) {
 // user can view his link before time_publish
 if (!$is_module_admin
     && !$link_show['is_owner']
-    && ($link_show['warn_time_publish'] || $link_show['warn_time_expire'])
-) {
+    && ($link_show['warn_time_publish'] || $link_show['warn_time_expire'])) {
     redirect_header('index.php', 3, _WLS_NOMATCH);
     exit();
 }
@@ -131,7 +130,7 @@ $xoopsTpl->assign('lang_broken_counter', _WLS_BROKEN_COUNTER);
 
 $weblinks_template->assignDisplayLink();
 
-$catpath_arr =& $weblinks_singlelink->get_catpath_arr($lid);
+$catpath_arr = &$weblinks_singlelink->get_catpath_arr($lid);
 foreach ($catpath_arr as $catpath) {
     $xoopsTpl->append('catpaths', $catpath);
 }
@@ -178,7 +177,7 @@ if (is_array($atomfeed['feeds']) && count($atomfeed['feeds'])) {
 $show_forum_list     = false;
 $weblinks_forum_list = '';
 
-$threads =& $weblinks_singlelink->get_link_forum_threads_by_lid($lid);
+$threads = &$weblinks_singlelink->get_link_forum_threads_by_lid($lid);
 if (is_array($threads) && count($threads)) {
     $show_forum_list     = true;
     $weblinks_forum_list = $weblinks_template->fetch_forum_list($threads);
@@ -192,7 +191,7 @@ $xoopsTpl->assign('lang_latest_forum', _WEBLINKS_LATEST_FORUM);
 $show_photo_list = false;
 $photo_list      = '';
 
-$photos =& $weblinks_singlelink->get_link_album_photos_by_lid($lid);
+$photos = &$weblinks_singlelink->get_link_album_photos_by_lid($lid);
 if (is_array($photos) && count($photos)) {
     $show_photo_list = true;
     $photo_list      = $weblinks_template->fetch_photo_list($photos);
@@ -210,5 +209,4 @@ include XOOPS_ROOT_PATH . '/include/comment_view.php';
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- main end ---
-;
+exit(); // --- main end ---

@@ -65,12 +65,11 @@
 // 2006-05-15 K.OHWADA
 //================================================================
 
-define('WEBLINKS_CAT_PATH_STYLE_1', 'style 1 <br />cat1 <br />cat1 : cat2 <br />cat1 : cat2 : cat3');
-define('WEBLINKS_CAT_PATH_STYLE_2', 'style 2 <br />cat1 <br />-- cat2 <br />---- cat3');
+define('WEBLINKS_CAT_PATH_STYLE_1', 'style 1 <br>cat1 <br>cat1 : cat2 <br>cat1 : cat2 : cat3');
+define('WEBLINKS_CAT_PATH_STYLE_2', 'style 2 <br>cat1 <br>-- cat2 <br>---- cat3');
 
 // === class begin ===
 if (!class_exists('weblinks_config2_define_handler')) {
-
     //=========================================================
     // class weblinks_config2_define
     //=========================================================
@@ -93,9 +92,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_config2_define($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -106,14 +106,14 @@ if (!class_exists('weblinks_config2_define_handler')) {
         // Notice [PHP]: Only variables should be assigned by reference
         public function &get_define()
         {
-            $SUBMIT_DEFAULT = array(XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS, XOOPS_GROUP_ANONYMOUS);
+            $SUBMIT_DEFAULT = [XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS, XOOPS_GROUP_ANONYMOUS];
 
             global $xoopsConfig;
             $adminmail = $xoopsConfig['adminmail'];
 
             $this->_locate->set_config_country_code($this->get_config_country_code());
-            $default =& $this->_locate->weblinks_get_value('default');
-            $cc      =& $this->_locate->weblinks_get_value('config');
+            $default = &$this->_locate->weblinks_get_value('default');
+            $cc      = &$this->_locate->weblinks_get_value('config');
 
             //---------------------------------------------------------
             // auth
@@ -215,10 +215,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[28]['formtype']  = 'radio_nl_non';
             $config[28]['valuetype'] = 'int';
             $config[28]['default']   = 1;
-            $config[28]['options']   = array(
+            $config[28]['options']   = [
                 WEBLINKS_CAT_PATH_STYLE_1 => 1,
                 WEBLINKS_CAT_PATH_STYLE_2 => 2,
-            );
+            ];
 
             $config[24]['name']        = 'cat_img_width';
             $config[24]['catid']       = '2';
@@ -253,11 +253,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[266]['formtype']  = 'radio';
             $config[266]['valuetype'] = 'int';
             $config[266]['default']   = 1;
-            $config[266]['options']   = array(
+            $config[266]['options']   = [
                 _AM_WEBLINKS_MODE_NON       => 0,
                 _AM_WEBLINKS_CAT_SUB_MODE_1 => 1,
                 _AM_WEBLINKS_CAT_SUB_MODE_2 => 2,
-            );
+            ];
 
             $config[22]['name']        = 'cat_sub';
             $config[22]['catid']       = '26';
@@ -274,12 +274,12 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[23]['formtype']    = 'radio_nl';
             $config[23]['valuetype']   = 'int';
             $config[23]['default']     = 1;
-            $config[23]['options']     = array(
+            $config[23]['options']     = [
                 _AM_WEBLINKS_MODE_NON         => 0,
                 _WEBLINKS_CAT_IMG_MODE_1      => 1,
                 _WEBLINKS_CAT_IMG_MODE_2      => 2,
                 _AM_WEBLINKS_MODE_OMIT_PARENT => 3,
-            );
+            ];
 
             $config[261]['name']      = 'cat_desc_mode';
             $config[261]['catid']     = 26;
@@ -287,11 +287,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[261]['formtype']  = 'radio';
             $config[261]['valuetype'] = 'int';
             $config[261]['default']   = 1;
-            $config[261]['options']   = array(
+            $config[261]['options']   = [
                 _AM_WEBLINKS_MODE_NON         => 0,
                 _AM_WEBLINKS_MODE_SETTING     => 1,
                 _AM_WEBLINKS_MODE_OMIT_PARENT => 2,
-            );
+            ];
 
             // move to google map
             //  $config[29]['name']        = 'cat_show_gm';
@@ -347,10 +347,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[35]['formtype']  = 'radio';
             $config[35]['valuetype'] = 'int';
             $config[35]['default']   = 1;
-            $config[35]['options']   = array(
+            $config[35]['options']   = [
                 _AM_WEBLINKS_VIEW_STYLE_0 => 0,
-                _AM_WEBLINKS_VIEW_STYLE_1 => 1
-            );
+                _AM_WEBLINKS_VIEW_STYLE_1 => 1,
+            ];
 
             $config[36]['name']        = 'view_style_mark';
             $config[36]['catid']       = '3';
@@ -359,10 +359,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[36]['formtype']    = 'radio';
             $config[36]['valuetype']   = 'int';
             $config[36]['default']     = 1;
-            $config[36]['options']     = array(
+            $config[36]['options']     = [
                 _AM_WEBLINKS_VIEW_STYLE_0 => 0,
-                _AM_WEBLINKS_VIEW_STYLE_1 => 1
-            );
+                _AM_WEBLINKS_VIEW_STYLE_1 => 1,
+            ];
 
             //---------------------------------------------------------
             // top ten
@@ -375,10 +375,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[41]['formtype']    = 'radio_nl';
             $config[41]['valuetype']   = 'int';
             $config[41]['default']     = 0;
-            $config[41]['options']     = array(
+            $config[41]['options']     = [
                 _MI_WEBLINKS_TOPTEN_STYLE_0 => 0,
-                _MI_WEBLINKS_TOPTEN_STYLE_1 => 1
-            );
+                _MI_WEBLINKS_TOPTEN_STYLE_1 => 1,
+            ];
 
             $config[42]['name']        = 'topten_links';
             $config[42]['catid']       = '4';
@@ -406,15 +406,15 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[51]['formtype']    = 'select';
             $config[51]['valuetype']   = 'int';
             $config[51]['default']     = 20;
-            $config[51]['options']     = array(
+            $config[51]['options']     = [
                 '5'  => 5,
                 '10' => 10,
                 '15' => 15,
                 '20' => 20,
                 '25' => 25,
                 '1'  => 1,
-                '50' => 50
-            );
+                '50' => 50,
+            ];
 
             $config[52]['name']        = 'search_min';
             $config[52]['catid']       = '5';
@@ -732,7 +732,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[125]['formtype']    = 'select';
             $config[125]['valuetype']   = 'int';
             $config[125]['default']     = 10;
-            $config[125]['options']     = array(
+            $config[125]['options']     = [
                 '5'   => 5,
                 '10'  => 10,
                 '15'  => 15,
@@ -741,7 +741,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
                 '50'  => 50,
                 '75'  => 75,
                 '100' => 100,
-            );
+            ];
 
             $config[126]['name']        = 'descshort';
             $config[126]['catid']       = '12';
@@ -758,7 +758,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[127]['formtype']    = 'select';
             $config[127]['valuetype']   = 'int';
             $config[127]['default']     = 0;
-            $config[127]['options']     = array(
+            $config[127]['options']     = [
                 _MI_WEBLINKS_ORDERBY0 => 0,
                 _MI_WEBLINKS_ORDERBY1 => 1,
                 _MI_WEBLINKS_ORDERBY2 => 2,
@@ -769,9 +769,9 @@ if (!class_exists('weblinks_config2_define_handler')) {
                 /* CDS Patch. Weblinks. 2.00. 10. BOF */
                 _MI_WEBLINKS_ORDERBY7 => 7,
                 _MI_WEBLINKS_ORDERBY8 => 8,
-                _MI_WEBLINKS_ORDERBY9 => 9
+                _MI_WEBLINKS_ORDERBY9 => 9,
                 /* CDS Patch. Weblinks. 2.00. 10. EOF */
-            );
+            ];
 
             $config[128]['name']        = 'broken_threshold';
             $config[128]['catid']       = '12';
@@ -788,11 +788,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[129]['formtype']    = 'radio';
             $config[129]['valuetype']   = 'int';
             $config[129]['default']     = 2;
-            $config[129]['options']     = array(
+            $config[129]['options']     = [
                 _AM_WEBLINKS_VIEW_URL_0 => 0,
                 _AM_WEBLINKS_VIEW_URL_1 => 1,
                 _AM_WEBLINKS_VIEW_URL_2 => 2,
-            );
+            ];
 
             $config[134]['name']        = 'use_highlight';
             $config[134]['catid']       = 12;
@@ -809,10 +809,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[135]['formtype']    = 'radio_nl_non';
             $config[135]['valuetype']   = 'int';
             $config[135]['default']     = 0;
-            $config[135]['options']     = array(
+            $config[135]['options']     = [
                 _AM_WEBLINKS_MODE_RANDOM_URL    => 0,
                 _AM_WEBLINKS_MODE_RANDOM_SINGLE => 1,
-            );
+            ];
 
             $config[136]['name']        = 'kml_use';
             $config[136]['catid']       = 12;
@@ -1043,10 +1043,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[174]['formtype']  = 'radio';
             $config[174]['valuetype'] = 'int';
             $config[174]['default']   = 1;
-            $config[174]['options']   = array(
+            $config[174]['options']   = [
                 _AM_WEBLINKS_FORUM_POST_ORDER_0 => 0,
                 _AM_WEBLINKS_FORUM_POST_ORDER_1 => 1,
-            );
+            ];
 
             $config[175]['name']      = 'cat_forum_mode';
             $config[175]['catid']     = 17;
@@ -1054,10 +1054,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[175]['formtype']  = 'radio';
             $config[175]['valuetype'] = 'int';
             $config[175]['default']   = 0;
-            $config[175]['options']   = array(
+            $config[175]['options']   = [
                 _AM_WEBLINKS_MODE_NON    => 0,
                 _AM_WEBLINKS_MODE_PARENT => 1,
-            );
+            ];
 
             //---------------------------------------------------------
             // link forum
@@ -1096,10 +1096,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[184]['formtype']  = 'radio';
             $config[184]['valuetype'] = 'int';
             $config[184]['default']   = 1;
-            $config[184]['options']   = array(
+            $config[184]['options']   = [
                 _AM_WEBLINKS_FORUM_POST_ORDER_0 => 0,
                 _AM_WEBLINKS_FORUM_POST_ORDER_1 => 1,
-            );
+            ];
 
             //---------------------------------------------------------
             // locate
@@ -1243,12 +1243,12 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[293]['formtype']    = 'radio_nl_non';
             $config[293]['valuetype']   = 'text';
             $config[293]['default']     = 'small';
-            $config[293]['options']     = array(
+            $config[293]['options']     = [
                 _AM_WEBLINKS_GM_MAP_CONT_NON   => 'non',
                 _AM_WEBLINKS_GM_MAP_CONT_LARGE => 'large',
                 _AM_WEBLINKS_GM_MAP_CONT_SMALL => 'small',
                 _AM_WEBLINKS_GM_MAP_CONT_ZOOM  => 'zoom',
-            );
+            ];
 
             $config[294]['name']        = 'gm_use_type_control';
             $config[294]['catid']       = '21';
@@ -1294,10 +1294,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[298]['formtype']    = 'radio_nl_non';
             $config[298]['valuetype']   = 'text';
             $config[298]['default']     = 'locations';
-            $config[298]['options']     = array(
+            $config[298]['options']     = [
                 _AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG    => 'latlng',
                 _AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS => 'locations',
-            );
+            ];
 
             $config[299]['name']        = 'gm_use_geocode_tokyo';
             $config[299]['catid']       = '21';
@@ -1321,11 +1321,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[234]['formtype']  = 'radio';
             $config[234]['valuetype'] = 'int';
             $config[234]['default']   = 1;
-            $config[234]['options']   = array(
+            $config[234]['options']   = [
                 _AM_WEBLINKS_MODE_NON       => 0,
                 _AM_WEBLINKS_MODE_DEFAULT   => 1,
                 _AM_WEBLINKS_MODE_FOLLOWING => 2,
-            );
+            ];
 
             // move from link
             $config[235]['name']      = 'index_gm_latitude';
@@ -1396,11 +1396,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[282]['formtype']  = 'radio';
             $config[282]['valuetype'] = 'int';
             $config[282]['default']   = 1;
-            $config[282]['options']   = array(
+            $config[282]['options']   = [
                 _AM_WEBLINKS_MODE_NON       => 0,
                 _AM_WEBLINKS_CAT_SUB_MODE_1 => 1,
                 _AM_WEBLINKS_CAT_SUB_MODE_2 => 2,
-            );
+            ];
 
             $config[283]['name']      = 'index_cat_sub_num';
             $config[283]['catid']     = '23';
@@ -1415,11 +1415,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[284]['formtype']  = 'radio';
             $config[284]['valuetype'] = 'int';
             $config[284]['default']   = 1;
-            $config[284]['options']   = array(
+            $config[284]['options']   = [
                 _AM_WEBLINKS_MODE_NON    => 0,
                 _WEBLINKS_CAT_IMG_MODE_1 => 1,
                 _WEBLINKS_CAT_IMG_MODE_2 => 2,
-            );
+            ];
 
             $config[232]['name']  = 'index_new_link';
             $config[232]['catid'] = '23';
@@ -1446,10 +1446,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[239]['formtype']  = 'radio';
             $config[239]['valuetype'] = 'int';
             $config[239]['default']   = 0;
-            $config[239]['options']   = array(
+            $config[239]['options']   = [
                 _AM_WEBLINKS_INDEX_MODE_LATEST_UPDATE => 0,
                 _AM_WEBLINKS_INDEX_MODE_LATEST_CREATE => 1,
-            );
+            ];
 
             $config[341]['name']  = 'index_admin_waiting_show';
             $config[341]['catid'] = '23';
@@ -1505,10 +1505,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[243]['formtype']  = 'radio';
             $config[243]['valuetype'] = 'int';
             $config[243]['default']   = 0;
-            $config[243]['options']   = array(
+            $config[243]['options']   = [
                 _AM_WEBLINKS_MODE_NON    => 0,
                 _AM_WEBLINKS_MODE_PARENT => 1,
-            );
+            ];
 
             //---------------------------------------------------------
             // link album
@@ -1564,10 +1564,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[274]['formtype']  = 'radio';
             $config[274]['valuetype'] = 'text';
             $config[274]['default']   = 'listposts_flat';
-            $config[274]['options']   = array(
+            $config[274]['options']   = [
                 _FLAT     => 'listposts_flat',
                 _THREADED => 'listtopics',
-            );
+            ];
 
             //---------------------------------------------------------
             // map_jp
@@ -1624,11 +1624,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[351]['formtype']    = 'radio';
             $config[351]['valuetype']   = 'int';
             $config[351]['default']     = 2;
-            $config[351]['options']     = array(
+            $config[351]['options']     = [
                 _WLS_NOTPUBLIC                       => '0',
                 _WLS_PUBLIC                          => '1',
                 _AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL => '2',
-            );
+            ];
 
             $config[352]['name']        = 'user_mailflag';
             $config[352]['catid']       = '35';
@@ -1637,11 +1637,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[352]['formtype']    = 'radio';
             $config[352]['valuetype']   = 'int';
             $config[352]['default']     = 2;
-            $config[352]['options']     = array(
+            $config[352]['options']     = [
                 _WLS_NOTPUBLIC                       => '0',
                 _WLS_PUBLIC                          => '1',
                 _AM_WEBLINKS_USER_NAME_MAIL_FLAG_SEL => '2',
-            );
+            ];
 
             //---------------------------------------------------------
             // menu
@@ -1677,11 +1677,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[361]['formtype']    = 'radio_nl_non';
             $config[361]['valuetype']   = 'int';
             $config[361]['default']     = 2;
-            $config[361]['options']     = array(
+            $config[361]['options']     = [
                 _AM_WEBLINKS_USE_PAGERANK_NON   => 0,
                 _AM_WEBLINKS_USE_PAGERANK_SHOW  => 1,
                 _AM_WEBLINKS_USE_PAGERANK_CACHE => 2,
-            );
+            ];
 
             $config[131]['name']        = 'recommend_pri';
             $config[131]['catid']       = '36';
@@ -1690,11 +1690,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[131]['formtype']    = 'radio';
             $config[131]['valuetype']   = 'int';
             $config[131]['default']     = 2;
-            $config[131]['options']     = array(
+            $config[131]['options']     = [
                 _AM_WEBLINKS_PRI_0 => 0,
                 _AM_WEBLINKS_PRI_1 => 1,
                 _AM_WEBLINKS_PRI_2 => 2,
-            );
+            ];
 
             $config[132]['name']        = 'mutual_pri';
             $config[132]['catid']       = '36';
@@ -1703,11 +1703,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[132]['formtype']    = 'radio';
             $config[132]['valuetype']   = 'int';
             $config[132]['default']     = 2;
-            $config[132]['options']     = array(
+            $config[132]['options']     = [
                 _AM_WEBLINKS_PRI_0 => 0,
                 _AM_WEBLINKS_PRI_1 => 1,
                 _AM_WEBLINKS_PRI_2 => 2,
-            );
+            ];
 
             $config[26]['name']        = 'show_catlist';
             $config[26]['catid']       = '36';
@@ -1867,6 +1867,5 @@ if (!class_exists('weblinks_config2_define_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

@@ -27,7 +27,7 @@
         <{* -- End path list -- *}>
 
         (<{$category.link_count}>)
-        <br/><br/>
+        <br><br>
 
         <{$weblinks_header}>
 
@@ -36,24 +36,24 @@
         </center>
 
         <{$weblinks_guidance}>
-        <br/><br/>
+        <br><br>
 
         <{if $show_photo_list}>
-        <br/>
+        <br>
         <{$weblinks_photo_list}>
-        <br/>
+        <br>
         <{/if}>
 
         <{if $show_map_jp}>
         <center>
             <{$weblinks_map_jp}>
         </center>
-        <br/>
+        <br>
         <{/if}>
 
         <{if $show_gm_list}>
         <{$weblinks_gm_list}>
-        <br/><br/>
+        <br><br>
         <{/if}>
 
         <{if $category_image_mode == 1}>
@@ -97,21 +97,21 @@
                     <{* -- End path list -- *}>
 
                     (<{$category.link_count}>)
-                    <br/>
+                    <br>
 
                     <{if $show_category_navi}>
                     <{$weblinks_category_navi}>
-                    <br/>
+                    <br>
                     <{/if}>
 
                     <{if $show_desc_disp}>
                     <div class="weblinks_viewcat_desc">
                         <{$category.desc_disp}>
                     </div>
-                    <br/>
+                    <br>
                     <{/if}>
 
-                    <hr/>
+                    <hr>
 
                     <{if $show_links}>
                     <{if $show_navi}>
@@ -168,17 +168,17 @@
                                                         <{else}>
                                                         <a href="<{$xoops_url}>/modules/<{$dirname}>/viewcat.php?cid=<{$category.cid}>&amp;sortid=7">
                                                             <{/if}>
-                                                            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br/>
+                                                            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
                                                         <b><{$lang_cursortedby}></b>
                     </div>
-                    <hr/>
+                    <hr>
                     <{/if}>
-                    <br/>
+                    <br>
 
                     <div class="weblinks_viewcat_frame">
                         <{$weblinks_links_full}>
                     </div>
-                    <br/>
+                    <br>
 
                     <div class="weblinks_pagenavi">
                         <{$page_navi}>
@@ -194,13 +194,13 @@
                     <{else}>
 
                     <span class="weblinks_error"><{$lang_nomatch}></span>
-                    <hr/>
+                    <hr>
 
                     <{/if}>
 
                     <{if $show_forum_list}>
-                    <br/>
-                    <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br/><br/>
+                    <br>
+                    <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br><br>
                     <div class="weblinks_viewcat_frame">
                         <{$weblinks_forum_list}>
                     </div>
@@ -208,7 +208,7 @@
 
                     <{include file="db:system_notification_select.html"}>
 
-                    <hr/>
+                    <hr>
                     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
                     <{if $is_module_admin }>
                     <{if $memory_usage > 0}>

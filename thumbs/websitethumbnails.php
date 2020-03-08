@@ -8,21 +8,20 @@
 
 // === function begin ===
 if (!function_exists('weblinks_thumb_websitethumbnails')) {
-
     //=========================================================
     // thumbnail web service
     //=========================================================
     function &weblinks_thumb_websitethumbnails($url)
     {
-        $arr = array(
+        $arr = [
             'name'   => 'website thumbnails',
-            'url'    => 'http://www.websitethumbnails.net/',
-            'image'  => 'http://www.websitethumbnails.net/view.php?url=' . $url,
+            'url'    => 'https://www.websitethumbnails.net/',
+            'image'  => 'https://www.websitethumbnails.net/view.php?url=' . $url,
             'width'  => 120,
             'height' => 90,
-        );
+        ];
+
         return $arr;
     }
-
     // === fucntion end ===
 }

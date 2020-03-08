@@ -25,13 +25,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_broken_handler')) {
-
     //=========================================================
     // class weblinks_broken
     //=========================================================
     class weblinks_broken extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -84,7 +82,6 @@ if (!class_exists('weblinks_broken_handler')) {
     //=========================================================
     class weblinks_broken_handler extends happy_linux_object_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -101,11 +98,10 @@ if (!class_exists('weblinks_broken_handler')) {
             }
         }
 
-
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -124,7 +120,7 @@ if (!class_exists('weblinks_broken_handler')) {
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -163,6 +159,7 @@ if (!class_exists('weblinks_broken_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $ret = $this->getCount($criteria);
+
             return $ret;
         }
 
@@ -174,6 +171,7 @@ if (!class_exists('weblinks_broken_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('sender', $uid, '='));
             $ret = $this->getCount($criteria);
+
             return $ret;
         }
 
@@ -184,6 +182,7 @@ if (!class_exists('weblinks_broken_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->add(new criteria('ip', $ip, '='));
             $ret = $this->getCount($criteria);
+
             return $ret;
         }
 
@@ -192,21 +191,21 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         public function &get_objects_group_by_lid()
         {
-            $ret   = array();
+            $ret   = [];
             $limit = $start = 0;
 
             $sql = 'SELECT * FROM ' . $this->_table . ' ';
             $sql .= 'GROUP BY lid ORDER BY bid DESC';
 
-            $result =& $this->query($sql);
+            $result = &$this->query($sql);
             if (!$result) {
                 return false;
             }
 
             while ($row = $this->fetchArray($result)) {
-                $obj =& $this->create();
+                $obj = &$this->create();
                 $obj->setVars($row);
-                $ret[] =& $obj;
+                $ret[] = &$obj;
                 unset($obj);
             }
 
@@ -215,6 +214,5 @@ if (!class_exists('weblinks_broken_handler')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

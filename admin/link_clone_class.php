@@ -14,7 +14,6 @@
 //=========================================================
 class admin_link_clone extends admin_link_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -27,9 +26,10 @@ class admin_link_clone extends admin_link_base
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_clone();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -51,7 +51,6 @@ class admin_link_clone extends admin_link_base
         }
 
         if ($this->_exec_clone_link($lid)) {
-
             // finish
             $url = $this->_build_url_mod_form($this->_newid);
             $com = 'admin clone link [' . $this->_newid . ']';
@@ -59,10 +58,9 @@ class admin_link_clone extends admin_link_base
             $msg .= $this->_build_comment($com);  // for test form
             redirect_header($url, 1, $msg);
             exit();
-        } else {
-            $this->_print_clone_db_error();
-            exit();
         }
+        $this->_print_clone_db_error();
+        exit();
     }
 
     public function _exec_clone_link($lid)
@@ -70,10 +68,12 @@ class admin_link_clone extends admin_link_base
         $newid = $this->_edit_handler->admin_clone_link($lid);
         if (!$newid) {
             $this->_set_errors($this->_edit_handler->getErrors());
+
             return false;
         }
 
         $this->_newid = $newid;
+
         return $newid;
     }
 
@@ -102,6 +102,7 @@ class admin_link_clone extends admin_link_base
     public function _build_url_mod_form($lid)
     {
         $url = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
+
         return $url;
     }
 
@@ -172,7 +173,6 @@ class admin_link_clone extends admin_link_base
         }
 
         if ($this->_exec_clone_module_from($from, $lid)) {
-
             // finish
             $url = $this->_build_url_mod_form($this->_newid);
             $com = 'admin clone module from [' . $this->_newid . ']';
@@ -180,10 +180,9 @@ class admin_link_clone extends admin_link_base
             $msg .= $this->_build_comment($com);  // for test form
             redirect_header($url, 1, $msg);
             exit();
-        } else {
-            $this->_print_clone_module_from_db_error();
-            exit();
         }
+        $this->_print_clone_module_from_db_error();
+        exit();
     }
 
     public function _exec_clone_module_from($from, $lid)
@@ -191,10 +190,12 @@ class admin_link_clone extends admin_link_base
         $newid = $this->_edit_handler->admin_clone_module_from($from, $lid);
         if (!$newid) {
             $this->_set_errors($this->_edit_handler->getErrors());
+
             return false;
         }
 
         $this->_newid = $newid;
+
         return $newid;
     }
 

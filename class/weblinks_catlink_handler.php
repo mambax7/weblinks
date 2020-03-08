@@ -26,13 +26,11 @@
 
 // === class begin ===
 if (!class_exists('weblinks_catlink_handler')) {
-
     //=========================================================
     // class weblinks_catlink
     //=========================================================
     class weblinks_catlink extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -70,13 +68,13 @@ if (!class_exists('weblinks_catlink_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_catlink_basic_handler = weblinks_get_handler('catlink_basic', $dirname);
+            $this->_catlink_basic_handler = weblinks_getHandler('catlink_basic', $dirname);
         }
 
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-        public function _build_insert_sql(&$obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -93,7 +91,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -103,6 +101,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $sql .= 'cid=' . (int)$cid . ', ';
             $sql .= 'lid=' . (int)$lid . ' ';
             $sql .= 'WHERE jid=' . (int)$jid;
+
             return $sql;
         }
 
@@ -116,7 +115,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $lid = (int)$lid;
 
             foreach ($cid_arr as $cid) {
-                $obj =& $this->create();
+                $obj = &$this->create();
                 $obj->setVar('cid', $cid);
                 $obj->setVar('lid', $lid);
                 $this->insert($obj);
@@ -160,6 +159,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('cid', $cid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -169,6 +169,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria = new CriteriaCompo();
             $criteria->add(new criteria('lid', $lid, '='));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
@@ -177,6 +178,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $sql = 'SELECT COUNT(DISTINCT lid) c FROM ' . $this->_table;
             $sql .= $this->_build_where_by_cid_array($cid_arr);
             $num = $this->get_count_by_sql($sql);
+
             return $num;
         }
 
@@ -191,6 +193,7 @@ if (!class_exists('weblinks_catlink_handler')) {
                 }
                 $where .= ' )';
             }
+
             return $where;
         }
 
@@ -204,7 +207,8 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria->add(new criteria('cid', $cid, '='));
             $criteria->setStart($offset);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -215,7 +219,8 @@ if (!class_exists('weblinks_catlink_handler')) {
             $criteria->add(new criteria('lid', $lid, '='));
             $criteria->setStart($offset);
             $criteria->setLimit($limit);
-            $objs = $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -225,8 +230,8 @@ if (!class_exists('weblinks_catlink_handler')) {
         public function &get_lid_array_by_cid($cid, $limit = 0, $offset = 0)
         {
             $cid     = (int)$cid;
-            $objs    =& $this->get_objects_by_cid($cid, $limit, $offset);
-            $lid_arr = array();
+            $objs    = &$this->get_objects_by_cid($cid, $limit, $offset);
+            $lid_arr = [];
 
             if (count($objs) > 0) {
                 foreach ($objs as $obj) {
@@ -243,7 +248,8 @@ if (!class_exists('weblinks_catlink_handler')) {
         {
             $sql = 'SELECT DISTINCT lid FROM ' . $this->_table;
             $sql .= $this->_build_where_by_cid_array($cid_arr);
-            $arr =& $this->get_first_rows_by_sql($sql);
+            $arr = &$this->get_first_rows_by_sql($sql);
+
             return $arr;
         }
 
@@ -252,12 +258,12 @@ if (!class_exists('weblinks_catlink_handler')) {
         //=========================================================
         public function &get_cid_array_by_lid($lid, $limit = 0, $offset = 0)
         {
-            $arr =& $this->_catlink_basic_handler->get_cid_array_by_lid($lid, $limit = 0, $offset = 0);
+            $arr = &$this->_catlink_basic_handler->get_cid_array_by_lid($lid, $limit = 0, $offset = 0);
+
             return $arr;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

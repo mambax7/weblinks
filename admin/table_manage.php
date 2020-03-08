@@ -70,9 +70,10 @@ class admin_table_manage extends happy_linux_table_manage
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_table_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -155,7 +156,7 @@ class admin_table_manage extends happy_linux_table_manage
             exit();
         }
 
-        $link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
 
         $ret = $link_handler->clean_rss_xml();
         if ($ret) {
@@ -164,7 +165,7 @@ class admin_table_manage extends happy_linux_table_manage
         } else {
             $time = 3;
             $msg  = _HAPPY_LINUX_FAILED;
-            $msg .= $link_handler->getErrors(1);
+            $msg  .= $link_handler->getErrors(1);
         }
 
         redirect_header($this->_this_url, $time, $msg);
@@ -188,25 +189,20 @@ switch ($op) {
     case 'renew_config':
         $manage->renew_config();
         break;
-
     case 'clean_xml':
         $manage->clean_xml();
         break;
-
     case 'remove_block':
         xoops_cp_header();
         $manage->remove_block();
         break;
-
     case 'menu':
     default:
         xoops_cp_header();
         $manage->menu();
         break;
-
 }
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit();// --- main end ---
-;
+exit(); // --- main end ---

@@ -14,7 +14,7 @@
 
 // 2007-08-01 K.OHWADA
 // _WEBLINKS_GM_CURRENT_ADDRESS
-// <br> => <br />
+// <br> => <br>
 
 // 2007-04-08 K.OHWADA
 // _WEBLINKS_GM_TYPE
@@ -172,10 +172,10 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANCEL', 'Cancel');
 
     define('_WLS_ALREADYREPORTED', 'You have already submitted a broken report for this resource.');
-    define('_WLS_MUSTREGFIRST', "Sorry, you don't have permission to perform this action.<br />Please register or login first!");
+    define('_WLS_MUSTREGFIRST', "Sorry, you don't have permission to perform this action.<br>Please register or login first!");
     define('_WLS_NORATING', 'No rating selected.');
-    define('_WLS_CANTVOTEOWN', 'You cannot vote on the resource you submitted.<br />All votes are logged and reviewed.');
-    define('_WLS_VOTEONCE2', 'Vote for the selected resource only once.<br />All votes are logged and reviewed.');
+    define('_WLS_CANTVOTEOWN', 'You cannot vote on the resource you submitted.<br>All votes are logged and reviewed.');
+    define('_WLS_VOTEONCE2', 'Vote for the selected resource only once.<br>All votes are logged and reviewed.');
 
     //%%%%%%    Admin     %%%%%
 
@@ -297,8 +297,10 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'Do Not Publish');
     define('_WLS_NOTSELECT', 'Not Specified');
     define('_WLS_SUBMIT_INDISPENSABLE', "Star mark '<b>*</b>' means an indispensable item.");
-    define('_WLS_SUBMIT_USER_COMMENT',
-           '"Comment to Admin" should use an opinion, request, etc.<br />This column is not displayed on WEB.<br />Please fill in URL of your site where is linked to this site, when you want to mark "Reciprocal link".');
+    define(
+        '_WLS_SUBMIT_USER_COMMENT',
+        '"Comment to Admin" should use an opinion, request, etc.<br>This column is not displayed on WEB.<br>Please fill in URL of your site where is linked to this site, when you want to mark "Reciprocal link".'
+    );
     define('_WLS_USER_COMMENT', 'Comment to Admin');
     define('_WLS_NOT_DISPLAY', 'This column is not displayed on WEB.');
 
@@ -311,7 +313,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //======    user.php    ======
     define('_WLS_PLEASEPASSWORD', 'Enter your password');
     define('_WLS_REGSTERED', 'Registered User');
-    define('_WLS_REGSTERED_DSC', 'Anybody can modify link information. <br />Webmaster will check the modification before posting.');
+    define('_WLS_REGSTERED_DSC', 'Anybody can modify link information. <br>Webmaster will check the modification before posting.');
     define('_WLS_EMAILNOTFOUND', "E-mail address didn't match.");
 
     // error message
@@ -368,7 +370,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'auto discovery');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Notify if approved');
@@ -454,7 +456,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Warning: Cannnot read url');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Warning: cannnot get banner size');
 
-    // google map: hacked by wye <http://never-ever.info/>
+    // google map: hacked by wye <https://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitude');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitude');
     define('_WEBLINKS_GM_ZOOM', 'Zoom Level');
@@ -566,17 +568,16 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // pagerank
     define('_WEBLINKS_SITE_PAGERANK', 'High PageRank Site');
 
-    define('_WEBLINKS_FROM', 'From');       // От
-    define('_WEBLINKS_EXECUTION_TIME', 'execution time');       // Время выполнения
-    define('_WEBLINKS_MEMORY_USAGE', 'memory usage');       // Использование памяти
-    define('_WEBLINKS_SEC', 'sec');     // сек
-    define('_WEBLINKS_MB', 'MB');       // МБ
-    define('_WEBLINKS_FILE', 'file');       //файл
+    define('_WEBLINKS_FROM', 'From');       // пїЅпїЅ
+    define('_WEBLINKS_EXECUTION_TIME', 'execution time');       // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_MEMORY_USAGE', 'memory usage');       // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_SEC', 'sec');     // пїЅпїЅпїЅ
+    define('_WEBLINKS_MB', 'MB');       // пїЅпїЅ
+    define('_WEBLINKS_FILE', 'file');       //пїЅпїЅпїЅпїЅ
 
-    define('_WEBLINKS_RDF_FEED', 'RDF feed');       //RDF канал
-    define('_WEBLINKS_RSS_FEED', 'RSS feed');       //RSS канал
-    define('_WEBLINKS_ATOM_FEED', 'ATOM feed');     //ATOM канал
-    define('_WEBLINKS_NOFEED', 'No Feed');      //Нет канала
-    define('_WEBLINKS_IN', 'in');       //в
+    define('_WEBLINKS_RDF_FEED', 'RDF feed');       //RDF пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_RSS_FEED', 'RSS feed');       //RSS пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_ATOM_FEED', 'ATOM feed');     //ATOM пїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_NOFEED', 'No Feed');      //пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    define('_WEBLINKS_IN', 'in');       //пїЅ
 }// --- define language end ---
-;

@@ -20,4 +20,3 @@ if (!defined('WEBLINKS_VERSION')) {
     define('WEBLINKS_RSSC_VERSION', '1.20');
     define('WEBLINKS_WEBMAP3_VERSION', '1.10');
 }// --- define version end ---
-;

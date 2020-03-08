@@ -26,7 +26,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_build_rss_handler')) {
-
     //=========================================================
     // class weblinks_build_rss_handler
     //=========================================================
@@ -42,7 +41,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
 
         public $_conf;
 
-        public $_param = array();
+        public $_param = [];
 
         //---------------------------------------------------------
         // constructor
@@ -65,8 +64,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $this->set_flag_default_timezone(true);
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler   = weblinks_get_handler('link_basic', $dirname);
+            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_link_handler   = weblinks_getHandler('link_basic', $dirname);
             $this->_link_view      = weblinks_link_view::getInstance($dirname);
             $this->_htmlout        = weblinks_htmlout::getInstance($dirname);
 
@@ -81,9 +80,9 @@ if (!class_exists('weblinks_build_rss_handler')) {
         {
             $link = isset($_GET['link']) ? $_GET['link'] : null;
 
-            $param = array(
+            $param = [
                 'link' => $link,
-            );
+            ];
 
             $this->_set_param($param);
 
@@ -117,6 +116,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
             if (isset($this->_param[$key]) && ($this->_param[$key] == $val)) {
                 return true;
             }
+
             return false;
         }
 
@@ -125,14 +125,15 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         public function &_get_latest()
         {
-            $lid_arr =& $this->_link_handler->get_lid_array_latest($this->_MAX_ITEMS);
+            $lid_arr = &$this->_link_handler->get_lid_array_latest($this->_MAX_ITEMS);
 
-            $arr = array();
+            $arr = [];
             if (is_array($lid_arr) && (count($lid_arr) > 0)) {
                 foreach ($lid_arr as $lid) {
                     $arr[] = $this->_get_rss_by_lid($lid);
                 }
             }
+
             return $arr;
         }
 
@@ -144,11 +145,12 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $arr3 = $arr2;
             foreach ($arr2 as $k => $v) {
                 // match
-                if (strpos($k, 'rss_') === 0) {
+                if (0 === mb_strpos($k, 'rss_')) {
                     $name        = str_replace('rss_', '', $k);
                     $arr3[$name] = $v;
                 }
             }
+
             return $arr3;
         }
 
@@ -165,7 +167,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         public function &_build_rdf_item(&$item)
         {
-            $ret =& $this->_build_rdf_item_default($item);
+            $ret = &$this->_build_rdf_item_default($item);
+
             return $ret;
         }
 
@@ -174,7 +177,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         public function &_build_rss_item(&$item)
         {
-            $ret =& $this->_build_rss_item_default($item);
+            $ret = &$this->_build_rss_item_default($item);
+
             return $ret;
         }
 
@@ -183,7 +187,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         public function &_build_atom_entry(&$entry)
         {
-            $ret =& $this->_build_atom_entry_default($entry);
+            $ret = &$this->_build_atom_entry_default($entry);
+
             return $ret;
         }
 
@@ -210,7 +215,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
             // geo rss
             $lat  = null;
             $long = null;
-            if (($item['gm_latitude'] != 0) || ($item['gm_longitude'] != 0) || ($item['gm_zoom'] != 0)) {
+            if ((0 != $item['gm_latitude']) || (0 != $item['gm_longitude']) || (0 != $item['gm_zoom'])) {
                 $lat  = (float)$item['gm_latitude'];
                 $long = (float)$item['gm_longitude'];
             }
@@ -223,7 +228,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
                 $link_xml = $this->_xml_url($item['link']);
             }
 
-            $ret = array(
+            $ret = [
                 'link'              => $link_xml,
                 'guid'              => $link_xml,
                 'entry_id'          => '',
@@ -249,13 +254,12 @@ if (!class_exists('weblinks_build_rss_handler')) {
                 'content_encoded'   => $content_xml,
                 'geo_lat'           => $lat,
                 'geo_long'          => $long,
-            );
+            ];
 
             return $ret;
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

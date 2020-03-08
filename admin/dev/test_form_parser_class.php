@@ -28,7 +28,7 @@ class weblinks_test_form_parser
     {
         $parser = new HtmlParser($text);
 
-        $arr            = array();
+        $arr            = [];
         $form_loop      = false;
         $select_loop    = false;
         $textarea_loop  = false;
@@ -44,13 +44,13 @@ class weblinks_test_form_parser
                 echo 'Type=' . $parser->iNodeType . ';';
             }
 
-            $node_name  = strtolower($parser->iNodeName);
+            $node_name  = mb_strtolower($parser->iNodeName);
             $form_begin = false;
-            if ($node_name == 'form') {
-                if ($parser->iNodeType == '1') {
+            if ('form' == $node_name) {
+                if ('1' == $parser->iNodeType) {
                     $form_begin = true;
                     $form_loop  = true;
-                } elseif ($parser->iNodeType == '2') {
+                } elseif ('2' == $parser->iNodeType) {
                     $form_loop = false;
                 }
             }
@@ -59,25 +59,25 @@ class weblinks_test_form_parser
                 continue;
             }
 
-            if ($node_name == 'select') {
-                if ($parser->iNodeType == '1') {
+            if ('select' == $node_name) {
+                if ('1' == $parser->iNodeType) {
                     $select_loop  = true;
                     $select_name  = null;
                     $select_value = null;
-                } elseif ($parser->iNodeType == '2') {
+                } elseif ('2' == $parser->iNodeType) {
                     $select_loop = false;
-                    if ($select_name == 'cid[]') {
+                    if ('cid[]' == $select_name) {
                         $arr['cid_arr'][] = $select_value;
                     } elseif ($select_name) {
                         $arr[$select_name] = $select_value;
                     }
                 }
-            } elseif ($node_name == 'textarea') {
-                if ($parser->iNodeType == '1') {
+            } elseif ('textarea' == $node_name) {
+                if ('1' == $parser->iNodeType) {
                     $textarea_loop  = true;
                     $textarea_name  = null;
                     $textarea_value = null;
-                } elseif ($parser->iNodeType == '2') {
+                } elseif ('2' == $parser->iNodeType) {
                     $textarea_loop = false;
                     if ($textarea_name) {
                         $arr[$textarea_name] = $textarea_value;
@@ -85,7 +85,7 @@ class weblinks_test_form_parser
                 }
             }
 
-            if ($parser->iNodeType == NODE_TYPE_TEXT) {
+            if (NODE_TYPE_TEXT == $parser->iNodeType) {
                 if ($this->_DEBUG) {
                     echo "Value='" . $parser->iNodeValue . "'";
                 }
@@ -93,7 +93,7 @@ class weblinks_test_form_parser
                 if ($textarea_loop) {
                     $textarea_value = $parser->iNodeValue;
                 }
-            } elseif ($parser->iNodeType == NODE_TYPE_ELEMENT) {
+            } elseif (NODE_TYPE_ELEMENT == $parser->iNodeType) {
                 if ($this->_DEBUG) {
                     echo 'ATTRIBUTES: ';
                 }
@@ -114,30 +114,25 @@ class weblinks_test_form_parser
                     $attr_value = $attrValues[$attr_name];
 
                     if ($this->_DEBUG) {
-                        echo $attr_name . "=\"" . $attr_value . "\" ";
+                        echo $attr_name . '="' . $attr_value . '" ';
                     }
 
                     switch ($attr_name) {
                         case 'name':
                             $name = $attr_value;
                             break;
-
                         case 'value':
                             $value = $attr_value;
                             break;
-
                         case 'type':
                             $type = $attr_value;
                             break;
-
                         case 'selected':
                             $selected = true;
                             break;
-
                         case 'checked':
                             $checked = true;
                             break;
-
                         case 'action':
                             $action = $attr_value;
                             break;
@@ -156,15 +151,15 @@ class weblinks_test_form_parser
                         }
                     } elseif ($form_begin) {
                         $arr['action'] = $action;
-                    } elseif ($type == 'radio') {
+                    } elseif ('radio' == $type) {
                         if ($checked) {
                             $arr[$name] = $value;
                         }
-                    } elseif ($type == 'checkbox') {
+                    } elseif ('checkbox' == $type) {
                         if ($checked) {
                             $arr[$name] = $value;
                         }
-                    } elseif ($name && ($value != null)) {
+                    } elseif ($name && (null != $value)) {
                         $arr[$name] = $value;
                     }
                 }

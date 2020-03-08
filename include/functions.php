@@ -11,9 +11,9 @@
 
 // --- weblinks_functions begin ---
 if (!function_exists('weblinks_get_handler')) {
-    function &weblinks_get_handler($name = null, $module_dir = null)
+    function &weblinks_getHandler($name = null, $module_dir = null)
     {
-        return happy_linux_get_handler($name, $module_dir, 'weblinks');
+        return happy_linux_getHandler($name, $module_dir, 'weblinks');
     }
 
     //---------------------------------------------------------
@@ -25,7 +25,7 @@ if (!function_exists('weblinks_get_handler')) {
 
         $table = $xoopsDB->prefix($DIRNAME . '_config2');
 
-        $arr = array();
+        $arr = [];
 
         $sql = 'SELECT * FROM ' . $table . ' ORDER BY conf_id ASC';
         $res = $xoopsDB->query($sql, 0, 0);
@@ -50,6 +50,7 @@ if (!function_exists('weblinks_get_handler')) {
         $where = ' ( ' . $broken . ' = 0 OR ' . $broken . ' < ' . $conf_broken . ' ) ';
         $where .= 'AND ( ' . $time_publish . ' = 0 OR ' . $time_publish . ' < ' . $time . ' ) ';
         $where .= 'AND ( ' . $time_expire . ' = 0 OR ' . $time_expire . ' > ' . $time . ' ) ';
+
         return $where;
     }
 
@@ -62,10 +63,10 @@ if (!function_exists('weblinks_get_handler')) {
         global $xoopsConfig;
 
         if (defined('WEBLINKS_FLAG_MULTI_SITE') && WEBLINKS_FLAG_MULTI_SITE
-            && ($xoopsConfig['language'] == 'english')
-        ) {
+            && ('english' == $xoopsConfig['language'])) {
             return true;
         }
+
         return false;
     }
 
@@ -75,10 +76,10 @@ if (!function_exists('weblinks_get_handler')) {
         global $xoopsConfig;
 
         if (defined('WEBLINKS_FLAG_MULTI_SITE') && WEBLINKS_FLAG_MULTI_SITE
-            && ($xoopsConfig['language'] == 'japanese')
-        ) {
+            && ('japanese' == $xoopsConfig['language'])) {
             return true;
         }
+
         return false;
     }
 
@@ -89,15 +90,14 @@ if (!function_exists('weblinks_get_handler')) {
             && defined('WEBLINKS_FLAG_MULTI_SITE')
             && WEBLINKS_FLAG_MULTI_SITE
             && defined('WEBLINKS_DB_PREFIX')
-            && WEBLINKS_DB_PREFIX
-        ) {
+            && WEBLINKS_DB_PREFIX) {
             $prefix = WEBLINKS_DB_PREFIX;
         } else {
             $prefix = XOOPS_DB_PREFIX;
         }
 
         $val = $prefix . '_' . $dirname . '_' . $table;
+
         return $val;
     }
 }// --- weblinks_functions end ---
-;

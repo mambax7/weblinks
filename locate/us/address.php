@@ -8,14 +8,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_address_us')) {
-
     //=========================================================
     // class weblinks_address_us
     // USA (JS)
     //=========================================================
     class weblinks_address_us
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -54,6 +52,5 @@ if (!class_exists('weblinks_address_us')) {
 
         // --- class end ---
     }
-
     // === class end ===
 }

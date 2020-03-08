@@ -18,5 +18,4 @@ $admin = happy_linux_admin::getInstance();
 $admin->print_preferences();
 
 xoops_cp_footer();
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

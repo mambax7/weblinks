@@ -14,14 +14,12 @@
 
 // === class begin ===
 if (!class_exists('weblinks_locate_us')) {
-
     //=========================================================
     // class weblinks_locate_us
     // United Sates of America (US)
     //=========================================================
     class weblinks_locate_us extends weblinks_locate_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -29,15 +27,14 @@ if (!class_exists('weblinks_locate_us')) {
         {
             parent::__construct();
 
-            $arr = array(
-                'weblinks_map_template' => 'weblinks_us_google.html'
-            );
+            $arr = [
+                'weblinks_map_template' => 'weblinks_us_google.html',
+            ];
 
             $this->array_merge($arr);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }

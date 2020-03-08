@@ -107,10 +107,10 @@ class weblinks_modlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler     = weblinks_get_handler('config2_basic', $dirname);
-        $this->_link_edit_handler  = weblinks_get_handler('link_edit', $dirname);
-        $this->_link_form_handler  = weblinks_get_handler('link_form', $dirname);
-        $this->_link_check_handler = weblinks_get_handler('link_form_check', $dirname);
+        $this->_config_handler     = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_edit_handler  = weblinks_getHandler('link_edit', $dirname);
+        $this->_link_form_handler  = weblinks_getHandler('link_form', $dirname);
+        $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
 
         $this->_auth     = weblinks_auth::getInstance($dirname);
         $this->_header   = weblinks_header::getInstance($dirname);
@@ -129,9 +129,10 @@ class weblinks_modlink extends happy_linux_error
     public static function getInstance($dirname = null)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new weblinks_modlink($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
@@ -159,6 +160,7 @@ class weblinks_modlink extends happy_linux_error
     public function get_post_get_lid()
     {
         $this->_lid = $this->_post->get_post_get_int('lid');
+
         return $this->_lid;
     }
 
@@ -167,13 +169,12 @@ class weblinks_modlink extends happy_linux_error
     //---------------------------------------------------------
     public function check_access()
     {
-
         // admin
         if ($this->_system_is_module_admin) {
             return 'goto_admin';
         }
 
-        $obj =& $this->_link_edit_handler->get($this->_lid);
+        $obj = &$this->_link_edit_handler->get($this->_lid);
 
         if (!is_object($obj)) {
             return 'no_record';
@@ -185,13 +186,12 @@ class weblinks_modlink extends happy_linux_error
 
         // check publish
         if (!$this->_system->is_user($rec_uid)
-            && ($obj->is_warn_time_publish() || $obj->is_warn_time_expire())
-        ) {
+            && ($obj->is_warn_time_publish() || $obj->is_warn_time_expire())) {
             return 'not_publish';
         }
 
-        $auth                          =& $this->_auth->get_auth_modify($rec_uid, $rec_passwd);
-        $this->_auth_param             =& $auth;
+        $auth                          = &$this->_auth->get_auth_modify($rec_uid, $rec_passwd);
+        $this->_auth_param             = &$auth;
         $this->_has_auth_modify_permit = $auth['has_auth_modify_permit'];
         $this->_has_auth_modify_auto   = $auth['has_auth_modify_auto'];
         $this->_has_auth_delete_permit = $auth['has_auth_delete_permit'];
@@ -199,7 +199,7 @@ class weblinks_modlink extends happy_linux_error
         $this->_flag_passwd_incorrect  = $auth['flag_passwd_incorrect'];
         $code                          = $auth['code'];
 
-        if ($code == 'permit') {
+        if ('permit' == $code) {
             $this->_link_edit_handler->init();
         }
 
@@ -238,7 +238,7 @@ class weblinks_modlink extends happy_linux_error
     public function print_preview()
     {
         $this->print_modify_header();
-        echo "<hr />\n";
+        echo "<hr>\n";
         echo '<h4>' . _PREVIEW . "</h4>\n";
 
         // check form
@@ -246,7 +246,7 @@ class weblinks_modlink extends happy_linux_error
             echo '<div class="weblinks_submit_error">';
             echo $this->_link_check_handler->get_errors_modlink('s');
             echo "</div>\n";
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $arr_preview = $this->_link_edit_handler->build_modify_preview($this->_lid);
@@ -254,12 +254,12 @@ class weblinks_modlink extends happy_linux_error
         // check preview error
         if (!$this->_link_edit_handler->check_preview_result()) {
             echo $this->_link_edit_handler->get_error_msg_preview();
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         echo $this->_template->fetch_link_single($arr_preview);
 
-        echo "<hr />\n";
+        echo "<hr>\n";
         $this->print_modify_comment();
 
         $this->show_user_form('modify_preview', $this->_lid);
@@ -273,6 +273,7 @@ class weblinks_modlink extends happy_linux_error
         if ($this->_post->get_post_int('confirm')) {
             return false;
         }
+
         return true;
     }
 
@@ -288,6 +289,7 @@ class weblinks_modlink extends happy_linux_error
         if ($this->_post->get_post_text('reason')) {
             return false;
         }
+
         return true;
     }
 
@@ -295,13 +297,13 @@ class weblinks_modlink extends happy_linux_error
     {
         $this->print_modify_header();
         echo $this->_link_edit_handler->build_show_link($this->_lid);
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($this->_post->get_post_int('confirm')) {
             echo '<div class="weblinks_submit_error">';
             echo sprintf(_WLS_ERROR_FILL, _WEBLINKS_DEL_LINK_REASON);
             echo "</div>\n";
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $this->_link_form_handler->show_del_reason_form($this->_lid);
@@ -315,12 +317,15 @@ class weblinks_modlink extends happy_linux_error
         $this->_flag_error = 0;
         if (!$this->_link_edit_handler->check_token()) {
             $this->_flag_error = 1;
+
             return false;
         }
         if (!$this->_link_check_handler->check_form_modlink_by_post($this->_is_owner, $this->_has_auth_modify_auto)) {
             $this->_flag_error = 2;
+
             return false;
         }
+
         return true;
     }
 
@@ -328,17 +333,17 @@ class weblinks_modlink extends happy_linux_error
     {
         $this->print_modify_header();
 
-        if ($this->_flag_error == 1) {
-            echo "<br />\n";
+        if (1 == $this->_flag_error) {
+            echo "<br>\n";
             xoops_error('Token Error');
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
-        if ($this->_flag_error == 2) {
+        if (2 == $this->_flag_error) {
             echo '<div class="weblinks_submit_error">';
             echo $this->_link_check_handler->get_errors_modlink('s');
             echo "</div>\n";
-            echo "<br />\n";
+            echo "<br>\n";
         }
 
         $this->print_modify_comment();
@@ -351,10 +356,12 @@ class weblinks_modlink extends happy_linux_error
         $ret = $this->_link_edit_handler->user_mod_link($this->_lid);
         if (!$ret) {
             $this->_set_errors($this->_link_edit_handler->getErrors());
+
             return false;
         }
         $this->_banner_error_code = $this->_link_edit_handler->get_banner_error_code();
         $this->_rssc_error_code   = $this->_link_edit_handler->get_rssc_error_code();
+
         return true;
     }
 
@@ -363,8 +370,10 @@ class weblinks_modlink extends happy_linux_error
         $newid = $this->_link_edit_handler->user_modify_admin_approve();
         if (!$newid) {
             $this->_set_errors($this->_link_edit_handler->getErrors());
+
             return false;
         }
+
         return $newid;
     }
 
@@ -376,8 +385,10 @@ class weblinks_modlink extends happy_linux_error
         $ret = $this->_link_edit_handler->user_del_link($this->_lid);
         if (!$ret) {
             $this->_set_errors($this->_link_edit_handler->getErrors());
+
             return false;
         }
+
         return true;
     }
 
@@ -386,8 +397,10 @@ class weblinks_modlink extends happy_linux_error
         $newid = $this->_link_edit_handler->user_delete_admin_approve();
         if (!$newid) {
             $this->_set_errors($this->_link_edit_handler->getErrors());
+
             return false;
         }
+
         return $newid;
     }
 
@@ -403,7 +416,7 @@ class weblinks_modlink extends happy_linux_error
         echo '<a href="' . XOOPS_URL . '/">' . _HAPPY_LINUX_HOME . '</a> &gt;&gt;';
         echo '<a href="' . WEBLINKS_URL . '/">' . $this->_system_module_name . '</a> &gt;&gt;';
         echo '<a href="' . WEBLINKS_URL . '/singlelink.php?lid=' . $this->_lid . '">' . $this->_link_title_s . '</a> &gt;&gt;';
-        echo '<span class="weblinks_bold">' . _WLS_MODIFY . '</span><br /><br />' . "\n";
+        echo '<span class="weblinks_bold">' . _WLS_MODIFY . '</span><br><br>' . "\n";
     }
 
     public function print_modify_comment()
@@ -418,7 +431,7 @@ class weblinks_modlink extends happy_linux_error
             }
         }
 
-        echo "</div><br />\n";
+        echo "</div><br>\n";
     }
 
     //---------------------------------------------------------
@@ -437,20 +450,18 @@ class weblinks_modlink extends happy_linux_error
         $msg = '';
 
         if ($this->_banner_error_code) {
-            $msg .= _WEBLINKS_WARN_BANNER_NOT_GET_SIZE . "<br />\n";
+            $msg .= _WEBLINKS_WARN_BANNER_NOT_GET_SIZE . "<br>\n";
         }
 
         switch ($this->_rssc_error_code) {
             case RSSC_CODE_DISCOVER_FAILED:
-                $msg .= _RSSC_DISCOVER_FAILED . "<br />\n";
+                $msg .= _RSSC_DISCOVER_FAILED . "<br>\n";
                 break;
-
             case RSSC_CODE_PARSE_FAILED:
-                $msg .= _RSSC_PARSE_FAILED . "<br />\n";
+                $msg .= _RSSC_PARSE_FAILED . "<br>\n";
                 break;
-
             case RSSC_CODE_PARSE_NOT_READ_XML_URL:
-                $msg .= _RSSC_PARSE_NOT_READ_XML_URL . "<br />\n";
+                $msg .= _RSSC_PARSE_NOT_READ_XML_URL . "<br>\n";
                 break;
         }
 
@@ -518,38 +529,38 @@ $lid = $weblinks_modlink->get_post_get_lid();
 // check permit
 $check = $weblinks_modlink->check_access();
 
-if ($check == 'not_permit') {
+if ('not_permit' == $check) {
     $msg = _NOPERM;
     $msg .= $weblinks_modlink->build_comment('not permit'); // for test form
     redirect_header($url_index, 2, $msg);
     exit();
 }
 
-if ($check == 'show_login') {
+if ('show_login' == $check) {
     $msg = _WLS_MUSTREGFIRST;
     $msg .= $weblinks_modlink->build_comment('not user');   // for test form
     redirect_header(XOOPS_URL . '/user.php', 2, $msg);
     exit();
 }
 
-if ($check == 'no_record') {
+if ('no_record' == $check) {
     redirect_header($url_index, 2, _WLS_NOMATCH);
     exit();
 }
 
-if ($check == 'not_publish') {
+if ('not_publish' == $check) {
     redirect_header('index.php', 2, _WLS_NOMATCH);
     exit();
 }
 
-if ($check == 'goto_admin') {
+if ('goto_admin' == $check) {
     // add WEBLINKS_URL
     $url = WEBLINKS_URL . '/admin/link_manage.php?op=modLink&amp;lid=' . $lid;
     redirect_header($url, 2, _WLS_GOTOADMIN);
     exit();
 }
 
-$auth_arr               =& $weblinks_modlink->get_auth_param();
+$auth_arr               = &$weblinks_modlink->get_auth_param();
 $is_owner               = $auth_arr['is_owner'];
 $has_auth_modify_permit = $auth_arr['has_auth_modify_permit'];
 $has_auth_modify_auto   = $auth_arr['has_auth_modify_auto'];
@@ -557,7 +568,7 @@ $has_auth_delete_permit = $auth_arr['has_auth_delete_permit'];
 $has_auth_delete_auto   = $auth_arr['has_auth_delete_auto'];
 $flag_passwd_incorrect  = $auth_arr['flag_passwd_incorrect'];
 
-if ($check == 'show_password') {
+if ('show_password' == $check) {
     $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_passwd.html';
     include XOOPS_ROOT_PATH . '/header.php';
     $weblinks_modlink->print_form_password();
@@ -568,7 +579,7 @@ if ($check == 'show_password') {
 $url_singlelink = WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
 
 // save to DB
-if ($op == 'submit') {
+if ('submit' == $op) {
     if (!$weblinks_modlink->check_form()) {
         include XOOPS_ROOT_PATH . '/header.php';
         $weblinks_modlink->print_form_with_error();
@@ -585,35 +596,34 @@ if ($op == 'submit') {
         }
 
         // redirect to single link
-        $msg  = _WLS_MODIFYAPPROVED . "<br />\n";
+        $msg  = _WLS_MODIFYAPPROVED . "<br>\n";
         $msg2 = $weblinks_modlink->get_mod_link_msg();
         $time = $happy_linux_time->get_elapse_time();
         if ($msg2) {
-            $msg .= "<br />\n";
-            $msg .= "$msg2 <br />\n";
+            $msg .= "<br>\n";
+            $msg .= "$msg2 <br>\n";
             $msg .= "$time sec";
             redirect_header($url_singlelink, 3, $msg);
         }
 
-        $msg .= "$time sec <br />\n";
+        $msg .= "$time sec <br>\n";
         $msg .= $weblinks_modlink->build_comment('modify approve link');    // for test form
         redirect_header($url_singlelink, 2, $msg);
         exit();
     } // modify approve
-    else {
-        $modify_newid = $weblinks_modlink->modify_admin_approve();
-        if (!$modify_newid) {
-            redirect_header($url_singlelink, 3, 'DB Error');
-            exit();
-        }
 
-        $com = 'modify request link [' . $modify_newid . ']';
-        $msg = _WLS_THANKSFORINFO;
-        $msg .= $weblinks_modlink->build_comment($com);   // for test form
-        redirect_header($url_singlelink, 2, $msg);
+    $modify_newid = $weblinks_modlink->modify_admin_approve();
+    if (!$modify_newid) {
+        redirect_header($url_singlelink, 3, 'DB Error');
         exit();
     }
-} elseif ($op == 'delete') {
+
+    $com = 'modify request link [' . $modify_newid . ']';
+    $msg = _WLS_THANKSFORINFO;
+    $msg .= $weblinks_modlink->build_comment($com);   // for test form
+    redirect_header($url_singlelink, 2, $msg);
+    exit();
+} elseif ('delete' == $op) {
     if (!$has_auth_delete_permit) {
         $msg = _NOPERM;
         $msg .= $weblinks_modlink->build_comment('not permit'); // for test form
@@ -638,34 +648,33 @@ if ($op == 'submit') {
 
         // redirect to single link
         $time = $happy_linux_time->get_elapse_time();
-        $msg  = _WLS_MODIFYAPPROVED . "<br />\n";
-        $msg .= "$time sec <br />\n";
-        $msg .= $weblinks_modlink->build_comment('delete approve link');    // for test form
+        $msg  = _WLS_MODIFYAPPROVED . "<br>\n";
+        $msg  .= "$time sec <br>\n";
+        $msg  .= $weblinks_modlink->build_comment('delete approve link');    // for test form
         redirect_header($url_index, 2, $msg);
         exit();
     } // modify approve
-    else {
-        if ($weblinks_modlink->check_show_del_reason_form()) {
-            include XOOPS_ROOT_PATH . '/header.php';
-            $weblinks_modlink->print_del_reason_form();
-            include XOOPS_ROOT_PATH . '/footer.php';
-            exit();
-        }
 
-        $modify_newid = $weblinks_modlink->delete_admin_approve();
-        if (!$modify_newid) {
-            redirect_header($url_singlelink, 3, 'DB Error');
-            exit();
-        }
-
-        $com = 'delete request link [' . $modify_newid . ']';
-        $msg = _WLS_THANKSFORINFO;
-        $msg .= $weblinks_modlink->build_comment($com);   // for test form
-        redirect_header($url_singlelink, 2, $msg);
+    if ($weblinks_modlink->check_show_del_reason_form()) {
+        include XOOPS_ROOT_PATH . '/header.php';
+        $weblinks_modlink->print_del_reason_form();
+        include XOOPS_ROOT_PATH . '/footer.php';
         exit();
     }
+
+    $modify_newid = $weblinks_modlink->delete_admin_approve();
+    if (!$modify_newid) {
+        redirect_header($url_singlelink, 3, 'DB Error');
+        exit();
+    }
+
+    $com = 'delete request link [' . $modify_newid . ']';
+    $msg = _WLS_THANKSFORINFO;
+    $msg .= $weblinks_modlink->build_comment($com);   // for test form
+    redirect_header($url_singlelink, 2, $msg);
+    exit();
 } // preview mode
-elseif ($op == 'preview') {
+elseif ('preview' == $op) {
     include XOOPS_ROOT_PATH . '/header.php';
     $weblinks_modlink->print_preview();
 } // modify form
@@ -674,11 +683,10 @@ else {
     $weblinks_modlink->print_modify_form();
 }
 
-echo "<br /><hr />\n";
-echo $happy_linux_time->build_elapse_time() . "<br />\n";
+echo "<br><hr>\n";
+echo $happy_linux_time->build_elapse_time() . "<br>\n";
 if (WEBLINKS_DEBUG_MEMORY) {
-    echo happy_linux_build_memory_usage_mb() . "<br />\n";
+    echo happy_linux_build_memory_usage_mb() . "<br>\n";
 }
 include XOOPS_ROOT_PATH . '/footer.php';
-exit();// --- end of main ---
-;
+exit(); // --- end of main ---

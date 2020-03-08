@@ -33,9 +33,10 @@ class admin_config_menu
     public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_config_menu();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

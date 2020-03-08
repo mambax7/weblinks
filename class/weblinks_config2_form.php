@@ -17,7 +17,6 @@
 
 // === class begin ===
 if (!class_exists('weblinks_config2_form')) {
-
     //=========================================================
     // class weblinks_config2_form
     //=========================================================
@@ -47,9 +46,10 @@ if (!class_exists('weblinks_config2_form')) {
         public static function getInstance($dirname = null)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new weblinks_config2_form($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 
@@ -69,35 +69,27 @@ if (!class_exists('weblinks_config2_form')) {
                 case 'extra_dirname_list':
                     $ele = $this->_build_conf_extra_dirname_list($config);
                     break;
-
                 case 'extra_rssc_dirname_list':
                     $ele = $this->_build_conf_extra_rssc_dirname_list($config);
                     break;
-
                 case 'extra_webmap3_dirname_list':
                     $ele = $this->_build_conf_extra_webmap3_dirname_list($config);
                     break;
-
                 case 'extra_forum_plugin':
                     $ele = $this->_build_conf_extra_forum_plugin($config);
                     break;
-
                 case 'extra_album_plugin':
                     $ele = $this->_build_conf_extra_album_plugin($config);
                     break;
-
                 case 'extra_d3forum_plugin':
                     $ele = $this->_build_conf_extra_d3forum_plugin($config);
                     break;
-
                 case 'extra_d3forum_forum_id':
                     $ele = $this->_build_conf_extra_d3forum_forum_id($config);
                     break;
-
                 case 'extra_link_img_thumb':
                     $ele = $this->_build_conf_extra_link_img_thumb($config);
                     break;
-
                 default:
                     $ele = $this->build_html_input_text($name, $value_s);
                     break;
@@ -126,18 +118,18 @@ if (!class_exists('weblinks_config2_form')) {
             $name  = $config['name'];
             $value = $config['value'];
 
-            $param = array(
+            $param = [
                 'dirname_except'  => $this->_DIRNAME,
                 'none_flag'       => true,
                 'dirname_default' => $value,
-            );
+            ];
 
             if ($file) {
                 $param['file'] = $file;
             }
 
-            $modules =& $this->_system->get_module_list($param);
-            $options =& $this->_system->get_dirname_list($modules, $param);
+            $modules = &$this->_system->get_module_list($param);
+            $options = &$this->_system->get_dirname_list($modules, $param);
 
             return $this->build_html_select($name, $value, $options);
         }
@@ -146,7 +138,7 @@ if (!class_exists('weblinks_config2_form')) {
         {
             $name    = $config['name'];
             $value   = $config['value'];
-            $options =& $this->_plugin->get_config_options('forum');
+            $options = &$this->_plugin->get_config_options('forum');
 
             return $this->build_html_select($name, $value, $options);
         }
@@ -155,7 +147,7 @@ if (!class_exists('weblinks_config2_form')) {
         {
             $name    = $config['name'];
             $value   = $config['value'];
-            $options =& $this->_plugin->get_config_options('album');
+            $options = &$this->_plugin->get_config_options('album');
 
             return $this->build_html_select($name, $value, $options);
         }
@@ -164,7 +156,7 @@ if (!class_exists('weblinks_config2_form')) {
         {
             $name    = $config['name'];
             $value   = $config['value'];
-            $options =& $this->_plugin->get_config_options('d3forum');
+            $options = &$this->_plugin->get_config_options('d3forum');
 
             return $this->build_html_select($name, $value, $options);
         }
@@ -173,24 +165,23 @@ if (!class_exists('weblinks_config2_form')) {
         {
             $name    = $config['name'];
             $value   = $config['value'];
-            $options =& $this->_plugin->get_options_for_d3forum();
+            $options = &$this->_plugin->get_options_for_d3forum();
 
             return $this->build_html_select($name, $value, $options);
         }
 
         public function _build_conf_extra_link_img_thumb($config)
         {
-            $banner_handler = weblinks_get_handler('banner', $this->_DIRNAME);
+            $banner_handler = weblinks_getHandler('banner', $this->_DIRNAME);
 
             $name    = $config['name'];
             $value   = $config['value'];
-            $options =& $banner_handler->get_thumb_options();
+            $options = $banner_handler->get_thumb_options();
 
-            return $this->build_html_input_radio_select($name, $value, $options, '<br />', false);
+            return $this->build_html_input_radio_select($name, $value, $options, '<br>', false);
         }
 
         // --- class end ---
     }
-
     // === class end ===
 }
