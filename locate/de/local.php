@@ -25,7 +25,7 @@ if (!class_exists('weblinks_locate_de')) {
             parent::__construct();
 
             $arr = [
-                'weblinks_map_template' => 'weblinks_de_google.html',
+                'weblinks_map_template' => 'weblinks_de_google.tpl',
             ];
 
             $this->array_merge($arr);

@@ -68,10 +68,10 @@ $lang_title_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8(_WEBLINKS_GM_G
 $gm_location_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8($conf['gm_location']), ENT_QUOTES);
 
 /* CDS Patch. Weblinks. 2.00. 1. BOF */
-if (file_exists(XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . WEBLINKS_DIRNAME . '/parts' . '/weblinks_gm_location.html')) {
-    $template = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . WEBLINKS_DIRNAME . '/parts' . '/weblinks_gm_location.html';
+if (file_exists(XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . WEBLINKS_DIRNAME . '/parts' . '/weblinks_gm_location.tpl')) {
+    $template = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . WEBLINKS_DIRNAME . '/parts' . '/weblinks_gm_location.tpl';
 } else {
-    $template = XOOPS_ROOT_PATH . '/modules/' . WEBLINKS_DIRNAME . '/templates/parts/weblinks_gm_location.html';
+    $template = XOOPS_ROOT_PATH . '/modules/' . WEBLINKS_DIRNAME . '/templates/parts/weblinks_gm_location.tpl';
 }
 /* CDS Patch. Weblinks. 2.00. 1. EOF */
 

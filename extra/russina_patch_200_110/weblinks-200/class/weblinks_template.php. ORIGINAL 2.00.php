@@ -2,7 +2,7 @@
 // $Id: weblinks_template.php.\040ORIGINAL\0402.00.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2009-03-07 K.OHWADA
-// Smarty error: unable to read resource: d3forum_comment.html
+// Smarty error: unable to read resource: d3forum_comment.tpl
 
 // 2009-01-25 K.OHWADA
 // album_cols in fetch_photo_list()
@@ -246,7 +246,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('keywords', $this->_keywords_urlencode);
             $tpl->assign('index_desc', $description);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_header.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_header.tpl'));
 
             return $text;
         }
@@ -260,7 +260,7 @@ if (!class_exists('weblinks_template')) {
 
             $tpl->assign('keywords', $this->_keywords_urlencode);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_guidance.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_guidance.tpl'));
 
             return $text;
         }
@@ -299,7 +299,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('search_checked', $this->_get_search_checked($subcat));
             $tpl->assign('search_cat_selbox', $selbox);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_search_form.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_search_form.tpl'));
 
             return $text;
         }
@@ -315,7 +315,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('link', $link);
             $tpl->assign('keywords', $this->_keywords_urlencode);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_link_single.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_link_single.tpl'));
 
             return $text;
         }
@@ -359,7 +359,7 @@ if (!class_exists('weblinks_template')) {
                 }
             }
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_links_list.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_links_list.tpl'));
 
             return $text;
         }
@@ -392,7 +392,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('main_categories', $categories);
             $tpl->assign('cols_remainder', $cols_remainder);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_category_navi.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_category_navi.tpl'));
 
             return $text;
         }
@@ -405,7 +405,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('lang_thread', _WEBLINKS_THREAD);
             $tpl->assign('forum_threads', $threads);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_forum_list.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_forum_list.tpl'));
 
             return $text;
         }
@@ -417,7 +417,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('album_photos', $photos);
             $tpl->assign('album_cols', 3);
 
-            $text = $tpl->fetch($this->_get_parts_file('weblinks_photo_list.html'));
+            $text = $tpl->fetch($this->_get_parts_file('weblinks_photo_list.tpl'));
 
             return $text;
         }
@@ -435,7 +435,7 @@ if (!class_exists('weblinks_template')) {
                 $tpl->assign('d3forum_subject', $subject);
 
                 // Smarty error: unable to read resource: d3forum_comment.html
-                $text = $tpl->fetch($this->_get_parts_file('weblinks_d3forum_comment.html'));
+                $text = $tpl->fetch($this->_get_parts_file('weblinks_d3forum_comment.tpl'));
             }
 
             return $text;

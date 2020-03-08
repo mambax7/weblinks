@@ -31,7 +31,7 @@ if (!class_exists('weblinks_locate_ir')) {
             // yahoo does not support in Iran
             // and then substitue in USA
             $arr = [
-                'weblinks_map_template' => 'weblinks_us_yahoo.html',
+                'weblinks_map_template' => 'weblinks_us_yahoo.tpl',
             ];
 
             $this->array_merge($arr);

@@ -569,7 +569,7 @@ $has_auth_delete_auto = $auth_arr['has_auth_delete_auto'];
 $flag_passwd_incorrect = $auth_arr['flag_passwd_incorrect'];
 
 if ('show_password' == $check) {
-    $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_passwd.html';
+    $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_passwd.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
     $weblinks_modlink->print_form_password();
     include XOOPS_ROOT_PATH . '/footer.php';

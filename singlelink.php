@@ -104,7 +104,7 @@ $comment_use = $link_show['comment_use'];
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_singlelink.html';
+$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_singlelink.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 // REQ 4359: countup hits in singlelink.php

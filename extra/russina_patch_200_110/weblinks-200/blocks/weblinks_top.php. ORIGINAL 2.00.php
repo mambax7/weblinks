@@ -1339,7 +1339,7 @@ if (!function_exists('b_weblinks_top_show')) {
     {
         $dirname = $block['dirname'];
 
-        $template = XOOPS_ROOT_PATH . '/modules/' . $block['dirname'] . '/templates/parts/weblinks_gm_block.html';
+        $template = XOOPS_ROOT_PATH . '/modules/' . $block['dirname'] . '/templates/parts/weblinks_gm_block.tpl';
 
         $tpl = new XoopsTpl();
         $tpl->assign('xoops_url', XOOPS_URL);

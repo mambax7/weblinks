@@ -337,7 +337,7 @@ $weblinks_search = weblinks_search::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_search.html';
+$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_search.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 // config

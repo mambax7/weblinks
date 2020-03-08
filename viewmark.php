@@ -220,7 +220,7 @@ $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_viewmark.html';
+$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_viewmark.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $weblinks_template->set_keyword_by_request();

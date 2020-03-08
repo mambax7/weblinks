@@ -67,7 +67,7 @@ if (('' == $mode) || ('opener' == $mode)) {
 $lang_title_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8(_WEBLINKS_GM_GET_LOCATION), ENT_QUOTES);
 $gm_location_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8($conf['gm_location']), ENT_QUOTES);
 
-$template = XOOPS_ROOT_PATH . '/modules/' . WEBLINKS_DIRNAME . '/templates/parts/weblinks_gm_location.html';
+$template = XOOPS_ROOT_PATH . '/modules/' . WEBLINKS_DIRNAME . '/templates/parts/weblinks_gm_location.tpl';
 
 // BUG 4313: in some enviroment, character code is judged by mistake.
 happy_linux_http_output('pass');

@@ -179,7 +179,7 @@ $modversion['blocks'][1]['name'] = _MI_WEBLINKS_BNAME1 . $name_ext;
 $modversion['blocks'][1]['description'] = 'Shows recently added web links';
 $modversion['blocks'][1]['show_func'] = 'b_weblinks_top_show';
 $modversion['blocks'][1]['edit_func'] = 'b_weblinks_top_edit';
-$modversion['blocks'][1]['template'] = $WEBLINKS_DIRNAME . '_block_new.html';
+$modversion['blocks'][1]['template'] = $WEBLINKS_DIRNAME . '_block_new.tpl';
 $modversion['blocks'][1]['options'] = $WEBLINKS_DIRNAME . '|time_update|10|30|0|0|7|0|50|50|0|0|0|0|300|1000|100|-1|200|1|1';
 
 $modversion['blocks'][2]['file'] = 'weblinks_top.php';
@@ -187,7 +187,7 @@ $modversion['blocks'][2]['name'] = _MI_WEBLINKS_BNAME2 . $name_ext;
 $modversion['blocks'][2]['description'] = 'Shows most visited web links';
 $modversion['blocks'][2]['show_func'] = 'b_weblinks_top_show';
 $modversion['blocks'][2]['edit_func'] = 'b_weblinks_top_edit';
-$modversion['blocks'][2]['template'] = $WEBLINKS_DIRNAME . '_block_top.html';
+$modversion['blocks'][2]['template'] = $WEBLINKS_DIRNAME . '_block_top.tpl';
 $modversion['blocks'][2]['options'] = $WEBLINKS_DIRNAME . '|hits|10|30|0|0|7|0|50|50|0|0|0|0|300|1000|100|-1|200|1|1';
 
 // add rating block
@@ -196,7 +196,7 @@ $modversion['blocks'][3]['name'] = _MI_WEBLINKS_BNAME3 . $name_ext;
 $modversion['blocks'][3]['description'] = 'Shows most rating web links';
 $modversion['blocks'][3]['show_func'] = 'b_weblinks_top_show';
 $modversion['blocks'][3]['edit_func'] = 'b_weblinks_top_edit';
-$modversion['blocks'][3]['template'] = $WEBLINKS_DIRNAME . '_block_rate.html';
+$modversion['blocks'][3]['template'] = $WEBLINKS_DIRNAME . '_block_rate.tpl';
 $modversion['blocks'][3]['options'] = $WEBLINKS_DIRNAME . '|rating|10|30|0|0|7|0|50|50|0|0|0|0|300|1000|100|-1|200|1|1';
 
 // add category list block by Ryuji
@@ -205,7 +205,7 @@ $modversion['blocks'][4]['name'] = _MI_WEBLINKS_BNAME4 . $name_ext;
 $modversion['blocks'][4]['description'] = 'Shows category list';
 $modversion['blocks'][4]['show_func'] = 'b_weblinks_catlist_show';
 $modversion['blocks'][4]['edit_func'] = 'b_weblinks_catlist_edit';
-$modversion['blocks'][4]['template'] = $WEBLINKS_DIRNAME . '_block_catlist.html';
+$modversion['blocks'][4]['template'] = $WEBLINKS_DIRNAME . '_block_catlist.tpl';
 $modversion['blocks'][4]['options'] = $WEBLINKS_DIRNAME . '|5|1|100|50';
 
 // atomfeed
@@ -214,7 +214,7 @@ $modversion['blocks'][5]['name'] = _MI_WEBLINKS_BNAME5 . $name_ext;
 $modversion['blocks'][5]['description'] = 'Shows new atom feed';
 $modversion['blocks'][5]['show_func'] = 'b_weblinks_atom_show';
 $modversion['blocks'][5]['edit_func'] = 'b_weblinks_atom_edit';
-$modversion['blocks'][5]['template'] = $WEBLINKS_DIRNAME . '_block_atom.html';
+$modversion['blocks'][5]['template'] = $WEBLINKS_DIRNAME . '_block_atom.tpl';
 $modversion['blocks'][5]['options'] = $WEBLINKS_DIRNAME . '|10|40|100';
 
 $modversion['blocks'][6]['file'] = 'weblinks_atomfeed.php';
@@ -222,7 +222,7 @@ $modversion['blocks'][6]['name'] = _MI_WEBLINKS_BNAME6 . $name_ext;
 $modversion['blocks'][6]['description'] = 'Shows blog';
 $modversion['blocks'][6]['show_func'] = 'b_weblinks_blog_show';
 $modversion['blocks'][6]['edit_func'] = 'b_weblinks_blog_edit';
-$modversion['blocks'][6]['template'] = $WEBLINKS_DIRNAME . '_block_blog.html';
+$modversion['blocks'][6]['template'] = $WEBLINKS_DIRNAME . '_block_blog.tpl';
 $modversion['blocks'][6]['options'] = $WEBLINKS_DIRNAME . '|0|10|1|200';
 
 // added by hiro
@@ -232,7 +232,7 @@ $modversion['blocks'][7]['name'] = _MI_WEBLINKS_BNAME_RANDOM . $name_ext;
 $modversion['blocks'][7]['description'] = 'Shows Random links';
 $modversion['blocks'][7]['show_func'] = 'b_weblinks_generic_show';
 $modversion['blocks'][7]['edit_func'] = 'b_weblinks_generic_edit';
-$modversion['blocks'][7]['template'] = $WEBLINKS_DIRNAME . '_block_random.html';
+$modversion['blocks'][7]['template'] = $WEBLINKS_DIRNAME . '_block_random.tpl';
 $modversion['blocks'][7]['options'] = $WEBLINKS_DIRNAME . '|5|30|0|0|0|0|50|50|0|1|1|0|1|-|1|lid|ASC|0|0|0|0|300|1000|100|-1|200';
 
 // generic leatest
@@ -241,7 +241,7 @@ $modversion['blocks'][8]['name'] = _MI_WEBLINKS_BNAME_GENERIC . $name_ext;
 $modversion['blocks'][8]['description'] = 'Shows Gernric links';
 $modversion['blocks'][8]['show_func'] = 'b_weblinks_generic_show';
 $modversion['blocks'][8]['edit_func'] = 'b_weblinks_generic_edit';
-$modversion['blocks'][8]['template'] = $WEBLINKS_DIRNAME . '_block_generic.html';
+$modversion['blocks'][8]['template'] = $WEBLINKS_DIRNAME . '_block_generic.tpl';
 $modversion['blocks'][8]['options'] = $WEBLINKS_DIRNAME . '|10|30|0|0|7|0|50|50|1|0|0|0|1|-|0|time_update|DESC|0|0|0|0|300|1000|100|-1|200';
 
 // photo
@@ -250,41 +250,41 @@ $modversion['blocks'][9]['name'] = _MI_WEBLINKS_BNAME_RANDOM_PHOTO . $name_ext;
 $modversion['blocks'][9]['description'] = 'Shows Photos';
 $modversion['blocks'][9]['show_func'] = 'b_weblinks_photo_show';
 $modversion['blocks'][9]['edit_func'] = 'b_weblinks_photo_edit';
-$modversion['blocks'][9]['template'] = $WEBLINKS_DIRNAME . '_block_photo.html';
+$modversion['blocks'][9]['template'] = $WEBLINKS_DIRNAME . '_block_photo.tpl';
 $modversion['blocks'][9]['options'] = $WEBLINKS_DIRNAME . '|1';
 
 //---------------------------------------------------------
 // Templates
 //---------------------------------------------------------
-$modversion['templates'][1]['file'] = $WEBLINKS_DIRNAME . '_index.html';
+$modversion['templates'][1]['file'] = $WEBLINKS_DIRNAME . '_index.tpl';
 $modversion['templates'][1]['description'] = '';
-$modversion['templates'][2]['file'] = $WEBLINKS_DIRNAME . '_viewcat.html';
+$modversion['templates'][2]['file'] = $WEBLINKS_DIRNAME . '_viewcat.tpl';
 $modversion['templates'][2]['description'] = '';
-$modversion['templates'][3]['file'] = $WEBLINKS_DIRNAME . '_singlelink.html';
+$modversion['templates'][3]['file'] = $WEBLINKS_DIRNAME . '_singlelink.tpl';
 $modversion['templates'][3]['description'] = '';
-$modversion['templates'][4]['file'] = $WEBLINKS_DIRNAME . '_topten.html';
+$modversion['templates'][4]['file'] = $WEBLINKS_DIRNAME . '_topten.tpl';
 $modversion['templates'][4]['description'] = '';
-$modversion['templates'][5]['file'] = $WEBLINKS_DIRNAME . '_ratelink.html';
+$modversion['templates'][5]['file'] = $WEBLINKS_DIRNAME . '_ratelink.tpl';
 $modversion['templates'][5]['description'] = '';
-$modversion['templates'][6]['file'] = $WEBLINKS_DIRNAME . '_brokenlink.html';
+$modversion['templates'][6]['file'] = $WEBLINKS_DIRNAME . '_brokenlink.tpl';
 $modversion['templates'][6]['description'] = '';
-$modversion['templates'][7]['file'] = $WEBLINKS_DIRNAME . '_catlist.html';
+$modversion['templates'][7]['file'] = $WEBLINKS_DIRNAME . '_catlist.tpl';
 $modversion['templates'][7]['description'] = '';
-$modversion['templates'][8]['file'] = $WEBLINKS_DIRNAME . '_search.html';
+$modversion['templates'][8]['file'] = $WEBLINKS_DIRNAME . '_search.tpl';
 $modversion['templates'][8]['description'] = '';
-$modversion['templates'][9]['file'] = $WEBLINKS_DIRNAME . '_passwd.html';
+$modversion['templates'][9]['file'] = $WEBLINKS_DIRNAME . '_passwd.tpl';
 $modversion['templates'][9]['description'] = '';
-$modversion['templates'][10]['file'] = $WEBLINKS_DIRNAME . '_viewmark.html';
+$modversion['templates'][10]['file'] = $WEBLINKS_DIRNAME . '_viewmark.tpl';
 $modversion['templates'][10]['description'] = '';
-$modversion['templates'][11]['file'] = $WEBLINKS_DIRNAME . '_viewfeed.html';
+$modversion['templates'][11]['file'] = $WEBLINKS_DIRNAME . '_viewfeed.tpl';
 $modversion['templates'][11]['description'] = '';
 
 // BUG 3111: timeout occurs in popular site if many top categories
-$modversion['templates'][12]['file'] = $WEBLINKS_DIRNAME . '_topten_mixed.html';
+$modversion['templates'][12]['file'] = $WEBLINKS_DIRNAME . '_topten_mixed.tpl';
 $modversion['templates'][12]['description'] = '';
 
 // v1.10
-$modversion['templates'][13]['file'] = $WEBLINKS_DIRNAME . '_print.html';
+$modversion['templates'][13]['file'] = $WEBLINKS_DIRNAME . '_print.tpl';
 $modversion['templates'][13]['description'] = '';
 
 //---------------------------------------------------------

@@ -307,7 +307,7 @@ if (!$category) {
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_viewcat.html';
+$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_viewcat.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $weblinks_template->set_keyword_by_request();

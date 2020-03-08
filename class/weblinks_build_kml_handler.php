@@ -36,7 +36,7 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $DIR_XML = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
 
             parent::__construct();
-            $this->set_template($DIR_XML . '/weblinks_build_kml.html');
+            $this->set_template($DIR_XML . '/weblinks_build_kml.tpl');
             $this->init_obj();
 
             $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);

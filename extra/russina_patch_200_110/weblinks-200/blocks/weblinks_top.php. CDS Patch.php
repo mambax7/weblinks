@@ -1341,10 +1341,10 @@ if (!function_exists('b_weblinks_top_show')) {
 
         /* CDS Patch. Weblinks. 2.00. 1. BOF */ global $xoopsConfig;
         $dir_theme = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . $dirname . '/parts';
-        if (file_exists($dir_theme . '/weblinks_gm_block.html')) {
-            $template = $dir_theme . '/weblinks_gm_block.html';
+        if (file_exists($dir_theme . '/weblinks_gm_block.tpl')) {
+            $template = $dir_theme . '/weblinks_gm_block.tpl';
         } else {
-            $template = XOOPS_ROOT_PATH . '/modules/' . $block['dirname'] . '/templates/parts/weblinks_gm_block.html';
+            $template = XOOPS_ROOT_PATH . '/modules/' . $block['dirname'] . '/templates/parts/weblinks_gm_block.tpl';
         }
         /* CDS Patch. Weblinks. 2.00. 1. EOF */
 

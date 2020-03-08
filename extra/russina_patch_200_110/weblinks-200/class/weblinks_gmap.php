@@ -46,20 +46,20 @@ if (!class_exists('weblinks_gmap')) {
             /* CDS Patch. Weblinks. 2.00. 1. BOF */ global $xoopsConfig;
             $dir_theme = XOOPS_THEME_PATH . '/' . $xoopsConfig['theme_set'] . '/modules/' . $dirname . '/parts';
             $dir_parts = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts';
-            if (file_exists($dir_theme . '/weblinks_gm_list.html')) {
-                $this->_template_list = $dir_theme . '/weblinks_gm_list.html';
+            if (file_exists($dir_theme . '/weblinks_gm_list.tpl')) {
+                $this->_template_list = $dir_theme . '/weblinks_gm_list.tpl';
             } else {
-                $this->_template_list = $dir_parts . '/weblinks_gm_list.html';
+                $this->_template_list = $dir_parts . '/weblinks_gm_list.tpl';
             }
-            if (file_exists($dir_theme . '/weblinks_gm_single.html')) {
-                $this->_template_single = $dir_theme . '/weblinks_gm_single.html';
+            if (file_exists($dir_theme . '/weblinks_gm_single.tpl')) {
+                $this->_template_single = $dir_theme . '/weblinks_gm_single.tpl';
             } else {
-                $this->_template_single = $dir_parts . '/weblinks_gm_single.html';
+                $this->_template_single = $dir_parts . '/weblinks_gm_single.tpl';
             }
-            if (file_exists($dir_theme . '/weblinks_gm_iframe.html')) {
-                $this->_template_iframe = $dir_theme . '/weblinks_gm_iframe.html';
+            if (file_exists($dir_theme . '/weblinks_gm_iframe.tpl')) {
+                $this->_template_iframe = $dir_theme . '/weblinks_gm_iframe.tpl';
             } else {
-                $this->_template_iframe = $dir_parts . '/weblinks_gm_iframe.html';
+                $this->_template_iframe = $dir_parts . '/weblinks_gm_iframe.tpl';
             }
             /* CDS Patch. Weblinks. 2.00. 1. EOF */
         }

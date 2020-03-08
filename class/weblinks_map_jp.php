@@ -85,7 +85,7 @@ if (!class_exists('weblinks_map_jp')) {
             $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
             $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
 
-            $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.html';
+            $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.tpl';
         }
 
         public static function getInstance($dirname = null)

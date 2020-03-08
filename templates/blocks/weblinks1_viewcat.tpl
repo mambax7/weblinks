@@ -150,7 +150,7 @@
 </div>
 <{/if}>
 
-<{include file="db:system_notification_select.html"}>
+<{include file="db:system_notification_select.tpl"}>
 
 <hr>
 <div class="weblinks_time">execution time <{$execution_time}> sec</div>

@@ -40,9 +40,9 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
             $DIR_XML = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
 
             parent::__construct($dirname);
-            $this->set_rdf_template($DIR_XML . '/weblinks_build_feed_rdf.html');
-            $this->set_rss_template($DIR_XML . '/weblinks_build_feed_rss.html');
-            $this->set_atom_template($DIR_XML . '/weblinks_build_feed_atom.html');
+            $this->set_rdf_template($DIR_XML . '/weblinks_build_feed_rdf.tpl');
+            $this->set_rss_template($DIR_XML . '/weblinks_build_feed_rss.tpl');
+            $this->set_atom_template($DIR_XML . '/weblinks_build_feed_atom.tpl');
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
             $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);

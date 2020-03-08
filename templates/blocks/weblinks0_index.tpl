@@ -97,7 +97,7 @@
 
 <{/if}>
 
-<{include file="db:system_notification_select.html"}>
+<{include file="db:system_notification_select.tpl"}>
 
 <br>
 

@@ -345,7 +345,7 @@ if ($submit) {
 }
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_ratelink.html';
+$xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_ratelink.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $title_s = $weblinks_ratelink->get_title();

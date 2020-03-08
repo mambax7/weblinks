@@ -44,9 +44,9 @@ if (!class_exists('weblinks_gmap')) {
             $this->_conf = $config_handler->get_conf();
 
             $dir_parts = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts';
-            $this->_template_list = $dir_parts . '/weblinks_gm_list.html';
-            $this->_template_single = $dir_parts . '/weblinks_gm_single.html';
-            $this->_template_iframe = $dir_parts . '/weblinks_gm_iframe.html';
+            $this->_template_list = $dir_parts . '/weblinks_gm_list.tpl';
+            $this->_template_single = $dir_parts . '/weblinks_gm_single.tpl';
+            $this->_template_iframe = $dir_parts . '/weblinks_gm_iframe.tpl';
         }
 
         public static function getInstance($dirname = null)

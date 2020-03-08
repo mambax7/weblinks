@@ -94,9 +94,9 @@ class weblinks_topten
     public function get_template_name()
     {
         if ($this->_conf['topten_style']) {
-            $template = $this->_DIRNAME . '_topten_mixed.html';
+            $template = $this->_DIRNAME . '_topten_mixed.tpl';
         } else {
-            $template = $this->_DIRNAME . '_topten.html';
+            $template = $this->_DIRNAME . '_topten.tpl';
         }
 
         return $template;

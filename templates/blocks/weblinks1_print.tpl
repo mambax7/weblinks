@@ -310,11 +310,11 @@
         <{* -- start comments -- *}>
         <div class="weblinks_print_frame_comment">
             <{if $comment_mode == "flat"}>
-            <{include file="db:system_comments_flat.html"}>
+            <{include file="db:system_comments_flat.tpl"}>
             <{elseif $comment_mode == "thread"}>
-            <{include file="db:system_comments_thread.html"}>
+            <{include file="db:system_comments_thread.tpl"}>
             <{elseif $comment_mode == "nest"}>
-            <{include file="db:system_comments_nest.html"}>
+            <{include file="db:system_comments_nest.tpl"}>
             <{/if}>
         </div>
         <{* -- end comments -- *}>

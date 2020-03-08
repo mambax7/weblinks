@@ -56,7 +56,7 @@ $module_name = $weblinks_singlelink->get_module_name();
 $title_s = $link_show['title'];
 
 // template
-$WEBLINK_TEMPLATE_NAME = 'db:' . WEBLINKS_DIRNAME . '_print.html';
+$WEBLINK_TEMPLATE_NAME = 'db:' . WEBLINKS_DIRNAME . '_print.tpl';
 /* CDS Patch. Weblinks. 2.00. 2. BOF */
 include $GLOBALS['xoops']->path('header.php');
 //$xoopsTpl = new XoopsTpl();

@@ -21,7 +21,7 @@ class admin_notification_manage
 
     public $_admin;
 
-    public $_TEMPLATE = 'db:system_notification_select.html';
+    public $_TEMPLATE = 'db:system_notification_select.tpl';
 
     //---------------------------------------------------------
     // constructor

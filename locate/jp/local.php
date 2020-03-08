@@ -29,7 +29,7 @@ if (!class_exists('weblinks_locate_jp')) {
 
             $arr = [
                 'happy_linux_url' => 'https://linux.ohwada.jp/',   // reset this value
-                'weblinks_map_template' => 'weblinks_jp_google.html',
+                'weblinks_map_template' => 'weblinks_jp_google.tpl',
             ];
 
             $this->array_merge($arr);

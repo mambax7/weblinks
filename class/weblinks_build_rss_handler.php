@@ -53,9 +53,9 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $DIR_XML = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
 
             parent::__construct();
-            $this->set_rdf_template($DIR_XML . '/weblinks_build_rdf.html');
-            $this->set_rss_template($DIR_XML . '/weblinks_build_rss.html');
-            $this->set_atom_template($DIR_XML . '/weblinks_build_atom.html');
+            $this->set_rdf_template($DIR_XML . '/weblinks_build_rdf.tpl');
+            $this->set_rss_template($DIR_XML . '/weblinks_build_rss.tpl');
+            $this->set_atom_template($DIR_XML . '/weblinks_build_atom.tpl');
             $this->set_generator('XOOPS WebLinks');
             $this->set_category('WebLinks');
             $this->set_rdf_title('WebLinks: RDF Feeds');
