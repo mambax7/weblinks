@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: rssc_add.php,v 1.3 2012/04/11 06:10:31 ohwada Exp $
 
 //=========================================================
@@ -19,14 +26,14 @@ if (WEBLINKS_RSSC_USE) {
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/refresh.php';
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/manage.php';
 
-    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
-    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
+//    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
+//    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
 }
 
 //=========================================================
-// class rssc_add
+// class RsscAdd
 //=========================================================
-class rssc_add
+class RsscAdd
 {
     public $_db;
     public $_system_class;
@@ -49,11 +56,11 @@ class rssc_add
 
         $this->_table_link = $this->_db->prefix($dirname . '_link');
 
-        $this->_system_class = happy_linux_system::getInstance();
+        $this->_system_class = Happylinux\System::getInstance();
         $this->_html_class = happy_linux_html::getInstance();
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
     }
 
     public static function getInstance($dirname = null)
@@ -321,7 +328,7 @@ EOF;
 //=========================================================
 // main
 //=========================================================
-$rssc = rssc_add::getInstance(WEBLINKS_DIRNAME);
+$rssc = RsscAdd::getInstance(WEBLINKS_DIRNAME);
 
 xoops_cp_header();
 $rssc->main();

@@ -18,7 +18,7 @@ if (!class_exists('weblinks_locate_uk')) {
     // class weblinks_locate_uk
     // United Kingdom (UK)
     //=========================================================
-    class weblinks_locate_uk extends weblinks_locate_base
+    class weblinks_locate_uk extends LocateBase
     {
         //---------------------------------------------------------
         // constructor

@@ -12,10 +12,10 @@
 // 2007-09-01 K.OHWADA
 //=========================================================
 
-include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/mail_form.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/mail_send.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/mail_template.php';
+//include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/mail_form.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/mail_send.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/mail_template.php';
 
 //---------------------------------------------------------
 // language

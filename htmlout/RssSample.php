@@ -13,8 +13,8 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_htmlout_rss_sample')) {
-    class weblinks_htmlout_rss_sample extends weblinks_htmlout_base
+if (!class_exists('RssSample')) {
+    class RssSample extends HtmloutBase
     {
         //---------------------------------------------------------
         // constructor

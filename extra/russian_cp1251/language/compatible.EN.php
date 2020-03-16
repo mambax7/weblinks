@@ -499,7 +499,7 @@ if (!defined('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE')) {
     define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'Link list after Expired time');
 
     define('_AM_WEBLINKS_SERVER_ENV', 'Server Enviroment');
-    define('_AM_WEBLINKS_DEBUG_CONF', 'Debug Vairables');
+    define('_AM_WEBLINKS_DEBUG_CONF', 'Debug Variables');
     define('_AM_WEBLINKS_ALL_GREEN', 'All Green');
 }
 

@@ -27,7 +27,7 @@ if (!class_exists('LinkViewBasic')) {
     //=========================================================
     // class LinkViewBasic
     //=========================================================
-    class LinkViewBasic extends weblinks_block_view
+    class LinkViewBasic extends BlockView
     {
         public $_DIRNAME;
         public $_WEBLINKS_URL;
@@ -53,11 +53,11 @@ if (!class_exists('LinkViewBasic')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_block_class = weblinks_block_view::getInstance();
+            $this->_block_class = BlockView::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
 

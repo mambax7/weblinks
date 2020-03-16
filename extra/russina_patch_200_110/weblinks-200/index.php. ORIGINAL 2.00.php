@@ -6,7 +6,7 @@
 
 // 2007-11-11 K.OHWADA
 // remove config check
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-09-01 K.OHWADA
 // waiting list
@@ -65,12 +65,12 @@ include 'header.php';
 
 include_once WEBLINKS_ROOT_PATH . '/api/waiting.php';
 
-$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
-$weblinks_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('LinkView', WEBLINKS_DIRNAME);
+$rsscHandlerandler = weblinks_get_handler('RsscView', WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_gmap = weblinks_gmap::getInstance(WEBLINKS_DIRNAME);
-$weblinks_map_jp = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
+$weblinks_map_jp = MapJp::getInstance(WEBLINKS_DIRNAME);
 
 //---------------------------------------------------------
 // main
@@ -202,10 +202,10 @@ $show_feeds_list = false;
 
 if (WEBLINKS_RSSC_USE && $conf_new_rss) {
     $show_new_atomfeed = true;
-    $weblinks_rssc_handler->set_feed_max_summary($conf['rss_max_summary']);
-    $weblinks_rssc_handler->set_feed_highlight($conf['use_highlight']);
-    $weblinks_rssc_handler->set_feed_keyword_array($keyword_array);
-    $feed_list = $weblinks_rssc_handler->get_feed_list_latest($conf_new_rss);
+    $rsscHandlerandler->set_feed_max_summary($conf['rss_max_summary']);
+    $rsscHandlerandler->set_feed_highlight($conf['use_highlight']);
+    $rsscHandlerandler->set_feed_keyword_array($keyword_array);
+    $feed_list = $rsscHandlerandler->get_feed_list_latest($conf_new_rss);
 
     if (is_array($feed_list) && count($feed_list)) {
         foreach ($feed_list as $feed) {
@@ -269,7 +269,7 @@ $xoopsTpl->assign('show_user_owner_list', $show_user_owner_list);
 $xoopsTpl->assign('user_owner_list', $user_owner_list);
 
 $xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

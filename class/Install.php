@@ -3,6 +3,7 @@
 namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
+use XoopsModules\Weblinks;
 
 // $Id: weblinks_install.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
@@ -29,11 +30,11 @@ use XoopsModules\Happylinux;
 // 2007-11-11 K.OHWADA
 //=========================================================
 
-if (!class_exists('weblinks_install')) {
+if (!class_exists('Install')) {
     //=========================================================
     // class weblinks_install
     //=========================================================
-    class weblinks_install extends happy_linux_module_install
+    class Install extends Happylinux\ModuleInstall
     {
         public $_DIRNAME;
 
@@ -58,7 +59,7 @@ if (!class_exists('weblinks_install')) {
             $this->set_config_define_class($weblinksConfig2);
             $this->set_config_table_name($dirname . '_config2');
 
-            $this->_linkitem_define = weblinks_linkitem_define::getInstance($dirname);
+            $this->_linkitem_define = LinkitemDefine::getInstance($dirname);
 
             $this->_linkitem_table = $this->prefix($dirname . '_linkitem');
             $this->_category_table = $this->prefix($dirname . '_category');
@@ -519,8 +520,8 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             $sql .= $this->quote($title) . ', ';
             $sql .= (int)$user_mode . ', ';
             $sql .= $this->quote($description) . ', ';
-            $sql .= (int)$aux_int_1 . ', ';
-            $sql .= (int)$aux_int_2 . ', ';
+            $sql .= $aux_int_1 . ', ';
+            $sql .= $aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';

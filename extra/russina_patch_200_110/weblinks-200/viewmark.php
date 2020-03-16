@@ -7,7 +7,7 @@
 // title: lang_site_recommend
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-08-01 K.OHWADA
 // weblinks_header
@@ -47,8 +47,8 @@
 //================================================================
 
 include 'header.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/pagenavi.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
 
 //=========================================================
 // class weblinks_viewmark
@@ -70,12 +70,12 @@ class weblinks_viewmark
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_template = weblinks_template::getInstance($dirname);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
+        $this->_template = Template::getInstance($dirname);
 
-        $this->_class_keyword = happy_linux_keyword::getInstance();
-        $this->_post = happy_linux_post::getInstance();
+        $this->_class_keyword = Happylinux\Keyword::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
     }
@@ -176,7 +176,7 @@ class weblinks_viewmark
     {
         global $xoopsTpl;
 
-        $pagenavi = weblinks_pagenavi_menu::getInstance();
+        $pagenavi = PageNaviMenu::getInstance();
 
         $pagenavi->setPerpage($this->_conf['perpage']);
         $pagenavi->set_sortid_default($this->_conf['orderby']);
@@ -238,8 +238,8 @@ class weblinks_viewmark
 //=========================================================
 
 $weblinks_viewmark = weblinks_viewmark::getInstance(WEBLINKS_DIRNAME);
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
@@ -266,7 +266,7 @@ $weblinks_template->assignSearch($arr['show_mark'], $show_cat, $show_br1, $show_
 $xoopsTpl->assign('lang_kml_list', _WEBLINKS_KML_LIST);
 $xoopsTpl->assign('lang_kml_list_desc', _WEBLINKS_KML_LIST_DESC);
 $xoopsTpl->assign('lang_kml_perpage', _WEBLINKS_KML_PERPAGE);
-$xoopsTpl->assign('lang_execute', _HAPPY_LINUX_EXECUTE);
+$xoopsTpl->assign('lang_execute', _HAPPYLINUX_EXECUTE);
 $xoopsTpl->assign('keywords', $keywords_urlencoded);
 
 $xoopsTpl->assign('lang_mark_title', $arr['lang_title']);
@@ -286,7 +286,7 @@ $xoopsTpl->assign('show_kml_list', $arr['show_kml_list']);
 $xoopsTpl->assign('kml_list', $arr['kml_list']);
 $xoopsTpl->assign('kml_perpage', $arr['kml_perpage']);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

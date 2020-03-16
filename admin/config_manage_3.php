@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: config_manage_3.php,v 1.6 2007/11/11 03:22:59 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
@@ -35,8 +42,8 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
 
 $op = $config_form->get_post_get_op();
 

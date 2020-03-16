@@ -30,7 +30,7 @@
 // 2006-05-15 K.OHWADA
 //=========================================================
 
-$WEBLINKS_PATH = dirname(dirname(__FILE__));
+$WEBLINKS_PATH = dirname(__DIR__);
 $WEBLINKS_DIRNAME = basename($WEBLINKS_PATH);
 $XOOPS_ROOT_PATH = dirname(dirname($WEBLINKS_PATH));
 
@@ -47,27 +47,27 @@ include_once XOOPS_ROOT_PATH . '/class/snoopy.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-if (!file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php')) {
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php')) {
     die('require happy_linux module');
 }
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/bin.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/bin.php';
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/language.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/post.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/remote_file.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/convert_encoding.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/search.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/locate.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/language.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/post.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/remote_file.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/convert_encoding.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/pagenavi.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/search.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/locate.php';
 
 //---------------------------------------------------------
 // weblinks
@@ -88,10 +88,10 @@ if (!defined('WEBLINKS_URL')) {
 include_once WEBLINKS_ROOT_PATH . '/include/weblinks_version.php';
 include_once WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
 include_once WEBLINKS_ROOT_PATH . '/include/functions.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_bin_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_check_base.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_check_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/bin/class.bin_link_check.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_bin_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_check_base.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_check_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/bin/class.bin_link_check.php';
 
 // main.php
 if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $xoops_language . '/main.php')) {
@@ -111,7 +111,7 @@ if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $xoops_language . '/admin.ph
 include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 
 // check happy_linux version
-if (HAPPY_LINUX_VERSION < WEBLINKS_HAPPY_LINUX_VERSION) {
-    $msg = 'require happy_linux module v' . WEBLINKS_HAPPY_LINUX_VERSION . ' or later';
+if (HAPPYLINUX_VERSION < WEBLINKS_HAPPYLINUX_VERSION) {
+    $msg = 'require happy_linux module v' . WEBLINKS_HAPPYLINUX_VERSION . ' or later';
     die($msg);
 }

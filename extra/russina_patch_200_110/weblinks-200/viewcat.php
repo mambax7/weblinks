@@ -5,7 +5,7 @@
 // Notice [PHP]: Only variables should be assigned by reference
 
 // 2007-11-11 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 // happy_linux_keyword
 
 // 2007-08-01 K.OHWADA
@@ -66,8 +66,8 @@
 //================================================================
 
 include 'header.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/pagenavi.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
 
 //=========================================================
 // class weblinks_viewcat
@@ -88,13 +88,13 @@ class weblinks_viewcat
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_template = weblinks_template::getInstance($dirname);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
+        $this->_template = Template::getInstance($dirname);
         $this->_gmap = weblinks_gmap::getInstance($dirname);
-        $this->_map_jp = weblinks_map_jp::getInstance($dirname);
+        $this->_map_jp = MapJp::getInstance($dirname);
 
-        $this->_class_keyword = happy_linux_keyword::getInstance();
+        $this->_class_keyword = Happylinux\Keyword::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
     }
@@ -266,7 +266,7 @@ class weblinks_viewcat
     {
         global $xoopsTpl;
 
-        $pagenavi = weblinks_pagenavi_menu::getInstance();
+        $pagenavi = PageNaviMenu::getInstance();
 
         $pagenavi->setPerpage($this->_conf['perpage']);
         $pagenavi->set_sortid_default($this->_conf['orderby']);
@@ -296,8 +296,8 @@ class weblinks_viewcat
 // main
 //=========================================================
 $weblinks_viewcat = weblinks_viewcat::getInstance(WEBLINKS_DIRNAME);
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 
 $category = &$weblinks_viewcat->get_category();
 if (!$category) {
@@ -359,7 +359,7 @@ $xoopsTpl->assign('weblinks_map_jp', $arr['map_jp']);
 $xoopsTpl->assign('keywords', $keywords_urlencoded);
 $xoopsTpl->assign('lang_latest_forum', _WEBLINKS_LATEST_FORUM);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // -- main end ---

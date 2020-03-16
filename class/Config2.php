@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_config2_handler.php,v 1.3 2006/09/30 03:15:21 ohwada Exp $
+// $Id: Config2Handler.php,v 1.3 2006/09/30 03:15:21 ohwada Exp $
 
 // 2006-09-20 K.OHWADA
 // use happy_linux
@@ -19,19 +19,19 @@ use XoopsModules\Happylinux;
 //================================================================
 // WebLinks Module
 // this file contain 2 class
-//   weblinks_config2
-//   weblinks_config2_handler
+//   Config2
+//   Config2Handler
 // porting form RSSC
 // 2006-05-15 K.OHWADA
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_config2_handler')) {
+if (!class_exists('Config2')) {
     //================================================================
-    // class weblinks_config2
+    // class Config2
     // modify form system XoopsConfigItem
     //================================================================
-    class weblinks_config2 extends happy_linux_config_base
+    class Config2 extends Happylinux\ConfigBase
     {
         //---------------------------------------------------------
         // constructor
@@ -43,24 +43,4 @@ if (!class_exists('weblinks_config2_handler')) {
 
         // --- class end ---
     }
-
-    //=========================================================
-    // class config handler
-    //=========================================================
-    class weblinks_config2_handler extends happy_linux_config_base_handler
-    {
-        //---------------------------------------------------------
-        // constructor
-        //---------------------------------------------------------
-        public function __construct($dirname)
-        {
-            parent::__construct($dirname, 'config2', 'conf_id', 'weblinks_config2');
-
-            $this->set_debug_db_sql(WEBLINKS_DEBUG_CONFIG2_SQL);
-            $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
-        }
-
-        // --- class end ---
-    }
-    // === class end ===
 }

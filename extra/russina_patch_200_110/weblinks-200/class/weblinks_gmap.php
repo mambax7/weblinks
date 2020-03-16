@@ -37,9 +37,9 @@ if (!class_exists('weblinks_gmap')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_linkitem_handler = weblinks_getHandler('linkitem_basic', $dirname);
-            $this->_strings = happy_linux_strings::getInstance();
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('LinkitemBasic', $dirname);
+            $this->_strings = Happylinux\Strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
 
@@ -79,7 +79,7 @@ if (!class_exists('weblinks_gmap')) {
         //---------------------------------------------------------
         public function fetch_list($links, $param, $css_map = 'weblinks_gm_map_index')
         {
-            $tpl = new XoopsTpl();
+            $tpl = new \XoopsTpl();
             $this->_assign_common($tpl, $param);
             $tpl->assign('css_map', $css_map);
 
@@ -96,7 +96,7 @@ if (!class_exists('weblinks_gmap')) {
 
         public function fetch_single($link)
         {
-            $tpl = new XoopsTpl();
+            $tpl = new \XoopsTpl();
             $this->_assign_common($tpl);
             $tpl->assign('link', $link);
 

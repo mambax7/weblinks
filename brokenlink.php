@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Weblinks;
+
 // $Id: brokenlink.php,v 1.14 2007/11/02 11:36:27 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
@@ -40,12 +44,12 @@
 //================================================================
 
 include 'header_oh.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_broken_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_broken_handler.php';
 
 //=========================================================
 // class weblinks_brokenlink
 //=========================================================
-class weblinks_brokenlink extends happy_linux_error
+class weblinks_brokenlink extends Happylinux\Error
 {
     public $_link_handler;
     public $_broken_handler;
@@ -65,12 +69,12 @@ class weblinks_brokenlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
-        $this->_broken_handler = weblinks_getHandler('broken', $dirname);
-        $this->_system = happy_linux_system::getInstance();
-        $this->_post = happy_linux_post::getInstance();
-        $this->_form = happy_linux_form::getInstance();
+        $config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_handler = weblinks_get_handler('Link', $dirname);
+        $this->_broken_handler = handler('Broken', $dirname);
+        $this->_system = Happylinux\System::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
+        $this->_form = Happylinux\Form::getInstance();
 
         $this->_system_uid = $this->_system->get_uid();
         $this->_remote_addr = getenv('REMOTE_ADDR');
@@ -191,8 +195,8 @@ class weblinks_brokenlink extends happy_linux_error
 // main
 //=========================================================
 
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Weblinks\Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_brokenlink = weblinks_brokenlink::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off

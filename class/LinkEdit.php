@@ -26,11 +26,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_edit')) {
+if (!class_exists('LinkEdit')) {
     //=========================================================
-    // class weblinks_link_edit
+    // class LinkEdit
     //=========================================================
-    class weblinks_link_edit extends happy_linux_basic
+    class LinkEdit extends Happylinux\BasicObject
     {
         public $_DIRNAME;
 
@@ -59,15 +59,15 @@ if (!class_exists('weblinks_link_edit')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
-            $this->_link_view = weblinks_link_view::getInstance($dirname);
-            $this->_auth = weblinks_auth::getInstance($dirname);
-            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
+            $this->_link_view = LinkView::getInstance($dirname);
+            $this->_auth = Auth::getInstance($dirname);
+            $this->_rssc_handler = handler('Rssc', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
 
             $this->_conf_desc_option = $this->_auth->has_auth_desc_option();
         }
@@ -158,7 +158,7 @@ if (!class_exists('weblinks_link_edit')) {
 
         public function build_preview_by_post()
         {
-            $save_obj = new weblinks_link_save($this->_DIRNAME);
+            $save_obj = new LinkSave($this->_DIRNAME);
             $save_obj->assign_add_object($_POST);
             $this->set_vars($save_obj->getVarAll('f'));
             $this->set('cid_arr', $save_obj->get_cid_array());

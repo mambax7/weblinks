@@ -22,11 +22,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_form_mod_approve_handler')) {
+if (!class_exists('LinkFormModApproveHandler')) {
     //=========================================================
-    // class weblinks_link_form_mod_approve_handler
+    // class LinkFormModApproveHandler
     //=========================================================
-    class weblinks_link_form_mod_approve_handler extends LinkFormAdminHandler
+    class LinkFormModApproveHandler extends LinkFormAdminHandler
     {
         //---------------------------------------------------------
         // constructor

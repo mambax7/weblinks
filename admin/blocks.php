@@ -1,4 +1,6 @@
 <?php
+
+use XoopsModules\Happylinux;
 // $Id: blocks.php,v 1.1 2007/06/08 19:49:51 ohwada Exp $
 
 //=========================================================
@@ -7,14 +9,14 @@
 //=========================================================
 
 include '../../../include/cp_header.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/admin.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/admin.php';
 
 //=========================================================
 // main
 //=========================================================
 xoops_cp_header();
 
-$admin = happy_linux_admin::getInstance();
+$admin = Happylinux\Admin::getInstance();
 $admin->print_blocks();
 
 xoops_cp_footer();

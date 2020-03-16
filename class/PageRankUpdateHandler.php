@@ -12,11 +12,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_pagerank_update_handler')) {
+if (!class_exists('PageRankUpdateHandler')) {
     //=========================================================
-    // class weblinks_pagerank_update_handler
+    // class PageRankUpdateHandler
     //=========================================================
-    class weblinks_pagerank_update_handler extends LinkCheckBase
+    class PageRankUpdateHandler extends LinkCheckBase
     {
         public $_pagerank_handler;
 
@@ -27,7 +27,7 @@ if (!class_exists('weblinks_pagerank_update_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
+            $this->_pagerank_handler = handler('Pagerank', $dirname);
 
             $this->_TITLE = 'Update PageRank';
         }

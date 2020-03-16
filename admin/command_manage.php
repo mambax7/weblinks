@@ -1,11 +1,18 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: command_manage.php,v 1.4 2007/11/11 03:22:59 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
 
 // 2007-10-10 K.OHWADA
-// _HAPPY_LINUX_CONF_COMMAND_MANAGE
+// _HAPPYLINUX_CONF_COMMAND_MANAGE
 
 // 2007-02-20 K.OHWADA
 // hack for multi site
@@ -27,8 +34,8 @@ include_once 'admin_header_config.php';
 weblinks_admin_multi_disable_feature();
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
 
 $op = $config_form->get_post_get_op();
 
@@ -38,7 +45,7 @@ if ('save' == $op) {
         $config_form->print_xoops_token_error();
     } else {
         $config_store->save_config();
-        redirect_header('command_manage.php', 1, _HAPPY_LINUX_UPDATED);
+        redirect_header('command_manage.php', 1, _HAPPYLINUX_UPDATED);
     }
 } else {
     xoops_cp_header();
@@ -50,13 +57,13 @@ $url = WEBLINKS_URL . '/bin/link_check.php?pass=' . $pass . '&amp;limit=10';
 weblinks_admin_print_header();
 weblinks_admin_print_menu();
 
-echo '<h4>' . _HAPPY_LINUX_CONF_COMMAND_MANAGE . "</h4>\n";
-echo '<a href="create_config.php">' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</a><br><br>\n";
-echo '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ': bin/link_check.php</a>' . "<br><br>\n";
+echo '<h4>' . _HAPPYLINUX_CONF_COMMAND_MANAGE . "</h4>\n";
+echo '<a href="create_config.php">' . _HAPPYLINUX_CONF_CREATE_CONFIG . "</a><br><br>\n";
+echo '<a href="' . $url . '">' . _HAPPYLINUX_CONF_TEST_BIN . ': bin/link_check.php</a>' . "<br><br>\n";
 
-echo '<h4>' . _HAPPY_LINUX_CONF_BIN . "</h4>\n";
-echo _HAPPY_LINUX_CONF_BIN_DESC . "<br><br>\n";
-$config_form->set_form_title(_HAPPY_LINUX_CONF_BIN);
+echo '<h4>' . _HAPPYLINUX_CONF_BIN . "</h4>\n";
+echo _HAPPYLINUX_CONF_BIN_DESC . "<br><br>\n";
+$config_form->set_form_title(_HAPPYLINUX_CONF_BIN);
 $config_form->show_by_catid(7);
 
 weblinks_admin_print_footer();

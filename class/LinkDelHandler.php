@@ -18,11 +18,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_del_handler')) {
+if (!class_exists('LinkDelHandler')) {
     //=========================================================
-    // class weblinks_link_del_handler
+    // class LinkDelHandler
     //=========================================================
-    class weblinks_link_del_handler extends weblinks_link_edit_base_handler
+    class LinkDelHandler extends LinkEditBaseHandler
     {
         public $_link_vote_handler;
 
@@ -33,7 +33,7 @@ if (!class_exists('weblinks_link_del_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_link_vote_handler = weblinks_get_handler('link_vote_del', $dirname);
+            $this->_link_vote_handler = weblinks_get_handler('LinkVoteDel', $dirname);
         }
 
         //---------------------------------------------------------

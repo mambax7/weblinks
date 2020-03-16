@@ -89,7 +89,7 @@ if (!class_exists('weblinks_link_handler')) {
     // class weblinks_link_handler
     // NOT use other handler
     //=========================================================
-    class weblinks_link_handler extends Happylinux\BaseObjectHandler
+    class LinkHandler extends Happylinux\BaseObjectHandler
     {
         public $_link_basic_handler;
 
@@ -117,7 +117,7 @@ if (!class_exists('weblinks_link_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_basic_handler = weblinks_get_handler('LinkBasic', $dirname);
 
             $conf = $config_handler->get_conf();

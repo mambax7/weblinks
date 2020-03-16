@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_block_webmap.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: BlockWebmap.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -10,11 +12,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_block_webmap')) {
+if (!class_exists('BlockWebmap')) {
     //=========================================================
-    // class weblinks_block_webmap
+    // class BlockWebmap
     //=========================================================
-    class weblinks_block_webmap
+    class BlockWebmap
     {
         public $_map_class;
 
@@ -30,7 +32,7 @@ if (!class_exists('weblinks_block_webmap')) {
             $this->_url_singlelink = XOOPS_URL . '/modules/' . $dirname . '/singlelink.php';
         }
 
-        public function &getSingleton($dirname)
+        public static function &getSingleton($dirname)
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {

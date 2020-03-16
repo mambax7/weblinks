@@ -28,7 +28,7 @@
 
 include 'header.php';
 
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('LinkBasic', WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $com_itemid = 0;

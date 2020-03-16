@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: config_manage_7.php,v 1.1 2008/02/26 16:06:47 ohwada Exp $
 
 //=========================================================
@@ -10,9 +17,9 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
-$link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
+$link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 

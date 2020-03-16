@@ -18,11 +18,11 @@ use XoopsModules\Happylinux;
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_linkitem_basic_handler')) {
+if (!class_exists('LinkitemBasicHandler')) {
     //================================================================
-    // class weblinks_linkitem_basic_handler
+    // class LinkitemBasicHandler
     //================================================================
-    class weblinks_linkitem_basic_handler extends Happylinux\BasicHandler
+    class LinkitemBasicHandler extends Happylinux\BasicHandler
     {
         //---------------------------------------------------------
         // constructor
@@ -56,8 +56,8 @@ if (!class_exists('weblinks_linkitem_basic_handler')) {
         public function load_config()
         {
             if ($this->get_debug_print_time()) {
-                $happy_linux_time = happy_linux_time::getInstance();
-                $happy_linux_time->print_lap_time('weblinks_linkitem_basic_handler');
+                $happy_linux_time = @\XoopsModules\Happylinux\Time::getInstance();
+                $happy_linux_time->print_lap_time('LinkitemBasicHandler');
             }
 
             $this->_get_config_data();

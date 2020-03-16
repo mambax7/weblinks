@@ -8,7 +8,7 @@
 // Notice [PHP]: Only variables should be assigned by reference
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-09-01 K.OHWADA
 // REQ 4359: countup hits in singlelink.php
@@ -61,18 +61,18 @@
 //================================================================
 
 include 'header_oh.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_singlelink.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_singlelink.php';
 
-$weblinks_singlelink = weblinks_singlelink::getInstance(WEBLINKS_DIRNAME);
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
-$weblinks_webmap = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
+$singlelink = Singlelink::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_webmap = Webmap::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
-$lid = $weblinks_singlelink->get_get_lid();
+$lid = $singlelink->get_get_lid();
 
-$conf = &$weblinks_singlelink->get_conf();
-$is_module_admin = $weblinks_singlelink->is_module_admin();
+$conf = &$singlelink->get_conf();
+$is_module_admin = $singlelink->is_module_admin();
 
 $weblinks_template->set_keyword_by_request();
 
@@ -81,11 +81,11 @@ $keyword_array = $weblinks_template->get_keyword_array();
 
 $keywords_urlencoded = $weblinks_template->get_keywords_urlencode();
 
-$weblinks_singlelink->set_highlight($conf['use_highlight']);
-$weblinks_singlelink->set_keyword_array($keyword_array);
+$singlelink->set_highlight($conf['use_highlight']);
+$singlelink->set_keyword_array($keyword_array);
 
 // link
-$link_show = &$weblinks_singlelink->get_link($lid);
+$link_show = &$singlelink->get_link($lid);
 if (!$link_show) {
     redirect_header('index.php', 3, _WLS_NOMATCH);
     exit();
@@ -109,7 +109,7 @@ include XOOPS_ROOT_PATH . '/header.php';
 
 // REQ 4359: countup hits in singlelink.php
 if ($conf['use_hits_singlelink']) {
-    $weblinks_singlelink->countup_hits($lid);
+    $singlelink->countup_hits($lid);
 }
 
 // index
@@ -130,7 +130,7 @@ $xoopsTpl->assign('lang_broken_counter', _WLS_BROKEN_COUNTER);
 
 $weblinks_template->assignDisplayLink();
 
-$catpath_arr = &$weblinks_singlelink->get_catpath_arr($lid);
+$catpath_arr = &$singlelink->get_catpath_arr($lid);
 foreach ($catpath_arr as $catpath) {
     $xoopsTpl->append('catpaths', $catpath);
 }
@@ -159,7 +159,7 @@ $xoopsTpl->assign('webmap_div_id', $webmap_div_id);
 $xoopsTpl->assign('webmap_func', $webmap_func);
 
 // atomfeed
-$atomfeed = $weblinks_singlelink->get_atomfeed($lid);
+$atomfeed = $singlelink->get_atomfeed($lid);
 
 $xoopsTpl->assign('rss_num_content', $atomfeed['rss_num']);
 $xoopsTpl->assign('rss_flag', $atomfeed['rss_flag']);
@@ -177,7 +177,7 @@ if (is_array($atomfeed['feeds']) && count($atomfeed['feeds'])) {
 $show_forum_list = false;
 $weblinks_forum_list = '';
 
-$threads = &$weblinks_singlelink->get_link_forum_threads_by_lid($lid);
+$threads = &$singlelink->get_link_forum_threads_by_lid($lid);
 if (is_array($threads) && count($threads)) {
     $show_forum_list = true;
     $weblinks_forum_list = $weblinks_template->fetch_forum_list($threads);
@@ -191,7 +191,7 @@ $xoopsTpl->assign('lang_latest_forum', _WEBLINKS_LATEST_FORUM);
 $show_photo_list = false;
 $photo_list = '';
 
-$photos = &$weblinks_singlelink->get_link_album_photos_by_lid($lid);
+$photos = &$singlelink->get_link_album_photos_by_lid($lid);
 if (is_array($photos) && count($photos)) {
     $show_photo_list = true;
     $photo_list = $weblinks_template->fetch_photo_list($photos);
@@ -206,7 +206,7 @@ $xoopsTpl->assign('d3forum_comment', $weblinks_template->fetch_d3forum_comment($
 $xoopsTpl->assign('show_comment', $comment_use);
 include XOOPS_ROOT_PATH . '/include/comment_view.php';
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

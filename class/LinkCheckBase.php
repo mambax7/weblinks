@@ -15,11 +15,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_check_base')) {
+if (!class_exists('LinkCheckBase')) {
     //=========================================================
-    // class weblinks_link_check_base
+    // class LinkCheckBase
     //=========================================================
-    class weblinks_link_check_base
+    class LinkCheckBase
     {
         public $_DIRNAME;
 
@@ -45,7 +45,7 @@ if (!class_exists('weblinks_link_check_base')) {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_link_handler = weblinks_get_handler('link_bin', $dirname);
+            $this->_link_handler = weblinks_get_handler('LinkBin', $dirname);
         }
 
         //---------------------------------------------------------

@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: admin_functions.php,v 1.3 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
@@ -10,7 +13,7 @@
 // link_check_manage.php
 
 // 2007-11-24 K.OHWADA
-// _HAPPY_LINUX_CONF_TABLE_MANAGE
+// _HAPPYLINUX_CONF_TABLE_MANAGE
 
 // 2007-11-11 K.OHWADA
 // happy_linux_admin_menu
@@ -59,20 +62,20 @@
 
 function weblinks_admin_print_header()
 {
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_header(WEBLINKS_DIRNAME, _MI_WEBLINKS_DESC);
 }
 
 function weblinks_admin_print_footer()
 {
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_footer();
 }
 
 function weblinks_admin_print_bread($name1, $url1 = '', $name2 = '')
 {
-    $system = happy_linux_system::getInstance();
-    $form = happy_linux_form::getInstance();
+    $system = Happylinux\System::getInstance();
+    $form = Happylinux\Form::getInstance();
 
     $arr = [
         [
@@ -101,10 +104,10 @@ function weblinks_admin_print_menu()
 {
     $MAX_COL = 4;
 
-    $menu = happy_linux_admin_menu::getInstance();
-    $handler = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
-    $link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
-    $modify_handler = weblinks_getHandler('modify_basic', WEBLINKS_DIRNAME);
+    $menu = Happylinux\AdminMenu::getInstance();
+    $handler = Happylinux\BasicHandler::getInstance(WEBLINKS_DIRNAME);
+    $link_handler = weblinks_get_handler('LinkBasic', WEBLINKS_DIRNAME);
+    $modify_handler = weblinks_get_handler('ModifyBasic', WEBLINKS_DIRNAME);
 
     $total_cat = $handler->get_count_by_tablename('category');
     $total_vote = $handler->get_count_by_tablename('votedata');
@@ -191,20 +194,20 @@ function weblinks_admin_print_menu()
         _AM_WEBLINKS_NOTIFICATION_MANAGE => 'notification_manage.php',
         $title_broken => 'broken_list.php',
 
-        _HAPPY_LINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
+        _HAPPYLINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
         _AM_WEBLINKS_IMPORT_MANAGE => 'import_manage.php',
         _AM_WEBLINKS_EXPORT_MANAGE => 'export_manage.php',
-        _HAPPY_LINUX_CONF_RSS_MANAGE => 'rss_build_manage.php',
+        _HAPPYLINUX_CONF_RSS_MANAGE => 'rss_build_manage.php',
 
         _AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE => 'output_plugin_manage.php',
         _AM_WEBLINKS_MAP_JP_MANAGE => 'map_jp_manage.php',
         $column => 'column_manage.php',
         $feed_list => 'rssc_manage.php',
 
-        _HAPPY_LINUX_CONF_TABLE_MANAGE => 'table_manage.php',
-        _HAPPY_LINUX_AM_MODULE => 'modules.php',
-        _HAPPY_LINUX_AM_BLOCK => 'blocks.php',
-        _HAPPY_LINUX_GOTO_MODULE => '../index.php',
+        _HAPPYLINUX_CONF_TABLE_MANAGE => 'table_manage.php',
+        _HAPPYLINUX_AM_MODULE => 'modules.php',
+        _HAPPYLINUX_AM_BLOCK => 'blocks.php',
+        _HAPPYLINUX_GOTO_MODULE => '../index.php',
     ];
 
     echo $menu->build_menu_table($menu_arr, $MAX_COL);

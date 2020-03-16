@@ -45,7 +45,7 @@ function ' . $WEBLINKS_DIRNAME . '_admin_waiting()
 
 function ' . $WEBLINKS_DIRNAME . '_user_waiting( $uid, $limit=0, $offset=0 )
 {
-    return weblinks_user_waiting_base( "' . $WEBLINKS_DIRNAME . '", $uid, $limit, $offset ) ;
+    return weblinks_user_waiting_base( \'' . $WEBLINKS_DIRNAME . '\', $uid, $limit, $offset ) ;
 }
 
 '

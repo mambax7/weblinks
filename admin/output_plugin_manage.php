@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
+
 // $Id: output_plugin_manage.php,v 1.1 2008/02/26 16:06:47 ohwada Exp $
 
 //=========================================================
@@ -8,38 +15,12 @@
 
 include 'admin_header.php';
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/plugin.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/plugin_manage.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/plugin.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/plugin_manage.php';
 
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_htmlout.php';
-include_once WEBLINKS_ROOT_PATH . '/htmlout/weblinks_htmlout_base.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_htmlout.php';
+//include_once WEBLINKS_ROOT_PATH . '/htmlout/weblinks_htmlout_base.php';
 
-//=========================================================
-// class admin list plugin
-//=========================================================
-class admin_output_plugin_manage extends happy_linux_plugin_manage
-{
-    //---------------------------------------------------------
-    // constructor
-    //---------------------------------------------------------
-    public function __construct()
-    {
-        parent::__construct();
-        $this->set_plugin_class(weblinks_htmlout::getInstance(WEBLINKS_DIRNAME));
-    }
-
-    public static function getInstance()
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    // --- class end ---
-}
 
 //=========================================================
 // main
@@ -52,9 +33,9 @@ include_once 'admin_header_config.php';
 weblinks_admin_multi_disable_feature();
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
-$manage = admin_output_plugin_manage::getInstance();
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
+$manage = Admin\OutputPluginManage::getInstance();
 
 $op = $config_form->get_post_get_op();
 
@@ -65,12 +46,12 @@ switch ($op) {
             $config_form->print_xoops_token_error();
         } else {
             $config_store->save_config();
-            redirect_header('output_plugin_manage.php', 1, _HAPPY_LINUX_UPDATED);
+            redirect_header('output_plugin_manage.php', 1, _HAPPYLINUX_UPDATED);
         }
         break;
     case 'execute':
         xoops_cp_header();
-        weblinks_admin_print_bread(_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE, 'output_plugin_manage.php', _HAPPY_LINUX_PLUGIN_TEST);
+        weblinks_admin_print_bread(_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE, 'output_plugin_manage.php', _HAPPYLINUX_PLUGIN_TEST);
         $manage->execute();
         xoops_cp_footer();
         exit();

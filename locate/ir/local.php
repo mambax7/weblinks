@@ -19,7 +19,7 @@ if (!class_exists('weblinks_locate_ir')) {
     // class weblinks_locate_ir
     // Iran (ir)
     //=========================================================
-    class weblinks_locate_ir extends weblinks_locate_base
+    class weblinks_locate_ir extends LocateBase
     {
         //---------------------------------------------------------
         // constructor

@@ -13,8 +13,8 @@
 //================================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_album_sel')) {
-    function &weblinks_plugin_album_sel()
+if (!function_exists('Plugin_album_sel')) {
+    function &Plugin_album_sel()
     {
         $sel = [];
 

@@ -17,4 +17,4 @@ include_once WEBLINKS_RSSC_ROOT_PATH . '/api/rss_builder.php';
 //---------------------------------------------------------
 // weblinks
 //---------------------------------------------------------
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_build_rss_feed_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/BuildRsscHandler.php';

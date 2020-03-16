@@ -48,11 +48,11 @@ if (!class_exists('weblinks_link_count_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink_basic', $dirname);
-            $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', $dirname);
+            $this->_category_handler = weblinks_get_handler('CategoryBasic', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLinkBasic', $dirname);
+            $this->_link_catlink_handler = weblinks_get_handler('LinkCategoryLinkBasic', $dirname);
 
             $this->_conf = &$this->_config_handler->get_conf();
         }

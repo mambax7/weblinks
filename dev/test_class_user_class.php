@@ -43,7 +43,7 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $this->set_debug_db_sql(false);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()

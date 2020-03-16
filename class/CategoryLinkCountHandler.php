@@ -2,6 +2,8 @@
 
 namespace XoopsModules\Weblinks;
 
+use XoopsModules\Happylinux;
+
 // $Id: weblinks_cat_view_handler.php,v 1.2 2007/11/16 12:07:57 ohwada Exp $
 
 // 2007-11-11 K.OHWADA
@@ -17,7 +19,7 @@ if (!class_exists('weblinks_cat_view_handler')) {
     //=========================================================
     // class weblinks_cat_view_handler
     //=========================================================
-    class weblinks_cat_view_handler extends weblinks_link_count_handler
+    class CategoryLinkCountHandler extends LinkCountHandler
     {
         public $_strings;
         public $_post;
@@ -29,8 +31,8 @@ if (!class_exists('weblinks_cat_view_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_strings = happy_linux_strings::getInstance();
-            $this->_post = happy_linux_post::getInstance();
+            $this->_strings = Happylinux\Strings::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
         }
 
         //=========================================================

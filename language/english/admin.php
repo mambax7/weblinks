@@ -470,7 +470,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'Link list after Expired time');
 
     define('_AM_WEBLINKS_SERVER_ENV', 'Server Enviroment ');
-    define('_AM_WEBLINKS_DEBUG_CONF', 'Debug Vairables');
+    define('_AM_WEBLINKS_DEBUG_CONF', 'Debug Variables');
     define('_AM_WEBLINKS_ALL_GREEN', 'All Green');
 
     // === 2007-02-20 ===

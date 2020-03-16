@@ -6,7 +6,7 @@
 // title: lang_site_popular
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-08-01 K.OHWADA
 // weblinks_header
@@ -69,11 +69,11 @@ class weblinks_topten
     {
         $this->_DIRNAME = $dirname;
 
-        $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+        $config_basic_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
 
-        $this->_template = weblinks_template::getInstance($dirname);
-        $this->_post = happy_linux_post::getInstance();
+        $this->_template = Template::getInstance($dirname);
+        $this->_post = Happylinux\Post::getInstance();
 
         $this->_conf = $config_basic_handler->get_conf();
     }
@@ -223,9 +223,9 @@ class weblinks_topten
 // main
 //=========================================================
 
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_topten = weblinks_topten::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
@@ -285,7 +285,7 @@ $xoopsTpl->assign('lang_topten_error', $topten_error);
 $xoopsTpl->assign('weblinks_links_list', $template_links_list);
 $xoopsTpl->assign('rankings', $template_rankings);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

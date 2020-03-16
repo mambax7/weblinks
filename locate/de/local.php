@@ -15,7 +15,7 @@ if (!class_exists('weblinks_locate_de')) {
     // class weblinks_locate_de
     // Germany (DE)
     //=========================================================
-    class weblinks_locate_de extends weblinks_locate_base
+    class weblinks_locate_de extends LocateBase
     {
         //---------------------------------------------------------
         // constructor

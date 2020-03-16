@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Weblinks;
+
 // $Id: oninstall.php,v 1.5 2008/02/26 16:01:32 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -12,6 +15,8 @@
 // 2007-11-11 K.OHWADA
 //=========================================================
 
+include __DIR__ . '/preloads/autoloader.php';
+
 $WEBLINKS_DIRNAME = basename(__DIR__);
 
 global $xoopsConfig;
@@ -21,14 +26,14 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 // BUG: Fatal error, if not exist happy_linux
 // no action here, if not exist
 // same process in admin/index.php
-if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')) {
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/locate.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php';
+if (file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/api/module_install.php')) {
+    include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/locate.php';
+    include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/module_install.php';
 
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_locate.php';
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_config2_define_handler.php';
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_linkitem_define_handler.php';
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_install.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_locate.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_config2_define_handler.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_linkitem_define_handler.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_install.php';
 
     // system user.php
     if (file_exists(XOOPS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/user.php')) {
@@ -38,10 +43,10 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')
     }
 
     // happy_linux global.php
-    if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/language/' . $XOOPS_LANGUAGE . '/global.php')) {
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/language/' . $XOOPS_LANGUAGE . '/global.php';
+    if (file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/language/' . $XOOPS_LANGUAGE . '/global.php')) {
+        include_once XOOPS_ROOT_PATH . '/modules/happylinux/language/' . $XOOPS_LANGUAGE . '/global.php';
     } else {
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/language/english/global.php';
+        include_once XOOPS_ROOT_PATH . '/modules/happylinux/language/english/global.php';
     }
 
     // weblinks main.php
@@ -59,17 +64,14 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')
     }
 
     // --- eval begin ---
-    eval(
-        '
-
+    eval('
 function xoops_module_install_' . $WEBLINKS_DIRNAME . '( $module )
 {
-    return weblinks_install_base( "' . $WEBLINKS_DIRNAME . '" ,  $module );
+    return InstallBase( "' . $WEBLINKS_DIRNAME . '" ,  $module );
 }
-
-function xoops_module_update_' . $WEBLINKS_DIRNAME . '( $module, $prev_version )
+function xoops_module_update_' . $WEBLINKS_DIRNAME . '($module, $prev_version)
 {
-    return weblinks_update_base( "' . $WEBLINKS_DIRNAME . '" ,  $module, $prev_version );
+    return weblinks_update_base( \'' . $WEBLINKS_DIRNAME . '\' ,  $module, $prev_version );
 }
 
 '
@@ -79,8 +81,8 @@ function xoops_module_update_' . $WEBLINKS_DIRNAME . '( $module, $prev_version )
 // === xoops_module_install_weblinks end ===
 
 // === weblinks_oninstall_base ===
-if (!function_exists('weblinks_install_base')) {
-    function weblinks_install_base($DIRNAME, $module)
+if (!function_exists('InstallBase')) {
+    function InstallBase($DIRNAME, $module)
     {
         // prepare for message
         global $msgs, $ret; // TODO :-D
@@ -97,7 +99,7 @@ if (!function_exists('weblinks_install_base')) {
         }
 
         // main
-        $weblinks = weblinks_install::getInstance($DIRNAME);
+        $weblinks = Weblinks\Install::getInstance($DIRNAME);
         $code = $weblinks->install();
         $ret[] = $weblinks->get_message();
 
@@ -121,7 +123,7 @@ if (!function_exists('weblinks_install_base')) {
         }
 
         // main
-        $weblinks = new weblinks_install($DIRNAME);
+        $weblinks = new Install($DIRNAME);
         $code = $weblinks->update();
         $msgs[] = $weblinks->get_message();
 

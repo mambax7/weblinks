@@ -6,8 +6,8 @@
 // for NewBBex 1.62 <https://xoops.instant-zero.com/>
 // 2008-09-08 Eparcyl92
 //=========================================================
-if (!function_exists('weblinks_plugin_forums_newbbex_162')) {
-    function &weblinks_plugin_forums_newbbex_162()
+if (!function_exists('Plugin_forums_newbbex_162')) {
+    function &Plugin_forums_newbbex_162()
     {
         global $xoopsDB;
         $DEBUG = false;
@@ -32,10 +32,10 @@ if (!function_exists('weblinks_plugin_forums_newbbex_162')) {
         return $arr;
     }
 
-    function &weblinks_plugin_threads_newbbex_162($opts)
+    function &Plugin_threads_newbbex_162($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
             $DEBUG = WEBLINKS_DEBUG_ERROR;
@@ -75,7 +75,7 @@ if (!function_exists('weblinks_plugin_forums_newbbex_162')) {
         }
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bbex_topics');
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql2 .= ' WHERE forum_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_time ' . $post_order;
         $res2 = $xoopsDB->query($sql2, $thread_limit, $thread_start);

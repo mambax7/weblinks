@@ -52,8 +52,8 @@ if (!function_exists('b_weblinks_catlist_show')) {
         $table_catlink = $xoopsDB->prefix($dirname . '_catlink');
         $table_link = $xoopsDB->prefix($dirname . '_link');
 
-        $myts = MyTextSanitizer::getInstance(); // MyTextSanitizer object
-        $mytree = new XoopsTree($table_category, 'cid', 'pid');
+        $myts = \MyTextSanitizer::getInstance(); // MyTextSanitizer object
+        $mytree = new \XoopsTree($table_category, 'cid', 'pid');
 
         $count = 1;
         $retVars = [];

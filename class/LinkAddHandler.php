@@ -18,11 +18,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_add_handler')) {
+if (!class_exists('LinkAddHandler')) {
     //=========================================================
-    // class weblinks_link_add_handler
+    // class LinkAddHandler
     //=========================================================
-    class weblinks_link_add_handler extends weblinks_link_edit_base_handler
+    class LinkAddHandler extends LinkEditBaseHandler
     {
         //---------------------------------------------------------
         // constructor
@@ -113,7 +113,7 @@ if (!class_exists('weblinks_link_add_handler')) {
 
             $dirname = $module->getVar('dirname', 'n');
 
-            $other_link_handler = weblinks_get_handler('link', $dirname);
+            $other_link_handler = weblinks_get_handler('Link', $dirname);
 
             $obj = &$other_link_handler->get($lid);
             if (!is_object($obj)) {

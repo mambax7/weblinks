@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: config_manage_4.php,v 1.2 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -48,13 +55,13 @@
 include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
-$link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
+$link_form_handler = weblinks_get_handler('LinkForm', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 

@@ -30,7 +30,7 @@ $result1 = sql_exec($sql1);
 
 $category = [];
 
-while ($row = $xoopsDB->fetchArray($result1)) {
+while (false !== ($row = $xoopsDB->fetchArray($result1))) {
     $cid = $row['cid'];
     $pid = $row['pid'];
     $title = addslashes($row['title']);
@@ -56,7 +56,7 @@ $result2 = sql_exec($sql2);
 
 $shots_url = XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/images/shots/';
 
-while ($row = $xoopsDB->fetchArray($result2)) {
+while (false !== ($row = $xoopsDB->fetchArray($result2))) {
     $lid = $row['lid'];
     $uid = $row['submitter'];
     $cid = $row['cid'];

@@ -15,11 +15,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_map_jp')) {
+if (!class_exists('MapJp')) {
     //=========================================================
     // class table_category
     //=========================================================
-    class weblinks_map_jp extends Happylinux\BasicHandler
+    class MapJp extends Happylinux\BasicHandler
     {
         public $_DIRNAME;
 
@@ -86,9 +86,9 @@ if (!class_exists('weblinks_map_jp')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
-            $this->_link_count_handler = weblinks_get_handler('link_count', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_category_handler = weblinks_get_handler('CategoryBasic', $dirname);
+            $this->_link_count_handler = weblinks_get_handler('LinkCount', $dirname);
 
             $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.tpl';
         }

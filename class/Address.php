@@ -1,5 +1,10 @@
 <?php
-// $Id: weblinks_address.php,v 1.1 2012/04/10 11:24:42 ohwada Exp $
+
+namespace XoopsModules\Weblinks;
+
+use XoopsModules\Happylinux;
+
+// $Id: Address.php,v 1.1 2012/04/10 11:24:42 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -12,11 +17,11 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_address')) {
+if (!class_exists('Address')) {
     //=========================================================
-    // class weblinks_address
+    // class Address
     //=========================================================
-    class weblinks_address
+    class Address
     {
         public $_DIRNAME;
         public $_PATH;
@@ -32,7 +37,7 @@ if (!class_exists('weblinks_address')) {
 
             $this->_PATH = XOOPS_ROOT_PATH . '/modules/' . $dirname;
 
-            $conf_handler = weblinks_get_handler('config2_basic', $dirname);
+            $conf_handler = weblinks_get_handler('Config2Basic', $dirname);
 
             $conf_handler->init();
             $conf = $conf_handler->get_conf();
@@ -63,8 +68,8 @@ if (!class_exists('weblinks_address')) {
             $file_default = $this->_PATH . '/locate/us/address.php';
             $file_locate = $this->_PATH . '/locate/' . $this->_county_code . '/address.php';
 
-            $class_default = 'weblinks_address_us';
-            $class_locate = 'weblinks_address_' . $this->_county_code;
+            $class_default = 'Address_us';
+            $class_locate = 'Address_' . $this->_county_code;
 
             $is_locate = false;
             if (file_exists($file_locate)) {

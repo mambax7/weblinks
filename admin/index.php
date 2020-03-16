@@ -1,4 +1,10 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Admin;
+use XoopsModules\Weblinks\Helper;
+
 // $Id: index.php,v 1.23 2009/01/05 17:55:16 ohwada Exp $
 
 // 2008-12-20 K.OHWADA
@@ -45,19 +51,19 @@
 // 2006-05-15 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_min.php';
+include 'admin_header_min.php';
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/dir.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/debug.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/server_info.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/module_install.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/dir.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/debug.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/server_info.php';
 
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_locate.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_define_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_define_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_install.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_locate.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_define_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_define_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_install.php';
 
-include_once WEBLINKS_ROOT_PATH . '/admin/admin_config_menu_class.php';
+//include_once WEBLINKS_ROOT_PATH . '/admin/admin_config_menu_class.php';
 
 //=========================================================
 // main
@@ -69,11 +75,11 @@ $MEMORY_WEBLINKS_REQUIRE = 8;   // 8 MB
 $DIR_CONFIG = WEBLINKS_ROOT_PATH . '/cache';
 
 // class
-$class_debug = happy_linux_debug::getInstance();
-$class_info = happy_linux_server_info::getInstance();
-$admin_menu = happy_linux_admin_menu::getInstance();
-$config_menu = admin_config_menu::getInstance();
-$install = weblinks_install::getInstance(WEBLINKS_DIRNAME);
+$class_debug = Happylinux\Debug::getInstance();
+$class_info = Happylinux\ServerInfo::getInstance();
+$admin_menu = Happylinux\AdminMenu::getInstance();
+$config_menu = Weblinks\Admin\ConfigMenu::getInstance();
+$install = Weblinks\Install::getInstance(WEBLINKS_DIRNAME);
 
 $op = $install->get_post_op();
 
@@ -120,7 +126,7 @@ if (!$install->check_install()) {
     $admin_menu->print_form_upgrade(WEBLINKS_VERSION, $install->get_error_str());
 } else {
     if (!is_writable($DIR_CONFIG)) {
-        xoops_error(_HAPPY_LINUX_AM_DIR_NOT_WRITABLE);
+        xoops_error(_HAPPYLINUX_AM_DIR_NOT_WRITABLE);
         echo "<br>\n";
         echo $DIR_CONFIG . "<br><br>\n";
     }

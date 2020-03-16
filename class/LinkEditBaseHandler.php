@@ -31,11 +31,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_edit_base_handler')) {
+if (!class_exists('LinkEditBaseHandler')) {
     //=========================================================
-    // class weblinks_link_edit_base
+    // class LinkEdit_base
     //=========================================================
-    class weblinks_link_edit_base_handler extends Happylinux\Error
+    class LinkEditBaseHandler extends Happylinux\Error
     {
         public $_DIRNAME;
 
@@ -77,22 +77,22 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
             parent::__construct();
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', $dirname);
-            $this->_category_handler = weblinks_get_handler('category', $dirname);
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
-            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
-            $this->_notification = weblinks_notification::getInstance($dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_link_catlink_handler = weblinks_get_handler('LinkCategoryLinkBasic', $dirname);
+            $this->_category_handler = handler('Category', $dirname);
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
+            $this->_banner_handler = handler('Banner', $dirname);
+            $this->_notification = Notification::getInstance($dirname);
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
-            $this->_form = happy_linux_form::getInstance();
-            $this->_strings = happy_linux_strings::getInstance();
-            $this->_remote_file = happy_linux_remote_file::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
+            $this->_form = Happylinux\Form::getInstance();
+            $this->_strings = Happylinux\Strings::getInstance();
+            $this->_remote_file = Happylinux\RemoteFile::getInstance();
 
             if (WEBLINKS_RSSC_USE) {
-                $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
+                $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
             }
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -264,7 +264,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         public function delete_modify(&$modify_obj)
         {
             if ($this->_DEBUG_MODIFY_DELETE) {
-                $modify_handler = weblinks_get_handler('modify', $this->_DIRNAME);
+                $modify_handler = handler('Modify', $this->_DIRNAME);
                 $ret = $modify_handler->delete($modify_obj);
                 if (!$ret) {
                     $this->_set_errors($modify_handler->getErrors());
@@ -282,8 +282,8 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         public function build_show_link($lid)
         {
-            $link_view = weblinks_link_view::getInstance($this->_DIRNAME);
-            $template = weblinks_template::getInstance($this->_DIRNAME);
+            $link_view = LinkView::getInstance($this->_DIRNAME);
+            $template = Template::getInstance($this->_DIRNAME);
             $link = $link_view->get_show_by_lid($lid);
             $text = $template->fetch_link_single($link);
 
@@ -328,21 +328,21 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
         public function &_create_view()
         {
-            $view_obj = new weblinks_link_view($this->_DIRNAME);
+            $view_obj = new LinkView($this->_DIRNAME);
 
             return $view_obj;
         }
 
         public function &_create_edit()
         {
-            $edit_obj = new weblinks_link_edit($this->_DIRNAME);
+            $edit_obj = new LinkEdit($this->_DIRNAME);
 
             return $edit_obj;
         }
 
         public function &_create_link_save($isNew = true)
         {
-            $obj = new weblinks_link_save($this->_DIRNAME);
+            $obj = new LinkSave($this->_DIRNAME);
             if ($isNew) {
                 $obj->setNew();
             }

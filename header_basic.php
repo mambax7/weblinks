@@ -29,34 +29,34 @@
 // 2004/08/10 K.OHWADA
 //================================================================
 
-include '../../mainfile.php';
+include  dirname(dirname(__DIR__)) . '/mainfile.php';
 
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-if (!file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php')) {
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php')) {
     include XOOPS_ROOT_PATH . '/header.php';
     xoops_error('require happy_linux module');
     include XOOPS_ROOT_PATH . '/footer.php';
     exit();
 }
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/language.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/language.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/post.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/remote_file.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/html.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/form.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/search.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/server.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_validater.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/language.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/language.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/post.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/remote_file.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/html.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/form.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/search.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/server.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_validater.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
 
 //---------------------------------------------------------
 // weblinks
@@ -78,12 +78,12 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 // include file
 include_once WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
 include_once WEBLINKS_ROOT_PATH . '/include/functions.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
 
 // compatible to old version
 include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 
 // config init
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();

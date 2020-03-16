@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_config2_form.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
+// $Id: Config2Form.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // _build_conf_extra_webmap3_dirname_list()
@@ -21,11 +21,11 @@ use XoopsModules\Happylinux;
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_config2_form')) {
+if (!class_exists('Config2Form')) {
     //=========================================================
-    // class weblinks_config2_form
+    // class Config2Form
     //=========================================================
-    class weblinks_config2_form extends happy_linux_config_form
+    class Config2Form extends Happylinux\ConfigForm
     {
         public $_DIRNAME;
 
@@ -41,11 +41,11 @@ if (!class_exists('weblinks_config2_form')) {
 
             parent::__construct();
 
-            $define = weblinks_config2_define::getInstance($dirname);
+            $define = Config2Define::getInstance($dirname);
             $this->set_config_handler('config2', $dirname, 'weblinks');
             $this->set_config_define($define);
 
-            $this->_plugin = weblinks_plugin::getInstance($dirname);
+            $this->_plugin = Plugin::getInstance($dirname);
         }
 
         public static function getInstance($dirname = null)
@@ -177,7 +177,7 @@ if (!class_exists('weblinks_config2_form')) {
 
         public function _build_conf_extra_link_img_thumb($config)
         {
-            $banner_handler = weblinks_get_handler('banner', $this->_DIRNAME);
+            $banner_handler = handler('Banner', $this->_DIRNAME);
 
             $name = $config['name'];
             $value = $config['value'];

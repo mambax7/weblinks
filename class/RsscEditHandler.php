@@ -23,13 +23,13 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_rssc_edit_handler')) {
+if (!class_exists('RsscEditHandler')) {
     //=========================================================
-    // class weblinks_rssc_edit_handler
+    // class RsscEditHandler
     //=========================================================
     // _RSSC_REFRESH_FINISHED
     //---------------------------------------------------------
-    class weblinks_rssc_edit_handler extends Happylinux\Error
+    class RsscEditHandler extends Happylinux\Error
     {
         public $_FLAG_DEBUG = false;
 
@@ -58,9 +58,9 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         {
             parent::__construct();
 
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
-            $this->_rssc_form = weblinks_rssc_form::getInstance();
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_rssc_handler = handler('Rssc', $dirname);
+            $this->_rssc_form = RsscForm::getInstance();
         }
 
         //---------------------------------------------------------

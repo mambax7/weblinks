@@ -30,11 +30,11 @@ use XoopsModules\Happylinux;
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_sendmail')) {
+if (!class_exists('Sendmail')) {
     //=========================================================
-    // class weblinks_sendmail
+    // class Sendmail
     //=========================================================
-    class weblinks_sendmail extends Happylinux\Error
+    class Sendmail extends Happylinux\Error
     {
         public $_FLAG_EVENT_USER = true;  // send email to user
         public $_FLAG_EVENT_ANONYMOUS = true;  // send email to anonymous
@@ -58,7 +58,7 @@ if (!class_exists('weblinks_sendmail')) {
             parent::__construct();
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
 
             $this->DIRNAME = $dirname;
             $this->SITENAME = $this->_system->get_sitename();

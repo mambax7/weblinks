@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Weblinks;
+
 // $Id: get_location.php,v 1.2 2012/04/10 11:24:42 ohwada Exp $
 
 //=========================================================
@@ -7,7 +10,7 @@
 //=========================================================
 
 include 'header.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_address.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/Address.php';
 
 //=========================================================
 // class weblinks_get_location
@@ -36,8 +39,8 @@ class weblinks_get_location
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-        $this->_cat_handler = weblinks_getHandler('category_basic', $dirname);
+        $this->_link_handler = weblinks_getHandler('LinkBasic', $dirname);
+        $this->_cat_handler = weblinks_gethandler('CategoryBasic', $dirname);
         $this->_conf_handler = weblinks_getHandler('config2_basic', $dirname);
 
         $this->_conf_handler->init();
@@ -131,7 +134,7 @@ class weblinks_get_location
 
     public function build_address($state, $city, $addr)
     {
-        $address_class = weblinks_address::getInstance($this->_DIRNAME);
+        $address_class = Weblinks\Address::getInstance($this->_DIRNAME);
         $locate_class = $address_class->get_instance_locate();
 
         return $locate_class->build_address($state, $city, $addr);

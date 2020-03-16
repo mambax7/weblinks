@@ -15,11 +15,11 @@
 // --- block function begin ---
 if (!function_exists('b_weblinks_photo_show')) {
     include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
+    include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
 
     //---------------------------------------------------------
     // $options
@@ -47,12 +47,12 @@ if (!function_exists('b_weblinks_photo_show')) {
         $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME;
         include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
         include_once $WEBLINKS_ROOT_PATH . '/include/functions.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
         include_once $WEBLINKS_ROOT_PATH . '/plugins/album_sel.php';
 
-        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
-        $plugin = weblinks_plugin::getInstance($DIRNAME);
+        $category_handler = weblinks_get_handler('CategoryBasic', $DIRNAME);
+        $plugin = Plugin::getInstance($DIRNAME);
 
         // config
         $table_config = $xoopsDB->prefix($DIRNAME . '_config2');

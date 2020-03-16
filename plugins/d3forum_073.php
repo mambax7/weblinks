@@ -15,8 +15,8 @@
 //=========================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
-    function &weblinks_plugin_forums_d3forum_073($opts)
+if (!function_exists('Plugin_forums_d3forum_073')) {
+    function &Plugin_forums_d3forum_073($opts)
     {
         global $xoopsDB;
 
@@ -43,17 +43,17 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             return $false;
         }
 
-        while ($row = $xoopsDB->fetchArray($res)) {
+        while (false !== ($row = $xoopsDB->fetchArray($res))) {
             $arr[$row['forum_id']] = $row['forum_title'];
         }
 
         return $arr;
     }
 
-    function &weblinks_plugin_threads_d3forum_073($opts)
+    function &Plugin_threads_d3forum_073($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
@@ -101,7 +101,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
 
         // BUG : not show when all forum
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql1 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql1 .= ' WHERE forum_id=' . $forum_id_in;
         }
 
         $res1 = $xoopsDB->query($sql1);
@@ -114,7 +114,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         }
 
         $forum_title = [];
-        while ($row1 = $xoopsDB->fetchArray($res1)) {
+        while (false !== ($row1 = $xoopsDB->fetchArray($res1))) {
             $forum_title[$row1['forum_id']] = $row1['forum_title'];
         }
 
@@ -131,7 +131,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         // latest topics
         $sql2 = 'SELECT * FROM ' . $table_topics;
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql2 .= ' WHERE forum_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_last_post_time ' . $post_order;
 
@@ -144,7 +144,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             return $false;
         }
 
-        while ($row2 = $xoopsDB->fetchArray($res2)) {
+        while (false !== ($row2 = $xoopsDB->fetchArray($res2))) {
             $thread_arr = [];
 
             $forum_id = $row2['forum_id'];
@@ -171,7 +171,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
                 echo $xoopsDB->error();
             }
 
-            while ($row3 = $xoopsDB->fetchArray($res3)) {
+            while (false !== ($row3 = $xoopsDB->fetchArray($res3))) {
                 $post_arr = [];
                 $post_id = $row3['post_id'];
                 $post_arr['post_id'] = $post_id;

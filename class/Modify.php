@@ -47,11 +47,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_modify')) {
+if (!class_exists('Modify')) {
     //=========================================================
-    // class weblinks_modify
+    // class Modify
     //=========================================================
-    class weblinks_modify extends LinkBase
+    class Modify extends LinkBase
     {
         //---------------------------------------------------------
         // constructor
@@ -174,92 +174,4 @@ if (!class_exists('weblinks_modify')) {
 
         // --- class end ---
     }
-
-    //=========================================================
-    // class weblinks_modify_save
-    //=========================================================
-    class weblinks_modify_save extends weblinks_modify
-    {
-        public $_link_validate;
-        public $_linkitem_define_handler;
-
-        //---------------------------------------------------------
-        // constructor
-        //---------------------------------------------------------
-        public function __construct($dirname)
-        {
-            parent::__construct();
-
-            $this->_link_validate = LinkValidate::getInstance($dirname);
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
-        }
-
-        //---------------------------------------------------------
-        // assign add object
-        // $_POST or bulk
-        //---------------------------------------------------------
-        // mode 0: add, 1:mod, 2:del
-        public function assign_add_object(&$post, $mode = 0)
-        {
-            // delete
-            if (2 == $mode) {
-                $this->set('mode', $mode);
-                $this->set('muid', $this->_xoops_uid);
-                $this->setVar('notify', $post['notify']);
-                $this->setVar('usercomment', $post['reason']);
-
-                return;
-            }
-
-            // muid
-            $this->set_validater_value_allow('muid', $this->_xoops_uid, true);
-
-            $this->set_validater_name_prefix('weblinks');
-
-            $this->_link_validate->init();
-            $this->set_validater_conf_array($this->_link_validate->get_conf_array());
-
-            $this->merge_validater_allow_list($this->_link_validate->get_allow_list());
-            $this->set_validater_allow_true('notify');
-
-            // BUG 4690: not set rss_url in modify table
-            if ($this->_linkitem_define_handler->get_by_name('rss_url', 'user_mode') > 0) {
-                $this->set_validater_allow_true('rss_url');
-                $this->set_validater_allow_true('rss_flag');
-            }
-
-            // post value
-            $this->merge_validater_value_list($this->validate_values_from_post($post));
-
-            // mode
-            $this->set_validater_value_allow('mode', $mode, true);
-
-            // muid
-            $this->set_validater_value_allow('muid', $this->_xoops_uid, true);
-
-            // time
-            $time = time();
-            $this->set_validater_value_allow('time_update', $time, true);
-
-            // mode
-            if ($mode) {
-                $uid = $this->get_int_xoops_uid($post, 'uid');
-                $this->set_validater_value_allow('uid', $uid, true);
-                $this->set_validater_value_allow_by_array($this->_link_validate->get_passwd_md5_mod_array($post));
-            } else {
-                $this->set_validater_value_allow('uid', $this->_xoops_uid, true);
-                $this->set_validater_value_allow('time_create', $time, true);
-                $this->set_validater_value_allow_by_array($this->_link_validate->get_passwd_md5_new_array($post));
-            }
-
-            $this->set_object_with_validater();
-
-            // cid array
-            $cid_arr = &$this->get_cid_array_form_post($post);
-            $this->set_cids_by_cid_array($cid_arr);
-        }
-
-        // --- class end ---
-    }
-    // === class end ===
 }

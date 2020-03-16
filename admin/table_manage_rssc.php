@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: table_manage_rssc.php,v 1.2 2007/11/26 03:04:36 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
@@ -21,246 +28,10 @@ if (WEBLINKS_RSSC_EXIST) {
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/refresh.php';
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/manage.php';
 
-    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
-    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
+//    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
+//    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
 }
 
-//================================================================
-// class admin_table_manage_rssc
-//================================================================
-class admin_table_manage_rssc extends happy_linux_basic_handler
-{
-    public $_LIMIT = 100;
-
-    public $_weblinks_link_handler;
-    public $_rssc_link_handler;
-
-    public $_post;
-    public $_form;
-
-    public $_op;
-    public $_limit;
-    public $_offset;
-    public $_next;
-
-    //---------------------------------------------------------
-    // constructor
-    //---------------------------------------------------------
-    public function __construct()
-    {
-        parent::__construct(WEBLINKS_DIRNAME);
-
-        $this->set_debug_db_sql(WEBLINKS_DEBUG_TABLE_CHECK_SQL);
-        $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
-
-        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-
-        $this->_post = happy_linux_post::getInstance();
-        $this->_form = happy_linux_form_lib::getInstance();
-
-        if (WEBLINKS_RSSC_EXIST) {
-            $this->_rssc_link_handler = rssc_getHandler('link', WEBLINKS_RSSC_DIRNAME);
-        }
-    }
-
-    public static function getInstance()
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    //---------------------------------------------------------
-    // function
-    //---------------------------------------------------------
-    public function get_post_param()
-    {
-        $op = $this->get_post_op();
-        $offset = $this->get_post_offset();
-
-        return $op;
-    }
-
-    public function get_post_op()
-    {
-        $this->_op = $this->_post->get_post_get('op');
-
-        return $this->_op;
-    }
-
-    public function get_post_limit()
-    {
-        $this->_limit = $this->_post->get_post_get('limit');
-
-        return $this->_limit;
-    }
-
-    public function get_post_offset()
-    {
-        $this->_offset = $this->_post->get_post_get('offset');
-        $this->_next = $this->_offset + $this->_LIMIT;
-
-        return $this->_offset;
-    }
-
-    //---------------------------------------------------------
-    // check
-    //---------------------------------------------------------
-    public function menu()
-    {
-        $total_link_all = $this->_weblinks_link_handler->getCount();
-        $total_link_rss = $this->_weblinks_link_handler->get_count_rss_flag(false);
-        $total_rssc_all = $this->_rssc_link_handler->getCount();
-
-        $title = 'RSSC Check';
-
-        echo "check adjustment of Weblinks link table and RSSC link table <br>\n";
-        echo "<br>\n";
-        echo 'There are <b>' . $total_link_all . "</b> all links in weblinks<br>\n";
-        echo 'There are <b>' . $total_link_rss . "</b> rss links in weblinks<br>\n";
-        echo 'There are <b>' . $total_rssc_all . "</b> all links in rssc<br>\n";
-
-        $this->_form_link($title);
-    }
-
-    public function check_link()
-    {
-        $title = 'RSSC Check';
-
-        $total_link_rss = $this->_weblinks_link_handler->get_count_rss_flag(false);
-
-        $offset = $this->get_post_offset();
-
-        $next = $this->_next;
-        if ($this->_next > $total_link_rss) {
-            $next = $total_link_rss;
-        }
-
-        echo 'There are <b>' . $total_link_rss . "</b> rss links in weblinks<br>\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
-
-        $count_not = 0;
-        $count_more = 0;
-
-        $url_weblinsk_link_manage = 'link_manage.php?op=mod_form&amp;lid=';
-        $url_rssc_link_manage = XOOPS_URL . '/modules/' . WEBLINKS_RSSC_DIRNAME . '/admin/link_manage.php?op=mod_form&amp;lid=';
-
-        $weblinks_link_objs = &$this->_weblinks_link_handler->get_objects_rss_flag($this->_LIMIT, $offset);
-        foreach ($weblinks_link_objs as $weblinks_link_obj) {
-            $weblinks_lid = $weblinks_link_obj->get('lid');
-            $weblinks_title = $weblinks_link_obj->get('title');
-            $rssc_lid_1 = $weblinks_link_obj->get('rssc_lid');
-
-            if (0 == $rssc_lid_1) {
-                // no action
-                continue;
-            }
-
-            $url_1 = $url_weblinsk_link_manage . $weblinks_lid;
-            $lid_1s = sprintf('%03d', $weblinks_lid);
-            $href_1 = '<a href="' . $url_1 . '" target="_blank">' . $lid_1s . '</a>';
-            $title_1s = htmlspecialchars($weblinks_title);
-
-            $rssc_link_obj_1 = &$this->_rssc_link_handler->get($rssc_lid_1);
-            if (!is_object($rssc_link_obj_1)) {
-                // not exist
-                echo $href_1 . ' : ' . $title_1s;
-                echo " : <b>not exist in rssc</b> <br>\n";
-                ++$count_not;
-                continue;
-            }
-
-            $rdf_url = $rssc_link_obj_1->get('rdf_url');
-            $rss_url = $rssc_link_obj_1->get('rss_url');
-            $atom_url = $rssc_link_obj_1->get('atom_url');
-
-            $list = &$this->_rssc_link_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $rssc_lid_1);
-            if (is_array($list) && count($list)) {
-                echo $href_1 . ' : ' . $title_1s;
-                echo " : <b>same links in rssc</b> <br>\n";
-                ++$count_more;
-
-                foreach ($list as $rssc_lid_2) {
-                    $rssc_link_obj_2 = &$this->_rssc_link_handler->get($rssc_lid_2);
-                    if (is_object($rssc_link_obj_2)) {
-                        $rssc_title_2 = $rssc_link_obj_2->get('title');
-                        $url_2 = $url_rssc_link_manage . $rssc_lid_2;
-                        $lid_2s = sprintf('%03d', $rssc_lid_2);
-                        $href_2 = '<a href="' . $url_2 . '" target="_blank">' . $lid_2s . '</a>';
-                        $title_2s = htmlspecialchars($rssc_title_2);
-                        echo ' --- ' . $href_2 . ' : ' . $title_2s . "<br>\n";
-                    }
-                }
-            }
-        }
-
-        echo "<br>\n";
-        echo 'There are <b>' . $count_not . "</b> links which not exist in rssc <br>\n";
-        echo 'There are <b>' . $count_more . "</b> links which have same links in rssc <br>\n";
-
-        if ($total_link_rss > $next) {
-            $this->_form_link($title, $next);
-        } else {
-            $this->_print_finish();
-        }
-    }
-
-    //---------------------------------------------------------
-    // print
-    //---------------------------------------------------------
-    public function _form_link($title, $offset = 0)
-    {
-        $op = 'check_link';
-
-        if ($offset) {
-            $submit = "GO next $this->_LIMIT links";
-        } else {
-            $submit = 'GO STEP 4';
-        }
-
-        $this->_print_form_next($title, $op, $submit, $offset);
-    }
-
-    public function _print_finish()
-    {
-        echo "<br><hr>\n";
-        echo "<h4>FINISHED</h4>\n";
-        echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
-    }
-
-    //---------------------------------------------------------
-    // form
-    //---------------------------------------------------------
-    public function _print_form_next($title, $op, $submit, $offset = 0)
-    {
-        echo "<br><hr>\n";
-        echo '<h4>' . $title . "</h4>\n";
-
-        if ($offset) {
-            $next = $offset + $this->_LIMIT;
-            echo 'Exmport ' . $offset . ' - ' . $next . " th record<br>\n";
-        }
-
-        // show form
-        $limit = 0;
-        $desc = '';
-        $action = '';
-        $text = $this->_form->build_lib_box_limit_offset($title, $desc, $limit, $offset, $op, $submit, $action);
-        echo $text;
-    }
-
-    public function check_token()
-    {
-        $ret = $this->_form->check_token();
-
-        return $ret;
-    }
-
-    // --- class end ---
-}
 
 //================================================================
 // main
@@ -295,7 +66,7 @@ if (WEBLINKS_RSSC_EXIST) {
     exit();
 }
 
-$manage = admin_table_manage_rssc::getInstance();
+$manage = Admin\TableManageRssc::getInstance();
 $op = $manage->get_post_param();
 
 switch ($op) {

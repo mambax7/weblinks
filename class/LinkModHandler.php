@@ -21,11 +21,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_mod_handler')) {
+if (!class_exists('LinkModHandler')) {
     //=========================================================
-    // class weblinks_link_mod_handler
+    // class LinkModHandler
     //=========================================================
-    class weblinks_link_mod_handler extends LinkEditBaseHandler
+    class LinkModHandler extends LinkEditBaseHandler
     {
         public $_broken_handler;
 
@@ -36,7 +36,7 @@ if (!class_exists('weblinks_link_mod_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_broken_handler = weblinks_get_handler('broken', $dirname);
+            $this->_broken_handler = handler('Broken', $dirname);
         }
 
         //---------------------------------------------------------

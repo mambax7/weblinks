@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_block.php,v 1.2 2012/04/10 04:12:39 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: Block.php,v 1.2 2012/04/10 04:12:39 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -10,11 +12,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_block')) {
+if (!class_exists('Block')) {
     //=========================================================
-    // class weblinks_block
+    // class Block
     //=========================================================
-    class weblinks_block extends weblinks_block_view
+    class Block extends BlockView
     {
         public $_db;
         public $_webmap_class;
@@ -32,8 +34,8 @@ if (!class_exists('weblinks_block')) {
         {
             parent::__construct();
 
-            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
-            $this->_webmap_class = weblinks_block_webmap::getSingleton($dirname);
+            $this->_db = \XoopsDatabaseFactory::getDatabaseConnection();
+            $this->_webmap_class = BlockWebmap::getSingleton($dirname);
 
             $this->_table_link = weblinks_multi_get_table_name($dirname, 'link');
             $this->_table_category = weblinks_multi_get_table_name($dirname, 'category');
@@ -599,10 +601,10 @@ if (!class_exists('weblinks_block')) {
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
             // config init before get_handler(category)
-            $config_handler = weblinks_get_handler('config2_basic', $DIRNAME);
+            $config_handler = weblinks_get_handler('Config2Basic', $DIRNAME);
             $config_handler->init();
 
-            $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
+            $category_handler = weblinks_get_handler('CategoryBasic', $DIRNAME);
             $category_handler->load_once();
 
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -1251,7 +1253,7 @@ if (!class_exists('weblinks_block')) {
                 return false;
             }
 
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $arr[] = $row;
             }
 

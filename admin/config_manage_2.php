@@ -1,8 +1,16 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
+
 // $Id: config_manage_2.php,v 1.5 2007/11/12 12:41:13 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
-// _HAPPY_LINUX_CONF_BIN
+// _HAPPYLINUX_CONF_BIN
 // weblinks_admin_print_footer()
 
 // 2007-09-20 K.OHWADA
@@ -21,8 +29,8 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
+$config_form = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
 
 $op = $config_form->get_post_get_op();
 
@@ -49,7 +57,7 @@ if ('save' == $op) {
         $config_form->print_xoops_token_error();
     } else {
         $config_store->template_compiled_clear();
-        redirect_header('config_manage_2.php', 1, _HAPPY_LINUX_CLEARED);
+        redirect_header('config_manage_2.php', 1, _HAPPYLINUX_CLEARED);
     }
 } else {
     xoops_cp_header();
@@ -103,8 +111,8 @@ echo _AM_WEBLINKS_CONF_PERFORMANCE_DSC . "<br><br>\n";
 $config_form->show_by_catid(6, _AM_WEBLINKS_CONF_PERFORMANCE);
 
 echo '<a name="form_template"></a>' . "\n";
-echo '<h4>' . _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR . "</h4>\n";
-$config_form->show_form_template_compiled_clear(_HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR);
+echo '<h4>' . _HAPPYLINUX_CONF_TPL_COMPILED_CLEAR . "</h4>\n";
+$config_form->show_form_template_compiled_clear(_HAPPYLINUX_CONF_TPL_COMPILED_CLEAR);
 
 weblinks_admin_print_footer();
 xoops_cp_footer();

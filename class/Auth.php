@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_auth.php,v 1.3 2009/02/08 11:07:53 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: Auth.php,v 1.3 2009/02/08 11:07:53 ohwada Exp $
 
 // 2009-02-08 K.OHWADA
 // Notice [PHP]: Only variables should be assigned by reference
@@ -13,7 +15,7 @@ namespace XoopsModules\Weblinks;
 // change request from int to text
 
 // 2007-09-10 K.OHWADA
-// divid from weblinks_auth.php
+// divid from Auth.php
 
 //=========================================================
 // WebLinks Module
@@ -21,11 +23,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_auth')) {
+if (!class_exists('Auth')) {
     //=========================================================
-    // class weblinks_auth
+    // class Auth
     //=========================================================
-    class weblinks_auth extends happy_linux_error
+    class Auth extends Happylinux\Error
     {
         public $_config_handler;
         public $_menu;
@@ -39,10 +41,10 @@ if (!class_exists('weblinks_auth')) {
         {
             parent::__construct();
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_menu = weblinks_menu::getInstance($dirname);
-            $this->_post = happy_linux_post::getInstance();
-            $this->_system = happy_linux_system::getInstance();
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_menu = Menu::getInstance($dirname);
+            $this->_post = Happylinux\Post::getInstance();
+            $this->_system = Happylinux\System::getInstance();
         }
 
         public static function getInstance($dirname = null)

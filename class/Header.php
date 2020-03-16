@@ -24,11 +24,11 @@ use XoopsModules\Happylinux;
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_header')) {
+if (!class_exists('Header')) {
     //=========================================================
     // class weblinks_header
     //=========================================================
-    class weblinks_header
+    class Header
     {
         // dirname
         public $_DIRNAME;
@@ -48,7 +48,7 @@ if (!class_exists('weblinks_header')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_conf = $config_handler->get_conf();
             $this->_header_mode = $this->_conf['header_mode'];
         }

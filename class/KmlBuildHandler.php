@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_build_kml_handler.php,v 1.2 2008/02/28 02:52:17 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: KmlBuildHandler.php,v 1.2 2008/02/28 02:52:17 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -10,11 +12,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_build_kml_handler')) {
+if (!class_exists('KmlBuildHandler')) {
     //=========================================================
-    // class weblinks_build_kml_handler
+    // class KmlBuildHandler
     //=========================================================
-    class weblinks_build_kml_handler extends happy_linux_build_kml
+    class KmlBuildHandler extends Happylinux\KmlBuild
     {
         public $_DIRNAME;
 
@@ -42,13 +44,13 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->set_template($DIR_XML . '/weblinks_build_kml.tpl');
             $this->init_obj();
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_link_view = weblinks_link_view_basic::getInstance($dirname);
-            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
+            $this->_link_view = LinkViewBasic::getInstance($dirname);
+            $this->_htmlout = Htmlout::getInstance($dirname);
 
-            $this->_myts = MyTextSanitizer::getInstance();
-            $this->_strings = happy_linux_strings::getInstance();
+            $this->_myts = \MyTextSanitizer::getInstance();
+            $this->_strings = Happylinux\Strings::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
 

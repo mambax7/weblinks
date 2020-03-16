@@ -10,15 +10,15 @@ how to make HTML output plugin
 
 htmlout/foobar.php
 ------
-if( !class_exists('weblinks_htmlout_foobar') )
+if( !class_exists('HtmloutFoobar') )
 {
 
-class weblinks_htmlout_foobar extends weblinks_htmlout_base
+class HtmloutFoobar extends HtmloutBase
 {
 
 function weblinks_htmlout_foobar( $dirname )
 {
-    $this->weblinks_htmlout_base( $dirname );
+    $this->HtmloutBase( $dirname );
 }
 
 function description()

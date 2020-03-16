@@ -32,7 +32,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_view_blog($lid=0, $num_feed=10, $num_content=1, $max_summary=200)
 {
-    return weblinks_view_blog_base( "' . $WEBLINKS_DIRNAME . '" ,$lid, $num_feed, $num_content, $max_summary);
+    return weblinks_view_blog_base( \'' . $WEBLINKS_DIRNAME . '\' ,$lid, $num_feed, $num_content, $max_summary);
 }
 
 '
@@ -42,9 +42,9 @@ function ' . $WEBLINKS_DIRNAME . '_view_blog($lid=0, $num_feed=10, $num_content=
 // --- weblinks_view_blog_base begin ---
 if (!function_exists('weblinks_view_blog_base')) {
     // happy linux files
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/local.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/search.php';
-    include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/server.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/local.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/search.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/server.php';
 
     // rssc files
     include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_RSSC_DIRNAME . '/include/view_blog.inc.php';
@@ -52,8 +52,8 @@ if (!function_exists('weblinks_view_blog_base')) {
     // weblinks files
     include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/weblinks_constant.php';
     include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/weblinks_get_handler.php';
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_link.php';
-    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_link_handler.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_link.php';
+//    include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_link_handler.php';
 
     global $xoopsConfig;
     $XOOPS_LANGUAGE = $xoopsConfig['language'];
@@ -139,7 +139,7 @@ if (!function_exists('weblinks_view_blog_base')) {
             return;
         }
 
-        $link_handler = weblinks_getHandler('link', $DIRNAME);
+        $link_handler = weblinks_get_handler('Link', $DIRNAME);
 
         $obj = &$link_handler->get($lid);
         if (!is_object($obj)) {
@@ -163,7 +163,7 @@ if (!function_exists('weblinks_view_blog_base')) {
 
         echo rssc_view_blog_base($WEBLINKS_RSSC_DIRNAME, $rssc_lid, $options);
 
-        //  $collect = weblinks_getHandler( 'rss_atom_collect', $dirname );
+        //  $collect = weblinks_get_handler( 'rss_atom_collect', $dirname );
         //      $collect->set_num_feed(     $num_feed );
         //      $collect->set_max_summary(  $max_summary );
         //      $collect->set_mode_content( 1 );

@@ -1,4 +1,9 @@
 <?php
+
+namespace XoopsModules\Weblinks;
+
+use XoopsModules\Happylinux;
+
 // $Id: weblinksD3commentContent.class.php,v 1.1 2007/06/17 03:45:16 ohwada Exp $
 
 // === class begin ===
@@ -13,7 +18,7 @@ if (!class_exists('weblinksD3commentContent')) {
         public function fetchSummary($external_link_id)
         {
             $db = XoopsDatabaseFactory::getDatabaseConnection();
-            $myts = MyTextSanitizer::getInstance();
+            $myts = \MyTextSanitizer::getInstance();
 
             $module_handler = xoops_getHandler('module');
             $module = $module_handler->getByDirname($this->mydirname);

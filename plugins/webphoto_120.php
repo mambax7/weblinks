@@ -8,38 +8,38 @@
 //=========================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
-    function &weblinks_plugin_albums_webphoto_120($opts)
+if (!function_exists('Plugin_albums_webphoto_120')) {
+    function &Plugin_albums_webphoto_120($opts)
     {
-        $ret = weblinks_plugin_webphoto_include($opts);
+        $ret = Plugin_webphoto_include($opts);
         if (!$ret) {
             $false = false;
 
             return $false;
         }
 
-        $inc_class = &webphoto_inc_weblinks::getInstance();
-        $ret = $inc_class->albums($opts);
+        $inc_class = webphoto_inc_weblinks::getInstance();
+        $ret       = $inc_class->albums($opts);
 
         return $ret;
     }
 
-    function &weblinks_plugin_photos_webphoto_120($opts)
+    function &Plugin_photos_webphoto_120($opts)
     {
-        $ret = weblinks_plugin_webphoto_include($opts);
+        $ret = Plugin_webphoto_include($opts);
         if (!$ret) {
             $false = false;
 
             return $false;
         }
 
-        $inc_class = &webphoto_inc_weblinks::getInstance();
-        $ret = $inc_class->photos($opts);
+        $inc_class = webphoto_inc_weblinks::getInstance();
+        $ret       = $inc_class->photos($opts);
 
         return $ret;
     }
 
-    function weblinks_plugin_webphoto_include($opts)
+    function Plugin_webphoto_include($opts)
     {
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'webphoto';
 

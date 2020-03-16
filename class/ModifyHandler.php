@@ -83,10 +83,10 @@ if (!class_exists('ModifyHandler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_modify_basic_handler = weblinks_get_handler('modify_basic', $dirname);
+            $this->_modify_basic_handler = weblinks_get_handler('ModifyBasic', $dirname);
 
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler = weblinks_get_handler('config2_basic', $dirname);
+                $config_handler = weblinks_get_handler('Config2Basic', $dirname);
                 $conf = $config_handler->get_conf();
                 $this->_conf_link_num_etc = $conf['link_num_etc'];
             }

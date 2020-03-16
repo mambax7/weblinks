@@ -14,10 +14,10 @@ include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/api/build_kml
 //=========================================================
 // main
 //=========================================================
-$weblinks_config_handler = weblinks_getHandler('config2_basic', $WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('Config2Basic', $WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 
-$weblinks_build_handler = weblinks_getHandler('build_kml', $WEBLINKS_DIRNAME);
+$weblinks_build_handler = handler('KmlBuild', $WEBLINKS_DIRNAME);
 $weblinks_build_handler->build();
 
 exit(); // --- main end ---

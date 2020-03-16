@@ -9,7 +9,7 @@
 include 'admin_header.php';
 include_once WEBLINKS_ROOT_PATH . '/api/build_kml.php';
 
-$builder = weblinks_getHandler('build_kml', WEBLINKS_DIRNAME);
+$builder = handler('KmlBuild', WEBLINKS_DIRNAME);
 $builder->view();
 
 exit(); // --- main end ---

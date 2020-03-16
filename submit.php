@@ -1,11 +1,15 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Weblinks;
+
 // $Id: submit.php,v 1.28 2008/02/26 16:01:32 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // title: lang_submitlink
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-10-30 K.OHWADA
 // change check_access()
@@ -83,7 +87,7 @@ include 'header_edit.php';
 //=========================================================
 // class weblinks_submit
 //=========================================================
-class weblinks_submit extends happy_linux_error
+class weblinks_submit extends Happylinux\Error
 {
     public $_DIRNAME;
 
@@ -128,21 +132,21 @@ class weblinks_submit extends happy_linux_error
 
         $this->_DIRNAME = $dirname;
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_edit_handler = weblinks_getHandler('link_edit', $dirname);
-        $this->_link_form_handler = weblinks_getHandler('link_form', $dirname);
-        $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_edit_handler = weblinks_get_handler('LinkEdit', $dirname);
+        $this->_link_form_handler = weblinks_get_handler('LinkForm', $dirname);
+        $this->_link_check_handler = weblinks_get_handler('LinkFormCheck', $dirname);
 
-        $this->_auth = weblinks_auth::getInstance($dirname);
-        $this->_template = weblinks_template::getInstance($dirname);
-        $this->_header = weblinks_header::getInstance($dirname);
+        $this->_auth = Weblinks\Auth::getInstance($dirname);
+        $this->_template = Weblinks\Template::getInstance($dirname);
+        $this->_header = Weblinks\Header::getInstance($dirname);
 
-        $this->_post = happy_linux_post::getInstance();
-        $this->_myts = MyTextSanitizer::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
+        $this->_myts = \MyTextSanitizer::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
 
-        $system = happy_linux_system::getInstance();
+        $system = Happylinux\System::getInstance();
         $this->_system_is_module_admin = $system->is_module_admin();
         $this->_system_is_user = $system->is_user();
         $this->_system_module_name = $system->get_module_name();
@@ -267,7 +271,7 @@ class weblinks_submit extends happy_linux_error
     // execute when use rssc module
     public function discovery_by_post()
     {
-        $rss_utility = happy_linux_rss_utility::getInstance();
+        $rss_utility = Happylinux\RssUtility::getInstance();
 
         $this->_discovery_error = null;
 
@@ -275,7 +279,7 @@ class weblinks_submit extends happy_linux_error
         $rss_url = $this->_post->get_post_url('rss_url');
         $rss_flag = $this->_post->get_post_int('rss_flag');
 
-        if ($url && (HAPPY_LINUX_RSS_MODE_AUTO == $rss_flag) && ('' == $rss_url)) {
+        if ($url && (HAPPYLINUX_RSS_MODE_AUTO == $rss_flag) && ('' == $rss_url)) {
             $ret = $rss_utility->discover($url);
             if (!$ret) {
                 $msg = _RSSC_DISCOVER_FAILED;
@@ -375,7 +379,7 @@ class weblinks_submit extends happy_linux_error
 
         echo $this->_header->get_module_header_submit();
         echo '&nbsp;';
-        echo '<a href="' . XOOPS_URL . '/">' . _HAPPY_LINUX_HOME . '</a> &gt;&gt; ';
+        echo '<a href="' . XOOPS_URL . '/">' . _HAPPYLINUX_HOME . '</a> &gt;&gt; ';
         echo '<a href="' . WEBLINKS_URL . '/">' . $this->_system_module_name . '</a> &gt;&gt; ';
         echo '<span class="weblinks_bold">' . $this->_conf['lang_submitlink'] . '</span><br><br>' . "\n";
     }
@@ -441,7 +445,7 @@ class weblinks_submit extends happy_linux_error
 // main
 //=========================================================
 $weblinks_submit = weblinks_submit::getInstance(WEBLINKS_DIRNAME);
-$weblinks_time = happy_linux_time::getInstance();
+$weblinks_time = @\XoopsModules\Happylinux\Time::getInstance();
 
 // check permit
 $check = $weblinks_submit->check_access();

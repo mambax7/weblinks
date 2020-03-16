@@ -15,14 +15,14 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_bin_handler')) {
+if (!class_exists('LinkBinHandler')) {
     //=========================================================
-    // class weblinks_link_bin_handler
+    // class LinkBinHandler
     // this class using for command line
     // this class define config table
     // weblinks_link_basic_handler inherit this class
     //=========================================================
-    class weblinks_link_bin_handler extends Happylinux\BasicHandler
+    class LinkBinHandler extends Happylinux\BasicHandler
     {
         // hack for multi language
         public $_flag_replace = false;

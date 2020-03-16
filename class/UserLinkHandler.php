@@ -12,12 +12,12 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_users_link_handler')) {
+if (!class_exists('UserLinkHandler')) {
     //=========================================================
-    // class weblinks_users_link_handler
+    // class UserLinkHandler
     // handling for table_link & table_catlink
     //=========================================================
-    class weblinks_users_link_handler extends Happylinux\BasicHandler
+    class UserLinkHandler extends Happylinux\BasicHandler
     {
         public $_table_xoops_users;
         public $_table_weblinks_link;

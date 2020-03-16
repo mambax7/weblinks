@@ -20,8 +20,8 @@
 //=========================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_forums_newbb_200')) {
-    function &weblinks_plugin_forums_newbb_200()
+if (!function_exists('Plugin_forums_newbb_200')) {
+    function &Plugin_forums_newbb_200()
     {
         global $xoopsDB;
 
@@ -51,10 +51,10 @@ if (!function_exists('weblinks_plugin_forums_newbb_200')) {
         return $arr;
     }
 
-    function &weblinks_plugin_threads_newbb_200($opts)
+    function &Plugin_threads_newbb_200($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
@@ -107,7 +107,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_200')) {
         // latest topics
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bb_topics');
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql2 .= ' WHERE forum_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_time ' . $post_order;
 

@@ -25,154 +25,18 @@ use XoopsModules\Happylinux;
 //================================================================
 // WebLinks Module
 // this file contain 2 class
-//   weblinks_linkitem_form
+//   LinkitemForm
 //   weblinks_linkitem_store_handler
 // 2006-05-15 K.OHWADA
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_linkitem_store_handler')) {
-    //=========================================================
-    // class weblinks_linkitem_form
-    //=========================================================
-    class weblinks_linkitem_form extends Happylinux\Form
-    {
-        public $_linkitem_define_handler;
-
-        //---------------------------------------------------------
-        // constructor
-        //---------------------------------------------------------
-        public function __construct($dirname)
-        {
-            parent::__construct();
-
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
-            $this->set_form_name('weblinks_linkitem');
-        }
-
-        public static function getInstance($dirname = null)
-        {
-            static $instance;
-            if (null === $instance) {
-                $instance = new static($dirname);
-            }
-
-            return $instance;
-        }
-
-        //---------------------------------------------------------
-        // main function
-        //---------------------------------------------------------
-        public function show($form_title)
-        {
-            $ROWS = 1;
-            $COLS = 50;
-            $SIZE = 50;
-
-            $linkitem_arr = $this->_linkitem_define_handler->load();
-
-            // form start
-            echo $this->build_form_begin();
-            echo $this->build_token();
-            echo $this->build_html_input_hidden('op', 'save');
-            echo $this->build_html_input_hidden('save_linkitem', 1);
-            echo $this->build_form_table_begin();
-            echo $this->make_table3_title($form_title);
-
-            $options = [
-                _WEBLINKS_NO_USE => 0,
-                _WEBLINKS_USE => 1,
-                _WEBLINKS_INDISPENSABLE => 2,
-            ];
-
-            // list from config array
-            foreach ($linkitem_arr as $item_id => $linkitem) {
-                $name = $linkitem['name'];
-                $conf_form = $linkitem['conf_form'];
-                $title = $linkitem['title'];
-                $user_mode = $linkitem['user_mode'];
-                $desc = $linkitem['description'];
-
-                if (0 == $conf_form) {
-                    continue;
-                }
-
-                $name_d = $name;
-                $name_d .= $this->build_html_input_hidden('item_ids[]', $item_id);
-
-                $ele1 = $this->build_html_input_text("title[$item_id]", $title, $SIZE);
-                $ele1 .= "<br>\n";
-                $ele1 .= $this->build_html_textarea("description[$item_id]", $desc, $ROWS, $COLS);
-
-                if (2 == $conf_form) {
-                    $ele2 = $this->get_option_name($user_mode, $options);
-                } else {
-                    $ele2 = $this->build_html_input_radio_select("user_mode[$item_id]", $user_mode, $options);
-                }
-
-                echo $this->make_table3_line($name_d, $ele1, $ele2);
-            }
-
-            $button = $this->build_html_input_submit('submit', _WEBLINKS_UPDATE);
-
-            echo $this->make_table3_submit($button);
-            echo $this->build_form_table_end();
-            echo $this->build_form_end();
-            // form end
-        }
-
-        //---------------------------------------------------------
-        // make table form
-        //---------------------------------------------------------
-        public function make_table3_title($title)
-        {
-            $text = $this->build_form_table_title($title, 3);
-
-            return $text;
-        }
-
-        public function make_table3_line($title, $ele1, $ele2)
-        {
-            $text = "<tr valign='top' align='left'>";
-            $text .= $this->build_form_td_class($title, 'head');
-            $text .= $this->build_form_td_class($ele1, 'odd');
-            $text .= $this->build_form_td_class($ele2, 'odd');
-            $text .= "</tr>\n";
-
-            return $text;
-        }
-
-        public function make_table3_submit($button)
-        {
-            $text = "<tr valign='top' align='left'>";
-            $text .= $this->build_form_td_class('', 'foot');
-            $text .= $this->build_html_td_tag_begin('center', '', 2, '', 'foot');
-            $text .= $this->substute_blank($button);
-            $text .= $this->build_html_td_tag_end();
-
-            $text .= "</tr>\n";
-
-            return $text;
-        }
-
-        public function get_option_name($value, $options)
-        {
-            foreach ($options as $opt_name => $opt_val) {
-                if (isset($value) && ($value == $opt_val)) {
-                    return $opt_name;
-                }
-            }
-
-            return '';
-        }
-
-        // --- class end ---
-    }
+if (!class_exists('LinkitemStoreHandler')) {
 
     //================================================================
-    // class weblinks_linkitem_store_handler
+    // class LinkitemStoreHandler
     //================================================================
-    class weblinks_linkitem_store_handler extends Happylinux\Error
+    class LinkitemStoreHandler extends Happylinux\Error
     {
         public $_handler;
         public $_define;
@@ -185,11 +49,11 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         {
             parent::__construct();
 
-            $this->_handler = weblinks_get_handler('linkitem', $dirname);
-            $this->_define_handler = weblinks_get_handler('linkitem_define', $dirname);
-            $this->_define = weblinks_linkitem_define::getInstance($dirname);
+            $this->_handler = weblinks_get_handler('Linkitem', $dirname);
+            $this->_define_handler = weblinks_get_handler('LinkitemDefine', $dirname);
+            $this->_define = LinkitemDefine::getInstance($dirname);
 
-            $this->_post = happy_linux_post::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
         }
 
         //---------------------------------------------------------

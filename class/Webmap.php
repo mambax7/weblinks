@@ -16,7 +16,7 @@ if (!class_exists('Webmap')) {
     //=========================================================
     // class google map
     //=========================================================
-    class Webmap extends weblinks_block_webmap
+    class Webmap extends BlockWebmap
     {
         public $_DIRNAME;
 
@@ -49,7 +49,7 @@ if (!class_exists('Webmap')) {
 
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
 
             $this->_conf = $config_handler->get_conf();
 

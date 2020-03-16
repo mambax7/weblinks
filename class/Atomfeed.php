@@ -2,7 +2,7 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_atomfeed_handler.php,v 1.4 2007/12/08 22:48:05 ohwada Exp $
+use XoopsModules\Happylinux;
 
 // 2007-12-09 K.OHWADA
 // BUG : Use of undefined constant XOBJ_DTYPE_STRING
@@ -27,11 +27,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_atomfeed_handler')) {
+if (!class_exists('Atomfeed')) {
     //=========================================================
-    // class weblinks_atomfeed
+    // class Atomfeed
     //=========================================================
-    class weblinks_atomfeed extends happy_linux_object
+    class Atomfeed extends Happylinux\BaseObject
     {
         //---------------------------------------------------------
         // constructor
@@ -60,22 +60,4 @@ if (!class_exists('weblinks_atomfeed_handler')) {
 
         // --- class end ---
     }
-
-    //=========================================================
-    // class weblinks_atomfeed_handler
-    //=========================================================
-    class weblinks_atomfeed_handler extends happy_linux_object_handler
-    {
-        //---------------------------------------------------------
-        // constructor
-        //---------------------------------------------------------
-        public function __construct($dirname)
-        {
-            parent::__construct($dirname, 'atomfeed', 'aid', 'weblinks_atomfeed');
-            $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
-        }
-
-        // --- class end ---
-    }
-    // === class end ===
 }

@@ -11,9 +11,13 @@
 
 // --- weblinks_functions begin ---
 if (!function_exists('weblinks_get_handler')) {
-    function &weblinks_getHandler($name = null, $module_dir = null)
+    function &weblinks_get_handler($name = null, $module_dir = null)
     {
-        return happy_linux_getHandler($name, $module_dir, 'weblinks');
+//        return happylinux_get_handler($name, $module_dir, 'weblinks');
+        $helperType = '\XoopsModules' . '\\' . ucfirst($module_dir) . '\Helper';
+        $helper     = $helperType::getInstance();
+        $ret = $helper->getHandler(ucfirst($name));
+        return $ret;
     }
 
     //---------------------------------------------------------
@@ -33,7 +37,7 @@ if (!function_exists('weblinks_get_handler')) {
             return $arr;
         }
 
-        while ($row = $xoopsDB->fetchArray($res)) {
+        while (false !== ($row = $xoopsDB->fetchArray($res))) {
             $arr[$row['conf_name']] = $row['conf_value'];
         }
 

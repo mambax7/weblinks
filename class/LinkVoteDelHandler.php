@@ -15,11 +15,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_vote_del_handler')) {
+if (!class_exists('LinkVoteDelHandler')) {
     //=========================================================
     // class weblinks_link_vote_del
     //=========================================================
-    class weblinks_link_vote_del_handler extends Happylinux\Error
+    class LinkVoteDelHandler extends Happylinux\Error
     {
         public $_DIRNAME;
 
@@ -39,11 +39,11 @@ if (!class_exists('weblinks_link_vote_del_handler')) {
 
             parent::__construct();
 
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
-            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
-            $this->_votedata_handler = weblinks_get_handler('votedata', $dirname);
-            $this->_broken_handler = weblinks_get_handler('broken', $dirname);
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
+            $this->_modify_handler = handler('Modify', $dirname);
+            $this->_votedata_handler = handler('Votedata', $dirname);
+            $this->_broken_handler = handler('Broken', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
         }

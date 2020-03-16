@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: class.bin_link_check.php,v 1.14 2007/10/26 03:01:14 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
@@ -29,7 +32,7 @@
 // 2004-11-28 K.OHWADA
 //=========================================================
 
-class bin_link_check extends happy_linux_bin_base
+class bin_link_check extends Happylinux\BinBase
 {
     // class
     public $_check;
@@ -50,7 +53,7 @@ class bin_link_check extends happy_linux_bin_base
         $this->set_mailer($this->_MAILER);
         $this->set_filename('modules/' . $dirname . '/' . $this->_FILENAME_RESULT);
 
-        $this->_check = weblinks_getHandler('link_check', $dirname);
+        $this->_check = weblinks_get_handler('LinkCheck', $dirname);
 
         $this->_goto_admin = _WEBLINKS_ADMIN_GOTO_ADMIN_INDEX;
     }

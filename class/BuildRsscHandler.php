@@ -2,7 +2,10 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_build_rss_feed_handler.php,v 1.2 2007/10/23 01:49:09 ohwada Exp $
+use XoopsModules\Happylinux;
+use XoopsModules\Rssc;
+
+// $Id: BuildRsscHandler.php,v 1.2 2007/10/23 01:49:09 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // divid from feed_rss.php
@@ -22,11 +25,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_build_rss_feed_handler')) {
+if (!class_exists('BuildRsscHandler')) {
     //=========================================================
-    // class weblinks_build_rss_feed_handler
+    // class BuildRsscHandler
     //=========================================================
-    class weblinks_build_rss_feed_handler extends rssc_build_rssc
+    class BuildRsscHandler extends Rssc\BuildRssc
     {
         public $_DIRNAME;
         public $_DIR_XML;
@@ -48,7 +51,7 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
             $this->set_atom_template($DIR_XML . '/weblinks_build_feed_atom.tpl');
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
+            $this->_rssc_view_handler = weblinks_get_handler('RsscView', $dirname);
         }
 
         //---------------------------------------------------------

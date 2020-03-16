@@ -5,7 +5,7 @@
 // BUG: no action when click modify
 // change check_access()
 // get_token_pair()
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-09-20 K.OHWADA
 // PHP5.2
@@ -61,7 +61,7 @@ include 'header_edit.php';
 //=========================================================
 // class weblinks_modlink
 //=========================================================
-class weblinks_modlink extends happy_linux_error
+class weblinks_modlink extends Happylinux\Error
 {
     public $_config_handler;
     public $_link_edit_handler;
@@ -107,16 +107,16 @@ class weblinks_modlink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_edit_handler = weblinks_getHandler('link_edit', $dirname);
-        $this->_link_form_handler = weblinks_getHandler('link_form', $dirname);
-        $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_edit_handler = weblinks_get_handler('LinkEdit', $dirname);
+        $this->_link_form_handler = weblinks_get_handler('LinkForm', $dirname);
+        $this->_link_check_handler = weblinks_get_handler('LinkFormCheck', $dirname);
 
-        $this->_auth = weblinks_auth::getInstance($dirname);
-        $this->_header = weblinks_header::getInstance($dirname);
-        $this->_template = weblinks_template::getInstance($dirname);
-        $this->_system = happy_linux_system::getInstance();
-        $this->_post = happy_linux_post::getInstance();
+        $this->_auth = Auth::getInstance($dirname);
+        $this->_header = Header::getInstance($dirname);
+        $this->_template = Template::getInstance($dirname);
+        $this->_system = Happylinux\System::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
 
         $this->_conf = $this->_config_handler->get_conf();
 
@@ -413,7 +413,7 @@ class weblinks_modlink extends happy_linux_error
 
         echo $this->_header->get_module_header_submit();
         echo '&nbsp;';
-        echo '<a href="' . XOOPS_URL . '/">' . _HAPPY_LINUX_HOME . '</a> &gt;&gt;';
+        echo '<a href="' . XOOPS_URL . '/">' . _HAPPYLINUX_HOME . '</a> &gt;&gt;';
         echo '<a href="' . WEBLINKS_URL . '/">' . $this->_system_module_name . '</a> &gt;&gt;';
         echo '<a href="' . WEBLINKS_URL . '/singlelink.php?lid=' . $this->_lid . '">' . $this->_link_title_s . '</a> &gt;&gt;';
         echo '<span class="weblinks_bold">' . _WLS_MODIFY . '</span><br><br>' . "\n";
@@ -485,8 +485,8 @@ class weblinks_modlink extends happy_linux_error
 
         list($token_name, $token_value) = $this->_link_edit_handler->get_token_pair();
 
-        $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-        $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+        $weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+        $weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 
         $weblinks_header->assign_module_header();
         $weblinks_template->assignIndex();

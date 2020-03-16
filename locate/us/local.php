@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: local.php,v 1.3 2007/07/28 12:03:09 ohwada Exp $
 
 // 2007-07-28 K.OHWADA
@@ -18,7 +21,7 @@ if (!class_exists('weblinks_locate_us')) {
     // class weblinks_locate_us
     // United Sates of America (US)
     //=========================================================
-    class weblinks_locate_us extends weblinks_locate_base
+    class weblinks_locate_us extends Happylinux\LocateBase
     {
         //---------------------------------------------------------
         // constructor

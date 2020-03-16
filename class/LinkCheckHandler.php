@@ -46,12 +46,12 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_check_handler')) {
+if (!class_exists('LinkCheckHandler')) {
     //=========================================================
-    // class weblinks_link_check_handler
+    // class LinkCheckHandler
     // this class is used by command line
     //=========================================================
-    class weblinks_link_check_handler extends weblinks_link_check_base
+    class LinkCheckHandler extends LinkCheckBase
     {
         public $_remote_file;
         public $_bin_file;
@@ -182,7 +182,7 @@ if (!class_exists('weblinks_link_check_handler')) {
             $link_id = sprintf('%03d', $lid);
 
             $modlink = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/admin/link_manage.php?op=modLink&lid=' . $lid;
-            $title = htmlspecialchars($title);
+            $title = htmlspecialchars($title, ENT_QUOTES | ENT_HTML5);
             $google_url = $this->_build_google_search_url($title);
 
             $text = '<tr>';
@@ -238,7 +238,7 @@ if (!class_exists('weblinks_link_check_handler')) {
         }
 
         //---------------------------------------------------------
-        // happy_linux_remote_file
+        // Happylinux\RemoteFile
         //---------------------------------------------------------
         public function _check_url($url)
         {

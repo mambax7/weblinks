@@ -30,7 +30,7 @@
 //================================================================
 
 include 'admin_header.php';
-include_once WEBLINKS_ROOT_PATH . '/admin/table_manage_zombie_class.php';
+//include_once WEBLINKS_ROOT_PATH . '/admin/table_manage_zombie_class.php';
 
 //================================================================
 // main
@@ -38,7 +38,7 @@ include_once WEBLINKS_ROOT_PATH . '/admin/table_manage_zombie_class.php';
 // hack for multi site
 weblinks_admin_multi_disable_feature();
 
-$manage = admin_table_manage_zombie::getInstance();
+$manage = TableManageZombie::getInstance();
 
 $op = $manage->get_post_param();
 

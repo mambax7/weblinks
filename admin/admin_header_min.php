@@ -14,10 +14,43 @@
 // 2004-10-13 K.OHWADA
 //=========================================================
 
+use XoopsModules\Happylinux;
+
 //---------------------------------------------------------
 // system
 //---------------------------------------------------------
-include '../../../include/cp_header.php';
+include dirname(__DIR__) . '/preloads/autoloader.php';
+
+require dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+//require $GLOBALS['xoops']->path('www/class/xoopsformloader.php');
+require dirname(__DIR__) . '/include/common.php';
+
+$moduleDirName = basename(dirname(__DIR__));
+
+$helper = \XoopsModules\Weblinks\Helper::getInstance();
+
+/** @var \Xmf\Module\Admin $adminObject */
+$adminObject = \Xmf\Module\Admin::getInstance();
+
+//$myts = \MyTextSanitizer::getInstance();
+
+//if (!isset($GLOBALS['xoopsTpl']) || !($GLOBALS['xoopsTpl'] instanceof XoopsTpl)) {
+//    require $GLOBALS['xoops']->path('class/template.php');
+//    $xoopsTpl = new XoopsTpl();
+//}
+
+//$pathIcon16      = Xmf\Module\Admin::iconUrl('', 16);
+//$pathIcon32      = Xmf\Module\Admin::iconUrl('', 32);
+//$pathModIcon32 = $helper->getModule()->getInfo('modicons32');
+
+// Local icons path
+//$xoopsTpl->assign('pathIcon16', $pathIcon16);
+//$xoopsTpl->assign('pathIcon32', $pathIcon32);
+
+// Load language files
+$helper->loadLanguage('admin');
+$helper->loadLanguage('modinfo');
+$helper->loadLanguage('common');
 
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 
@@ -49,18 +82,18 @@ include_once WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-if (!file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php')) {
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php')) {
     xoops_cp_header();
     xoops_error('require happy_linux module');
     xoops_cp_footer();
     exit();
 }
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php';
 
 // check happy_linux version
-if (HAPPY_LINUX_VERSION < WEBLINKS_HAPPY_LINUX_VERSION) {
-    $msg = 'require happy_linux module v' . WEBLINKS_HAPPY_LINUX_VERSION . ' or later';
+if (HAPPYLINUX_VERSION < WEBLINKS_HAPPYLINUX_VERSION) {
+    $msg = 'require happy_linux module v' . WEBLINKS_HAPPYLINUX_VERSION . ' or later';
     xoops_cp_header();
     xoops_error($msg);
     xoops_cp_footer();
@@ -68,30 +101,29 @@ if (HAPPY_LINUX_VERSION < WEBLINKS_HAPPY_LINUX_VERSION) {
 }
 
 // start execution time
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/time.php';
-$happy_linux_time = happy_linux_time::getInstance(true);
+$happy_linux_time = Happylinux\Time::getInstance(true);
 if (WEBLINKS_DEBUG_TIME) {
     $happy_linux_time->print_lap_time();
 }
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/memory.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/gtickets.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/language.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/locate.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/admin_menu.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/memory.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/gtickets.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/language.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/locate.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/admin_menu.php';
 
 //---------------------------------------------------------
 // weblinks
 //---------------------------------------------------------
 include_once WEBLINKS_ROOT_PATH . '/include/functions.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_bin_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_basic_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_bin_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_basic_handler.php';
 
 // for main.php
 if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/main.php')) {
@@ -115,10 +147,11 @@ include_once WEBLINKS_ROOT_PATH . '/admin/admin_functions.php';
 //---------------------------------------------------------
 // config
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+//$weblinks_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = $helper->getHandler('Config2Basic');
 $weblinks_config_handler->init();
 $rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');
-$rss_use = $weblinks_config_handler->get_conf_by_name('rss_use');
+$rss_use     = $weblinks_config_handler->get_conf_by_name('rss_use');
 
 //---------------------------------------------------------
 // rssc
@@ -137,7 +170,7 @@ if (!defined('WEBLINKS_RSSC_URL')) {
 
 // rssc module install check
 $module_handler = xoops_getHandler('module');
-$module = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
+$module         = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
 if (is_object($module)) {
     // rssc module exists check, if missed to remove files
     if (file_exists(WEBLINKS_RSSC_ROOT_PATH . '/include/rssc_version.php')) {

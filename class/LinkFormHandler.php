@@ -150,18 +150,18 @@ if (!class_exists('LinkFormHandler')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
-            $this->_category_handler = weblinks_get_handler('category', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
-            $this->_broken_handler = weblinks_get_handler('broken', $dirname);
-            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_modify_handler = handler('Modify', $dirname);
+            $this->_category_handler = handler('Category', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
+            $this->_broken_handler = handler('Broken', $dirname);
+            $this->_linkitem_define_handler = weblinks_get_handler('LinkitemDefine', $dirname);
 
-            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_auth = Auth::getInstance($dirname);
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
-            $this->_webmap_class = weblinks_webmap::getInstance($dirname);
+            $this->_post = Happylinux\Post::getInstance();
+            $this->_webmap_class = Webmap::getInstance($dirname);
 
             $this->_conf = $this->_config_handler->get_conf();
 
@@ -1133,7 +1133,7 @@ if (!class_exists('LinkFormHandler')) {
             $text = $this->build_html_textarea('reason', '', $this->TEXTAREA_ROW, $this->TEXTAREA_COL);
             echo $this->build_form_table_line($cap, $text);
 
-            $ele_submit = $this->build_html_input_submit('delete', _HAPPY_LINUX_EXECUTE);
+            $ele_submit = $this->build_html_input_submit('delete', _HAPPYLINUX_EXECUTE);
             $ele_cancel = $this->build_html_input_button_location('cancel', _CANCEL, $url_cancel);
             $ele_button = $ele_submit . ' ' . $ele_cancel;
             echo $this->build_form_table_line('', $ele_button, 'foot', 'foot');

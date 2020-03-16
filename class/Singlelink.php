@@ -48,11 +48,11 @@ use XoopsModules\Happylinux;
 //================================================================
 
 // === class begin ===
-if (!class_exists('weblinks_singlelink')) {
+if (!class_exists('Singlelink')) {
     //=========================================================
-    // class weblinks_singlelink
+    // class Singlelink
     //=========================================================
-    class weblinks_singlelink
+    class Singlelink
     {
         public $_DIRNAME;
 
@@ -75,15 +75,15 @@ if (!class_exists('weblinks_singlelink')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_basic_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
-            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
-            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
-            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
+            $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
+            $this->_banner_handler = handler('Banner', $dirname);
+            $this->_rssc_view_handler = weblinks_get_handler('RsscView', $dirname);
+            $this->_rssc_handler = handler('Rssc', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
 
             $this->_conf = &$config_basic_handler->get_conf();
 

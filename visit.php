@@ -38,11 +38,11 @@
 
 include 'header.php';
 
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('LinkBasic', WEBLINKS_DIRNAME);
 
-$weblinks_post = happy_linux_post::getInstance();
-$weblinks_system = happy_linux_system::getInstance();
+$weblinks_post = Happylinux\Post::getInstance();
+$weblinks_system = Happylinux\System::getInstance();
 
 // constant
 $ROWS = '70px,100%';
@@ -58,7 +58,7 @@ $lid = $weblinks_post->get_get_int('lid');
 $op = $weblinks_post->get_get_text('op');
 
 $url = $weblinks_link_handler->get_url($lid, 'n');
-$url_s = happy_linux_sanitize_url($url);
+$url_s = happylinux_sanitize_url($url);
 $url_u = happy_linux_undo_htmlspecialchars($url);
 
 // jump this site, if no url

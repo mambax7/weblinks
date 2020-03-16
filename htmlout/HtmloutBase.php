@@ -7,8 +7,8 @@
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_htmlout_base')) {
-    class weblinks_htmlout_base
+if (!class_exists('HtmloutBase')) {
+    class HtmloutBase
     {
         public $_item_vars = [];
         public $_param_vars = [];

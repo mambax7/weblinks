@@ -50,7 +50,7 @@ if (!class_exists('Plugin')) {
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_conf = $config_handler->get_conf();
         }
 

@@ -21,11 +21,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_rssc_view_handler')) {
+if (!class_exists('RsscViewHandler')) {
     //=========================================================
-    // class weblinks_rssc_view_handler
+    // class RsscViewHandler
     //=========================================================
-    class weblinks_rssc_view_handler extends Happylinux\Error
+    class RsscViewHandler extends Happylinux\Error
     {
         // handler
         public $_rssc_view_handler;

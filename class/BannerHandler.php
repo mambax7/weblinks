@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_banner_handler.php,v 1.10 2008/01/14 06:07:13 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: BannerHandler.php,v 1.10 2008/01/14 06:07:13 ohwada Exp $
 
 // 2008-01-10 K.OHWADA
 // Warning [PHP]: fopen(): failed to open stream: No such file or directory
@@ -30,11 +32,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_banner_handler')) {
+if (!class_exists('BannerHandler')) {
     //=========================================================
-    // class weblinks_banner_handler
+    // class BannerHandler
     //=========================================================
-    class weblinks_banner_handler extends happy_linux_error
+    class BannerHandler extends Happylinux\Error
     {
         public $_DIRNAME;
         public $_DIR_THUMBS;
@@ -73,12 +75,12 @@ if (!class_exists('weblinks_banner_handler')) {
             $this->_DIR_THUMBS = '/modules/' . $dirname . '/thumbs';
             $this->_DIR_SHOTS = '/modules/' . $dirname . '/images/shots';
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_remote_image = happy_linux_remote_image::getInstance();
-            $this->_image_size = happy_linux_image_size::getInstance();
-            $this->_strings = happy_linux_strings::getInstance();
-            $this->_class_dir = happy_linux_dir::getInstance();
+            $this->_remote_image = Happylinux\RemoteImage::getInstance();
+            $this->_image_size =  Happylinux\ImageSize::getInstance();
+            $this->_strings = Happylinux\Strings::getInstance();
+            $this->_class_dir = Happylinux\Dir::getInstance();
 
             $this->_dir_work = $this->_class_dir->init_dir_work();
             $this->_remote_image->set_dir_work($this->_dir_work);

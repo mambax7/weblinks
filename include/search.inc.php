@@ -29,7 +29,7 @@
 
 $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/search.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/search.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/weblinks_constant.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
 
@@ -39,7 +39,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_search( $queryarray , $andor , $limit , $offset , $uid )
 {
-    return weblinks_search_base( "' . $WEBLINKS_DIRNAME . '" , $queryarray , $andor , $limit , $offset , $uid ) ;
+    return weblinks_search_base( \'' . $WEBLINKS_DIRNAME . '\' , $queryarray , $andor , $limit , $offset , $uid ) ;
 }
 
 '
@@ -52,7 +52,7 @@ if (!function_exists('weblinks_search_base')) {
     {
         global $xoopsDB;
 
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         // hack for multi site
         $table_link = weblinks_multi_get_table_name($DIRNAME, 'link');
@@ -133,7 +133,7 @@ if (!function_exists('weblinks_search_base')) {
             $context = $myts->displayTarea($context, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
             $context = preg_replace('/>/', '> ', $context);
             $context = strip_tags($context);
-            $ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
+            $ret[$i]['context'] = happylinux_build_search_context($context, $queryarray);
 
             ++$i;
         }

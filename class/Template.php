@@ -91,11 +91,11 @@ use XoopsModules\Happylinux;
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_template')) {
+if (!class_exists('Template')) {
     //=========================================================
-    // class weblinks_template
+    // class Template
     //=========================================================
-    class weblinks_template
+    class Template
     {
         // handler
         public $_config_handler;
@@ -151,18 +151,18 @@ if (!class_exists('weblinks_template')) {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_linkitem_handler = weblinks_get_handler('linkitem_basic', $dirname);
-            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
-            $this->_link_count_handler = weblinks_get_handler('link_count', $dirname);
-            $this->_rssc_handler = weblinks_get_handler('rssc_view', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('LinkitemBasic', $dirname);
+            $this->_category_handler = weblinks_get_handler('CategoryBasic', $dirname);
+            $this->_link_count_handler = weblinks_get_handler('LinkCount', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('RsscView', $dirname);
 
             $this->_menu = Menu::getInstance($dirname);
-            $this->_auth = weblinks_auth::getInstance($dirname);
+            $this->_auth = Auth::getInstance($dirname);
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
-            $this->_strings = happy_linux_strings::getInstance();
-            $this->_class_keyword = happy_linux_keyword::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
+            $this->_strings = Happylinux\Strings::getInstance();
+            $this->_class_keyword = Happylinux\Keyword::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
             $conf_map_template = $this->_conf['map_template'];
@@ -553,8 +553,8 @@ if (!class_exists('weblinks_template')) {
             }
 
             // --- lang ---
-            $tpl->assign('lang_home', _HAPPY_LINUX_HOME);
-            $tpl->assign('lang_goto_admin', _HAPPY_LINUX_GOTO_ADMIN);
+            $tpl->assign('lang_home', _HAPPYLINUX_HOME);
+            $tpl->assign('lang_goto_admin', _HAPPYLINUX_GOTO_ADMIN);
             $tpl->assign('lang_nomatch', _WLS_NOMATCH);
 
             // index.php
@@ -595,10 +595,10 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('lang_search_keyword', _SR_KEYWORDS . ':');
             $tpl->assign('lang_search_ignore', sprintf(_SR_IGNOREDWORDS, $this->_conf['search_min']));
 
-            $tpl->assign('lang_search_google', _HAPPY_LINUX_SEARCH_GOOGLE);
-            $tpl->assign('lang_search_with_subcat', _HAPPY_LINUX_SEARCH_WITH_SUBCAT);
-            $tpl->assign('lang_search_not_select', _HAPPY_LINUX_SEARCH_NOT_SELECT);
-            $tpl->assign('lang_search_candidate', _HAPPY_LINUX_SEARCH_CANDICATE);
+            $tpl->assign('lang_search_google', _HAPPYLINUX_SEARCH_GOOGLE);
+            $tpl->assign('lang_search_with_subcat', _HAPPYLINUX_SEARCH_WITH_SUBCAT);
+            $tpl->assign('lang_search_not_select', _HAPPYLINUX_SEARCH_NOT_SELECT);
+            $tpl->assign('lang_search_candidate', _HAPPYLINUX_SEARCH_CANDICATE);
         }
 
         public function _get_search_selected($andor, $mark)
@@ -687,7 +687,7 @@ if (!class_exists('weblinks_template')) {
             $tpl->assign('lang_tellafriend', _WLS_TELLAFRIEND);
 
             $tpl->assign('lang_comments', _COMMENTS);
-            $tpl->assign('lang_print', _HAPPY_LINUX_PRINT);
+            $tpl->assign('lang_print', _HAPPYLINUX_PRINT);
             $tpl->assign('lang_pssword', _US_PASSWORD);
 
             $tpl->assign('lang_site_title', _WLS_SITETITLE);
@@ -768,7 +768,7 @@ if (!class_exists('weblinks_template')) {
         public function _build_cat_selbox($cid)
         {
             $this->_category_handler->load_once();
-            $selbox = $this->_category_handler->build_selbox($cid, 1, 'cid', '', _HAPPY_LINUX_SEARCH_NOT_SELECT, 0);
+            $selbox = $this->_category_handler->build_selbox($cid, 1, 'cid', '', _HAPPYLINUX_SEARCH_NOT_SELECT, 0);
 
             return $selbox;
         }

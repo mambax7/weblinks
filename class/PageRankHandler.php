@@ -12,12 +12,12 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 //=========================================================
-// class weblinks_pagerank_handler
+// class PageRankHandler
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_pagerank_handler')) {
-    class weblinks_pagerank_handler extends Happylinux\Error
+if (!class_exists('PageRankHandler')) {
+    class PageRankHandler extends Happylinux\Error
     {
         public $_DIRNAME;
 
@@ -35,7 +35,7 @@ if (!class_exists('weblinks_pagerank_handler')) {
             $this->_DIRNAME = $dirname;
 
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_pagerank = Happylinux\PageRank::getInstance();//happylinux_get_singleton('pagerank');
+            $this->_pagerank = Happylinux\PageRank::getInstance($dirname);//happylinux_get_singleton('pagerank');
 
             $this->_CACHE_TIME_LONG = 30 * 24 * 60 * 60; // one month
             $this->_CACHE_TIME_SHORT = 24 * 60 * 60; // one day
@@ -63,11 +63,11 @@ if (!class_exists('weblinks_pagerank_handler')) {
                 $this->_update($lid, $pr);
             }
 
-            if ($pr < _HAPPY_LINUX_PAGERANK_C_MIN) {
-                $pr = _HAPPY_LINUX_PAGERANK_C_MIN;
+            if ($pr < _HAPPYLINUX_PAGERANK_C_MIN) {
+                $pr = _HAPPYLINUX_PAGERANK_C_MIN;
             }
-            if ($pr > _HAPPY_LINUX_PAGERANK_C_MAX) {
-                $pr = _HAPPY_LINUX_PAGERANK_C_MAX;
+            if ($pr > _HAPPYLINUX_PAGERANK_C_MAX) {
+                $pr = _HAPPYLINUX_PAGERANK_C_MAX;
             }
 
             return (int)$pr;
@@ -77,17 +77,17 @@ if (!class_exists('weblinks_pagerank_handler')) {
         {
             $pr = $this->_pagerank->get_page_rank($url);
             switch ($pr) {
-                case _HAPPY_LINUX_PAGERANK_C_CONN:
+                case _HAPPYLINUX_PAGERANK_C_CONN:
                     $this->_set_errors($this->_pagerank->errstr);
                     break;
-                case _HAPPY_LINUX_PAGERANK_C_RANK:
+                case _HAPPYLINUX_PAGERANK_C_RANK:
                     $this->_set_errors($this->_pagerank->google_url);
                     $this->_set_errors($this->_pagerank->contents);
                     break;
             }
 
             // probably temporary error
-            if (($pr < _HAPPY_LINUX_PAGERANK_C_MIN) && ($pr_prev > _HAPPY_LINUX_PAGERANK_C_MIN)) {
+            if (($pr < _HAPPYLINUX_PAGERANK_C_MIN) && ($pr_prev > _HAPPYLINUX_PAGERANK_C_MIN)) {
                 $pr = $pr_prev;
             }
 
@@ -97,7 +97,7 @@ if (!class_exists('weblinks_pagerank_handler')) {
         public function _check_time($pagerank, $pagerank_update)
         {
             $cache_time = $this->_CACHE_TIME_LONG;
-            if ($pagerank < _HAPPY_LINUX_PAGERANK_C_MIN) {
+            if ($pagerank < _HAPPYLINUX_PAGERANK_C_MIN) {
                 $cache_time = $this->_CACHE_TIME_SHORT;
             }
 

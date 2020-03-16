@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_config2_define_handler.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
+// $Id: Config2Define_handler.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // webmap3_dirname
@@ -56,7 +56,7 @@ use XoopsModules\Happylinux;
 
 // 2006-10-05 K.OHWADA
 // use happy_linux rssc
-// move weblinks_config2_define_handler
+// move Config2Define_handler
 // add rss_dirname, bin_pass
 // google map
 // country code
@@ -78,11 +78,11 @@ define('WEBLINKS_CAT_PATH_STYLE_1', 'style 1 <br>cat1 <br>cat1 : cat2 <br>cat1 :
 define('WEBLINKS_CAT_PATH_STYLE_2', 'style 2 <br>cat1 <br>-- cat2 <br>---- cat3');
 
 // === class begin ===
-if (!class_exists('weblinks_config2_define_handler')) {
+if (!class_exists('Config2Define')) {
     //=========================================================
-    // class weblinks_config2_define
+    // class Config2Define
     //=========================================================
-    class weblinks_config2_define extends happy_linux_config_define_base
+    class Config2Define extends Happylinux\ConfigDefineBase
     {
         // class instance
         public $_locate;
@@ -95,7 +95,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             parent::__construct();
 
             // class instance
-            $this->_locate = weblinks_locate_factory::getInstance($dirname);
+            $this->_locate = LocateFactory::getInstance($dirname);
         }
 
         public static function getInstance($dirname = null)
@@ -469,21 +469,21 @@ if (!class_exists('weblinks_config2_define_handler')) {
             //---------------------------------------------------------
             $config[71]['name'] = 'bin_pass';
             $config[71]['catid'] = 7;
-            $config[71]['title'] = '_HAPPY_LINUX_CONF_BIN_PASS';
+            $config[71]['title'] = '_HAPPYLINUX_CONF_BIN_PASS';
             $config[71]['formtype'] = 'text';
             $config[71]['valuetype'] = 'text';
             $config[71]['default'] = xoops_makepass();
 
             $config[72]['name'] = 'bin_send';
             $config[72]['catid'] = 7;
-            $config[72]['title'] = '_HAPPY_LINUX_CONF_BIN_SEND';
+            $config[72]['title'] = '_HAPPYLINUX_CONF_BIN_SEND';
             $config[72]['formtype'] = 'yesno';
             $config[72]['valuetype'] = 'int';
             $config[72]['default'] = 1;
 
             $config[73]['name'] = 'bin_mailto';
             $config[73]['catid'] = 7;
-            $config[73]['title'] = '_HAPPY_LINUX_CONF_BIN_MAILTO';
+            $config[73]['title'] = '_HAPPYLINUX_CONF_BIN_MAILTO';
             $config[73]['formtype'] = 'text';
             $config[73]['valuetype'] = 'text';
             $config[73]['default'] = $adminmail;
@@ -1748,11 +1748,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
             //---------------------------------------------------------
             $config[371]['name'] = 'lang_main';
             $config[371]['catid'] = '37';
-            $config[371]['title'] = '_HAPPY_LINUX_MAIN';
+            $config[371]['title'] = '_HAPPYLINUX_MAIN';
             //  $config[371]['description'] = '';
             $config[371]['formtype'] = 'text';
             $config[371]['valuetype'] = 'text';
-            $config[371]['default'] = _HAPPY_LINUX_MAIN;
+            $config[371]['default'] = _HAPPYLINUX_MAIN;
 
             $config[372]['name'] = 'lang_submitlink';
             $config[372]['catid'] = '37';
@@ -1848,7 +1848,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[391]['name'] = 'htmlout';
             $config[391]['catid'] = '39';
             $config[391]['title'] = '_AM_WEBLINKS_HTMLOUT';
-            $config[391]['description'] = '_HAPPY_LINUX_PLUGIN_DESC';
+            $config[391]['description'] = '_HAPPYLINUX_PLUGIN_DESC';
             $config[391]['formtype'] = 'textarea';
             $config[391]['valuetype'] = 'text';
             $config[391]['default'] = '';
@@ -1859,7 +1859,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[401]['name'] = 'rssout';
             $config[401]['catid'] = '40';
             $config[401]['title'] = '_AM_WEBLINKS_RSSOUT';
-            $config[401]['description'] = '_HAPPY_LINUX_PLUGIN_DESC';
+            $config[401]['description'] = '_HAPPYLINUX_PLUGIN_DESC';
             $config[401]['formtype'] = 'textarea';
             $config[401]['valuetype'] = 'text';
             $config[401]['default'] = '';
@@ -1870,7 +1870,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[411]['name'] = 'kmlout';
             $config[411]['catid'] = '41';
             $config[411]['title'] = '_AM_WEBLINKS_KMLOUT';
-            $config[411]['description'] = '_HAPPY_LINUX_PLUGIN_DESC';
+            $config[411]['description'] = '_HAPPYLINUX_PLUGIN_DESC';
             $config[411]['formtype'] = 'textarea';
             $config[411]['valuetype'] = 'text';
             $config[411]['default'] = '';

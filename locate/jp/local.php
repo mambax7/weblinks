@@ -18,7 +18,7 @@ if (!class_exists('weblinks_locate_jp')) {
     // class weblinks_locate_jp
     // Japan (JP)
     //=========================================================
-    class weblinks_locate_jp extends weblinks_locate_base
+    class weblinks_locate_jp extends LocateBase
     {
         //---------------------------------------------------------
         // constructor

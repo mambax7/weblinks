@@ -11,11 +11,11 @@
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_view_basic')) {
+if (!class_exists('LinkViewBasic')) {
     //=========================================================
-    // class weblinks_link_view_basic
+    // class LinkViewBasic
     //=========================================================
-    class weblinks_link_view_basic extends happy_linux_basic
+    class LinkViewBasic extends Happylinux\BasicObject
     {
         public $_DIRNAME;
         public $_WEBLINKS_URL;
@@ -41,11 +41,11 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
 
-            $this->_myts = MyTextSanitizer::getInstance();
-            $this->_system = happy_linux_system::getInstance();
+            $this->_myts = \MyTextSanitizer::getInstance();
+            $this->_system = Happylinux\System::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
 

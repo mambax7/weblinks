@@ -22,7 +22,7 @@
 
 include 'header.php';
 
-$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('LinkView', WEBLINKS_DIRNAME);
 
 xoops_header(false);
 echo '</head><body>';

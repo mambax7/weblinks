@@ -25,7 +25,7 @@
 
 // 2007-08-01 K.OHWADA
 // google map in b_weblinks_generic_show()
-// happy_linux_sanitize_url()
+// happylinux_sanitize_url()
 // time_create
 
 // 2007-06-01 K.OHWADA
@@ -38,7 +38,7 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
 
 // 2006-11-03 hiro <https://ishinomaki.cc/>
 // add b_weblinks_generic_show()
@@ -57,15 +57,15 @@
 
 $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/sanitize.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_object.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/sanitize.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_object.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/weblinks_constant.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
-include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block_view.php';
-include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block.php';
-include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block_webmap.php';
+//include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block_view.php';
+//include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block.php';
+//include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblinks_block_webmap.php';
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_top_show')) {
@@ -103,15 +103,15 @@ if (!function_exists('b_weblinks_top_show')) {
         $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME;
 
         include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
+        include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
         include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
         include_once $WEBLINKS_ROOT_PATH . '/include/functions.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_config2_basic_handler.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_config2_basic_handler.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
 
         $class = weblinks_block::getSingleton($DIRNAME);
 

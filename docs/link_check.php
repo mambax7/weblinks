@@ -29,7 +29,7 @@
 //---------------------------------------------------------
 // environment
 //---------------------------------------------------------
-$WEBLINKS_PATH = dirname(dirname(__FILE__));
+$WEBLINKS_PATH = dirname(__DIR__);
 $WEBLINKS_DIRNAME = basename($WEBLINKS_PATH);
 $XOOPS_ROOT_PATH = dirname(dirname($WEBLINKS_PATH));
 

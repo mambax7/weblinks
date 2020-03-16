@@ -16,8 +16,8 @@
 //================================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_forum_sel')) {
-    function &weblinks_plugin_forum_sel()
+if (!function_exists('Plugin_forum_sel')) {
+    function &Plugin_forum_sel()
     {
         $sel = [];
 

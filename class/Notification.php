@@ -15,11 +15,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_notification')) {
+if (!class_exists('Notification')) {
     //=========================================================
-    // class weblinks_notification
+    // class Notification
     //=========================================================
-    class weblinks_notification extends Happylinux\Error
+    class Notification extends Happylinux\Error
     {
         public $_WEBLINKS_URL;
 
@@ -46,8 +46,8 @@ if (!class_exists('weblinks_notification')) {
 
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_category_handler = weblinks_get_handler('category', $dirname);
-            $this->_notification_handler = xoops_get_handler('notification');
+            $this->_category_handler = handler('Category', $dirname);
+            $this->_notification_handler = xoops_getHandler('notification');
         }
 
         public static function getInstance($dirname = null)

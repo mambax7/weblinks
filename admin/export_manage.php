@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: export_manage.php,v 1.4 2007/11/11 03:22:59 ohwada Exp $
 
 // 2007-11-01 K.OHWADA

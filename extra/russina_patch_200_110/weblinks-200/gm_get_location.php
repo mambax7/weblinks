@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: gm_get_location.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-12 K.OHWADA
@@ -40,19 +43,19 @@
 include 'header.php';
 include_once XOOPS_ROOT_PATH . '/class/template.php';
 
-$config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$system = happy_linux_system::getInstance();
-$post = happy_linux_post::getInstance();
-$strings = happy_linux_strings::getInstance();
+$config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
+$system         = Happylinux\System::getInstance();
+$post           = Happylinux\Post::getInstance();
+$strings        = Happylinux\Strings::getInstance();
 
 $mode = $post->get_get_text('mode');
 $conf = $config_handler->get_conf();
 
 $lang_current_address = 'current_address';
-$lang_search_list = 'search_list';
+$lang_search_list     = 'search_list';
 
-$map_height = 300;
-$show_close = false;
+$map_height    = 300;
+$show_close    = false;
 $show_disp_off = false;
 
 // opener mode
@@ -60,11 +63,11 @@ if (('' == $mode) || ('opener' == $mode)) {
     $map_height = 450;
     $show_close = true;
 } elseif ('parent' == $mode) {
-    $map_height = 300;
+    $map_height    = 300;
     $show_disp_off = true;
 }
 
-$lang_title_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8(_WEBLINKS_GM_GET_LOCATION), ENT_QUOTES);
+$lang_title_utf8_s  = htmlspecialchars(happy_linux_convert_to_utf8(_WEBLINKS_GM_GET_LOCATION), ENT_QUOTES);
 $gm_location_utf8_s = htmlspecialchars(happy_linux_convert_to_utf8($conf['gm_location']), ENT_QUOTES);
 
 /* CDS Patch. Weblinks. 2.00. 1. BOF */
@@ -83,7 +86,7 @@ if ($conf['gm_apikey']) {
     /* CDS Patch. Weblinks. 2.00. 2. BOF */
     include $GLOBALS['xoops']->path('header.php');
     $tpl = $xoopsTpl;
-    //$tpl = new XoopsTpl();
+    //$tpl = new \XoopsTpl();
     /* CDS Patch. Weblinks. 2.00. 2. EOF */
 
     // java script

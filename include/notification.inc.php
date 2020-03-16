@@ -30,7 +30,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_notify_iteminfo( $category, $item_id )
 {
-    return weblinks_notify_iteminfo_base( "' . $WEBLINKS_DIRNAME . '" , $category, $item_id ) ;
+    return weblinks_notify_iteminfo_base( \'' . $WEBLINKS_DIRNAME . '\' , $category, $item_id ) ;
 }
 
 '

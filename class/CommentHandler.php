@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_comment_handler.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
+// $Id: CommentHandler.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -12,13 +12,13 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_comment_handler')) {
+if (!class_exists('CommentHandler')) {
     include_once XOOPS_ROOT_PATH . '/include/comment_constants.php';
 
     //=========================================================
-    // class weblinks_comment_handler
+    // class CommentHandler
     //=========================================================
-    class weblinks_comment_handler
+    class CommentHandler
     {
         public $_db;
         public $_comment_handler;
@@ -34,7 +34,7 @@ if (!class_exists('weblinks_comment_handler')) {
         {
             global $xoopsModule;
 
-            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
+            $this->_db = \XoopsDatabaseFactory::getDatabaseConnection();
             $this->_comment_handler = xoops_getHandler('comment');
             $this->_member_handler = xoops_getHandler('member');
             $this->_mid = $xoopsModule->getVar('mid');

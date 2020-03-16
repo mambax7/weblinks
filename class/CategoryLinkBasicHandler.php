@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_catlink_basic_handler.php,v 1.1 2007/03/06 02:02:39 ohwada Exp $
+// $Id: CategoryLinkBasicHandler.php,v 1.1 2007/03/06 02:02:39 ohwada Exp $
 
 // 2007-03-01 K.OHWADA
 // divid from weblinks_catlink_handler
@@ -15,11 +15,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_catlink_basic_handler')) {
+if (!class_exists('CategoryLinkBasicHandler')) {
     //=========================================================
-    // class weblinks_catlink_basic_handler
+    // class CategoryLinkBasicHandler
     //=========================================================
-    class weblinks_catlink_basic_handler extends Happylinux\BasicHandler
+    class CategoryLinkBasicHandler extends Happylinux\BasicHandler
     {
         //---------------------------------------------------------
         // constructor

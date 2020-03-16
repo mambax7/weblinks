@@ -1,9 +1,12 @@
 <?php
+
+use XoopsModules\Weblinks;
+
 // $Id: catlist.php,v 1.13 2007/11/16 12:07:57 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // cat_view_handler
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-08-01 K.OHWADA
 // weblinks_header
@@ -29,9 +32,9 @@
 
 include 'header.php';
 
-$weblinks_view_handler = weblinks_getHandler('cat_view', WEBLINKS_DIRNAME);
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_view_handler = handler('CatView', WEBLINKS_DIRNAME);
+$weblinks_template = Weblinks\Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);
 
 //---------------------------------------------------------
 // main
@@ -61,7 +64,7 @@ foreach ($catlist as $cat) {
     $xoopsTpl->append('categories', $cat);
 }
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

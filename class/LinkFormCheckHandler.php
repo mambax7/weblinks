@@ -16,7 +16,7 @@ use XoopsModules\Happylinux;
 // check_form_approve_mod()
 
 // 2007-09-11 K.OHWADA
-// BUG 4702: Notice [PHP]: Use of undefined constant HAPPY_LINUX_RSS_MODE_RDF
+// BUG 4702: Notice [PHP]: Use of undefined constant HAPPYLINUX_RSS_MODE_RDF
 
 // 2007-08-25 K.OHWADA
 // _check_rss_url_by_post()
@@ -51,11 +51,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_form_check_handler')) {
+if (!class_exists('LinkFormCheckHandler')) {
     //=========================================================
-    // class weblinks_link_form_check_handler
+    // class LinkFormCheckHandler
     //=========================================================
-    class weblinks_link_form_check_handler extends Happylinux\Error
+    class LinkFormCheckHandler extends Happylinux\Error
     {
         public $_DIRNAME;
 
@@ -86,12 +86,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_get_handler('link', $dirname);
-            $this->_linkitem_handler = weblinks_get_handler('linkitem_define', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('Link', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('LinkitemDefine', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
-            $this->_post = happy_linux_post::getInstance();
+            $this->_post = Happylinux\Post::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
         }
@@ -176,7 +176,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                         $this->_check_banner_by_post($name, $title, $mode);
                         break;
                     case 'rss_url':
-                        // BUG 4702: Notice [PHP]: Use of undefined constant HAPPY_LINUX_RSS_MODE_RDF
+                        // BUG 4702: Notice [PHP]: Use of undefined constant HAPPYLINUX_RSS_MODE_RDF
                         if (WEBLINKS_RSSC_USE) {
                             $this->_check_rss_url_by_post($name, $title, $mode);
                         }
@@ -375,13 +375,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $flag_check_fill = false;
 
             switch ($this->_post->get_post_int('rss_flag')) {
-                case HAPPY_LINUX_RSS_MODE_RDF:
-                case HAPPY_LINUX_RSS_MODE_RSS:
-                case HAPPY_LINUX_RSS_MODE_ATOM:
-                case HAPPY_LINUX_RSS_MODE_AUTO:
+                case HAPPYLINUX_RSS_MODE_RDF:
+                case HAPPYLINUX_RSS_MODE_RSS:
+                case HAPPYLINUX_RSS_MODE_ATOM:
+                case HAPPYLINUX_RSS_MODE_AUTO:
                     $flag_check_fill = true;
                     break;
-                case HAPPY_LINUX_RSS_MODE_NON:
+                case HAPPYLINUX_RSS_MODE_NON:
                 default:
                     $flag_check_fill = false;
                     break;

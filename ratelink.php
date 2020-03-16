@@ -44,12 +44,12 @@
 //================================================================
 
 include 'header_oh.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_votedata_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_votedata_handler.php';
 
 //=========================================================
 // class weblinks_ratelink
 //=========================================================
-class weblinks_ratelink extends happy_linux_error
+class weblinks_ratelink extends Happylinux\Error
 {
     public $_ALLOW_INCREMENT_POST = false;
     public $_MIN_RATING = 1;
@@ -83,14 +83,14 @@ class weblinks_ratelink extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
-        $this->_votedata_handler = weblinks_getHandler('votedata', $dirname);
-        $this->_auth = weblinks_auth::getInstance($dirname);
+        $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
+        $this->_link_handler = weblinks_get_handler('Link', $dirname);
+        $this->_votedata_handler = handler('Votedata', $dirname);
+        $this->_auth = Auth::getInstance($dirname);
 
-        $this->_system = happy_linux_system::getInstance();
-        $this->_post = happy_linux_post::getInstance();
-        $this->_form = happy_linux_form::getInstance();
+        $this->_system = Happylinux\System::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
+        $this->_form = Happylinux\Form::getInstance();
     }
 
     public static function getInstance($dirname = null)
@@ -282,8 +282,8 @@ class weblinks_ratelink extends happy_linux_error
 // main
 //=========================================================
 
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_ratelink = weblinks_ratelink::getInstance(WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off

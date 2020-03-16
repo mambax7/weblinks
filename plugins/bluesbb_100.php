@@ -18,8 +18,8 @@
 //=========================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
-    function &weblinks_plugin_forums_bluesbb_100()
+if (!function_exists('Plugin_forums_bluesbb_100')) {
+    function &Plugin_forums_bluesbb_100()
     {
         global $xoopsDB;
 
@@ -49,10 +49,10 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         return $arr;
     }
 
-    function &weblinks_plugin_threads_bluesbb_100($opts)
+    function &Plugin_threads_bluesbb_100($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
@@ -80,7 +80,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
 
         // BUG : not show when all forum
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql1 .= ' WHERE topic_id=' . (int)$forum_id_in;
+            $sql1 .= ' WHERE topic_id=' . $forum_id_in;
         }
 
         $res1 = $xoopsDB->query($sql1);
@@ -113,7 +113,7 @@ if (!function_exists('weblinks_plugin_forums_bluesbb_100')) {
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bluesbb');
         $sql2 .= ' WHERE res_id = 0 ';
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' AND topic_id=' . (int)$forum_id_in;
+            $sql2 .= ' AND topic_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY post_time ' . $post_order;
 

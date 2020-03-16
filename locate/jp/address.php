@@ -7,12 +7,12 @@
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_address_jp')) {
+if (!class_exists('Address_jp')) {
     //=========================================================
-    // class weblinks_address_jp
+    // class Address_jp
     // Japan (JP)
     //=========================================================
-    class weblinks_address_jp
+    class Address_jp
     {
         //---------------------------------------------------------
         // constructor

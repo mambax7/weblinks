@@ -29,14 +29,14 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_menu')) {
+if (!class_exists('Menu')) {
     //=========================================================
-    // class weblinks_menu
+    // class Menu
     // this class is used by xoops_version.php
     // this class handle MySQL table directly
     // this class does not use another class
     //=========================================================
-    class weblinks_menu
+    class Menu
     {
         // class instance
         public $_db;
@@ -56,7 +56,7 @@ if (!class_exists('weblinks_menu')) {
         public function __construct($dirname)
         {
             // class instance
-            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
+            $this->_db = \XoopsDatabaseFactory::getDatabaseConnection();
 
             $this->_table_config = $this->_db->prefix($dirname . '_config2');
 
@@ -122,7 +122,7 @@ if (!class_exists('weblinks_menu')) {
                 $sql = 'SELECT * FROM ' . $this->_table_config . ' ORDER BY conf_id ASC';
                 $res = $this->_db->query($sql);
 
-                while ($row = $this->_db->fetchArray($res)) {
+                while (false !== ($row = $this->_db->fetchArray($res))) {
                     $arr[$row['conf_name']] = $row['conf_value'];
                 }
             }
@@ -137,7 +137,7 @@ if (!class_exists('weblinks_menu')) {
             $sql = 'SELECT * FROM ' . $this->_table_category . ' WHERE pid=0 ORDER BY orders, cid';
             $res = $this->_db->query($sql);
 
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 // hack for multi language
                 if ($this->_flag_replace) {
                     $title_multi = $row[$this->_replace_cat_title];
@@ -166,7 +166,7 @@ if (!class_exists('weblinks_menu')) {
 
             $table_name = mb_strtolower($table);
 
-            while ($myrow = $this->_db->fetchRow($res)) {
+            while (false !== ($myrow = $this->_db->fetchRow($res))) {
                 $name = mb_strtolower($myrow[0]);
 
                 if ($name == $table_name) {

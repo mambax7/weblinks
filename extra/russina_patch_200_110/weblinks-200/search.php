@@ -2,7 +2,7 @@
 // $Id: search.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 // BUG: NOT succeed cid
 
 // 2007-09-20 K.OHWADA
@@ -88,12 +88,12 @@ class weblinks_search extends happy_linux_search
     public function __construct($dirname)
     {
         parent::__construct();
-        $this->set_lang_zenkaku(_HAPPY_LINUX_ZENKAKU);
-        $this->set_lang_hankaku(_HAPPY_LINUX_HANKAKU);
+        $this->set_lang_zenkaku(_HAPPYLINUX_ZENKAKU);
+        $this->set_lang_hankaku(_HAPPYLINUX_HANKAKU);
 
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
-        $config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
+        $this->_rssc_handler = weblinks_get_handler('RsscView', $dirname);
+        $config_handler = weblinks_get_handler('Config2Basic', $dirname);
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
@@ -167,12 +167,12 @@ class weblinks_search extends happy_linux_search
     {
         $code = $this->check_build_sql_query_array();
         switch ($code) {
-            case HAPPY_LINUX_SEARCH_CODE_SQL_NO_CAN:
-            case HAPPY_LINUX_SEARCH_CODE_SQL_MERGE:
+            case HAPPYLINUX_SEARCH_CODE_SQL_NO_CAN:
+            case HAPPYLINUX_SEARCH_CODE_SQL_MERGE:
                 $this->_build_sql_search($this->_sql_query_array, null, $this->_sql_andor);
                 $this->_link_query_array = $this->_sql_query_array;
                 break;
-            case HAPPY_LINUX_SEARCH_CODE_SQL_CAN:
+            case HAPPYLINUX_SEARCH_CODE_SQL_CAN:
                 $this->_build_sql_search($this->_query_array, $this->_candidate_keyword_array, $this->_mode_andor);
                 $this->_link_query_array = $this->_query_array;
                 break;
@@ -331,8 +331,8 @@ class weblinks_search extends happy_linux_search
 // main
 //================================================================
 
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_search = weblinks_search::getInstance(WEBLINKS_DIRNAME);
 
 // --- template start ---
@@ -471,7 +471,7 @@ $xoopsTpl->assign('feed_found_count', $feed_found_count);
 /* CDS Patch. Weblinks. 2.00. 7. EOF */
 $xoopsTpl->assign('feed_reason', $feed_reason);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit(); // --- main end ---

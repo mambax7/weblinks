@@ -1,5 +1,12 @@
 <?php
-// $Id: rssc_lid_mod.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
+// $Id: RsscLidMod.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -11,7 +18,7 @@
 // $_POST['title'] = $title;
 //-------------------------------
 
-class rssc_lid_mod
+class RsscLidMod
 {
     public $_LIMIT = 200;
 
@@ -32,7 +39,7 @@ class rssc_lid_mod
         $this->_table_rssc_link = $this->_db->prefix($this->_RSSC_DIRNAME . '_link');
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
     }
 
     public function check_admin()
@@ -194,14 +201,14 @@ if (WEBLINKS_RSSC_USE) {
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/refresh.php';
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/manage.php';
 
-    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
-    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
+//    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
+//    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
 }
 
 xoops_cp_header();
 
 if (WEBLINKS_RSSC_USE) {
-    $rssc = new rssc_lid_mod(WEBLINKS_DIRNAME);
+    $rssc = new RsscLidMod(WEBLINKS_DIRNAME);
 
     if ($rssc->check_admin()) {
         $rssc->main();

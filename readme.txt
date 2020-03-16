@@ -1038,7 +1038,7 @@ added config options
 5. Bug fix
 (1) 4506: expired links not listed in admin
 (2) 4507: Fatal error: getallchildid() in category_manage.php
-(3) 4508: Fatal error: weblinks_getHandler() in weblinks_top.php
+(3) 4508: Fatal error: weblinks_get_handler() in weblinks_top.php
 (4) 4509: JavaScript error in gm_get_location.php
 (5) 4519: Fatal error: get_cid_array_by_title() in bulk_manage.php
 (6) 4520: dont work newline in textarea

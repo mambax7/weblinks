@@ -38,12 +38,12 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_catlink_basic_handler')) {
+if (!class_exists('LinkCategoryLinkBasicHandler')) {
     //=========================================================
-    // class weblinks_link_catlink_basic_handler
+    // class LinkCategoryLinkBasicHandler
     // handling for table_link & table_catlink
     //=========================================================
-    class weblinks_link_catlink_basic_handler extends Happylinux\BasicHandler
+    class LinkCategoryLinkBasicHandler extends Happylinux\BasicHandler
     {
         public $_table_link;
         public $_table_catlink;
@@ -69,7 +69,7 @@ if (!class_exists('weblinks_link_catlink_basic_handler')) {
             $this->_table_link = $this->prefix('link');
             $this->_table_catlink = $this->prefix('catlink');
 
-            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $config_basic_handler = weblinks_get_handler('Config2Basic', $dirname);
 
             $conf = $config_basic_handler->get_conf();
             $this->_conf_broken = $conf['broken_threshold'];

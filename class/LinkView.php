@@ -54,11 +54,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_view')) {
+if (!class_exists('LinkView')) {
     //=========================================================
-    // class weblinks_link_view
+    // class LinkView
     //=========================================================
-    class weblinks_link_view extends weblinks_link_view_basic
+    class LinkView extends LinkViewBasic
     {
         // handler
         public $_category_handler;
@@ -80,16 +80,16 @@ if (!class_exists('weblinks_link_view')) {
         {
             parent::__construct($dirname);
 
-            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
-            $this->_catlink_handler = weblinks_get_handler('catlink_basic', $dirname);
-            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
-            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
-            $this->_rssc_handler = weblinks_get_handler('rssc_view', $dirname);
-            $this->_auth = weblinks_auth::getInstance($dirname);
-            $this->_webmap_class = weblinks_webmap::getInstance($dirname);
+            $this->_category_handler = weblinks_get_handler('CategoryBasic', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('CategoryLinkBasic', $dirname);
+            $this->_banner_handler = handler('Banner', $dirname);
+            $this->_pagerank_handler = handler('Pagerank', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('RsscView', $dirname);
+            $this->_auth = Auth::getInstance($dirname);
+            $this->_webmap_class = Webmap::getInstance($dirname);
 
-            $this->_lang = happy_linux_language_factory::getInstance();
-            $this->_highlight = happy_linux_highlight::getInstance();
+            $this->_lang = Happylinux\LanguageFactory::getInstance();
+            $this->_highlight = Happylinux\Highlight::getInstance();
 
             $this->_highlight->set_replace_callback('happy_linux_highlighter_by_class');
             $this->_highlight->set_class('weblinks_highlight');

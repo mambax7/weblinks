@@ -4,7 +4,7 @@ namespace XoopsModules\Weblinks;
 
 use XoopsModules\Happylinux;
 
-// $Id: weblinks_config2_basic_handler.php,v 1.14 2007/11/02 11:36:29 ohwada Exp $
+// $Id: Config2BasicHandler.php,v 1.14 2007/11/02 11:36:29 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // move show_modify to weblinks_auth
@@ -52,13 +52,13 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_config2_basic_handler')) {
+if (!class_exists('Config2BasicHandler')) {
     //=========================================================
-    // class weblinks_config2_basic_handler
+    // class Config2BasicHandler
     // this class handle MySQL table directly
     // this class does not use another class
     //=========================================================
-    class weblinks_config2_basic_handler extends Happylinux\BasicHandler
+    class Config2BasicHandler extends Happylinux\BasicHandler
     {
         public $_system;
 
@@ -76,7 +76,7 @@ if (!class_exists('weblinks_config2_basic_handler')) {
             $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
             $this->set_debug_print_time(WEBLINKS_DEBUG_TIME);
 
-            $this->_system = happy_linux_system::getInstance();
+            $this->_system = Happylinux\System::getInstance();
         }
 
         //---------------------------------------------------------
@@ -94,8 +94,8 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         public function load_config()
         {
             if ($this->get_debug_print_time()) {
-                $happy_linux_time = happy_linux_time::getInstance();
-                $happy_linux_time->print_lap_time('weblinks_config2_basic_handler');
+                $happy_linux_time = @\XoopsModules\Happylinux\Time::getInstance();
+                $happy_linux_time->print_lap_time('Config2BasicHandler');
             }
 
             $arr = &$this->_get_config_data();

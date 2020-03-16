@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_build_rss_handler.php,v 1.8 2008/02/28 02:52:17 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: BuildRssHandler.php,v 1.8 2008/02/28 02:52:17 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // weblinks_htmlout
@@ -28,11 +30,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_build_rss_handler')) {
+if (!class_exists('BuildRssHandler')) {
     //=========================================================
-    // class weblinks_build_rss_handler
+    // class BuildRssHandler
     //=========================================================
-    class weblinks_build_rss_handler extends happy_linux_build_rss
+    class BuildRssHandler extends Happylinux\BuildRss
     {
         public $_MAX_ITEMS = 20;
         public $_DIRNAME;
@@ -67,10 +69,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $this->set_flag_default_timezone(true);
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
-            $this->_link_view = weblinks_link_view::getInstance($dirname);
-            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
+            $this->_link_view = LinkView::getInstance($dirname);
+            $this->_htmlout = Htmlout::getInstance($dirname);
 
             $this->_conf = $this->_config_handler->get_conf();
             $this->_htmlout->add_plugin_line('rssout', $this->_conf['rssout']);
@@ -168,7 +170,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // RDF
         //---------------------------------------------------------
-        public function &_build_rdf_item(&$item)
+        public function &_build_rdf_item($item)
         {
             $ret = &$this->_build_rdf_item_default($item);
 
@@ -178,7 +180,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // RSS
         //---------------------------------------------------------
-        public function &_build_rss_item(&$item)
+        public function &_build_rss_item($item)
         {
             $ret = &$this->_build_rss_item_default($item);
 
@@ -188,7 +190,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // ATOM
         //---------------------------------------------------------
-        public function &_build_atom_entry(&$entry)
+        public function &_build_atom_entry($entry)
         {
             $ret = &$this->_build_atom_entry_default($entry);
 
@@ -198,7 +200,7 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // common
         //---------------------------------------------------------
-        public function &_build_common_item(&$item)
+        public function &_build_common_item($item)
         {
             // title content
             $title_xml = $this->_build_xml_title($item['title']);

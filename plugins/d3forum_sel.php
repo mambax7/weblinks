@@ -10,8 +10,8 @@
 //================================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_d3forum_sel')) {
-    function &weblinks_plugin_d3forum_sel()
+if (!function_exists('Plugin_d3forum_sel')) {
+    function &Plugin_d3forum_sel()
     {
         $sel = [];
 

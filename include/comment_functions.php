@@ -29,7 +29,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_com_update( $lid, $comments )
 {
-    return weblinks_com_update_base( "' . $WEBLINKS_DIRNAME . '" , $lid, $comments ) ;
+    return weblinks_com_update_base( \'' . $WEBLINKS_DIRNAME . '\' , $lid, $comments ) ;
 }
 
 '

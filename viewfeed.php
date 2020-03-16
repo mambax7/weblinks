@@ -2,7 +2,7 @@
 // $Id: viewfeed.php,v 1.16 2007/11/16 12:07:57 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 
 // 2007-08-01 K.OHWADA
 // weblinks_header
@@ -35,10 +35,10 @@
 //================================================================
 
 include 'header.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/pagenavi.php';
 
-$weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
-$weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
+$weblinks_template = Template::getInstance(WEBLINKS_DIRNAME);
+$weblinks_header = Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_viewfeed = weblinks_viewfeed::getInstance();
 
 if (!WEBLINKS_RSSC_EXIST) {
@@ -85,8 +85,8 @@ if ($total > 0) {
     }
 }
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---
@@ -107,12 +107,12 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     public function __construct()
     {
-        $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
         $this->_conf = $config_handler->get_conf();
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
-        $this->_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
+        $this->_rssc_handler = weblinks_get_handler('RsscView', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()

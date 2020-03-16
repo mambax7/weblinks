@@ -19,8 +19,8 @@
 // 2004-11-28 K.OHWADA
 //=========================================================
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/sanitize.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/sanitize.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_atom_show')) {
@@ -148,8 +148,8 @@ if (!function_exists('b_weblinks_atom_show')) {
             }
 
             $feed['date'] = $date;
-            $feed['site_url'] = happy_linux_sanitize_url($site_url);
-            $feed['url'] = happy_linux_sanitize_url($url);
+            $feed['site_url'] = happylinux_sanitize_url($site_url);
+            $feed['url'] = happylinux_sanitize_url($url);
             $feed['site_title'] = happy_linux_sanitize_text($site_title);
             $feed['title'] = happy_linux_sanitize_text($title);
             $feed['summary'] = happy_linux_sanitize_text($summary);
@@ -313,7 +313,7 @@ if (!function_exists('b_weblinks_atom_show')) {
 
             $feed['content'] = $content;
             $feed['date'] = $date;
-            $feed['url'] = happy_linux_sanitize_url($url);
+            $feed['url'] = happylinux_sanitize_url($url);
             $feed['title'] = happy_linux_sanitize_text($title);
             $feed['summary'] = happy_linux_sanitize_text($summary);
 
@@ -327,7 +327,7 @@ if (!function_exists('b_weblinks_atom_show')) {
 
         $block['feed_show'] = 1;
         $block['num_content'] = $num_content;
-        $block['site_url'] = happy_linux_sanitize_url($site_url);
+        $block['site_url'] = happylinux_sanitize_url($site_url);
         $block['site_title'] = happy_linux_sanitize_text($site_title);
 
         return $block;

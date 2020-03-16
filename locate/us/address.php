@@ -7,12 +7,12 @@
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_address_us')) {
+if (!class_exists('Address_us')) {
     //=========================================================
-    // class weblinks_address_us
+    // class Address_us
     // USA (JS)
     //=========================================================
-    class weblinks_address_us
+    class Address_us
     {
         //---------------------------------------------------------
         // constructor

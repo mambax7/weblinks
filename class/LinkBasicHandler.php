@@ -31,11 +31,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_basic_handler')) {
+if (!class_exists('LinkBasicHandler')) {
     //=========================================================
-    // class weblinks_link_basic_handler
+    // class LinkBasicHandler
     //=========================================================
-    class weblinks_link_basic_handler extends weblinks_link_bin_handler
+    class LinkBasicHandler extends LinkBinHandler
     {
         public $_strings;
 
@@ -48,8 +48,8 @@ if (!class_exists('weblinks_link_basic_handler')) {
         {
             parent::__construct($dirname);
 
-            $config_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_strings = happy_linux_strings::getInstance();
+            $config_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_strings = Happylinux\Strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
         }

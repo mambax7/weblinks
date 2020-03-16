@@ -2,7 +2,9 @@
 
 namespace XoopsModules\Weblinks;
 
-// $Id: weblinks_block_view.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
+use XoopsModules\Happylinux;
+
+// $Id: BlockView.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -10,11 +12,11 @@ namespace XoopsModules\Weblinks;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_block_view')) {
+if (!class_exists('BlockView')) {
     //=========================================================
-    // class weblinks_block_view
+    // class BlockView
     //=========================================================
-    class weblinks_block_view extends happy_linux_basic
+    class BlockView extends Happylinux\BasicObject
     {
         public $_myts;
 
@@ -26,7 +28,7 @@ if (!class_exists('weblinks_block_view')) {
         public function __construct()
         {
             parent::__construct();
-            $this->_myts = MyTextSanitizer::getInstance();
+            $this->_myts = \MyTextSanitizer::getInstance();
         }
 
         public static function getInstance()

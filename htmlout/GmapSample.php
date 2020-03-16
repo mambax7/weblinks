@@ -16,8 +16,8 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_htmlout_gmap_sample')) {
-    class weblinks_htmlout_gmap_sample extends weblinks_htmlout_base
+if (!class_exists('GmapSample')) {
+    class GmapSample extends HtmloutBase
     {
         public $_MAX_TITLE_DEFAULT = -1;
         public $_MAX_DESC_DEFAULT = 100;

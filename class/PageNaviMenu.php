@@ -24,11 +24,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_pagenavi_menu')) {
+if (!class_exists('PageNaviMenu')) {
     //=========================================================
-    // class weblinks_pagenavi_menu
+    // class PageNaviMenu
     //=========================================================
-    class weblinks_pagenavi_menu extends happy_linux_pagenavi
+    class PageNaviMenu extends Happylinux\PageNavi
     {
         //---------------------------------------------------------
         // constructor

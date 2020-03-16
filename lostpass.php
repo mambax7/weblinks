@@ -37,7 +37,7 @@ include 'header_oh.php';
 //=========================================================
 // class weblinks_lostpass
 //=========================================================
-class weblinks_lostpass extends happy_linux_error
+class weblinks_lostpass extends Happylinux\Error
 {
     public $_DIRNAME;
 
@@ -70,12 +70,12 @@ class weblinks_lostpass extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
+        $this->_link_handler = weblinks_get_handler('Link', $dirname);
 
-        $this->_mail_template = happy_linux_mail_template::getInstance($dirname);
-        $this->_system = happy_linux_system::getInstance();
-        $this->_post = happy_linux_post::getInstance();
-        $this->_form = happy_linux_form::getInstance();
+        $this->_mail_template = Happylinux\MailTemplate::getInstance($dirname);
+        $this->_system = Happylinux\System::getInstance();
+        $this->_post = Happylinux\Post::getInstance();
+        $this->_form = Happylinux\Form::getInstance();
     }
 
     public static function getInstance($dirname = null)
@@ -155,7 +155,7 @@ class weblinks_lostpass extends happy_linux_error
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $this->_DIRNAME;
         $entry = $WEBLINKS_URL . '/modlink.php?lid=' . $this->_post_lid . '&code=' . $this->_passwd;
 
-        $xoopsMailer = &getMailer();
+        $xoopsMailer = getMailer();
         $xoopsMailer->useMail();
         $xoopsMailer->setTemplateDir($dir_tpl);
         $xoopsMailer->setTemplate($file_tpl);

@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: link_csv.php,v 1.2 2012/04/10 19:47:02 ohwada Exp $
 
 //=========================================================
@@ -8,9 +15,9 @@
 
 include '../../../include/cp_header.php';
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/html.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/html.php';
 
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 
@@ -38,7 +45,7 @@ if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/admin.ph
 //=========================================================
 // class link_csv
 //=========================================================
-class link_csv
+class LinkCsv
 {
     public $_db;
     public $_system_class;
@@ -148,7 +155,7 @@ class link_csv
         $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
         $this->_user_handler = xoops_getHandler('user');
 
-        $this->_system_class = happy_linux_system::getInstance();
+        $this->_system_class = Happylinux\System::getInstance();
         $this->_html_class = happy_linux_html::getInstance();
 
         $this->_table_xoops_users = $this->_db->prefix('users');
@@ -704,7 +711,7 @@ EOF;
         }
 
         $arr = [];
-        while ($row = $this->_db->fetchArray($res)) {
+        while (false !== ($row = $this->_db->fetchArray($res))) {
             $arr[] = $row;
         }
 
@@ -773,7 +780,7 @@ EOF;
 //=========================================================
 // main
 //=========================================================
-$csv = link_csv::getInstance(WEBLINKS_DIRNAME);
+$csv = LinkCsv::getInstance(WEBLINKS_DIRNAME);
 
 $csv->main();
 exit();

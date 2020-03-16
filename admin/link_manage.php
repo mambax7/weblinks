@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: link_manage.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -70,42 +77,42 @@ include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
 include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 include_once XOOPS_ROOT_PATH . '/class/template.php';
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/remote_image.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/post.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/highlight.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/html.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/form.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/form_lib.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_validater.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/manage.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/remote_image.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/post.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/highlight.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/html.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/form.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/form_lib.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_validater.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/manage.php';
 
-//include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/browser.php';
-//include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/search.php';
-//include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/pagenavi.php';
-//include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/page_frame.php';
+//include_once XOOPS_ROOT_PATH.'/modules/happylinux/class/browser.php';
+//include_once XOOPS_ROOT_PATH.'/modules/happylinux/class/search.php';
+//include_once XOOPS_ROOT_PATH.'/modules/happylinux/class/pagenavi.php';
+//include_once XOOPS_ROOT_PATH.'/modules/happylinux/class/page_frame.php';
 
 include_once WEBLINKS_ROOT_PATH . '/plugins/d3forum_sel.php';
 include_once WEBLINKS_ROOT_PATH . '/plugins/forum_sel.php';
 include_once WEBLINKS_ROOT_PATH . '/plugins/album_sel.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_menu.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_auth.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_header.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_view.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_notification.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view_basic.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_edit.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_edit_base_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_admin_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_check_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_menu.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_auth.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_header.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_view.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_notification.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view_basic.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_edit.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_edit_base_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_admin_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_form_check_handler.php';
 
 if (WEBLINKS_RSSC_USE) {
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/lang_main.php';
@@ -113,424 +120,10 @@ if (WEBLINKS_RSSC_USE) {
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/refresh.php';
     include_once WEBLINKS_RSSC_ROOT_PATH . '/api/manage.php';
 
-    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
-    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
+//    include_once WEBLINKS_ROOT_PATH . '/class/weblinks_rssc_handler.php';
+//    include_once WEBLINKS_ROOT_PATH . '/admin/rssc_manage_class.php';
 }
 
-//=========================================================
-// class admin_link_manage
-//=========================================================
-class admin_link_menu
-{
-    public $_category_handler;
-    public $_link_add;
-    public $_link_mod;
-    public $_link_del;
-    public $_link_clone;
-    public $_modify_new;
-    public $_modify_mod;
-    public $_modify_del;
-    public $_modify_notify;
-    public $_rssc_manage;
-
-    //---------------------------------------------------------
-    // constructor
-    //---------------------------------------------------------
-    public function __construct()
-    {
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-    }
-
-    public static function getInstance()
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    //---------------------------------------------------------
-    // POST param
-    //---------------------------------------------------------
-    public function get_post_op()
-    {
-        $op = 'main';
-        if (isset($_POST['del_link'])) {
-            $op = 'del_link';
-        } elseif (isset($_POST['delete_link'])) {
-            $op = 'del_link';
-        } elseif (isset($_POST['del_form'])) {
-            $op = 'del_form';
-        } elseif (isset($_POST['refuse_new'])) {
-            $op = 'refuse_new';
-        } elseif (isset($_POST['refuse_mod'])) {
-            $op = 'refuse_mod';
-        } elseif (isset($_POST['refuse_del'])) {
-            $op = 'refuse_del';
-        } elseif (isset($_POST['clone_link'])) {
-            $op = 'clone_link';
-        } elseif (isset($_POST['clone_module'])) {
-            $op = 'clone_module';
-        } elseif (isset($_POST['ignore'])) {
-            $op = 'ignore';
-        } elseif (isset($_POST['cancel'])) {
-            $op = 'cancel';
-        } elseif (isset($_POST['op'])) {
-            $op = $_POST['op'];
-        } elseif (isset($_GET['op'])) {
-            $op = $_GET['op'];
-        }
-
-        return $op;
-    }
-
-    //---------------------------------------------------------
-    // init
-    //---------------------------------------------------------
-    public function init()
-    {
-        $this->_category_handler->load();
-    }
-
-    //---------------------------------------------------------
-    // add link
-    //---------------------------------------------------------
-    public function _include_link_add()
-    {
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_add_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_add_class.php';
-
-        $this->_link_add = admin_link_add::getInstance();
-    }
-
-    public function add_form()
-    {
-        $this->_include_link_add();
-        $this->_link_add->add_form();
-    }
-
-    public function add_link()
-    {
-        $this->_include_link_add();
-        $this->_link_add->add_link();
-    }
-
-    public function add_banner()
-    {
-        $this->_include_link_add();
-        $this->_link_add->add_banner();
-    }
-
-    public function update_cat_form()
-    {
-        $this->_include_link_add();
-        $this->_link_add->update_cat_form();
-    }
-
-    public function update_cat()
-    {
-        $this->_include_link_add();
-        $this->_link_add->update_cat();
-    }
-
-    //---------------------------------------------------------
-    // mod link
-    //---------------------------------------------------------
-    public function _include_link_mod()
-    {
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/page_frame.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_mod_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_votedata_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_mod_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/votedata_list_class.php';
-
-        $this->_link_mod = admin_link_mod::getInstance();
-    }
-
-    public function mod_form()
-    {
-        $this->_include_link_mod();
-        $this->_link_mod->mod_form();
-    }
-
-    public function mod_link()
-    {
-        $this->_include_link_mod();
-        $this->_link_mod->mod_link();
-    }
-
-    public function mod_banner()
-    {
-        $this->_include_link_mod();
-        $this->_link_mod->mod_banner();
-    }
-
-    //---------------------------------------------------------
-    // del link
-    //---------------------------------------------------------
-    public function _include_link_del()
-    {
-        $this->_include_template();
-
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_del_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_del_class.php';
-
-        $this->_link_del = admin_link_del::getInstance();
-    }
-
-    public function _include_template()
-    {
-        // BUG : Fatal error: Undefined class name 'happy_linux_keyword' in weblinks_template.php
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/keyword.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/browser.php';
-
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_template.php';
-    }
-
-    public function del_form()
-    {
-        $this->_include_link_del();
-        $this->_link_del->del_form();
-    }
-
-    public function del_link()
-    {
-        $this->_include_link_del();
-        $this->_link_del->del_link();
-    }
-
-    //---------------------------------------------------------
-    // clone link
-    //---------------------------------------------------------
-    public function _include_link_clone()
-    {
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_add_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_add_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_clone_class.php';
-
-        $this->_link_clone = admin_link_clone::getInstance();
-    }
-
-    public function clone_link()
-    {
-        $this->_include_link_clone();
-        $this->_link_clone->clone_link();
-    }
-
-    public function clone_module()
-    {
-        $this->_include_link_clone();
-        $this->_link_clone->clone_module();
-    }
-
-    public function clone_module_to()
-    {
-        $this->_include_link_clone();
-        $this->_link_clone->clone_module_to();
-    }
-
-    public function clone_module_from()
-    {
-        $this->_include_link_clone();
-        $this->_link_clone->clone_module_from();
-    }
-
-    //---------------------------------------------------------
-    // rssc manage
-    //---------------------------------------------------------
-    public function _include_rssc_manage()
-    {
-        $this->_rssc_manage = admin_rssc_manage::getInstance();
-    }
-
-    public function add_rssc()
-    {
-        $this->_include_rssc_manage();
-        $this->_rssc_manage->add_rssc();
-    }
-
-    public function mod_rssc()
-    {
-        $this->_include_rssc_manage();
-        $this->_rssc_manage->mod_rssc();
-    }
-
-    public function refresh_rssc()
-    {
-        $this->_include_rssc_manage();
-        $this->_rssc_manage->refresh_link();
-    }
-
-    //---------------------------------------------------------
-    // modify new
-    //---------------------------------------------------------
-    public function _include_modify_new()
-    {
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_add_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/admin_header_mail.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_add_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_new_class.php';
-
-        $this->_modify_new = admin_modify_new::getInstance();
-    }
-
-    public function list_new()
-    {
-        $this->_include_modify_new();
-        $this->_modify_new->list_new();
-    }
-
-    public function approve_new()
-    {
-        $this->_include_modify_new();
-        $this->_modify_new->approve_new();
-    }
-
-    public function refuse_new()
-    {
-        $this->_include_modify_new();
-        $this->_modify_new->refuse_new();
-    }
-
-    //---------------------------------------------------------
-    // modify mod
-    //---------------------------------------------------------
-    public function _include_modify_mod()
-    {
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_mod_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/admin_header_mail.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_mod_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_mod_class.php';
-
-        $this->_modify_mod = admin_modify_mod::getInstance();
-    }
-
-    public function list_mod()
-    {
-        $this->_include_modify_mod();
-        $this->_modify_mod->list_mod();
-    }
-
-    public function approve_mod()
-    {
-        $this->_include_modify_mod();
-        $this->_modify_mod->approve_mod();
-    }
-
-    public function refuse_mod()
-    {
-        $this->_include_modify_mod();
-        $this->_modify_mod->refuse_mod();
-    }
-
-    //---------------------------------------------------------
-    // modify del
-    //---------------------------------------------------------
-    public function _include_modify_del()
-    {
-        $this->_include_template();
-
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_del_handler.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/admin_header_mail.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/link_del_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_del_class.php';
-
-        $this->_modify_del = admin_modify_del::getInstance();
-    }
-
-    public function list_del()
-    {
-        $this->_include_modify_del();
-        $this->_modify_del->list_del();
-    }
-
-    public function approve_del_confirm()
-    {
-        $this->_include_modify_del();
-        $this->_modify_del->approve_del_confirm();
-    }
-
-    public function approve_del()
-    {
-        $this->_include_modify_del();
-        $this->_modify_del->approve_del();
-    }
-
-    public function refuse_del()
-    {
-        $this->_include_modify_del();
-        $this->_modify_del->refuse_del();
-    }
-
-    //---------------------------------------------------------
-    // modify del
-    //---------------------------------------------------------
-    public function _include_modify_notify()
-    {
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_base_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/modify_notify_class.php';
-        include_once WEBLINKS_ROOT_PATH . '/admin/admin_header_mail.php';
-
-        $this->_modify_notify = admin_modify_notify::getInstance();
-    }
-
-    public function send_approve_new()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_approve_new();
-    }
-
-    public function send_refuse_new()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_refuse_new();
-    }
-
-    public function send_approve_mod()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_approve_mod();
-    }
-
-    public function send_refuse_mod()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_refuse_mod();
-    }
-
-    public function send_approve_del()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_approve_del();
-    }
-
-    public function send_refuse_del()
-    {
-        $this->_include_modify_notify();
-        $this->_modify_notify->send_refuse_del();
-    }
-
-    // --- class end ---
-}
 
 //=========================================================
 // main
@@ -538,7 +131,7 @@ class admin_link_menu
 // hack for multi site
 weblinks_admin_multi_redirect_jp_site();
 
-$manage = admin_link_menu::getInstance();
+$manage = Admin\LinkMenu::getInstance();
 
 $op = $manage->get_post_op();
 

@@ -72,11 +72,11 @@
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_view_handler')) {
+if (!class_exists('LinkViewHandler')) {
     //=========================================================
-    // class weblinks_link_view_handler
+    // class LinkViewHandler
     //=========================================================
-    class weblinks_link_view_handler extends weblinks_cat_view_handler
+    class LinkViewHandler extends CategoryLinkCountHandler
     {
         public $_link_view;
         public $_plugin;
@@ -101,13 +101,13 @@ if (!class_exists('weblinks_link_view_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_plugin = weblinks_plugin::getInstance($dirname);
-            $this->_htmlout = weblinks_htmlout::getInstance($dirname);
-            $this->_link_view = weblinks_link_view::getInstance($dirname);
+            $this->_plugin = Plugin::getInstance($dirname);
+            $this->_htmlout = Htmlout::getInstance($dirname);
+            $this->_link_view = LinkView::getInstance($dirname);
 
-            $this->_system = happy_linux_system::getInstance();
-            $this->_form = happy_linux_form::getInstance();
-            $this->_time = happy_linux_time::getInstance();
+            $this->_system = Happylinux\System::getInstance();
+            $this->_form = Happylinux\Form::getInstance();
+            $this->_time = @\XoopsModules\Happylinux\Time::getInstance();
 
             $this->_system_is_admin = $this->_system->is_module_admin();
             $this->_system_uid = $this->_system->get_uid();
@@ -134,7 +134,7 @@ if (!class_exists('weblinks_link_view_handler')) {
         public function &get_link_list_latest($limit = 0, $start = 0)
         {
             if ($this->get_debug_print_time()) {
-                $happy_linux_time = happy_linux_time::getInstance();
+                $happy_linux_time = @\XoopsModules\Happylinux\Time::getInstance();
                 $happy_linux_time->print_lap_time('weblinks_link_basic_handler: latest');
             }
 

@@ -17,13 +17,13 @@ include 'header.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_validater.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/mail_template.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_validater.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/mail_template.php';
 
 //---------------------------------------------------------
 // weblinks
 //---------------------------------------------------------
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';

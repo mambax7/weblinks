@@ -2,6 +2,8 @@
 
 namespace XoopsModules\Weblinks;
 
+use XoopsModules\Happylinux;
+
 // $Id: weblinks_category_basic_handler.php,v 1.4 2012/04/11 12:00:10 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -39,7 +41,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
     //=========================================================
     // class table_category
     //=========================================================
-    class weblinks_category_basic_handler extends happy_linux_basic_handler
+    class CategoryBasicHandler extends Happylinux\BasicHandler
     {
         // class
         public $_tree;
@@ -90,8 +92,8 @@ if (!class_exists('weblinks_category_basic_handler')) {
 
             $this->_tree = new \XoopsTree($this->_table, 'cid', 'pid');
 
-            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
-            $this->_strings = happy_linux_strings::getInstance();
+            $config_basic_handler = weblinks_get_handler('Config2Basic', $dirname);
+            $this->_strings = Happylinux\Strings::getInstance();
 
             $this->_conf = $config_basic_handler->get_conf();
         }
@@ -112,7 +114,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
         public function _load_cache()
         {
             if ($this->get_debug_print_time()) {
-                $happy_linux_time = happy_linux_time::getInstance();
+                $happy_linux_time = @\XoopsModules\Happylinux\Time::getInstance();
                 $happy_linux_time->print_lap_time('weblinks_category_basic_handler');
             }
 
@@ -318,7 +320,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 $dobr = $this->_cached[$cid]['dobr'];
 
                 if ($desc) {
-                    $myts = MyTextSanitizer::getInstance();
+                    $myts = \MyTextSanitizer::getInstance();
                     $val = $myts->displayTarea($desc, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);
                 }
             }
@@ -463,7 +465,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
                 switch ($cache['gm_mode']) {
                     // parent
                     case WEBLINKS_C_GM_MODE_PARENT:
-                        continue;
+                        continue2;
                     // config or self
                     case WEBLINKS_C_GM_MODE_DEFAULT:
                     case WEBLINKS_C_GM_MODE_FOLLOWING:

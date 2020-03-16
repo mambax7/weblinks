@@ -23,8 +23,8 @@
 //=========================================================
 
 // --- functions begin ---
-if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
-    function &weblinks_plugin_albums_myalbum_287($opts)
+if (!function_exists('Plugin_albums_myalbum_287')) {
+    function &Plugin_albums_myalbum_287($opts)
     {
         global $xoopsDB;
 
@@ -50,7 +50,7 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
         return $arr;
     }
 
-    function &weblinks_plugin_photos_myalbum_287($opts)
+    function &Plugin_photos_myalbum_287($opts)
     {
         $false = false;
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'myalbum';

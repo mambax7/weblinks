@@ -31,11 +31,11 @@ use XoopsModules\Happylinux;
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_mailer')) {
+if (!class_exists('Mailer')) {
     //=========================================================
-    // class weblinks_mailer
+    // class Mailer
     //=========================================================
-    class weblinks_mailer extends Happylinux\Error
+    class Mailer extends Happylinux\Error
     {
         // class
         public $_mailer;
@@ -163,7 +163,7 @@ if (!class_exists('weblinks_mailer')) {
                 $this->_mailer->headers[] = 'X-Priority: ' . $this->_mailer->priority;
             }
 
-            $this->_mailer->headers[] = 'X-Mailer: PHP/' . phpversion();
+            $this->_mailer->headers[] = 'X-Mailer: PHP/' . PHP_VERSION;
             $this->_mailer->headers[] = 'Return-Path: ' . $this->_mailer->fromEmail;
             $header = implode($this->_mailer->LE, $this->_mailer->headers);
 

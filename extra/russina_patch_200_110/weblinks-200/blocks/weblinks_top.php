@@ -22,7 +22,7 @@
 
 // 2007-08-01 K.OHWADA
 // google map in b_weblinks_generic_show()
-// happy_linux_sanitize_url()
+// happylinux_sanitize_url()
 // time_create
 
 // 2007-06-01 K.OHWADA
@@ -35,7 +35,7 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
 
 // 2006-11-03 hiro <https://ishinomaki.cc/>
 // add b_weblinks_generic_show()
@@ -54,8 +54,8 @@
 
 $WEBLINKS_DIRNAME = basename(dirname(__DIR__));
 
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/sanitize.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/sanitize.php';
+include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/weblinks_constant.php';
 include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/include/functions.php';
 
@@ -470,7 +470,7 @@ if (!function_exists('b_weblinks_top_show')) {
         include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
 
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
         $limit = (int)$options[1];
@@ -582,7 +582,7 @@ if (!function_exists('b_weblinks_top_show')) {
                 $where_catlink = 'cl.cid=' . $cid . ' ';
             } // parent and all children categories
             else {
-                $cattree = new XoopsTree($table_category, 'cid', 'pid');
+                $cattree = new \XoopsTree($table_category, 'cid', 'pid');
                 $cid_array = [];
                 $cid_array = $cattree->getAllChildId($cid);
 
@@ -691,7 +691,7 @@ if (!function_exists('b_weblinks_top_show')) {
 
     function b_weblinks_generic_edit($options)
     {
-        // BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler()
+        // BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler()
 
         // base on W3C
         $SELECTED = 'selected="selected"';
@@ -703,21 +703,21 @@ if (!function_exists('b_weblinks_top_show')) {
         $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $DIRNAME;
 
         include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-        include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
+        include_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//        include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
         include_once $WEBLINKS_ROOT_PATH . '/include/weblinks_constant.php';
         include_once $WEBLINKS_ROOT_PATH . '/include/functions.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_config2_basic_handler.php';
-        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_config2_basic_handler.php';
+//        include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
 
         // config init before get_handler(category)
-        $config_handler = weblinks_getHandler('config2_basic', $DIRNAME);
+        $config_handler = weblinks_get_handler('Config2Basic', $DIRNAME);
         $config_handler->init();
 
-        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
+        $category_handler = weblinks_get_handler('CategoryBasic', $DIRNAME);
         $category_handler->load_once();
 
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -1085,7 +1085,7 @@ if (!function_exists('b_weblinks_top_show')) {
     //---------------------------------------------------------
     function &b_weblinks_build_link($row, $param)
     {
-        $myts = MyTextSanitizer::getInstance();
+        $myts = \MyTextSanitizer::getInstance();
 
         $order = $param['order'];
         $title_length = $param['title_length'];
@@ -1243,8 +1243,8 @@ if (!function_exists('b_weblinks_top_show')) {
             'votes' => $votes,
             'comments' => $comments,
             'width' => $width,
-            'url' => happy_linux_sanitize_url($url),
-            'banner' => happy_linux_sanitize_url($banner),
+            'url' => happylinux_sanitize_url($url),
+            'banner' => happylinux_sanitize_url($banner),
             'date' => formatTimestamp($time_update, 's'),
             'rates' => $rates,
             'title' => $title_s,
@@ -1348,7 +1348,7 @@ if (!function_exists('b_weblinks_top_show')) {
         }
         /* CDS Patch. Weblinks. 2.00. 1. EOF */
 
-        $tpl = new XoopsTpl();
+        $tpl = new \XoopsTpl();
         $tpl->assign('xoops_url', XOOPS_URL);
         $tpl->assign('block', $block);
         $text = $tpl->fetch($template);

@@ -13,8 +13,8 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if (!class_exists('weblinks_htmlout_pagerank_sample')) {
-    class weblinks_htmlout_pagerank_sample extends weblinks_htmlout_base
+if (!class_exists('PagerankSample')) {
+    class PagerankSample extends HtmloutBase
     {
         //---------------------------------------------------------
         // constructor

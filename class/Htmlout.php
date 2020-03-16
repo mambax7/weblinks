@@ -16,7 +16,7 @@ if (!class_exists('Htmlout')) {
     //=========================================================
     // class word
     //=========================================================
-    class Htmlout extends happy_linux_plugin
+    class Htmlout extends Happylinux\Plugin
     {
         //---------------------------------------------------------
         // constructor

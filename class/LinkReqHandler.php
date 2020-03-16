@@ -21,11 +21,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_req_handler')) {
+if (!class_exists('LinkReqHandler')) {
     //=========================================================
-    // class weblinks_link_req_handler
+    // class LinkReqHandler
     //=========================================================
-    class weblinks_link_req_handler extends LinkEditBaseHandler
+    class LinkReqHandler extends LinkEditBaseHandler
     {
         public $_modify_handler;
 
@@ -36,7 +36,7 @@ if (!class_exists('weblinks_link_req_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
+            $this->_modify_handler = handler('Modify', $dirname);
         }
 
         //---------------------------------------------------------
@@ -119,7 +119,7 @@ if (!class_exists('weblinks_link_req_handler')) {
 
         public function &_create_modify_save($isNew = true)
         {
-            $obj = new weblinks_modify_save($this->_DIRNAME);
+            $obj = new ModifySave($this->_DIRNAME);
             if ($isNew) {
                 $obj->setNew();
             }

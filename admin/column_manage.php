@@ -1,4 +1,11 @@
 <?php
+
+use XoopsModules\Weblinks\Admin;
+
+use XoopsModules\Weblinks;
+use XoopsModules\Weblinks\Helper;
+use XoopsModules\Happylinux;
+
 // $Id: column_manage.php,v 1.1 2007/08/08 04:18:25 ohwada Exp $
 
 //=========================================================
@@ -7,224 +14,19 @@
 //=========================================================
 
 include 'admin_header.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/config_base_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/config_define_handler.php';
-include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/config_store_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_define_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_define_handler.php';
-include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_store_handler.php';
-
-//=========================================================
-// class admin_column_manage
-//=========================================================
-class admin_column_manage extends happy_linux_error
-{
-    public $_link_handler;
-    public $_modify_handler;
-    public $_config_handler;
-    public $_linkitem_store_handler;
-    public $_form;
-    public $_post;
-
-    //---------------------------------------------------------
-    // constructor
-    //---------------------------------------------------------
-    public function __construct()
-    {
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
-        $this->_config_handler = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
-        $this->_linkitem_store_handler = weblinks_getHandler('linkitem_store', WEBLINKS_DIRNAME);
-
-        $this->_form = admin_column_form::getInstance();
-        $this->_post = happy_linux_post::getInstance();
-    }
-
-    public static function getInstance()
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    //---------------------------------------------------------
-    // post parameter
-    //---------------------------------------------------------
-    public function get_post_op()
-    {
-        return $this->_post->get_post_text('op');
-    }
-
-    public function get_post_num()
-    {
-        return $this->_post->get_post_int('num');
-    }
-
-    //---------------------------------------------------------
-    // add_column
-    //---------------------------------------------------------
-    public function add_column()
-    {
-        $num = $this->get_post_num();
-
-        if ($num <= 0) {
-            $msg = sprintf(_HAPPY_LINUX_ERR_FILL, _AM_WEBLINKS_COLUMN_NUM);
-
-            return $msg;
-        }
-
-        $etc_arr = &$this->_link_handler->get_field_name_etc_array();
-        $count = count($etc_arr);
-        $start = $count + 1;
-        $end = $count + $num;
-
-        $ret = $this->_link_handler->add_column_table_etc($start, $end);
-        if (!$ret) {
-            $this->_set_errors($this->_link_handler->getErrors());
-        }
-
-        $ret = $this->_modify_handler->add_column_table_etc($start, $end);
-        if (!$ret) {
-            $this->_set_errors($this->_modify_handler->getErrors());
-        }
-
-        $ret = $this->_config_handler->update_by_name('link_num_etc', $end);
-        if (!$ret) {
-            $this->_set_errors($this->_config_handler->getErrors());
-        }
-
-        $this->_linkitem_store_handler->set_num_etc($end);
-        $ret = $this->_linkitem_store_handler->upgrade();
-        if (!$ret) {
-            $this->_set_errors($this->_config_linkitem_handler->getErrors());
-        }
-
-        if (!$this->returnExistError()) {
-            $msg = "DB Error <br>\n";
-            $msg .= $this->getErrors('s');
-
-            return $msg;
-        }
-
-        redirect_header('column_manage.php', 1, _HAPPY_LINUX_ADDED);
-        exit();
-    }
-
-    //---------------------------------------------------------
-    // form
-    //---------------------------------------------------------
-    public function check_etc_column()
-    {
-        $link_etc_arr = &$this->_link_handler->get_field_name_etc_array();
-        $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
-
-        $count = count($link_etc_arr);
-
-        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br>\n";
-
-        foreach ($link_etc_arr as $name) {
-            echo '- ' . $name . " <br>\n";
-        }
-        echo "<br>\n";
-
-        if ($link_etc_arr != $modify_etc_arr) {
-        }
-    }
-
-    public function print_form()
-    {
-        $link_etc_arr = &$this->_link_handler->get_field_name_etc_array();
-        $modify_etc_arr = &$this->_modify_handler->get_field_name_etc_array();
-
-        $count = count($link_etc_arr);
-
-        echo sprintf(_AM_WEBLINKS_THERE_ARE_COLUMN, $count) . " <br>\n";
-
-        foreach ($link_etc_arr as $name) {
-            echo '- ' . $name . " <br>\n";
-        }
-        echo "<br>\n";
-
-        if ($link_etc_arr != $modify_etc_arr) {
-            $msg = _AM_WEBLINKS_COLUMN_UNMATCH . "<br>\n";
-            $msg .= _AM_WEBLINKS_PHPMYADMIN . "<br>\n";
-            $this->print_error_in_div($msg, false);
-        }
-
-        $this->_form->print_form();
-    }
-
-    public function check_token()
-    {
-        $ret = $this->_form->check_token();
-
-        return $ret;
-    }
-
-    // --- class end ---
-}
-
-//=========================================================
-// class admin_column_manage
-//=========================================================
-class admin_column_form extends happy_linux_form_lib
-{
-    public $_link_handler;
-    public $_system;
-    public $_post;
-
-    //---------------------------------------------------------
-    // constructor
-    //---------------------------------------------------------
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_system = happy_linux_system::getInstance();
-        $this->_post = happy_linux_post::getInstance();
-    }
-
-    public static function getInstance()
-    {
-        static $instance;
-        if (null === $instance) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    //---------------------------------------------------------
-    // form
-    //---------------------------------------------------------
-    public function print_form()
-    {
-        $num = $this->_post->get_post_int('num');
-
-        echo $this->build_form_begin('column_form');
-        echo $this->build_token();
-        echo $this->build_html_input_hidden('op', 'add_column');
-        echo $this->build_form_table_begin();
-        echo $this->build_form_table_title(_AM_WEBLINKS_COLUMN_MANAGE);
-        echo $this->build_form_table_text(_AM_WEBLINKS_COLUMN_NUM, 'num', $num);
-        echo $this->build_form_table_submit('', 'submit', _HAPPY_LINUX_ADD);
-        echo $this->build_form_table_end();
-        echo $this->build_form_end();
-    }
-
-    // --- class end ---
-}
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/config_base_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/config_define_handler.php';
+//include_once XOOPS_ROOT_PATH . '/modules/happylinux/class/config_store_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_config2_define_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_define_handler.php';
+//include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_store_handler.php';
 
 //=========================================================
 // main
 //=========================================================
-$manage = admin_column_manage::getInstance();
+$manage = Admin\ColumnManage::getInstance();
 
 $op = $manage->get_post_op();
 $error = '';

@@ -60,12 +60,12 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_edit_handler')) {
+if (!class_exists('LinkEditHandler')) {
     //=========================================================
-    // class weblinks_link_edit_handler
+    // class LinkEditHandler
     // this is facade class
     //=========================================================
-    class weblinks_link_edit_handler extends weblinks_link_edit_base_handler
+    class LinkEditHandler extends LinkEditBaseHandler
     {
         //---------------------------------------------------------
         // constructor
@@ -74,10 +74,10 @@ if (!class_exists('weblinks_link_edit_handler')) {
         {
             parent::__construct($dirname);
 
-            $this->_link_add_handler = weblinks_get_handler('link_add', $dirname);
-            $this->_link_mod_handler = weblinks_get_handler('link_mod', $dirname);
-            $this->_link_del_handler = weblinks_get_handler('link_del', $dirname);
-            $this->_link_req_handler = weblinks_get_handler('link_req', $dirname);
+            $this->_link_add_handler = weblinks_get_handler('LinkAdd', $dirname);
+            $this->_link_mod_handler = weblinks_get_handler('LinkMod', $dirname);
+            $this->_link_del_handler = weblinks_get_handler('LinkDel', $dirname);
+            $this->_link_req_handler = weblinks_get_handler('LinkReq', $dirname);
         }
 
         //---------------------------------------------------------

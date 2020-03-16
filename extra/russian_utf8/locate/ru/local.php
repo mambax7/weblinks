@@ -18,7 +18,7 @@ if (!class_exists('weblinks_locate_ru')) {
     // class weblinks_locate_ru
     // Russia (RU)
     //=========================================================
-    class weblinks_locate_ru extends weblinks_locate_base
+    class weblinks_locate_ru extends LocateBase
     {
         //---------------------------------------------------------
         // constructor

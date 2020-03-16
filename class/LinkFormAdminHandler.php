@@ -62,11 +62,11 @@ use XoopsModules\Happylinux;
 //=========================================================
 
 // === class begin ===
-if (!class_exists('weblinks_link_form_admin_handler')) {
+if (!class_exists('LinkFormAdminHandler')) {
     //=========================================================
-    // class weblinks_link_form_admin_handler
+    // class LinkFormAdminHandler
     //=========================================================
-    class weblinks_link_form_admin_handler extends weblinks_link_form_handler
+    class LinkFormAdminHandler extends LinkFormHandler
     {
         public $_header;
         public $_plugin;
@@ -79,7 +79,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         {
             parent::__construct($dirname);
             $this->_header = Header::getInstance($dirname);
-            $this->_plugin = weblinks_plugin::getInstance($dirname);
+            $this->_plugin = Plugin::getInstance($dirname);
         }
 
         //---------------------------------------------------------
@@ -726,8 +726,8 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             echo $this->build_form_table_text('width', 'width', $width);
             echo $this->build_form_table_text('height', 'height', $height);
 
-            $ele_submit = $this->build_html_input_submit('submit', _HAPPY_LINUX_EXECUTE);
-            $ele_skip = $this->build_html_input_submit('skip', _HAPPY_LINUX_SKIP_TO_NEXT);
+            $ele_submit = $this->build_html_input_submit('submit', _HAPPYLINUX_EXECUTE);
+            $ele_skip = $this->build_html_input_submit('skip', _HAPPYLINUX_SKIP_TO_NEXT);
             $ele_cancel = $this->build_html_input_button_location('cancel', _CANCEL, $url_cancel);
             $ele_button = $ele_submit . ' ' . $ele_skip . ' ' . $ele_cancel;
             echo $this->build_form_table_line('', $ele_button, 'foot', 'foot');
@@ -765,8 +765,8 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             echo $this->build_form_table_begin();
             echo $this->build_form_table_title(_AM_WEBLINKS_UPDATE_CAT_COUNT);
 
-            $ele_submit = $this->build_html_input_submit('submit', _HAPPY_LINUX_EXECUTE);
-            $ele_skip = $this->build_html_input_submit('skip', _HAPPY_LINUX_SKIP_TO_NEXT);
+            $ele_submit = $this->build_html_input_submit('submit', _HAPPYLINUX_EXECUTE);
+            $ele_skip = $this->build_html_input_submit('skip', _HAPPYLINUX_SKIP_TO_NEXT);
             $ele_cancel = $this->build_html_input_button_location('cancel', _CANCEL, $url_cancel);
             $ele_button = $ele_submit . ' ' . $ele_skip . ' ' . $ele_cancel;
             echo $this->build_form_table_line('', $ele_button, 'foot', 'foot');
@@ -800,7 +800,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             }
             echo $this->build_form_table_line(_AM_WEBLINKS_DIRNAME_SEL, $ele);
 
-            $ele_submit = $this->build_html_input_submit('submit', _HAPPY_LINUX_EXECUTE);
+            $ele_submit = $this->build_html_input_submit('submit', _HAPPYLINUX_EXECUTE);
             $ele_cancel = $this->build_html_input_button_location('cancel', _CANCEL, $url_cancel);
             $ele_button = $ele_submit . ' ' . $ele_cancel;
             echo $this->build_form_table_line('', $ele_button, 'foot', 'foot');
