@@ -1,5 +1,6 @@
 <?php
-// $Id: d3forum_sel.php,v 1.2 2007/08/08 11:43:05 ohwada Exp $
+
+// $Id: d3forum_sel.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2007-08-01 K.OHWADA
 // module duplication
@@ -11,6 +12,9 @@
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_d3forum_sel')) {
+    /**
+     * @return array
+     */
     function &weblinks_plugin_d3forum_sel()
     {
         $sel = [];
@@ -21,4 +25,5 @@ if (!function_exists('weblinks_plugin_d3forum_sel')) {
 
         return $sel;
     }
-}// --- functions end ---
+}
+// --- functions end ---

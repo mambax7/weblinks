@@ -1,5 +1,6 @@
 <?php
-// $Id: user_list.php,v 1.13 2007/11/12 12:41:13 ohwada Exp $
+
+// $Id: user_list.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_flag_execute_time()
@@ -45,6 +46,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_users_link_handler.php';
 //=========================================================
 // class admin_user_list
 //=========================================================
+
+/**
+ * Class admin_user_list
+ */
 class admin_user_list extends happy_linux_page_frame
 {
     public $_MAX_USER = 50;
@@ -81,13 +86,16 @@ class admin_user_list extends happy_linux_page_frame
         $this->set_operation('send');
         $this->set_flag_execute_time(true);
 
-        $this->_users_link_handler = weblinks_getHandler('users_link', WEBLINKS_DIRNAME);
+        $this->_users_link_handler = weblinks_get_handler('users_link', WEBLINKS_DIRNAME);
         $this->_system = happy_linux_system::getInstance();
 
         $logo_url = XOOPS_URL . '/images/icons/email.gif';
         $this->_logo_img = $this->build_html_img_tag($logo_url, 0, 0, 0, 'mailto');
     }
 
+    /**
+     * @return \admin_user_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -101,6 +109,10 @@ class admin_user_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $input = $this->build_form_js_checkall();
@@ -132,6 +144,9 @@ class admin_user_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return int
+     */
     public function _get_total()
     {
         $this->_total_with_email = $this->_handler->get_count_with_email();
@@ -154,6 +169,11 @@ class admin_user_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function &_get_items($limit = 0, $start = 0)
     {
         switch ($this->_sortid) {
@@ -172,7 +192,11 @@ class admin_user_list extends happy_linux_page_frame
         return $lines;
     }
 
-    public function &_get_cols(&$line)
+    /**
+     * @param $line
+     * @return array
+     */
+    public function &_get_cols($line)
     {
         switch ($this->_sortid) {
             case 1:
@@ -188,6 +212,10 @@ class admin_user_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols_lid($obj)
     {
         $submitter_p = '---';
@@ -232,6 +260,10 @@ class admin_user_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $line
+     * @return array
+     */
     public function &_get_cols_uid($line)
     {
         $uid = $line;
@@ -272,6 +304,11 @@ class admin_user_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $uid
+     * @param $uname_s
+     * @return string
+     */
     public function _build_uname($uid, $uname_s)
     {
         $input = "<input type='hidden' name='memberslist_uname[" . $uid . "]' id='memberslist_uname[]' value='" . $uname_s . "' />";
@@ -373,4 +410,5 @@ $list = admin_user_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

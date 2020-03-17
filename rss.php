@@ -1,5 +1,6 @@
 <?php
-// $Id: rss.php,v 1.9 2007/10/22 02:23:04 ohwada Exp $
+
+// $Id: rss.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-07-20 K.OHWADA
 // set_param()
@@ -21,6 +22,7 @@ include_once WEBLINKS_ROOT_PATH . '/api/build_rss.php';
 //=========================================================
 // main
 //=========================================================
-$weblinks_build_handler = weblinks_getHandler('build_rss', WEBLINKS_DIRNAME);
+$weblinks_build_handler = weblinks_get_handler('build_rss', WEBLINKS_DIRNAME);
 $weblinks_build_handler->build_for_link();
-exit(); // --- main end ---
+exit();
+// --- main end ---

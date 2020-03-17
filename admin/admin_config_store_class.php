@@ -1,5 +1,6 @@
 <?php
-// $Id: admin_config_store_class.php,v 1.3 2007/11/16 15:09:09 ohwada Exp $
+
+// $Id: admin_config_store_class.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2007-11-11 K.OHWADA
 // divid from admin_config_class.php
@@ -13,6 +14,10 @@
 //================================================================
 // class admin_config
 //================================================================
+
+/**
+ * Class admin_config_store
+ */
 class admin_config_store extends happy_linux_error
 {
     public $_STYLE_SHEET = 'weblinks.css';
@@ -35,9 +40,12 @@ class admin_config_store extends happy_linux_error
         $this->_config_store_handler->set_define($define);
 
         // handler
-        $this->_linkitem_store_handler = weblinks_getHandler('linkitem_store', WEBLINKS_DIRNAME);
+        $this->_linkitem_store_handler = weblinks_get_handler('linkitem_store', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_config_store|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -51,6 +59,10 @@ class admin_config_store extends happy_linux_error
     //---------------------------------------------------------
     // save config
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function save_config()
     {
         if (isset($_POST['save_linkitem'])) {
@@ -71,6 +83,10 @@ class admin_config_store extends happy_linux_error
     //---------------------------------------------------------
     // renew config
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function renew_config()
     {
         $ret = $this->_config_store_handler->renew_by_country_code();
@@ -89,13 +105,13 @@ class admin_config_store extends happy_linux_error
         include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_builder.php';
         include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view.php';
 
-        $rss_builder = weblinks_getHandler('build_rss', WEBLINKS_DIRNAME);
+        $rss_builder = weblinks_get_handler('build_rss', WEBLINKS_DIRNAME);
         $rss_builder->clear_all_guest_cache();
 
         if (WEBLINKS_RSSC_EXIST) {
             include_once WEBLINKS_RSSC_ROOT_PATH . '/class/rssc_build_rssc.php';
 
-            $feed_builder = weblinks_getHandler('build_rss_feed', WEBLINKS_DIRNAME);
+            $feed_builder = weblinks_get_handler('build_rss_feed', WEBLINKS_DIRNAME);
             $feed_builder->clear_all_guest_cache();
         }
     }

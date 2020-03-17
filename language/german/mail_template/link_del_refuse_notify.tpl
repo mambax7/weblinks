@@ -1,10 +1,10 @@
 Hallo, {UNAME}.
 
-Das Löschen des Link wurde aus einem der folgenden Gründen verweigert:
+Das Lï¿½schen des Link wurde aus einem der folgenden Grï¿½nden verweigert:
 - Wir konnten das Mitglied nicht erreichen.
-- Es gibt keine Grund zum Löschen.
+- Es gibt keine Grund zum Lï¿½schen.
 
-Sie können die angebotenen Inhalte hier einsehen:
+Sie kï¿½nnen die angebotenen Inhalte hier einsehen:
 {LINK_URL}
 
 -----------

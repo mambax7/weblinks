@@ -1,5 +1,6 @@
 <?php
-// $Id: main.php,v 1.4 2009/03/22 03:27:25 ohwada Exp $
+
+// $Id: main.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // pagerank, pagerank_update
@@ -66,7 +67,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'Categoria');
     define('_WLS_HITS', 'Acessos');
     define('_WLS_RATING', 'Avalia��o');
@@ -79,7 +80,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'Editar este Link');
     define('_WLS_MODIFY', 'Modificar');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'Enviar novo Link');
     define('_WLS_SUBMITONCE', 'Enviar seu link apena uma vez.');
     define('_WLS_DONTABUSE', 'O nome de usu�rio e IPU s�o gravados. Por favor, n�o abuse do sistema.');
@@ -88,7 +89,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', 'N�s recebemos a informa��o de seu Website. Obrigado!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'Pedido de modifica��o de link');
     define('_WLS_THANKSFORINFO', 'Obrigado pela informa��o. N�s olharemos seu pedido o mais breve poss�vel.');
 
@@ -174,7 +175,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'Voc� n�o pode votar em um recurso enviado por voc�.<br>Todos os votos s�o computados e revisados.');
     define('_WLS_VOTEONCE2', 'Vote no recurso selecionado apenas uma vez.<br>Todos os votos s�o computados e revisados.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'Configura��o dos Web Links');
     define('_WLS_GENERALSET', 'Configura��es gerais dos Web Links');
@@ -251,7 +252,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Enviar novo link');
     define('_WLS_SITE_POPULAR', 'Site Popular');
@@ -274,7 +275,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', 'Last Update');
     define('_WLS_MORE', 'Mais detalhes');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'Descri��o');
     define('_WLS_PROMOTER', 'Promover');
     define('_WLS_ZIP', 'C�digo Zip');
@@ -282,7 +283,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'N�mero do telefone');
     define('_WLS_FAX', 'N�mero do fax');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'URL do Banner');
     define('_WLS_NAME', 'Nome');
     define('_WLS_EMAIL', 'E-mail');
@@ -294,20 +295,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'N�o publicar');
     define('_WLS_NOTSELECT', 'N�o especificar');
     define('_WLS_SUBMIT_INDISPENSABLE', "Marcar com estrela '<b>*</b>' significa um item indispens�vel.");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"Coment�rio do administrador" deve ser uma opini�o, comunicado, etc.<br>Est� coluna n�o � mostrada na WEB.<br>Por favor, coloque na URL de seu site onde est� linkado para este site, quando voc� precisar assinalar ccomo "Link rec�proco".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"Coment�rio do administrador" deve ser uma opini�o, comunicado, etc.<br>Est� coluna n�o � mostrada na WEB.<br>Por favor, coloque na URL de seu site onde est� linkado para este site, quando voc� precisar assinalar ccomo "Link rec�proco".');
     define('_WLS_USER_COMMENT', 'Coment�rio para o administrador');
     define('_WLS_NOT_DISPLAY', 'Est� coluna n�o � mostrada na WEB.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'A aplica��o da modifica��o de seu link est� sendo aprovada. ');
     define('_WLS_MODIFY_NOT_OWNER', 'Por favor, assegure-se que voc� � a pessoa quem enviou originalmente este link.');
     define('_WLS_MODIFY_PENDING', 'Modifica��o do link gravada. Ela ser� publicada ap�s a verifica��o.');
     define('_WLS_LINKSUBMITTER', 'Quem enviou o link');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'Informe sua senha');
     define('_WLS_REGSTERED', 'Usu�rio registrado');
     define('_WLS_REGSTERED_DSC', 'Qualquer um pode modificar as informa��es do link. <br>O Webmaster ir� checar a modifica��o antes da postagem.');
@@ -367,7 +365,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'auto descoberta');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Mostrar aqui a distribui��o dos feeds RSS/ATOM.');
-    define('_WLS_ATOMFEED_FIREFOX', "Se voc� usar <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, adicione esta p�gina para navegar pelo nosso feed RSS/ATOM. ");
+    define('_WLS_ATOMFEED_FIREFOX', "Se voc� usar <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, adicione esta p�gina para navegar pelo nosso feed RSS/ATOM. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Notificar quando aprovado');
@@ -430,13 +428,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
     //}
 
     define('_WEBLINKS_MAP_USE', 'Uar �cone do Mapa');
@@ -453,7 +451,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Aviso: Url n�o pode ser lida');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Aviso: n�o pode ser obtido o tamanho do banner');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitude');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitude');
     define('_WEBLINKS_GM_ZOOM', 'N�vel de Zoom');
@@ -564,4 +562,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
 
     // pagerank
     define('_WEBLINKS_SITE_PAGERANK', 'Altura do PageRank do site');
-}// --- define language end ---
+}
+// --- define language end ---

@@ -1,16 +1,26 @@
 <?php
-// $Id: weblinks_webmap.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
+
+// $Id: weblinks_webmap.php,v 1.2 2012/10/14 00:38:10 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
 // 2012-04-02 K.OHWADA
 //=========================================================
 
+//---------------------------------------------------------
+// 2012-10-14 K.OHWADA
+// typo $mas -> $msg
+//---------------------------------------------------------
+
 // === class begin ===
 if (!class_exists('weblinks_webmap')) {
     //=========================================================
     // class google map
     //=========================================================
+
+    /**
+     * Class weblinks_webmap
+     */
     class weblinks_webmap extends weblinks_block_webmap
     {
         public $_DIRNAME;
@@ -38,13 +48,18 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_webmap constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
 
             $this->_conf = $config_handler->get_conf();
 
@@ -55,6 +70,10 @@ if (!class_exists('weblinks_webmap')) {
             $this->_map_func = $dirname . '_google_map_load';
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -68,6 +87,10 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // installed
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function check_installed()
         {
             $webmap_dirname = $this->get_webmap_dirname();
@@ -88,6 +111,9 @@ if (!class_exists('weblinks_webmap')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function get_webmap_dirname()
         {
             $dirname = $this->_conf['webmap3_dirname'];
@@ -98,6 +124,9 @@ if (!class_exists('weblinks_webmap')) {
             return $dirname;
         }
 
+        /**
+         * @return bool
+         */
         public function check_version()
         {
             if (_C_WEBMAP3_VERSION < WEBLINKS_WEBMAP3_VERSION) {
@@ -107,6 +136,9 @@ if (!class_exists('weblinks_webmap')) {
             return true;
         }
 
+        /**
+         * @return string
+         */
         public function build_display_iframe()
         {
             if (!$this->_flag_webmap) {
@@ -121,6 +153,10 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // init
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function init_html()
         {
             $webmap_dirname = $this->get_webmap_dirname();
@@ -139,11 +175,14 @@ if (!class_exists('weblinks_webmap')) {
             }
 
             $this->_flag_webmap = true;
-            $this->_html_class = &webmap3_api_html::getSingleton($webmap_dirname);
+            $this->_html_class = webmap3_api_html::getSingleton($webmap_dirname);
 
             return 1;
         }
 
+        /**
+         * @return bool
+         */
         public function init_map()
         {
             $webmap_dirname = $this->get_webmap_dirname();
@@ -162,16 +201,24 @@ if (!class_exists('weblinks_webmap')) {
             return true;
         }
 
+        /**
+         * @return string
+         */
         public function get_init_error()
         {
             $msg = sprintf(_WEBLINKS_WEBMAP3_REQUIRE, WEBLINKS_WEBMAP3_VERSION);
 
-            return $mas;
+            // typo $mas -> $msg
+            return $msg;
         }
 
         //---------------------------------------------------------
         // category_manage
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function init_form()
         {
             $webmap_dirname = $this->get_webmap_dirname();
@@ -195,6 +242,10 @@ if (!class_exists('weblinks_webmap')) {
             return 1;
         }
 
+        /**
+         * @param $flag_header
+         * @return string
+         */
         public function get_form_js($flag_header)
         {
             if (!$this->_flag_webmap) {
@@ -208,6 +259,9 @@ if (!class_exists('weblinks_webmap')) {
             return $js;
         }
 
+        /**
+         * @return string
+         */
         public function get_display_js()
         {
             if (!$this->_flag_webmap) {
@@ -217,6 +271,9 @@ if (!class_exists('weblinks_webmap')) {
             return $this->_form_class->build_display_js();
         }
 
+        /**
+         * @return string
+         */
         public function build_form_iframe()
         {
             if (!$this->_flag_webmap) {
@@ -226,6 +283,9 @@ if (!class_exists('weblinks_webmap')) {
             return $this->_form_class->build_div_html();
         }
 
+        /**
+         * @return string
+         */
         public function build_form_desc()
         {
             if (!$this->_flag_webmap) {
@@ -235,6 +295,10 @@ if (!class_exists('weblinks_webmap')) {
             return $this->_form_class->build_form_desc_html();
         }
 
+        /**
+         * @param $id
+         * @return mixed
+         */
         public function build_ele_icon($id)
         {
             $this->_form_class->set_gicon_select_name('gm_icon');
@@ -261,11 +325,17 @@ if (!class_exists('weblinks_webmap')) {
             $this->_form_class->set_display_url_opener($url_opener);
         }
 
+        /**
+         * @param $v
+         */
         public function set_lid($v)
         {
             $this->_lid = (int)$v;
         }
 
+        /**
+         * @param $v
+         */
         public function set_cid($v)
         {
             $this->_cid = (int)$v;
@@ -274,6 +344,12 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // index
         //---------------------------------------------------------
+
+        /**
+         * @param $links
+         * @param $param
+         * @return array
+         */
         public function fetch_list($links, $param)
         {
             $show_webmap = false;
@@ -328,6 +404,10 @@ if (!class_exists('weblinks_webmap')) {
             return $arr;
         }
 
+        /**
+         * @param $type
+         * @return string
+         */
         public function get_map_type($type)
         {
             switch ($type) {
@@ -352,6 +432,11 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // single_link
         //---------------------------------------------------------
+
+        /**
+         * @param $link
+         * @return array
+         */
         public function fetch_single($link)
         {
             $show_webmap = false;
@@ -405,19 +490,43 @@ if (!class_exists('weblinks_webmap')) {
         //---------------------------------------------------------
         // marker
         //---------------------------------------------------------
+
+        /**
+         * @param $link
+         * @return mixed
+         */
         public function build_marker_list($link)
         {
-            return $this->_map_class->build_single_marker($link['gm_latitude'], $link['gm_longitude'], $this->build_info_list($link), $link['google_icon']);
+            return $this->_map_class->build_single_marker(
+                $link['gm_latitude'],
+                $link['gm_longitude'],
+                $this->build_info_list($link),
+                $link['google_icon']
+            );
         }
 
+        /**
+         * @param $link
+         * @return mixed
+         */
         public function build_marker_single($link)
         {
-            return $this->_map_class->build_single_marker($link['gm_latitude'], $link['gm_longitude'], $this->build_info_single($link), $link['google_icon']);
+            return $this->_map_class->build_single_marker(
+                $link['gm_latitude'],
+                $link['gm_longitude'],
+                $this->build_info_single($link),
+                $link['google_icon']
+            );
         }
 
         //---------------------------------------------------------
         // info
         //---------------------------------------------------------
+
+        /**
+         * @param $link
+         * @return string
+         */
         public function build_info_list($link)
         {
             $url = $this->_url_singlelink . '?lid=' . $link['lid'];
@@ -426,6 +535,10 @@ if (!class_exists('weblinks_webmap')) {
             return $this->build_info_common($link, $url_s);
         }
 
+        /**
+         * @param $link
+         * @return string
+         */
         public function build_info_single($link)
         {
             $url_s = $this->sanitize($link['url']);
@@ -433,12 +546,22 @@ if (!class_exists('weblinks_webmap')) {
             return $this->build_info_common($link, $url_s);
         }
 
+        /**
+         * @param $link
+         * @param $url_s
+         * @return string
+         */
         public function build_info_common($link, $url_s)
         {
             $title_s = $this->_map_class->build_title_short($link['title']);
             $summary = $this->_map_class->build_summary($link['description_disp']);
 
-            return $this->build_info($title_s, $url_s, $summary, $this->_conf['gm_marker_width']);
+            return $this->build_info(
+                $title_s,
+                $url_s,
+                $summary,
+                $this->_conf['gm_marker_width']
+            );
         }
 
         // --- class end ---

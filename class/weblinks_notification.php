@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_notification.php,v 1.1 2007/09/15 04:23:35 ohwada Exp $
+
+// $Id: weblinks_notification.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2007-09-10 K.OHWADA
 // move from submit.php and modlink.php
@@ -14,6 +15,10 @@ if (!class_exists('weblinks_notification')) {
     //=========================================================
     // class weblinks_notification
     //=========================================================
+
+    /**
+     * Class weblinks_notification
+     */
     class weblinks_notification extends happy_linux_error
     {
         public $_WEBLINKS_URL;
@@ -35,16 +40,25 @@ if (!class_exists('weblinks_notification')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_notification constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_category_handler = weblinks_getHandler('category', $dirname);
+            $this->_category_handler = weblinks_get_handler('category', $dirname);
             $this->_notification_handler = xoops_getHandler('notification');
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_notification|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -58,6 +72,12 @@ if (!class_exists('weblinks_notification')) {
         //---------------------------------------------------------
         // notification
         //---------------------------------------------------------
+
+        /**
+         * @param $newid
+         * @param $obj
+         * @param $cid_array
+         */
         public function notify_newlink($newid, &$obj, $cid_array)
         {
             $this->_newid = $newid;
@@ -72,6 +92,11 @@ if (!class_exists('weblinks_notification')) {
             }
         }
 
+        /**
+         * @param $newid
+         * @param $obj
+         * @param $cid_array
+         */
         public function notify_newlink_admin($newid, &$obj, &$cid_array)
         {
             $this->_newid = $newid;
@@ -85,6 +110,11 @@ if (!class_exists('weblinks_notification')) {
             }
         }
 
+        /**
+         * @param $newid
+         * @param $obj
+         * @param $cid_array
+         */
         public function notify_link_submit($newid, &$obj, $cid_array)
         {
             $this->_newid = $newid;
@@ -99,6 +129,11 @@ if (!class_exists('weblinks_notification')) {
             }
         }
 
+        /**
+         * @param $newid
+         * @param $obj
+         * @param $cid_array
+         */
         public function notify_link_modify($newid, &$obj, &$cid_array)
         {
             $this->_newid = $newid;
@@ -110,6 +145,11 @@ if (!class_exists('weblinks_notification')) {
             $this->_notification_handler->triggerEvent('global', 0, 'link_modify', $tags);
         }
 
+        /**
+         * @param $newid
+         * @param $obj
+         * @param $cid_array
+         */
         public function notify_link_delete($newid, &$obj, &$cid_array)
         {
             $this->_newid = $newid;
@@ -124,6 +164,11 @@ if (!class_exists('weblinks_notification')) {
         //---------------------------------------------------------
         // event tags
         //---------------------------------------------------------
+
+        /**
+         * @param int $cid
+         * @return array|bool|null
+         */
         public function &build_tags_newlink($cid = 0)
         {
             $tags = &$this->_build_tags_newlink_once();
@@ -139,6 +184,9 @@ if (!class_exists('weblinks_notification')) {
             return $tags;
         }
 
+        /**
+         * @return array|bool|null
+         */
         public function &_build_tags_newlink_admin()
         {
             $tags = &$this->_build_tags_newlink_once();
@@ -151,6 +199,10 @@ if (!class_exists('weblinks_notification')) {
             return $tags;
         }
 
+        /**
+         * @param int $cid
+         * @return array|bool|null
+         */
         public function &_build_tags_linksubmit($cid = 0)
         {
             $tags = &$this->_build_tags_linksubmit_once();
@@ -166,6 +218,9 @@ if (!class_exists('weblinks_notification')) {
             return $tags;
         }
 
+        /**
+         * @return array
+         */
         public function &build_tags_link_mod()
         {
             $tags = [];
@@ -175,6 +230,9 @@ if (!class_exists('weblinks_notification')) {
             return $tags;
         }
 
+        /**
+         * @return array|bool|null
+         */
         public function &_build_tags_newlink_once()
         {
             if ($this->_tags) {
@@ -197,6 +255,9 @@ if (!class_exists('weblinks_notification')) {
             return $tags;
         }
 
+        /**
+         * @return array|bool|null
+         */
         public function &_build_tags_linksubmit_once()
         {
             if ($this->_tags) {

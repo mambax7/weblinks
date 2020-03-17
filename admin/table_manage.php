@@ -1,5 +1,6 @@
 <?php
-// $Id: table_manage.php,v 1.7 2007/12/24 20:15:19 ohwada Exp $
+
+// $Id: table_manage.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-12-24 K.OHWADA
 // _print_menu_rebuild_search()
@@ -48,6 +49,10 @@ include_once WEBLINKS_ROOT_PATH . '/admin/table_manage_zombie_class.php';
 //================================================================
 // class admin_table_manage
 //================================================================
+
+/**
+ * Class admin_table_manage
+ */
 class admin_table_manage extends happy_linux_table_manage
 {
     public $_zombie;
@@ -67,6 +72,9 @@ class admin_table_manage extends happy_linux_table_manage
         $this->_zombie = admin_table_manage_zombie::getInstance();
     }
 
+    /**
+     * @return \admin_table_manage|\happy_linux_table_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -110,6 +118,9 @@ class admin_table_manage extends happy_linux_table_manage
         $this->_print_menu_rebuild_search();
     }
 
+    /**
+     * @param $table
+     */
     public function _check_table_for_weblinks($table)
     {
         $this->print_table_check($table);
@@ -122,7 +133,13 @@ class admin_table_manage extends happy_linux_table_manage
 
         echo '<h4>' . $title . "</h4>\n";
 
-        echo $this->_form->build_lib_box_button_style($title, 'check adjustment of Weblinks link table and RSSC link table', 'check_link', _HAPPY_LINUX_EXECUTE, 'table_manage_rssc.php');
+        echo $this->_form->build_lib_box_button_style(
+            $title,
+            'check adjustment of Weblinks link table and RSSC link table',
+            'check_link',
+            _HAPPY_LINUX_EXECUTE,
+            'table_manage_rssc.php'
+        );
     }
 
     public function _print_menu_xml()
@@ -131,7 +148,12 @@ class admin_table_manage extends happy_linux_table_manage
 
         echo '<h4>' . $title . "</h4>\n";
 
-        echo $this->_form->build_lib_box_button_style($title, 'since v1.20, rss_xml field in link table became unnecessary', 'clean_xml', _HAPPY_LINUX_EXECUTE);
+        echo $this->_form->build_lib_box_button_style(
+            $title,
+            'since v1.20, rss_xml field in link table became unnecessary',
+            'clean_xml',
+            _HAPPY_LINUX_EXECUTE
+        );
     }
 
     public function _print_menu_rebuild_search()
@@ -140,7 +162,13 @@ class admin_table_manage extends happy_linux_table_manage
 
         echo '<h4>' . $title . "</h4>\n";
 
-        echo $this->_form->build_lib_box_button_style($title, 'Bug fix : necessary in the version up from v1.82 or before', 'rebuild', _HAPPY_LINUX_EXECUTE, 'table_manage_search.php');
+        echo $this->_form->build_lib_box_button_style(
+            $title,
+            'Bug fix : necessary in the version up from v1.82 or before',
+            'rebuild',
+            _HAPPY_LINUX_EXECUTE,
+            'table_manage_search.php'
+        );
     }
 
     //---------------------------------------------------------
@@ -156,7 +184,7 @@ class admin_table_manage extends happy_linux_table_manage
             exit();
         }
 
-        $link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
         $ret = $link_handler->clean_rss_xml();
         if ($ret) {
@@ -205,4 +233,5 @@ switch ($op) {
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

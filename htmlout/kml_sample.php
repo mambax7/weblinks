@@ -1,5 +1,6 @@
 <?php
-// $Id: kml_sample.php,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+
+// $Id: kml_sample.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -14,6 +15,9 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout_kml_sample')) {
+    /**
+     * Class weblinks_htmlout_kml_sample
+     */
     class weblinks_htmlout_kml_sample extends weblinks_htmlout_base
     {
         public $_MAX_DESC_DEFAULT = 100;
@@ -21,6 +25,11 @@ if (!class_exists('weblinks_htmlout_kml_sample')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout_kml_sample constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -29,16 +38,26 @@ if (!class_exists('weblinks_htmlout_kml_sample')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function description()
         {
             return 'KML: description with url';
         }
 
+        /**
+         * @return string
+         */
         public function usage()
         {
             return 'kml_sample( [ max_desc ] )';
         }
 
+        /**
+         * @return bool
+         */
         public function execute_plugin()
         {
             $max_desc = (int)$this->get_param_by_num(0, $this->_MAX_DESC_DEFAULT);

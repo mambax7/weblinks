@@ -1,5 +1,6 @@
 <?php
-// $Id: index.php,v 1.23 2009/01/05 17:55:16 ohwada Exp $
+
+// $Id: index.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2008-12-20 K.OHWADA
 // get_error_str()
@@ -64,7 +65,7 @@ include_once WEBLINKS_ROOT_PATH . '/admin/admin_config_menu_class.php';
 //=========================================================
 
 // PHP 5.2 + XC 2.1
-$MEMORY_WEBLINKS_REQUIRE = 8;   // 8 MB
+$MEMORY_WEBLINKS_REQUIRE = 8;    // 8 MB
 
 $DIR_CONFIG = WEBLINKS_ROOT_PATH . '/cache';
 
@@ -117,7 +118,10 @@ weblinks_admin_print_header();
 if (!$install->check_install()) {
     $admin_menu->print_form_init('admin/index.php');
 } elseif (!$install->check_update()) {
-    $admin_menu->print_form_upgrade(WEBLINKS_VERSION, $install->get_error_str());
+    $admin_menu->print_form_upgrade(
+        WEBLINKS_VERSION,
+        $install->get_error_str()
+    );
 } else {
     if (!is_writable($DIR_CONFIG)) {
         xoops_error(_HAPPY_LINUX_AM_DIR_NOT_WRITABLE);
@@ -162,4 +166,5 @@ echo $class_info->build_check_memory_limit($MEMORY_WEBLINKS_REQUIRE);
 weblinks_admin_print_footer();
 echo $admin_menu->build_powerdby();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

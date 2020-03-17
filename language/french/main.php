@@ -1,5 +1,6 @@
 <?php
-// $Id: main.php,v 1.4 2006/01/04 08:46:27 ohwada Exp $
+
+// $Id: main.php,v 1.1 2011/12/29 14:32:48 ohwada Exp $
 
 // 2005-10-20 K.OHWADA
 // REQ 3028: send apoval email to anonymous user
@@ -38,7 +39,7 @@
 // same as mylinks
 //---------------------------------------------------------
 
-//======     singlelink.php ======
+//======	 singlelink.php	======
 define('_WLS_CATEGORY', 'Cat&eacute;gorie');
 define('_WLS_HITS', 'Hits');
 define('_WLS_RATING', 'Rang');
@@ -51,19 +52,16 @@ define('_WLS_TELLAFRIEND', 'Envoyer &agrave; un ami');
 define('_WLS_EDITTHISLINK', 'Editer ce lien ');
 define('_WLS_MODIFY', 'Modifier');
 
-//======    submit.php  ======
+//======	submit.php	======
 define('_WLS_SUBMITLINKHEAD', 'Soumettre un nouveau lien');
 define('_WLS_SUBMITONCE', "Ne soumettez votre lien qu'une seule fois.");
 define('_WLS_DONTABUSE', "Les noms d'utilisateurs et IP sont enregistr&eacute;s, merci de ne pas abuser de ce syst&egrave;me.");
 define('_WLS_TAKESHOT', "Nous allons prendre un aper�u d'&eacute;cran de votre site web, ceci peut prendre plusieurs jours pour que votre lien soit pris en compte dans notre base de donn&eacute;es.");
-define(
-    '_WLS_ALLPENDING',
-    "La soumission du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute; apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br>il se peut qu'il s'&eacute;coule un peu de temps avant la publication des informations de ce lien."
-);
+define('_WLS_ALLPENDING', "La soumission du lien est enregistr&eacute;e <b>temporairement</b>, et sera publi&eacute; apr&egrave;s v&eacute;rification par nos &eacute;quipes. <br>il se peut qu'il s'&eacute;coule un peu de temps avant la publication des informations de ce lien.");
 define('_WLS_WHENAPPROVED', 'Vous recevrez un email lorsque ce dernier sera approuv&eacute;.');
 define('_WLS_RECEIVED', 'Nous avons bien re�u les informations de votre site web. Et nous vous en remercions!');
 
-//======    modlink.php ======
+//======	modlink.php	======
 define('_WLS_REQUESTMOD', 'Demande de modification de lien');
 define('_WLS_THANKSFORINFO', 'Merci pour ces informations. Nous allons les consulter afin de r&eacute;pondre &agrave; votre attente dans les plus brefs d&eacute;lais.');
 
@@ -144,15 +142,12 @@ define('_WLS_SUBMIT', 'Soumettre');
 define('_WLS_CANCEL', 'Abandon');
 
 define('_WLS_ALREADYREPORTED', 'Vous nous avez d&eacute;j&agrave; soumis le rapport de lien bris&eacute; pour cette ressource.');
-define(
-    '_WLS_MUSTREGFIRST',
-    'D&eacute;sol&eacute;, vous ne disposez pas des permissions ad&eacute;quates pour mener &agrave; bien cette action.<br>Veuillez vous enregistrer ou vous identifier en premier lieu!'
-);
+define('_WLS_MUSTREGFIRST', 'D&eacute;sol&eacute;, vous ne disposez pas des permissions ad&eacute;quates pour mener &agrave; bien cette action.<br>Veuillez vous enregistrer ou vous identifier en premier lieu!');
 define('_WLS_NORATING', 'Aucun rang s&eacute;lectionn&eacute;.');
 define('_WLS_CANTVOTEOWN', 'Vous ne pouvez voter pour une ressource que vous avez soumise.<br>Tous les votes sont journalis&eacute;s et revus.');
 define('_WLS_VOTEONCE2', "Vous ne pouvez voter pour la ressource s&eacute;lectionn&eacute; qu'une seule fois.<br>Tous les votes sont journalis&eacute;s et revus.");
 
-//%%%%%%    Admin     %%%%%
+//%%%%%%	Admin	  %%%%%
 
 define('_WLS_WEBLINKSCONF', 'Pages de Configuration du module Web Links');
 define('_WLS_GENERALSET', 'Param&egrave;tres g&eacute;n&eacute;raux de Web Links');
@@ -234,7 +229,7 @@ define('_WLS_ISAPPROVED', 'Nous avons aprouv&eacute; la soumission de votre lien
 // weblinks
 //---------------------------------------------------------
 
-//======    index.php   ======
+//======	index.php	======
 // guidance bar
 define('_WLS_SUBMIT_NEW_LINK', 'Soumettre un nouveau lien');
 define('_WLS_SITE_POPULAR', 'Sites populaires');
@@ -256,7 +251,7 @@ define('_WLS_ATOMFEED', 'Fil RSS/ATOM');
 define('_WLS_LASTUPDATE', 'Derni&egrave;res mises &agrave; jour');
 define('_WLS_MORE', 'Plus de d&eacute;tails');
 
-//======     singlelink.php ======
+//======	 singlelink.php	======
 define('_WLS_DESCRIPTION', 'Description');
 define('_WLS_PROMOTER', 'Promouvoir');
 define('_WLS_ZIP', 'Code postal');
@@ -264,7 +259,7 @@ define('_WLS_ADDR', 'Adresse');
 define('_WLS_TEL', 'Num&eacute;ro de T&eacute;l&eacute;phone');
 define('_WLS_FAX', 'Num&eacute;ro de fax');
 
-//======     submit.php ======
+//======	 submit.php	======
 define('_WLS_BANNERURL', 'URL de banni&egrave;re');
 define('_WLS_NAME', 'Nom');
 define('_WLS_EMAIL', 'Email');
@@ -283,7 +278,7 @@ define(
 define('_WLS_USER_COMMENT', "Commentaire &agrave; destination de l'utilisateur");
 define('_WLS_NOT_DISPLAY', 'Cette colonne ne sera pas montr&eacute;e sur le WEB.');
 
-//======    modlink.php ======
+//======	modlink.php	======
 define('_WLS_MODIFYAPPROVED', 'La modification de votre lien en r&eacute;f&eacute;rence a &eacute;t&eacute; approuv&eacute;e. ');
 define('_WLS_MODIFY_NOT_OWNER', 'Ne consid&eacute;rez pas automatiquement que vous &ecirc;tes le d&eacute;positaire des informations du lien.');
 define(
@@ -293,7 +288,7 @@ Un certain temps est n&eacute;c&eacute;ssaire afin d'aprouver le cas et consid&e
 );
 define('_WLS_LINKSUBMITTER', 'Emeteur du lien');
 
-//======    user.php    ======
+//======	user.php	======
 define('_WLS_PLEASEPASSWORD', 'Saisissez votre mot de passe');
 define('_WLS_REGSTERED', 'Utilisateur enregistr&eacute;');
 define('_WLS_REGSTERED_DSC', 'Tout le monde peut modifier les informations du lien. <br>Le Webmestre contr&ocirc;lera ces modifications avant de les publier.');
@@ -353,14 +348,12 @@ define('_WLS_RSS_URL_2', 'Type ATOM');
 define('_WLS_RSS_URL_3', 'Auto-d&eacute;tection');
 
 define('_WLS_ATOMFEED_DISTRIBUTE', 'Fils RSS/ATOM distribu&eacute;s devant &ecirc;tre montr&eacute;s ici.');
-define(
-    '_WLS_ATOMFEED_FIREFOX',
-    "Si vous utilisez <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, faites un bookmark de cette page, vous pouvez consulter le filet RSS/ATOM. "
-);
+define('_WLS_ATOMFEED_FIREFOX', "Si vous utilisez <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, faites un bookmark de cette page, vous pouvez consulter le filet RSS/ATOM. ");
 
 // 2005-10-20
 define('_WLS_EMAIL_APPROVE', 'notifier si approuv&eacute;');
 define('_WLS_TOPTEN_TITLE', '%s Top %u');
 // %s is a link category title
 // %u is number of links
-define('_WLS_TOPTEN_ERROR', 'Il y a trop de cat&eacute;gorie principales. Affichage arr&eacute;t&eacute; &agrave; %u'); // %u is munber of categories
+define('_WLS_TOPTEN_ERROR', 'Il y a trop de cat&eacute;gorie principales. Affichage arr&eacute;t&eacute; &agrave; %u');
+// %u is munber of categories

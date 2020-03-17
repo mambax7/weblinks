@@ -1,4 +1,5 @@
 <?php
+
 // $Id: rssc_manage.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
@@ -45,4 +46,5 @@ echo "<br><br></li>\n";
 echo "</ul>\n";
 
 xoops_cp_footer();
-exit(); // === end of main ===
+exit();
+// === end of main ===

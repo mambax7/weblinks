@@ -1,6 +1,6 @@
 Hola {X_UNAME},
 
-Tu solicitud de modificación de "{LINK_NAME}" ha sido aprovada en {X_SITENAME}.
+Tu solicitud de modificaciï¿½n de "{LINK_NAME}" ha sido aprovada en {X_SITENAME}.
 
 Puedes ver el enlace aqui:
 {LINK_URL}

@@ -1,8 +1,8 @@
-Olá {X_UNAME},
+Olï¿½ {X_UNAME},
 
-Sua solicitação para remover o link foi aprovada no site {X_SITENAME}.
+Sua solicitaï¿½ï¿½o para remover o link foi aprovada no site {X_SITENAME}.
 
-Informações do site removido:
+Informaï¿½ï¿½es do site removido:
 Nome: {SITE_NAME}
 URL:  {SITE_URL}
 

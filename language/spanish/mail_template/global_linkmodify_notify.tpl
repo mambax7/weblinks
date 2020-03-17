@@ -1,8 +1,8 @@
 Hola {X_UNAME},
 
-Un enlace de modificación / eliminación solicitado ha sido añadido y está a la espera de su aprobación.
+Un enlace de modificaciï¿½n / eliminaciï¿½n solicitado ha sido aï¿½adido y estï¿½ a la espera de su aprobaciï¿½n.
 
-Puedes ver la solicitud aquí:
+Puedes ver la solicitud aquï¿½:
 {MODIFYREPORTS_URL}
 
 -----------

@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_approve_class.php,v 1.3 2008/02/26 16:01:35 ohwada Exp $
+
+// $Id: test_form_approve_class.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // print_error()
@@ -12,6 +13,10 @@
 //=========================================================
 // class weblinks_test_form_approve
 //=========================================================
+
+/**
+ * Class weblinks_test_form_approve
+ */
 class weblinks_test_form_approve extends weblinks_test_form_admin
 {
     //---------------------------------------------------------
@@ -26,6 +31,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $this->_admin_approve_del_url = WEBLINKS_URL . '/admin/link_manage.php?op=list_del&mid=';
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|\weblinks_test_form_admin|\weblinks_test_form_approve|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -39,6 +47,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // approve new link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_approve_new_with_login($mid = null)
     {
         $ret = $this->login_admin();
@@ -59,6 +72,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_fetch_approve_new($mid = null)
     {
         if (empty($mid)) {
@@ -73,6 +90,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param bool $flag_refuse_new
+     * @return bool
+     */
     public function admin_approve_new($flag_refuse_new = false)
     {
         $form_values = $this->get_form_values();
@@ -98,11 +119,17 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_approve_new_send_notify()
     {
         return $this->_admin_approve_send_notify();
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_approve_send_notify()
     {
         $form_values = $this->get_form_values();
@@ -125,6 +152,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_add_rssc_from_post()
     {
         if (!$this->is_exist_rssc_module()) {
@@ -153,6 +183,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_refresh()
     {
         $form_values = $this->get_form_values();
@@ -176,6 +209,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // refuse new link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_refuse_new_with_login($mid = null)
     {
         $ret = $this->login_admin();
@@ -196,11 +234,17 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_refuse_new_send_notify()
     {
         return $this->_admin_refuse_send_notify();
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_refuse_send_notify()
     {
         $form_values = $this->get_form_values();
@@ -224,6 +268,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // approve mod link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_approve_mod_with_login($mid = null)
     {
         $ret = $this->login_admin();
@@ -244,6 +293,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_fetch_approve_mod($mid = null)
     {
         if (empty($mid)) {
@@ -258,6 +311,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param bool $flag_ignore
+     * @return bool
+     */
     public function admin_approve_mod($flag_ignore = false)
     {
         $form_values = $this->get_form_values();
@@ -282,6 +339,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_approve_mod_send_notify()
     {
         return $this->_admin_approve_send_notify();
@@ -290,6 +350,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // refuse mod link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_refuse_mod_with_login($mid = null)
     {
         $ret = $this->login_admin();
@@ -310,6 +375,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_refuse_mod_send_notify()
     {
         return $this->_admin_refuse_send_notify();
@@ -318,6 +386,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // approve del link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_approve_del_with_login($mid = null)
     {
         $ret = $this->login_admin();
@@ -338,9 +411,13 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_fetch_approve_del($mid = null)
     {
-        //  echo "admin_fetch_approve_del <br>\n";
+        //	echo "admin_fetch_approve_del <br>\n";
 
         if (empty($mid)) {
             $mid = $this->get_newid();
@@ -354,9 +431,13 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @param bool $flag_ignore
+     * @return bool
+     */
     public function admin_approve_del($flag_ignore = false)
     {
-        //  echo "admin_approve_del <br>\n";
+        //	echo "admin_approve_del <br>\n";
 
         $form_values = $this->get_form_values();
         if (!isset($form_values['mid'])) {
@@ -381,6 +462,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_approve_del_confirm()
     {
         $form_values = $this->get_form_values();
@@ -403,6 +487,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_approve_del_send_notify()
     {
         return $this->_admin_approve_send_notify();
@@ -411,9 +498,14 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // refuse del link
     //---------------------------------------------------------
+
+    /**
+     * @param null $mid
+     * @return bool
+     */
     public function admin_refuse_del_with_login($mid = null)
     {
-        //  echo "admin_refuse_del_with_login <br>\n";
+        //	echo "admin_refuse_del_with_login <br>\n";
 
         $ret = $this->login_admin();
         if (!$ret) {
@@ -433,6 +525,9 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_refuse_del_send_notify()
     {
         return $this->_admin_refuse_send_notify();
@@ -441,6 +536,11 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
     //---------------------------------------------------------
     // build form
     //---------------------------------------------------------
+
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_admin_modify($v)
     {
         if (!isset($v['description']) && isset($v['weblinks_description'])) {
@@ -463,7 +563,7 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $arr['weblinks_description'] = $arr['description'];
         $arr['weblinks_textarea1'] = $arr['textarea1'];
 
-        $arr['action'] = 'https://localhost' . $v['action'];
+        $arr['action'] = 'http://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op'] = $v['op'];
         $arr['cid'] = $v['cid_arr'];
@@ -489,6 +589,10 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_approve_notify($v)
     {
         $_hidden_lid = isset($v['_hidden_lid']) ? (int)$v['_hidden_lid'] : 0;
@@ -498,7 +602,7 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         $_hidden_rss_url = isset($v['_hidden_rss_url']) ? $v['_hidden_rss_url'] : '';
 
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             '_hidden_lid' => $_hidden_lid,
@@ -516,10 +620,14 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_refuse_notify($v)
     {
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'to_email' => $v['to_email'],
@@ -532,10 +640,14 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_admin_delete($v)
     {
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'mid' => $v['mid'],
@@ -544,10 +656,14 @@ class weblinks_test_form_approve extends weblinks_test_form_admin
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_approve_del_confirm($v)
     {
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'mid' => $v['mid'],

@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // WebLinks Module
 // language for admin
@@ -20,7 +21,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', 'عملکرد هاي ديگر');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', 'رفتن به صفحه ي مديريت');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // Access Authority
     define('_WEBLINKS_ADMIN_AUTH', 'تنظيم دسترسي ها');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'مدير دسترسي کامل دارد');
@@ -45,32 +46,17 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOM  به روز رسانی خودکار خوراک های');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "وقتي بله را انتخاب ميکنيد, نمايش داده ميشود 'انجام کشف خودکار ادرس عاي RSS/ATOM' و 'به روز رساني خودکار', وقتي که اطلاعات جزئيات لينک نمايش داده ميشود. ");
     define('_WEBLINKS_RSS_MODE_DATA', 'اطلاعات RSS/ATOM که نمايش داده ميشود');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        "وقتی 'خوراک ATOM' را انتخاب کنید, بعد از تجزیه از خوراک ATOM استفاده میشود. <br>وقتی 'XML' را انتخاب کنید, از اطلاعات جدول لینک بعد از تجزیه استفاده میشود. <br>بعد از فیلترینگ ممکن است بعضی از  اطلاعات تغیذه کننده های atom سیو نشود "
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', "وقتی 'خوراک ATOM' را انتخاب کنید, بعد از تجزیه از خوراک ATOM استفاده میشود. <br>وقتی 'XML' را انتخاب کنید, از اطلاعات جدول لینک بعد از تجزیه استفاده میشود. <br>بعد از فیلترینگ ممکن است بعضی از  اطلاعات تغیذه کننده های atom سیو نشود ");
     define('_WEBLINKS_RSS_CACHE', 'زمان کش خوراک های RSS/ATOM');
     define('_WEBLINKS_RSS_CACHE_DSC', 'واحد تنظیم 1 ساعته می باشد..');
     define('_WEBLINKS_RSS_LIMIT', 'بیشترین تعداد خوراک های RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_LIMIT_DSC',
-        'بزرگترين عدد RSS/ATOM را براي  ذخيره در جدول atom فيد  وارد کنيد<br>اگر ارزش اطلاعات جديد از اطلاعات قديمي بيشتر باشد اطلاعات قديمي پاک ميشود. <br>0 نامحدود است . '
-    );
+    define('_WEBLINKS_RSS_LIMIT_DSC', 'بزرگترين عدد RSS/ATOM را براي  ذخيره در جدول atom فيد  وارد کنيد<br>اگر ارزش اطلاعات جديد از اطلاعات قديمي بيشتر باشد اطلاعات قديمي پاک ميشود. <br>0 نامحدود است . ');
     define('_WEBLINKS_RSS_SITE', 'سایت جستجوی RSS');
-    define(
-        '_WEBLINKS_RSS_SITE_DSC',
-        'لیست آدرس های RSS را از جستجوی RSS سایت وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید.<br>آدرس ATOM وارد نکنید.. '
-    );
+    define('_WEBLINKS_RSS_SITE_DSC', 'لیست آدرس های RSS را از جستجوی RSS سایت وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید.<br>آدرس ATOM وارد نکنید.. ');
     define('_WEBLINKS_RSS_BLACK', 'لیست سیاه خوراک های RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_BLACK_DSC',
-        'لیست آدرس های را که وقتی خوراک ی RSS/ATOM به آن ها  وصل شد قبول نکنند وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید. <br>You can use the regular expression of perl. '
-    );
+    define('_WEBLINKS_RSS_BLACK_DSC', 'لیست آدرس های را که وقتی خوراک ی RSS/ATOM به آن ها  وصل شد قبول نکنند وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید. <br>You can use the regular expression of perl. ');
     define('_WEBLINKS_RSS_WHITE', 'یست سفید خوراک های RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_WHITE_DSC',
-        'لیست لینک های را که با تطابق با لیست سیاه جمه آوری میشوند وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید. <br>You can use the regular expression of perl. '
-    );
+    define('_WEBLINKS_RSS_WHITE_DSC', 'لیست لینک های را که با تطابق با لیست سیاه جمه آوری میشوند وارد کنید <br>وقتی بیشتر از یک مورد  تعیین کردید با رفتن به خط جدید آن ها را از هم جدا کنید. <br>You can use the regular expression of perl. ');
     define('_WEBLINKS_RSS_URL_CHECK', 'تعدادی از لینکها با لیست سیاه تطابق پیدا می کند. ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', 'Please copy and paste of the lower white list to a registration form, if you require. ');
     define('_WEBLINKS_RSS_UPDATED', 'به روز رسانی تنظیمات RSS/ATOM');
@@ -78,15 +64,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // RSS/ATOM
     define('_WEBLINKS_ADMIN_RSS_VIEW', 'تنظیمات نمایش خوراک های RSS/ATOM');
     define('_WEBLINKS_RSS_MODE_TITLE', 'از تگهای HTML عنوان استفاده شود');
-    define(
-        '_WEBLINKS_RSS_MODE_TITLE_DSC',
-        'وقتي انخواب ميکنيد "بله", عنوان با تگهاي HTML نمايش داده ميشود  , اگر عنوان تگ HTML داشته باشد. <br>وقتي انتخاب ميکنيد "نه", عنوان با تگ هاي هاشور خورده HTML نمايش داده ميشود. '
-    );
+    define('_WEBLINKS_RSS_MODE_TITLE_DSC', 'وقتي انخواب ميکنيد "بله", عنوان با تگهاي HTML نمايش داده ميشود  , اگر عنوان تگ HTML داشته باشد. <br>وقتي انتخاب ميکنيد "نه", عنوان با تگ هاي هاشور خورده HTML نمايش داده ميشود. ');
     define('_WEBLINKS_RSS_MODE_CONTENT', 'از تگهای HTML متن اسفاده شود');
-    define(
-        '_WEBLINKS_RSS_MODE_CONTENT_DSC',
-        'وقتي انتخاب ميکنيد "بله ", تماس با تگهاي HTML نشان داده ميشود, اگر محت  و یات تگهاي HTML داشته باشند. <br>وقتي انتخاب ميکنيد  "نه", تماس هاشور خورده با تگ هاي striping نمايش داده ميشود. '
-    );
+    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', 'وقتي انتخاب ميکنيد "بله ", تماس با تگهاي HTML نشان داده ميشود, اگر محت  و یات تگهاي HTML داشته باشند. <br>وقتي انتخاب ميکنيد  "نه", تماس هاشور خورده با تگ هاي striping نمايش داده ميشود. ');
     define('_WEBLINKS_RSS_NEW', 'انتخاب کنيد بيشترين  عدد از "تغذيه کننده هاي جديد RSS/ATOM که" نشان داده ميشوند در صفحه');
     define('_WEBLINKS_RSS_NEW_DSC', 'وارد کنيد بيشترين مقدار عددي تغزيه کننده هاي RSS/ATOM را که در صفحه ي اصلي نمايش داده ميشوند.');
     define('_WEBLINKS_RSS_PERPAGE', 'تعداد ماکزیمم خوراک های RSS/ATOM و صفحات جزییات لینکها را که در صفحه RSS/ATOM نشان داده می شوند مشخص کنید');
@@ -94,10 +74,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_NUM_CONTENT', 'تعداد خوراک ها که متن را نمایش می دهند');
     define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'تعداد خوراک های  محتوی RSS/ATOM را که در صفحه ی نمایش ااطلاعات لینک نشان داده میشود وارد کنی <br>خلاصه ی  خوراک های دیگر نمایش داده میشود ');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'ماکزیمم تعداد حروفی که برای نمایش محتوای RSS/ATOM به کار می رود');
-    define(
-        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
-        'بیشترین تعداد کارکتر های خوراک  های RSS/ATOM را که در صفحه ی نمایش خوراک های RSS/ATOM نشان داده میشود مشخص کنید  <br>این گزینه وقتی قبال استفاده است که " استفاده از تگ های html  درمحتوا " بر روی گزینه ی " خاموش" باشد '
-    );
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'بیشترین تعداد کارکتر های خوراک  های RSS/ATOM را که در صفحه ی نمایش خوراک های RSS/ATOM نشان داده میشود مشخص کنید  <br>این گزینه وقتی قبال استفاده است که " استفاده از تگ های html  درمحتوا " بر روی گزینه ی " خاموش" باشد ');
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'ماکزیمم تعداد حروفی که برای نمایش خلاصه RSS/ATOM به کار می رود');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'بیشترین تعداد کارکتر های مورد استفاده در توضیح خوراک های اضافی RSS/ATOM که رد صفحه ی اصلی نمایش داده میشود را مشخص کنید ');
 
@@ -112,10 +89,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_TYPE_DESC', 'نوع توضیحات فرم ارسال');
     define('_WEBLINKS_TYPE_DESC_DSC', 'وقتي انتخاب کنيد "نه ", <br>از تسکت باکس معمولي  استفاده ميشود.<br>وقتي انتخاب کنيد "بله", <br>از ويرايشگر DHTML زوپس براي توصيف فرم استفاده ميشود. ');
     define('_WEBLINKS_CHECK_DOUBLE', 'ارسال لینکهای موجود را قبول کن');
-    define(
-        '_WEBLINKS_CHECK_DOUBLE_DSC',
-        'وقتي انتخاب ميکنيد "نه", <br>ثبت از لينک هاي موجود پذيرفته ميشود. <br> وقتي انتخاب ميکنيد  "بله", <br>برسي ميکند ايا تعدادي از لينک ها قبلا موجود بوده اند. '
-    );
+    define('_WEBLINKS_CHECK_DOUBLE_DSC', 'وقتي انتخاب ميکنيد "نه", <br>ثبت از لينک هاي موجود پذيرفته ميشود. <br> وقتي انتخاب ميکنيد  "بله", <br>برسي ميکند ايا تعدادي از لينک ها قبلا موجود بوده اند. ');
     define('_WEBLINKS_POST_UPDATED', 'تنظيمات فيلد  لينک ها به روز شد');
 
     // cateogry
@@ -125,10 +99,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_SUB', 'تعداد زیر شاخه ها');
     define('_WEBLINKS_CAT_SUB_DSC', 'تعداد زیر شاخه های نشان داده شده در ذیل شاخه اصلی در صفحه اصلی');
     define('_WEBLINKS_CAT_IMG_MODE', 'تصویر شاخه را انتخاب کنید');
-    define(
-        '_WEBLINKS_CAT_IMG_MODE_DSC',
-        'زمانی که هیچ انتخاب شود چیزی نمایش داده نمی شود. <br>زمانی که فولدر انتخاب شود folder.gif نمایش داده می شود. <br>زمانی که شکل تنظیمات انتخاب شود، شکل شاخه مربوطه نشان داده می شود. '
-    );
+    define('_WEBLINKS_CAT_IMG_MODE_DSC', 'زمانی که هیچ انتخاب شود چیزی نمایش داده نمی شود. <br>زمانی که فولدر انتخاب شود folder.gif نمایش داده می شود. <br>زمانی که شکل تنظیمات انتخاب شود، شکل شاخه مربوطه نشان داده می شود. ');
     define('_WEBLINKS_CAT_IMG_MODE_0', 'هیچ');
     define('_WEBLINKS_CAT_IMG_MODE_1', 'فولدر');
     define('_WEBLINKS_CAT_IMG_MODE_2', 'شکل تنظیمات');
@@ -137,7 +108,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'اثرگذار تنها زمانی که شکل تنظیمات انتخاب شده باشد". ');
     define('_WEBLINKS_CAT_UPDATED', 'تنظیمات شاخه ها به روز شد');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'مديريت شاخه ها');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'ليست شاخه ها');
     //define("_WEBLINKS_ORDER_ID"," ليست به وسيله يID");
@@ -150,12 +121,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', 'تعداد زير شاخه ها');
     define('_WEBLINKS_ORDERS_UPDATED', 'به روز رساني شاخه هاي سفارشي');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', 'آدرس تصویر شاخه');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', 'این اختیاری است<br>به صورت خودکار اندازه تصویر را تنظیم می کند. ');
     define('_WEBLINKS_IMGURL_MAIN_DSC2', 'این تنها در شاخه اصلی موثر است. ');
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', 'مدیریت لینک');
     define('_WEBLINKS_ADMIN_LINK_LIST', 'لیست لینکها');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', 'لیست لینکهای از کار افتاده');
@@ -166,19 +137,16 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', 'هیچ لیست متناظری وجود ندارد');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'اطلاعات ذخیره شده در دیتابیس اینجا نشان داده میشود');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","شناسه استفاده کننده");
     //define("_WEBLINKS_CREATE","ایجاد شد");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'لینک چک و به روز می شود');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'چک لینک از کار افتاده ');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'چک');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', 'چک نتیجه');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        'یک تاخیر ممکن است اتفاق بیافتد اگر تعداد لینکهای از کار افتاده زیاد باشد <br>پس لطفا مقدار عددی limit را مشخص کنید<br>limit=0 هیچ محدودیتی وجود ندارد<br>'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', 'یک تاخیر ممکن است اتفاق بیافتد اگر تعداد لینکهای از کار افتاده زیاد باشد <br>پس لطفا مقدار عددی limit را مشخص کنید<br>limit=0 هیچ محدودیتی وجود ندارد<br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', 'زمانی که بر روی شناسه لینک کلیک کندی صفحه تغییر لینک باز می شود<br>زمانی که بر روی آدرس سایت کلیک کنید سایت مورد نظر باز می شود<br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'زمانی که بر روی عنوان وب سایت کلیک کنید صفحه جستجوی گوگل باز می شود<br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'حداکثر تعداد کنترل لینکها');
@@ -195,7 +163,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', 'تعداد %s لینک بعدی را چک کن');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_NOTE', 'بصورت همزمان عملیات کشف آدرسهای RSS/ATOM را انجام بده');
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'مدیریت خوراک های RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'رفرش RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'رفرش کش اطلاعات لینک');
@@ -212,7 +180,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'تعداد کش RSS/ATOM پاک شده');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'تعداد خوراک های RSS/ATOM پاک شده');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', 'مدیریت کاربران');
     define('_WEBLINKS_ADMIN_USER_EMAIL', 'لیست کاربرانی که پست الکترونیک دارند');
     define('_WEBLINKS_ADMIN_USER_LINK', 'لیست کاربرانی که اطلاعات لینک را دارند');
@@ -226,7 +194,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', 'هیچ کاربری یافت نشد');
     define('_WEBLINKS_UID_EMAIL', 'پست الکترونیک ارسال کننده');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', 'ارسال پست الکترونیک');
     define('_WEBLINKS_THERE_ARE_EMAIL', 'تعداد <b>%s</b> پست الکترونیک موجود است');
     define('_WEBLINKS_SEND_NUM', 'پست الکترونیک را از نفر %s تا نفر %s ارسال کن');
@@ -280,10 +248,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_USE_HITS', 'استفاده از شمارشگر لينک');
     define('_AM_WEBLINKS_USE_HITS_DSC', 'وقتي انتخاب کنيد بله, <br>فعال کنيد تا شمارش گر لينک بازديد ها را بشمارد');
     define('_AM_WEBLINKS_USE_PASSWD', 'برسي صحت پسورد');
-    define(
-        '_AM_WEBLINKS_USE_PASSWD_DSC',
-        'وقتي انتخاب کنيد بله, <br><b>از کاربر پرسيده ميشود</b>ميتوانيد لينک را ويرايش کنيد با برسي صحت پسورد.<br>وقتي انتخاب شود نه, <br>خطاهاي پسورد نمايش داده نميشود.'
-    );
+    define('_AM_WEBLINKS_USE_PASSWD_DSC', 'وقتي انتخاب کنيد بله, <br><b>از کاربر پرسيده ميشود</b>ميتوانيد لينک را ويرايش کنيد با برسي صحت پسورد.<br>وقتي انتخاب شود نه, <br>خطاهاي پسورد نمايش داده نميشود.');
     define('_AM_WEBLINKS_PASSWD_MIN', 'کمترين طول براي پسورد مورد نياز');
     define('_AM_WEBLINKS_POST_TEXT', 'مدير دسترسي کامل دارد');
     define('_AM_WEBLINKS_AUTH_DOHTML', 'دسترسي براي استفاده از تگ هاي HTML');
@@ -307,23 +272,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_URL_1', 'غير مستقيم url');
     define('_AM_WEBLINKS_VIEW_URL_2', 'مستقيم  url');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'اولويت معرفي سايت');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'وقتي انتخاب کنيد "هيچ", <br>نمايش داده نميشود.<br>وقتي ر کنيد "معمولي", <br>در بالا نمايش داده ميشود.<br>وقتي انتخاب کنيد "عالي", <br>به عنوان عالي ترين رنک در هر شاخه نمايش داده ميشود.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'وقتي انتخاب کنيد "هيچ", <br>نمايش داده نميشود.<br>وقتي ر کنيد "معمولي", <br>در بالا نمايش داده ميشود.<br>وقتي انتخاب کنيد "عالي", <br>به عنوان عالي ترين رنک در هر شاخه نمايش داده ميشود.');
     define('_AM_WEBLINKS_MUTUAL_PRI', 'اولويت معکوس سايت');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'وقتي انتخاب کنيد "هيچ", <br>نمايش داده نميشود.<br>وقتي انتخاب کنيد "معمولي", <br>در بالا نمايش داده ميشود.<br>وقتي انتخاب کنيد "عالي", <br>به عنوان عالي ترين رنک در هر شاخه نمايش داده ميشود.'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'وقتي انتخاب کنيد "هيچ", <br>نمايش داده نميشود.<br>وقتي انتخاب کنيد "معمولي", <br>در بالا نمايش داده ميشود.<br>وقتي انتخاب کنيد "عالي", <br>به عنوان عالي ترين رنک در هر شاخه نمايش داده ميشود.');
     define('_AM_WEBLINKS_PRI_0', 'هيچ');
     define('_AM_WEBLINKS_PRI_1', 'معمولي');
     define('_AM_WEBLINKS_PRI_2', 'عالي');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'به روز رساني خودکاراندازه ي عکس بنر ها');
-    define(
-        '_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
-        'وقتي انتخاب کنيد بله, <br>به طور اتوماتيک سايز بنر به روز رساني ميشود,وقتي اطلاعات ليست لينک ها و جزئيات لينک ها نمايش داده ميشود, if Banner image size is not able to get at registration and change link information.'
-    );
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'وقتي انتخاب کنيد بله, <br>به طور اتوماتيک سايز بنر به روز رساني ميشود,وقتي اطلاعات ليست لينک ها و جزئيات لينک ها نمايش داده ميشود, if Banner image size is not able to get at registration and change link information.');
     define('_AM_WEBLINKS_RSS_USE', 'استفاده از تغذيه کننده ي RSS');
     define('_AM_WEBLINKS_RSS_USE_DSC', 'وقتي انتخاب شود بله, <br>تغذيه کننده هاي RSS/ATOM نمايش داده ميشود.');
 
@@ -397,8 +353,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'تنظيمات مکان يابي');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'کد کشور');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'کد ccTLDs را وارد کنید <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br> The item with the <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'کد ccTLDs را وارد کنید <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br/> The item with the <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', 'Renew');
 
     // map
@@ -407,14 +363,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'تلمپ نقشه ي سايت');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'نام فايل تلمپ را در راهنماي تلمپ /مپ وارد کنيد');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'تنظيمات نقشه ي گوگل');
     define('_AM_WEBLINKS_CONF_GM_USE', 'استفاده از نقشه ي گوگل');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'کليد هاي API نقشه ي گوگل');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'وقتی نقشه های گوگل را تنظیم کردید کلید های API را از<br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> بگیرید.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'وقتی نقشه های گوگل را تنظیم کردید کلید های API را از<br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> بگیرید.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'نام سرور');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'کد زبان');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'مکان پيش فرض');
@@ -463,10 +416,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'اطلاعات کامل');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'بهینه سازی کردن');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', 'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"');
     define('_AM_WEBLINKS_CAT_PATH', 'مسیر درختی شاخه');
     define('_AM_WEBLINKS_CAT_PATH_DSC', 'بله مسیر های درختی شاخه را تخمین بزن و در جودل شاخه ها در پایگاه داده ها ذخیره کن.<br>نه در موقع نمایش محاصبه نکن.');
     define('_AM_WEBLINKS_CAT_COUNT', 'شمارش لینک های شاخه');
@@ -477,10 +427,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'پیکر بندی گزینه های ثبت لینک');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'استفاده از تصاویر امنیتی');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'تصاویر امنیتی برای مقابله با هرز نامه ها به کار میرود.<br>ایگ گزینه به نصب ماژول ها تصاویر امنیتی نیاز دارد.<br>بله, <b>کاربر</b> برای اضافه یا ویرایش لینک از تصاویر امنیتی استفاده میکند.<br>نه . فیلد تصاویر امنیتی نمایش داده نمیشود.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'تصاویر امنیتی برای مقابله با هرز نامه ها به کار میرود.<br>ایگ گزینه به نصب ماژول ها تصاویر امنیتی نیاز دارد.<br>بله, <b>کاربر</b> برای اضافه یا ویرایش لینک از تصاویر امنیتی استفاده میکند.<br>نه . فیلد تصاویر امنیتی نمایش داده نمیشود.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'نسخه %s ماژول تصاویر امنیتی پیدا شد');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'ماژول تصاویر امنیتی نصب نشده است');
 
@@ -585,19 +532,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[جستجو] نوع نقشه');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Œںچُ] Kind of Geocode');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Single Result: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'More Results: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[جستجو][Japan] Use CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br>Search latitude and longitude from address');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[جستجو][Japan] Use Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'Valid in Japan<br>Search address from latitude and longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'Valid in Japan<br>Search address from latitude and longitude<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[علامت] بیشترین تعداد کارکتر ها برای عنوان');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'بیشترین تعداد کارکتر های استفاده شده در عنوان<br><b>-1</b> بدون محدودیت است');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[علامت] بیشترین تعداد کارکتر ها برای  متن');
@@ -629,10 +570,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'پیکربندی سبک HTML');
     define('_AM_WEBLINKS_HEADER_MODE', 'استفاده از هدر ماژول زوپس');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        'وقتی روی "نه" است , style sheet و Javascript را در بدنه نمایش بده<br>وقتی بر روی "بله" است, آنها را در تگ هدر نمایش بده, از هدر ماژول های زوپس استفاده کن<br>در بعضی از قالب های قابل استفاده نیست'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', 'وقتی روی "نه" است , style sheet و Javascript را در بدنه نمایش بده<br>وقتی بر روی "بله" است, آنها را در تگ هدر نمایش بده, از هدر ماژول های زوپس استفاده کن<br>در بعضی از قالب های قابل استفاده نیست');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'شما میتوانید نمونه را ببینید, بر روی دکمه نمونه کلیک کنید');
@@ -696,8 +634,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'تعویض با تصویر لینک');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'نمایش تصویر بند انگشتی وب سایت در تصویر لینک, <br>استفاده از وب سرور تصاویر بند انگشتی, <br>اگر  تصور لینک تنظیم نشود.');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'none');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 
     // === 2007-11-01 ===
     // google map
@@ -746,4 +684,5 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // kml
     define('_AM_WEBLINKS_KML_USE', 'نمایش KML');
-}// --- define language begin ---
+}
+// --- define language begin ---

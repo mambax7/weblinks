@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_plugin.php,v 1.2 2012/04/10 04:42:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -27,17 +28,21 @@ if (!function_exists('b_weblinks_photo_show')) {
     // [1] number of display photos (1)
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_photo_show($options)
     {
         $SEL_KIND = 'album';
         $PLUGIN_KIND = 'photos';
-        $WIDTH = 140; // pixel
-        $MODE_SUB = 1;   // with sub
-        $CYCLE = 60;  // sec
+        $WIDTH = 140;    // pixel
+        $MODE_SUB = 1;    // with sub
+        $CYCLE = 60;    // sec
         $SHOW_TITLE = true;
         $FLAG_WEBLINKS_CAT = true;
 
-        $album_id = 0;  // all category
+        $album_id = 0;    // all category
 
         global $xoopsDB;
 
@@ -51,7 +56,7 @@ if (!function_exists('b_weblinks_photo_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_plugin.php';
         include_once $WEBLINKS_ROOT_PATH . '/plugins/album_sel.php';
 
-        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
+        $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
         $plugin = weblinks_plugin::getInstance($DIRNAME);
 
         // config
@@ -121,6 +126,10 @@ if (!function_exists('b_weblinks_photo_show')) {
         return $block;
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_photo_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];

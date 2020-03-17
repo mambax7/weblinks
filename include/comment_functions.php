@@ -1,5 +1,6 @@
 <?php
-// $Id: comment_functions.php,v 1.7 2007/02/27 14:46:03 ohwada Exp $
+
+// $Id: comment_functions.php,v 1.1 2011/12/29 14:32:35 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // hack for multi site
@@ -29,7 +30,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_com_update( $lid, $comments )
 {
-    return weblinks_com_update_base( "' . $WEBLINKS_DIRNAME . '" , $lid, $comments ) ;
+	return weblinks_com_update_base( \'' . $WEBLINKS_DIRNAME . '\' , $lid, $comments ) ;
 }
 
 '
@@ -38,6 +39,11 @@ function ' . $WEBLINKS_DIRNAME . '_com_update( $lid, $comments )
 
 // === weblinks_com_update_base begin ===
 if (!function_exists('weblinks_com_update_base')) {
+    /**
+     * @param $dirname
+     * @param $lid
+     * @param $comments
+     */
     function weblinks_com_update_base($dirname, $lid, $comments)
     {
         global $xoopsDB;
@@ -49,6 +55,9 @@ if (!function_exists('weblinks_com_update_base')) {
         $xoopsDB->queryF($sql);
     }
 
+    /**
+     * @param $comment
+     */
     function weblinks_com_approve(&$comment)
     {
         // notification mail here

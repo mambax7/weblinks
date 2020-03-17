@@ -1,5 +1,6 @@
 <?php
-// $Id: import_manage.php,v 1.5 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: import_manage.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()

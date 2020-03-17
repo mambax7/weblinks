@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_form_check_handler.php,v 1.13 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: weblinks_link_form_check_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // _check_length()
@@ -50,6 +51,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
     //=========================================================
     // class weblinks_link_form_check_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_form_check_handler
+     */
     class weblinks_link_form_check_handler extends happy_linux_error
     {
         public $_DIRNAME;
@@ -75,15 +80,20 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_form_check_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link', $dirname);
-            $this->_linkitem_handler = weblinks_getHandler('linkitem_define', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('linkitem_define', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post = happy_linux_post::getInstance();
@@ -94,6 +104,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // POST param
         //---------------------------------------------------------
+
+        /**
+         * @return string|string[]|null
+         */
         public function get_post_url()
         {
             $url = $this->_post->get_post_text('url');
@@ -104,17 +118,30 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // check form
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function check_form_addlink_by_post()
         {
             return $this->_check_form_common(true, true, false);
         }
 
+        /**
+         * @return bool
+         */
         public function check_form_modlink_for_owner_by_post()
         {
             return $this->_check_form_common(true, false, false);
         }
 
         // modlink.php
+
+        /**
+         * @param bool $is_owner
+         * @param bool $has_auth_modify_auto
+         * @return bool
+         */
         public function check_form_modlink_by_post($is_owner = true, $has_auth_modify_auto = false)
         {
             $flag_usercomment_indispensable = false;
@@ -127,6 +154,9 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $this->_check_form_common($is_owner, false, $flag_usercomment_indispensable);
         }
 
+        /**
+         * @return bool
+         */
         public function check_form_approve_mod()
         {
             $this->_check_form_common(true, false, false);
@@ -135,6 +165,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $this->returnExistError();
         }
 
+        /**
+         * @param bool $is_owner
+         * @param bool $flag_new
+         * @param bool $flag_usercomment_indispensable
+         * @return bool
+         */
         public function _check_form_common($is_owner = true, $flag_new = true, $flag_usercomment_indispensable = false)
         {
             $linkitem_arr = &$this->_get_linkitem_load();
@@ -205,6 +241,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // check routine
         //---------------------------------------------------------
+
+        /**
+         * @param $name
+         * @param $title
+         * @return bool
+         */
         public function _check_fill_by_post($name, $title)
         {
             if (!$this->_post->is_post_fill($name)) {
@@ -217,6 +259,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return true;
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         */
         public function _check_desc_by_post($name, $title, $mode)
         {
             $desc = '';
@@ -232,6 +279,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_check_length($title, $desc, $this->_conf['desc_length']);
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         */
         public function _check_textarea1_by_post($name, $title, $mode)
         {
             $desc = '';
@@ -242,6 +294,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_check_length($title, $desc, $this->_conf['desc_length_1']);
         }
 
+        /**
+         * @param $title
+         * @param $str
+         * @param $max
+         */
         public function _check_length($title, $str, $max)
         {
             // user & guest
@@ -251,6 +308,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             }
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         */
         public function _check_cat_by_post($name, $title, $mode)
         {
             $flag_cid = false;
@@ -266,6 +328,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             }
         }
 
+        /**
+         * @param      $name
+         * @param      $title
+         * @param      $mode
+         * @param bool $is_owner
+         * @return bool
+         */
         public function _check_mail_by_post($name, $title, $mode, $is_owner = true)
         {
             $flag_err = false;
@@ -293,6 +362,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return true;
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $flag_new
+         * @return bool
+         */
         public function _check_passwd_by_post($name, $title, $flag_new)
         {
             $name1 = 'passwd_new';
@@ -329,6 +404,9 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function _check_captcha_by_post()
         {
             // check if geust
@@ -347,6 +425,13 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // check url
         //---------------------------------------------------------
+
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         * @param $flag_new
+         */
         public function _check_url_by_post($name, $title, $mode, $flag_new)
         {
             $this->_check_url_fill($name, $title, $mode);
@@ -358,6 +443,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             }
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         */
         public function _check_banner_by_post($name, $title, $mode)
         {
             $this->_check_url_fill($name, $title, $mode);
@@ -365,6 +455,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         }
 
         // execute when use rssc module
+
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         */
         public function _check_rss_url_by_post($name, $title, $mode)
         {
             $flag_check_fill = false;
@@ -389,6 +485,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_check_url_llegal($name, $title, $mode);
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         * @return bool
+         */
         public function _check_url_fill($name, $title, $mode)
         {
             if (2 == $mode) {
@@ -403,6 +505,12 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return true;
         }
 
+        /**
+         * @param $name
+         * @param $title
+         * @param $mode
+         * @return bool
+         */
         public function _check_url_llegal($name, $title, $mode)
         {
             if (!$this->_post->is_post_url_llegal($name)) {
@@ -415,6 +523,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return true;
         }
 
+        /**
+         * @param $url
+         * @return bool
+         */
         public function _check_url_double($url)
         {
             $this->error_msg_flag_lid_full = 0;
@@ -425,25 +537,29 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             if ($this->_conf['check_double'] >= 1) {
                 $ret = $this->_check_url_full($url);
                 if (!$ret) {
-                    return false;   // error
+                    return false;    // error
                 }
             }
 
             if (2 == $this->_conf['check_double']) {
                 $ret = $this->_check_url_part($url);
                 if (!$ret) {
-                    return false;   // warning
+                    return false;    // warning
                 }
             }
 
             return true;    // OK
         }
 
+        /**
+         * @param $url
+         * @return bool
+         */
         public function _check_url_full($url)
         {
-            if (('' == $url) || ('https://' == $url)) {
+            if (('' == $url) || ('http://' == $url)) {
                 return true;
-            }   // no check
+            }    // no check
 
             $this->error_msg_lid_arr_full = &$this->_get_link_lid_array_by_url($url);
 
@@ -453,17 +569,21 @@ if (!class_exists('weblinks_link_form_check_handler')) {
 
                 $this->error_msg_flag_lid_full = 1;
 
-                return false;   // NG
+                return false;    // NG
             }
 
             return true;    // OK
         }
 
+        /**
+         * @param $url
+         * @return bool
+         */
         public function _check_url_part($url)
         {
-            if (('' == $url) || ('https://' == $url)) {
+            if (('' == $url) || ('http://' == $url)) {
                 return true;
-            }   // no check
+            }    // no check
 
             $arr_out = [];
 
@@ -499,7 +619,7 @@ if (!class_exists('weblinks_link_form_check_handler')) {
                 $this->_set_error_flag();
                 $this->error_msg_flag_lid_part = 1;
 
-                return false;   // NG
+                return false;    // NG
             }
 
             return true;    // OK
@@ -508,10 +628,14 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // approve_mod
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _check_form_approve_mod_user()
         {
             $lid = $this->_post->get_post_int('lid');
-            $obj = &$this->_link_handler->get($lid);
+            $obj = $this->_link_handler->get($lid);
             if (!is_object($obj)) {
                 $msg = _NO_LINK . ': lid = ' . $lid;
                 $this->_set_errors($msg);
@@ -524,6 +648,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             $this->_check_confirm('mail', $obj);
         }
 
+        /**
+         * @param $name
+         * @param $obj
+         * @return bool
+         */
         public function _check_confirm($name, $obj)
         {
             $confirm_name = $name . '_confirm';
@@ -544,6 +673,11 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // error message
         //---------------------------------------------------------
+
+        /**
+         * @param string $format
+         * @return array|string|null
+         */
         public function &get_errors_addlink($format = 'n')
         {
             $ret = null;
@@ -565,11 +699,18 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $ret;
         }
 
+        /**
+         * @return mixed
+         */
         public function get_formated_error_addlink()
         {
             return $this->_formated_error_addlink;
         }
 
+        /**
+         * @param string $format
+         * @return array|string
+         */
         public function &get_errors_modlink($format = 'n')
         {
             $ret = $this->getErrors($format);
@@ -577,6 +718,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $lid_arr
+         * @return string
+         */
         public function _build_html_error_url($lid_arr)
         {
             $text = '<ul>';
@@ -590,6 +735,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $text;
         }
 
+        /**
+         * @param $lid
+         * @return string
+         */
         public function _build_html_error_url_single($lid)
         {
             $obj = $this->_link_handler->get($lid);
@@ -608,6 +757,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // link_handler
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &_get_link_lid_array()
         {
             $ret = &$this->_link_handler->getList();
@@ -615,6 +768,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $url
+         * @return mixed
+         */
         public function &_get_link_lid_array_by_url($url)
         {
             $criteria = new criteriaCompo();
@@ -627,6 +784,10 @@ if (!class_exists('weblinks_link_form_check_handler')) {
         //---------------------------------------------------------
         // linkitem_define_handler
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &_get_linkitem_load()
         {
             $ret = &$this->_linkitem_handler->load();
@@ -634,11 +795,21 @@ if (!class_exists('weblinks_link_form_check_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $id
+         * @param $key
+         * @return mixed
+         */
         public function _get_linkitem_by_itemid($id, $key)
         {
             return $this->_linkitem_handler->get_by_itemid($id, $key);
         }
 
+        /**
+         * @param $name
+         * @param $key
+         * @return mixed
+         */
         public function _get_linkitem_by_name($name, $key)
         {
             return $this->_linkitem_handler->get_by_name($name, $key);

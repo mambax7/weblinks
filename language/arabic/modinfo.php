@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.2 2008/02/24 12:53:04 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:44 ohwada Exp $
 
 // 2007-12-09
 // remove _MI_WEBLINKS_LINK_APPROVE_NOTIFYSBJ
@@ -186,10 +187,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', '���� "���" �����');
 
     define('_MI_WEBLINKS_BROKEN', '��� ������ ������� ���� �� ���� ����� ��� ������ ����');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        '���� ��� ������ ������� ���� �� ���� ����� ��� ������ ����. <br> When below this value, it will be regarded as a temporary error, and nothing will be done. <br>When over this value the link will no longer be displayed.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', '���� ��� ������ ������� ���� �� ���� ����� ��� ������ ����. <br> When below this value, it will be regarded as a temporary error, and nothing will be done. <br>When over this value the link will no longer be displayed.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', '��� ���� ������ �� ������ �������� ��������');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', '���� ��� ������');
@@ -242,4 +240,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[������] ������ ��� ����� ���� ���� (��� ��� ������ޡ ������).');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', '������ ����� ��� ����� ���� ���� (��� ��� ������ޡ ������)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} ����� ��� : ���� ����)');
-}// --- define language begin ---
+}
+// --- define language begin ---

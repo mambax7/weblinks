@@ -1,5 +1,6 @@
 <?php
-// $Id: votedata_list_class.php,v 1.3 2007/02/27 14:45:59 ohwada Exp $
+
+// $Id: votedata_list_class.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // small change _get_cols()
@@ -15,6 +16,10 @@
 //=========================================================
 // class admin_votedata_list
 //=========================================================
+
+/**
+ * Class admin_votedata_list
+ */
 class admin_votedata_list extends happy_linux_page_frame
 {
     public $_link_handler;
@@ -38,11 +43,14 @@ class admin_votedata_list extends happy_linux_page_frame
         $this->set_operation('del_all');
         $this->set_lang_submit_value(_DELETE);
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
     }
 
+    /**
+     * @return \admin_votedata_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -64,6 +72,10 @@ class admin_votedata_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr1 = [
@@ -109,6 +121,9 @@ class admin_votedata_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return int|mixed
+     */
     public function _get_total()
     {
         $total_all = $this->_get_total_all();
@@ -130,6 +145,9 @@ class admin_votedata_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @return mixed
+     */
     public function _get_total_user()
     {
         if ($this->_lid) {
@@ -141,6 +159,9 @@ class admin_votedata_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @return mixed
+     */
     public function _get_total_anon()
     {
         if ($this->_lid) {
@@ -152,6 +173,11 @@ class admin_votedata_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function &_get_items($limit = 0, $start = 0)
     {
         switch ($this->_sortid) {
@@ -181,6 +207,10 @@ class admin_votedata_list extends happy_linux_page_frame
         return $objs;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $ratingid = $obj->get('ratingid');
@@ -201,10 +231,12 @@ class admin_votedata_list extends happy_linux_page_frame
 
         if ($ratinguser) {
             $ratingusername = $obj->get_uname();
-            list($uservotes, $useravgrating) = $this->_handler->calc_rating_by_uid($ratinguser);
+            [
+                $uservotes, $useravgrating
+                ] = $this->_handler->calc_rating_by_uid($ratinguser);
         }
 
-        $link_obj = &$this->_link_handler->get($lid);
+        $link_obj = $this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
         }
@@ -303,11 +335,11 @@ class admin_votedata_list extends happy_linux_page_frame
         echo '<h4>' . $title . "</h4>\n";
 
         if ($this->_lid) {
-            $link_obj = &$this->_link_handler->get($this->_lid);
+            $link_obj = $this->_link_handler->get($this->_lid);
             if (is_object($link_obj)) {
                 $title = $link_obj->get('title');
                 $jump_link = 'link_manage.php?op=mod_form&lid=' . $this->_lid;
-                $text = $this->build_html_a_href_name($jump_link, $title);  // class build_html
+                $text = $this->build_html_a_href_name($jump_link, $title);    // class build_html
                 echo $text . "<br><br>\n";
             }
         }
@@ -316,16 +348,27 @@ class admin_votedata_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // script
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function _get_script_asc()
     {
         return $this->_get_script_by_sortid(0);
     }
 
+    /**
+     * @return string
+     */
     public function _get_script_desc()
     {
         return $this->_get_script_by_sortid(1);
     }
 
+    /**
+     * @param $sortid
+     * @return string
+     */
     public function _get_script_by_sortid($sortid)
     {
         if ($this->_lid) {
@@ -338,6 +381,9 @@ class admin_votedata_list extends happy_linux_page_frame
         return $script;
     }
 
+    /**
+     * @return string
+     */
     public function _get_script()
     {
         $script = 'votedata_list.php';

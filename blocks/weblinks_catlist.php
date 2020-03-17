@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_catlist.php,v 1.7 2006/05/24 13:22:59 ohwada Exp $
+
+// $Id: weblinks_catlist.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 // 2006-05-15 K.OHWADA
 // change $moduel_url to $dirname
@@ -14,9 +15,9 @@
 //=========================================================
 
 // ========================================================
-// FILE     ::  weblinks_catlist.php
-// AUTHOR   ::  Ryuji AMANO <info@ryus.biz>
-// WEB      ::  Ryu's Planning <https://ryus.biz/>
+// FILE		::	weblinks_catlist.php
+// AUTHOR	::	Ryuji AMANO <info@ryus.biz>
+// WEB		::	Ryu's Planning <http://ryus.biz/>
 // ========================================================
 
 // --- block function begin ---
@@ -35,6 +36,10 @@ if (!function_exists('b_weblinks_catlist_show')) {
     //       when 0, use original size
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_catlist_show($options)
     {
         global $xoopsDB;
@@ -52,7 +57,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
         $table_catlink = $xoopsDB->prefix($dirname . '_catlink');
         $table_link = $xoopsDB->prefix($dirname . '_link');
 
-        $myts = MyTextSanitizer::getInstance(); // MyTextSanitizer object
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance(); // MyTextSanitizer object
         $mytree = new XoopsTree($table_category, 'cid', 'pid');
 
         $count = 1;
@@ -83,7 +88,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
             $imgurl_myts = '';
             $width = 0;
             $height = 0;
-            if ((2 == $image_mode) && ($max_width > 0) && $imgurl && ('https://' != $imgurl)) {
+            if ((2 == $image_mode) && ($max_width > 0) && $imgurl && ('http://' != $imgurl)) {
                 $imgurl_myts = htmlspecialchars($imgurl, ENT_QUOTES);
 
                 if (get_cfg_var('allow_url_fopen')) {
@@ -112,7 +117,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
             }
 
             $countResult = $xoopsDB->query($sql);
-            list($totallink) = $xoopsDB->fetchRow($countResult);
+            [$totallink] = $xoopsDB->fetchRow($countResult);
 
             // sub category list
             $subcategories = '';
@@ -121,7 +126,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
             if ($num_show > 0) {
                 $sql = 'SELECT count(*) FROM ' . $table_category . ' WHERE pid=' . $cid;
                 $subCategoriesCountResult = $xoopsDB->query($sql);
-                list($subCategoriesCount) = $xoopsDB->fetchRow($subCategoriesCountResult);
+                [$subCategoriesCount] = $xoopsDB->fetchRow($subCategoriesCountResult);
 
                 if ($subCategoriesCount > 0) {
                     $sql = 'SELECT cid,title FROM ' . $table_category . ' WHERE pid=' . $cid . ' ORDER BY orders ASC, cid ASC';
@@ -152,7 +157,7 @@ if (!function_exists('b_weblinks_catlist_show')) {
                 'title' => $myts->makeTboxData4Show($title),
             ];
 
-            ++$count;
+            $count++;
         }
 
         $retVars['dirname'] = $dirname;
@@ -162,6 +167,10 @@ if (!function_exists('b_weblinks_catlist_show')) {
     }
 
     // by Tom
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_catlist_edit($options)
     {
         $dirname = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];

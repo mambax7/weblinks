@@ -1,4 +1,5 @@
 <?php
+
 // $Id: search.php.\040ORIGINAL\0402.00.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
@@ -61,6 +62,10 @@ include 'header.php';
 //=========================================================
 // class weblinks_search
 //=========================================================
+
+/**
+ * Class weblinks_search
+ */
 class weblinks_search extends happy_linux_search
 {
     public $_link_view_handler;
@@ -85,15 +90,20 @@ class weblinks_search extends happy_linux_search
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_search constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         parent::__construct();
         $this->set_lang_zenkaku(_HAPPY_LINUX_ZENKAKU);
         $this->set_lang_hankaku(_HAPPY_LINUX_HANKAKU);
 
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-        $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
-        $config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
+        $this->_rssc_handler = weblinks_get_handler('rssc_view', $dirname);
+        $config_handler = weblinks_get_handler('config2_basic', $dirname);
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
@@ -102,6 +112,10 @@ class weblinks_search extends happy_linux_search
         $this->set_min_keyword($this->_conf['search_min']);
     }
 
+    /**
+     * @param null $dirname
+     * @return \weblinks_search|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -131,6 +145,9 @@ class weblinks_search extends happy_linux_search
         $this->get_post_get_subcat();
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_get_mark()
     {
         $this->_post_mark = $this->_post->get_post_get_text('mark');
@@ -138,6 +155,9 @@ class weblinks_search extends happy_linux_search
         return $this->_post_mark;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_get_cid()
     {
         $this->_post_cid = $this->_post->get_post_get_int('cid');
@@ -145,6 +165,9 @@ class weblinks_search extends happy_linux_search
         return $this->_post_cid;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_get_subcat()
     {
         $this->_post_subcat = $this->_post->get_post_get_int('subcat');
@@ -155,6 +178,10 @@ class weblinks_search extends happy_linux_search
     //---------------------------------------------------------
     // get param
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function get_conf()
     {
         return $this->_conf;
@@ -163,6 +190,10 @@ class weblinks_search extends happy_linux_search
     //---------------------------------------------------------
     // link handler
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function get_link_total()
     {
         $code = $this->check_build_sql_query_array();
@@ -183,6 +214,9 @@ class weblinks_search extends happy_linux_search
         return $this->_total;
     }
 
+    /**
+     * @return array
+     */
     public function get_link_list()
     {
         $navi = '';
@@ -210,6 +244,9 @@ class weblinks_search extends happy_linux_search
         return [$link_list, $navi];
     }
 
+    /**
+     * @return string
+     */
     public function _build_script()
     {
         $script = WEBLINKS_URL . '/search.php?action=results';
@@ -230,6 +267,11 @@ class weblinks_search extends happy_linux_search
         return $script;
     }
 
+    /**
+     * @param        $query_array1
+     * @param null   $query_array2
+     * @param string $andor
+     */
     public function _build_sql_search($query_array1, $query_array2 = null, $andor = 'AND')
     {
         $where = '';
@@ -264,6 +306,9 @@ class weblinks_search extends happy_linux_search
         $this->_feed_where = $where_single;
     }
 
+    /**
+     * @return mixed
+     */
     public function _get_link_count()
     {
         if ($this->_post_cid) {
@@ -281,6 +326,11 @@ class weblinks_search extends happy_linux_search
         return $total;
     }
 
+    /**
+     * @param $limit
+     * @param $start
+     * @return mixed
+     */
     public function &_get_link_list($limit, $start)
     {
         if ($this->_post_cid) {
@@ -295,6 +345,10 @@ class weblinks_search extends happy_linux_search
     //---------------------------------------------------------
     // rssc handler
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function get_feed_count()
     {
         $count = $this->_rssc_handler->get_feed_count_by_where($this->_feed_where);
@@ -302,6 +356,9 @@ class weblinks_search extends happy_linux_search
         return $count;
     }
 
+    /**
+     * @return mixed
+     */
     public function &get_feeds()
     {
         $this->_rssc_handler->set_feed_max_summary($this->_conf['rss_max_summary']);
@@ -314,11 +371,18 @@ class weblinks_search extends happy_linux_search
     //---------------------------------------------------------
     // set keyword property
     //---------------------------------------------------------
+
+    /**
+     * @param $value
+     */
     public function set_highlight($value)
     {
         $this->_link_view_handler->set_highlight($value);
     }
 
+    /**
+     * @param $arr
+     */
     public function set_keyword_array(&$arr)
     {
         $this->_link_view_handler->set_keyword_array($arr);
@@ -420,7 +484,7 @@ $weblinks_search->set_keyword_array($query_array);
 $total = $weblinks_search->get_link_total();
 
 if ($total > 0) {
-    list($links, $navi) = $weblinks_search->get_link_list();
+    [$links, $navi] = $weblinks_search->get_link_list();
     $links_list = $weblinks_template->fetch_links_list($links);
 
     $xoopsTpl->assign('search_found_show', 1);
@@ -462,4 +526,5 @@ $xoopsTpl->assign('feed_reason', $feed_reason);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

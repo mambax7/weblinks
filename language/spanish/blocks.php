@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // Módulo WebLinks
 // Traducido por Kirby y Dynamic Noiser
@@ -85,4 +86,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_CAT_TITLE_LENGTH', 'Longitud del título de categoría');
     define('_MB_WEBLINKS_GM_DESC_LENGTH', 'Longitud del contenido en marcador de mapa');
     define('_MB_WEBLINKS_GM_WORDWRAP', 'Longitud de wordwrap en marcador de mapa');
-}// --- define language end ---
+}
+// --- define language end ---

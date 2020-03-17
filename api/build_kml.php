@@ -1,5 +1,6 @@
 <?php
-// $Id: build_kml.php,v 1.1 2008/02/26 16:08:22 ohwada Exp $
+
+// $Id: build_kml.php,v 1.1 2011/12/29 14:32:40 ohwada Exp $
 
 //=========================================================
 // WebLinks Module

@@ -1,5 +1,6 @@
 <?php
-// $Id: category_list.php,v 1.13 2007/12/16 07:08:44 ohwada Exp $
+
+// $Id: category_list.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-12-16 K.OHWADA
 // get_title_with_top()
@@ -46,6 +47,10 @@ define('WEBLINKS_CAT_LIST_ORDER', '3');
 //=========================================================
 // class admin_category_list
 //=========================================================
+
+/**
+ * Class admin_category_list
+ */
 class admin_category_list extends happy_linux_page_frame
 {
     public $_post;
@@ -81,6 +86,9 @@ class admin_category_list extends happy_linux_page_frame
         }
     }
 
+    /**
+     * @return \admin_category_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -102,6 +110,10 @@ class admin_category_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -127,6 +139,9 @@ class admin_category_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return int
+     */
     public function _get_total()
     {
         $pid = $this->_get_get_pid();
@@ -146,6 +161,9 @@ class admin_category_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @return int
+     */
     public function _get_get_pid()
     {
         $pid = 0;
@@ -156,6 +174,11 @@ class admin_category_list extends happy_linux_page_frame
         return $pid;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function &_get_items($limit = 0, $start = 0)
     {
         $pid = $this->_get_get_pid();
@@ -179,6 +202,10 @@ class admin_category_list extends happy_linux_page_frame
         return $objs;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function _get_cols(&$obj)
     {
         $cid = $obj->getVar('cid', 'n');
@@ -271,9 +298,12 @@ class admin_category_list extends happy_linux_page_frame
         echo '<h4>' . $title . "</h4>\n";
     }
 
+    /**
+     * @param $item
+     */
     public function _print_table_item(&$item)
     {
-        list($col_arr, $depth) = $this->_get_cols($item);
+        [$col_arr, $depth] = $this->_get_cols($item);
 
         if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $class = '';
@@ -309,10 +339,10 @@ class admin_category_list extends happy_linux_page_frame
         if (WEBLINKS_CAT_LIST_ORDER == $this->_sortid) {
             $colspan = 4;
             if ($this->_flag_show_aux_text_1) {
-                ++$colspan;
+                $colspan++;
             }
             if ($this->_flag_show_aux_text_2) {
-                ++$colspan;
+                $colspan++;
             }
 
             echo $this->_build_page_submit($colspan, 1, 0);
@@ -334,4 +364,5 @@ $list = admin_category_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

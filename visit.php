@@ -1,5 +1,6 @@
 <?php
-// $Id: visit.php,v 1.11 2008/07/25 13:51:24 ohwada Exp $
+
+// $Id: visit.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2008-07-25 K.OHWADA
 // BUG: cannot use &amp; for location
@@ -38,8 +39,8 @@
 
 include 'header.php';
 
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
 
 $weblinks_post = happy_linux_post::getInstance();
 $weblinks_system = happy_linux_system::getInstance();
@@ -81,12 +82,12 @@ if (1 == $conf_frame) {
     header('Cache-Control: post-check=0, pre-check=0', false);
     header('Pragma: no-cache');
     echo '<html><head>
-        <title>' . $sitename . "</title>
-        </head>
-        <frameset rows='" . $ROWS . "' cols='" . $COLS . "' border='0' frameborder='0' framespacing='0' >
-        <frame src='myheader.php?lid=$lid' frame name='xoopshead' scrolling='no' target='main' Noresize>
-        <frame src='" . $url_s . "' frame name='main' scrolling='auto' target='Main'>
-        </frameset></html>";
+		<title>' . $sitename . "</title>
+		</head>
+		<frameset rows='" . $ROWS . "' cols='" . $COLS . "' border='0' frameborder='0' framespacing='0' >
+		<frame src='myheader.php?lid=$lid' frame name='xoopshead' scrolling='no' target='main' Noresize>
+		<frame src='" . $url_s . "' frame name='main' scrolling='auto' target='Main'>
+		</frameset></html>";
 } elseif ($FLAG_REDIRECT) {
     // BUG: cannot use &amp; for location
     header('Location: ' . $url_u);

@@ -1,6 +1,6 @@
 Hallo {X_UNAME},
 
-ein neuer Link "{LINK_NAME}" wurde auf {X_SITENAME} hinzugefügt.
+ein neuer Link "{LINK_NAME}" wurde auf {X_SITENAME} hinzugefï¿½gt.
 
 Dieser kann hier angesehen werden:
 {LINK_URL}
@@ -14,7 +14,7 @@ Beschreibung:
 
 Sie erhalten diese Nachricht, weil Sie benachrichtigt werden wollten.
 
-Falls dies ein Irrläufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wünschen, können Sie Ihre Voreinstellung durch klicken auf den folgenden Link ändern:
+Falls dies ein Irrlï¿½ufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wï¿½nschen, kï¿½nnen Sie Ihre Voreinstellung durch klicken auf den folgenden Link ï¿½ndern:
 {X_UNSUBSCRIBE_URL}
 
 Bitte antworten Sie nicht auf diese Nachricht.

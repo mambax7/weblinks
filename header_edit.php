@@ -1,5 +1,6 @@
 <?php
-// $Id: header_edit.php,v 1.1 2007/09/15 04:23:34 ohwada Exp $
+
+// $Id: header_edit.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-09-12 K.OHWADA
 // divid from submit.php and modlink.php

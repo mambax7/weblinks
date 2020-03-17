@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_add_link.php,v 1.7 2008/02/26 16:01:35 ohwada Exp $
+
+// $Id: test_form_admin_add_link.php,v 1.1 2011/12/29 14:32:58 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // check_config_rss_use()
@@ -68,7 +69,7 @@ if ($test->check_msg_and_new_link('admin add link')) {
     echo "<h4>Success !</h4>\n";
     echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br><hr>\n";
+    echo "Error: add link form failed: <br><hr />\n";
     echo $test->get_body() . "<br>\n";
 }
 
@@ -99,7 +100,7 @@ if ($test->check_msg_and_link('add banner')) {
     echo "<h4>Success !</h4>\n";
     echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br><hr>\n";
+    echo "Error: add link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
 }
 
@@ -137,7 +138,7 @@ if ($test->check_msg_and_link('update cat')) {
     echo "<h4>Success !</h4>\n";
     echo 'add link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add link form failed: <br><hr>\n";
+    echo "Error: add link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
 }
 
@@ -181,7 +182,7 @@ if ($test->is_exist_rssc_module()) {
         echo "<h4>Success !</h4>\n";
         echo 'add link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: add link form failed: <br><hr>\n";
+        echo "Error: add link form failed: <br><hr />\n";
         echo $test->get_body() . "<br><br>\n";
     }
 } else {
@@ -233,7 +234,7 @@ if ($test->is_exist_rssc_module()) {
         echo "<h4>Success !</h4>\n";
         echo 'add link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: add link form failed: <br><hr>\n";
+        echo "Error: add link form failed: <br><hr />\n";
         echo $test->get_body() . "<br><br>\n";
     }
 } else {
@@ -242,4 +243,5 @@ if ($test->is_exist_rssc_module()) {
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

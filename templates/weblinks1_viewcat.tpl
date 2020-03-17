@@ -1,18 +1,14 @@
 <{* $Id: weblinks1_viewcat.html,v 1.2 2012/04/09 10:20:06 ohwada Exp $ *}>
 
 <{if $show_webmap}>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload =
-    <
-    {
-        $webmap_func
-    }
-    >
-    ;
-    //]]>
-</script>
-<{/if}>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload =
+        <{$webmap_func}>
+        ;
+        //]]>
+    </script>
+    <{/if}>
 
 <{$weblinks_module_header}>
 
@@ -53,21 +49,21 @@
         <br><br>
 
         <{if $show_photo_list}>
-        <br>
+    <br>
         <{$weblinks_photo_list}>
-        <br>
+    <br>
         <{/if}>
 
         <{if $show_map_jp}>
         <center>
             <{$weblinks_map_jp}>
         </center>
-        <br>
+    <br>
         <{/if}>
 
         <{if $show_webmap}>
         <div id="<{$webmap_div_id}>" class="weblinks_gm_map_index">Loading ...</div>
-        <br>
+    <br>
         <{/if}>
 
         <{if $category_image_mode == 1}>
@@ -85,12 +81,12 @@
                     <{/if}>
                     <{if $category.imgurl_s != ""}>
                     <{if ($category.img_show_width != 0) && ($category.img_show_height != 0)}>
-                    <img src="<{$category.imgurl_s}>" border="0" width="<{$category.img_show_width}>" height="<{$category.img_show_height}>" alt="category"/>
+                <img src="<{$category.imgurl_s}>" border="0" width="<{$category.img_show_width}>" height="<{$category.img_show_height}>" alt="category"/>
                     <{else}>
-                    <img src="<{$category.imgurl_s}>" border="0" alt="category image"/>
+                <img src="<{$category.imgurl_s}>" border="0" alt="category image"/>
                     <{/if}>
                     <{else}>
-                    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/folder.gif" border="0" alt="category image"/>
+                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/folder.gif" border="0" alt="category image"/>
                     <{/if}>
                 </a>
                 <{/if}>
@@ -115,17 +111,16 @@
 
                     <{if $show_category_navi}>
                     <{$weblinks_category_navi}>
-                    <br>
+                <br>
                     <{/if}>
 
                     <{if $show_desc_disp}>
                     <div class="weblinks_viewcat_desc">
                         <{$category.desc_disp}>
-                    </div>
-                    <br>
+                    </div><br>
                     <{/if}>
 
-                    <hr>
+                    <hr/>
 
                     <{if $show_links}>
                     <{if $show_navi}>
@@ -185,14 +180,13 @@
                                                             <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
                                                         <b><{$lang_cursortedby}></b>
                     </div>
-                    <hr>
+                <hr/>
                     <{/if}>
-                    <br>
+                <br>
 
                     <div class="weblinks_viewcat_frame">
                         <{$weblinks_links_full}>
-                    </div>
-                    <br>
+                    </div><br>
 
                     <div class="weblinks_pagenavi">
                         <{$page_navi}>
@@ -208,21 +202,21 @@
                     <{else}>
 
                     <span class="weblinks_error"><{$lang_nomatch}></span>
-                    <hr>
+                <hr/>
 
                     <{/if}>
 
                     <{if $show_forum_list}>
-                    <br>
+                <br>
                     <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br><br>
                     <div class="weblinks_viewcat_frame">
                         <{$weblinks_forum_list}>
                     </div>
                     <{/if}>
 
-                    <{include file="db:system_notification_select.tpl"}>
+                    <{include file="db:system_notification_select.html"}>
 
-                    <hr>
+                    <hr/>
                     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
                     <{if $is_module_admin }>
                     <{if $memory_usage > 0}>

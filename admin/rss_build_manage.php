@@ -1,5 +1,5 @@
 <?php
-// $Id: rss_build_manage.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+// $Id: rss_build_manage.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -13,7 +13,7 @@ include 'admin_header.php';
 include 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
@@ -49,7 +49,7 @@ function admin_print_build_menu()
 {
     ?>
     <h3><?php echo _HAPPY_LINUX_CONF_RSS_MANAGE; ?></h3>
-    <?php echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC; ?><br><br>
+    <?php echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC; ?><br/><br/>
     <table border="1">
         <tr>
             <td>

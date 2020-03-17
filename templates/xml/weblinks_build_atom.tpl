@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<feed xmlns="https://www.w3.org/2005/Atom" xml:lang="<{$xml_lang}>">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="<{$xml_lang}>">
     <title><{$feed_title}></title>
     <link rel="alternate" type="text/html" href="<{$feed_link_alt}>"/>
     <link rel="self" type="application/atom+xml" href="<{$feed_link_self}>"/>
@@ -30,7 +30,7 @@
         <published><{$entry.published}></published>
         <{/if}>
         <{if $entry.category != ""}>
-        <category term="<{$entry.category}>"/>
+    <category term="<{$entry.category}>"/>
         <{/if}>
         <author>
             <name><{$entry.author_name}></name>

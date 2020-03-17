@@ -1,5 +1,6 @@
 <?php
-// $Id: table_manage_search.php,v 1.1 2007/12/24 20:06:39 ohwada Exp $
+
+// $Id: table_manage_search.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 //================================================================
 // WebLinks Module
@@ -11,6 +12,10 @@ include 'admin_header.php';
 //================================================================
 // class admin_table_manage_search
 //================================================================
+
+/**
+ * Class admin_table_manage_search
+ */
 class admin_table_manage_search extends happy_linux_error
 {
     public $_link_handler;
@@ -33,9 +38,9 @@ class admin_table_manage_search extends happy_linux_error
         parent::__construct();
 
         // handlder
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_catlink_handler = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_catlink_handler = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
         $this->_system = happy_linux_system::getInstance();
@@ -48,6 +53,9 @@ class admin_table_manage_search extends happy_linux_error
         $this->_init();
     }
 
+    /**
+     * @return \admin_table_manage_search|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -66,6 +74,9 @@ class admin_table_manage_search extends happy_linux_error
         $this->_category_handler->load();
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_get('op');
@@ -82,9 +93,18 @@ class admin_table_manage_search extends happy_linux_error
         echo '<h3>' . _AM_WEBLINKS_TABLE_MANAGE . "</h3>\n";
         echo '<h4>' . $this->_TITLE . "</h4>\n";
 
-        echo $this->_form->build_lib_box_button_style($this->_TITLE, 'Bug fix : necessary in the version up from v1.82 or before', 'rebuild', _HAPPY_LINUX_EXECUTE, 'table_manage_search.php');
+        echo $this->_form->build_lib_box_button_style(
+            $this->_TITLE,
+            'Bug fix : necessary in the version up from v1.82 or before',
+            'rebuild',
+            _HAPPY_LINUX_EXECUTE,
+            'table_manage_search.php'
+        );
     }
 
+    /**
+     * @return bool
+     */
     public function rebuild_search()
     {
         echo $this->build_bread_crumb();
@@ -122,12 +142,24 @@ class admin_table_manage_search extends happy_linux_error
         // next
         if ($total > $next) {
             $submit = 'NEXT ' . $this->_LIMIT;
-            echo $this->_form->build_lib_box_limit_offset(null, null, $this->_LIMIT, $next, 'rebuild', $submit);
+            echo $this->_form->build_lib_box_limit_offset(
+                null,
+                null,
+                $this->_LIMIT,
+                $next,
+                'rebuild',
+                $submit
+            );
         } else {
             echo '<h4>' . 'FINISH' . "</h4>\n";
         }
     }
 
+    /**
+     * @param $lid
+     * @param $search
+     * @return mixed
+     */
     public function _update_link($lid, $search)
     {
         $sql = 'UPDATE ' . $this->_link_table . ' SET ';
@@ -137,6 +169,9 @@ class admin_table_manage_search extends happy_linux_error
         return $this->_link_handler->query($sql);
     }
 
+    /**
+     * @return string
+     */
     public function build_bread_crumb()
     {
         $arr = [
@@ -183,4 +218,5 @@ switch ($op) {
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

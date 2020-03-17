@@ -1,4 +1,5 @@
 <?php
+
 // $Id: singlelink.php,v 1.3 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -209,4 +210,5 @@ include XOOPS_ROOT_PATH . '/include/comment_view.php';
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

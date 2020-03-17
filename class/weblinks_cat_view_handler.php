@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_cat_view_handler.php,v 1.2 2007/11/16 12:07:57 ohwada Exp $
+
+// $Id: weblinks_cat_view_handler.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-11-11 K.OHWADA
 // divid from weblinks_link_view_handler
@@ -14,6 +15,10 @@ if (!class_exists('weblinks_cat_view_handler')) {
     //=========================================================
     // class weblinks_cat_view_handler
     //=========================================================
+
+    /**
+     * Class weblinks_cat_view_handler
+     */
     class weblinks_cat_view_handler extends weblinks_link_count_handler
     {
         public $_strings;
@@ -22,6 +27,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_cat_view_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -37,6 +47,14 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // get category
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param      $cid
+         * @param bool $flag_catpath
+         * @param bool $flag_parent_image
+         * @param bool $flag_parent_desc
+         * @return mixed
+         */
         public function &get_category_by_cid($cid, $flag_catpath = false, $flag_parent_image = false, $flag_parent_desc = false)
         {
             $arr = &$this->_category_handler->get_cache($cid);
@@ -70,6 +88,12 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // topten
+
+        /**
+         * @param $cid
+         * @param $format
+         * @return mixed
+         */
         public function get_cat_title($cid, $format)
         {
             return $this->_category_handler->get_title($cid, $format);
@@ -79,12 +103,25 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // cid array
         //---------------------------------------------------------
         // topten
+
+        /**
+         * @param $pid
+         * @return mixed
+         */
         public function &get_cid_array_by_pid($pid)
         {
             return $this->_category_handler->get_cid_array_by_pid($pid);
         }
 
         // index
+
+        /**
+         * @param     $pid
+         * @param int $flag_catpath
+         * @param int $sub_num
+         * @param int $sub_mode
+         * @return array
+         */
         public function &get_category_list_by_pid($pid, $flag_catpath = 0, $sub_num = -1, $sub_mode = 1)
         {
             if (0 == $pid) {
@@ -111,6 +148,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // category path
         //---------------------------------------------------------
         // singlelink
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function &get_catpath_array_by_lid($lid)
         {
             $cid_arr = $this->_catlink_handler->get_cid_array_by_lid($lid);
@@ -126,6 +168,10 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // catlist
+
+        /**
+         * @return array
+         */
         public function get_all_catlist()
         {
             $tree_array = $this->_category_handler->get_tree();
@@ -147,6 +193,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // google map
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param $cid
+         * @return array
+         */
         public function &get_cat_gm_value_by_cid($cid)
         {
             $arr = &$this->_get_gm_value_null();
@@ -188,6 +239,14 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // lid array
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param     $cid
+         * @param     $sort
+         * @param int $limit
+         * @param int $start
+         * @return mixed
+         */
         public function &get_lid_array_by_cid_sort($cid, $sort, $limit = 0, $start = 0)
         {
             $sort_arr = [];
@@ -214,6 +273,14 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // viewcat
+
+        /**
+         * @param     $cid
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return mixed
+         */
         public function &get_lid_array_all_child_by_cid_orderby($cid, $orderby, $limit = 0, $start = 0)
         {
             $cid_arr = &$this->_category_handler->getAllChildId($cid);
@@ -223,6 +290,14 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // topten
+
+        /**
+         * @param     $cid
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return mixed
+         */
         public function &get_lid_array_parent_child_by_cid_orderby($cid, $orderby, $limit = 0, $start = 0)
         {
             $cid_arr = &$this->get_cid_array_patent_children($cid);
@@ -232,6 +307,15 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // search
+
+        /**
+         * @param     $cid_arr
+         * @param     $where
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return mixed
+         */
         public function &get_lid_array_by_cid_array_where_orderby(&$cid_arr, $where, $orderby, $limit = 0, $start = 0)
         {
             return $this->_link_catlink_handler->get_lid_array_by_cid_array_where_orderby($cid_arr, $where, $orderby, $limit, $start);
@@ -241,6 +325,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // forum threads
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function &get_cat_forum_id_by_cid($cid)
         {
             $forum_id = $this->_category_handler->get_forum_id($cid);
@@ -257,6 +346,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         // album photos
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function &get_cat_album_photos_by_cid($cid)
         {
             $album_id = $this->_category_handler->get_album_id($cid);
@@ -278,6 +372,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         }
 
         // viewcat
+
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function &get_cat_album_id_by_cid($cid)
         {
             $album_id = $this->_category_handler->get_album_id($cid);
@@ -296,6 +395,11 @@ if (!class_exists('weblinks_cat_view_handler')) {
         //---------------------------------------------------------
         // google map
         //---------------------------------------------------------
+
+        /**
+         * @param $cid
+         * @return array
+         */
         public function &_get_cat_parent_gm_value_by_cid($cid)
         {
             $arr = &$this->_get_gm_value_null();
@@ -331,6 +435,9 @@ if (!class_exists('weblinks_cat_view_handler')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &_get_gm_value_null()
         {
             $arr = [
@@ -343,6 +450,9 @@ if (!class_exists('weblinks_cat_view_handler')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &_get_gm_value_conf()
         {
             $arr = [

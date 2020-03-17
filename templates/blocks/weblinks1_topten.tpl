@@ -1,4 +1,4 @@
-<{* $Id: weblinks1_topten.html,v 1.1 2007/08/08 04:20:58 ohwada Exp $ *}>
+<{* $Id: weblinks1_topten.html,v 1.1 2011/12/29 14:32:39 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -19,8 +19,8 @@
 <{$weblinks_guidance}>
 
 <{if $lang_topten_error }>
-<span class="weblinks_error"><{$lang_topten_error}></span><br><br>
-<{/if}>
+    <span class="weblinks_error"><{$lang_topten_error}></span><br><br>
+    <{/if}>
 
 <ul>
     <{foreach item=top from=$rankings}>
@@ -31,18 +31,18 @@
 
 <{* -- Start ranking loop -- *}>
 <{foreach item=ranking from=$rankings}>
-<a name="<{$ranking.cid}>"></a>
-<div class="weblinks_topten_frame">
-    <{$ranking.title}> (<{$lang_sortby}>)
-</div>
+    <a name="<{$ranking.cid}>"></a>
+    <div class="weblinks_topten_frame">
+        <{$ranking.title}> (<{$lang_sortby}>)
+    </div>
 
-<{$ranking.links_list}>
+    <{$ranking.links_list}>
 <br>
-<{/foreach}>
+    <{/foreach}>
 <{* -- End ranking loop -- *}>
 
-<hr>
+<hr/>
 <div class="weblinks_time">execution time <{$execution_time}> sec</div>
 <{if $is_module_admin }>
-<a href="./admin/index.php">go to admin cp</a>
-<{/if}>
+    <a href="./admin/index.php">go to admin cp</a>
+    <{/if}>

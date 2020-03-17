@@ -1,5 +1,6 @@
 <?php
-// $Id: thumb_mozshot.php,v 1.1 2007/09/17 09:46:45 ohwada Exp $
+
+// $Id: thumb_mozshot.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -11,11 +12,15 @@ if (!function_exists('weblinks_thumb_mozshot')) {
     //=========================================================
     // thumbnail web service
     //=========================================================
+    /**
+     * @param $url
+     * @return array
+     */
     function &weblinks_thumb_mozshot($url)
     {
         $arr = [
             'name' => 'mozshot',
-            'image' => 'https://mozshot.nemui.org/shot?' . $url,
+            'image' => 'http://mozshot.nemui.org/shot?' . $url,
             'width' => 128,
             'height' => 128,
         ];

@@ -1,5 +1,6 @@
 <?php
-// $Id: modify.php,v 1.7 2006/07/01 13:11:54 ohwada Exp $
+
+// $Id: modify.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2006-07-01 K.OHWADA
 // BUG 4085: Fatal error: Call to undefined function: weblinks_page_frame_basic()
@@ -39,12 +40,16 @@
 //=========================================================
 // class admin_modify_manage
 //=========================================================
+
+/**
+ * Class admin_modify_manage
+ */
 class admin_modify_manage extends weblinks_error
 {
     public $WEBLINKS_MAX_LINK_IN_DETAIL = 5;
     public $WEBLINKS_MAX_LINK_IN_PAGE = 10;
-    public $FLAG_EVENT_USER = 1;  // send email to user
-    public $FLAG_EVENT_ANONYMOUS = 1;  // send email to anonymous
+    public $FLAG_EVENT_USER = 1;    // send email to user
+    public $FLAG_EVENT_ANONYMOUS = 1;    // send email to anonymous
 
     public $_modify_handler;
     public $_link_edit_handler;
@@ -61,13 +66,16 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
-        $this->_link_edit_handler = weblinks_getHandler('link_edit', WEBLINKS_DIRNAME);
-        $this->_link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
+        $this->_link_edit_handler = weblinks_get_handler('link_edit', WEBLINKS_DIRNAME);
+        $this->_link_form_handler = weblinks_get_handler('link_form', WEBLINKS_DIRNAME);
         $this->_sendmail = weblinks_sendmail::getInstance(WEBLINKS_DIRNAME);
         $this->_post = weblinks_post::getInstance();
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -113,6 +121,9 @@ class admin_modify_manage extends weblinks_error
         }
     }
 
+    /**
+     * @param $mid
+     */
     public function list_new_link_one($mid)
     {
         $this->_link_form_handler->show_admin_form('approve', $mid);
@@ -128,6 +139,10 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     // delete New Link
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function delNewLink()
     {
         $mid = $this->_post->get_post_get_int('mid');
@@ -136,6 +151,9 @@ class admin_modify_manage extends weblinks_error
         return $ret;
     }
 
+    /**
+     * @return bool
+     */
     public function send_refuse()
     {
         // send email to user and anonymous, refused to new link
@@ -163,6 +181,10 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     // approve New Link
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function approveCheck()
     {
         $ret = $this->_link_edit_handler->check_form_modlink($_POST);
@@ -173,13 +195,16 @@ class admin_modify_manage extends weblinks_error
     public function approveError()
     {
         echo '<h4>' . _WLS_MODLINK . '</h4><br>';
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo $this->_link_edit_handler->get_error_msg_modlink();
-        echo "<hr>\n";
+        echo "<hr />\n";
 
         $this->_link_form_handler->show_admin_form('approve_preview');
     }
 
+    /**
+     * @return bool
+     */
     public function approve()
     {
         $newid = $this->_link_edit_handler->add_link($_POST);
@@ -193,7 +218,7 @@ class admin_modify_manage extends weblinks_error
         $this->delete_modify_by_mid($mid);
 
         // notification
-        list($tags, $cid) = $this->_link_edit_handler->build_tags_addlink($newid);
+        [$tags, $cid] = $this->_link_edit_handler->build_tags_addlink($newid);
 
         $notification_handler = xoops_getHandler('notification');
         $notification_handler->triggerEvent('global', 0, 'new_link', $tags);
@@ -208,6 +233,9 @@ class admin_modify_manage extends weblinks_error
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function send_approve()
     {
         // send email to anonymous, appoval to new link
@@ -259,6 +287,9 @@ class admin_modify_manage extends weblinks_error
         }
     }
 
+    /**
+     * @param $mid
+     */
     public function list_mod_req_one($mid)
     {
         $this->_link_form_handler->show_admin_mod_approve_form('approve', $mid);
@@ -275,6 +306,10 @@ class admin_modify_manage extends weblinks_error
     // approve Modify Request
     // modLinkS and ignoreModReq
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function approveModReqCheck()
     {
         $ret = $this->_link_edit_handler->check_form_modlink_for_owner($_POST);
@@ -285,13 +320,16 @@ class admin_modify_manage extends weblinks_error
     public function approveModReqError()
     {
         echo '<h4>' . _WLS_MODREQUESTS . '</h4><br>';
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo $this->_link_edit_handler->get_error_msg_modlink();
-        echo "<hr>\n";
+        echo "<hr />\n";
 
         $this->_link_form_handler->show_admin_mod_approve_form('preview');
     }
 
+    /**
+     * @return mixed
+     */
     public function approveModReq()
     {
         $this->_clear_errors();
@@ -311,6 +349,10 @@ class admin_modify_manage extends weblinks_error
         return $this->returnExistError();
     }
 
+    /**
+     * @param $mid
+     * @return bool
+     */
     public function delete_modify_by_mid($mid)
     {
         $obj = $this->_modify_handler->get($mid);
@@ -334,6 +376,10 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     // ignore Modify Request
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function ignoreModReq()
     {
         $mid = $this->_post->get_post_get_int('mid');
@@ -345,6 +391,10 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     // redirect URL
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_redirect_at_new()
     {
         $total = $this->_modify_handler->get_count_new();
@@ -357,6 +407,9 @@ class admin_modify_manage extends weblinks_error
         return 'link_list.php?sortid=1';
     }
 
+    /**
+     * @return string
+     */
     public function get_redirect_at_mod()
     {
         $total = $this->_modify_handler->get_count_mod();
@@ -372,11 +425,18 @@ class admin_modify_manage extends weblinks_error
     //---------------------------------------------------------
     // set parameter
     //---------------------------------------------------------
+
+    /**
+     * @param $value
+     */
     public function set_max_link_in_detail($value)
     {
         $this->WEBLINKS_MAX_LINK_IN_DETAIL = (int)$value;
     }
 
+    /**
+     * @param $value
+     */
     public function set_max_link_in_page($value)
     {
         $this->WEBLINKS_MAX_LINK_IN_PAGE = (int)$value;
@@ -388,6 +448,10 @@ class admin_modify_manage extends weblinks_error
 //=========================================================
 // class admin_list_new_links
 //=========================================================
+
+/**
+ * Class admin_list_new_links
+ */
 class admin_list_new_links extends weblinks_page_frame
 {
     public $WEBLINKS_MAX_LINK_IN_DETAIL = 5;
@@ -401,7 +465,7 @@ class admin_list_new_links extends weblinks_page_frame
     public function __construct()
     {
         // BUG: Fatal error: Call to undefined function: weblinks_page_frame_basic()
-        parent::__construct();
+        $this->weblinks_page_frame();
 
         $this->set_handler('modify', WEBLINKS_DIRNAME);
         $this->set_id_name('mid');
@@ -409,6 +473,9 @@ class admin_list_new_links extends weblinks_page_frame
         $this->set_perpage($this->WEBLINKS_MAX_LINK_IN_PAGE);
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -441,6 +508,10 @@ class admin_list_new_links extends weblinks_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array
+     */
     public function get_table_header()
     {
         $arr = [
@@ -452,6 +523,9 @@ class admin_list_new_links extends weblinks_page_frame
         return $arr;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_total()
     {
         $total = $this->_handler->get_count_by_mode($this->_mode);
@@ -459,6 +533,11 @@ class admin_list_new_links extends weblinks_page_frame
         return $total;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return mixed
+     */
     public function &get_items($limit = 0, $start = 0)
     {
         $objs = $this->_handler->get_objects_by_mode($this->_mode, $limit, $start);
@@ -466,6 +545,10 @@ class admin_list_new_links extends weblinks_page_frame
         return $objs;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &get_cols(&$obj)
     {
         $op = 'listNewLinks';

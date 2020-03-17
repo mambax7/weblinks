@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_mailer.php,v 1.7 2007/07/21 12:59:37 ohwada Exp $
+
+// $Id: weblinks_mailer.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2007-07-16 K.OHWADA
 // XC 2.1
@@ -30,6 +31,10 @@ if (!class_exists('weblinks_mailer')) {
     //=========================================================
     // class weblinks_mailer
     //=========================================================
+
+    /**
+     * Class weblinks_mailer
+     */
     class weblinks_mailer extends happy_linux_error
     {
         // class
@@ -54,12 +59,15 @@ if (!class_exists('weblinks_mailer')) {
         {
             parent::__construct();
 
-            $this->_mailer = &getMailer();
+            $this->_mailer = getMailer();
 
             $this->set_flag_send(false);
             $this->set_debug(true);
         }
 
+        /**
+         * @return \weblinks_mailer|static
+         */
         public static function getInstance()
         {
             static $instance;
@@ -73,21 +81,34 @@ if (!class_exists('weblinks_mailer')) {
         //---------------------------------------------------------
         // function same as XoopsMailer
         //---------------------------------------------------------
+
+        /**
+         * @param $value
+         */
         public function setFromName($value)
         {
             $this->_mailer->setFromName($value);
         }
 
+        /**
+         * @param $value
+         */
         public function setFromEmail($value)
         {
             $this->_mailer->setFromEmail($value);
         }
 
+        /**
+         * @param $value
+         */
         public function setSubject($value)
         {
             $this->_mailer->setSubject($value);
         }
 
+        /**
+         * @param $value
+         */
         public function setBody($value)
         {
             $this->_mailer->setBody($value);
@@ -98,11 +119,18 @@ if (!class_exists('weblinks_mailer')) {
             $this->_mailer->useMail();
         }
 
+        /**
+         * @param $email
+         */
         public function setToEmails($email)
         {
             $this->_mailer->setToEmails($email);
         }
 
+        /**
+         * @param bool $debug
+         * @return mixed
+         */
         public function send($debug = false)
         {
             $ret = $this->_mailer->send($debug);
@@ -110,6 +138,10 @@ if (!class_exists('weblinks_mailer')) {
             return $ret;
         }
 
+        /**
+         * @param bool $ashtml
+         * @return mixed
+         */
         public function get_mailer_success($ashtml = true)
         {
             $ret = $this->_mailer->getSuccess($ashtml);
@@ -117,6 +149,10 @@ if (!class_exists('weblinks_mailer')) {
             return $ret;
         }
 
+        /**
+         * @param bool $ashtml
+         * @return mixed
+         */
         public function get_mailer_errors($ashtml = true)
         {
             $ret = $this->_mailer->getErrors($ashtml);
@@ -127,6 +163,10 @@ if (!class_exists('weblinks_mailer')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function prepare()
         {
             $debug = $this->_flag_debug;
@@ -199,6 +239,9 @@ if (!class_exists('weblinks_mailer')) {
             }
         }
 
+        /**
+         * @param $user
+         */
         public function set_to_users($user)
         {
             if (is_array($user)) {
@@ -206,6 +249,10 @@ if (!class_exists('weblinks_mailer')) {
             }
         }
 
+        /**
+         * @param bool $debug
+         * @return bool
+         */
         public function send_users($debug = false)
         {
             $flag_error = false;
@@ -226,6 +273,11 @@ if (!class_exists('weblinks_mailer')) {
             return true;
         }
 
+        /**
+         * @param      $user
+         * @param bool $debug
+         * @return bool
+         */
         public function send_user($user, $debug = false)
         {
             $flag_error = false;
@@ -289,11 +341,17 @@ if (!class_exists('weblinks_mailer')) {
             return true;
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_send($value)
         {
             $this->_flag_send = (bool)$value;
         }
 
+        /**
+         * @param $value
+         */
         public function set_debug($value)
         {
             $this->_flag_debug = (bool)$value;
@@ -304,6 +362,11 @@ if (!class_exists('weblinks_mailer')) {
         // REQ 3028: send apoval email to anonymous user
         // move from submit_form.php
         //-------------------------------------------------------------------
+
+        /**
+         * @param $file_tpl
+         * @return string
+         */
         public function get_dir_mail_template($file_tpl)
         {
             global $xoopsConfig, $xoopsModule;

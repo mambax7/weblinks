@@ -1,6 +1,6 @@
 Hola {X_UNAME},
 
-Tu solicitud de eliminación del enlace  {X_SITENAME} ha sido aprobada.
+Tu solicitud de eliminaciï¿½n del enlace  {X_SITENAME} ha sido aprobada.
 
 Eliminadas de la base de datos:
 Nombre: {SITE_NAME}

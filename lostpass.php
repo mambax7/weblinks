@@ -1,5 +1,6 @@
 <?php
-// $Id: lostpass.php,v 1.11 2007/09/15 04:16:00 ohwada Exp $
+
+// $Id: lostpass.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-09-01 K.OHWADA
 // send_passwd()
@@ -37,6 +38,10 @@ include 'header_oh.php';
 //=========================================================
 // class weblinks_lostpass
 //=========================================================
+
+/**
+ * Class weblinks_lostpass
+ */
 class weblinks_lostpass extends happy_linux_error
 {
     public $_DIRNAME;
@@ -63,6 +68,11 @@ class weblinks_lostpass extends happy_linux_error
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_lostpass constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_DIRNAME = $dirname;
@@ -70,7 +80,7 @@ class weblinks_lostpass extends happy_linux_error
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
+        $this->_link_handler = weblinks_get_handler('link', $dirname);
 
         $this->_mail_template = happy_linux_mail_template::getInstance($dirname);
         $this->_system = happy_linux_system::getInstance();
@@ -78,6 +88,10 @@ class weblinks_lostpass extends happy_linux_error
         $this->_form = happy_linux_form::getInstance();
     }
 
+    /**
+     * @param null $dirname
+     * @return \weblinks_lostpass|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -91,6 +105,10 @@ class weblinks_lostpass extends happy_linux_error
     //---------------------------------------------------------
     // get POST
     //---------------------------------------------------------
+
+    /**
+     * @return int
+     */
     public function get_post_lid()
     {
         $this->_post_lid = $this->_post->get_post_int('lid');
@@ -98,6 +116,9 @@ class weblinks_lostpass extends happy_linux_error
         return $this->_post_lid;
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_email()
     {
         $this->_post_email = $this->_post->get_post_text('email');
@@ -108,11 +129,16 @@ class weblinks_lostpass extends happy_linux_error
     //---------------------------------------------------------
     // update password
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return int
+     */
     public function update_password($lid)
     {
         $email = $this->get_post_email();
 
-        $obj = &$this->_link_handler->get($lid);
+        $obj = $this->_link_handler->get($lid);
         if (!is_object($obj)) {
             return -1;
         }
@@ -137,12 +163,16 @@ class weblinks_lostpass extends happy_linux_error
             return -4;
         }
 
-        return 0;   // OK
+        return 0;    // OK
     }
 
     //---------------------------------------------------------
     // send mail
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function send_passwd()
     {
         $SITEURL = $this->_mail_template->get_xoops_siteurl();
@@ -155,7 +185,7 @@ class weblinks_lostpass extends happy_linux_error
         $WEBLINKS_URL = XOOPS_URL . '/modules/' . $this->_DIRNAME;
         $entry = $WEBLINKS_URL . '/modlink.php?lid=' . $this->_post_lid . '&code=' . $this->_passwd;
 
-        $xoopsMailer = &getMailer();
+        $xoopsMailer = getMailer();
         $xoopsMailer->useMail();
         $xoopsMailer->setTemplateDir($dir_tpl);
         $xoopsMailer->setTemplate($file_tpl);
@@ -180,11 +210,17 @@ class weblinks_lostpass extends happy_linux_error
         return true;
     }
 
+    /**
+     * @return string
+     */
     public function get_msg_success()
     {
         return sprintf(_US_CONFMAIL, happy_linux_sanitize($this->_name));
     }
 
+    /**
+     * @return string
+     */
     public function get_msg_mail_error()
     {
         $msg = 'Mail Error: ';
@@ -195,6 +231,9 @@ class weblinks_lostpass extends happy_linux_error
         return $msg;
     }
 
+    /**
+     * @return mixed
+     */
     public function _get_name()
     {
         if ($this->_link_name) {
@@ -250,4 +289,6 @@ if (!$ret) {
 }
 
 redirect_header($singlelink, 1, $weblinks_lostpass->get_msg_success());
-exit(); // --- main end ---
+exit();
+
+// --- main end ---

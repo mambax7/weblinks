@@ -1,5 +1,6 @@
 <?php
-// $Id: waiting.plugin.php,v 1.1 2007/09/15 04:23:35 ohwada Exp $
+
+// $Id: waiting.plugin.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -15,37 +16,37 @@ eval(
 
 function b_waiting_' . $WEBLINKS_DIRNAME . '()
 {
-    return b_waiting_weblinks_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return b_waiting_weblinks_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_waiting_waitings()
 {
-    return weblinks_waiting_waitings_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return weblinks_waiting_waitings_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_waiting_modreqs()
 {
-    return weblinks_waiting_modreqs_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return weblinks_waiting_modreqs_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_waiting_delreqs()
 {
-    return weblinks_waiting_modreqs_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return weblinks_waiting_modreqs_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_waiting_brokens()
 {
-    return weblinks_waiting_brokens_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return weblinks_waiting_brokens_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_admin_waiting()
 {
-    return weblinks_admin_waiting_base( "' . $WEBLINKS_DIRNAME . '" ) ;
+	return weblinks_admin_waiting_base( "' . $WEBLINKS_DIRNAME . '" ) ;
 }
 
 function ' . $WEBLINKS_DIRNAME . '_user_waiting( $uid, $limit=0, $offset=0 )
 {
-    return weblinks_user_waiting_base( "' . $WEBLINKS_DIRNAME . '", $uid, $limit, $offset ) ;
+	return weblinks_user_waiting_base( \'' . $WEBLINKS_DIRNAME . '\', $uid, $limit, $offset ) ;
 }
 
 '
@@ -54,6 +55,10 @@ function ' . $WEBLINKS_DIRNAME . '_user_waiting( $uid, $limit=0, $offset=0 )
 
 // === weblinks_waiting_base begin ===
 if (!function_exists('b_waiting_weblinks_base')) {
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &b_waiting_weblinks_base($dirname)
     {
         $arr = [];
@@ -65,6 +70,10 @@ if (!function_exists('b_waiting_weblinks_base')) {
         return $arr;
     }
 
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &weblinks_waiting_waitings_base($dirname)
     {
         $arr = [];
@@ -78,7 +87,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $res = $xoopsDB->query($sql);
         if ($res) {
-            list($count) = $xoopsDB->fetchRow($res);
+            [$count] = $xoopsDB->fetchRow($res);
             $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_new';
             $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_WAITINGS;
@@ -87,6 +96,10 @@ if (!function_exists('b_waiting_weblinks_base')) {
         return $arr;
     }
 
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &weblinks_waiting_modreqs_base($dirname)
     {
         $arr = [];
@@ -100,7 +113,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $res = $xoopsDB->query($sql);
         if ($res) {
-            list($count) = $xoopsDB->fetchRow($res);
+            [$count] = $xoopsDB->fetchRow($res);
             $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_mod';
             $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_MODREQS;
@@ -109,6 +122,10 @@ if (!function_exists('b_waiting_weblinks_base')) {
         return $arr;
     }
 
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &weblinks_waiting_delreqs_base($dirname)
     {
         $arr = [];
@@ -122,7 +139,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $res = $xoopsDB->query($sql);
         if ($res) {
-            list($count) = $xoopsDB->fetchRow($res);
+            [$count] = $xoopsDB->fetchRow($res);
             $arr['adminlink'] = $WEBLINKS_URL . '/admin/modify_list.php?op=list_del';
             $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_DELREQS;
@@ -131,6 +148,10 @@ if (!function_exists('b_waiting_weblinks_base')) {
         return $arr;
     }
 
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &weblinks_waiting_brokens_base($dirname)
     {
         $arr = [];
@@ -144,7 +165,7 @@ if (!function_exists('b_waiting_weblinks_base')) {
 
         $res = $xoopsDB->query($sql);
         if ($res) {
-            list($count) = $xoopsDB->fetchRow($res);
+            [$count] = $xoopsDB->fetchRow($res);
             $arr['adminlink'] = $WEBLINKS_URL . '/admin/broken_list.php';
             $arr['pendingnum'] = $count;
             $arr['lang_linkname'] = _WEBLINKS_PI_WAITING_BROKENS;
@@ -153,11 +174,22 @@ if (!function_exists('b_waiting_weblinks_base')) {
         return $arr;
     }
 
+    /**
+     * @param $dirname
+     * @return array
+     */
     function &weblinks_admin_waiting_base($dirname)
     {
         return b_waiting_weblinks_base($dirname);
     }
 
+    /**
+     * @param     $dirname
+     * @param     $uid
+     * @param int $limit
+     * @param int $offset
+     * @return array|bool
+     */
     function &weblinks_user_waiting_base($dirname, $uid, $limit = 0, $offset = 0)
     {
         $xoopsDB = XoopsDatabaseFactory::getDatabaseConnection();

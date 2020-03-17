@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // M�dulo WebLinks
 // Traducido por Kirby y Dynamic Noiser
@@ -153,10 +154,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMES', '�Te gustar�a mostrar las p�ginas dentro de un marco?');
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Elige si deseas mostrar los enlaces dentro de un marco');
     define('_MI_WEBLINKS_BROKEN', 'N�mero de enlaces rotos reportados para poner fin a una pantalla');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'Introduce el N�mero de enlaces rotos reportados para poner fin a una pantalla. <br> Cuando por debajo de este valor, ser� considerado como un Error temporal, y no se har� nada. <br> Cuando este valor sobre el enlace ya no se visualiza.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'Introduce el N�mero de enlaces rotos reportados para poner fin a una pantalla. <br> Cuando por debajo de este valor, ser� considerado como un Error temporal, y no se har� nada. <br> Cuando este valor sobre el enlace ya no se visualiza.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Utilice URLs de im�genes de un listado de enlaces');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Anchura m�xima de imagen');
@@ -208,4 +206,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Admin] Notificarme cuando se postee un enlace (cuando el admin reciba comentario)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Notificarme cuando se postee cualquier enlace (cuando el admin reciba comentario)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} Auto-Notificaci�n : Nuevo enlace)');
-}// --- define language begin ---
+}
+// --- define language begin ---

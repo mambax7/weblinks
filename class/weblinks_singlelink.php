@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_singlelink.php,v 1.13 2007/11/16 12:07:58 ohwada Exp $
+
+// $Id: weblinks_singlelink.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-11-11 K.OHWADA
 // set_keyword_array()
@@ -47,6 +48,10 @@ if (!class_exists('weblinks_singlelink')) {
     //=========================================================
     // class weblinks_singlelink
     //=========================================================
+
+    /**
+     * Class weblinks_singlelink
+     */
     class weblinks_singlelink
     {
         public $_DIRNAME;
@@ -66,16 +71,21 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_singlelink constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
-            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-            $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
-            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
-            $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);
-            $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
+            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
+            $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
+            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
+            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post = happy_linux_post::getInstance();
@@ -85,6 +95,10 @@ if (!class_exists('weblinks_singlelink')) {
             $this->_link_view_handler->init();
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -98,6 +112,11 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // update banner size
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function _update_banner_size($lid)
         {
             $row = &$this->_link_handler->get_cache_by_lid($lid);
@@ -124,6 +143,11 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // countup_hits
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function countup_hits($lid)
         {
             return $this->_link_handler->countup_hits($lid);
@@ -132,26 +156,45 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // link_view_handler
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function get_get_lid()
         {
             return $this->_link_view_handler->get_get_lid();
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &get_catpath_arr($lid)
         {
             return $this->_link_view_handler->get_catpath_array_by_lid($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &get_link_forum_threads_by_lid($lid)
         {
             return $this->_link_view_handler->get_link_forum_threads_by_lid($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &get_link_album_photos_by_lid($lid)
         {
             return $this->_link_view_handler->get_link_album_photos_by_lid($lid);
         }
 
+        /**
+         * @return string
+         */
         public function get_get_keywords()
         {
             return $this->_post->get_get_keywords();
@@ -165,6 +208,11 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // get_link
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &get_link($lid)
         {
             if ($this->_conf['link_image_auto']) {
@@ -180,6 +228,11 @@ if (!class_exists('weblinks_singlelink')) {
         // get ATOM feed
         // RSS/ATOM auto discovery
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function get_atomfeed($lid)
         {
             // BUG 4279: Undefined index: rss_num in file singlelink.php
@@ -199,6 +252,10 @@ if (!class_exists('weblinks_singlelink')) {
             return $arr;
         }
 
+        /**
+         * @param $lid
+         * @return array
+         */
         public function get_atomfeed_auto($lid)
         {
             $arr = [
@@ -260,16 +317,26 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // system parameter
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function get_site_name()
         {
             return $this->_system->get_sitename();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_module_name()
         {
             return $this->_system->get_module_name();
         }
 
+        /**
+         * @return bool
+         */
         public function is_module_admin()
         {
             return $this->_system->is_module_admin();
@@ -278,12 +345,19 @@ if (!class_exists('weblinks_singlelink')) {
         //---------------------------------------------------------
         // set keyword property
         //---------------------------------------------------------
+
+        /**
+         * @param $value
+         */
         public function set_highlight($value)
         {
             $this->_link_view_handler->set_highlight($value);
             $this->_flag_highlight = (bool)$value;
         }
 
+        /**
+         * @param $arr
+         */
         public function set_keyword_array(&$arr)
         {
             $this->_link_view_handler->set_keyword_array($arr);

@@ -1,5 +1,6 @@
 <?php
-// $Id: waiting.php,v 1.1 2007/09/15 04:23:35 ohwada Exp $
+
+// $Id: waiting.php,v 1.1 2011/12/29 14:32:46 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -16,4 +17,5 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_BROKENS', 'ÇËÂ»Êó¹ð');
     define('_WEBLINKS_PI_WAITING_MODREQS', '½¤Àµ¿½ÀÁ');
     define('_WEBLINKS_PI_WAITING_DELREQS', 'ºï½ü¿½ÀÁ');
-}// --- define language end ---
+}
+// --- define language end ---

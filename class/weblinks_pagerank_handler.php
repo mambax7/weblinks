@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_pagerank_handler.php,v 1.2 2008/03/03 06:31:17 ohwada Exp $
+
+// $Id: weblinks_pagerank_handler.php,v 1.1 2011/12/29 14:33:05 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -12,6 +13,9 @@
 
 // === class begin ===
 if (!class_exists('weblinks_pagerank_handler')) {
+    /**
+     * Class weblinks_pagerank_handler
+     */
     class weblinks_pagerank_handler extends happy_linux_error
     {
         public $_DIRNAME;
@@ -25,20 +29,32 @@ if (!class_exists('weblinks_pagerank_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_pagerank_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
             $this->_pagerank = happy_linux_get_singleton('pagerank');
 
-            $this->_CACHE_TIME_LONG = 30 * 24 * 60 * 60; // one month
-            $this->_CACHE_TIME_SHORT = 24 * 60 * 60; // one day
+            $this->_CACHE_TIME_LONG = 30 * 24 * 60 * 60;    // one month
+            $this->_CACHE_TIME_SHORT = 24 * 60 * 60;    // one day
         }
 
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param      $lid
+         * @param bool $flag_cache
+         * @param bool $flag_force
+         * @return int
+         */
         public function get_page_rank($lid, $flag_cache = true, $flag_force = false)
         {
             $row = $this->_link_handler->get_cache_by_lid($lid);
@@ -68,6 +84,11 @@ if (!class_exists('weblinks_pagerank_handler')) {
             return (int)$pr;
         }
 
+        /**
+         * @param $url
+         * @param $pr_prev
+         * @return mixed
+         */
         public function get_page_rank_from_google($url, $pr_prev)
         {
             $pr = $this->_pagerank->get_page_rank($url);
@@ -89,6 +110,11 @@ if (!class_exists('weblinks_pagerank_handler')) {
             return $pr;
         }
 
+        /**
+         * @param $pagerank
+         * @param $pagerank_update
+         * @return bool
+         */
         public function _check_time($pagerank, $pagerank_update)
         {
             $cache_time = $this->_CACHE_TIME_LONG;
@@ -103,6 +129,10 @@ if (!class_exists('weblinks_pagerank_handler')) {
             return false;
         }
 
+        /**
+         * @param $lid
+         * @param $pr
+         */
         public function _update($lid, $pr)
         {
             $ret = $this->_link_handler->update_pagerank($lid, $pr, time());

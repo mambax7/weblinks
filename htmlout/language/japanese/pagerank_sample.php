@@ -1,5 +1,6 @@
 <?php
-// $Id: pagerank_sample.php,v 1.1 2008/02/28 13:55:37 ohwada Exp $
+
+// $Id: pagerank_sample.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module

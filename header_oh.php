@@ -1,5 +1,6 @@
 <?php
-// $Id: header_oh.php,v 1.2 2007/09/15 04:15:59 ohwada Exp $
+
+// $Id: header_oh.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-09-01 K.OHWADA
 // mail_template

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: gen_for_export_rssc.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //================================================================
@@ -16,6 +17,10 @@ include_once 'dev_header.php';
 //=========================================================
 // class genarate_rssc
 //=========================================================
+
+/**
+ * Class weblinks_genarate_rssc
+ */
 class weblinks_genarate_rssc extends weblinks_gen_record
 {
     //---------------------------------------------------------
@@ -29,6 +34,10 @@ class weblinks_genarate_rssc extends weblinks_gen_record
     //---------------------------------------------------------
     // rssc link table
     //---------------------------------------------------------
+
+    /**
+     * @param $MAX_LINK
+     */
     public function gen_rssc_link($MAX_LINK)
     {
         echo "<h4>generete rssc link table</h4>\n";
@@ -41,17 +50,21 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         mt_srand((float)microtime() * 1000000);
 
-        for ($i = 0; $i < $MAX_LINK; ++$i) {
+        for ($i = 0; $i < $MAX_LINK; $i++) {
             $title = $this->get_randum_title();
             $newid = $this->insert_rssc_link($title);
 
             $num = mt_rand(1, 10);
-            for ($j = 1; $j < $num; ++$j) {
+            for ($j = 1; $j < $num; $j++) {
                 $this->insert_rssc_feed($newid, $title);
             }
         }
     }
 
+    /**
+     * @param $MAX_LINK
+     * @param $MAX_CAT
+     */
     public function gen_link_without_rssc_link($MAX_LINK, $MAX_CAT)
     {
         echo "<h4>generete link table</h4>\n";
@@ -64,26 +77,30 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         mt_srand((float)microtime() * 1000000);
 
-        for ($i = 0; $i < $MAX_LINK; ++$i) {
+        for ($i = 0; $i < $MAX_LINK; $i++) {
             $site_title = $this->get_randum_title();
-            $rss_url = "https://$site_title/rss.xml";
+            $rss_url = "http://$site_title/rss.xml";
             $rss_flag = 1;
 
             $newid = $this->insert_randum_link($site_title, $rss_flag, $rss_url);
 
             $catnum = mt_rand(1, 3);
-            for ($j = 0; $j < $catnum; ++$j) {
+            for ($j = 0; $j < $catnum; $j++) {
                 $cid = mt_rand(1, $MAX_CAT);
                 $this->insert_catlink($cid, $newid);
             }
 
             $num = mt_rand(1, 10);
-            for ($j = 0; $j < $num; ++$j) {
+            for ($j = 0; $j < $num; $j++) {
                 $this->insert_atomfeed($newid, $site_title);
             }
         }
     }
 
+    /**
+     * @param $MAX_LINK
+     * @param $MAX_CAT
+     */
     public function gen_link_with_rssc_link($MAX_LINK, $MAX_CAT)
     {
         echo "<h4>generete link table and rssc link table</h4>\n";
@@ -96,9 +113,9 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         mt_srand((float)microtime() * 1000000);
 
-        for ($i = 0; $i < $MAX_LINK; ++$i) {
+        for ($i = 0; $i < $MAX_LINK; $i++) {
             $site_title = $this->get_randum_title();
-            $rss_url = "https://$site_title/rss.xml";
+            $rss_url = "http://$site_title/rss.xml";
             $rss_flag = 1;
             $mode = 2;
 
@@ -106,13 +123,13 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             $new_rssc_lid = $this->insert_rssc_link($site_title, $mode, $rss_url);
 
             $catnum = mt_rand(1, 3);
-            for ($j = 0; $j < $catnum; ++$j) {
+            for ($j = 0; $j < $catnum; $j++) {
                 $cid = mt_rand(1, $MAX_CAT);
                 $this->insert_catlink($cid, $newid);
             }
 
             // same title & time
-            for ($j = 0; $j < 3; ++$j) {
+            for ($j = 0; $j < 3; $j++) {
                 $title = $this->get_randum_title();
                 $time = $this->get_randum_time();
                 $this->insert_atomfeed($newid, $site_title, $title, $time);
@@ -120,7 +137,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             }
 
             // same title
-            for ($j = 0; $j < 3; ++$j) {
+            for ($j = 0; $j < 3; $j++) {
                 $title = $this->get_randum_title();
                 $this->insert_atomfeed($newid, $site_title, $title);
                 $this->insert_rssc_feed($new_rssc_lid, $site_title, $title);
@@ -128,13 +145,19 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
             // for each
             $num = mt_rand(1, 5);
-            for ($j = 0; $j < $num; ++$j) {
+            for ($j = 0; $j < $num; $j++) {
                 $this->insert_atomfeed($newid, $site_title);
                 $this->insert_rssc_feed($new_rssc_lid, $site_title);
             }
         }
     }
 
+    /**
+     * @param        $lid
+     * @param        $site_title
+     * @param string $title
+     * @param int    $time_created
+     */
     public function insert_atomfeed($lid, $site_title, $title = '', $time_created = 0)
     {
         if ('' == $title) {
@@ -145,8 +168,8 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             $time_created = $this->get_randum_time();
         }
 
-        $site_url = "https://$site_title/";
-        $url = "https://$title/";
+        $site_url = "http://$site_title/";
+        $url = "http://$title/";
         $time_issued = $time_created;
         $time_modified = $time_created;
 
@@ -184,8 +207,8 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $sql .= $this->quote($url) . ', ';
         $sql .= $this->quote($entry_id) . ', ';
         $sql .= $this->quote($guid) . ', ';
-        $sql .= (int)$time_modified . ', ';
-        $sql .= (int)$time_issued . ', ';
+        $sql .= $time_modified . ', ';
+        $sql .= $time_issued . ', ';
         $sql .= (int)$time_created . ', ';
         $sql .= $this->quote($author_name) . ', ';
         $sql .= $this->quote($author_url) . ', ';
@@ -196,6 +219,12 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $this->query($sql);
     }
 
+    /**
+     * @param        $title
+     * @param int    $mode
+     * @param string $rss_url
+     * @return mixed
+     */
     public function insert_rssc_link($title, $mode = 0, $rss_url = '')
     {
         global $RSSC_DIRNAME;
@@ -206,12 +235,12 @@ class weblinks_genarate_rssc extends weblinks_gen_record
 
         if (0 == $mode) {
             $mode = mt_rand(1, 3);
-            $rdf_url = "https://$title/rdf.xml";
-            $rss_url = "https://$title/rss.xml";
-            $atom_url = "https://$title/atom.xml";
+            $rdf_url = "http://$title/rdf.xml";
+            $rss_url = "http://$title/rss.xml";
+            $atom_url = "http://$title/atom.xml";
         }
 
-        $url = "https://$title/";
+        $url = "http://$title/";
         $ltype = mt_rand(0, 1);
         $headline = mt_rand(0, 10);
         $updated_unix = $this->get_randum_time();
@@ -255,26 +284,26 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $sql .= 'aux_text_1, ';
         $sql .= 'aux_text_2 ';
         $sql .= ') VALUES (';
-        $sql .= (int)$uid . ', ';
-        $sql .= (int)$mid . ', ';
-        $sql .= (int)$p1 . ', ';
-        $sql .= (int)$p2 . ', ';
-        $sql .= (int)$p3 . ', ';
+        $sql .= $uid . ', ';
+        $sql .= $mid . ', ';
+        $sql .= $p1 . ', ';
+        $sql .= $p2 . ', ';
+        $sql .= $p3 . ', ';
         $sql .= $this->quote($title) . ', ';
         $sql .= $this->quote($url) . ', ';
-        $sql .= (int)$ltype . ', ';
+        $sql .= $ltype . ', ';
         $sql .= $this->quote($rdf_url) . ', ';
         $sql .= $this->quote($rss_url) . ', ';
         $sql .= $this->quote($atom_url) . ', ';
         $sql .= (int)$mode . ', ';
         $sql .= $this->quote($encoding) . ', ';
-        $sql .= (int)$refresh . ', ';
-        $sql .= (int)$headline . ', ';
-        $sql .= (int)$updated_unix . ', ';
+        $sql .= $refresh . ', ';
+        $sql .= $headline . ', ';
+        $sql .= $updated_unix . ', ';
         $sql .= $this->quote($channel) . ', ';
         $sql .= $this->quote($xml) . ', ';
-        $sql .= (int)$aux_int_1 . ', ';
-        $sql .= (int)$aux_int_2 . ', ';
+        $sql .= $aux_int_1 . ', ';
+        $sql .= $aux_int_2 . ', ';
         $sql .= $this->quote($aux_text_1) . ', ';
         $sql .= $this->quote($aux_text_2) . ' ';
         $sql .= ')';
@@ -285,6 +314,12 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         return $newid;
     }
 
+    /**
+     * @param        $lid
+     * @param        $site_title
+     * @param string $title
+     * @param int    $updated_unix
+     */
     public function insert_rssc_feed($lid, $site_title, $title = '', $updated_unix = 0)
     {
         global $RSSC_DIRNAME;
@@ -298,8 +333,8 @@ class weblinks_genarate_rssc extends weblinks_gen_record
             $updated_unix = $this->get_randum_time();
         }
 
-        $site_link = "https://$site_title/";
-        $link = "https://$title/";
+        $site_link = "http://$site_title/";
+        $link = "http://$title/";
         $published_unix = $updated_unix;
 
         $content = "$title\n $updated_unix\n";
@@ -360,11 +395,11 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $sql .= 'enclosure_length ';
         $sql .= ') VALUES (';
         $sql .= (int)$lid . ', ';
-        $sql .= (int)$uid . ', ';
-        $sql .= (int)$mid . ', ';
-        $sql .= (int)$p1 . ', ';
-        $sql .= (int)$p2 . ', ';
-        $sql .= (int)$p3 . ', ';
+        $sql .= $uid . ', ';
+        $sql .= $mid . ', ';
+        $sql .= $p1 . ', ';
+        $sql .= $p2 . ', ';
+        $sql .= $p3 . ', ';
         $sql .= $this->quote($site_title) . ', ';
         $sql .= $this->quote($site_link) . ', ';
         $sql .= $this->quote($title) . ', ';
@@ -372,7 +407,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $sql .= $this->quote($entry_id) . ', ';
         $sql .= $this->quote($guid) . ', ';
         $sql .= (int)$updated_unix . ', ';
-        $sql .= (int)$published_unix . ', ';
+        $sql .= $published_unix . ', ';
         $sql .= $this->quote($category) . ', ';
         $sql .= $this->quote($author_name) . ', ';
         $sql .= $this->quote($author_uri) . ', ';
@@ -381,13 +416,13 @@ class weblinks_genarate_rssc extends weblinks_gen_record
         $sql .= $this->quote($raws) . ', ';
         $sql .= $this->quote($content) . ', ';
         $sql .= $this->quote($search) . ', ';
-        $sql .= (int)$aux_int_1 . ', ';
-        $sql .= (int)$aux_int_2 . ', ';
+        $sql .= $aux_int_1 . ', ';
+        $sql .= $aux_int_2 . ', ';
         $sql .= $this->quote($aux_text_1) . ', ';
         $sql .= $this->quote($aux_text_2) . ', ';
         $sql .= $this->quote($enclosure_url) . ', ';
         $sql .= $this->quote($enclosure_type) . ', ';
-        $sql .= (int)$enclosure_length . ' ';
+        $sql .= $enclosure_length . ' ';
 
         $sql .= ')';
 
@@ -431,4 +466,5 @@ $genarete->gen_link_without_rssc_link($MAX_RSSC_LINK, $MAX_CAT);
 $genarete->gen_link_with_rssc_link($MAX_RSSC_LINK, $MAX_CAT);
 
 echo '<h3>end</h3>';
-dev_footer(); // =====
+dev_footer();
+// =====

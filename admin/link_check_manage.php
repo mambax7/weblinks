@@ -1,5 +1,6 @@
 <?php
-// $Id: link_check_manage.php,v 1.2 2008/02/27 01:45:06 ohwada Exp $
+
+// $Id: link_check_manage.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // change file name link_broken_check.php -> link_check_manage.php
@@ -47,6 +48,10 @@ include_once WEBLINKS_ROOT_PATH . '/admin/admin_functions.php';
 //=========================================================
 // class link_check_manage
 //=========================================================
+
+/**
+ * Class admin_link_check_manage
+ */
 class admin_link_check_manage extends happy_linux_manage
 {
     public $_config_handler;
@@ -74,15 +79,18 @@ class admin_link_check_manage extends happy_linux_manage
         $this->set_script('link_check_manage.php');
         $this->set_flag_execute_time(true);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler = weblinks_getHandler('link_check', WEBLINKS_DIRNAME);
-        $this->_update_handler = weblinks_getHandler('pagerank_update', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_check_handler = weblinks_get_handler('link_check', WEBLINKS_DIRNAME);
+        $this->_update_handler = weblinks_get_handler('pagerank_update', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
 
         $this->_conf = $this->_config_handler->get_conf();
     }
 
+    /**
+     * @return \admin_link_check_manage|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -96,11 +104,17 @@ class admin_link_check_manage extends happy_linux_manage
     //---------------------------------------------------------
     // POST
     //---------------------------------------------------------
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_get('op');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_int('limit');
@@ -111,6 +125,9 @@ class admin_link_check_manage extends happy_linux_manage
         return $this->_limit;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_int('offset');
@@ -149,6 +166,10 @@ class admin_link_check_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $op
+     * @param $title
+     */
     public function _print_form($op, $title)
     {
         $limit = $this->get_post_limit();
@@ -192,6 +213,10 @@ class admin_link_check_manage extends happy_linux_manage
         }
     }
 
+    /**
+     * @param $op
+     * @param $title
+     */
     public function _print_footer($op, $title)
     {
         $limit = $this->_limit;
@@ -223,6 +248,10 @@ class admin_link_check_manage extends happy_linux_manage
 //=========================================================
 // class admin_form_pagerank
 //=========================================================
+
+/**
+ * Class admin_form_pagerank
+ */
 class admin_form_pagerank extends happy_linux_form_lib
 {
     //---------------------------------------------------------
@@ -233,6 +262,9 @@ class admin_form_pagerank extends happy_linux_form_lib
         parent::__construct();
     }
 
+    /**
+     * @return \admin_form_pagerank|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -246,6 +278,12 @@ class admin_form_pagerank extends happy_linux_form_lib
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+    /**
+     * @param     $op
+     * @param     $title
+     * @param int $limit
+     * @param int $offset
+     */
     public function show_first($op, $title, $limit = 0, $offset = 0)
     {
         echo $this->build_form_begin();
@@ -262,6 +300,12 @@ class admin_form_pagerank extends happy_linux_form_lib
         echo $this->build_form_end();
     }
 
+    /**
+     * @param     $op
+     * @param     $title
+     * @param int $limit
+     * @param int $offset
+     */
     public function show_next($op, $title, $limit = 0, $offset = 0)
     {
         $submit = sprintf('Next %s link', $limit);
@@ -282,7 +326,7 @@ class admin_form_pagerank extends happy_linux_form_lib
 weblinks_admin_multi_disable_feature();
 
 $manage = admin_link_check_manage::getInstance();
-$op = $manage->get_post_op();
+$op     = $manage->get_post_op();
 
 switch ($op) {
     case 'check':
@@ -297,4 +341,5 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

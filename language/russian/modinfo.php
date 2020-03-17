@@ -1,4 +1,5 @@
 <?php
+
 // $Id: modinfo.php,v 1.1 2012/04/09 10:20:06 ohwada Exp $
 
 // 2008-02-17
@@ -38,7 +39,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MI_LOADED')) {
@@ -194,10 +195,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', '��������, ������� �� ���������� ������� �������� ������ ������ ������');
 
     define('_MI_WEBLINKS_BROKEN', '���������� ������� � ������������ ������, ����� ���������� �����');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        '������� ���������� ������� � ������������ ������, ����� ���������� �����. <br> ����� ���� ����� ��������, �� �� ����� ��������������� ��� ��������� ������, � ������ �� ����� �������. <br>����� ��� �������� ������, ������ �� ����� ������������.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', '������� ���������� ������� � ������������ ������, ����� ���������� �����. <br> ����� ���� ����� ��������, �� �� ����� ��������������� ��� ��������� ������, � ������ �� ����� �������. <br>����� ��� �������� ������, ������ �� ����� ������������.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', '������������ ����������� ������ ��� ������ ������');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', '������������ ������ ����������� ������');
@@ -219,10 +217,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', '������� ������������ ���������� ������, ������� ����� ������������ � "���������� ����" � "������ ����". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', '������������ ���������� ��������� � ������ �������');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        '������� ������������ ���������� ���������, ������� ����� ������������ � "���������� ����" � "������ ����". <br>���������� ����-���, ���� ������� ����� ������� ��������� �������'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', '������� ������������ ���������� ���������, ������� ����� ������������ � "���������� ����" � "������ ����". <br>���������� ����-���, ���� ������� ����� ������� ��������� �������');
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
@@ -253,4 +248,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[�����������������] ���������� ����, ����� ������������ �����-���� ����� ������ (���� ������ ����������� ��� ��������������)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', '�������� ����������, ����� ������������ �����-���� ����� ������ (���� ������ ����������� ��� ��������������)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} ����-���������� : ����� ������)');
-}// --- define language begin ---
+}
+// --- define language begin ---

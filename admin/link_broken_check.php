@@ -1,5 +1,6 @@
 <?php
-// $Id: link_broken_check.php,v 1.11 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_broken_check.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_flag_execute_time()
@@ -43,6 +44,10 @@ include_once WEBLINKS_ROOT_PATH . '/admin/admin_functions.php';
 //=========================================================
 // class link_broken_check manage
 //=========================================================
+
+/**
+ * Class admin_manage_link_broken_check
+ */
 class admin_manage_link_broken_check extends happy_linux_manage
 {
     public $_post;
@@ -66,6 +71,9 @@ class admin_manage_link_broken_check extends happy_linux_manage
         $this->_post = happy_linux_post::getInstance();
     }
 
+    /**
+     * @return \admin_manage_link_broken_check|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -79,11 +87,17 @@ class admin_manage_link_broken_check extends happy_linux_manage
     //---------------------------------------------------------
     // POST
     //---------------------------------------------------------
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_get('op');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_int('limit');
@@ -94,6 +108,9 @@ class admin_manage_link_broken_check extends happy_linux_manage
         return $this->_limit;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_int('offset');
@@ -178,6 +195,10 @@ class admin_manage_link_broken_check extends happy_linux_manage
 //=========================================================
 // class admin_form_link_broken_check
 //=========================================================
+
+/**
+ * Class admin_form_link_broken_check
+ */
 class admin_form_link_broken_check extends happy_linux_form_lib
 {
     //---------------------------------------------------------
@@ -188,6 +209,9 @@ class admin_form_link_broken_check extends happy_linux_form_lib
         parent::__construct();
     }
 
+    /**
+     * @return \admin_form_link_broken_check|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -201,6 +225,10 @@ class admin_form_link_broken_check extends happy_linux_form_lib
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+    /**
+     * @param int $limit
+     * @param int $offset
+     */
     public function show_first($limit = 0, $offset = 0)
     {
         echo $this->build_form_begin('check');
@@ -217,6 +245,10 @@ class admin_form_link_broken_check extends happy_linux_form_lib
         echo $this->build_form_end();
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     */
     public function show_next($limit = 0, $offset = 0)
     {
         $submit = sprintf(_WEBLINKS_ADMIN_CHECK_NEXT, $limit);
@@ -237,7 +269,7 @@ class admin_form_link_broken_check extends happy_linux_form_lib
 weblinks_admin_multi_disable_feature();
 
 $manage = admin_manage_link_broken_check::getInstance();
-$op = $manage->get_post_op();
+$op     = $manage->get_post_op();
 
 switch ($op) {
     case 'check':
@@ -249,4 +281,5 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

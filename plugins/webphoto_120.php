@@ -1,14 +1,19 @@
 <?php
-// $Id: webphoto_120.php,v 1.1 2009/01/31 19:49:37 ohwada Exp $
+
+// $Id: webphoto_120.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
-// for weblinks 1.20 <https://linux.ohwada.jp/>
+// for weblinks 1.20 <http://linux.ohwada.jp/>
 // 2009-02-01 K.OHWADA
 //=========================================================
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
+    /**
+     * @param $opts
+     * @return array|bool|null
+     */
     function &weblinks_plugin_albums_webphoto_120($opts)
     {
         $ret = weblinks_plugin_webphoto_include($opts);
@@ -24,6 +29,10 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         return $ret;
     }
 
+    /**
+     * @param $opts
+     * @return array|bool|null
+     */
     function &weblinks_plugin_photos_webphoto_120($opts)
     {
         $ret = weblinks_plugin_webphoto_include($opts);
@@ -39,6 +48,10 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
         return $ret;
     }
 
+    /**
+     * @param $opts
+     * @return bool
+     */
     function weblinks_plugin_webphoto_include($opts)
     {
         $DIRNAME = isset($opts['dirname']) ? $opts['dirname'] : 'webphoto';
@@ -53,4 +66,5 @@ if (!function_exists('weblinks_plugin_albums_webphoto_120')) {
 
         return false;
     }
-}// --- functions end ---
+}
+// --- functions end ---

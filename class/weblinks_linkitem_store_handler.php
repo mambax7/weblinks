@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_linkitem_store_handler.php,v 1.4 2007/08/08 04:18:35 ohwada Exp $
+
+// $Id: weblinks_linkitem_store_handler.php,v 1.1 2011/12/29 14:33:09 ohwada Exp $
 
 // 2007-08-01 K.OHWADA
 // admin can add etc column
@@ -30,6 +31,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
     //=========================================================
     // class weblinks_linkitem_form
     //=========================================================
+
+    /**
+     * Class weblinks_linkitem_form
+     */
     class weblinks_linkitem_form extends happy_linux_form
     {
         public $_linkitem_define_handler;
@@ -37,14 +42,23 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_form constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
-            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
+            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
             $this->set_form_name('weblinks_linkitem');
         }
 
+        /**
+         * @param null $dirname
+         * @return \happy_linux_form|\happy_linux_html|\weblinks_linkitem_form|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -58,6 +72,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // main function
         //---------------------------------------------------------
+
+        /**
+         * @param $form_title
+         */
         public function show($form_title)
         {
             $ROWS = 1;
@@ -119,6 +137,11 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // make table form
         //---------------------------------------------------------
+
+        /**
+         * @param $title
+         * @return string
+         */
         public function make_table3_title($title)
         {
             $text = $this->build_form_table_title($title, 3);
@@ -126,6 +149,12 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $text;
         }
 
+        /**
+         * @param $title
+         * @param $ele1
+         * @param $ele2
+         * @return string
+         */
         public function make_table3_line($title, $ele1, $ele2)
         {
             $text = "<tr valign='top' align='left'>";
@@ -137,6 +166,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $text;
         }
 
+        /**
+         * @param $button
+         * @return string
+         */
         public function make_table3_submit($button)
         {
             $text = "<tr valign='top' align='left'>";
@@ -150,6 +183,11 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $text;
         }
 
+        /**
+         * @param $value
+         * @param $options
+         * @return int|string
+         */
         public function get_option_name($value, $options)
         {
             foreach ($options as $opt_name => $opt_val) {
@@ -167,6 +205,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
     //================================================================
     // class weblinks_linkitem_store_handler
     //================================================================
+
+    /**
+     * Class weblinks_linkitem_store_handler
+     */
     class weblinks_linkitem_store_handler extends happy_linux_error
     {
         public $_handler;
@@ -176,12 +218,17 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_store_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
-            $this->_handler = weblinks_getHandler('linkitem', $dirname);
-            $this->_define_handler = weblinks_getHandler('linkitem_define', $dirname);
+            $this->_handler = weblinks_get_handler('linkitem', $dirname);
+            $this->_define_handler = weblinks_get_handler('linkitem_define', $dirname);
             $this->_define = weblinks_linkitem_define::getInstance($dirname);
 
             $this->_post = happy_linux_post::getInstance();
@@ -190,6 +237,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // init config
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function init()
         {
             $this->_clear_errors();
@@ -215,7 +266,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                     $description = $def['description'];
                 }
 
-                $obj = &$this->_handler->create();
+                $obj = $this->_handler->create();
                 $obj->setVar('item_id', $item_id);
                 $obj->setVar('name', $name);
                 $obj->setVar('title', $title);
@@ -237,6 +288,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // upgrade config
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function upgrade()
         {
             $this->_clear_errors();
@@ -245,7 +300,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
 
             // list from Define
             foreach ($define_arr as $item_id => $def) {
-                $obj = &$this->_handler->get_by_itemid($item_id);
+                $obj = $this->_handler->get_by_itemid($item_id);
                 if (is_object($obj)) {
                     continue;
                 }
@@ -268,7 +323,7 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
                     $description = $def['description'];
                 }
 
-                $obj = &$this->_handler->create();
+                $obj = $this->_handler->create();
                 $obj->setVar('item_id', $item_id);
                 $obj->setVar('name', $name);
                 $obj->setVar('title', $title);
@@ -289,6 +344,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // save config
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function save()
         {
             $this->_clear_errors();
@@ -301,13 +360,13 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             $count = count($itemid_arr);
             if ($count <= 0) {
                 return true;
-            }  // no action
+            }    // no action
 
             // list from POST
-            for ($i = 0; $i < $count; ++$i) {
+            for ($i = 0; $i < $count; $i++) {
                 $itemid = $itemid_arr[$i];
 
-                $obj = &$this->_handler->get_by_itemid($itemid);
+                $obj = $this->_handler->get_by_itemid($itemid);
                 if (!is_object($obj)) {
                     continue;
                 }
@@ -356,6 +415,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             $this->_handler->load();
         }
 
+        /**
+         * @return mixed
+         */
         public function existsTable()
         {
             $ret = $this->_handler->existsTable();
@@ -363,6 +425,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $ret;
         }
 
+        /**
+         * @return mixed
+         */
         public function getCount()
         {
             $count = $this->_handler->getCount();
@@ -370,6 +435,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $count;
         }
 
+        /**
+         * @return mixed
+         */
         public function create_table()
         {
             $ret = $this->_handler->create_table();
@@ -380,6 +448,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $ret;
         }
 
+        /**
+         * @return mixed
+         */
         public function clean_table()
         {
             $magic = $this->_handler->get_magic_word();
@@ -391,6 +462,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $name
+         * @return bool
+         */
         public function check_exist_by_name($name)
         {
             $arr = $this->_handler->get_cache_by_name($name);
@@ -404,6 +479,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // add_column_table
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function check_version_140()
         {
             $ret = $this->_handler->check_version_140();
@@ -411,6 +490,9 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
             return $ret;
         }
 
+        /**
+         * @return mixed
+         */
         public function add_column_table_140()
         {
             $ret = $this->_handler->add_column_table_140();
@@ -421,6 +503,10 @@ if (!class_exists('weblinks_linkitem_store_handler')) {
         //---------------------------------------------------------
         // set param
         //---------------------------------------------------------
+
+        /**
+         * @param $val
+         */
         public function set_num_etc($val)
         {
             $this->_define->set_num_etc($val);

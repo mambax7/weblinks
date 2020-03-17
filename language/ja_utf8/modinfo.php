@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.4 2008/02/26 16:01:44 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:42 ohwada Exp $
 
 // 2008-02-17
 // remove _MI_WEBLINKS_SMNAME1
@@ -231,4 +232,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[管理者] 新規リンクが掲載された場合に通知する (管理者宛コメントの記載あり)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', '新規リンクが掲載された場合に通知する (管理者宛コメントの記載あり)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE}: 新規リンクが掲載されました');
-}// --- define language begin ---
+}
+// --- define language begin ---

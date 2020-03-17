@@ -1,5 +1,6 @@
 <?php
-// $Id: table_manage_rssc.php,v 1.2 2007/11/26 03:04:36 ohwada Exp $
+
+// $Id: table_manage_rssc.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // weblinks_admin_print_footer()
@@ -28,6 +29,10 @@ if (WEBLINKS_RSSC_EXIST) {
 //================================================================
 // class admin_table_manage_rssc
 //================================================================
+
+/**
+ * Class admin_table_manage_rssc
+ */
 class admin_table_manage_rssc extends happy_linux_basic_handler
 {
     public $_LIMIT = 100;
@@ -53,16 +58,19 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         $this->set_debug_db_sql(WEBLINKS_DEBUG_TABLE_CHECK_SQL);
         $this->set_debug_db_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
         $this->_form = happy_linux_form_lib::getInstance();
 
         if (WEBLINKS_RSSC_EXIST) {
-            $this->_rssc_link_handler = rssc_getHandler('link', WEBLINKS_RSSC_DIRNAME);
+            $this->_rssc_link_handler = rssc_get_handler('link', WEBLINKS_RSSC_DIRNAME);
         }
     }
 
+    /**
+     * @return \admin_table_manage_rssc|\happy_linux_basic_handler|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -76,6 +84,10 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_param()
     {
         $op = $this->get_post_op();
@@ -84,6 +96,9 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         return $op;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $this->_op = $this->_post->get_post_get('op');
@@ -91,6 +106,9 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         return $this->_op;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_get('limit');
@@ -98,6 +116,9 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         return $this->_limit;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
@@ -162,14 +183,14 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
             $url_1 = $url_weblinsk_link_manage . $weblinks_lid;
             $lid_1s = sprintf('%03d', $weblinks_lid);
             $href_1 = '<a href="' . $url_1 . '" target="_blank">' . $lid_1s . '</a>';
-            $title_1s = htmlspecialchars($weblinks_title);
+            $title_1s = htmlspecialchars($weblinks_title, ENT_QUOTES | ENT_HTML5);
 
             $rssc_link_obj_1 = &$this->_rssc_link_handler->get($rssc_lid_1);
             if (!is_object($rssc_link_obj_1)) {
                 // not exist
                 echo $href_1 . ' : ' . $title_1s;
                 echo " : <b>not exist in rssc</b> <br>\n";
-                ++$count_not;
+                $count_not++;
                 continue;
             }
 
@@ -181,7 +202,7 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
             if (is_array($list) && count($list)) {
                 echo $href_1 . ' : ' . $title_1s;
                 echo " : <b>same links in rssc</b> <br>\n";
-                ++$count_more;
+                $count_more++;
 
                 foreach ($list as $rssc_lid_2) {
                     $rssc_link_obj_2 = &$this->_rssc_link_handler->get($rssc_lid_2);
@@ -190,7 +211,7 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
                         $url_2 = $url_rssc_link_manage . $rssc_lid_2;
                         $lid_2s = sprintf('%03d', $rssc_lid_2);
                         $href_2 = '<a href="' . $url_2 . '" target="_blank">' . $lid_2s . '</a>';
-                        $title_2s = htmlspecialchars($rssc_title_2);
+                        $title_2s = htmlspecialchars($rssc_title_2, ENT_QUOTES | ENT_HTML5);
                         echo ' --- ' . $href_2 . ' : ' . $title_2s . "<br>\n";
                     }
                 }
@@ -211,6 +232,11 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
     //---------------------------------------------------------
     // print
     //---------------------------------------------------------
+
+    /**
+     * @param     $title
+     * @param int $offset
+     */
     public function _form_link($title, $offset = 0)
     {
         $op = 'check_link';
@@ -226,7 +252,7 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
 
     public function _print_finish()
     {
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo "<h4>FINISHED</h4>\n";
         echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
     }
@@ -234,9 +260,16 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
     //---------------------------------------------------------
     // form
     //---------------------------------------------------------
+
+    /**
+     * @param     $title
+     * @param     $op
+     * @param     $submit
+     * @param int $offset
+     */
     public function _print_form_next($title, $op, $submit, $offset = 0)
     {
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo '<h4>' . $title . "</h4>\n";
 
         if ($offset) {
@@ -252,6 +285,9 @@ class admin_table_manage_rssc extends happy_linux_basic_handler
         echo $text;
     }
 
+    /**
+     * @return bool
+     */
     public function check_token()
     {
         $ret = $this->_form->check_token();
@@ -296,7 +332,7 @@ if (WEBLINKS_RSSC_EXIST) {
 }
 
 $manage = admin_table_manage_rssc::getInstance();
-$op = $manage->get_post_param();
+$op     = $manage->get_post_param();
 
 switch ($op) {
     case 'check_link':
@@ -310,4 +346,5 @@ switch ($op) {
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

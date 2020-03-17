@@ -1,4 +1,5 @@
 <?php
+
 // $Id: compatible.php,v 1.4 2012/04/11 06:00:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -77,10 +78,7 @@ if (!defined('_AM_WEBLINKS_VIEW_URL_SUMMARY')) {
     define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>Caution</b> It takes time, in order to search the url of rss using internet');
 
     define('_AM_WEBLINKS_BULK_COMMENT', 'Bulk Registation of Comment');
-    define(
-        '_AM_WEBLINKS_BULK_COMMENT_DSC1',
-        'describe the title of link, uid, the title of comment, and the text of commentwith comma(,) separate<br>uid is omissible. substitute with uid of administrator.<br/ >the title of comment is omissible. substitute with the title of link.'
-    );
+    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', 'describe the title of link, uid, the title of comment, and the text of commentwith comma(,) separate<br>uid is omissible. substitute with uid of administrator.<br/ >the title of comment is omissible. substitute with the title of link.');
     define('_AM_WEBLINKS_NO_COMMENT', 'No comment');
     define('_AM_WEBLINKS_COMMENT_ADDED', 'Added comment');
     define('_AM_WEBLINKS_BULK_DSC1', '<br>describe \2c instead of comma.<br/ >describe \n instead of new-line.');
@@ -243,8 +241,8 @@ if (!defined('_AM_WEBLINKS_AUTH_DELETE')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'The substitution of the link image');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'The substitute image when not set the link image');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'none');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 }
 
 //---------------------------------------------------------
@@ -279,20 +277,14 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT_DESC', 'GOverviewMapControl');
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Search] Map Type');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[��?�] Kind of Geocode');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[����] Kind of Geocode');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Single Result: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'More Results: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Search][Japan] Use CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br>Search latitude and longitude from address');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Search][Japan] Use Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'Valid in Japan<br>Search address from latitude and longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'Valid in Japan<br>Search address from latitude and longitude<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] Maximum characters for Title');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Maximum number of characters used for Title in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] Maximum characters for Content');
@@ -324,10 +316,7 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_0')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML Style Configuration');
     define('_AM_WEBLINKS_HEADER_MODE', 'Use xoops module header');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        'When "No", show style sheet and Javascript in body tag<br>When "Yes", show them in header tag, using xoops module header<br>there are same themes which can not be used'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', 'When "No", show style sheet and Javascript in body tag<br>When "Yes", show them in header tag, using xoops module header<br>there are same themes which can not be used');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'You can see sample, click sample button');
@@ -471,10 +460,7 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Full detail');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Performance improvement');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', 'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"');
     define('_AM_WEBLINKS_CAT_PATH', 'Category path tree');
     define('_AM_WEBLINKS_CAT_PATH_DSC', 'YES computes the category path tree, and it stores in the category table.<br>NO computes when showing.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Category link count');
@@ -485,10 +471,7 @@ if (!defined('_AM_WEBLINKS_UPDATE_CAT_PATH')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Link Register Item Configuration');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Use CAPTCHA');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha module ver %s is finded');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha module is not finded');
 
@@ -540,10 +523,10 @@ if (!defined('_WEBLINKS_GM_SEARCH_MAP_FROM_ADDRESS')) {
 
 if (!defined('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE')) {
     // link item
-    //  define('_AM_WEBLINKS_TIME_PUBLISH','Set the publication time');
-    //  define('_AM_WEBLINKS_TIME_PUBLISH_DESC','If you do not check it, published time will become undated');
-    //  define('_AM_WEBLINKS_TIME_EXPIRE','Set expiration time');
-    //  define('_AM_WEBLINKS_TIME_EXPIRE_DESC','If you do not check it, expired setting will become undated');
+    //	define('_AM_WEBLINKS_TIME_PUBLISH','Set the publication time');
+    //	define('_AM_WEBLINKS_TIME_PUBLISH_DESC','If you do not check it, published time will become undated');
+    //	define('_AM_WEBLINKS_TIME_EXPIRE','Set expiration time');
+    //	define('_AM_WEBLINKS_TIME_EXPIRE_DESC','If you do not check it, expired setting will become undated');
 
     define('_AM_WEBLINKS_LINK_TIME_PUBLISH_BEFORE', 'Link list before Publish time');
     define('_AM_WEBLINKS_LINK_TIME_EXPIRE_AFTER', 'Link list after Expired time');
@@ -652,8 +635,8 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Locate Configration');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'County Code');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br> The item with the <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Renew the item which relates to the country code. <br/> The item with the <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', 'Renew');
 
     // map
@@ -666,10 +649,7 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps Configration');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Use Google Maps');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'Get the API key on <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> When you use GoogleMaps.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'Get the API key on <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> When you use GoogleMaps.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Server Name');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'Language Code');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'default Location');
@@ -692,17 +672,17 @@ if (!defined('_AM_WEBLINKS_MODULE_CONFIG_3')) {
 //---------------------------------------------------------
 // main
 if (!defined('_WEBLINKS_OPTIONS')) {
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_FINISH',   'Finish');
-    //  define('_FINISHED', 'Finished');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
-    //  define('_PRINT','Print');
-    //  define('_SAMPLE','Sample');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_FINISH',   'Finish');
+    //	define('_FINISHED', 'Finished');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
+    //	define('_PRINT','Print');
+    //	define('_SAMPLE','Sample');
 
     define('_NO_MATCH_RECORD', 'There are no matched record');
     define('_MANY_MATCH_RECORD', 'There are two or more matched records');
@@ -712,14 +692,14 @@ if (!defined('_WEBLINKS_OPTIONS')) {
     define('_NO_URL', 'No URL');
     define('_NO_DESCRIPTION', 'No Description');
 
-    //  define('_GOTO_MAIN',   'Goto Main');
-    //  define('_GOTO_MODULE', 'Goto Module');
+    //	define('_GOTO_MAIN',   'Goto Main');
+    //	define('_GOTO_MODULE', 'Goto Module');
 
     // config
-    //  define('_WEBLINKS_INIT_NOT', 'The config table is not initialized');
-    //  define('_WEBLINKS_INIT_EXEC', 'Initialized the config table');
-    //  define('_WEBLINKS_VERSION_NOT','It is not version  %s');
-    //  define('_WEBLINKS_UPGRADE_EXEC','Upgrad the config table');
+    //	define('_WEBLINKS_INIT_NOT', 'The config table is not initialized');
+    //	define('_WEBLINKS_INIT_EXEC', 'Initialized the config table');
+    //	define('_WEBLINKS_VERSION_NOT','It is not version  %s');
+    //	define('_WEBLINKS_UPGRADE_EXEC','Upgrad the config table');
 
     // html tag
     define('_WEBLINKS_OPTIONS', 'Options');
@@ -780,23 +760,14 @@ if (!defined('_AM_WEBLINKS_ADD_CATEGORY')) {
     define('_AM_WEBLINKS_VIEW_URL_1', 'indirect url');
     define('_AM_WEBLINKS_VIEW_URL_2', 'direct url');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Priority of recommend site');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.');
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Priority of reciprocal site');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'When select "none", <br>not display.<br>When select "normal", <br>display in header.<br>When select "higher", <br>display on higher rank in each category.');
     define('_AM_WEBLINKS_PRI_0', 'none');
     define('_AM_WEBLINKS_PRI_1', 'normal');
     define('_AM_WEBLINKS_PRI_2', 'higher');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', 'Auto update of Banner image size');
-    define(
-        '_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
-        'When select YES, <br>update Banner image size automatically, when show a link list or a link detail information, if Banner image size is not able to get at registration and change link information.'
-    );
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', 'When select YES, <br>update Banner image size automatically, when show a link list or a link detail information, if Banner image size is not able to get at registration and change link information.');
     define('_AM_WEBLINKS_RSS_USE', 'Use RSS feed');
     define('_AM_WEBLINKS_RSS_USE_DSC', 'When select YES, <br>get and display RSS/ATOM feed.');
 

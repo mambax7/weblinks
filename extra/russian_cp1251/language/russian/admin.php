@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -55,7 +56,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_AM_LOADED')) {
@@ -72,7 +73,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', '������ �������');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', '������� � �����������������');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // Access Authority
     define('_WEBLINKS_ADMIN_AUTH', '����������');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', '������������� ����� ��� ���������� ����������');
@@ -97,32 +98,17 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', '�������������� ���������� RSS/ATOM �������');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "�� ��������� '�������������� ����������� RSS/ATOM ������' � '�������������� ����������' ���� RSS/ATOM ������ �������� � ������������ ������. ");
     define('_WEBLINKS_RSS_MODE_DATA', '������ RSS/ATOM, ����� ��������');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        'ATOM FEED, ���������� ������ � ������� Atom ������� ����� �������. <br>XML ���������� ������ �� ������� ������ �� �������. <br>��������� ������ ����� ���� �� ��������� � ������� atomfeed ����� ����������. '
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', 'ATOM FEED, ���������� ������ � ������� Atom ������� ����� �������. <br>XML ���������� ������ �� ������� ������ �� �������. <br>��������� ������ ����� ���� �� ��������� � ������� atomfeed ����� ����������. ');
     define('_WEBLINKS_RSS_CACHE', '����� ���� RSS/ATOM �������');
     define('_WEBLINKS_RSS_CACHE_DSC', '���������� � �����.');
     define('_WEBLINKS_RSS_LIMIT', '������������ ���������� RSS/ATOM �������');
-    define(
-        '_WEBLINKS_RSS_LIMIT_DSC',
-        '������� ������������ ���������� RSS/ATOM ������� ����������� � ������� atomfeed<br>������ ������ ����� �������, ���� ��� �������� ���������. <br>0 �� ����������. '
-    );
+    define('_WEBLINKS_RSS_LIMIT_DSC', '������� ������������ ���������� RSS/ATOM ������� ����������� � ������� atomfeed<br>������ ������ ����� �������, ���� ��� �������� ���������. <br>0 �� ����������. ');
     define('_WEBLINKS_RSS_SITE', '����� ������ RSS');
-    define(
-        '_WEBLINKS_RSS_SITE_DSC',
-        '������� ������ ������� RSS �� ������ ������ RSS. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������� ������ ATOM. '
-    );
+    define('_WEBLINKS_RSS_SITE_DSC', '������� ������ ������� RSS �� ������ ������ RSS. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������� ������ ATOM. ');
     define('_WEBLINKS_RSS_BLACK', '������ ������ RSS/ATOM �������');
-    define(
-        '_WEBLINKS_RSS_BLACK_DSC',
-        '������� ������ ������� ��� ������, ����� ���������� RSS/ATOM ������. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������ ������������ ���������� ��������� PERL. '
-    );
+    define('_WEBLINKS_RSS_BLACK_DSC', '������� ������ ������� ��� ������, ����� ���������� RSS/ATOM ������. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������ ������������ ���������� ��������� PERL. ');
     define('_WEBLINKS_RSS_WHITE', '����� ������ RSS/ATOM �������');
-    define(
-        '_WEBLINKS_RSS_WHITE_DSC',
-        '������� ������ ������� ��� �����, ������� ������������� ������� ������. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������ ������������ ���������� ��������� PERL. '
-    );
+    define('_WEBLINKS_RSS_WHITE_DSC', '������� ������ ������� ��� �����, ������� ������������� ������� ������. <br>��������� ������ ������ � ����� ������, ����� ����������� ������ ��� ����. <br>�� ������ ������������ ���������� ��������� PERL. ');
     define('_WEBLINKS_RSS_URL_CHECK', '�����-���� ������ ������ ��������������� ������� ������. ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', '����������, ���������� � ������� �� ������� ������ ������ � ��������������� �����, ���� ����������. ');
     define('_WEBLINKS_RSS_UPDATED', '��������� RSS/ATOM ���������');
@@ -138,15 +124,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_PERPAGE', '�������� ������������ ����� RSS/ATOM ������� ��� ����������� �� �������� ��������� � ������ � �� �������� RSS/ATOM');
     define('_WEBLINKS_RSS_PERPAGE_DSC', '������� ������������ ����� RSS/ATOM ������� ��� ������ �� �������� RSS/ATOM. ');
     define('_WEBLINKS_RSS_NUM_CONTENT', '����� ������� ��� ����������� ����������');
-    define(
-        '_WEBLINKS_RSS_NUM_CONTENT_DSC',
-        '������� ����� ������� ������������ ���������� RSS/ATOM ������� �� �������� ��������� � ������. <br>������� ���������� ������������ �� ��������� ������. '
-    );
+    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', '������� ����� ������� ������������ ���������� RSS/ATOM ������� �� �������� ��������� � ������. <br>������� ���������� ������������ �� ��������� ������. ');
     define('_WEBLINKS_RSS_MAX_CONTENT', '������������ ����� ��������, ������������ ��� ���������� RSS/ATOM ������');
-    define(
-        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
-        '������� ������������ ����� ��������, ������� ����� �������������� ��� ���������� RSS/ATOM ������ �� �������� RSS/ATOM.  <br>������������ ��� "������������ HTML-���� � ����������" � "��." '
-    );
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', '������� ������������ ����� ��������, ������� ����� �������������� ��� ���������� RSS/ATOM ������ �� �������� RSS/ATOM.  <br>������������ ��� "������������ HTML-���� � ����������" � "��." ');
     define('_WEBLINKS_RSS_MAX_SUMMARY', '������������ ����� ��������, ������������ ��� �������� ���������� RSS/ATOM ������');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', '������� ������������ ����� ��������, ������� ����� �������������� ��� �������� ���������� RSS/ATOM ������ �� ������� ��������. ');
 
@@ -180,7 +160,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', '������������, ����� ������� "��������� �����������". ');
     define('_WEBLINKS_CAT_UPDATED', '��������� ��������� ���������');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', '���������� �����������');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', '������ ���������');
     //define("_WEBLINKS_ORDER_ID"," Listed by ID");
@@ -193,12 +173,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', '���������� ������������');
     define('_WEBLINKS_ORDERS_UPDATED', '������� ��������� ��������');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', '����� ����������� ���������');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', '�������������. <br>������� ����������� ������������ �������������');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","Images are for the main category only. ");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', '���������� ��������');
     define('_WEBLINKS_ADMIN_LINK_LIST', '������ ������');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', '������ ������������ ������');
@@ -209,19 +189,16 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', '�� ���������� ��������������� ������. ');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', '������, ����������� � ���� ������ �������� �����. ');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","User ID");
     //define("_WEBLINKS_CREATE","Created");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', '�������� ������ � ����������');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', '�������� ������������ ������');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', '���������');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', '���������� ��������');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        '����� ��������� ����-���, ���� ���� ����� ������������ ������. <br>���� ��, ����������, �������� ��������� �������� ��� ������ � ��������. <br>limit= 0, ��� ��� �����������.'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', '����� ��������� ����-���, ���� ���� ����� ������������ ������. <br>���� ��, ����������, �������� ��������� �������� ��� ������ � ��������. <br>limit= 0, ��� ��� �����������.');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '������� <b>ID ������</b> ��������� �������� ��������� ������. <br><b>����� ���-�����</b> �������� ��� �� ���-���� ��� �������. <br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '����� Google ��������� ��� ������� <b>��������� ���-�����</b>. <br>');
     define('_WEBLINKS_ADMIN_LIMIT', '�������� ������ ��� �������� (limit)');
@@ -238,7 +215,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', '��������� ��������� %s ������');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Simultaneously execute an Auto Discovery of RSS/ATOM urls ");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', '���������� RSS/ATOM ��������');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', '�������� RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', '�������� ������ ���� ������');
@@ -255,7 +232,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', '���������� ���� RSS/ATOM ���������');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', '���������� ������� ATOM/RSS ���������');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', '���������� ��������������');
     define('_WEBLINKS_ADMIN_USER_EMAIL', '������ ������������� � �������� ����������� �����');
     define('_WEBLINKS_ADMIN_USER_LINK', '������ ������������������ ������������� � �������� � �����������');
@@ -269,7 +246,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', '������������� �� �������');
     define('_WEBLINKS_UID_EMAIL', '����� ����������� ����� �����������');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', '��������� ����������� �����');
     define('_WEBLINKS_THERE_ARE_EMAIL', '���� <b>%s</b> ����������� �������');
     define('_WEBLINKS_SEND_NUM', '��������� ����� ������������ ������ �� %s ������� � %s �������');
@@ -303,10 +280,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // 2006-05-15
     define('_AM_WEBLINKS_INDEX_DESC', '������������� ����� ������� ��������');
     define('_AM_WEBLINKS_INDEX_DESC_DSC', '�� ������ ������������ ���� ������, ����� �������� ��������� �������� ��� ������� �����. HTML �����������.');
-    define(
-        '_AM_WEBLINKS_INDEX_DESC_DEFAULT',
-        '<div align="center" style="color: #0000ff">��� ����� ��������� �������� ����� ��������.<br>�� ������ ��������������� ��� � "������������ ������ 2".<br></div>'
-    );
+    define('_AM_WEBLINKS_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">��� ����� ��������� �������� ����� ��������.<br>�� ������ ��������������� ��� � "������������ ������ 2".<br></div>');
 
     define('_AM_WEBLINKS_ADD_CATEGORY', '�������� ����� ���������');
     define('_AM_WEBLINKS_ERROR_SOME', '���� ��������� ��������� �� �������');
@@ -343,23 +317,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', '�������� ������ ��������� � �������');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '�� �������� ������ ������� ��������� � �������');
     define('_AM_WEBLINKS_VIEW_URL', '����� ��������� ������');
-    define(
-        '_AM_WEBLINKS_VIEW_URL_DSC',
-        'NONE <br>�� ���������� ����� ��� &lt;a&gt; ���.<br>��������<br> ���������� visit.php � ������ ���� ������ ������. <br>������ <br>���������� ����� � ������ ����, ����� JavaScript � ������� onmousedown ���� ��������� ��������� ����� JavaScript.'
-    );
+    define('_AM_WEBLINKS_VIEW_URL_DSC', 'NONE <br>�� ���������� ����� ��� &lt;a&gt; ���.<br>��������<br> ���������� visit.php � ������ ���� ������ ������. <br>������ <br>���������� ����� � ������ ����, ����� JavaScript � ������� onmousedown ���� ��������� ��������� ����� JavaScript.');
     define('_AM_WEBLINKS_VIEW_URL_0', 'NONE');
     define('_AM_WEBLINKS_VIEW_URL_1', '�������� �����');
     define('_AM_WEBLINKS_VIEW_URL_2', '������ �����');
     define('_AM_WEBLINKS_RECOMMEND_PRI', '��������� ������������� ������');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'NONE <br>�� ����������.<br>���������� <br>������������� ����� ������������ � ���������.<br>������� <br>���������� ��������������� ����� ������� ������ ��������������� ���������.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'NONE <br>�� ����������.<br>���������� <br>������������� ����� ������������ � ���������.<br>������� <br>���������� ��������������� ����� ������� ������ ��������������� ���������.');
     define('_AM_WEBLINKS_MUTUAL_PRI', '��������� ������ ������');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'NONE <br>�� ����������.<br>���������� <br>������ ����� ������������ � ���������.<br>������� <br>���������� ������ ����� ������� ������ ��������������� ���������.'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'NONE <br>�� ����������.<br>���������� <br>������ ����� ������������ � ���������.<br>������� <br>���������� ������ ����� ������� ������ ��������������� ���������.');
     define('_AM_WEBLINKS_PRI_0', 'NONE');
     define('_AM_WEBLINKS_PRI_1', '����������');
     define('_AM_WEBLINKS_PRI_2', '�������');
@@ -438,8 +403,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', '������������ ����������');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '��� ������');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', '������� ccTLDs ��� <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: ���� ����� ������� �������� ������</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '�������� �����, ������� ��������� � ���� ������. <br> ����� � �������� <span style="color:#0000ff;">#</span>');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', '������� ccTLDs ��� <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: ���� ����� ������� �������� ������</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '�������� �����, ������� ��������� � ���� ������. <br/> ����� � �������� <span style="color:#0000ff;">#</span>');
     define('_AM_WEBLINKS_RENEW', '��������');
 
     // map
@@ -448,14 +413,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', '������ ����� �����');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', '������� ��� ������� ����� � ���������� template/map/');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', '������������ ���� Google');
     define('_AM_WEBLINKS_CONF_GM_USE', '������������ ����� Google');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', '���� API ���� Google');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        '�������� ���� API �� <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> ��� ������������� ���� Google.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', '�������� ���� API �� <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> ��� ������������� ���� Google.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', '��� �������');
     define('_AM_WEBLINKS_CONF_GM_LANG', '��� �����');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', '�������������� �� ���������');
@@ -504,10 +466,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', '������');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', '��������� �������������');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        '���� ��������� ������������������, �� ����������� ����������� ������ �������, ����� ������������, � ��� �������� � ���� ������.<br>����� ������������ � ������ ���, ��������� "������ ���������" -> "���������� ����� ������ ���������"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', '���� ��������� ������������������, �� ����������� ����������� ������ �������, ����� ������������, � ��� �������� � ���� ������.<br>����� ������������ � ������ ���, ��������� "������ ���������" -> "���������� ����� ������ ���������"');
     define('_AM_WEBLINKS_CAT_PATH', '���� ������ ���������');
     define('_AM_WEBLINKS_CAT_PATH_DSC', '�� ��������� ���� ������ ���������, � �� �������� � ������� ���������.<br>��� �����������, ����� ������������.');
     define('_AM_WEBLINKS_CAT_COUNT', '������� ������ ����������');
@@ -518,10 +477,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', '������������ �������� ����������� ������');
     define('_AM_WEBLINKS_USE_CAPTCHA', '������������ CAPTCHA');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA �������� ����������� ����-�����.<br>��� ���� ������� ����� ������ Captcha.<br>��, <b>��������� ������������</b> ������ ������������ CAPTCHA ����� ��������� ��� �������� ������.<br>��� �� ���������� ���� CAPTCHA.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA �������� ����������� ����-�����.<br>��� ���� ������� ����� ������ Captcha.<br>��, <b>��������� ������������</b> ������ ������������ CAPTCHA ����� ��������� ��� �������� ������.<br>��� �� ���������� ���� CAPTCHA.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', '������ Captcha ������ %s ������');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', '������ Captcha �� ������');
 
@@ -626,19 +582,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[�����] ��� �����');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[�����] ��� �������');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        '����� ������ � ������� �� ������<br><b>������������ ���������</b><br>GClientGeocoder - getLatLng<br><b>������������� ���������</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', '����� ������ � ������� �� ������<br><b>������������ ���������</b><br>GClientGeocoder - getLatLng<br><b>������������� ���������</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', '������������ ���������: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', '������������� ���������: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[�����][������] ������������ CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '������������� � ������<br>����� ������ � ������� �� ������');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[�����][������] ������������� ��������� �������');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        '������������� � ������<br>����� ������ �� ������ � �������<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '������������� � ������<br>����� ������ �� ������ � �������<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[���������] �������� �������� ��� ���������');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', '������������ ����� �������� ������������ ��� ��������� � ���������<br><b>-1</b> �� ����������');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[���������] �������� �������� ��� ����������');
@@ -670,10 +620,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', '������������ HTML �����');
     define('_AM_WEBLINKS_HEADER_MODE', '������������ ��������� ������ XOOPS');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        '����� "���", ���������� ������� ������ � Javascript � ���� body<br>����� "��", ���������� ��� � ���� header, ��������� ��������� ������ XOOPS. ������, ���� ��������� ����, ������� �� ����� ���� ������������'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', '����� "���", ���������� ������� ������ � Javascript � ���� body<br>����� "��", ���������� ��� � ���� header, ��������� ��������� ������ XOOPS. ������, ���� ��������� ����, ������� �� ����� ���� ������������');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', '�� ������ ���������� ������, ����� ������ ������');
@@ -737,8 +684,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', '������ ����������� ������');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', '�������� ��������� ���-�����, � �� ������ �� �����������, <br>��������� ���-������ ��������, <br>���� �� ����������� ������ �� �����������.');
     define('_AM_WEBLINKS_LINK_IMG_NON', '���');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 
     // === 2007-11-01 ===
     // google map
@@ -787,4 +734,5 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // kml
     define('_AM_WEBLINKS_KML_USE', '�������� KML');
-}// --- define language begin ---
+}
+// --- define language begin ---

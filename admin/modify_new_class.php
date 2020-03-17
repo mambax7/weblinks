@@ -1,5 +1,6 @@
 <?php
-// $Id: modify_new_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: modify_new_class.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -16,6 +17,10 @@
 //=========================================================
 // class admin_modify_new
 //=========================================================
+
+/**
+ * Class admin_modify_new
+ */
 class admin_modify_new extends admin_modify_base
 {
     //---------------------------------------------------------
@@ -27,6 +32,9 @@ class admin_modify_new extends admin_modify_base
         $this->set_edit_handler('link_add');
     }
 
+    /**
+     * @return \admin_modify_base|\admin_modify_new|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -47,7 +55,7 @@ class admin_modify_new extends admin_modify_base
 
         if ($total > 0) {
             if ($mid > 0) {
-                $obj = &$this->_handler->get($mid);
+                $obj = $this->_handler->get($mid);
                 if (!is_object($obj)) {
                     // goto list_new
                     redirect_header('modify_list.php?op=list_new', 3, _WLS_ERRORNOLINK);
@@ -116,7 +124,7 @@ class admin_modify_new extends admin_modify_base
 
             $com = 'approve new link [' . $this->_newid . ']';
             $msg = _WLS_NEWLINKADDED;
-            $msg .= $this->build_comment($com);   // for test form
+            $msg .= $this->build_comment($com);    // for test form
             redirect_header($this->_get_redirect_at_new(), 1, $msg);
             exit();
         }
@@ -124,6 +132,9 @@ class admin_modify_new extends admin_modify_base
         exit();
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_approve_new()
     {
         $newid = $this->_edit_handler->admin_approve_new_link($this->_obj);
@@ -138,6 +149,9 @@ class admin_modify_new extends admin_modify_base
         return $newid;
     }
 
+    /**
+     * @return mixed
+     */
     public function _check_approve_new()
     {
         return $this->_check_handler->check_form_modlink_by_post();
@@ -160,6 +174,9 @@ class admin_modify_new extends admin_modify_base
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $title
+     */
     public function _print_approve_new_error($title)
     {
         $this->_print_cp_header();
@@ -194,13 +211,16 @@ class admin_modify_new extends admin_modify_base
             }
 
             $msg = _WLS_LINKDELETED;
-            $msg .= $this->build_comment('refuse new link');  // for test form
+            $msg .= $this->build_comment('refuse new link');    // for test form
             redirect_header($this->_get_redirect_at_new(), 1, $msg);
         } else {
             $this->_print_refuse_new_error('DB Error');
         }
     }
 
+    /**
+     * @param $title
+     */
     public function _print_refuse_new_error($title)
     {
         $this->_print_cp_header();

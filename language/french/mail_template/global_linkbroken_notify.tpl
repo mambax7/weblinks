@@ -1,18 +1,18 @@
 Bonjour {X_UNAME},
 
-Un rapport de lien brisé a été soumis et est en attente d'approbation.
+Un rapport de lien brisï¿½ a ï¿½tï¿½ soumis et est en attente d'approbation.
 
 Vous pouvez visualiser cette demande ici :
 {BROKENREPORTS_URL}
 
 -----------
 
-Vous recevez ce message parce que vous avez choisi d'être notifié lorsque des rapports de liens brisés sont soumis.
+Vous recevez ce message parce que vous avez choisi d'ï¿½tre notifiï¿½ lorsque des rapports de liens brisï¿½s sont soumis.
 
-S'il s'agissait là d'une erreur ou que vous ne désiriez de plus recevoir de notifications ultérieures, veuillez mettre à jour vos notifications en visitant le lien suivant :
+S'il s'agissait lï¿½ d'une erreur ou que vous ne dï¿½siriez de plus recevoir de notifications ultï¿½rieures, veuillez mettre ï¿½ jour vos notifications en visitant le lien suivant :
 {X_UNSUBSCRIBE_URL}
 
-Veuillez ne pas répondre à ce message.
+Veuillez ne pas rï¿½pondre ï¿½ ce message.
 
 -----------
 

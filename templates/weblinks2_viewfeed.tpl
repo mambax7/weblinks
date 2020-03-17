@@ -1,4 +1,4 @@
-<{* $Id: weblinks2_viewfeed.html,v 1.10 2007/11/16 12:07:58 ohwada Exp $ *}>
+<{* $Id: weblinks2_viewfeed.html,v 1.1 2011/12/29 14:32:37 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -51,10 +51,10 @@
         </div>
     </div>
     <{/foreach}>
-    <br>
+<br>
     <{* -- feed full list end -- *}>
 
-    <br><br>
+<br><br>
 
     <div class="weblinks_pagenavi">
         <{$page_navi}>
@@ -62,15 +62,15 @@
 
     <{else}>
 
-    <hr>
+<hr/>
     <span class="weblinks_error"><{$lang_nomatch}></span>
-    <hr>
+<hr/>
 
     <{/if}>
 
-    <{include file="db:system_notification_select.tpl"}>
+    <{include file="db:system_notification_select.html"}>
 
-    <hr>
+    <hr/>
     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

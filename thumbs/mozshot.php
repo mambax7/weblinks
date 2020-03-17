@@ -1,5 +1,6 @@
 <?php
-// $Id: mozshot.php,v 1.1 2007/10/13 07:25:35 ohwada Exp $
+
+// $Id: mozshot.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // add url
@@ -14,12 +15,16 @@ if (!function_exists('weblinks_thumb_mozshot')) {
     //=========================================================
     // thumbnail web service
     //=========================================================
+    /**
+     * @param $url
+     * @return array
+     */
     function &weblinks_thumb_mozshot($url)
     {
         $arr = [
             'name' => 'mozshot',
-            'url' => 'https://mozshot.nemui.org/',
-            'image' => 'https://mozshot.nemui.org/shot?' . $url,
+            'url' => 'http://mozshot.nemui.org/',
+            'image' => 'http://mozshot.nemui.org/shot?' . $url,
             'width' => 128,
             'height' => 128,
         ];

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: htmlparser.inc.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //=========================================================
@@ -13,14 +14,14 @@
 
 //---------------------------------------------------------
 // ORIGINAL
-// https://php-html.sourceforge.net/
+// http://php-html.sourceforge.net/
 //---------------------------------------------------------
 
 /*
  * Copyright (c) 2003 Jose Solorzano.  All rights reserved.
  * Redistribution of source must retain this copyright notice.
  *
- * Jose Solorzano (https://jexpert.us) is a software consultant.
+ * Jose Solorzano (http://jexpert.us) is a software consultant.
  *
  * Contributions by:
  * - Leo West (performance improvements)
@@ -86,7 +87,7 @@ class HtmlParser
      * Constructor.
      * Constructs an HtmlParser instance with
      * the HTML text given.
-     * @param $aHtmlText
+     * @param mixed $aHtmlText
      */
     public function __construct($aHtmlText)
     {
@@ -125,6 +126,9 @@ class HtmlParser
         $this->iNodeAttributes = [];
     }
 
+    /**
+     * @return bool
+     */
     public function readTag()
     {
         if ('<' != $this->iCurrentChar) {
@@ -197,36 +201,58 @@ class HtmlParser
         return true;
     }
 
+    /**
+     * @param $name
+     * @return false|int
+     */
     public function isValidTagIdentifier($name)
     {
         return preg_match('/^[A-Za-z0-9_\\-]+$/', $name);
     }
 
+    /**
+     * @return bool
+     */
     public function skipBlanksInTag()
     {
-        return '' != $this->skipInTag($this->B_ARRAY);
+        return '' != ($this->skipInTag($this->B_ARRAY));
     }
 
+    /**
+     * @return string
+     */
     public function skipToBlanksOrEqualsInTag()
     {
         return $this->skipToInTag($this->BOE_ARRAY);
     }
 
+    /**
+     * @return string
+     */
     public function skipToBlanksInTag()
     {
         return $this->skipToInTag($this->B_ARRAY);
     }
 
+    /**
+     * @return string
+     */
     public function skipToBlanksOrSlashInTag()
     {
         return $this->skipToInTag($this->BOS_ARRAY);
     }
 
+    /**
+     * @return string
+     */
     public function skipEqualsInTag()
     {
         return $this->skipMaxInTag('=', 1);
     }
 
+    /**
+     * @return string
+     */
     public function readValueInTag()
     {
         $ch = $this->iCurrentChar;
@@ -246,6 +272,9 @@ class HtmlParser
         return $value;
     }
 
+    /**
+     * @param $index
+     */
     public function setTextIndex($index)
     {
         $this->iHtmlTextIndex = $index;
@@ -256,6 +285,9 @@ class HtmlParser
         }
     }
 
+    /**
+     * @return bool
+     */
     public function moveNext()
     {
         if ($this->iHtmlTextIndex < $this->iHtmlTextLength) {
@@ -279,6 +311,10 @@ class HtmlParser
         }
     }
 
+    /**
+     * @param $chars
+     * @return string
+     */
     public function skipInTag($chars)
     {
         $sb = '';
@@ -287,7 +323,7 @@ class HtmlParser
                 return $sb;
             }
             $match = false;
-            for ($idx = 0; $idx < count($chars); ++$idx) {
+            for ($idx = 0, $idxMax = count($chars); $idx < $idxMax; $idx++) {
                 if ($ch == $chars[$idx]) {
                     $match = true;
                     break;
@@ -303,16 +339,21 @@ class HtmlParser
         return $sb;
     }
 
+    /**
+     * @param $chars
+     * @param $maxChars
+     * @return string
+     */
     public function skipMaxInTag($chars, $maxChars)
     {
         $sb = '';
         $count = 0;
-        while (-1 !== ($ch = $this->iCurrentChar) && ++$count < $maxChars) {
+        while (-1 !== ($ch = $this->iCurrentChar) && $count++ < $maxChars) {
             if ('>' == $ch) {
                 return $sb;
             }
             $match = false;
-            for ($idx = 0; $idx < count($chars); ++$idx) {
+            for ($idx = 0, $idxMax = count($chars); $idx < $idxMax; $idx++) {
                 if ($ch == $chars[$idx]) {
                     $match = true;
                     break;
@@ -328,13 +369,17 @@ class HtmlParser
         return $sb;
     }
 
+    /**
+     * @param $chars
+     * @return string
+     */
     public function skipToInTag($chars)
     {
         $sb = '';
         while (-1 !== ($ch = $this->iCurrentChar)) {
             $match = '>' == $ch;
             if (!$match) {
-                for ($idx = 0; $idx < count($chars); ++$idx) {
+                for ($idx = 0, $idxMax = count($chars); $idx < $idxMax; $idx++) {
                     if ($ch == $chars[$idx]) {
                         $match = true;
                         break;
@@ -351,6 +396,9 @@ class HtmlParser
         return $sb;
     }
 
+    /**
+     * @return string
+     */
     public function skipToElement()
     {
         $sb = '';
@@ -370,7 +418,8 @@ class HtmlParser
      * inclusive, or "" if not found. The current index is moved to a point
      * after the location of $needle, or not moved at all
      * if nothing is found.
-     * @param $needle
+     * @param mixed $needle
+     * @return string
      * @return string
      */
     public function skipToStringInTag($needle)
@@ -387,11 +436,19 @@ class HtmlParser
     }
 }
 
+/**
+ * @param $fileName
+ * @return \HtmlParser
+ */
 function HtmlParser_ForFile($fileName)
 {
     return HtmlParser_ForURL($fileName);
 }
 
+/**
+ * @param $url
+ * @return \HtmlParser
+ */
 function HtmlParser_ForURL($url)
 {
     $fp = fopen($url, 'rb');

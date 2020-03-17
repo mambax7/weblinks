@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_block_view.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
@@ -11,6 +12,10 @@ if (!class_exists('weblinks_block_view')) {
     //=========================================================
     // class weblinks_block_view
     //=========================================================
+
+    /**
+     * Class weblinks_block_view
+     */
     class weblinks_block_view extends happy_linux_basic
     {
         public $_myts;
@@ -23,9 +28,12 @@ if (!class_exists('weblinks_block_view')) {
         public function __construct()
         {
             parent::__construct();
-            $this->_myts = MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts = &MyTextSanitizer::sGetInstance()) || $this->_myts = MyTextSanitizer::getInstance();
         }
 
+        /**
+         * @return \weblinks_block_view|static
+         */
         public static function getInstance()
         {
             static $instance;
@@ -66,6 +74,9 @@ if (!class_exists('weblinks_block_view')) {
             }
         }
 
+        /**
+         * @return mixed
+         */
         public function get_description_disp()
         {
             $disp = $this->display_textarea(
@@ -80,6 +91,9 @@ if (!class_exists('weblinks_block_view')) {
             return $disp;
         }
 
+        /**
+         * @return string
+         */
         public function get_votes_disp()
         {
             $votes = $this->get('votes');
@@ -92,6 +106,9 @@ if (!class_exists('weblinks_block_view')) {
             return $disp;
         }
 
+        /**
+         * @return string
+         */
         public function get_rating_disp()
         {
             $disp = number_format($this->get('rating'), 2);
@@ -99,6 +116,9 @@ if (!class_exists('weblinks_block_view')) {
             return $disp;
         }
 
+        /**
+         * @return string|string[]|null
+         */
         public function get_name_disp()
         {
             $disp = '';
@@ -109,6 +129,9 @@ if (!class_exists('weblinks_block_view')) {
             return $this->sanitize_text($disp);
         }
 
+        /**
+         * @return string|string[]|null
+         */
         public function get_mail_disp()
         {
             $disp = '';
@@ -119,6 +142,9 @@ if (!class_exists('weblinks_block_view')) {
             return $this->sanitize_text($disp);
         }
 
+        /**
+         * @return bool
+         */
         public function get_show_popular()
         {
             $popular = $this->get_param('popular');
@@ -129,6 +155,9 @@ if (!class_exists('weblinks_block_view')) {
             return false;
         }
 
+        /**
+         * @return bool[]
+         */
         public function get_show_new_update()
         {
             $newdays = $this->get_param('newdays');
@@ -151,6 +180,10 @@ if (!class_exists('weblinks_block_view')) {
         //---------------------------------------------------------
         // for block
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function get_block_title_disp()
         {
             $title_length = $this->get_param('title_length');
@@ -159,12 +192,18 @@ if (!class_exists('weblinks_block_view')) {
 
             if (0 != $title_length) {
                 $show_title = true;
-                $title_disp = $this->build_summary($this->get('title_multi'), $title_length);
+                $title_disp = $this->build_summary(
+                    $this->get('title_multi'),
+                    $title_length
+                );
             }
 
             return [$show_title, $title_disp];
         }
 
+        /**
+         * @return array
+         */
         public function get_block_desc_disp()
         {
             $desc_length = $this->get_param('desc_length');
@@ -182,6 +221,9 @@ if (!class_exists('weblinks_block_view')) {
             return [$show_desc, $desc_short, $desc_html];
         }
 
+        /**
+         * @return array
+         */
         public function get_block_banner_disp()
         {
             $max_width = $this->get_param('max_width');
@@ -205,6 +247,9 @@ if (!class_exists('weblinks_block_view')) {
             return [$show_banner, $banner_width];
         }
 
+        /**
+         * @return array
+         */
         public function get_block_hits_disp()
         {
             $order = $this->get_param('order');
@@ -224,11 +269,19 @@ if (!class_exists('weblinks_block_view')) {
         //---------------------------------------------------------
         // set & get
         //---------------------------------------------------------
+
+        /**
+         * @param $v
+         */
         public function set_params($v)
         {
             $this->_params = $v;
         }
 
+        /**
+         * @param $k
+         * @return bool|mixed
+         */
         public function get_param($k)
         {
             if (isset($this->_params[$k])) {
@@ -241,6 +294,16 @@ if (!class_exists('weblinks_block_view')) {
         //---------------------------------------------------------
         // MyTextSanitizer
         //---------------------------------------------------------
+
+        /**
+         * @param $desc
+         * @param $dohtml
+         * @param $dosmiley
+         * @param $doxcode
+         * @param $doimage
+         * @param $dobr
+         * @return mixed
+         */
         public function display_textarea($desc, $dohtml, $dosmiley, $doxcode, $doimage, $dobr)
         {
             return $this->_myts->displayTarea($desc, $dohtml, $dosmiley, $doxcode, $doimage, $dobr);

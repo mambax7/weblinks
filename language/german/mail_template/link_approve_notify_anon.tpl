@@ -1,6 +1,6 @@
 Hallo,
 
-der hinzugefügt Link "{LINK_NAME}" wurde auf {X_SITENAME} freigegeben.
+der hinzugefï¿½gt Link "{LINK_NAME}" wurde auf {X_SITENAME} freigegeben.
 
 Dieser kann hier betrachtet werden:
 {LINK_URL}

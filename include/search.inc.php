@@ -1,5 +1,6 @@
 <?php
-// $Id: search.inc.php,v 1.11 2007/09/15 04:16:02 ohwada Exp $
+
+// $Id: search.inc.php,v 1.1 2011/12/29 14:32:34 ohwada Exp $
 
 // 2007-09-10 K.OHWADA
 // BUG: can search non public link
@@ -39,7 +40,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_search( $queryarray , $andor , $limit , $offset , $uid )
 {
-    return weblinks_search_base( "' . $WEBLINKS_DIRNAME . '" , $queryarray , $andor , $limit , $offset , $uid ) ;
+	return weblinks_search_base( \'' . $WEBLINKS_DIRNAME . '\' , $queryarray , $andor , $limit , $offset , $uid ) ;
 }
 
 '
@@ -48,18 +49,27 @@ function ' . $WEBLINKS_DIRNAME . '_search( $queryarray , $andor , $limit , $offs
 
 // === weblinks_search_base begin ===
 if (!function_exists('weblinks_search_base')) {
+    /**
+     * @param $DIRNAME
+     * @param $queryarray
+     * @param $andor
+     * @param $limit
+     * @param $offset
+     * @param $uid
+     * @return array
+     */
     function weblinks_search_base($DIRNAME, $queryarray, $andor, $limit, $offset, $uid)
     {
         global $xoopsDB;
 
-        $myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
         // hack for multi site
         $table_link = weblinks_multi_get_table_name($DIRNAME, 'link');
 
         $ret = [];
 
-        $conf = &weblinks_get_config($DIRNAME);
+        $conf = weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $ret;
         }
@@ -81,7 +91,7 @@ if (!function_exists('weblinks_search_base')) {
 
             $where2 .= "( search LIKE '%$queryarray[0]%' ";
 
-            for ($i = 1; $i < $count; ++$i) {
+            for ($i = 1; $i < $count; $i++) {
                 $where2 .= "$andor ";
                 $where2 .= "search LIKE '%$queryarray[$i]%' ";
             }
@@ -135,7 +145,7 @@ if (!function_exists('weblinks_search_base')) {
             $context = strip_tags($context);
             $ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
 
-            ++$i;
+            $i++;
         }
 
         return $ret;

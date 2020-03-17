@@ -1,5 +1,6 @@
 <?php
-// $Id: dev_header.php,v 1.4 2007/02/27 14:45:59 ohwada Exp $
+
+// $Id: dev_header.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // language/xx/user.php
@@ -16,7 +17,7 @@ include_once '../../../../mainfile.php';
 
 //===== cp_header.php begin =====
 include_once XOOPS_ROOT_PATH . '/include/cp_functions.php';
-$moduleperm_handler = &xoops_getHandler('groupperm');
+$moduleperm_handler = xoops_getHandler('groupperm');
 if ($xoopsUser) {
     $url_arr = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
     $module_handler = xoops_getHandler('module');
@@ -33,7 +34,7 @@ if ($xoopsUser) {
 }
 // set config values for this module
 if (1 == $xoopsModule->getVar('hasconfig') || 1 == $xoopsModule->getVar('hascomments')) {
-    $config_handler = &xoops_getHandler('config');
+    $config_handler = xoops_getHandler('config');
     $xoopsModuleConfig = &$config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 }
 

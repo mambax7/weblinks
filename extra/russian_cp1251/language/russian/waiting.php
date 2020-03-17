@@ -1,4 +1,5 @@
 <?php
+
 // $Id: waiting.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 //=========================================================
@@ -8,14 +9,15 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('_WEBLINKS_PI_WAITING_LANG_LOADED')) {
     define('_WEBLINKS_PI_WAITING_LANG_LOADED', 1);
 
-    define('_WEBLINKS_PI_WAITING_WAITINGS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
-    define('_WEBLINKS_PI_WAITING_BROKENS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
-    define('_WEBLINKS_PI_WAITING_MODREQS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
-    define('_WEBLINKS_PI_WAITING_DELREQS', 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
-}// --- define language end ---
+    define('_WEBLINKS_PI_WAITING_WAITINGS', 'Ожидающие');
+    define('_WEBLINKS_PI_WAITING_BROKENS', 'Неработающие');
+    define('_WEBLINKS_PI_WAITING_MODREQS', 'Запросы изменения');
+    define('_WEBLINKS_PI_WAITING_DELREQS', 'Запросы удаления');
+}
+// --- define language end ---

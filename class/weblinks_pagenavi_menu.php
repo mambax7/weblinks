@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_pagenavi_menu.php,v 1.2 2006/09/30 03:15:21 ohwada Exp $
+
+// $Id: weblinks_pagenavi_menu.php,v 1.1 2011/12/29 14:33:08 ohwada Exp $
 
 // 2006-09-20 K.OHWADA
 // use happy_linux
@@ -23,6 +24,10 @@ if (!class_exists('weblinks_pagenavi_menu')) {
     //=========================================================
     // class weblinks_pagenavi_menu
     //=========================================================
+
+    /**
+     * Class weblinks_pagenavi_menu
+     */
     class weblinks_pagenavi_menu extends happy_linux_pagenavi
     {
         //---------------------------------------------------------
@@ -44,6 +49,9 @@ if (!class_exists('weblinks_pagenavi_menu')) {
             $this->set_flag_sortid(1);
         }
 
+        /**
+         * @return \weblinks_pagenavi_menu|static
+         */
         public static function getInstance()
         {
             static $instance;
@@ -57,6 +65,11 @@ if (!class_exists('weblinks_pagenavi_menu')) {
         //=========================================================
         // template
         //=========================================================
+
+        /**
+         * @param $tpl
+         * @param $script
+         */
         public function assign_navi($tpl, $script)
         {
             $show_navi = false;
@@ -73,6 +86,9 @@ if (!class_exists('weblinks_pagenavi_menu')) {
             $this->assign_navi_orderby($tpl);
         }
 
+        /**
+         * @param $tpl
+         */
         public function assign_navi_orderby($tpl)
         {
             // bug fix: Call-time pass-by-reference

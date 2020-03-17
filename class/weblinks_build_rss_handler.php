@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_build_rss_handler.php,v 1.8 2008/02/28 02:52:17 ohwada Exp $
+
+// $Id: weblinks_build_rss_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // weblinks_htmlout
@@ -29,6 +30,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
     //=========================================================
     // class weblinks_build_rss_handler
     //=========================================================
+
+    /**
+     * Class weblinks_build_rss_handler
+     */
     class weblinks_build_rss_handler extends happy_linux_build_rss
     {
         public $_MAX_ITEMS = 20;
@@ -46,6 +51,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_build_rss_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
@@ -64,8 +74,8 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $this->set_flag_default_timezone(true);
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
             $this->_link_view = weblinks_link_view::getInstance($dirname);
             $this->_htmlout = weblinks_htmlout::getInstance($dirname);
 
@@ -89,12 +99,18 @@ if (!class_exists('weblinks_build_rss_handler')) {
             $this->build('rss');
         }
 
+        /**
+         * @param $mode
+         */
         public function build($mode)
         {
             $this->set_mode($mode);
             $this->build_rss();
         }
 
+        /**
+         * @param $mode
+         */
         public function view($mode)
         {
             $this->set_mode($mode);
@@ -104,6 +120,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // $_GET param
         //---------------------------------------------------------
+
+        /**
+         * @param $param
+         */
         public function _set_param($param)
         {
             if (is_array($param)) {
@@ -111,6 +131,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
             }
         }
 
+        /**
+         * @param $key
+         * @param $val
+         * @return bool
+         */
         public function _match_param($key, $val)
         {
             if (isset($this->_param[$key]) && ($this->_param[$key] == $val)) {
@@ -123,6 +148,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // link handler
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &_get_latest()
         {
             $lid_arr = &$this->_link_handler->get_lid_array_latest($this->_MAX_ITEMS);
@@ -137,6 +166,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
             return $arr;
         }
 
+        /**
+         * @param $lid
+         * @return |null |null |null
+         */
         public function _get_rss_by_lid($lid)
         {
             // not use return references
@@ -157,6 +190,10 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //=========================================================
         // override into build_rss
         //=========================================================
+
+        /**
+         * @return array
+         */
         public function &_get_items()
         {
             return $this->_get_latest();
@@ -165,6 +202,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // RDF
         //---------------------------------------------------------
+
+        /**
+         * @param $item
+         * @return mixed
+         */
         public function &_build_rdf_item(&$item)
         {
             $ret = &$this->_build_rdf_item_default($item);
@@ -175,6 +217,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // RSS
         //---------------------------------------------------------
+
+        /**
+         * @param $item
+         * @return mixed
+         */
         public function &_build_rss_item(&$item)
         {
             $ret = &$this->_build_rss_item_default($item);
@@ -185,6 +232,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // ATOM
         //---------------------------------------------------------
+
+        /**
+         * @param $entry
+         * @return mixed
+         */
         public function &_build_atom_entry(&$entry)
         {
             $ret = &$this->_build_atom_entry_default($entry);
@@ -195,6 +247,11 @@ if (!class_exists('weblinks_build_rss_handler')) {
         //---------------------------------------------------------
         // common
         //---------------------------------------------------------
+
+        /**
+         * @param $item
+         * @return array
+         */
         public function &_build_common_item(&$item)
         {
             // title content

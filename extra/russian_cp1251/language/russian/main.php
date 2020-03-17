@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -59,7 +60,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MB_LOADED')) {
@@ -69,7 +70,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', '���������');
     define('_WLS_HITS', '���������');
     define('_WLS_RATING', '������');
@@ -82,7 +83,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', '������������� ��� ������');
     define('_WLS_MODIFY', '��������');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', '��������� ����� ������');
     define('_WLS_SUBMITONCE', '����������� ���� ������ ������ ���� ���.');
     define('_WLS_DONTABUSE', '��� ������������ � IP ��������, �������, ����������, �� ��������������� ��������.');
@@ -91,7 +92,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', '�� �������� ���������� � ����� ���-�����. �������!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', '������ ��������� ������');
     define('_WLS_THANKSFORINFO', '������� �� ����������. �� ���������� ��� ������ � ��������� �����.');
 
@@ -180,7 +181,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', '�� �� ������ ���������� �� ������, ������� �� ���������.<br>��� ������ ������������ � �������������.');
     define('_WLS_VOTEONCE2', '��������� �� ��������� ������ ������ ���� ���.<br>��� ������ ������������ � �������������.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', '������������ ���-������');
     define('_WLS_GENERALSET', '����� ��������� ���-������');
@@ -257,7 +258,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', '��������� ����� ������');
     define('_WLS_SITE_POPULAR', '���������� ����');
@@ -280,7 +281,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', '��������� ����������');
     define('_WLS_MORE', '���������');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', '��������');
     define('_WLS_PROMOTER', '���������');
     define('_WLS_ZIP', '�������� ������');
@@ -288,7 +289,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', '����� ��������');
     define('_WLS_FAX', '����� �����');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', '����� �������');
     define('_WLS_NAME', '���');
     define('_WLS_EMAIL', '����������� �����');
@@ -300,20 +301,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', '�� ��������������');
     define('_WLS_NOTSELECT', '�� ����������');
     define('_WLS_SUBMIT_INDISPENSABLE', "������� ���������� '<b>*</b>' �������� ������������ �����.");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"����������� ��������������" ������� ������������ ��� ������, ������� � �.�.<br>���� ������� �� ������������ �� ���.<br>����������, ��������� ����� ������ ����� � ��� ��� ������� � ���� ������, ���� �� ������ �������� ��� ��� "������ ����".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"����������� ��������������" ������� ������������ ��� ������, ������� � �.�.<br>���� ������� �� ������������ �� ���.<br>����������, ��������� ����� ������ ����� � ��� ��� ������� � ���� ������, ���� �� ������ �������� ��� ��� "������ ����".');
     define('_WLS_USER_COMMENT', '����������� ��������������');
     define('_WLS_NOT_DISPLAY', '���� ������� �� ������������ �� ���.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', '������ ��������� ����� ������ ���� ����������. ');
     define('_WLS_MODIFY_NOT_OWNER', '����������, ���������, ��� �� �������, ������� ���������� ��������� ������.');
     define('_WLS_MODIFY_PENDING', '��������� ������ ��������. ��� ����� ������������ ����� ��������.');
     define('_WLS_LINKSUBMITTER', '����������� ������');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', '������� ��� ������');
     define('_WLS_REGSTERED', '������������������ ������������');
     define('_WLS_REGSTERED_DSC', '��� ������ ����� �������� ���������� ������. <br>���-������ �������� ��������� ����� �����������.');
@@ -373,10 +371,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', '�������������� �����������');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', '���������������� RSS/ATOM ������ ������������ �����.');
-    define(
-        '_WLS_ATOMFEED_FIREFOX',
-        "���� �� ����������� <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, �������� �������� ���� ��������, ��� ��������� ������ RSS/ATOM ������. "
-    );
+    define('_WLS_ATOMFEED_FIREFOX', "���� �� ����������� <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, �������� �������� ���� ��������, ��� ��������� ������ RSS/ATOM ������. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', '����������, ���� ����������');
@@ -439,13 +434,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
     //}
 
     define('_WEBLINKS_MAP_USE', '������������ ������ �����');
@@ -462,7 +457,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', '��������������: �� ������� ��������� �����');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', '��������������: �� ������� �������� ������ �������');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', '������');
     define('_WEBLINKS_GM_LONGITUDE', '�������');
     define('_WEBLINKS_GM_ZOOM', '������� ����������');
@@ -574,16 +569,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // pagerank
     define('_WEBLINKS_SITE_PAGERANK', '���� � ������� ��������� ��������');
 
-    define('_WEBLINKS_FROM', '��');     // From
-    define('_WEBLINKS_EXECUTION_TIME', '����� ����������');     // execution time
-    define('_WEBLINKS_MEMORY_USAGE', '������������� ������');       // memory usage
-    define('_WEBLINKS_SEC', '���');     // sec
-    define('_WEBLINKS_MB', '��');       // MB
-    define('_WEBLINKS_FILE', '����');       //file
+    define('_WEBLINKS_FROM', '��');        // From
+    define('_WEBLINKS_EXECUTION_TIME', '����� ����������');        // execution time
+    define('_WEBLINKS_MEMORY_USAGE', '������������� ������');        // memory usage
+    define('_WEBLINKS_SEC', '���');        // sec
+    define('_WEBLINKS_MB', '��');        // MB
+    define('_WEBLINKS_FILE', '����');        //file
 
-    define('_WEBLINKS_RDF_FEED', 'RDF �����');      //RDF feed
-    define('_WEBLINKS_RSS_FEED', 'RSS �����');      //RSS feed
+    define('_WEBLINKS_RDF_FEED', 'RDF �����');        //RDF feed
+    define('_WEBLINKS_RSS_FEED', 'RSS �����');        //RSS feed
     define('_WEBLINKS_ATOM_FEED', 'ATOM �����');        //ATOM feed
-    define('_WEBLINKS_NOFEED', '��� ������');       //No Feed
+    define('_WEBLINKS_NOFEED', '��� ������');        //No Feed
     define('_WEBLINKS_IN', '�');        //in
-}// --- define language end ---
+}
+// --- define language end ---

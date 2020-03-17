@@ -1,10 +1,10 @@
 Ola {NAME}
 
-Foi requisitada uma senha para LINKS no site {SITENAME} do usuário do endereço IP {IP}.
+Foi requisitada uma senha para LINKS no site {SITENAME} do usuï¿½rio do endereï¿½o IP {IP}.
 
 Por favor, clique no link abaixo para se logar ao site.
 
-Você pode entrar na página de modificação do link sem senha.
+Vocï¿½ pode entrar na pï¿½gina de modificaï¿½ï¿½o do link sem senha.
 
 {ENTRY}
 

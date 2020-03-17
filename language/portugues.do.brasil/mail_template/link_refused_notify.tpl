@@ -1,12 +1,12 @@
-Olá {X_UNAME},
+Olï¿½ {X_UNAME},
 
-Seu link enviado foi recusado por uma das seguintes razões:
+Seu link enviado foi recusado por uma das seguintes razï¿½es:
 
-- seu conteúdo não foi encontrado seundo nossos critérios
-- seu conteúdo é ilegal
-- ele é um redirecionamento de URL, pois nós aceitamos apenas URLs com acesso direto
+- seu conteï¿½do nï¿½o foi encontrado seundo nossos critï¿½rios
+- seu conteï¿½do ï¿½ ilegal
+- ele ï¿½ um redirecionamento de URL, pois nï¿½s aceitamos apenas URLs com acesso direto
 
-Suas informações do site:
+Suas informaï¿½ï¿½es do site:
 Nome: {SITE_NAME}
 URL:  {SITE_URL}
 

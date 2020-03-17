@@ -1,5 +1,6 @@
 <?php
-// $Id: create_config.php,v 1.6 2007/10/22 02:23:04 ohwada Exp $
+
+// $Id: create_config.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // _HAPPY_LINUX_CONF_CREATE_CONFIG
@@ -20,7 +21,7 @@
 include 'admin_header.php';
 include_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/config_file.php';
 
-$conf_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$conf_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
 $config_file = happy_linux_config_file::getInstance();
 
 $DIR_CONFIG = WEBLINKS_ROOT_PATH . '/cache';
@@ -39,9 +40,9 @@ echo "Create config file for bin/link_check.php <br><br>\n";
 if (is_writable($DIR_CONFIG)) {
     $config_file->_save_config($FILE_CONFIG);
 
-    echo "<hr>\n";
+    echo "<hr />\n";
     echo '<h4>' . _HAPPY_LINUX_CREATED . "</h4>\n";
-    echo '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ": bin/link_check.php</a><br><br>\n";
+    echo '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ": bin/link_check.php</a><br><br/>\n";
 } else {
     echo "<h3 style='color: #ff0000'>" . _HAPPY_LINUX_CONF_NOT_WRITABLE . "</h3>\n";
     echo "$DIR_CONFIG <br><br>\n";

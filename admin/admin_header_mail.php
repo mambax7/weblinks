@@ -1,5 +1,6 @@
 <?php
-// $Id: admin_header_mail.php,v 1.3 2007/11/11 03:22:58 ohwada Exp $
+
+// $Id: admin_header_mail.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // global $xoopsConfig;

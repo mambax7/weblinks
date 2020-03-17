@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-     xmlns:dc="https://purl.org/dc/elements/1.1/"
-     xmlns:content="https://purl.org/rss/1.0/modules/content/"
-     xmlns:atom="https://www.w3.org/2005/Atom"
-     xmlns:geo="https://www.w3.org/2003/01/geo/wgs84_pos#"
-     xmlns:georss="https://www.georss.org/georss"
-     xmlns:media="https://search.yahoo.com/mrss/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:georss="http://www.georss.org/georss"
+     xmlns:media="http://search.yahoo.com/mrss/">
     <channel>
         <title><{$channel_title}></title>
         <link>
@@ -41,7 +41,7 @@
         <language><{$channel_language}></language>
         <{/if}>
         <{if $channel_atom_link != ""}>
-        <atom:link href="<{$channel_atom_link}>" rel="self" type="application/rss+xml"/>
+    <atom:link href="<{$channel_atom_link}>" rel="self" type="application/rss+xml"/>
         <{/if}>
         <{if $image_url != ""}>
         <image>
@@ -73,9 +73,9 @@
             <{/if}>
             <{if $item.enclosure_url != ""}>
             <{if ($item.enclosure_type != "") &&($item.enclosure_length != "") }>
-            <enclosure url="<{$item.enclosure_url}>" type="<{$item.enclosure_type}>" length="<{$item.enclosure_length}>"/>
+        <enclosure url="<{$item.enclosure_url}>" type="<{$item.enclosure_type}>" length="<{$item.enclosure_length}>"/>
             <{else}>
-            <enclosure url="<{$item.enclosure_url}>"/>
+        <enclosure url="<{$item.enclosure_url}>"/>
             <{/if}>
             <{/if}>
             <{* === content === *}>
@@ -119,10 +119,10 @@
                 <media:credit><{$item.media_credit}></media:credit>
                 <{/if}>
                 <{if $item.media_content_url != ""}>
-                <media:content url="<{$item.media_content_url}>" height="<{$item.media_content_height}>" width="<{$item.media_content_width}>" type="<{$item.media_content_type}>" medium="image"/>
+            <media:content url="<{$item.media_content_url}>" height="<{$item.media_content_height}>" width="<{$item.media_content_width}>" type="<{$item.media_content_type}>" medium="image"/>
                 <{/if}>
                 <{if $item.media_thumbnail_url != ""}>
-                <media:thumbnail url="<{$item.media_thumbnail_url}>" height="<{$item.media_thumbnail_height}>" width="<{$item.media_thumbnail_width}>"/>
+            <media:thumbnail url="<{$item.media_thumbnail_url}>" height="<{$item.media_thumbnail_height}>" width="<{$item.media_thumbnail_width}>"/>
                 <{/if}>
             </media:group>
             <{/if}>

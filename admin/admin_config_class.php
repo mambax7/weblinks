@@ -1,5 +1,6 @@
 <?php
-// $Id: admin_config_class.php,v 1.17 2008/02/26 16:01:33 ohwada Exp $
+
+// $Id: admin_config_class.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // print_menu_7()
@@ -45,6 +46,10 @@
 //================================================================
 // class admin_config_form
 //================================================================
+
+/**
+ * Class admin_config_form
+ */
 class admin_config_form extends weblinks_config2_form
 {
     // handler
@@ -74,11 +79,14 @@ class admin_config_form extends weblinks_config2_form
         $this->load();
     }
 
+    /**
+     * @return \admin_config_form|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|\weblinks_config2_form|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static($dirname);
+            $instance = new static();
         }
 
         return $instance;
@@ -89,7 +97,7 @@ class admin_config_form extends weblinks_config2_form
     //---------------------------------------------------------
     public function init_form()
     {
-        //  $this->load();
+        //	$this->load();
     }
 
     //---------------------------------------------------------
@@ -128,9 +136,13 @@ class admin_config_form extends weblinks_config2_form
     //---------------------------------------------------------
     // show_auth
     //---------------------------------------------------------
+
+    /**
+     * @param $form_title
+     */
     public function show_form_auth($form_title)
     {
-        list($list_1, $list_2) = $this->get_group_list();
+        [$list_1, $list_2] = $this->get_group_list();
 
         $this->print_top('weblinks_config_auth', $form_title);
 
@@ -149,9 +161,12 @@ class admin_config_form extends weblinks_config2_form
         $this->print_form_bottom();
     }
 
+    /**
+     * @param $form_title
+     */
     public function show_form_link_register($form_title)
     {
-        list($list_1, $list_2) = $this->get_group_list();
+        [$list_1, $list_2] = $this->get_group_list();
 
         $this->print_top('weblinks_config_link_register', $form_title);
 
@@ -166,9 +181,12 @@ class admin_config_form extends weblinks_config2_form
         $this->print_form_bottom();
     }
 
+    /**
+     * @param $form_title
+     */
     public function show_form_link_register_1($form_title)
     {
-        list($list_1, $list_2) = $this->get_group_list();
+        [$list_1, $list_2] = $this->get_group_list();
 
         $this->print_top('weblinks_config_link_register_1', $form_title);
 
@@ -183,6 +201,9 @@ class admin_config_form extends weblinks_config2_form
         $this->print_form_bottom();
     }
 
+    /**
+     * @return array[]
+     */
     public function get_group_list()
     {
         $member_handler = xoops_getHandler('member');
@@ -200,6 +221,10 @@ class admin_config_form extends weblinks_config2_form
         return [$list_1, $list_2];
     }
 
+    /**
+     * @param $form_name
+     * @param $form_title
+     */
     public function print_top($form_name, $form_title)
     {
         echo $this->build_form_begin($form_name);
@@ -211,6 +236,10 @@ class admin_config_form extends weblinks_config2_form
         echo "</tr>\n";
     }
 
+    /**
+     * @param $name
+     * @param $opt
+     */
     public function print_auth($name, $opt)
     {
         $cap = $this->build_conf_caption_by_name($name);
@@ -228,6 +257,9 @@ class admin_config_form extends weblinks_config2_form
         echo "</tr>\n";
     }
 
+    /**
+     * @param $name
+     */
     public function print_yesno($name)
     {
         $cap = $this->build_conf_caption_by_name($name);
@@ -239,6 +271,9 @@ class admin_config_form extends weblinks_config2_form
         echo "</tr>\n";
     }
 
+    /**
+     * @param $name
+     */
     public function print_text($name)
     {
         $cap = $this->build_conf_caption_by_name($name);
@@ -253,6 +288,10 @@ class admin_config_form extends weblinks_config2_form
     //---------------------------------------------------------
     // show_form_linkitem
     //---------------------------------------------------------
+
+    /**
+     * @param $title
+     */
     public function show_form_linkitem($title)
     {
         $this->_linkitem_form->show($title);
@@ -261,6 +300,10 @@ class admin_config_form extends weblinks_config2_form
     //---------------------------------------------------------
     // show_country_code
     //---------------------------------------------------------
+
+    /**
+     * @param $title
+     */
     public function show_form_country_code($title)
     {
         $dirname = 'modules/happy_linux/locate/';
@@ -304,12 +347,19 @@ class admin_config_form extends weblinks_config2_form
     //---------------------------------------------------------
     // show form rss cache clear
     //---------------------------------------------------------
+
+    /**
+     * @param $title
+     */
     public function show_form_rss_cache_clear($title)
     {
         echo $this->build_lib_box_button_style($title, _HAPPY_LINUX_CONF_RSS_CACHE_CLEAR_DESC, 'rss_cache_clear', _HAPPY_LINUX_CLEAR);
         echo "<br>\n";
     }
 
+    /**
+     * @param $title
+     */
     public function show_form_template_compiled_clear($title)
     {
         echo $this->build_lib_box_button_style($title, _AM_WEBLINKS_CONF_TEMPLATE_DESC, 'template_compiled_clear', _HAPPY_LINUX_CLEAR);
@@ -332,6 +382,12 @@ class admin_config_form extends weblinks_config2_form
     // print html
     // not use in weblinks
     //---------------------------------------------------------
+
+    /**
+     * @param $form_name
+     * @param $name1
+     * @param $name2
+     */
     public function print_top2($form_name, $name1, $name2)
     {
         echo $this->build_form_begin($form_name);
@@ -345,6 +401,12 @@ class admin_config_form extends weblinks_config2_form
         echo "</tr>\n";
     }
 
+    /**
+     * @param $form_name
+     * @param $name1
+     * @param $name2
+     * @param $name3
+     */
     public function print_top3($form_name, $name1, $name2, $name3)
     {
         echo $this->build_form_begin($form_name);
@@ -372,6 +434,10 @@ class admin_config_form extends weblinks_config2_form
         echo "<tr class='$class'>";
     }
 
+    /**
+     * @param        $name1
+     * @param string $name2
+     */
     public function print_two($name1, $name2 = '')
     {
         if ($name1) {
@@ -389,6 +455,11 @@ class admin_config_form extends weblinks_config2_form
         echo "<td align='right'>$name2_show</td></tr>\n";
     }
 
+    /**
+     * @param        $name1
+     * @param string $name2
+     * @param string $name3
+     */
     public function print_three($name1, $name2 = '', $name3 = '')
     {
         if ($name1) {
@@ -410,6 +481,10 @@ class admin_config_form extends weblinks_config2_form
         echo "<td align='right'>$name3_show</td></tr>\n";
     }
 
+    /**
+     * @param        $name1
+     * @param string $name2
+     */
     public function print_sel2($name1, $name2 = '')
     {
         $title_show = $this->build_conf_caption_by_name($name1);
@@ -422,6 +497,11 @@ class admin_config_form extends weblinks_config2_form
         echo "<td align='left'>$name2_show</td></tr>\n";
     }
 
+    /**
+     * @param        $name1
+     * @param string $name2
+     * @param string $name3
+     */
     public function print_sel3($name1, $name2 = '', $name3 = '')
     {
         $title_show = $this->build_conf_caption_by_name($name1);
@@ -436,6 +516,9 @@ class admin_config_form extends weblinks_config2_form
         echo "<td align='left'>$name3_show</td></tr>\n";
     }
 
+    /**
+     * @param $name
+     */
     public function print_form_conf_checkbox($name)
     {
         $this->print_form_even_odd();
@@ -444,6 +527,9 @@ class admin_config_form extends weblinks_config2_form
         $this->print_conf_line($name, $name_show);
     }
 
+    /**
+     * @param $name
+     */
     public function print_form_conf_radio($name)
     {
         $this->print_form_even_odd();
@@ -456,6 +542,11 @@ class admin_config_form extends weblinks_config2_form
         echo "<td></td></tr>\n";
     }
 
+    /**
+     * @param        $name
+     * @param        $name1_show
+     * @param string $name2_show
+     */
     public function print_conf_line($name, $name1_show, $name2_show = '')
     {
         $title_show = $this->build_conf_caption_by_name($name);
@@ -465,11 +556,18 @@ class admin_config_form extends weblinks_config2_form
         echo "<td align='right'>$name2_show</td></tr>\n";
     }
 
+    /**
+     * @param $title
+     */
     public function print_msg($title)
     {
         echo "<h4>$title</h4>\n";
     }
 
+    /**
+     * @param $title
+     * @param $msg
+     */
     public function print_error($title, $msg)
     {
         echo "<h3><font color='red'>$title</font></h3>\n";
@@ -502,18 +600,26 @@ class admin_config_form extends weblinks_config2_form
         $this->print_module_installed($dirname, 'd3forum');
     }
 
+    /**
+     * @param $kind
+     * @param $conf_name
+     */
     public function print_module_installed_by_conf($kind, $conf_name)
     {
         $dirname = $this->_config_define_handler->get_by_name($conf_name, 'value');
         $this->print_module_installed($dirname, $kind);
     }
 
+    /**
+     * @param $dirname
+     * @param $kind
+     */
     public function print_module_installed($dirname, $kind)
     {
         if ($dirname && ('-' != $dirname)) {
             $module = $this->_system->get_module_by_dirname($dirname);
             if (is_object($module)) {
-                $version = sprintf('%6.2f', $module->getVar('version') / 100);
+                $version = sprintf('%6.2f', ($module->getVar('version') / 100));
                 $msg = sprintf(_AM_WEBLINKS_MODULE_INSTALLED, $kind, $dirname, $version);
                 echo '<h4 style="color: #0000ff;">' . $msg . "</h4>\n";
             } else {

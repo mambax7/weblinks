@@ -1,11 +1,11 @@
-Olá, {UNAME}.
+Olï¿½, {UNAME}.
 
-Sua solicitação de remoção de link foi recusada por uma das seuintes razões:
+Sua solicitaï¿½ï¿½o de remoï¿½ï¿½o de link foi recusada por uma das seuintes razï¿½es:
 
-- não foi possível confirmar que foi você quem enviou o link.
-- seu motivo para a remioção não está fundamentada.
+- nï¿½o foi possï¿½vel confirmar que foi vocï¿½ quem enviou o link.
+- seu motivo para a remioï¿½ï¿½o nï¿½o estï¿½ fundamentada.
 
-Você pode ver o presente conteúdo aqui:
+Vocï¿½ pode ver o presente conteï¿½do aqui:
 {LINK_URL}
 
 -----------

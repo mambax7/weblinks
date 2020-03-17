@@ -1,5 +1,6 @@
 <?php
-// $Id: build_rss.php,v 1.2 2008/02/26 16:01:35 ohwada Exp $
+
+// $Id: build_rss.php,v 1.1 2011/12/29 14:32:40 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // weblinks_link_view_basic.php

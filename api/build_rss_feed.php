@@ -1,5 +1,6 @@
 <?php
-// $Id: build_rss_feed.php,v 1.2 2008/01/14 03:43:25 ohwada Exp $
+
+// $Id: build_rss_feed.php,v 1.1 2011/12/29 14:32:40 ohwada Exp $
 
 // 2008-01-10 K.OHWADA
 // Fatal error: Call to a member function on a non-object in weblinks_rssc_view_handler.php

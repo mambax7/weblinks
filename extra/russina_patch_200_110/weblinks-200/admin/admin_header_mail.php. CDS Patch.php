@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin_header_mail.php.\040CDS\040Patch.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
@@ -39,4 +40,5 @@ if ((mb_substr(XOOPS_VERSION, 0, 9) < 'XOOPS 2.5') && file_exists(XOOPS_ROOT_PAT
     include_once WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/mailusers.php';
 } else {
     include_once WEBLINKS_ROOT_PATH . '/language/english/mailusers.php';
-}/* CDS Patch. Weblinks. 2.00. 1. EOF */
+}
+/* CDS Patch. Weblinks. 2.00. 1. EOF */

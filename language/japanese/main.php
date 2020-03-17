@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -70,7 +71,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', '���ƥ���');
     define('_WLS_HITS', '�ҥåȿ�');
     define('_WLS_RATING', 'ɾ��');
@@ -83,7 +84,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', '���Υ�󥯤��Խ�');
     define('_WLS_MODIFY', '����');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     //define("_WLS_SUBMITLINKHEAD","��󥯥ե��������Ͽ");
     define('_WLS_SUBMITLINKHEAD', '������󥯤���Ͽ����');
     define('_WLS_SUBMITONCE', 'Ʊ��Υ����ϣ��󤷤���Ͽ�Ǥ��ޤ���');
@@ -93,7 +94,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","��󥯾���ϡ��������ȥ����åդˤ�뾵ǧ��������ǺܤȤʤ뤳�Ȥ�λ������������");
     define('_WLS_RECEIVED', '�����֥����Ⱦ������դ��ޤ��������꤬�Ȥ��������ޤ���');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     //define("_WLS_REQUESTMOD","��󥯽����ꥯ������");
     define('_WLS_REQUESTMOD', '��󥯤�������');
     define('_WLS_THANKSFORINFO', '����򤢤꤬�Ȥ��������ޤ��������������ꥯ�����ȤϤ�����Ĵ�����ޤ���');
@@ -180,7 +181,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', '���ʤ�����Ͽ������󥯤ˤ���ɼ�Ǥ��ޤ���<br>��ɼ�����Ƶ�Ͽ����Ĵ������ޤ���');
     define('_WLS_VOTEONCE2', '����������ޤ��󤬡�Ʊ���󥯾���ؤ���ɼ�ϰ��¤�Ȥ����Ƥ��������Ƥ��ޤ���');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', '��󥯽�����');
     define('_WLS_GENERALSET', '��������');
@@ -255,7 +256,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', '��Ͽ����');
     define('_WLS_SITE_NEW', '���奵����');
@@ -273,7 +274,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', '�ǽ�������');
     define('_WLS_MORE', '��äȾܤ���');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', '����');
     define('_WLS_PROMOTER', '��ż�');
     define('_WLS_ZIP', '͹���ֹ�');
@@ -281,7 +282,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', '�����ֹ�');
     define('_WLS_FAX', 'FAX�ֹ�');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', '�Хʡ���URL');
     define('_WLS_NAME', '̾�����ϥ�ɥ�̾');
     define('_WLS_EMAIL', '�ť᡼�륢�ɥ쥹');
@@ -293,20 +294,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', '�������ʤ�');
     define('_WLS_NOTSELECT', '���ꤷ�ʤ�');
     define('_WLS_SUBMIT_INDISPENSABLE', '����(<b>*</b>)�ϡ�ɬ�ܹ��ܤǤ���');
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '�ִ����ԤؤΥ����ȡפϤ��ո�������˾�ʤɤ��Ȥ�����������<br>�������WEB�ˤ�ɽ������ޤ���<br>����ߥ�󥯡פ򤴴�˾�ξ��ϡ��������Ȥ���󥯤���Ƥ��뵮���Υ����Ȥ�URL�򤴵�������������'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '�ִ����ԤؤΥ����ȡפϤ��ո�������˾�ʤɤ��Ȥ�����������<br>�������WEB�ˤ�ɽ������ޤ���<br>����ߥ�󥯡פ򤴴�˾�ξ��ϡ��������Ȥ���󥯤���Ƥ��뵮���Υ����Ȥ�URL�򤴵�������������');
     define('_WLS_USER_COMMENT', '�����ԤؤΥ�����');
     define('_WLS_NOT_DISPLAY', '�������WEB�ˤ�ɽ������ޤ���');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', '���ʤ�����Υ���ѹ������Ͼ�ǧ����ޤ�����');
     define('_WLS_MODIFY_NOT_OWNER', '���ʤ�����󥯾������Ͽ�ԤǤ��뤫�ɤ�����ưŪ�ˤ�Ƚ�ǤǤ��ޤ���Ǥ�����');
     define('_WLS_MODIFY_PENDING', '��󥯾���ν����ϰ�ö <b>����Ͽ</b> ���졢�����åդˤ���ǧ���������ޤ���<br>��󥯽����˻��֤��������礬���뤫�⤷��ޤ���ͽ�ᤴλ������������');
     define('_WLS_LINKSUBMITTER', '��󥯾����󶡼ԡ�');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', '�ѥ���ɤ����Ϥ��Ƥ�������');
     define('_WLS_REGSTERED', '��Ͽ�桼����');
     define('_WLS_REGSTERED_DSC', '��󥯾�����󶡼ԤǤʤ��Ȥ⡢�����Ǥ��ޤ���<br>�����Ԥ���ǧ��˷Ǻܤ���ޤ���');
@@ -377,7 +375,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', '��ư����');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', '������ɽ������Ƥ��� RSS/ATOM ������ RSS �� ATOM ���ۿ����Ƥ��ޤ���');
-    define('_WLS_ATOMFEED_FIREFOX', "<a href='https://www.mozilla-japan.org/products/firefox/' target='_blank'>Firefox</a> �����Ѥ����Ϥ��Υڡ�����֥å��ޡ�������ȡ��ۿ����Ƥ������ˤʤ�ޤ���");
+    define('_WLS_ATOMFEED_FIREFOX', "<a href='http://www.mozilla-japan.org/products/firefox/' target='_blank'>Firefox</a> �����Ѥ����Ϥ��Υڡ�����֥å��ޡ�������ȡ��ۿ����Ƥ������ˤʤ�ޤ���");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', '��ǧ���������Τ��ޤ�');
@@ -441,13 +439,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME', '�ۡ���');
-    //  define('_SAVE', '��¸');
-    //  define('_SAVED','��¸����');
-    //  define('_CREATE', '����');
-    //  define('_CREATED','��������');
-    //  define('_EXECUTE', '�¹�');
-    //  define('_EXECUTED','�¹Ԥ���');
+    //	define('_HOME', '�ۡ���');
+    //	define('_SAVE', '��¸');
+    //	define('_SAVED','��¸����');
+    //	define('_CREATE', '����');
+    //	define('_CREATED','��������');
+    //	define('_EXECUTE', '�¹�');
+    //	define('_EXECUTED','�¹Ԥ���');
     //}
 
     define('_WEBLINKS_MAP_USE', '�Ͽޥ��������ɽ��');
@@ -464,7 +462,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', '�ٹ�: URL ���ɤ߽Ф��ʤ�');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', '�ٹ�: �Хʡ��������������Ǥ��ʤ�');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', '����');
     define('_WEBLINKS_GM_LONGITUDE', '����');
     define('_WEBLINKS_GM_ZOOM', '�����ࡦ��٥�');
@@ -590,4 +588,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // google map
     define('_WEBLINKS_GM_LOCATION', '���');
     define('_WEBLINKS_GM_ICON', 'Google��������');
-}// --- define language end ---
+}
+// --- define language end ---

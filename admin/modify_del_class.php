@@ -1,5 +1,6 @@
 <?php
-// $Id: modify_del_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: modify_del_class.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -13,6 +14,10 @@
 //=========================================================
 // class admin_modify_del
 //=========================================================
+
+/**
+ * Class admin_modify_del
+ */
 class admin_modify_del extends admin_modify_base
 {
     //---------------------------------------------------------
@@ -24,6 +29,9 @@ class admin_modify_del extends admin_modify_base
         $this->set_edit_handler('link_del');
     }
 
+    /**
+     * @return \admin_modify_base|\admin_modify_del|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -44,7 +52,7 @@ class admin_modify_del extends admin_modify_base
 
         if ($total > 0) {
             if ($mid > 0) {
-                $obj = &$this->_handler->get($mid);
+                $obj = $this->_handler->get($mid);
                 if (!is_object($obj)) {
                     redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
                     exit();
@@ -77,9 +85,12 @@ class admin_modify_del extends admin_modify_base
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $mid
+     */
     public function _print_approve_del_form($mid)
     {
-        $obj = &$this->_handler->get($mid);
+        $obj = $this->_handler->get($mid);
         if (!is_object($obj)) {
             redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
             exit();
@@ -109,9 +120,12 @@ class admin_modify_del extends admin_modify_base
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $mid
+     */
     public function _print_approve_del_confirm_form($mid)
     {
-        $obj = &$this->_handler->get($mid);
+        $obj = $this->_handler->get($mid);
         if (!is_object($obj)) {
             redirect_header('modify_list.php?op=list_del', 3, _WLS_ERRORNOLINK);
             exit();
@@ -149,7 +163,7 @@ class admin_modify_del extends admin_modify_base
             }
 
             $msg = _WLS_DBUPDATED;
-            $msg .= $this->build_comment('approve del link'); // for test form
+            $msg .= $this->build_comment('approve del link');    // for test form
             redirect_header($this->_get_redirect_at_mod(), 1, $msg);
             exit();
         }
@@ -157,6 +171,9 @@ class admin_modify_del extends admin_modify_base
         exit();
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_approve_del()
     {
         $ret = $this->_edit_handler->admin_approve_del_link($this->_obj);
@@ -167,11 +184,17 @@ class admin_modify_del extends admin_modify_base
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function _check_approve_del()
     {
         return true;
     }
 
+    /**
+     * @param $mid
+     */
     public function _print_approve_del_preview($mid)
     {
         $this->_print_cp_header();
@@ -182,6 +205,9 @@ class admin_modify_del extends admin_modify_base
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $title
+     */
     public function _print_approve_del_error($title)
     {
         $this->_print_cp_header();
@@ -217,13 +243,16 @@ class admin_modify_del extends admin_modify_base
             }
 
             $msg = _AM_WEBLINKS_DEL_REQ_DELETED;
-            $msg .= $this->build_comment('refuse del link');  // for test form
+            $msg .= $this->build_comment('refuse del link');    // for test form
             redirect_header($this->_get_redirect_at_del(), 1, $msg);
         } else {
             $this->_print_del_del_error('DB Error');
         }
     }
 
+    /**
+     * @param $title
+     */
     public function _print_del_del_error($title)
     {
         $this->_print_cp_header();

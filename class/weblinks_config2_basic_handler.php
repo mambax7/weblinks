@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_config2_basic_handler.php,v 1.14 2007/11/02 11:36:29 ohwada Exp $
+
+// $Id: weblinks_config2_basic_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // move show_modify to weblinks_auth
@@ -53,6 +54,10 @@ if (!class_exists('weblinks_config2_basic_handler')) {
     // this class handle MySQL table directly
     // this class does not use another class
     //=========================================================
+
+    /**
+     * Class weblinks_config2_basic_handler
+     */
     class weblinks_config2_basic_handler extends happy_linux_basic_handler
     {
         public $_system;
@@ -60,6 +65,11 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_config2_basic_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -86,6 +96,10 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         }
 
         // for debug: test_class_user_class
+
+        /**
+         * @return bool
+         */
         public function load_config()
         {
             if ($this->get_debug_print_time()) {
@@ -125,6 +139,11 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         //=========================================================
         // function for MySQL table
         //=========================================================
+
+        /**
+         * @param $str
+         * @return array
+         */
         public function &_conv_to_array($str)
         {
             $ret = &$this->convert_string_to_array($str, "\n");
@@ -135,6 +154,14 @@ if (!class_exists('weblinks_config2_basic_handler')) {
         //---------------------------------------------------------
         // module_name
         //---------------------------------------------------------
+
+        /**
+         * @param        $name
+         * @param bool   $flag_dirname
+         * @param bool   $flag_mod_name
+         * @param string $format
+         * @return bool|mixed|string
+         */
         public function get_module_name($name, $flag_dirname = true, $flag_mod_name = true, $format = 's')
         {
             $val = false;

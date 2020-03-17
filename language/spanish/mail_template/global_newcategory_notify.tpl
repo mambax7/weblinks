@@ -1,19 +1,19 @@
 Hola {X_UNAME},
 
 
-Una nueva sub-categoría a sido agregada a categoría "{CATEGORY_NAME}" en {X_SITENAME}.
+Una nueva sub-categorï¿½a a sido agregada a categorï¿½a "{CATEGORY_NAME}" en {X_SITENAME}.
 
-Click aquí para ver esa categoría:
+Click aquï¿½ para ver esa categorï¿½a:
 {CATEGORY_URL}
 
-Click en este enlace para ver el índice de la categoría:
+Click en este enlace para ver el ï¿½ndice de la categorï¿½a:
 {X_MODULE_URL}
 
 -----------
 
-Usted está recibiendo este mensaje porque ha seleccionado la opción para recibir una notificación cuando nuevos enlaces se añadan en esta categoría.
+Usted estï¿½ recibiendo este mensaje porque ha seleccionado la opciï¿½n para recibir una notificaciï¿½n cuando nuevos enlaces se aï¿½adan en esta categorï¿½a.
 
-Si se trata de un error o no desea recibir más notificaciones de este tipo, por favor, actualice los datos de su suscripción, visite el link de abajo:
+Si se trata de un error o no desea recibir mï¿½s notificaciones de este tipo, por favor, actualice los datos de su suscripciï¿½n, visite el link de abajo:
 {X_UNSUBSCRIBE_URL}
 
 Por favor, no responda a este mensaje.

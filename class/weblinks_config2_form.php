@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_config2_form.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -20,6 +21,10 @@ if (!class_exists('weblinks_config2_form')) {
     //=========================================================
     // class weblinks_config2_form
     //=========================================================
+
+    /**
+     * Class weblinks_config2_form
+     */
     class weblinks_config2_form extends happy_linux_config_form
     {
         public $_DIRNAME;
@@ -30,6 +35,11 @@ if (!class_exists('weblinks_config2_form')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_config2_form constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
@@ -43,6 +53,10 @@ if (!class_exists('weblinks_config2_form')) {
             $this->_plugin = weblinks_plugin::getInstance($dirname);
         }
 
+        /**
+         * @param null $dirname
+         * @return \happy_linux_form|\happy_linux_form_lib|\happy_linux_html|\weblinks_config2_form|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -56,6 +70,11 @@ if (!class_exists('weblinks_config2_form')) {
         //---------------------------------------------------------
         // build config
         //---------------------------------------------------------
+
+        /**
+         * @param $config
+         * @return string
+         */
         public function build_conf_extra_func($config)
         {
             $formtype = $config['formtype'];
@@ -98,21 +117,44 @@ if (!class_exists('weblinks_config2_form')) {
             return $ele;
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_dirname_list($config)
         {
             return $this->_build_conf_extra_dirname_list_common($config, null);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_rssc_dirname_list($config)
         {
-            return $this->_build_conf_extra_dirname_list_common($config, 'include/rssc_version.php');
+            return $this->_build_conf_extra_dirname_list_common(
+                $config,
+                'include/rssc_version.php'
+            );
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_webmap3_dirname_list($config)
         {
-            return $this->_build_conf_extra_dirname_list_common($config, 'include/webmap3_version.php');
+            return $this->_build_conf_extra_dirname_list_common(
+                $config,
+                'include/webmap3_version.php'
+            );
         }
 
+        /**
+         * @param $config
+         * @param $file
+         * @return string
+         */
         public function _build_conf_extra_dirname_list_common($config, $file)
         {
             $name = $config['name'];
@@ -134,6 +176,10 @@ if (!class_exists('weblinks_config2_form')) {
             return $this->build_html_select($name, $value, $options);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_forum_plugin($config)
         {
             $name = $config['name'];
@@ -143,6 +189,10 @@ if (!class_exists('weblinks_config2_form')) {
             return $this->build_html_select($name, $value, $options);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_album_plugin($config)
         {
             $name = $config['name'];
@@ -152,6 +202,10 @@ if (!class_exists('weblinks_config2_form')) {
             return $this->build_html_select($name, $value, $options);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_d3forum_plugin($config)
         {
             $name = $config['name'];
@@ -161,6 +215,10 @@ if (!class_exists('weblinks_config2_form')) {
             return $this->build_html_select($name, $value, $options);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_d3forum_forum_id($config)
         {
             $name = $config['name'];
@@ -170,13 +228,17 @@ if (!class_exists('weblinks_config2_form')) {
             return $this->build_html_select($name, $value, $options);
         }
 
+        /**
+         * @param $config
+         * @return string
+         */
         public function _build_conf_extra_link_img_thumb($config)
         {
-            $banner_handler = weblinks_getHandler('banner', $this->_DIRNAME);
+            $banner_handler = weblinks_get_handler('banner', $this->_DIRNAME);
 
             $name = $config['name'];
             $value = $config['value'];
-            $options = $banner_handler->get_thumb_options();
+            $options = &$banner_handler->get_thumb_options();
 
             return $this->build_html_input_radio_select($name, $value, $options, '<br>', false);
         }

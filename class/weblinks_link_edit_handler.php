@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_edit_handler.php,v 1.16 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: weblinks_link_edit_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // BUG: not object
@@ -60,49 +61,81 @@ if (!class_exists('weblinks_link_edit_handler')) {
     // class weblinks_link_edit_handler
     // this is facade class
     //=========================================================
+
+    /**
+     * Class weblinks_link_edit_handler
+     */
     class weblinks_link_edit_handler extends weblinks_link_edit_base_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_edit_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
-            $this->_link_add_handler = weblinks_getHandler('link_add', $dirname);
-            $this->_link_mod_handler = weblinks_getHandler('link_mod', $dirname);
-            $this->_link_del_handler = weblinks_getHandler('link_del', $dirname);
-            $this->_link_req_handler = weblinks_getHandler('link_req', $dirname);
+            $this->_link_add_handler = weblinks_get_handler('link_add', $dirname);
+            $this->_link_mod_handler = weblinks_get_handler('link_mod', $dirname);
+            $this->_link_del_handler = weblinks_get_handler('link_del', $dirname);
+            $this->_link_req_handler = weblinks_get_handler('link_req', $dirname);
         }
 
         //---------------------------------------------------------
         // add new link
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function user_add_link()
         {
             return $this->_link_add_handler->user_add_link();
         }
 
+        /**
+         * @return mixed
+         */
         public function build_submit_preview()
         {
             return $this->_link_add_handler->build_submit_preview();
         }
 
+        /**
+         * @return mixed
+         */
         public function admin_add_link()
         {
             return $this->_link_add_handler->admin_add_link();
         }
 
+        /**
+         * @param $mid
+         * @return mixed
+         */
         public function admin_approve_new_link($mid)
         {
             return $this->_link_add_handler->admin_approve_new_link($mid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function admin_clone_link($lid)
         {
             return $this->_link_add_handler->admin_clone_link($lid);
         }
 
+        /**
+         * @param $module_id
+         * @param $lid
+         * @return mixed
+         */
         public function admin_clone_module_from($module_id, $lid)
         {
             return $this->_link_add_handler->admin_clone_module_from($module_id, $lid);
@@ -110,6 +143,13 @@ if (!class_exists('weblinks_link_edit_handler')) {
 
         // for bulk manage
         // Fatal error: Call to undefined method weblinks_link_edit_handler::create_add_link_by_arr()
+
+        /**
+         * @param      $post
+         * @param bool $not_gpc
+         * @param bool $flag_banner
+         * @return mixed
+         */
         public function create_add_link_by_arr(&$post, $not_gpc = false, $flag_banner = false)
         {
             return $this->_link_add_handler->_create_add_link_by_arr($post, $not_gpc, $flag_banner);
@@ -118,22 +158,40 @@ if (!class_exists('weblinks_link_edit_handler')) {
         //---------------------------------------------------------
         // modify link
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function user_mod_link($lid)
         {
             return $this->_link_mod_handler->user_mod_link($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function build_modify_preview($lid)
         {
             return $this->_link_mod_handler->build_modify_preview($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function admin_mod_link($lid)
         {
             return $this->_link_mod_handler->admin_mod_link($lid);
         }
 
         // BUG: not object
+
+        /**
+         * @param $obj
+         * @return mixed
+         */
         public function admin_approve_mod_link(&$obj)
         {
             return $this->_link_mod_handler->admin_approve_mod_link($obj);
@@ -142,17 +200,31 @@ if (!class_exists('weblinks_link_edit_handler')) {
         //---------------------------------------------------------
         // delete link
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function user_del_link($lid)
         {
             return $this->_link_del_handler->user_del_link($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function admin_del_link($lid)
         {
             return $this->_link_del_handler->admin_del_link($lid);
         }
 
         // BUG: Missing argument 2
+
+        /**
+         * @param $obj
+         * @return mixed
+         */
         public function admin_approve_del_link(&$obj)
         {
             return $this->_link_del_handler->admin_approve_del_link($obj);
@@ -161,16 +233,26 @@ if (!class_exists('weblinks_link_edit_handler')) {
         //---------------------------------------------------------
         // request admin_approve
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function user_submit_admin_approve()
         {
             return $this->_link_req_handler->user_submit_admin_approve();
         }
 
+        /**
+         * @return mixed
+         */
         public function user_modify_admin_approve()
         {
             return $this->_link_req_handler->user_modify_admin_approve();
         }
 
+        /**
+         * @return mixed
+         */
         public function user_delete_admin_approve()
         {
             return $this->_link_req_handler->user_delete_admin_approve();

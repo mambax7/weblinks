@@ -1,5 +1,6 @@
 <?php
-// $Id: local.php,v 1.1 2006/12/22 15:26:37 ohwada Exp $
+
+// $Id: local.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -19,6 +20,10 @@ if (!class_exists('weblinks_locate_ir')) {
     // class weblinks_locate_ir
     // Iran (ir)
     //=========================================================
+
+    /**
+     * Class weblinks_locate_ir
+     */
     class weblinks_locate_ir extends weblinks_locate_base
     {
         //---------------------------------------------------------

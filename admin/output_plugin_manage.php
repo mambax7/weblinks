@@ -1,5 +1,6 @@
 <?php
-// $Id: output_plugin_manage.php,v 1.1 2008/02/26 16:06:47 ohwada Exp $
+
+// $Id: output_plugin_manage.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -17,6 +18,10 @@ include_once WEBLINKS_ROOT_PATH . '/htmlout/weblinks_htmlout_base.php';
 //=========================================================
 // class admin list plugin
 //=========================================================
+
+/**
+ * Class admin_output_plugin_manage
+ */
 class admin_output_plugin_manage extends happy_linux_plugin_manage
 {
     //---------------------------------------------------------
@@ -28,6 +33,9 @@ class admin_output_plugin_manage extends happy_linux_plugin_manage
         $this->set_plugin_class(weblinks_htmlout::getInstance(WEBLINKS_DIRNAME));
     }
 
+    /**
+     * @return \admin_output_plugin_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -52,7 +60,7 @@ include_once 'admin_header_config.php';
 weblinks_admin_multi_disable_feature();
 
 // class
-$config_form = admin_config_form::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 $manage = admin_output_plugin_manage::getInstance();
 
@@ -70,7 +78,11 @@ switch ($op) {
         break;
     case 'execute':
         xoops_cp_header();
-        weblinks_admin_print_bread(_AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE, 'output_plugin_manage.php', _HAPPY_LINUX_PLUGIN_TEST);
+        weblinks_admin_print_bread(
+            _AM_WEBLINKS_OUTPUT_PLUGIN_MANAGE,
+            'output_plugin_manage.php',
+            _HAPPY_LINUX_PLUGIN_TEST
+        );
         $manage->execute();
         xoops_cp_footer();
         exit();
@@ -101,4 +113,5 @@ $manage->show_form();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

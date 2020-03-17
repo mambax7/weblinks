@@ -1,4 +1,5 @@
 <?php
+
 // $Id: config_manage_6.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -31,6 +32,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
 //================================================================
 // class admin_config_form_6
 //================================================================
+
+/**
+ * Class admin_config_form_6
+ */
 class admin_config_form_6 extends admin_config_form
 {
     public $_webmap_class;
@@ -45,6 +50,9 @@ class admin_config_form_6 extends admin_config_form
         $this->_webmap_class = weblinks_webmap::getInstance(WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_config_form|\admin_config_form_6|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|\weblinks_config2_form|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -76,6 +84,9 @@ class admin_config_form_6 extends admin_config_form
         }
     }
 
+    /**
+     * @return bool
+     */
     public function webmap_init()
     {
         $ret = $this->_webmap_class->init_html();
@@ -86,6 +97,9 @@ class admin_config_form_6 extends admin_config_form
         return false;
     }
 
+    /**
+     * @return string
+     */
     public function build_webmap_iframe()
     {
         return $this->_webmap_class->build_display_iframe();
@@ -96,7 +110,7 @@ class admin_config_form_6 extends admin_config_form
     //---------------------------------------------------------
     public function print_kml_list()
     {
-        $link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+        $link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
 
         $kml_perpage = isset($_GET['kml_perpage']) ? (int)$_GET['kml_perpage'] : WEBLINKS_C_KML_PERPAGE;
 
@@ -115,7 +129,7 @@ class admin_config_form_6 extends admin_config_form
         echo '</form>' . "\n";
         echo "<br>\n";
 
-        for ($i = 1; $i <= $max_page; ++$i) {
+        for ($i = 1; $i <= $max_page; $i++) {
             echo '<a href="build_kml.php?page=' . $i . '&amp;limit=' . $kml_perpage . '" target="_blank" >';
             echo '[page ' . $i . ']</a> ';
         }
@@ -130,8 +144,8 @@ class admin_config_form_6 extends admin_config_form
 // main
 //================================================================
 
-$config_form = admin_config_form_6::getInstance();
-$config_store = admin_config_store::getInstance();
+$config_form     = admin_config_form_6::getInstance();
+$config_store    = admin_config_store::getInstance();
 $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
@@ -220,4 +234,5 @@ $config_form->print_kml_list();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

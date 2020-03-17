@@ -1,18 +1,18 @@
 Bonjour {X_UNAME},
 
-Le lien "{LINK_NAME}" soumis a été approuvé sur {X_SITENAME}.
+Le lien "{LINK_NAME}" soumis a ï¿½tï¿½ approuvï¿½ sur {X_SITENAME}.
 
 Vous pouvez visualiser ce lien ici :
 {LINK_URL}
 
 -----------
 
-Vous recevez ce message parce que vous avez choisi d'être notifié lorsque ce lien serait approuvé.
+Vous recevez ce message parce que vous avez choisi d'ï¿½tre notifiï¿½ lorsque ce lien serait approuvï¿½.
 
-S'il s'agissait là d'une erreur ou que vous ne désiriez de plus recevoir de notifications ultérieures, veuillez mettre à jour vos notifications en visitant le lien suivant :
+S'il s'agissait lï¿½ d'une erreur ou que vous ne dï¿½siriez de plus recevoir de notifications ultï¿½rieures, veuillez mettre ï¿½ jour vos notifications en visitant le lien suivant :
 {X_UNSUBSCRIBE_URL}
 
-Veuillez ne pas répondre à ce message.
+Veuillez ne pas rï¿½pondre ï¿½ ce message.
 
 -----------
 

@@ -1,4 +1,4 @@
-<{* $Id: weblinks_viewfeed.html,v 1.1 2007/08/08 04:20:59 ohwada Exp $ *}>
+<{* $Id: weblinks_viewfeed.html,v 1.1 2011/12/29 14:32:38 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -31,44 +31,44 @@
 
 <{if $show_feeds == true}>
 
-<{* -- feed full list begin -- *}>
-<{foreach item=feed from=$feeds}>
-<div class="weblinks_viewfeed_frame_feed">
-    <div class="weblinks_feed_frame_title">
-        <a href="<{$feed.link}>" target="_blank"><span class="weblinks_feed_title"><{$feed.title}></span></a><br>
-        &nbsp; from <a href="<{$feed.site_link}>" target="_blank"><{$feed.site_title}></a>&nbsp;
-        <{if $feed.updated_long != ""}>
-        (<{$feed.updated_long}>)&nbsp;
-        <{/if}>
+    <{* -- feed full list begin -- *}>
+    <{foreach item=feed from=$feeds}>
+    <div class="weblinks_viewfeed_frame_feed">
+        <div class="weblinks_feed_frame_title">
+            <a href="<{$feed.link}>" target="_blank"><span class="weblinks_feed_title"><{$feed.title}></span></a><br>
+            &nbsp; from <a href="<{$feed.site_link}>" target="_blank"><{$feed.site_title}></a>&nbsp;
+            <{if $feed.updated_long != ""}>
+            (<{$feed.updated_long}>)&nbsp;
+            <{/if}>
+        </div>
+        <div class="weblinks_feed_frame_content">
+            <{if $feed.content != ""}>
+            <{$feed.content}>
+            <{/if}>
+        </div>
     </div>
-    <div class="weblinks_feed_frame_content">
-        <{if $feed.content != ""}>
-        <{$feed.content}>
-        <{/if}>
-    </div>
-</div>
-<{/foreach}>
+    <{/foreach}>
 <br>
-<{* -- feed full list end -- *}>
+    <{* -- feed full list end -- *}>
 
 <br><br>
 
-<div class="weblinks_pagenavi">
-    <{$page_navi}>
-</div>
+    <div class="weblinks_pagenavi">
+        <{$page_navi}>
+    </div>
 
-<{else}>
+    <{else}>
 
-<hr>
-<span class="weblinks_error"><{$lang_nomatch}></span>
-<hr>
+<hr/>
+    <span class="weblinks_error"><{$lang_nomatch}></span>
+<hr/>
 
-<{/if}>
+    <{/if}>
 
 <{include file="db:system_notification_select.tpl"}>
 
-<hr>
+<hr/>
 <div class="weblinks_time">execution time <{$execution_time}> sec</div>
 <{if $is_module_admin }>
-<a href="./admin/index.php">go to admin cp</a>
-<{/if}>
+    <a href="./admin/index.php">go to admin cp</a>
+    <{/if}>

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_block_webmap.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
@@ -11,6 +12,10 @@ if (!class_exists('weblinks_block_webmap')) {
     //=========================================================
     // class weblinks_block_webmap
     //=========================================================
+
+    /**
+     * Class weblinks_block_webmap
+     */
     class weblinks_block_webmap
     {
         public $_map_class;
@@ -22,12 +27,21 @@ if (!class_exists('weblinks_block_webmap')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_block_webmap constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_url_singlelink = XOOPS_URL . '/modules/' . $dirname . '/singlelink.php';
         }
 
-        public function &getSingleton($dirname)
+        /**
+         * @param $dirname
+         * @return mixed|\weblinks_block_webmap
+         */
+        public static function &getSingleton($dirname)
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {
@@ -40,6 +54,11 @@ if (!class_exists('weblinks_block_webmap')) {
         //---------------------------------------------------------
         // block
         //---------------------------------------------------------
+
+        /**
+         * @param $param
+         * @return array|bool
+         */
         public function build_map_block($param)
         {
             $dirname = $param['dirname'];
@@ -126,6 +145,10 @@ if (!class_exists('weblinks_block_webmap')) {
             return $arr;
         }
 
+        /**
+         * @param $dirname
+         * @return bool
+         */
         public function check_webmap_dirname($dirname)
         {
             if ('' == $dirname) {
@@ -141,6 +164,10 @@ if (!class_exists('weblinks_block_webmap')) {
             return true;
         }
 
+        /**
+         * @param $webmap_dirname
+         * @return bool|mixed|\webmap3_api_map
+         */
         public function &get_map_class($webmap_dirname)
         {
             $false = false;
@@ -156,16 +183,31 @@ if (!class_exists('weblinks_block_webmap')) {
                 return $false;
             }
 
-            $map_class = &webmap3_api_map::getSingleton($webmap_dirname);
+            $map_class = webmap3_api_map::getSingleton($webmap_dirname);
 
             return $map_class;
         }
 
+        /**
+         * @param $link
+         * @param $conf
+         * @return mixed
+         */
         public function build_marker_block($link, $conf)
         {
-            return $this->_map_class->build_single_marker($link['gm_latitude'], $link['gm_longitude'], $this->build_info_block($link, $conf), $link['google_icon']);
+            return $this->_map_class->build_single_marker(
+                $link['gm_latitude'],
+                $link['gm_longitude'],
+                $this->build_info_block($link, $conf),
+                $link['google_icon']
+            );
         }
 
+        /**
+         * @param $link
+         * @param $conf
+         * @return string
+         */
         public function build_info_block($link, $conf)
         {
             $url = $this->_url_singlelink . '?lid=' . $link['lid'];
@@ -173,9 +215,22 @@ if (!class_exists('weblinks_block_webmap')) {
 
             $summary = $this->_map_class->build_summary($link['desc_html']);
 
-            return $this->build_info($link['title_disp'], $url_s, $summary, $conf['gm_marker_width']);
+            return $this->build_info(
+                $link['title_disp'],
+                $url_s,
+                $summary,
+                $conf['gm_marker_width']
+            );
         }
 
+        /**
+         * @param      $title
+         * @param      $url
+         * @param      $summary
+         * @param      $width
+         * @param bool $flag_target
+         * @return string
+         */
         public function build_info($title, $url, $summary, $width, $flag_target = false)
         {
             $target = '';
@@ -195,11 +250,25 @@ if (!class_exists('weblinks_block_webmap')) {
             return $info;
         }
 
+        /**
+         * @param $link
+         * @return bool
+         */
         public function check_latlng_by_link($link)
         {
-            return $this->check_lat_lng_zoom($link['gm_latitude'], $link['gm_longitude'], $link['gm_zoom']);
+            return $this->check_lat_lng_zoom(
+                $link['gm_latitude'],
+                $link['gm_longitude'],
+                $link['gm_zoom']
+            );
         }
 
+        /**
+         * @param $latitude
+         * @param $longitude
+         * @param $zoom
+         * @return bool
+         */
         public function check_lat_lng_zoom($latitude, $longitude, $zoom)
         {
             $zoom = (int)$zoom;
@@ -220,6 +289,10 @@ if (!class_exists('weblinks_block_webmap')) {
             return false;
         }
 
+        /**
+         * @param $str
+         * @return string
+         */
         public function sanitize($str)
         {
             return htmlspecialchars($str, ENT_QUOTES);

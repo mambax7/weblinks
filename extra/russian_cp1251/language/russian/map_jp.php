@@ -1,4 +1,5 @@
 <?php
+
 // $Id: map_jp.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 //=========================================================
@@ -13,7 +14,7 @@
 //---------------------------------------------------------
 // _LANGCODE: ru
 // _CHARSET : cp1251
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MP_LOADED')) {
@@ -72,4 +73,5 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_KAGOSHIMA', '��������');
     define('_WEBLINKS_JP_MIYAZAKI', '��������');
     define('_WEBLINKS_JP_OKINAWA', '�������');
-}// --- define language end ---
+}
+// --- define language end ---

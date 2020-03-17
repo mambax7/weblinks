@@ -1,4 +1,5 @@
 <?php
+
 // $Id: index.php.\040ORIGINAL\0402.00.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2009-02-08 K.OHWADA
@@ -65,8 +66,8 @@ include 'header.php';
 
 include_once WEBLINKS_ROOT_PATH . '/api/waiting.php';
 
-$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
-$weblinks_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('link_view', WEBLINKS_DIRNAME);
+$weblinks_rssc_handler = weblinks_get_handler('rssc_view', WEBLINKS_DIRNAME);
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_gmap = weblinks_gmap::getInstance(WEBLINKS_DIRNAME);
@@ -272,4 +273,5 @@ $xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

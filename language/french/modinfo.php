@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.4 2006/01/04 08:46:27 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:48 ohwada Exp $
 
 // 2005-10-20 K.OHWADA
 // BUG 3111: timeout occurs in popular site if many top categories
@@ -26,7 +27,7 @@
 // 2004-10-19 cb750
 // translation for V0.7
 
-// $Id: modinfo.php,v 1.4 2006/01/04 08:46:27 ohwada Exp $
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:48 ohwada Exp $
 
 //=========================================================
 // language for Module Info
@@ -205,7 +206,4 @@ define('_MI_WEBLINKS_TOPTEN_LINKS', 'Nombre maximum de liens Top10');
 define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Entrer le nombre maximum de liens &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". ');
 
 define('_MI_WEBLINKS_TOPTEN_CATS', 'Nombre maximum de cat&eacute;gories dans le Top10');
-define(
-    '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-    'Entrer le nombre maximum de cat&eacute;gories &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". <br>un timeout apparait lorsqu\'il y a trop de cat&eacute;gories principales'
-);
+define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Entrer le nombre maximum de cat&eacute;gories &agrave; afficher dans "Sites Populaires" et "Sites les Mieux Not&eacute;s". <br>un timeout apparait lorsqu\'il y a trop de cat&eacute;gories principales');

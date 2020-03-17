@@ -1,5 +1,5 @@
 <?php
-// $Id: up08to09.php,v 1.3 2005/10/28 11:56:02 ohwada Exp $
+// $Id: up08to09.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2005-01-20 K.OHWADA
 // add rss_mode_title, rss_mode_content
@@ -75,9 +75,9 @@ function print_form_start()
 {
     $action = xoops_getenv('PHP_SELF'); ?>
     <h4><font color='blue'>Warnig</font></h4>
-    Excute only once, after update. <br>
-    This program overwrite MySQL tables. <br>
-    <br>
+    Excute only once, after update. <br/>
+    This program overwrite MySQL tables. <br/>
+    <br/>
     <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='excute'>
         <input type='submit' value='EXCUTE'>
@@ -85,6 +85,10 @@ function print_form_start()
     <?php
 }
 
+/**
+ * @param $sql
+ * @return bool
+ */
 function sql_exec($sql)
 {
     global $xoopsDB;
@@ -100,12 +104,18 @@ function sql_exec($sql)
     return false;
 }
 
+/**
+ * @param $table
+ */
 function delete_table($table)
 {
     $sql = "DROP TABLE $table";
     sql_exec($sql);
 }
 
+/**
+ * @param $table_config
+ */
 function create_config($table_config)
 {
     $sql1 = "
@@ -156,7 +166,7 @@ CREATE TABLE $table_config (
   cat_img_mode   tinyint(2) unsigned NOT NULL default '0',
   cat_img_width  int(10) unsigned NOT NULL default '0',
   cat_img_height int(10) unsigned NOT NULL default '0'
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     $sql2 = "INSERT INTO $table_config VALUES ('&1&', '&1&', '&1&', '&1&', '&1&2&3&', 1, 1, 1, 0, 0, 0, 24, 1000, 10, 10, 1, 1000, 200, '', '', '', 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 4, 5, 1, 150, 100)";
@@ -165,6 +175,9 @@ CREATE TABLE $table_config (
     sql_exec($sql2);
 }
 
+/**
+ * @param $table_atomfeed
+ */
 function create_atomfeed($table_atomfeed)
 {
     $sql = "
@@ -187,12 +200,15 @@ CREATE TABLE $table_atomfeed (
   PRIMARY KEY  (aid),
   KEY url (url),
   KEY modified (time_modified)
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     sql_exec($sql);
 }
 
+/**
+ * @param $table
+ */
 function alter_link($table)
 {
     $sql = "ALTER TABLE $table ADD COLUMN ";

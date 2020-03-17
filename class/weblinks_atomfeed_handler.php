@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_atomfeed_handler.php,v 1.4 2007/12/08 22:48:05 ohwada Exp $
+
+// $Id: weblinks_atomfeed_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2007-12-09 K.OHWADA
 // BUG : Use of undefined constant XOBJ_DTYPE_STRING
@@ -28,6 +29,10 @@ if (!class_exists('weblinks_atomfeed_handler')) {
     //=========================================================
     // class weblinks_atomfeed
     //=========================================================
+
+    /**
+     * Class weblinks_atomfeed
+     */
     class weblinks_atomfeed extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -61,11 +66,20 @@ if (!class_exists('weblinks_atomfeed_handler')) {
     //=========================================================
     // class weblinks_atomfeed_handler
     //=========================================================
+
+    /**
+     * Class weblinks_atomfeed_handler
+     */
     class weblinks_atomfeed_handler extends happy_linux_object_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_atomfeed_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'atomfeed', 'aid', 'weblinks_atomfeed');

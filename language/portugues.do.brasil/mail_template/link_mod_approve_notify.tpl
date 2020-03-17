@@ -1,8 +1,8 @@
-Olá {X_UNAME},
+Olï¿½ {X_UNAME},
 
-Sua olicitação de modificação do "{LINK_NAME}" foi aprovada no site {X_SITENAME}.
+Sua olicitaï¿½ï¿½o de modificaï¿½ï¿½o do "{LINK_NAME}" foi aprovada no site {X_SITENAME}.
 
-Você pode ver este link aqui:
+Vocï¿½ pode ver este link aqui:
 {LINK_URL}
 
 -----------

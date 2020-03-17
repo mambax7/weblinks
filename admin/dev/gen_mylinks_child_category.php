@@ -1,4 +1,5 @@
 <?php
+
 // $Id: gen_mylinks_child_category.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //================================================================
@@ -37,10 +38,10 @@ if (isset($_POST['pid'])) {
 
 $imgurl_dir = XOOPS_URL . '/modules/mylinks/images/category/';
 
-for ($j = 0; $j < $MAX_PID; ++$j) {
+for ($j = 0; $j < $MAX_PID; $j++) {
     $pid = $PID_START + $j;
 
-    for ($i = 1; $i <= $MAX_CAT; ++$i) {
+    for ($i = 1; $i <= $MAX_CAT; $i++) {
         // category table
         $cat_title = $pid . ': ' . $genarete->get_randum_title();
         $imgurl = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
@@ -58,4 +59,5 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
 echo "<h3>end</h3>\n";
 echo "$MAX_CAT categories in cateogry $PID_START <br>\n";
 
-dev_footer(); // =====
+dev_footer();
+// =====

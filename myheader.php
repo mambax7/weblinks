@@ -1,5 +1,5 @@
 <?php
-// $Id: myheader.php,v 1.8 2007/05/13 13:40:35 ohwada Exp $
+// $Id: myheader.php,v 1.1 2011/12/29 14:32:28 ohwada Exp $
 
 // 2007-05-12 K.OHWADA
 // Notice [PHP]: Undefined variable: dirname
@@ -23,7 +23,7 @@
 
 include 'header.php';
 
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
 
 // Notice [PHP]: Undefined variable: dirname
 $weblinks_link_view = weblinks_link_view::getInstance(WEBLINKS_DIRNAME);
@@ -44,7 +44,7 @@ if (empty($url_s)) {
     exit();
 }
 
-list($mail_subject, $mail_body) = $weblinks_link_view->build_link_mail_by_lid($lid);
+[$mail_subject, $mail_body] = $weblinks_link_view->build_link_mail_by_lid($lid);
 
 $sitename = $weblinks_system->get_sitename();
 
@@ -134,8 +134,7 @@ $sitename = $weblinks_system->get_sitename();
                         <b><?php echo $sitename; ?></b></td>
                 </tr>
                 <tr>
-                    <td class="bg4" align="center">
-                        <small>
+                    <td class="bg4" align="center"><small>
                             <a target="_top" href="<?php echo WEBLINKS_URL; ?>/ratelink.php?lid=<?php echo $lid; ?>">
                                 <?php echo _WLS_RATETHISSITE; ?></a>
                             | <a target="_top" href="<?php echo WEBLINKS_URL; ?>/modlink.php?lid=<?php echo $lid; ?>">
@@ -147,8 +146,7 @@ $sitename = $weblinks_system->get_sitename();
                             <a target="_top" href="<?php echo XOOPS_URL; ?>">
                                 Back to <?php echo $sitename; ?></a>
                             | <a target="_top" href="<?php echo $url_s; ?>">Close Frame</a>
-                        </small>
-                    </td>
+                        </small></td>
                 </tr>
             </table>
         </td>

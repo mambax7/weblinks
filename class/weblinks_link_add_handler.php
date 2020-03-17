@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_add_handler.php,v 1.2 2008/02/26 16:01:36 ohwada Exp $
+
+// $Id: weblinks_link_add_handler.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // _get_flag_pagerank()
@@ -17,11 +18,20 @@ if (!class_exists('weblinks_link_add_handler')) {
     //=========================================================
     // class weblinks_link_add_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_add_handler
+     */
     class weblinks_link_add_handler extends weblinks_link_edit_base_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_add_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -30,6 +40,10 @@ if (!class_exists('weblinks_link_add_handler')) {
         //---------------------------------------------------------
         // add link
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function user_add_link()
         {
             $newid = $this->_add_link_common(true);
@@ -59,11 +73,18 @@ if (!class_exists('weblinks_link_add_handler')) {
             return $newid;
         }
 
+        /**
+         * @return bool
+         */
         public function admin_add_link()
         {
             return $this->_add_link_common(false);
         }
 
+        /**
+         * @param $modify_obj
+         * @return bool
+         */
         public function admin_approve_new_link(&$modify_obj)
         {
             $newid = $this->_add_link_common(true);
@@ -82,9 +103,13 @@ if (!class_exists('weblinks_link_add_handler')) {
             return $newid;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function admin_clone_link($lid)
         {
-            $obj = &$this->_link_handler->get($lid);
+            $obj = $this->_link_handler->get($lid);
             if (!is_object($obj)) {
                 $this->_set_errors_not_exist($lid);
 
@@ -96,6 +121,11 @@ if (!class_exists('weblinks_link_add_handler')) {
             return $this->_clone_link_common($obj, $cid_arr);
         }
 
+        /**
+         * @param $module_id
+         * @param $lid
+         * @return bool
+         */
         public function admin_clone_module_from($module_id, $lid)
         {
             $module = &$this->_system->get_module_by_mid($module_id);
@@ -108,7 +138,7 @@ if (!class_exists('weblinks_link_add_handler')) {
 
             $dirname = $module->getVar('dirname', 'n');
 
-            $other_link_handler = weblinks_getHandler('link', $dirname);
+            $other_link_handler = weblinks_get_handler('link', $dirname);
 
             $obj = &$other_link_handler->get($lid);
             if (!is_object($obj)) {
@@ -126,6 +156,10 @@ if (!class_exists('weblinks_link_add_handler')) {
         //---------------------------------------------------------
         // preview
         //---------------------------------------------------------
+
+        /**
+         * @return array|bool
+         */
         public function build_submit_preview()
         {
             $this->_clear_errors();
@@ -134,13 +168,13 @@ if (!class_exists('weblinks_link_add_handler')) {
             $rss_url = '';
 
             // create link object
-            $obj = &$this->_create_add_link_by_arr($_POST, false, true);
+            $obj = $this->_create_add_link_by_arr($_POST, false, true);
 
             // check url, banner & check rss url
-            list($rss_flag, $rss_url) = $this->_check_url_banner_rssurl($obj);
+            [$rss_flag, $rss_url] = $this->_check_url_banner_rssurl($obj);
 
             // create edit object
-            $edit_obj = &$this->_create_edit();
+            $edit_obj = $this->_create_edit();
             $edit_obj->set_object($obj);
             $edit_obj->build_preview_for_template($this->_cid_array);
 
@@ -156,6 +190,11 @@ if (!class_exists('weblinks_link_add_handler')) {
         // private
         //---------------------------------------------------------
         // add link & catlink & notify
+
+        /**
+         * @param bool $flag_banner
+         * @return bool
+         */
         public function _add_link_common($flag_banner = false)
         {
             $newid = $this->_add_link_record($flag_banner);
@@ -177,6 +216,11 @@ if (!class_exists('weblinks_link_add_handler')) {
             return $newid;
         }
 
+        /**
+         * @param $obj
+         * @param $cid_arr
+         * @return bool
+         */
         public function _clone_link_common(&$obj, &$cid_arr)
         {
             $title = '[clone] ' . $obj->get('title');
@@ -207,12 +251,16 @@ if (!class_exists('weblinks_link_add_handler')) {
             return $newid;
         }
 
+        /**
+         * @param bool $flag_banner
+         * @return bool
+         */
         public function _add_link_record($flag_banner = false)
         {
             // modify
             $this->_mid = $this->get_post_mid();
 
-            $save_obj = &$this->_create_add_link_by_arr($_POST, false, $flag_banner);
+            $save_obj = $this->_create_add_link_by_arr($_POST, false, $flag_banner);
 
             $newid = $this->_link_handler->insert($save_obj);
             if (!$newid) {
@@ -228,10 +276,22 @@ if (!class_exists('weblinks_link_add_handler')) {
         }
 
         // $not_gpc for bulk manage
+
+        /**
+         * @param      $post
+         * @param bool $not_gpc
+         * @param bool $flag_banner
+         * @return \weblinks_link_save
+         */
         public function &_create_add_link_by_arr(&$post, $not_gpc = false, $flag_banner = false)
         {
-            $save_obj = &$this->_create_link_save();
-            $save_obj->assign_add_object($post, $not_gpc, $flag_banner, $this->_get_flag_pagerank());
+            $save_obj = $this->_create_link_save();
+            $save_obj->assign_add_object(
+                $post,
+                $not_gpc,
+                $flag_banner,
+                $this->_get_flag_pagerank()
+            );
 
             $this->_cid_array = &$save_obj->get_cid_array();
             $this->_banner_error_code = $save_obj->get_banner_error_code();

@@ -1,5 +1,6 @@
 <?php
-// $Id: dev_header.php,v 1.7 2008/02/26 16:01:39 ohwada Exp $
+
+// $Id: dev_header.php,v 1.1 2011/12/29 14:33:00 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // server.php -> browser.php
@@ -32,7 +33,7 @@ unset($url_arr);
 
 // set config values for this module
 if (1 == $xoopsModule->getVar('hasconfig') || 1 == $xoopsModule->getVar('hascomments')) {
-    $config_handler = &xoops_getHandler('config');
+    $config_handler = xoops_getHandler('config');
     $xoopsModuleConfig = &$config_handler->getConfigsByCat(0, $xoopsModule->getVar('mid'));
 }
 
@@ -136,7 +137,7 @@ include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 //---------------------------------------------------------
 // locate
 //---------------------------------------------------------
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();
 $country_code = $weblinks_config_handler->get_conf_by_name('country_code');
 $rss_dirname = $weblinks_config_handler->get_conf_by_name('rss_dirname');

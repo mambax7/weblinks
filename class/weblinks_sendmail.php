@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_sendmail.php,v 1.6 2007/08/25 03:39:30 ohwada Exp $
+
+// $Id: weblinks_sendmail.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-08-25 K.OHWADA
 // change send_newlink_to_admin()
@@ -29,10 +30,14 @@ if (!class_exists('weblinks_sendmail')) {
     //=========================================================
     // class weblinks_sendmail
     //=========================================================
+
+    /**
+     * Class weblinks_sendmail
+     */
     class weblinks_sendmail extends happy_linux_error
     {
-        public $_FLAG_EVENT_USER = true;  // send email to user
-        public $_FLAG_EVENT_ANONYMOUS = true;  // send email to anonymous
+        public $_FLAG_EVENT_USER = true;    // send email to user
+        public $_FLAG_EVENT_ANONYMOUS = true;    // send email to anonymous
 
         public $_system;
         public $_post;
@@ -48,6 +53,11 @@ if (!class_exists('weblinks_sendmail')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_sendmail constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -65,6 +75,10 @@ if (!class_exists('weblinks_sendmail')) {
             $this->_remote_addr = xoops_getenv('REMOTE_ADDR');
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_sendmail|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -80,6 +94,11 @@ if (!class_exists('weblinks_sendmail')) {
         // REQ 3028: send apoval email to anonymous user
         // move from submit_form.php
         //-------------------------------------------------------------------
+
+        /**
+         * @param $file_tpl
+         * @return string
+         */
         public function get_dir_mail_template($file_tpl)
         {
             $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $this->DIRNAME;
@@ -98,6 +117,14 @@ if (!class_exists('weblinks_sendmail')) {
         //---------------------------------------------------------
         // send mail
         //---------------------------------------------------------
+
+        /**
+         * @param $email
+         * @param $name
+         * @param $lid
+         * @param $passwd
+         * @return bool
+         */
         public function send_passwd_to_user($email, $name, $lid, $passwd)
         {
             $entry = WEBLINKS_URL . "/modlink.php?lid=$lid&code=$passwd";
@@ -105,7 +132,7 @@ if (!class_exists('weblinks_sendmail')) {
             $file_tpl = 'lostpass.tpl';
             $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
-            $xoopsMailer = &getMailer();
+            $xoopsMailer = getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->setTemplateDir($dir_tpl);
             $xoopsMailer->setTemplate($file_tpl);
@@ -135,6 +162,11 @@ if (!class_exists('weblinks_sendmail')) {
         // Notification of new wating link to admn
         // added by SnAKes
         //---------------------------------------------------------
+
+        /**
+         * @param $newid
+         * @return bool
+         */
         public function send_newlink_to_admin($newid)
         {
             $file_tpl = 'link_waiting_notify_admin.tpl';
@@ -146,7 +178,7 @@ if (!class_exists('weblinks_sendmail')) {
             $url = $this->_post->get_post_text('url');
             $mail = $this->_post->get_post_text('mail');
 
-            $xoopsMailer = &getMailer();
+            $xoopsMailer = getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->assign('WAITINGLINKS_URL', $waiting_url);
             $xoopsMailer->assign('SITE_NAME', $title);
@@ -176,6 +208,11 @@ if (!class_exists('weblinks_sendmail')) {
         // Notification to anonymous users
         // added by SnAKes
         //---------------------------------------------------------
+
+        /**
+         * @param $tags
+         * @return bool
+         */
         public function send_approved_to_anonymous($tags)
         {
             $file_tpl = 'link_approve_notify_anon.tpl';
@@ -183,7 +220,7 @@ if (!class_exists('weblinks_sendmail')) {
 
             $mail = $this->_post->get_post_text('mail');
 
-            $xoopsMailer = &getMailer();
+            $xoopsMailer = getMailer();
             $xoopsMailer->useMail();
 
             if (is_array($tags)) {
@@ -218,6 +255,10 @@ if (!class_exists('weblinks_sendmail')) {
         // added by SnAKes
         // TODO: user can choice recieve email or PM
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function send_refused_to_user()
         {
             $uid = $this->_post->get_post_int('uid');
@@ -236,7 +277,7 @@ if (!class_exists('weblinks_sendmail')) {
             $file_tpl = 'link_refused_notify.tpl';
             $dir_tpl = $this->get_dir_mail_template($file_tpl);
 
-            $xoopsMailer = &getMailer();
+            $xoopsMailer = getMailer();
             $xoopsMailer->useMail();
             $xoopsMailer->assign('SITE_URL', $url);
             $xoopsMailer->assign('SITE_NAME', $title);

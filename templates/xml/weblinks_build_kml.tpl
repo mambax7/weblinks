@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="https://earth.google.com/kml/2.1">
+<kml xmlns="http://earth.google.com/kml/2.1">
     <{if $document.tag_use }>
     <Document>
         <{if $document.name != '' }>
@@ -46,5 +46,5 @@
     </Document>
     <{/if}>
 </kml>
-<{* https://earth.google.com/kml/ *}>
-<{* $Id: weblinks_build_kml.html,v 1.1 2008/02/26 16:08:22 ohwada Exp $ *}>
+<{* http://earth.google.com/kml/ *}>
+<{* $Id: weblinks_build_kml.html,v 1.1 2011/12/29 14:32:40 ohwada Exp $ *}>

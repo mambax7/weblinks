@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.4 2008/02/26 16:01:44 ohwada Exp $
+
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:42 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // _MB_WEBLINKS_GM_CONTROL
@@ -121,4 +122,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL', 'mapのマップ・コントロール');
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0:非表示, 1:表示');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'mapの地図形式ボタン');
-}// --- define language end ---
+}
+// --- define language end ---

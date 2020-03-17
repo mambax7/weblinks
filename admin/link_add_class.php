@@ -1,5 +1,6 @@
 <?php
-// $Id: link_add_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_add_class.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -16,6 +17,10 @@
 //=========================================================
 // class admin_link_add
 //=========================================================
+
+/**
+ * Class admin_link_add
+ */
 class admin_link_add extends admin_link_base
 {
     //---------------------------------------------------------
@@ -27,6 +32,9 @@ class admin_link_add extends admin_link_base
         $this->set_edit_handler('link_add');
     }
 
+    /**
+     * @return \admin_link_add|\admin_link_base|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -45,6 +53,9 @@ class admin_link_add extends admin_link_base
         $this->_main_add_form();
     }
 
+    /**
+     * @return bool
+     */
     public function _print_add_form()
     {
         $this->_form->show_admin_form('submit');
@@ -82,7 +93,7 @@ class admin_link_add extends admin_link_base
             // finish
             $com = 'admin add link [' . $this->_newid . ']';
             $msg = _WLS_NEWLINKADDED;
-            $msg .= $this->_build_comment($com);  // for test form
+            $msg .= $this->_build_comment($com);    // for test form
             redirect_header($this->_redirect_desc, 1, $msg);
             exit();
         }
@@ -90,6 +101,9 @@ class admin_link_add extends admin_link_base
         exit();
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_add_link()
     {
         $newid = $this->_edit_handler->admin_add_link();
@@ -104,6 +118,9 @@ class admin_link_add extends admin_link_base
         return $newid;
     }
 
+    /**
+     * @return bool
+     */
     public function _check_add_link()
     {
         $ret = $this->_check_handler->check_form_addlink_by_post();
@@ -145,6 +162,11 @@ class admin_link_add extends admin_link_base
     //---------------------------------------------------------
     // add_banner
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @param $op_mode
+     */
     public function _print_add_banner_form($lid, $op_mode)
     {
         $this->_print_cp_header();
@@ -152,7 +174,7 @@ class admin_link_add extends admin_link_base
 
         if ('add_banner' == $op_mode) {
             echo '<h4 style="color: #0000ff;">' . _WLS_NEWLINKADDED . "</h4>\n";
-            echo "<hr>\n";
+            echo "<hr />\n";
         }
 
         $this->_print_title(_AM_WEBLINKS_ADD_BANNER);

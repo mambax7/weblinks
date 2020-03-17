@@ -1,5 +1,6 @@
 <?php
-// $Id: pagerank_sample.php,v 1.1 2008/02/28 13:55:37 ohwada Exp $
+
+// $Id: pagerank_sample.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -14,11 +15,19 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout_pagerank_sample')) {
+    /**
+     * Class weblinks_htmlout_pagerank_sample
+     */
     class weblinks_htmlout_pagerank_sample extends weblinks_htmlout_base
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout_pagerank_sample constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -27,11 +36,18 @@ if (!class_exists('weblinks_htmlout_pagerank_sample')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function description()
         {
             return 'get and show Google PageRank';
         }
 
+        /**
+         * @return bool
+         */
         public function execute_plugin()
         {
             $pagerank_handler = &$this->get_handler('pagerank');

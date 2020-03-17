@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_rssc_edit_handler.php,v 1.4 2007/09/15 04:16:02 ohwada Exp $
+
+// $Id: weblinks_rssc_edit_handler.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-09-10 K.OHWADA
 // create_new_rssc_obj()
@@ -24,6 +25,10 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
     //=========================================================
     // _RSSC_REFRESH_FINISHED
     //---------------------------------------------------------
+
+    /**
+     * Class weblinks_rssc_edit_handler
+     */
     class weblinks_rssc_edit_handler extends happy_linux_error
     {
         public $_FLAG_DEBUG = false;
@@ -49,23 +54,37 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_rssc_edit_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
-            $this->_link_handler = weblinks_getHandler('link', $dirname);
-            $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
+            $this->_link_handler = weblinks_get_handler('link', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
             $this->_rssc_form = weblinks_rssc_form::getInstance();
         }
 
         //---------------------------------------------------------
         // create rssc object
         //---------------------------------------------------------
+
+        /**
+         * @param $val
+         */
         public function _set_form_mode($val)
         {
             $this->_form_mode = $val;
         }
 
+        /**
+         * @param int  $lid
+         * @param null $form_mode
+         * @return mixed
+         */
         public function &create_new_rssc_obj($lid = 0, $form_mode = null)
         {
             return $this->_rssc_handler->create_new_rssc_obj($lid, $form_mode);
@@ -74,10 +93,15 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         //---------------------------------------------------------
         // user submit
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return int
+         */
         public function add_rssc($lid)
         {
             // create object
-            $rssc_obj = &$this->create_new_rssc_obj($lid);
+            $rssc_obj = $this->create_new_rssc_obj($lid);
 
             // if already exist in rssc module
             $rssc_lid = $this->_rssc_handler->check_get_rssc_exist_lid($rssc_obj);
@@ -122,6 +146,10 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
             return $ret;    // dummy
         }
 
+        /**
+         * @param $rssc_lid
+         * @return int
+         */
         public function _refresh_link($rssc_lid)
         {
             // === refresh rss feeds ===
@@ -153,6 +181,9 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
             return $ret;
         }
 
+        /**
+         * @return |null
+         */
         public function get_parse_result()
         {
             return $this->_parse_result;
@@ -161,10 +192,15 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         //---------------------------------------------------------
         // user modify
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return int
+         */
         public function mod_rssc($lid)
         {
             // create object
-            $rssc_obj = &$this->_rssc_handler->create_rssc_obj_by_lid($lid);
+            $rssc_obj = $this->_rssc_handler->create_rssc_obj_by_lid($lid);
 
             // when not set rssc_lid
             $rssc_lid_saved = $rssc_obj->get('rssc_lid');
@@ -230,21 +266,26 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
                 return $ret;    // dummy
             }
 
-            return 0;   // dummy
+            return 0;    // dummy
         }
 
         //---------------------------------------------------------
         // link_handler
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function get_title_rssurl($lid)
         {
             $title_s = '';
             $rss_url = '';
-            $link_obj = &$this->_link_handler->get($lid);
+            $link_obj = $this->_link_handler->get($lid);
             if (is_object($link_obj)) {
                 $title_s = $link_obj->getVar('title', 's');
                 $rssc_lid = $link_obj->get('rssc_lid');
-                $rssc_link_obj = &$this->get_rssc_link_obj($rssc_lid);
+                $rssc_link_obj = $this->get_rssc_link_obj($rssc_lid);
                 if (is_object($rssc_link_obj)) {
                     $rss_url = $rssc_link_obj->get_rssurl_by_mode();
                 }
@@ -253,13 +294,20 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
             return [$title_s, $rss_url];
         }
 
+        /**
+         * @param $rssc_lid
+         * @return mixed
+         */
         public function &get_rssc_link_obj($rssc_lid)
         {
-            $obj = &$this->_rssc_handler->get_rssc_link($rssc_lid);
+            $obj = $this->_rssc_handler->get_rssc_link($rssc_lid);
 
             return $obj;
         }
 
+        /**
+         * @return bool
+         */
         public function _update_rssc_lid_by_new_rssc_lid()
         {
             $lid = $this->_rssc_obj->get('link_lid');
@@ -271,9 +319,14 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
             return true;
         }
 
+        /**
+         * @param $lid
+         * @param $rssc_lid
+         * @return bool
+         */
         public function _update_rssc_lid($lid, $rssc_lid)
         {
-            $obj = &$this->get_link_obj($lid);
+            $obj = $this->get_link_obj($lid);
             if (!is_object($obj)) {
                 return false;
             }
@@ -297,11 +350,18 @@ if (!class_exists('weblinks_rssc_edit_handler')) {
         //---------------------------------------------------------
         // show form
         //---------------------------------------------------------
+
+        /**
+         * @param $op_mode
+         */
         public function show_form_add_rssc($op_mode)
         {
             $this->_rssc_form->show_add_rssc($this->_rssc_obj, $op_mode);
         }
 
+        /**
+         * @param $op_mode
+         */
         public function show_form_refresh_link($op_mode)
         {
             $this->_rssc_form->show_refresh_link($this->_rssc_newid, $op_mode);

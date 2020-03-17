@@ -1,5 +1,6 @@
 <?php
-// $Id: waiting.php,v 1.2 2007/09/16 01:19:39 ohwada Exp $
+
+// $Id: waiting.php,v 1.1 2011/12/29 14:32:42 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -16,4 +17,5 @@ if (!defined('WEBLINKS_LANG_PI_WAITING_LOADED')) {
     define('_WEBLINKS_PI_WAITING_BROKENS', '破損報告');
     define('_WEBLINKS_PI_WAITING_MODREQS', '修正申請');
     define('_WEBLINKS_PI_WAITING_DELREQS', '削除申請');
-}// --- define language end ---
+}
+// --- define language end ---

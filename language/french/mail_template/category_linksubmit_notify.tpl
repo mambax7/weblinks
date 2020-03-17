@@ -1,18 +1,18 @@
 Bonjour {X_UNAME},
 
-Un nouveau lien "{LINK_NAME}" a été soumis dans la catégorie "{CATEGORY_NAME}" sur {X_SITENAME} et est en attente d'aprobation.
+Un nouveau lien "{LINK_NAME}" a ï¿½tï¿½ soumis dans la catï¿½gorie "{CATEGORY_NAME}" sur {X_SITENAME} et est en attente d'aprobation.
 
-Vous pouvez voir cette soumission de lien ici (notez que cette page montre l'ensemble des liens en attente dans TOUTES les catégories):
+Vous pouvez voir cette soumission de lien ici (notez que cette page montre l'ensemble des liens en attente dans TOUTES les catï¿½gories):
 {WAITINGLINKS_URL}
 
 -----------
 
-Vous recevez ce message parce que vous avez choisi d'être notifié lorsque de nouveaux liens sont soumis dans cette catégorie.
+Vous recevez ce message parce que vous avez choisi d'ï¿½tre notifiï¿½ lorsque de nouveaux liens sont soumis dans cette catï¿½gorie.
 
-S'il s'agissait là d'une erreur ou que vous ne désiriez plus recevoir de notifications ultérieures, veuillez mettre à jour vos notifications en visitant le lien suivant :
+S'il s'agissait lï¿½ d'une erreur ou que vous ne dï¿½siriez plus recevoir de notifications ultï¿½rieures, veuillez mettre ï¿½ jour vos notifications en visitant le lien suivant :
 {X_UNSUBSCRIBE_URL}
 
-Veuillez ne pas répondre à ce message.
+Veuillez ne pas rï¿½pondre ï¿½ ce message.
 
 -----------
 

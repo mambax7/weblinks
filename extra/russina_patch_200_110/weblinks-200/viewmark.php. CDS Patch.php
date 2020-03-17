@@ -1,4 +1,5 @@
 <?php
+
 // $Id: viewmark.php.\040CDS\040Patch.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -53,6 +54,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
 //=========================================================
 // class weblinks_viewmark
 //=========================================================
+
+/**
+ * Class weblinks_viewmark
+ */
 class weblinks_viewmark
 {
     public $_config_handler;
@@ -68,10 +73,15 @@ class weblinks_viewmark
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_viewmark constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+        $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
         $this->_template = weblinks_template::getInstance($dirname);
 
         $this->_class_keyword = happy_linux_keyword::getInstance();
@@ -80,6 +90,10 @@ class weblinks_viewmark
         $this->_conf = &$this->_config_handler->get_conf();
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -90,6 +104,10 @@ class weblinks_viewmark
         return $instance;
     }
 
+    /**
+     * @param $keyword_array
+     * @return array
+     */
     public function build($keyword_array)
     {
         $show_links = false;
@@ -105,7 +123,7 @@ class weblinks_viewmark
         $this->_link_view_handler->set_keyword_array($keyword_array);
         $keywords_urlencoded = $this->_class_keyword->urlencode_from_array($keyword_array);
 
-        list($mark, $show_mark, $title) = $this->_get_mark();
+        [$mark, $show_mark, $title] = $this->_get_mark();
 
         $total = $this->_link_view_handler->get_link_count_by_mark($mark);
         $thereare = sprintf(_WLS_THEREARE, $total);
@@ -132,7 +150,7 @@ class weblinks_viewmark
             'mark' => $mark,
             'total' => $total,
             /* CDS Patch. Weblinks. 2.00. 8. BOF */
-            //      'links'         => $links,
+            //		'links'         => $links,
             'links' => $links[0],
             'links_list' => $links[1],
             /* CDS Patch. Weblinks. 2.00. 8. EOF */
@@ -146,6 +164,9 @@ class weblinks_viewmark
         return $arr;
     }
 
+    /**
+     * @return array
+     */
     public function _get_mark()
     {
         $show_mark = false;
@@ -172,6 +193,12 @@ class weblinks_viewmark
         return [$mark, $show_mark, $title];
     }
 
+    /**
+     * @param $total
+     * @param $mark
+     * @param $keywords
+     * @return array
+     */
     public function _get_links($total, $mark, $keywords)
     {
         global $xoopsTpl;
@@ -218,12 +245,17 @@ class weblinks_viewmark
         /* CDS Patch. Weblinks. 2.00. 8. EOF */
     }
 
+    /**
+     * @param $total
+     * @param $perpage
+     * @return array
+     */
     public function _get_kml_list($total, $perpage)
     {
         $max_page = $this->_link_view_handler->get_gmap_kml_page($total, $perpage);
 
         $kml_list = [];
-        for ($i = 1; $i <= $max_page; ++$i) {
+        for ($i = 1; $i <= $max_page; $i++) {
             $kml_list[]['page'] = $i;
         }
 
@@ -289,4 +321,5 @@ $xoopsTpl->assign('kml_perpage', $arr['kml_perpage']);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

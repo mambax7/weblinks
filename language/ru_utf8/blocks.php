@@ -1,4 +1,5 @@
 <?php
+
 // $Id: blocks.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -29,7 +30,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_BL_LOADED')) {
@@ -119,4 +120,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL', 'Управление карты');
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0:Не показывать, 1:Показывать');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'Тип управления карты');
-}// --- define language end ---
+}
+// --- define language end ---

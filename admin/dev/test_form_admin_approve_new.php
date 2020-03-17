@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_approve_new.php,v 1.2 2007/09/24 07:06:10 ohwada Exp $
+
+// $Id: test_form_admin_approve_new.php,v 1.1 2011/12/29 14:32:58 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // build_rss_url()
@@ -57,7 +58,7 @@ if ($test->check_msg_and_new_link('approve new link')) {
     echo "<h4>Success !</h4>\n";
     echo 'submit & approve new link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: approve link failed: <br><hr>\n";
+    echo "Error: approve link failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -111,7 +112,7 @@ if ($test->is_exist_rssc_module()) {
         echo "<h4>Success !</h4>\n";
         echo 'submit & approve new link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: add link form failed: <br><hr>\n";
+        echo "Error: add link form failed: <br><hr />\n";
         echo $test->get_body() . "<br><br>\n";
         dev_footer();
     }
@@ -155,7 +156,7 @@ if ($test->match_return_msg('notify refuse new link')) {
     echo "<h4>Success !</h4>\n";
     echo 'submit & refuse new link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: refuse new link failed: <br><hr>\n";
+    echo "Error: refuse new link failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -164,4 +165,5 @@ $test->logout();
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

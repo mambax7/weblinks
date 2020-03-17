@@ -1,4 +1,5 @@
 <?php
+
 // $Id: modinfo.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17
@@ -191,10 +192,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Choose whether to display target link page inside a frame');
 
     define('_MI_WEBLINKS_BROKEN', 'Number of Broken Link reports to stop a display');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'Enter the number of Broken Link Reports to stop a display. <br> When below this value, it will be regarded as a temporary error, and nothing will be done. <br>When over this value the link will no longer be displayed.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'Enter the number of Broken Link Reports to stop a display. <br> When below this value, it will be regarded as a temporary error, and nothing will be done. <br>When over this value the link will no longer be displayed.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Use link images for a link list');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Maximum width of a link image');
@@ -216,10 +214,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Enter the maximum number of links to be displayed in "Popular Site" and "Top Rated Site". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'The maximum number of categories in topten');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        'Enter the maximum number of categories  to be displayed in "Popular Site" and "Top Rated Site". <br>timeout occurs, if too many top categories are selected'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Enter the maximum number of categories  to be displayed in "Popular Site" and "Top Rated Site". <br>timeout occurs, if too many top categories are selected');
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
@@ -250,4 +245,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Admin] Notify me when any new link is posted (if entered the comment the admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Receive notification when any new link is posted (if entered the comment for admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New Link)');
-}// --- define language begin ---
+}
+// --- define language begin ---

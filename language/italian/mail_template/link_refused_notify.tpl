@@ -1,9 +1,9 @@
 Ciao, {UNAME}.
 
-Il link che hai inviato è stato rifiutato per una delle seguenti ragioni:
+Il link che hai inviato ï¿½ stato rifiutato per una delle seguenti ragioni:
 - il suo contenuto non soddisfa i nostri criteri
-- il suo contenuto è illegale
-- è un URL rediretto, accettiamo solo URL ad accesso diretto
+- il suo contenuto ï¿½ illegale
+- ï¿½ un URL rediretto, accettiamo solo URL ad accesso diretto
 
 Le informazioni sul sito proposto:
 Nome: {SITE_NAME}

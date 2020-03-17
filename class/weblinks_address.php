@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_address.php,v 1.1 2012/04/10 11:24:42 ohwada Exp $
 
 //=========================================================
@@ -16,6 +17,10 @@ if (!class_exists('weblinks_address')) {
     //=========================================================
     // class weblinks_address
     //=========================================================
+
+    /**
+     * Class weblinks_address
+     */
     class weblinks_address
     {
         public $_DIRNAME;
@@ -26,19 +31,28 @@ if (!class_exists('weblinks_address')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_address constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
             $this->_PATH = XOOPS_ROOT_PATH . '/modules/' . $dirname;
 
-            $conf_handler = weblinks_getHandler('config2_basic', $dirname);
+            $conf_handler = weblinks_get_handler('config2_basic', $dirname);
 
             $conf_handler->init();
             $conf = $conf_handler->get_conf();
             $this->_county_code = $conf['country_code'];
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -52,6 +66,10 @@ if (!class_exists('weblinks_address')) {
         //---------------------------------------------------------
         // init
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &get_instance_locate()
         {
             static $instance_locate;

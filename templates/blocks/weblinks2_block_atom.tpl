@@ -1,4 +1,4 @@
-<{* $Id: weblinks2_block_atom.html,v 1.4 2006/09/30 03:15:23 ohwada Exp $ *}>
+<{* $Id: weblinks2_block_atom.html,v 1.1 2011/12/29 14:32:38 ohwada Exp $ *}>
 
 <ul>
     <{foreach item=feed from=$block.feeds}>
@@ -13,7 +13,7 @@
         &nbsp; from <a href="<{$feed.site_url}>" target="_blank"><{$feed.site_title}></a>
 
         <{if $feed.summary != ""}>
-        <br>
+    <br>
         <{$feed.summary}>
         <{/if}>
 

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_install.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -28,6 +29,10 @@ if (!class_exists('weblinks_install')) {
     //=========================================================
     // class weblinks_install
     //=========================================================
+
+    /**
+     * Class weblinks_install
+     */
     class weblinks_install extends happy_linux_module_install
     {
         public $_DIRNAME;
@@ -44,13 +49,17 @@ if (!class_exists('weblinks_install')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_install constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
             parent::__construct();
-            $weblinksConfig2 = weblinks_config2_define::getInstance($dirname);
-            $this->set_config_define_class($weblinksConfig2);
+            $this->set_config_define_class(weblinks_config2_define::getInstance($dirname));
             $this->set_config_table_name($dirname . '_config2');
 
             $this->_linkitem_define = weblinks_linkitem_define::getInstance($dirname);
@@ -61,6 +70,10 @@ if (!class_exists('weblinks_install')) {
             $this->_modify_table = $this->prefix($dirname . '_modify');
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -74,6 +87,10 @@ if (!class_exists('weblinks_install')) {
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function check_install()
         {
             if (!$this->check_init_config()) {
@@ -87,6 +104,9 @@ if (!class_exists('weblinks_install')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function install()
         {
             $this->init_config();
@@ -98,6 +118,9 @@ if (!class_exists('weblinks_install')) {
             return $this->return_flag_error();
         }
 
+        /**
+         * @return bool
+         */
         public function check_update()
         {
             if (!$this->exists_config_table()) {
@@ -271,6 +294,9 @@ if (!class_exists('weblinks_install')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function update()
         {
             if (!$this->exists_config_table()) {
@@ -338,10 +364,14 @@ if (!class_exists('weblinks_install')) {
         //---------------------------------------------------------
         // config table
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _check_config2_renew()
         {
             $name_arr = [
-                'cat_path',  // v1.40
+                'cat_path',    // v1.40
             ];
 
             return $this->exists_config_item_by_name_array($name_arr);
@@ -350,6 +380,10 @@ if (!class_exists('weblinks_install')) {
         //---------------------------------------------------------
         // linkitem table
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function _create_linkitem_table()
         {
             $sql = '
@@ -366,12 +400,15 @@ CREATE TABLE ' . $this->_linkitem_table . " (
   description text NOT NULL,
   PRIMARY KEY (id),
   KEY item_id (item_id)
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
             return $this->query($sql);
         }
 
+        /**
+         * @return int
+         */
         public function _check_init_linkitem()
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table;
@@ -379,6 +416,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->get_count_by_sql($sql);
         }
 
+        /**
+         * @return bool
+         */
         public function _check_update_linkitem()
         {
             $linkitem_arr = &$this->_get_linkitem_name_array();
@@ -392,6 +432,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return true;
         }
 
+        /**
+         * @return array
+         */
         public function &_get_linkitem_name_array()
         {
             $arr = [];
@@ -408,6 +451,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $arr;
         }
 
+        /**
+         * @return bool
+         */
         public function _init_linkitem()
         {
             $this->clear_error();
@@ -424,6 +470,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->return_errors();
         }
 
+        /**
+         * @return bool
+         */
         public function _update_linkitem()
         {
             $this->clear_error();
@@ -445,11 +494,21 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->return_errors();
         }
 
+        /**
+         * @param $id
+         * @param $def
+         * @return mixed
+         */
         public function _insert_linkitem_by_def($id, $def)
         {
             return $this->_insert_linkitem($this->_build_linkitem_insert_row($id, $def));
         }
 
+        /**
+         * @param $item_id
+         * @param $def
+         * @return array
+         */
         public function &_build_linkitem_insert_row($item_id, $def)
         {
             //print_r( $def );
@@ -482,11 +541,19 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $row;
         }
 
+        /**
+         * @param $row
+         * @return mixed
+         */
         public function _insert_linkitem($row)
         {
             return $this->query($this->_build_insert_linkitem_sql($row));
         }
 
+        /**
+         * @param $row
+         * @return string
+         */
         public function _build_insert_linkitem_sql($row)
         {
             $aux_int_1 = 0;
@@ -514,8 +581,8 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             $sql .= $this->quote($title) . ', ';
             $sql .= (int)$user_mode . ', ';
             $sql .= $this->quote($description) . ', ';
-            $sql .= (int)$aux_int_1 . ', ';
-            $sql .= (int)$aux_int_2 . ', ';
+            $sql .= $aux_int_1 . ', ';
+            $sql .= $aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';
@@ -523,6 +590,10 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $sql;
         }
 
+        /**
+         * @param $id
+         * @return int
+         */
         public function _get_linkitem_count_by_itemid($id)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table . ' WHERE item_id=' . (int)$id;
@@ -530,6 +601,10 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->get_count_by_sql($sql);
         }
 
+        /**
+         * @param $name
+         * @return int
+         */
         public function _get_linkitem_count_by_name($name)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_linkitem_table . ' WHERE name=' . $this->quote($name);
@@ -537,17 +612,24 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->get_count_by_sql($sql);
         }
 
+        /**
+         * @return bool
+         */
         public function _check_linkitem_renew()
         {
             $name_arr = [
-                'map_use',  // 1.20
-                'forum_id', // 1.40.2
-                'renew_1',   // 1.60
+                'map_use',    // 1.20
+                'forum_id',    // 1.40.2
+                'renew_1',    // 1.60
             ];
 
             return $this->_exists_linkitem_item_by_name_array($name_arr);
         }
 
+        /**
+         * @param $name_arr
+         * @return bool
+         */
         public function _exists_linkitem_item_by_name_array($name_arr)
         {
             foreach ($name_arr as $name) {
@@ -560,11 +642,17 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function _check_linkitem_140()
         {
             return $this->exists_column($this->_linkitem_table, 'description');
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_linkitem_140()
         {
             $sql = '
@@ -578,31 +666,54 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         //---------------------------------------------------------
         // category table
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _check_category_210()
         {
             return $this->exists_column($this->_category_table, 'gm_icon');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_category_190()
         {
-            return $this->preg_match_column_type_array($this->_category_table, 'title', ['varchar(255)', 'varbinary(255)']);
+            return $this->preg_match_column_type_array(
+                $this->_category_table,
+                'title',
+                ['varchar(255)', 'varbinary(255)']
+            );
         }
 
+        /**
+         * @return bool
+         */
         public function _check_category_142()
         {
             return $this->exists_column($this->_category_table, 'gm_type');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_category_141()
         {
             return $this->exists_column($this->_category_table, 'album_id');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_category_140()
         {
             return $this->exists_column($this->_category_table, 'forum_id');
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_category_210()
         {
             $sql = '
@@ -614,6 +725,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_category_190()
         {
             $sql = '
@@ -624,6 +738,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_category_142()
         {
             $sql = '
@@ -639,6 +756,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_category_141()
         {
             $sql = '
@@ -657,6 +777,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_category_140()
         {
             $sql = '
@@ -679,46 +802,74 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         //---------------------------------------------------------
         // link table
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _check_link_210()
         {
             return $this->exists_column($this->_link_table, 'gm_icon');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_190()
         {
             return $this->exists_column($this->_link_table, 'pagerank');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_142()
         {
             return $this->exists_column($this->_link_table, 'gm_type');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_141()
         {
             return $this->exists_column($this->_link_table, 'album_id');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_140()
         {
             return $this->exists_column($this->_link_table, 'forum_id');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_130()
         {
             return $this->exists_column($this->_link_table, 'time_publish');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_120()
         {
             return $this->exists_column($this->_link_table, 'map_use');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_link_110()
         {
             return $this->exists_column($this->_link_table, 'dohtml');
         }
 
+        /**
+         * @return bool
+         */
         public function _update_link_210()
         {
             $sql1 = '
@@ -736,6 +887,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return ($ret1 && $ret2);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_190()
         {
             $sql = '
@@ -747,6 +901,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_142()
         {
             $sql = '
@@ -757,6 +914,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_141()
         {
             $sql = '
@@ -767,6 +927,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_140()
         {
             $sql = '
@@ -778,6 +941,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_130()
         {
             $sql = '
@@ -796,6 +962,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_link_120()
         {
             $sql = '
@@ -816,6 +985,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $ret;
         }
 
+        /**
+         * @return bool
+         */
         public function _update_link_110()
         {
             $sql1 = '
@@ -859,46 +1031,74 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         //---------------------------------------------------------
         // modify table
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _check_modify_210()
         {
             return $this->exists_column($this->_modify_table, 'gm_icon');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_190()
         {
             return $this->exists_column($this->_modify_table, 'pagerank');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_142()
         {
             return $this->exists_column($this->_modify_table, 'gm_type');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_141()
         {
             return $this->exists_column($this->_modify_table, 'album_id');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_140()
         {
             return $this->exists_column($this->_modify_table, 'forum_id');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_130()
         {
             return $this->exists_column($this->_modify_table, 'time_publish');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_120()
         {
             return $this->exists_column($this->_modify_table, 'map_use');
         }
 
+        /**
+         * @return bool
+         */
         public function _check_modify_110()
         {
             return $this->exists_column($this->_modify_table, 'dohtml');
         }
 
+        /**
+         * @return bool
+         */
         public function _update_modify_210()
         {
             $sql1 = '
@@ -916,6 +1116,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return ($ret1 && $ret2);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_190()
         {
             $sql = '
@@ -927,6 +1130,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_142()
         {
             $sql = '
@@ -937,6 +1143,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_141()
         {
             $sql = '
@@ -947,6 +1156,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_140()
         {
             $sql = '
@@ -958,6 +1170,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_130()
         {
             $sql = '
@@ -976,6 +1191,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return mixed
+         */
         public function _update_modify_120()
         {
             $sql = '
@@ -994,6 +1212,9 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             return $this->query($sql);
         }
 
+        /**
+         * @return bool
+         */
         public function _update_modify_110()
         {
             $sql1 = '
@@ -1038,6 +1259,10 @@ CREATE TABLE ' . $this->_linkitem_table . " (
         //---------------------------------------------------------
         // template
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function clear_all_template()
         {
             $dir_tpl = XOOPS_ROOT_PATH . '/modules/' . $this->_DIRNAME . '/templates';
@@ -1047,7 +1272,7 @@ CREATE TABLE ' . $this->_linkitem_table . " (
             $this->clear_compiled_tpl_by_dir($dir_tpl . '/parts');
             $this->clear_compiled_tpl_by_dir($dir_tpl . '/xml');
             $this->clear_compiled_tpl_by_dir($dir_tpl . '/map');
-            //  $this->clear_compiled_tpl_by_dir( $dir_tpl .'/customs' );
+            //	$this->clear_compiled_tpl_by_dir( $dir_tpl .'/customs' );
 
             return $this->return_errors();
         }

@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.1 2007/09/29 12:37:33 ohwada Exp $
+
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:41 ohwada Exp $
 
 // 2007-09-24 Luigi Trovato - Italian translation
 
@@ -104,4 +105,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_CAT_TITLE_LENGTH', 'Lunghezza del Titolo Categoria');
     define('_MB_WEBLINKS_GM_DESC_LENGTH', 'Lunghezza del Contenuto nel marker mappa');
     define('_MB_WEBLINKS_GM_WORDWRAP', 'Lunghezza a capo nel marker mappa');
-}// --- define language end ---
+}
+// --- define language end ---

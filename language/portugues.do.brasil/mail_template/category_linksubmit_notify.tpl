@@ -1,18 +1,18 @@
 Ola {X_UNAME},
 
-Um novo link "{LINK_NAME}" foi enviado na categoria "{CATEGORY_NAME}" em {X_SITENAME} e está aguardando aprovação.
+Um novo link "{LINK_NAME}" foi enviado na categoria "{CATEGORY_NAME}" em {X_SITENAME} e estï¿½ aguardando aprovaï¿½ï¿½o.
 
-Você pode visualizar a solicitação aqui (nota esta página exibe links aguardando em TODAS as categorias):
+Vocï¿½ pode visualizar a solicitaï¿½ï¿½o aqui (nota esta pï¿½gina exibe links aguardando em TODAS as categorias):
 {WAITINGLINKS_URL}
 
 -----------
 
-Você está recebendo esta mensagem porque foi selecionado notificação quando novos links forem enviados nesta categoria.
+Vocï¿½ estï¿½ recebendo esta mensagem porque foi selecionado notificaï¿½ï¿½o quando novos links forem enviados nesta categoria.
 
-Se isto for um erro ou você deseja não receber mais mais tais notificações, atualize sua inscrição clicando o link abaixo:
+Se isto for um erro ou vocï¿½ deseja nï¿½o receber mais mais tais notificaï¿½ï¿½es, atualize sua inscriï¿½ï¿½o clicando o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Por favor não responda esta mensagem.
+Por favor nï¿½o responda esta mensagem.
 
 -----------
 

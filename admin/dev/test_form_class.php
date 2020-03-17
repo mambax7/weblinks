@@ -1,4 +1,5 @@
 <?php
+
 // $Id: test_form_class.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //=========================================================
@@ -34,6 +35,10 @@ include_once 'test_form_parser_class.php';
 //=========================================================
 // class weblinks_test_form
 //=========================================================
+
+/**
+ * Class weblinks_test_form
+ */
 class weblinks_test_form extends weblinks_gen_record
 {
     public $_UNAME_ADMIN = 'admin';
@@ -76,6 +81,9 @@ class weblinks_test_form extends weblinks_gen_record
         $this->update_config_by_name('use_pagerank', 0);
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -89,6 +97,10 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // login
     //---------------------------------------------------------
+
+    /**
+     * @return array|bool
+     */
     public function login_admin()
     {
         $ret = $this->login($this->_UNAME_ADMIN, $this->_PASS_ADMIN);
@@ -96,6 +108,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @return array|bool
+     */
     public function login_user()
     {
         $ret = $this->login($this->_UNAME_USER, $this->_PASS_USER);
@@ -103,6 +118,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @return array|bool
+     */
     public function login_other()
     {
         $ret = $this->login($this->_UNAME_OTHER, $this->_PASS_OTHER);
@@ -110,6 +128,11 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @param $uname
+     * @param $pass
+     * @return array|bool
+     */
     public function login($uname, $pass)
     {
         echo " login $uname <br>\n";
@@ -143,6 +166,10 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @param bool $flag
+     * @return array|bool
+     */
     public function logout($flag = true)
     {
         $url = XOOPS_URL . '/user.php?op=logout';
@@ -163,6 +190,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @return array|bool
+     */
     public function get_cookies()
     {
         $this->_snoopy->setcookies();
@@ -177,6 +207,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $cookies;
     }
 
+    /**
+     * @return bool
+     */
     public function check_config_rss_use()
     {
         if (0 == $this->get_config_by_name('rss_use')) {
@@ -191,6 +224,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // fetch_form
     //---------------------------------------------------------
+
+    /**
+     * @param $url
+     * @return bool
+     */
     public function fetch($url)
     {
         $ret = $this->_snoopy->fetch($url);
@@ -204,6 +242,10 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @param $url
+     * @return bool
+     */
     public function fetch_form($url)
     {
         $this->print_debug("fetch_form($url)");
@@ -222,6 +264,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // get_form_values
     //---------------------------------------------------------
+
+    /**
+     * @param null $result
+     * @return array
+     */
     public function &get_form_values($result = null)
     {
         if (empty($result)) {
@@ -233,14 +280,14 @@ class weblinks_test_form extends weblinks_gen_record
             if (2 == $this->_DEBUG_PRINT_RESULT_LEVEL) {
                 $res = $this->get_body();
             } elseif (3 == $this->_DEBUG_PRINT_RESULT_LEVEL) {
-                $res = htmlspecialchars($result);
+                $res = htmlspecialchars($result, ENT_QUOTES | ENT_HTML5);
                 $res = nl2br($res);
             }
 
-            echo "<hr>\n";
+            echo "<hr />\n";
             echo "<b>result</b><br>\n";
             echo $res;
-            echo "<hr>\n";
+            echo "<hr />\n";
         }
 
         $arr = &$this->_form_parser->parse($result);
@@ -258,6 +305,11 @@ class weblinks_test_form extends weblinks_gen_record
     // get ticket
     // < input type="hidden" name="XOOPS_G_TICKET" value="e1c3d9c1ece8114441b7ac68e90e429b" />
     //---------------------------------------------------------
+
+    /**
+     * @param null $result
+     * @return bool|mixed
+     */
     public function get_ticket($result = null)
     {
         $val = $this->get_hidden_value('XOOPS_G_TICKET', $result);
@@ -275,6 +327,12 @@ class weblinks_test_form extends weblinks_gen_record
     // get_hidden_value
     // < input type="hidden" name="lid" id="lid" value="155" />
     //---------------------------------------------------------
+
+    /**
+     * @param      $name
+     * @param null $result
+     * @return bool|mixed
+     */
     public function get_hidden_value($name, $result = null)
     {
         if (empty($result)) {
@@ -298,6 +356,12 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // submit_form
     //---------------------------------------------------------
+
+    /**
+     * @param $url
+     * @param $form
+     * @return bool
+     */
     public function submit_form($url, $form)
     {
         if ($this->_DEBUG_PRINT_SUBMIT) {
@@ -322,11 +386,19 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // get_results
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_results()
     {
         return $this->_snoopy->results;
     }
 
+    /**
+     * @param null $result
+     * @return string|string[]|null
+     */
     public function get_body($result = null)
     {
         if (empty($result)) {
@@ -339,15 +411,24 @@ class weblinks_test_form extends weblinks_gen_record
         return $str;
     }
 
+    /**
+     * @param bool $flag_print
+     * @param null $result
+     */
     public function print_body($flag_print = false, $result = null)
     {
         if ($flag_print || $this->_flag_print_body) {
-            echo "<hr>\n";
+            echo "<hr />\n";
             echo $this->get_body($result);
-            echo "<hr>\n";
+            echo "<hr />\n";
         }
     }
 
+    /**
+     * @param      $str
+     * @param null $result
+     * @return bool
+     */
     public function match_result($str, $result = null)
     {
         if (empty($result)) {
@@ -362,13 +443,18 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param      $str
+     * @param null $result
+     * @return bool
+     */
     public function match_return_msg($str, $result = null)
     {
         if (empty($result)) {
             $result = $this->_snoopy->results;
         }
 
-        list($msg, $newid) = $this->get_return_msg($result);
+        [$msg, $newid] = $this->get_return_msg($result);
 
         $pattern = '/' . preg_quote($str) . '/';
 
@@ -383,6 +469,10 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param null $result
+     * @return array
+     */
     public function get_return_msg($result = null)
     {
         if (empty($result)) {
@@ -405,6 +495,9 @@ class weblinks_test_form extends weblinks_gen_record
         return [$msg, $newid];
     }
 
+    /**
+     * @return |null
+     */
     public function get_newid()
     {
         return $this->_newid;
@@ -413,43 +506,70 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // set param
     //---------------------------------------------------------
+
+    /**
+     * @param $uname
+     * @param $pass
+     */
     public function set_admin_uname_pass($uname, $pass)
     {
         $this->_UNAME_ADMIN = $uname;
         $this->_PASS_ADMIN = $pass;
     }
 
+    /**
+     * @param $uname
+     * @param $pass
+     */
     public function set_user_uname_pass($uname, $pass)
     {
         $this->_UNAME_USER = $uanme;
         $this->_PASS_USER = $pass;
     }
 
+    /**
+     * @return string
+     */
     public function get_admin_uname()
     {
         return $this->_UNAME_ADMIN;
     }
 
+    /**
+     * @return string
+     */
     public function get_user_uname()
     {
         return $this->_UNAME_USER;
     }
 
+    /**
+     * @return string
+     */
     public function get_other_uname()
     {
         return $this->_UNAME_OTHER;
     }
 
+    /**
+     * @param $val
+     */
     public function set_debug_print_submit($val)
     {
         $this->_DEBUG_PRINT_SUBMIT = (bool)$val;
     }
 
+    /**
+     * @param $val
+     */
     public function set_debug_print_result_level($val)
     {
         $this->_DEBUG_PRINT_RESULT_LEVEL = (int)$val;
     }
 
+    /**
+     * @param $val
+     */
     public function set_debug_print_form_value($val)
     {
         $this->_DEBUG_PRINT_FORM_VALUE = (bool)$val;
@@ -458,6 +578,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // user submit
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_submit_link_with_login($param)
     {
         $ret = $this->login_user();
@@ -478,6 +603,10 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_submit_link(&$param)
     {
         $ret = $this->fetch_form($this->_user_submit_url);
@@ -497,14 +626,14 @@ class weblinks_test_form extends weblinks_gen_record
         if (isset($param['return'])) {
             if (!$this->match_return_msg($param['return'])) {
                 $this->print_error('Error: submit link failed: ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
             }
             if (empty($this->_newid)) {
                 $this->print_error('Error: submit link failed: cannot get newid ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
@@ -517,6 +646,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // user modify
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_modify_link_with_login($param)
     {
         $ret = $this->login_user();
@@ -537,6 +671,10 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_modify_link(&$param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -560,14 +698,14 @@ class weblinks_test_form extends weblinks_gen_record
         if (isset($param['return'])) {
             if (!$this->match_return_msg($param['return'])) {
                 $this->print_error('Error: modify link failed: ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
             }
             if (empty($this->_newid)) {
                 $this->print_error('Error: modify link failed: cannot get newid ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
@@ -577,6 +715,11 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @param      $lid
+     * @param null $uname
+     * @return bool
+     */
     public function is_link_owner_other($lid, $uname = null)
     {
         if (empty($uname)) {
@@ -587,6 +730,11 @@ class weblinks_test_form extends weblinks_gen_record
         return $ret;
     }
 
+    /**
+     * @param      $lid
+     * @param null $uname
+     * @return bool
+     */
     public function is_link_owner($lid, $uname = null)
     {
         $link_uid = 0;
@@ -609,6 +757,9 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @return int|null
+     */
     public function get_post_lid()
     {
         $lid = null;
@@ -619,6 +770,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $lid;
     }
 
+    /**
+     * @return mixed|null
+     */
     public function get_post_passwd()
     {
         $passwd = null;
@@ -629,6 +783,9 @@ class weblinks_test_form extends weblinks_gen_record
         return $passwd;
     }
 
+    /**
+     * @param bool $flag_pass
+     */
     public function print_form_lid($flag_pass = false)
     {
         echo '<form method="post">';
@@ -647,9 +804,14 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // user delete
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_delete_link_with_login($param)
     {
-        //  echo "user_delete_link_with_login <br>\n";
+        //	echo "user_delete_link_with_login <br>\n";
 
         $ret = $this->login_user();
         if (!$ret) {
@@ -670,14 +832,14 @@ class weblinks_test_form extends weblinks_gen_record
         if (isset($param['return'])) {
             if (!$this->match_return_msg($param['return'])) {
                 $this->print_error('Error: delete link failed: msg unmatch ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
             }
             if (empty($this->_newid)) {
                 $this->print_error('Error: delete link failed: cannot get newid ');
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->get_body() . "<br><br>\n";
 
                 return false;
@@ -692,6 +854,10 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @param $param
+     * @return bool
+     */
     public function user_delete_link($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -724,6 +890,9 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function user_delete_reason()
     {
         $form_values = $this->get_form_values();
@@ -744,6 +913,9 @@ class weblinks_test_form extends weblinks_gen_record
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function user_delete_confirm()
     {
         $form_values = $this->get_form_values();
@@ -767,6 +939,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // build_link_form
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return array
+     */
     public function &build_link_form(&$param)
     {
         $op = isset($param['op']) ? $param['op'] : null;
@@ -812,12 +989,16 @@ class weblinks_test_form extends weblinks_gen_record
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_del($v)
     {
         $notify = isset($v['notify']) ? $v['notify'] : 0;
 
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'delete' => 'delete',
             'lid' => $v['lid'],
@@ -827,6 +1008,10 @@ class weblinks_test_form extends weblinks_gen_record
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_del_reason($v)
     {
         $notify = isset($v['notify']) ? $v['notify'] : 0;
@@ -837,7 +1022,7 @@ class weblinks_test_form extends weblinks_gen_record
         $reason = "reason\n" . $this->get_randum_title();
 
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'lid' => $v['lid'],
@@ -851,13 +1036,17 @@ class weblinks_test_form extends weblinks_gen_record
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_del_confirm($v)
     {
         $passwd_old = isset($v['passwd_old']) ? $v['passwd_old'] : null;
         $request = isset($v['request']) ? $v['request'] : 0;
 
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'lid' => $v['lid'],
@@ -869,6 +1058,10 @@ class weblinks_test_form extends weblinks_gen_record
         return $arr;
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function build_rss_url($id)
     {
         $text = WEBLINKS_URL . '/dev/rss.php?id=' . $id;
@@ -879,6 +1072,11 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // compare check
     //---------------------------------------------------------
+
+    /**
+     * @param $str
+     * @return bool
+     */
     public function check_msg_and_new_link($str)
     {
         if ($this->match_return_msg($str)) {
@@ -891,6 +1089,10 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param $str
+     * @return bool
+     */
     public function check_msg_and_link($str)
     {
         if ($this->match_return_msg($str)) {
@@ -902,6 +1104,11 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param $lid
+     * @param $expect
+     * @return bool
+     */
     public function check_link($lid, $expect)
     {
         $row = &$this->get_link($lid);
@@ -930,6 +1137,11 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param $rssc_lid
+     * @param $expect
+     * @return bool
+     */
     public function check_rssc_link($rssc_lid, $expect)
     {
         $row = &$this->get_rssc_link($rssc_lid);
@@ -949,6 +1161,10 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param $rssc_lid
+     * @return bool
+     */
     public function check_rssc_feed($rssc_lid)
     {
         if ($this->get_rssc_feed_count_by_rssc_link($rssc_lid)) {
@@ -959,6 +1175,11 @@ class weblinks_test_form extends weblinks_gen_record
         return false;
     }
 
+    /**
+     * @param $lid
+     * @param $title
+     * @return bool
+     */
     public function check_link_title($lid, $title)
     {
         $row = &$this->get_link($lid);
@@ -974,6 +1195,10 @@ class weblinks_test_form extends weblinks_gen_record
     //---------------------------------------------------------
     // RSSC module
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function is_exist_rssc_module()
     {
         return $this->is_exist_module($this->get_config_by_name('rss_dirname'));

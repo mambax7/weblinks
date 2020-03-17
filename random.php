@@ -1,5 +1,5 @@
 <?php
-// $Id: random.php,v 1.10 2007/09/15 04:16:00 ohwada Exp $
+// $Id: random.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-09-01 K.OHWADA
 // mode_random_jump
@@ -25,8 +25,8 @@
 
 include 'header.php';
 
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
 
 $conf = $weblinks_config_handler->get_conf();
 $lid_arr = $weblinks_link_handler->get_lid_array_by_random(1);

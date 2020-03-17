@@ -1,4 +1,5 @@
 <?php
+
 // $Id: link_list.php,v 1.3 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -48,6 +49,10 @@ include 'admin_header_list.php';
 //=========================================================
 // class admin_link_list
 //=========================================================
+
+/**
+ * Class admin_link_list
+ */
 class admin_link_list extends happy_linux_page_frame
 {
     public $_modify_handler;
@@ -83,9 +88,9 @@ class admin_link_list extends happy_linux_page_frame
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
         $this->set_flag_execute_time(true);
 
-        $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
-        $this->_broken_handler = weblinks_getHandler('broken', WEBLINKS_DIRNAME);
+        $config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_get_handler('broken', WEBLINKS_DIRNAME);
 
         $this->_strings = happy_linux_strings::getInstance();
         $this->_locate = weblinks_locate_factory::getInstance(WEBLINKS_DIRNAME);
@@ -95,9 +100,12 @@ class admin_link_list extends happy_linux_page_frame
             $this->_flag_show_etc1 = true;
         }
 
-        $this->_conf = $config_handler->get_conf();
+        $this->_conf = &$config_handler->get_conf();
     }
 
+    /**
+     * @return \admin_link_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -120,6 +128,10 @@ class admin_link_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return int[]
+     */
     public function &_get_op_sortid_array()
     {
         $arr = [
@@ -136,6 +148,9 @@ class admin_link_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -163,6 +178,9 @@ class admin_link_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return int
+     */
     public function _get_total()
     {
         $this->_count_all = $this->_get_total_all();
@@ -205,6 +223,11 @@ class admin_link_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function &_get_items($limit = 0, $start = 0)
     {
         switch ($this->_sortid) {
@@ -238,6 +261,10 @@ class admin_link_list extends happy_linux_page_frame
         return $objs;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $lid = $obj->getVar('lid', 'n');
@@ -371,4 +398,5 @@ $list = admin_link_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

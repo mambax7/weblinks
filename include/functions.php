@@ -1,5 +1,6 @@
 <?php
-// $Id: functions.php,v 1.7 2007/09/15 04:16:02 ohwada Exp $
+
+// $Id: functions.php,v 1.1 2011/12/29 14:32:34 ohwada Exp $
 
 // 2007-09-10 K.OHWADA
 // weblinks_get_config()
@@ -11,14 +12,23 @@
 
 // --- weblinks_functions begin ---
 if (!function_exists('weblinks_get_handler')) {
-    function &weblinks_getHandler($name = null, $module_dir = null)
+    /**
+     * @param null $name
+     * @param null $module_dir
+     * @return bool|mixed
+     */
+    function &weblinks_get_handler($name = null, $module_dir = null)
     {
-        return happy_linux_getHandler($name, $module_dir, 'weblinks');
+        return happy_linux_get_handler($name, $module_dir, 'weblinks');
     }
 
     //---------------------------------------------------------
     // for block
     //---------------------------------------------------------
+    /**
+     * @param $DIRNAME
+     * @return array
+     */
     function &weblinks_get_config($DIRNAME)
     {
         global $xoopsDB;
@@ -40,6 +50,11 @@ if (!function_exists('weblinks_get_handler')) {
         return $arr;
     }
 
+    /**
+     * @param        $conf_broken
+     * @param string $prefix
+     * @return string
+     */
     function weblinks_get_where_public($conf_broken, $prefix = '')
     {
         $broken = $prefix . 'broken';
@@ -58,6 +73,9 @@ if (!function_exists('weblinks_get_handler')) {
     // hack for multi site
     //---------------------------------------------------------
     // admin/admin_functions.php
+    /**
+     * @return bool
+     */
     function weblinks_multi_is_english_site()
     {
         global $xoopsConfig;
@@ -71,6 +89,9 @@ if (!function_exists('weblinks_get_handler')) {
     }
 
     // caller: class/link.php
+    /**
+     * @return bool
+     */
     function weblinks_multi_is_japanese_site()
     {
         global $xoopsConfig;
@@ -84,6 +105,12 @@ if (!function_exists('weblinks_get_handler')) {
     }
 
     // caller: include/search.inc.php
+    /**
+     * @param      $dirname
+     * @param      $table
+     * @param bool $flag
+     * @return string
+     */
     function weblinks_multi_get_table_name($dirname, $table, $flag = true)
     {
         if ($flag
@@ -100,4 +127,5 @@ if (!function_exists('weblinks_get_handler')) {
 
         return $val;
     }
-}// --- weblinks_functions end ---
+}
+// --- weblinks_functions end ---

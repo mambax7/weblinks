@@ -1,21 +1,21 @@
 Bonjour {X_UNAME},
 
-Une nouvelle catégorie de lien "{CATEGORY_NAME}" a été créé sur {X_SITENAME}.
+Une nouvelle catï¿½gorie de lien "{CATEGORY_NAME}" a ï¿½tï¿½ crï¿½ï¿½ sur {X_SITENAME}.
 
-Suivez le lien suivant afin de visualiser cette catégorie :
+Suivez le lien suivant afin de visualiser cette catï¿½gorie :
 {CATEGORY_URL}
 
-Suivez le lien suivant afin de visualiser l'index des catégories :
+Suivez le lien suivant afin de visualiser l'index des catï¿½gories :
 {X_MODULE_URL}
 
 -----------
 
-Vous recevez ce message parce que vous avez choisi d'être notifié lorsque de nouvelles catégories de liens sont ajoutées sur notre site.
+Vous recevez ce message parce que vous avez choisi d'ï¿½tre notifiï¿½ lorsque de nouvelles catï¿½gories de liens sont ajoutï¿½es sur notre site.
 
-S'il s'agissait là d'une erreur ou que vous ne désiriez de plus recevoir de notifications ultérieures, veuillez mettre à jour vos notifications en visitant le lien suivant :
+S'il s'agissait lï¿½ d'une erreur ou que vous ne dï¿½siriez de plus recevoir de notifications ultï¿½rieures, veuillez mettre ï¿½ jour vos notifications en visitant le lien suivant :
 {X_UNSUBSCRIBE_URL}
 
-Veuillez ne pas répondre à ce message.
+Veuillez ne pas rï¿½pondre ï¿½ ce message.
 
 -----------
 

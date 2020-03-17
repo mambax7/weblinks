@@ -1,10 +1,10 @@
-$Id: readme_jp.txt,v 1.68 2009/01/05 18:39:38 ohwada Exp $
+$Id: readme_jp.txt,v 1.1 2011/12/29 14:32:35 ohwada Exp $
 
 =================================================
 Version: 1.93
 Date:   2009-01-04
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -13,7 +13,7 @@ Email:  webmaster@ohwada.jp
 
 2. �Х��к�
 (1) �С������ xx �ǤϤʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=861&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=861&forum=5
 
 
 =================================================
@@ -23,17 +23,17 @@ Date:   2008-10-18
 
 �� �ѹ�����
 1. Newbbex �ѤΥץ饰������ɲ�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=423&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=423&forum=2
 
 2. �ڥ륷���ι���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=424&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=424&forum=2
 
 3. �Х��к�
 (1) URL �� & ���ޤޤ�Ƥ���� &amp; �ˤʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=831&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=831&forum=5
 
 (2) Notice in weblinks_link_view_handler.php
-https://xoopscube.jp/modules/xhnewbb/viewtopic.php?topic_id=5862
+http://xoopscube.jp/modules/xhnewbb/viewtopic.php?topic_id=5862
 
 
 =================================================
@@ -43,14 +43,14 @@ Date:   2008-04-12
 
 �� �ѹ�����
 1. �ƥ�ץ졼�Ȥˤ� $xoops_isuser ����Ѥ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=792
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=792
 
 2. URL���ܤΤʤ���󥯤Υڡ�����󥯤�ɽ�����ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=794&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=794&forum=5
 
 3. �Х��к�
 (1) �ѥ���ɡ��ꥯ�����ȤΤ��Ȥǡ��ѥ���ɤ��ѹ��Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=791
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=791
 
 
 =================================================
@@ -92,7 +92,7 @@ plugin_a ( param_a, param_b, param_c )
 - �ץ饰����Υƥ���
 
 2. Google PageRank ���б�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=383
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=383
 
 (1)�ֹ� PageRank �����ȡפ��ɲä���
 (2) ��󥯳��פȥ�󥯾ܺ٤� �ФΥС���ɽ������
@@ -105,12 +105,12 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=383
 Google �θ����ʥ����ӥ��ǤϤ���ޤ���
 ����Ū�ˤ�ư��ʤ����Ȥ⤢��ޤ���
 
-�ġ���С��ʤ��� PageRank
-https://www.google.com/support/toolbar/bin/answer.py?answer=9156&topic=11773
-���ߤΤȤ���PageRank ��ǽ�� Google �ġ���С��ǤΤ��󶡤��Ƥ��ޤ���
+�ġ���С��ʤ��� PageRank 
+http://www.google.com/support/toolbar/bin/answer.py?answer=9156&topic=11773
+���ߤΤȤ���PageRank ��ǽ�� Google �ġ���С��ǤΤ��󶡤��Ƥ��ޤ��� 
 
 3. Google KML ���б�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=770
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=770
 
 (1) ��GoogleMaps �б������ȡפ��ɲä�����KML �����פ�ɽ������
 (2) �ץ饰����ˤ�ꡢ�������ޥ������ǽ�ˤ���
@@ -121,29 +121,29 @@ addType application/vnd.google-earth.kml+xml .kml
 -----
 
 4. �����Բ��̤ˡ֥⥸�塼������ꣷ(��˥塼)�פ��ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=362
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=362
 
 (1) ��˥塼��ɽ���˴�Ϣ����������ܤ��󤷤�
 (2) ��˥塼�Υ����ȥ���ѹ���ǽ�ˤ���
 
 5. ���ƥ���̾��ʸ������ 50 ʸ������ 255 ʸ�����ѹ�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=364
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=364
 
 6. ��Ͽ���̤�������β���Ĺ����������ѹ�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=382&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=382&forum=2
 
 7. �֥�å��ˤ� GoogleMaps ���Ͽ޷����ܥ����ɽ�����ʤ����ץ������ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=730
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=730
 
 8. �����Բ��̤Υ�󥯰����Ͽ�ˤơ�ȯ����������Ǥ���褦���ѹ�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=790&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=790&forum=5
 
 9. ����ե�����
 (1) ����ӥ��� ����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
 
 (2) �ڥ륷���� ����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=387&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=387&forum=2
 
 10. �Х�����
 (1) ��ǧ�Ԥ��κ����󥯤ˤơ�fatal error
@@ -197,17 +197,17 @@ Date:   2008-02-16
 (2) [����] �Ͽޤη��� ��������
 
 2. ���󥹥ȡ���������ѹ�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=767&forum=8
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=767&forum=8
 
 3. �ƥ�ץ졼���ѿ� xoops_module_heade ���ѹ�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=772&forum=9
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=772&forum=9
 
 4. ����ڤ측���˥����ॢ���Ȼ��֤�ɽ������
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=381&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=381&forum=2
 
 5. �Х�����
 (1) �Ͽޤη��� (GMapType) �ν���ͤ�����̿��ˤ���ȡ��������Ϥ�ɽ�������
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=634&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=634&forum=5
 
 (2) ����������Υ���褬�㤦
 
@@ -223,10 +223,10 @@ Date:   2008-01-18
 
 2. �Х��к�
 (1) Only variables should be assigned by reference
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=758&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=758&forum=5
 
 (2) ����Х�ˤơ�Ʊ�����ƥ���̾��ɽ������ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=763&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=763&forum=5
 
 (3) Fatal error: Call to a member function on a non-object in weblinks_rssc_view_handler.php
 (4) fopen(): failed to open stream: No such file or directory in weblinks_banner_handler.php
@@ -240,10 +240,10 @@ Date:   2007-12-29
 �� �ѹ�����
 1. �Х��к�
 (1) ����ɽ���ˤơ����ޥ��꡼��������ɽ������ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=746&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=746&forum=5
 
 (2) ����̾������ʤɤ��ָ����ץե�����ɤ����ꤵ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=754&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=754&forum=5
 
 ���Ǥ���Ͽ����Ƥ���ָ����ץե�����ɤ�������ġ����ź�դ��ޤ�����
 �����Բ��̤Ρ�DB�ơ��֥�����פ˰��ֲ��ˤ����Rebuild search field�פ�¹Ԥ���������
@@ -257,20 +257,20 @@ Date:   2007-12-16
 
 �� �ѹ�����
 1. ������쥯�Ȥ���ˡ�� header() ���ѹ�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=742&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=742&forum=5
 
 2. �Х��к�
 (1) ���ƥ���Υѥ󤯤��ˤ� a �������Ĥ��ƤƤ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=737&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=737&forum=5
 
 (2) �����Ͽ�ˤơ�TOP �˥�󥯤���Ͽ�Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=740&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=740&forum=5
 
 (3) RSSC �ؤΥ������ݡ��Ȥˤơ�Fatal ���顼
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=741&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=741&forum=5
 
 (4) 1.31 ���� update �Ǥ��ʤ�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=366&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=366&forum=2
 
 
 =================================================
@@ -284,19 +284,19 @@ config �ơ��֥�θ����ʤɤ��ɲä���
 
 2. �Х��к�
 (1) �ץ�ӥ塼�Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=721
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=721
 
 (2) ��󥯤�����Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=729
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=729
 
 (3) �ޥ��ʥ�����ɼ�������
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=359&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=359&forum=2
 
 (4) TEXT ���Υ����ˤ� DEFAULT �ͤ�����Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
 
 (5) ������̿��֥�å��� fatal ���顼
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=734&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=734&forum=5
 
 (6) ����ɽ���ΤȤ���BB�����ɤ��Ѵ�����ʤ�
 
@@ -315,22 +315,22 @@ Date:   2007-11-11
 
 3. ���������
 (1) ��������̤� 16MB ���٤��㸺����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=716&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=716&forum=5
 
 (2) ��������̤�ɽ������
 
-4. ����ͥ��롦�����ӥ��� https://www.websitethumbnails.net/ ���ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=339
+4. ����ͥ��롦�����ӥ��� http://www.websitethumbnails.net/ ���ɲä���
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?forum=2&topic_id=339
 
 5. ���ץ������ɲä���
 (1) Google �ޥåפΥޡ������β�������ꤹ��
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=705&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=705&forum=5
 
 (2) ����ʸ��ʸ���������¤���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=347&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=347&forum=2
 
 (3) ɬ��̾����ɽ������
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
 
 6. �������
 (1) Google ���� �� Yahoo ���� �����褿�Ȥ��ˤϡ�����������ɤ�ϥ��饤�Ȥ���
@@ -343,32 +343,32 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=349&forum=2
 
 10. ����
 (1) �����ꥢ����ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
 
 (2) ����ӥ�����ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=351&forum=2
 
 (3) ���ڥ����򹹿�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=344&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=344&forum=2
 
 (4) �ڥ륷���򹹿�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=343&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=343&forum=2
 
 11. �Х��к�
 (1) �����Ȥ���󥯤��ѹ��Ǥ��ʤ�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=342&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=342&forum=2
 
 (2) fatal error in blocks/weblinks_plugin.php
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=718&forum=2
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=718&forum=2
 
 (3) �����ϿޤΥ�󥯿���ɽ������ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=722&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=722&forum=5
 
 (4) �����Ȥ��ѥ���ɤ���Ͽ�Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=725&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=725&forum=5
 
 (5) �����ڡ����ˤơ��ڡ����Ϥ�� cid �������Ѥ���ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=727&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=727&forum=5
 
 (6) rssc �⥸�塼��ؤΥǡ������������ݡ��Ȥ�����ʤ�
 
@@ -398,7 +398,7 @@ Date:   2007-09-23
 
 �� �ѹ�����
 1. �Хʡ������ΰ���ݴɥǥ��쥯�ȥ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
 
 (1) /tmp �� open_basedir �˴ޤޤ�뤫��������
 (2) �����Ԥ� preload �ˤ�Ǥ�դΥǥ��쥯�ȥ�����Ǥ���
@@ -410,14 +410,14 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=694&forum=5
 
 3. �Х��к�
 (1) [4705] �����Ͽ�ˤ� fatal error
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4705&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4705&group_id=1199&atid=971
 
 (2) [4707] weblinks_config2_basic_handler.php: Only variables should be assigned by reference
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4707&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=691&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4707&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=691&forum=5
 
 (3) ������ɽ���Ǥ��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=696
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=696
 
 (4) ����ڤ�����ˤ� fatal error
 (5) �������ξ�ǧ���Ǥ��ʤ�
@@ -433,16 +433,16 @@ Date:   2007-09-16
 1. �����Ͽ���ѹ�������������˲�������
 
 1.1 �桼���˥�󥯤������븢�¤��ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=638&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=638&forum=5
 
 1.2 [4514] �桼����ȯ��������λ�������ꤹ�븢�¤��ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=290&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=290&forum=2
 
 �桼���ϡ�ȯ�������Ǥ���С���󥯤�����Ǥ��ʤ�����
 ��ʬ�Υ�󥯤Ǥ���С�ȯ�������Ǥ⡢�����Ǥ���褦�ˤ�����
 
 1.3 �����Ͽ�ΤȤ��ˡ��ִ����԰��ƥ����ȡפ�����Ԥ����Τ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
 
 (1) �桼���Ѥ˲ä��ơ��������ѤΥ��٥�����Τ��ɲä���
 
@@ -456,7 +456,7 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=459&forum=5
 ȯ�������Ǥ����Τϡ����٥�����Τ�Ԥ�ʤ�
 
 1.4 [4068] �����Ԥ����Τ��뤫�ݤ������򤹤�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=171&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=171&forum=2
 
 ��Ͽ�桼���ΤȤ��ϡ�XOOPS���ΤΥ��٥�����Τ����Ѥ���
 �����ȤΤȤ��ϡ��ȼ��˥᡼�����Τ�������Ƥ�����
@@ -466,7 +466,7 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=171&forum=2
 - [������] ��󥯽����Υꥯ�����Ȥ����ä��������Τ���
 
 1.5 [3418] �����Ͽ���ѹ�������ξ��������ݤΥ᡼�����ͳ��������
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
 
 (1) ��Ͽ�桼���ΤȤ��ϡ�XOOPS���ΤΥ��٥�����Τ����Ѥ���
 �����ȤΤȤ��ϡ��ȼ��˥᡼�����Τ�������Ƥ�����
@@ -481,7 +481,7 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
 - link_del_refuse_notify.tpl
 
 1.6 ��󥯤�ʣ��
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
 
 (1) ��󥯤�ʣ�� ���ɲä���:
 (2) ¾�Υ⥸�塼��ؤΥ�󥯤�ʣ�� ���ɲä���
@@ -506,19 +506,19 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=684&forum=5
 
 2. ����ͥ��� WEB �����ӥ�
 (1) �����Υ���ͥ��롦�����ӥ����б�����
-- https://mozshot.nemui.org/
-- https://img.simpleapi.net/
+- http://mozshot.nemui.org/
+- http://img.simpleapi.net/
 
 (2) ��󥯲��������ꤵ��Ƥ��ʤ��Ȥ��ˡ�����ͥ��� WEB �����ӥ������Ѥ��ơ�
 WEB�����ȤΥ���ͥ����ɽ������
 
 3. ���ץ�����ɲ�
 (1) [3030] �������󥯤Υ��������URL �� �ܺ٥ڡ��� �����򤹤�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=101&forum=2
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=680&forum=5
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=101&forum=2
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=680&forum=5
 
 (2) [4359] �ܺ٥ڡ����α����ˤơ��ҥåȿ��򥫥���Ȥ���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=249&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=249&forum=2
 
 4. �Х��к�
 (1) �����Х븡���ˤơ�ȯ�������Ǥ�ɽ�������
@@ -550,19 +550,19 @@ RSSC �⥸�塼��˿����˥쥳���ɤ��ɲä����
 Version: 1.62
 Date:   2007-09-15
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
 �� �ѹ�����
 �Х�����
 (1) 4698: �����Ԥ������Ͽ���� fatal error �ˤʤ�
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4698&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=687&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4698&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=687&forum=5
 
 (2) 4702: �桼���������Ͽ���� fatal error �ˤʤ�
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4702&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=689&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4702&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=689&forum=5
 
 
 =================================================
@@ -582,24 +582,24 @@ RSS Auto Discovry ��¹Ԥ��ơ�rss_url �� rss_flag ������
 
 2. �Х�����
 (1) 4680: �֥�å��Ρ�����ɽ���פΥ饸���ܥ��󤬵�ǽ���ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4680&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=663&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4680&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=663&forum=5
 
 (2) 4688: IE6�ΤȤ���JavaScript ���顼�ˤʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4688&group_id=1409&atid=1786
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=667&forum=12
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4688&group_id=1409&atid=1786
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=667&forum=12
 
 (3) 4689: singlelink �ˤơ�RSS/ATOM������ɽ����������¤���ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4689&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=669&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4689&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=669&forum=5
 
 (4) 4690: �����Ծ�ǧ�⡼�ɤˤơ�rss_url �����ꤵ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4690&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=670&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4690&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=670&forum=5
 
 (5) 4693: ������󥯤Ρ֥��٥�����Ρפ��Ԥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4693&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=674&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4693&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=674&forum=5
 
 (6) ��󥯽����Ρ֥��٥�����ΡפΥ���褬��äƤ���
 (7) ���ƥ���Υ֥å��ޡ����ˤơ�̾��(���ƥ���̾)��ɽ������ʤ�
@@ -613,7 +613,7 @@ Date:   2007-08-05
 
 �� �ѹ�����
 1. MySQL 4.1/5.x ���б�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
 ���ܸ�Ǥϡ�MySQL ��ʸ�������ɤ� ujis (EUC-JP) �˸���ˤ��Ƥ�����
 �����Ԥ� happy_linux/preload/charset.php �����֤��ơ�Ǥ�դ�ʸ�������ɤ�����Ǥ���褦���ѹ�������
 
@@ -632,7 +632,7 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
 4. HTML ��������
 (1) W3C �����ѹ�����
 ��ʥڡ����� W3C Markup Validator �Υ����å����̤���
-https://validator.w3.org/
+http://validator.w3.org/
 
 (2) xoops moduel header
 xoops moduel header ����Ѥ��ơ�
@@ -640,13 +640,13 @@ header ������� �������륷���Ȥ� javascript �
 
 5. �֥�å�
 (1) ���ƥ����ɽ�����륪�ץ������ɲä���
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4651&group_id=1199&atid=974
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4651&group_id=1199&atid=974
 
 (2) ��ʸ�������ɽ�����륪�ץ������ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=315&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=315&forum=5
 
 (3) �֥�å��� google map ��ɽ�����륪�ץ������ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=507&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=507&forum=5
 
 6. �����Ͽ
 (1) �����Ԥ���Ͽ���ܤ���ꤹ�뵡ǽ���ɲä���
@@ -659,7 +659,7 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=507&forum=5
 8. ¿����
 (1) �ɥ��ĸ���ѹ�����
 (2) �ɥ��Ĺ���ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=323&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=323&forum=2
 
 9. etc ���ܤγ�ĥ
 ��ȯ�Ը����Ǥ�
@@ -674,7 +674,7 @@ link �ơ��֥�� modify �ơ��֥�� etc �������ɲ�
 
 11. �Х��к�
 (1) ��ǧ�Ԥ��ο�����󥯤���ǧ���Ƥ�ä��ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=658&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=658&forum=5
 (2) �֥���ڤ�����פ˳�������URL���ʤ�
 
 
@@ -774,7 +774,7 @@ xoops 2.0 �Ϥ�ͭ���Ǥ�
 6. ���ƥ����ɽ��
 6.1 ���ƥ���ѥ���ɽ������
 ���ץ������ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=284&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=284&forum=2
 
 6.2 ���֥��ƥ����ɽ���ϰ�
 ���ץ������ɲä���
@@ -785,7 +785,7 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=284
 
 8. �Х�����
 (1) SQLʸ�Υѥå�������
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=635
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=635
 (2) �־�ǧ�Ԥ��ο�����󥯡פ� header ��ȴ���Ƥ���
 (3) Notice : Undefined offset: 8 in file blocks/weblinks_top.php
 
@@ -913,7 +913,7 @@ Date:   2007-03-25
 5. �Х�����
 (1) 4506: expired links not listed in admin
 (2) 4507: Fatal error: getallchildid() in category_manage.php
-(3) 4508: Fatal error: weblinks_getHandler() in weblinks_top.php
+(3) 4508: Fatal error: weblinks_get_handler() in weblinks_top.php
 (4) 4509: JavaScript error in gm_get_location.php
 (5) 4519: Fatal error: get_cid_array_by_title() in bulk_manage.php
 (6) 4520: dont work newline in textarea
@@ -1070,15 +1070,15 @@ Date:   2006-12-17
 �� �ѹ�����
 1. Google Maps
 (1) �����Ͽ���� ���������������ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=559&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=559&forum=5
 
 2. �����Ͽ����
 (1) ȯ�����Ƚ�λ�����ɲä�����
 �����Ԥ�������Ͽ�Ǥ��ޤ���
-https://xoopscube.jp/modules/newbb/viewtopic.php?topic_id=8647&forum=17
+http://xoopscube.jp/modules/newbb/viewtopic.php?topic_id=8647&forum=17
 
 (2) �ƥ����ȥܥå��� (textarea) �򣲤��ɲä�����
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=529&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=529&forum=5
 �����Ԥ�������Ͽ�Ǥ��ޤ���
 textarea1 �� HTML�䥪�ץ����λ��꤬�Ǥ��ޤ���
 textarea2 �� HTML�ϻȤ��ޤ���
@@ -1088,7 +1088,7 @@ textarea2 �� HTML�ϻȤ��ޤ���
 
 4. ����
 (1) �ɥ��ĸ�ե�����򹹿�����
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=232&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=232&forum=2
 
 5. �ϰ�
 (1) ����� (ir) ���ɲä���
@@ -1101,8 +1101,8 @@ link_save �� modify_save �Σ��ĤΥ��饹���ɲä�����
 
 7. �Х��ν���
 (1) 4417: language singleton done not work correctly
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4417&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=256&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4417&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=256&forum=2
 
 
 �� �ơ��֥빽¤
@@ -1140,7 +1140,7 @@ dobr1        : textarea1 �ν񼰥��ץ����
 Version: 1.22
 Date:   2006-11-08
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -1152,33 +1152,33 @@ Email:  webmaster@ohwada.jp
 �� �ѹ�����
 1. Google Maps
 (1) �����Ͽ���� ����饤��ɽ�����ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=534&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=534&forum=5
 (2) ���ܸ��Ǥˤơ��ե��������������ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=547&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=547&forum=5
 (3) �֥饦���Υ����å����ɲä���
 JavaScript GoogleMaps ����ѤǤ��뤫
 
 2. �֥�å�
 (1) ����ɽ���֥�å����ɲä���
 (2) ������ɽ���֥�å����ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=537&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=537&forum=5
 
 3. �Ѹ�ե�����ν���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=241&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=241&forum=2
 
 4. �Х�����
 (1) 4342: �Ѹ��Ǥˤơ�100ʸ���ʾ�� fatal error
 happy_linux �⥸�塼���������
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4342&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=245&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4342&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=245&forum=2
 
 (2) 4344: Table 'weblinks_config2' doesn't exist
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4344&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=232&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4344&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=232&forum=2
 
 (3) 4349: IE �ΤȤ� �������̤� google map ��ɽ�����ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4349&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=542&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4349&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=542&forum=5
 
 
 �� ���åץǡ���
@@ -1209,16 +1209,16 @@ Date:   2006-10-14
 
 3. �Х�����
 (1) 4312: visit.php �ˤơ�Fatal error
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4312&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=532&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4312&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=532&forum=5
 
 (2) 4313: GoogleMaps �ΰ��־��������ʸ����������
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4313&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=534&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4313&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=534&forum=5
 
 (3) 4318: �����Ͽ�ˤơ�Fatal error
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4318&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=536&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4318&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=536&forum=5
 
 (4) ��Ʊ����������Ͽ������å�����פ������ʤ�
 (5) ���Ť˥ϥ��饤�Ȥ���
@@ -1255,7 +1255,7 @@ RSS��ǽ����Ѥ���Ȥ��ϡ������Բ��̤ˤơ�R
 2.2 RSSC�⥸�塼���Ϣ�ȵ�ǽ�����Ѥ������Ȥˤ�ꡢ�������������ɤ���Ƥ��ޤ���
 (1) RSS�ѡ������� magpie ����Ѥ���
 (2) <title> �� <dc:title> ����̤���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=457&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=457&forum=5
 (3) <enclosure> ����Ϥ���podcasting ���б�����
 
 2.3 ����Ȥθߴ��Τ���ˡ������ε�ǽ�ϻĤ��� (v1.13����)��
@@ -1309,7 +1309,7 @@ weblinks ¦ �� rssc ¦��ξ���ǡ���ʣ���Ƥ�����
 �� ��ǽ�ɲ�
 1. ����
 (1) Amethyst Blue �ˤ����ۤ��Ƥ��븡���⥸�塼����б����ơ�������̤���ʸ��ɽ������
-https://www.suin.jp/
+http://www.suin.jp/
 
 (2) ������̤Υ�����ɤ�ϥ��饤��ɽ������
 SmartSection �򻲹ͤˤ�����
@@ -1323,7 +1323,7 @@ Amethyst Blue �ˤ����ۤ��Ƥ��븡���⥸�塼��򻲹ͤ
 - ���ѤҤ餬�ʤΤȤ� Ⱦ�ѥ������ʤ����ѤҤ餬�ʤ⸡���оݤˤ���
 
 2. Google Map ��ɽ�����ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=413&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=413&forum=5
 �ܺ�ɽ������ (singlelink.php) �ˤơ�Google Map ��ɽ������롣
 
 ������ˡ�����������
@@ -1343,13 +1343,13 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=413&forum=5
 - ���� Google
 3.2 ���ɽ���Υƥ�ץ졼�Ȥ��顢�Ͽޥ����������ʬ����Ω�����̤Υƥ�ץ졼�Ȥˤ�����
 3.3 ��󥯤��Ȥˡ��Ͽޥ��������ɽ������/���ʤ��Υ��ץ������ɲä���
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3819&group_id=1199&atid=974
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3819&group_id=1199&atid=974
 
 4. ���֥��ƥ���������ɽ������
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=194&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=194&forum=2
 
 5. ���ڡ�����ɽ����������75��100���ɲä���
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=139&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=139&forum=2
 
 6. �ǿ��Υ�󥯾���� RDF/RSS/ATOM �����ˤ��ۿ�����
 
@@ -1369,7 +1369,7 @@ https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=139
 -  URL�ؤ���³������뤫(����ڤ�Ǥʤ�)���ǧ���� (�ץ�ӥ塼��)
 (2) �Хʡ���������Ͽ
 -  �Хʡ������Υ�������������������ʤ��Ȥ��Ϥ��λݤ�ɽ������
-(3) RSS�������Ͽ
+(3) RSS�������Ͽ 
 - RSS URL�μ�ư���Ф�Ԥ�������ʤ��Ȥ��Ϥ��λݤ�ɽ������
 - DB���Ʊ����RDF/RSS/ATOM URL�פ����뤫�򸡺���������Ȥ��Ϥ��λݤ�ɽ������
 - RSS URL�����Ƥ���Ϥ�������ʤ��Ȥ��Ϥ��λݤ�ɽ������
@@ -1389,7 +1389,7 @@ Peak �ˤ����ۤ��Ƥ��� Tinyd ����ή�Ѥ���
 ����ȹ��ϰ����Ω�����򤹤���ȤߤǤ���
 ����ϡ��Ѹ�����ƹ�ȷ�ᤦ�����Ƥ�����
 �ѹ�ʤ�Ǥ�դι������Ǥ���褦�ˤʤ롣
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=77&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=77&forum=2
 
 10.1 �񥳡��ɤ� IANA ��ccTLDs ����Ѥ���
 ���� �Ѱդ����Τϡ�����(jp)���ƹ�(us)���ѹ�(uk) �Σ��ĤǤ���
@@ -1423,7 +1423,7 @@ parts �� xml ���֡��ǥ��쥯�ȥ�˰����Υƥ�ץ졼�
 (2) parts ���֡��ǥ��쥯�ȥ� ���ߤ���
 template_main �ǻȤ����ƥ�ץ졼�Ȥ����ʤȤʤ�ƥ�ץ졼�Ȥ��֤���
 weblinks_header.html �� �إå����� �����ե����� ���̥ե�����ˤ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=529&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=529&forum=5
 
 (3) map ���֡��ǥ��쥯�ȥ� ���ߤ���
 �Ͽޥ����ȤؤΥ�󥯡��ܥ���Υƥ�ץ졼�Ȥ��֤���
@@ -1501,13 +1501,13 @@ Date:   2006-09-24
 
 �� �Х�����
 (1) 4261: xoops protector ��ʻ�Ѥ���ȡ����ƥ������Ͽ���Ǥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4261&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4261&group_id=1199&atid=971
 
 (2) 4278: �ᥤ��ڡ����˥�󥯰�����ɽ�����ʤ�������Ǥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4278&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4278&group_id=1199&atid=971
 
 (3) 4279: Undefined index: rss_num in file singlelink.php
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4279&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4279&group_id=1199&atid=971
 
 
 =================================================
@@ -1523,19 +1523,19 @@ Date:   2006-09-16
 
 �� �Х�����
 (1) 4164: ��󥯾���ؤΥ�������ƤΥ����ȿ�ɽ�����Ǥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4164&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=505&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4164&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=505&forum=5
 
 (2) 4168: �֤������᥵���ȡס���ߥ�󥯥����ȡס�RSS/ATOM �б������ȡפˤƥ��ƥ��꤬ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4168&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=508&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4168&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=508&forum=5
 
 (3) 4169: RSS/ATOM�б������Ȥ���Ͽ����ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4169&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=508&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4169&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=508&forum=5
 
 (4) singlelink �ˤƸŤ� feed �����ꥢ����ʤ�
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=509&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=509&forum=5
 
 (5) ���ƥ���̾ �����󥵥˥����������
 
@@ -1553,39 +1553,39 @@ Date:   2006-07-23
 
 �� �Х�����
 (1) 4029: �ơ��֥�̾���ְ�äƤ���
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4029&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4029&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
 
 (2) 4030: ����ߥ�󥯡ס֤������᥵���ȡפΥޡ����������Ǥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4030&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=471&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4030&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=471&forum=5
 
 (3) 4032 : �ơ��֥뤬�����Ǥ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4032&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4032&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=464&forum=5
 
 (4) 4060: ���ޥ�ɥ饤��μ¹Ԥ�10��󥯤����¤����
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4060&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=474&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4060&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=474&forum=5
 
 (5) 4085: �־�ǧ�Ԥ��ο�����󥯡פˤ� Fatal error
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4085&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=482&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4085&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=482&forum=5
 
 (6) 4130: �֤������᥵���ȡפ�ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4130&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=492&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4130&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=492&forum=5
 
 (7) 4152 : �ᥤ��ˤƥ��ƥ��꤬ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4152&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=488&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4152&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=488&forum=5
 
 (8) 4153: ������̤˥��ƥ��꤬ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4153&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=497&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4153&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=497&forum=5
 
 (9) 4154: �����Բ��̤ˤƹ������ι������ʤ��������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4154&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4154&group_id=1199&atid=971
 
 
 =================================================
@@ -1602,30 +1602,30 @@ Date:   2006-05-24
 ���������Υ��ץ������ɲä���
 (1) ����ʸ��HTML��������Ѳ�ǽ�ˤ���
 3023 can use HTML tag in content
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3023&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=74&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3023&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=74&forum=2
 
 (2) ����ʸ��XOOPS�����ɤ���Ѥ���/���ʤ��������ǽ�ˤ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=454&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=454&forum=5
 
 (3) RSS/ATOM������ɽ������/���ʤ��������ǽ�ˤ���
 3027 Remove RSS
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3027&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?post_id=274&topic_id=90&forum=2
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=178&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3027&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?post_id=274&topic_id=90&forum=2
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=178&forum=5
 
 (4) ���֥�˥塼�˥��ƥ��������ɽ������/���ʤ��������ǽ�ˤ���
 3515 dont show sub menu in man menu
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3515&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=132&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3515&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=132&forum=2
 
 (5) �ᥤ��ڡ����˥�󥯰�����ɽ������/���ʤ��������ǽ�ˤ���
 3802 show NO link list on the top page
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3802&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=142&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3802&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=142&forum=2
 
 (6) �֤������᥵���ȡס���ߥ�󥯡פ��̤�ɽ������/���ʤ��������ǽ�ˤ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=336&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=336&forum=5
 
 (7) �֥���ڤ����פλ��Ѥ���/���ʤ��������ǽ�ˤ���
 
@@ -1642,20 +1642,20 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=336&forum=5
 
 (12) �����Ȥ��Խ����¤�ѥ���ɤ�Ƚ�ꤷ�����¤�̵�������Ȥˤ��Խ����̤򳫤����ʤ��褦�ˤ���
 Anonymous user modify its own link
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3419&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3419&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=121&forum=2
 
 (13) ���¤�̵�����ϡ�����Ͽ�סֽ����ץܥ����ɽ�����ʤ��褦�ˤ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=388&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=388&forum=5
 
 (14) �����Ͽ���ѹ����ι���̾���ѹ���ǽ�ˤ���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=261&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=261&forum=5
 
 ������������
 (15) �������̤Υ�˥塼ɽ����쿷������
 
 (16) �������̤˥��ƥ���ȥ�󥯤ΰ����Ͽ���ɲä���
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
 
 �����ƥ�ץ졼��
 (16) �������륷���Ȥ���Ѥ���
@@ -1667,12 +1667,12 @@ https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=68&forum=5
 
 (20) title �� url ��255ʸ���ޤǳ�ĥ����
 3026 long title over 50 chars
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3026&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=87&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3026&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=87&forum=2
 
 ��������
 (21) �ɥ��ĸ� (v0.90 �б�)
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=168&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=168&forum=2
 
 
 �� �ǡ����١������˴ؤ��������ˡ���ѹ�
@@ -1727,20 +1727,20 @@ Date:   2006-05-14
 �֥⥸�塼��ʣ���פ����פʾ��� v0.97 �򤪻Ȥ�����������
 
 �Х�����
-(1) 3858 Fatal error when allow_url_fopen = off
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3858&group_id=1199&atid=971
+(1) 3858 Fatal error when allow_url_fopen = off 
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3858&group_id=1199&atid=971
 
-(2) 3859 Parse error in atomfeed.inc.php
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3859&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=441&forum=5
+(2) 3859 Parse error in atomfeed.inc.php 
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3859&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=441&forum=5
 
 (3) 3860 mysql error when guest report broken link
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3860&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=154&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3860&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=154&forum=2
 
-(4) 3922 Fatal error when use category image
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3922&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=161&forum=2
+(4) 3922 Fatal error when use category image 
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3922&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=161&forum=2
 
 
 =================================================
@@ -1755,20 +1755,20 @@ Date:   2006-03-26
 ��˾
 (1) REQ 3807: �ᥤ��ڡ�����������ɽ������
 Description in main page
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3807&group_id=1199&atid=974
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3807&group_id=1199&atid=974
 
 �Х�����
 (1) 3743: ��ǧ�Ԥ��Υ�󥯤����İʾ�ΤȤ���fatal error ��ȯ������
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3743&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=427&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3743&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=427&forum=5
 
 (2) 3746: ���֥�˥塼��������ɽ������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3746&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=429&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3746&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=429&forum=5
 
-(3) 3799: ����ڤ�ˤ� Fatal error ��ȯ������
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3799&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=433&forum=5
+(3) 3799: ����ڤ�ˤ� Fatal error ��ȯ������ 
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3799&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=433&forum=5
 
 =================================================
 Version: 1.00
@@ -1815,31 +1815,31 @@ TinyD �⥸�塼��ʤɤǼ�������Ƥ����Τ�Ʊ���
 Version: 0.97
 Date:   2006-01-14
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
 ��˾
 (1) 3226: ATOM 1.0 �β���
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3226&group_id=1199&atid=974
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=380&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3226&group_id=1199&atid=974
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=380&forum=5
 
 
 �Х�����
 (1) 3429: ��󥯸�� admin/link_broken_check.php
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3429&group_id=1199&atid=971
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3429&group_id=1199&atid=971
 
 (2) 3429: �����ȸ�� admin/link_list.php
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3430&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=399&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3430&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=399&forum=5
 
 
 �����θ���ѥå����ɲä���
 (1) ���ڥ���� ���� 0.96�б�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=126&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=126&forum=2
 
 (2) �ե�󥹸� ���� 0.96�б�
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=127&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=127&forum=2
 
 
 =================================================
@@ -1850,13 +1850,13 @@ Date:   2005-11-20
 ��˾
 (1) 3196: �����쥯�ȡ����
 snakes ��ˤ��ϥå�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3196&group_id=1199&atid=974
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3196&group_id=1199&atid=974
 https://xoops.org/modules/newbb/viewtopic.php?viewmode=flat&topic_id=42078&forum=15
 
 �Х�����
 (1) 3209: typo X-Mailer
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3209&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=378&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3209&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=378&forum=5
 
 
 =================================================
@@ -1866,40 +1866,40 @@ Date:   2005-10-28
 
 ��˾
 (1) 3028: �����Ȥ˾�ǧ�᡼�������
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3028&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=107&forum=2
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=109&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3028&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=107&forum=2
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=109&forum=2
 
 (2) 3110: ���ƥ��꤫�鿷������Ȥ��ˡ����ƥ�����ղä���
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3110&group_id=1199&atid=974
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=112&start=0#forumpost374
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3110&group_id=1199&atid=974
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=112&start=0#forumpost374
 
 
 �Х�����
 (1) 3031: ��ǧ�Ԥ���¿���ȡ������ॢ���Ȥ���
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3031&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=106&forum=2
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=351&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3031&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=106&forum=2
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=351&forum=5
 
 (2) 3032: "mutual site" ��Ŭ�ڤʱѸ�ǤϤʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3032&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=96&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3032&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=96&forum=2
 
 (3) 3095: ����ڤ������ˡ�ɽ�����������ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3095&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=342&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3095&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=342&forum=5
 
 (4) 3106: RSS�����Х�󥯤ΤȤ��ˡ����ФǤ��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3106&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=108&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3106&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=108&forum=2
 
 (5) 3108: allow_url_fopen = off �ˤơ�ư��ʤ�
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3108&group_id=1199&atid=971
-https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=349&forum=5
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3108&group_id=1199&atid=971
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=349&forum=5
 
 (6) 3111: ���ƥ��꤬¿���ȡ��͵���󥯤������ॢ���Ȥ���
-https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3111&group_id=1199&atid=971
-https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=106&forum=2
+http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3111&group_id=1199&atid=971
+http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=106&forum=2
 
 
 �ɲá��ѹ������ե�����
@@ -1945,20 +1945,20 @@ Date:   2005-09-06
 
 ��˾
 (1) 2933 �������̤Υ��顼��ʬ����ˤ���
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=319&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=319&forum=5
 
 �Х�����
 (1) 2863 �֥⥸�塼������ꣲ�פˤơ�Fatal error �Ȥʤꡢ��RSS/ATOM������פ�ɽ������ʤ���
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=310&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=310&forum=5
 
 (2) 2929 ��󥯤���Ͽ�����˥����ॸ���פ򤹤�ȡ�̵�¥롼�פ���
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=317&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=317&forum=5
 
 (3) 2931 �ݥåץ��åץ�˥塼�ȥ�˥塼��ɽ�������פ��Ƥ��ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=318&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=318&forum=5
 
 (4) 2932 register_long_arrays = off �ΤȤ�ư��ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=326&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=326&forum=5
 
 (5) 2946 allow_url_fopen = off �ΤȤ�ư��ʤ�
 
@@ -1970,17 +1970,17 @@ Date:   2005-08-09
 
 �Х�����
 (1) 2790 RSS/ATOM �б������Ȥ�ɽ������ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=294&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=294&forum=5
 
 (2) 2793 ��̿���顼��ɽ������� _print_sql_error()
-  https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=2793&group_id=1199&atid=971
+  http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=2793&group_id=1199&atid=971
 
 (3) 2827 RSS/ATOM�Υ���å��幹���ˤơ�Warning ���顼���Ф�
-  Invalid argument supplied for foreach()
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=301&forum=5
+  Invalid argument supplied for foreach() 
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=301&forum=5
 
 (4) 2828 �����Ͽ�ե����ब������ɽ������ʤ�
-  https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=2828&group_id=1199&atid=971
+  http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=2828&group_id=1199&atid=971
 
 
 =================================================
@@ -1990,20 +1990,20 @@ Date:   2005-07-18
 
 �Х�����
 (1) 2150 ����ѹ�������ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=186&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=186&forum=5
 (2) 2158,2290 ����ڤ�ΤȤ���ɽ�����ʤ�ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=190&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=190&forum=5
 (3) 2300 �ѥ�᡼����0�ΤȤ������ƤΥ��֥��ƥ����ɽ�����롣
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=195&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=195&forum=5
 (4) 2402,2410 �����Բ��̤ǥڡ����ʥӤ�������ư���ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=203&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=203&forum=5
 (5) 2409 �����Ȥ���󥯤�ɾ����Ǥ��ʤ�
-  https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=70&forum=2
+  http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=70&forum=2
 (6) 2670,2698 PHP5�ΤȤ� redeclare ���顼���Ǥ롣
-(7) 2707 ������BB�����ɤ�ɽ�������
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=260&forum=5
+(7) 2707 ������BB�����ɤ�ɽ������� 
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=260&forum=5
 (8) 2772 ���Υ�󥯤���ǧ���줿�������Τ���ˤ��Ƥ�᡼�뤬�Ϥ��ʤ�
-  https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=283&forum=5
+  http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=283&forum=5
 (9) 2773 ��󥯽����ΤȤ� _WLS_MODIFY ��ɽ������ʤ�
 
 �ѹ�
@@ -2013,9 +2013,9 @@ Date:   2005-07-18
 �����θ���ѥå����ɲä���
 (1) �ե�󥹸�
 (2) �ڥ륷���
-  https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=53&forum=2
+  http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=53&forum=2
 (3) �ݥ�ȥ����(�֥饸��)
-  https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=76&forum=2
+  http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=76&forum=2
 
 
 =================================================
@@ -2109,7 +2109,7 @@ weblinks_header.html ���ɲä�����
 ���ԤǤϻ��Ѥ��Ƥ��ʤ���
 
 (7) W3C Validator �˹�ʤ���褦�ˤ���
-https://validator.w3.org/
+http://validator.w3.org/
 
 �����֥�å�
 (1) ��ɾ����󥯤Υƥ�ץ졼�Ȥ��ɲä�����
@@ -2145,19 +2145,19 @@ link, category, callink �ơ��֥�֤�����򸡺�����
 ���ܼ��� ��ƻ�ܸ��ʤ��礭�ʤۤ����顢�Ѹ켰�ϥ��ȥ�ݥȤʤɾ�����������ɽ�����롣�ƥ�ץ졼�Ȥˣ�����򵭽Ҥ��ƻ��Ѹ�������򤷤���
 
 (2) �Ͽޥ����ȤؤΥ����ˡ��
-https://search.map.yahoo.co.jp/ �� https://maps.yahoo.com/ �Ǥϰۤʤ롣
+http://search.map.yahoo.co.jp/ �� http://maps.yahoo.com/ �Ǥϰۤʤ롣
 yahoo.co.jp �ǤϽ�������Ǥ褤����
 yahoo.com �Ǥϡ�ZIP�����ɡ������� ���̤˻�̾����ɬ�פ����롣
 ��Ͽ�����󥯾���ˤ������ɲä�����
 �ƥ�ץ졼�Ȥˣ�����򵭽Ҥ��ƻ��Ѹ�������򤷤���
 
 (3) ����������
-https://googole.co.jp/ �� https://googole.com/ �Τ褦�˸���ˤ��ۤʤ롣
+http://googole.co.jp/ �� http://googole.com/ �Τ褦�˸���ˤ��ۤʤ롣
 �����̥ե�������б�������
 
 (4) RSS����������
 ���ܤǤϡ�BulkFeed �ʤɸ�����̤�RSS�ۿ����륵���Ȥ����롣
-https://bulkfeeds.net/
+http://bulkfeeds.net/
 
 �Ѹ�Ǥϡ����μ�Τ�Τ����Ĥ���ʤ��ä���
 ����ͤ϶���Ȥ�����
@@ -2244,7 +2244,7 @@ XOOPS�ΥХ��˵��������ΤǤ���
 mylinks �Ǥ� ���ʥåץ���åȲ��� ����Ͽ�ϡ����ʥåץ���å��ѤΥǥ��쥯�ȥ�ˤ�������������򤹤������ˤʤäƤ��ޤ�����
 weblinks �Ǥ�URL����ꤹ���������ѹ����ޤ�����
 mylinks ����ܹԤ��������λ����
-��https://***/modules/weblinks/images/shots/xxx��
+��http://***/modules/weblinks/images/shots/xxx��
 �Τ褦�ˤʤ�ޤ���
 �ܹԥġ���Ǥϼ�ưŪ���Ѵ����ޤ���
 
@@ -2309,7 +2309,7 @@ tpl_file ���ܤ� weblinks_block_top.html ���� weblinks_block_rate
 Version: 0.89
 Date:   2004-12-23
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -2376,7 +2376,7 @@ RSS/ATOM �б������Ȥ��󤷤ơ�RSS/ATOM�����򹹿��
 (1) ������ɽ������
 - ���ƤΥ�󥯤ΰ���ɽ����ID ���
 - ���ƤΥ�󥯤ΰ���ɽ����ID �ս��
-- URL�����ꤵ��Ƥ��ʤ���󥯤ΰ���ɽ��
+- URL�����ꤵ��Ƥ��ʤ���󥯤ΰ���ɽ�� 
 
 (2) ��󥯤��ѹ�������ؤΥ�˥塼���ɲä���
 
@@ -2413,7 +2413,7 @@ Date:   2004-11-19
 (3) �����Ͽ���ˡִ����ԤؤΥ����ȡפ���¸����Ƥʤ���
 (4) �����Ͽ���� URL��80ʸ�������¤���롣
 (5) weblinks_singlelink.html �����פ� </div> �����롣
-(6) �����Բ��̤Υݥåץ��åס���˥塼���Ť���
+(6) �����Բ��̤Υݥåץ��åס���˥塼���Ť��� 
 
 �ѹ�
 (1) �ƥ��ƥ���ˤơ����᥵���Ȥ���ߥ����Ȥ��̤�ɽ�����롣
@@ -2483,7 +2483,7 @@ cb750����δ�£�θ���ѥå����ɲä���
 
 �������Х�����
 (1) �����Բ��̤Ρ֥�󥯰���ɽ���˥�󥯲�������Ѥ���פȡ֥�󥯾ܺ�ɽ���˥�󥯲�������Ѥ���פ����̤�����Ǥ��ʤ���
-(2) ������Ͽ�Ρ֤��Υ�󥯤���ǧ���줿�������Τ���פ�ư��ʤ���
+(2) ������Ͽ�Ρ֤��Υ�󥯤���ǧ���줿�������Τ���פ�ư��ʤ��� 
 
 
 �� �С�����󥢥å׼��
@@ -2563,10 +2563,10 @@ Date:   2004/08/10
 ʣ�������б��Υ��饹���ߤ���
 ��ͧã�˶�����פ�EUC-SJIS�Ѵ���Ԥä�
 
-(2) ���ĤΥ�󥯤�Ʊ�����ƥ��꤬��ʣ������Ͽ�Ǥ���
+(2) ���ĤΥ�󥯤�Ʊ�����ƥ��꤬��ʣ������Ͽ�Ǥ��� 
 ��ʣ�����å����ɲä�����
 
-(3) ��ɾ���֥�å��������ư��ʤ�
+(3) ��ɾ���֥�å��������ư��ʤ� 
 
 �� �С�����󥢥å׼��
 (1) �ǡ����١������ѹ�����Τǡ������ˡ֥Хå����åספ��Ƥ���������
@@ -2600,17 +2600,17 @@ Date:   2004/01/24
 �����Ȥ��ѹ��ԲĤǡ���Ͽ�Ԥϴ����Ծ�ǧ�ǡ���ƼԤϼ�ư��ǧ�Ȥ���������ǽ�Ȥ�����
 
 ����mylinks �ǽ���ơ�weblinks �ǽ���ʤ��ä������Σ����ܤ��б�������
-�������Ԥ������꡼�󥷥�åȲ��̤���Ͽ����
+�������Ԥ������꡼�󥷥�åȲ��̤���Ͽ���� 
 ����Ͽ�Ԥ�ǧ�ڤʤ����ѹ����̤ˤʤ�
 
 ���������ΥХ���������
-���֤��Υ����Ȥ�ɾ������פ�ȿ�Ǥ���ʤ�
+���֤��Υ����Ȥ�ɾ������פ�ȿ�Ǥ���ʤ� 
 ����Ͽ�ѹ����˥��ޥ��롦�ޡ�����ȿ�Ǥ���ʤ�
 �����ĤΥ�󥯤Υ��ƥ��꤬������Ͽ����Ƥ���Ȥ���
-���ƥ�����������ͤ򣳤˸��餹�ȡ����ĤΤ������Ĥ��ѹ��Ǥ��ʤ��ʤ롣
+���ƥ�����������ͤ򣳤˸��餹�ȡ����ĤΤ������Ĥ��ѹ��Ǥ��ʤ��ʤ롣 
 ��viewcat.php �ǳ������뵭�����ʤ��Ȥ��ϡ��ǿ�������ɽ������Ϥ�������
 ���������ĤΤȤ��ϡ�ɽ�����ʤ���
-����Ͽ���ˣť᡼�륢�ɥ쥹�θ������롦�������ʤ���ȿ�Ǥ���ʤ�
+����Ͽ���ˣť᡼�륢�ɥ쥹�θ������롦�������ʤ���ȿ�Ǥ���ʤ�  
 
 �����
 �����Ʊ���褦�ˡ�0.6�ǤȤ���̤�����ǤǤ���
@@ -2626,13 +2626,13 @@ Date:   2004/01/14
 =================================================
 �����;�μ���ѹ���
 ����1�ĤΥ�󥯤�����Ǥ��륫�ƥ����
-��Ǥ�դο�����ǽ���ǥե���Ȥϣ���
+��Ǥ�դο�����ǽ���ǥե���Ȥϣ��� 
 
 ������󥯲���
 �����ѼԤ��Хʡ���������Ͽ�Ǥ��롣
 
 ������󥯤ι���
-��̾������륢�ɡ����ꡢ�����ֹ���ɲä�����
+��̾������륢�ɡ����ꡢ�����ֹ���ɲä����� 
 
 �������ѼԤ��ռ����ʤ���󥯤ι���
 ���������ѥ����
@@ -2642,7 +2642,7 @@ Date:   2004/01/14
 ��˺�줿�Ȥ�����礻���ϡ��������ѥ���ɤ��ȯ�Ԥ��롣
 
 ��������������
-���ƹ��ܤ��鸡���оݤȤʤ�ƥ����Ȥ��礹��
+���ƹ��ܤ��鸡���оݤȤʤ�ƥ����Ȥ��礹�� 
 
 �����ǿ�������ɽ��
 ��index.php �Ǻǿ�������ɽ������Ȥ������󤷤�������ɽ�����롣
@@ -2678,13 +2678,13 @@ SQL�˴ؤ���Ȥ���򥯥饹�ؿ��ˤޤȤ�ޤ�����
 �����ʾ�̸ߴ��Ϲͤ��Ƥ��ޤ��󤬡��ʤ�٤���ǽ�ߴ����ݤĤĤ��Ǥ���
 
 ����mylinks �ǽ���ơ�weblinks �ǽ���ʤ�����
-�������Ԥ������꡼�󥷥�åȲ��̤���Ͽ����
+�������Ԥ������꡼�󥷥�åȲ��̤���Ͽ���� 
 ����Ͽ�Ԥ�ǧ�ڤʤ����ѹ����̤ˤʤ�
 
 �����Х���ĤäƤ��ޤ���
-���֤��Υ����Ȥ�ɾ������פ�ȿ�Ǥ���ʤ�
-����Ͽ�ѹ����˥��ޥ��롦�ޡ�����ȿ�Ǥ���ʤ�
-��������Ͽ�Ρ֤��Υ�󥯤���ǧ���줿�������Τ���פ�ư��ʤ�
+���֤��Υ����Ȥ�ɾ������פ�ȿ�Ǥ���ʤ� 
+����Ͽ�ѹ����˥��ޥ��롦�ޡ�����ȿ�Ǥ���ʤ� 
+��������Ͽ�Ρ֤��Υ�󥯤���ǧ���줿�������Τ���פ�ư��ʤ� 
 
 ����mylinks ����ΰܹԥġ���
 admin/porting.php ��¹Ԥ���ȡ�

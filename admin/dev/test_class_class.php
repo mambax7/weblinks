@@ -1,4 +1,5 @@
 <?php
+
 // $Id: test_class_class.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //=========================================================
@@ -27,6 +28,10 @@
 //=========================================================
 // class weblinks_test_class
 //=========================================================
+
+/**
+ * Class weblinks_test_class
+ */
 class weblinks_test_class extends weblinks_gen_record
 {
     public $_flag_print_detail = false;
@@ -39,6 +44,9 @@ class weblinks_test_class extends weblinks_gen_record
         parent::__construct();
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_class|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -52,6 +60,11 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // create new object
     //---------------------------------------------------------
+
+    /**
+     * @param bool $isNew
+     * @return \weblinks_link_save
+     */
     public function &create_link_save($isNew = true)
     {
         $obj = new weblinks_link_save(WEBLINKS_DIRNAME);
@@ -62,6 +75,10 @@ class weblinks_test_class extends weblinks_gen_record
         return $obj;
     }
 
+    /**
+     * @param bool $isNew
+     * @return \weblinks_modify_save
+     */
     public function &create_modify_save($isNew = true)
     {
         $obj = new weblinks_modify_save(WEBLINKS_DIRNAME);
@@ -75,6 +92,11 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // admin add link
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function test_admin_add_link(&$param)
     {
         $flag = false;
@@ -88,7 +110,9 @@ class weblinks_test_class extends weblinks_gen_record
         $param['flag_uid'] = 1;
         $param['flag_rssc_lid'] = 0;
 
-        list($inputs, $expects) = $this->build_input_expect($param);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect($param);
 
         $expects['rssc_lid'] = 0;
 
@@ -96,7 +120,7 @@ class weblinks_test_class extends weblinks_gen_record
 
         $times = ['time_create', 'time_update'];
 
-        $obj = &$this->create_link_save();
+        $obj = $this->create_link_save();
         $obj->assign_add_object($inputs, $not_gpc, $flag_banner);
 
         echo "<br><br>\n";
@@ -116,6 +140,11 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // admin mod link
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function test_admin_mod_link(&$param)
     {
         $flag = false;
@@ -133,7 +162,9 @@ class weblinks_test_class extends weblinks_gen_record
 
         $saves = &$this->build_saves();
 
-        list($inputs, $expects) = $this->build_input_expect($param);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect($param);
 
         $expects['time_update'] = $saves['time_update'];
         $expects['rss_url'] = $saves['rss_url'];
@@ -162,7 +193,7 @@ class weblinks_test_class extends weblinks_gen_record
 
         $excludes = &$this->build_excludes(1);
 
-        $obj = &$this->create_link_save();
+        $obj = $this->create_link_save();
         $obj->setVars($saves);
         $obj->assign_mod_object($inputs, $not_gpc, $flag_banner);
 
@@ -183,6 +214,14 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // check_match
     //---------------------------------------------------------
+
+    /**
+     * @param      $results
+     * @param      $expects
+     * @param null $times
+     * @param null $excludes
+     * @return bool
+     */
     public function check_match($results, $expects, $times = null, $excludes = null)
     {
         $flag_result = false;
@@ -204,7 +243,7 @@ class weblinks_test_class extends weblinks_gen_record
 
             if (is_array($times) && in_array($k, $times)) {
                 $time = time();
-                $time_before = $time - 10;  // 10 sec before
+                $time_before = $time - 10;    // 10 sec before
                 if (($v < $time_before) || ($v > $time)) {
                     $msg = 'unmtach time ' . $msg . ' =! ' . $time;
                     $msg = htmlspecialchars($msg, ENT_QUOTES);
@@ -252,6 +291,11 @@ class weblinks_test_class extends weblinks_gen_record
     //---------------------------------------------------------
     // build_input_expect
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return array
+     */
     public function build_input_expect(&$param)
     {
         $not_gpc = $this->get_from_array($param, 'not_gpc');
@@ -330,6 +374,9 @@ class weblinks_test_class extends weblinks_gen_record
         return [$inputs, $expects];
     }
 
+    /**
+     * @return array
+     */
     public function &build_saves()
     {
         $param = [
@@ -348,6 +395,10 @@ class weblinks_test_class extends weblinks_gen_record
         return $saves;
     }
 
+    /**
+     * @param int $mode_passwd
+     * @return string[]
+     */
     public function &build_excludes($mode_passwd = 0)
     {
         $excludes = ['search'];

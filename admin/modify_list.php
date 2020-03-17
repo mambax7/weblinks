@@ -1,5 +1,6 @@
 <?php
-// $Id: modify_list.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: modify_list.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -25,6 +26,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_modify_handler.php';
 //=========================================================
 // class admin_modify_list
 //=========================================================
+
+/**
+ * Class admin_modify_list
+ */
 class admin_modify_list extends happy_linux_page_frame
 {
     public $_strings;
@@ -45,11 +50,14 @@ class admin_modify_list extends happy_linux_page_frame
         $this->set_max_sortid(4);
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
 
-        $this->_broken_handler = weblinks_getHandler('broken', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_get_handler('broken', WEBLINKS_DIRNAME);
 
         $this->_strings = happy_linux_strings::getInstance();
     }
 
+    /**
+     * @return \admin_modify_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -63,6 +71,10 @@ class admin_modify_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return int[]
+     */
     public function &_get_op_sortid_array()
     {
         $arr = [
@@ -76,6 +88,9 @@ class admin_modify_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -87,6 +102,9 @@ class admin_modify_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @return int
+     */
     public function _get_total()
     {
         $this->_total_all = $this->_get_total_all();
@@ -116,6 +134,11 @@ class admin_modify_list extends happy_linux_page_frame
         return $total;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function &_get_items($limit = 0, $start = 0)
     {
         switch ($this->_sortid) {
@@ -140,6 +163,10 @@ class admin_modify_list extends happy_linux_page_frame
         return $objs;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $mid = $obj->get('mid');
@@ -248,4 +275,5 @@ $list->_show();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

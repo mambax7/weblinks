@@ -1,5 +1,6 @@
 <?php
-// $Id: notification_manage.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: notification_manage.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -15,6 +16,10 @@ include_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/admin.php';
 //=========================================================
 // class admin_notification_manage
 //=========================================================
+
+/**
+ * Class admin_notification_manage
+ */
 class admin_notification_manage
 {
     public $_DIRNAME = WEBLINKS_DIRNAME;
@@ -31,6 +36,9 @@ class admin_notification_manage
         $this->_admin = happy_linux_admin::getInstance();
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -50,6 +58,9 @@ class admin_notification_manage
         echo $this->fetch_template();
     }
 
+    /**
+     * @return mixed
+     */
     public function fetch_template()
     {
         $xoopsTpl = new XoopsTpl();
@@ -62,13 +73,16 @@ class admin_notification_manage
         return $text;
     }
 
+    /**
+     * @return string
+     */
     public function build_style()
     {
         $text = <<<END_OF_TEXT
 <style type="text/css">
 table.outer
 {
-    width: 100%;
+	width: 100%;
 }
 </style>
 END_OF_TEXT;
@@ -76,6 +90,9 @@ END_OF_TEXT;
         return $text;
     }
 
+    /**
+     * @return bool
+     */
     public function print_xoops_version()
     {
         $url = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/index.php';

@@ -11,6 +11,9 @@
 // $_POST['title'] = $title;
 //-------------------------------
 
+/**
+ * Class rssc_lid_mod
+ */
 class rssc_lid_mod
 {
     public $_LIMIT = 200;
@@ -22,6 +25,10 @@ class rssc_lid_mod
 
     public $_RSSC_DIRNAME = 'rssc';
 
+    /**
+     * rssc_lid_mod constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         global $xoopsDB;
@@ -32,9 +39,12 @@ class rssc_lid_mod
         $this->_table_rssc_link = $this->_db->prefix($this->_RSSC_DIRNAME . '_link');
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
     }
 
+    /**
+     * @return bool
+     */
     public function check_admin()
     {
         global $xoopsUser, $xoopsModule;
@@ -110,16 +120,24 @@ class rssc_lid_mod
         }
     }
 
+    /**
+     * @return bool
+     */
     public function clear_rssc_lid()
     {
         $sql = 'UPDATE ' . $this->_table_link;
         $sql .= ' SET rssc_lid=0';
 
         return $this->sql_exec($sql);
-        //  echo " $sql <br>\n";
-        //  return true;
+        //	echo " $sql <br>\n";
+        //	return true;
     }
 
+    /**
+     * @param $weblinks_lid
+     * @param $rssc_lid
+     * @return bool
+     */
     public function mod_rssc_lid($weblinks_lid, $rssc_lid)
     {
         $sql = 'UPDATE ' . $this->_table_link;
@@ -127,10 +145,16 @@ class rssc_lid_mod
         $sql .= ' WHERE lid=' . $weblinks_lid;
 
         return $this->sql_exec($sql);
-        //  echo " $sql <br>\n";
-        //  return true;
+        //	echo " $sql <br>\n";
+        //	return true;
     }
 
+    /**
+     * @param     $sql
+     * @param int $limit
+     * @param int $offset
+     * @return bool
+     */
     public function sql_exec($sql, $limit = 0, $offset = 0)
     {
         $ret = $this->_db->queryF($sql, $limit, $offset);
@@ -147,10 +171,10 @@ class rssc_lid_mod
     public function form_clear()
     {
         $action = xoops_getenv('PHP_SELF'); ?>
-        <br>
+        <br/>
         <hr>
         <h4>clear rssc_lid</h4>
-        <br>
+        <br/>
         <form action='<?php echo $action; ?>' method='post'>
             <input type='hidden' name='op' value='clear_rssc_lid'>
             <input type='submit' value='Clear'>
@@ -158,16 +182,19 @@ class rssc_lid_mod
         <?php
     }
 
+    /**
+     * @param $next
+     */
     public function form_next_link($next)
     {
         $action = xoops_getenv('PHP_SELF');
         $submit = "GO next $this->_LIMIT links";
         $next2 = $next + $this->_LIMIT; ?>
-        <br>
+        <br/>
         <hr>
         <h4>next link table</h4>
-        <?php echo $next; ?> - <?php echo $next2; ?> th link<br>
-        <br>
+        <?php echo $next; ?> - <?php echo $next2; ?> th link<br/>
+        <br/>
         <form action='<?php echo $action; ?>' method='post'>
             <input type='hidden' name='op' value='rssc_to_link'>
             <input type='hidden' name='offset' value='<?php echo $next; ?>'>

@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_add_category.php,v 1.3 2007/02/27 14:45:59 ohwada Exp $
+
+// $Id: test_form_admin_add_category.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // performance mode
@@ -42,7 +43,7 @@ if ($test->match_return_msg('add record')) {
     echo "<h4>Success !</h4>\n";
     echo 'add category: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add_category form failed: <br><hr>\n";
+    echo "Error: add_category form failed: <br><hr />\n";
     echo $test->get_body() . "<br>\n";
 }
 
@@ -68,9 +69,10 @@ if ($test->match_return_msg('update path')) {
     echo "<h4>Success !</h4>\n";
     echo 'add category: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: add_category form failed: <br><hr>\n";
+    echo "Error: add_category form failed: <br><hr />\n";
     echo $test->get_body() . "<br>\n";
 }
 
 echo '<a href="' . $list_url . '" target="_blank" >goto cateogry list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

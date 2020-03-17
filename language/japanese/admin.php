@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.3 2012/04/10 18:52:29 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -68,7 +69,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', '����¾�ε�ǽ');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', '�������ܼ���');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // ������������
     define('_WEBLINKS_ADMIN_AUTH', '�����������¤�����');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', '�����ȴ����Ԥ����Ƥδ������¤���äƤ���');
@@ -95,10 +96,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOM�����μ�ư����');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', '�֤Ϥ��פ����򤹤�ȡ��ܺ�ɽ���ΤȤ���RSS/ATOM��URL�μ�ư���Фȵ����μ�ư������¹Ԥ��ޤ���');
     define('_WEBLINKS_RSS_MODE_DATA', 'ɽ������RSS/ATOM�Υǡ���');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        '��ATOM FEED�פ����򤹤�ȡ�atomfeed�ơ��֥�ˤ��빽ʸ���ϸ�Υǡ�������Ѥ��ޤ���<br>��XML�פ����򤹤�ȡ�link�ơ��֥�ˤ��빽ʸ��������XML�ǡ�������Ѥ��ޤ���<br>atomfeed�ơ��֥�ϡ��ե��륿���������äƤ���Τǡ����ƤΥǡ�������¸����Ƥ��ʤ����Ȥ�����ޤ���'
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', '��ATOM FEED�פ����򤹤�ȡ�atomfeed�ơ��֥�ˤ��빽ʸ���ϸ�Υǡ�������Ѥ��ޤ���<br>��XML�פ����򤹤�ȡ�link�ơ��֥�ˤ��빽ʸ��������XML�ǡ�������Ѥ��ޤ���<br>atomfeed�ơ��֥�ϡ��ե��륿���������äƤ���Τǡ����ƤΥǡ�������¸����Ƥ��ʤ����Ȥ�����ޤ���');
     define('_WEBLINKS_RSS_CACHE', 'RSS/ATOM�Υ���å������');
     define('_WEBLINKS_RSS_CACHE_DSC', '�����ͤϣ�����ñ�̤Ǥ���');
     define('_WEBLINKS_RSS_LIMIT', 'RSS/ATOM�����κ���η��');
@@ -162,10 +160,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_SUB_DSC', '���ƥ���ڡ����ˤ����ơ����Ĳ��Υ��ƥ��� (���֥��ƥ���) ��ɽ������Ȥ��Ρ�����ɽ��������ꤹ��<br><b>0</b> ��ɽ�����ʤ�<br><b>-1</b> �����¤ʤ�');
 
     define('_WEBLINKS_CAT_IMG_MODE', '���ƥ���ɽ���Υ��ƥ�������λ���');
-    define(
-        '_WEBLINKS_CAT_IMG_MODE_DSC',
-        '�֤ʤ��פΤȤ��ϡ�������ɽ�����ʤ���<br>��folder.gif�פΤȤ��ϡ�folder.gif ��ɽ�����롣<br>�����ꤷ�������פΤȤ��ϡ����ƥ���������ꤵ�줿������ɽ�����롣'
-    );
+    define('_WEBLINKS_CAT_IMG_MODE_DSC', '�֤ʤ��פΤȤ��ϡ�������ɽ�����ʤ���<br>��folder.gif�פΤȤ��ϡ�folder.gif ��ɽ�����롣<br>�����ꤷ�������פΤȤ��ϡ����ƥ���������ꤵ�줿������ɽ�����롣');
     //define("_WEBLINKS_CAT_IMG_MODE_0","�ʤ�");
     define('_WEBLINKS_CAT_IMG_MODE_1', 'folder.gif');
     define('_WEBLINKS_CAT_IMG_MODE_2', '���ꤷ������');
@@ -174,7 +169,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', '�����ꤷ�������פΤȤ���ͭ����');
     define('_WEBLINKS_CAT_UPDATED', '���ƥ��������򹹿�����');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', '���ƥ������');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', '���ƥ������');
     //define("_WEBLINKS_ORDER_ID","ID ��");
@@ -187,12 +182,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', '���֥��ƥ����');
     define('_WEBLINKS_ORDERS_UPDATED', '���ƥ�����¤ӽ�򹹿�����');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', '���ƥ������URL');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', '���ץ����Ǥ���<br>�����ե�������礭���ϼ�ưŪ��Ĵ������ޤ���');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","�ᥤ�󡦥��ƥ����ͭ���Ǥ���");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', '��󥯴���');
     define('_WEBLINKS_ADMIN_LINK_LIST', '��󥯰���');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', '����ڤ�ΰ���ɽ��');
@@ -203,19 +198,16 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', '���������󥯾���Ϥ���ޤ���');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', '������ɽ������Ƥ���Τϡ�������¸����Ƥ���ǡ����Ǥ���');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","�桼�� ID");
     //define("_WEBLINKS_CREATE","��Ͽ��");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', '��󥯤θ����ȹ���');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', '����ڤ�θ���');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', '����');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', '�������');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        '��󥯿���¿���ȡ������ॢ���Ȥ��뤳�Ȥ�����ޤ���<br>���ΤȤ��ϡ�limit �� offset �ο��ͤ��ѹ����Ƥ���������<br>limit=0 �����¤ʤ��Ǥ���<br>'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', '��󥯿���¿���ȡ������ॢ���Ȥ��뤳�Ȥ�����ޤ���<br>���ΤȤ��ϡ�limit �� offset �ο��ͤ��ѹ����Ƥ���������<br>limit=0 �����¤ʤ��Ǥ���<br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '<b>���ID</b> �򥯥�å�����ȡ���󥯽����Υڡ����������ޤ���<br><b>�����֥�����URL</b> �򥯥�å�����ȡ���������URL�������ޤ���<br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '<b>�����֥�����̾</b> �򥯥�å�����ȡ�google�����������ޤ���<br>');
     define('_WEBLINKS_ADMIN_LIMIT', '��󥯿��ξ��(limit)');
@@ -231,7 +223,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', '���� %s ��򸡺�����');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Ʊ����RSS/ATOM�μ�ư���Ф�Ԥ��ޤ�");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'RSS/ATOM����');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'RSS/ATOM�Υ���å��幹��');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', '��󥯾���Υ���å��幹��');
@@ -248,7 +240,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', '���ꥢ����RSS/ATOM�Υ���å���');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', '���ꥢ����RSS/ATOM�����ο�');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', '�桼������');
     define('_WEBLINKS_ADMIN_USER_EMAIL', '�ť᡼�륢�ɥ쥹����ĥ桼���ΰ���');
     define('_WEBLINKS_ADMIN_USER_LINK', '��󥯾������Ͽ���Ƥ�����Ͽ�桼���ΰ���');
@@ -262,7 +254,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', '���˹礦�桼�������Ĥ���ޤ���Ǥ���');
     define('_WEBLINKS_UID_EMAIL', '��ƼԤΣť᡼�륢�ɥ쥹');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', '�ť᡼�������');
     define('_WEBLINKS_THERE_ARE_EMAIL', '<b>%s</b> �Ͱ��Σť᡼�뤬����ޤ�');
     define('_WEBLINKS_SEND_NUM', '%s ���ܤ��� %s ���ܤޤǤ��������ޤ�');
@@ -348,10 +340,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_PRI_1', '�̾�');
     define('_AM_WEBLINKS_PRI_2', 'ͥ��');
     define('_AM_WEBLINKS_LINK_IMAGE_AUTO', '�Хʡ����������μ�ư����');
-    define(
-        '_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC',
-        '�֤Ϥ��פ����򤹤�ȡ�<br>�Хʡ�������������Ͽ���ѹ����˼����Ǥ��ʤ��ä����ˡ���󥯰������󥯾ܺ٤�ɽ������Ȥ��ˡ����� ��ưŪ�˼������롣<br>'
-    );
+    define('_AM_WEBLINKS_LINK_IMAGE_AUTO_DSC', '�֤Ϥ��פ����򤹤�ȡ�<br>�Хʡ�������������Ͽ���ѹ����˼����Ǥ��ʤ��ä����ˡ���󥯰������󥯾ܺ٤�ɽ������Ȥ��ˡ����� ��ưŪ�˼������롣<br>');
     define('_AM_WEBLINKS_RSS_USE', 'RSS �����λ���');
     define('_AM_WEBLINKS_RSS_USE_DSC', '�֤Ϥ��פ����򤹤�ȡ�<br>RSS/ATOM �����������ɽ������');
 
@@ -425,8 +414,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', '��������');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '�񥳡���');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs �����Ϥ��� <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '�񥳡��ɤ˴�Ϣ������ܤ�����ꤹ��<br> <span style="color:#0000ff;">#</span> �����Ĥ��Ƥ������');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs �����Ϥ��� <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '�񥳡��ɤ˴�Ϣ������ܤ�����ꤹ��<br/> <span style="color:#0000ff;">#</span> �����Ĥ��Ƥ������');
     define('_AM_WEBLINKS_RENEW', '������');
 
     // map
@@ -435,14 +424,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', '�Ͽޥ����ȤΥƥ�ץ졼��');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'template/map/ �ǥ��쥯�ȥ�ˤ���ƥ�ץ졼�ȡ��ե��������ꤹ��');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps ������');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Google Maps ����Ѥ���');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'GoogleMaps�����Ѥ������ <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> �� <br> API key ��������Ƥ�������'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'GoogleMaps�����Ѥ������ <br> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> �� <br> API key ��������Ƥ�������');
     define('_AM_WEBLINKS_CONF_GM_SERVER', '�����С�̾');
     define('_AM_WEBLINKS_CONF_GM_LANG', '���쥳����');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', '��ά���ξ��̾');
@@ -491,30 +477,18 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', '�ܺ�');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', '��ǽ����');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        '��ǽ����Τ���ˡ�ɽ������Ȥ���ɬ�פʾ��������˷׻������ǡ����١����˳�Ǽ���ޤ�<br>���ƻ��Ѥ���Ȥ��ϡ��֥��ƥ��������->�֥ѥ����ĥ꡼����ι����פ�¹Ԥ��뤳��'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', '��ǽ����Τ���ˡ�ɽ������Ȥ���ɬ�פʾ��������˷׻������ǡ����١����˳�Ǽ���ޤ�<br>���ƻ��Ѥ���Ȥ��ϡ��֥��ƥ��������->�֥ѥ����ĥ꡼����ι����פ�¹Ԥ��뤳��');
     define('_AM_WEBLINKS_CAT_PATH', '���ƥ���Υѥ����ĥ꡼����');
-    define(
-        '_AM_WEBLINKS_CAT_PATH_DSC',
-        '�֤Ϥ��פ����򤹤�ȡ�<br>���ƥ���Υѥ����ĥ꡼���������˷׻��������ƥ��ꡦ�ơ��֥�˳�Ǽ���ޤ���<br>�֤������פ����򤹤�ȡ�<br>ɽ������Ȥ��˷׻����ޤ���'
-    );
+    define('_AM_WEBLINKS_CAT_PATH_DSC', '�֤Ϥ��פ����򤹤�ȡ�<br>���ƥ���Υѥ����ĥ꡼���������˷׻��������ƥ��ꡦ�ơ��֥�˳�Ǽ���ޤ���<br>�֤������פ����򤹤�ȡ�<br>ɽ������Ȥ��˷׻����ޤ���');
     define('_AM_WEBLINKS_CAT_COUNT', '���ƥ���Υ�󥯿�');
-    define(
-        '_AM_WEBLINKS_CAT_COUNT_DSC',
-        '�֤Ϥ��פ����򤹤�ȡ�<br>���ƥ�����Υ�󥯿�������˷׻��������ƥ��ꡦ�ơ��֥�˳�Ǽ���ޤ���<br>�֤������פ����򤹤�ȡ�<br>ɽ������Ȥ��˷׻����ޤ���'
-    );
+    define('_AM_WEBLINKS_CAT_COUNT_DSC', '�֤Ϥ��פ����򤹤�ȡ�<br>���ƥ�����Υ�󥯿�������˷׻��������ƥ��ꡦ�ơ��֥�˳�Ǽ���ޤ���<br>�֤������פ����򤹤�ȡ�<br>ɽ������Ȥ��˷׻����ޤ���');
 
     define('_AM_WEBLINKS_POST_TEXT_4', '�����Ԥ���Ʋ��̤ˤ����Ƥι��ܤ�ɽ�������');
     define('_AM_WEBLINKS_LINK_REGISTER_1', '�����Ͽ: textarea1 ������');
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', '�����ȤΥ����Ͽ���ܤ�����');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'CAPTCHA (����ǧ��) ����Ѥ���');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA �ϲ���ǧ�ڤˤ�륹�ѥ��к��Ǥ���<br>���Ѥ���ˤϡ�Captcha �⥸�塼�뤬ɬ�פǤ���<br>�֤Ϥ��פ����򤹤�ȡ�<br><b>������</b> �ΤȤ��ϥ�󥯤���Ͽ���ѹ����� CAPTCHA ����Ѥ��ޤ���<br>�֤������פ����򤹤�ȡ�<br>CAPTCHA ���ɽ������ʤ���'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA �ϲ���ǧ�ڤˤ�륹�ѥ��к��Ǥ���<br>���Ѥ���ˤϡ�Captcha �⥸�塼�뤬ɬ�פǤ���<br>�֤Ϥ��פ����򤹤�ȡ�<br><b>������</b> �ΤȤ��ϥ�󥯤���Ͽ���ѹ����� CAPTCHA ����Ѥ��ޤ���<br>�֤������פ����򤹤�ȡ�<br>CAPTCHA ���ɽ������ʤ���');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha �⥸�塼�� ver %s �����Ĥ���ޤ���');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha �⥸�塼��ϸ��Ĥ���ޤ���');
 
@@ -623,15 +597,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'ñ��θ���: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'ʣ���θ���: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[����][����] ������ CSIS ����Ѥ���');
-    define(
-        '_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC',
-        '���ܤǤΤ�ͭ��<br>���꤫����١����٤򸡺�����<br><a href="https://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">������ ����ץ른�������ǥ��󥰼¸�</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '���ܤǤΤ�ͭ��<br>���꤫����١����٤򸡺�����<br><a href="http://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">������ ����ץ른�������ǥ��󥰼¸�</a>');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[����][����] �ե��������ɤ���Ѥ���');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        '���ܤǤΤ�ͭ��<br>���١����٤��齻��򸡺�����<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '���ܤǤΤ�ͭ��<br>���١����٤��齻��򸡺�����<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] �����ȥ��ʸ����');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', '�ޡ�������ɽ�����륿���ȥ��ʸ����<br><b>-1</b> �����¤ʤ�');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] ��ʸ��ʸ����');
@@ -663,10 +631,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML ɽ���˴ؤ�������');
     define('_AM_WEBLINKS_HEADER_MODE', 'xoops module header ����Ѥ���');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        '�֤������פΤȤ��ϡ��������륷���Ȥ� Javascript �λ���� body �������ɽ�����ޤ�<br>�֤Ϥ��פΤȤ��ϡ�xoops module header ����Ѥ��ơ�header �������ɽ�����ޤ�<br>�ơ��ޤˤ�äƤϻ��ѤǤ��ʤ���Τ�����ޤ�'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', '�֤������פΤȤ��ϡ��������륷���Ȥ� Javascript �λ���� body �������ɽ�����ޤ�<br>�֤Ϥ��פΤȤ��ϡ�xoops module header ����Ѥ��ơ�header �������ɽ�����ޤ�<br>�ơ��ޤˤ�äƤϻ��ѤǤ��ʤ���Τ�����ޤ�');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', '[����]�򥯥�å�����ȡ����ܤ�����ޤ�');
@@ -701,10 +666,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_USER_WAITING_NUM', '�桼���ξ�ǧ�Ԥ��ꥹ�Ȥη��');
     define('_AM_WEBLINKS_USER_OWNER_NUM', '�桼������Ͽ�ꥹ�Ȥη��');
     define('_AM_WEBLINKS_USE_HITS_SINGLELINK', '��󥯾ܺ٤� "�ҥåȿ�" �λ���');
-    define(
-        '_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC',
-        '�֥����פ� "�ҥåȿ�" �λ��ѡפ��֤Ϥ��פΤȤ���ͭ��<br>�֤Ϥ��פ����򤹤�ȡ�<br>��󥯾ܺ� singlelink ��ɽ�������Ȥ��ˡ��ҥåȿ� ��������ȥ��åפ���ޤ�'
-    );
+    define('_AM_WEBLINKS_USE_HITS_SINGLELINK_DSC', '�֥����פ� "�ҥåȿ�" �λ��ѡפ��֤Ϥ��פΤȤ���ͭ��<br>�֤Ϥ��פ����򤹤�ȡ�<br>��󥯾ܺ� singlelink ��ɽ�������Ȥ��ˡ��ҥåȿ� ��������ȥ��åפ���ޤ�');
     define('_AM_WEBLINKS_MODE_RANDOM', '�����ॸ���פ�������');
     define('_AM_WEBLINKS_MODE_RANDOM_URL', '��Ͽ���줿�����Ȥ�URL');
     define('_AM_WEBLINKS_MODE_RANDOM_SINGLE', '�⥸�塼�����singlelink');
@@ -737,8 +699,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 WEB�����ȤΥ���ͥ����ɽ������'
     );
     define('_AM_WEBLINKS_LINK_IMG_NON', '�ʤ�');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="https://mozshot.nemui.org/" target="_blank">MozShot</a> �����Ѥ���');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a> �����Ѥ���');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="http://mozshot.nemui.org/" target="_blank">MozShot</a> �����Ѥ���');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a> �����Ѥ���');
 
     // === 2007-11-01 ===
     // google map
@@ -799,10 +761,7 @@ WEB�����ȤΥ���ͥ����ɽ������'
     define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>���</b> ���󥿡��ͥåȤ�Ȥäơ�RSS��URL��ư���Ф��뤿�ᡢ���֤�������ޤ�');
 
     define('_AM_WEBLINKS_BULK_COMMENT', '�����Ȱ����Ͽ');
-    define(
-        '_AM_WEBLINKS_BULK_COMMENT_DSC1',
-        '��󥯤Υ����ȥ�, uid, �����ȤΥ����ȥ�, �����Ȥ���ʸ �򥫥��(,)�Ƕ��ڤäƵ��Ҥ���<br>uid �Ͼ�ά�ġ������Ԥ�uid �����Ѥ����<br/ >�����ȤΥ����ȥ� �Ͼ�ά�ġ���󥯤Υ����ȥ� �����Ѥ����'
-    );
+    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', '��󥯤Υ����ȥ�, uid, �����ȤΥ����ȥ�, �����Ȥ���ʸ �򥫥��(,)�Ƕ��ڤäƵ��Ҥ���<br>uid �Ͼ�ά�ġ������Ԥ�uid �����Ѥ����<br/ >�����ȤΥ����ȥ� �Ͼ�ά�ġ���󥯤Υ����ȥ� �����Ѥ����');
     define('_AM_WEBLINKS_NO_COMMENT', '�����Ȥ��ʤ�');
     define('_AM_WEBLINKS_COMMENT_ADDED', '�����Ȥ��ɲä���');
     define('_AM_WEBLINKS_BULK_DSC1', '����ޤȲ��Ԥ����̤ʵ�ˡ�ǵ��ҤǤ��ޤ�<br>�����(,)�� \2c �ȵ��Ҥ���<br/ >���Ԥ� \n �ȵ��Ҥ���');
@@ -821,4 +780,5 @@ WEB�����ȤΥ���ͥ����ɽ������'
 
     define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', '���١����٤ξ��򼨤����');
     define('_AM_WEBLINKS_CAT_GM_ICON_DSC', '(default) �ΤȤ��� �ƥ��ƥ���Υ������󤬷Ѿ������');
-}// --- define language end ---
+}
+// --- define language end ---

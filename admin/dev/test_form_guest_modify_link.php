@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_guest_modify_link.php,v 1.2 2007/11/02 11:36:29 ohwada Exp $
+
+// $Id: test_form_guest_modify_link.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // test_form_guest_class.php
@@ -76,7 +77,7 @@ if (!$ret) {
 if ($test->match_return_msg('not user')) {
     echo "<h4>Test OK !</h4>\n";
 } else {
-    echo "Error: test failed to fetch modify form <br><hr>\n";
+    echo "Error: test failed to fetch modify form <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -104,7 +105,7 @@ if ($test->match_return_msg('modify request link')) {
     echo "<h4>Success !</h4>\n";
     echo 'modify link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: modify link form failed: <br><hr>\n";
+    echo "Error: modify link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -137,7 +138,7 @@ if ($test->match_return_msg('modify request link')) {
     echo "<h4>Success !</h4>\n";
     echo 'modify link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: modify link form failed: <br><hr>\n";
+    echo "Error: modify link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -152,7 +153,10 @@ echo "<h4>scenario 4: permit guest & password : banner </h4>\n";
 //$test->set_debug_print_result_level(1);
 
 $test->update_config_by_name('use_passwd', 1);
-$test->update_config_by_name_array('auth_modify', [XOOPS_GROUP_ADMIN, XOOPS_GROUP_ANONYMOUS, WEBLINKS_ID_AUTH_PASSWD]);
+$test->update_config_by_name_array(
+    'auth_modify',
+    [XOOPS_GROUP_ADMIN, XOOPS_GROUP_ANONYMOUS, WEBLINKS_ID_AUTH_PASSWD]
+);
 $test->update_config_by_name_array('auth_modify_auto', [XOOPS_GROUP_ADMIN, WEBLINKS_ID_AUTH_PASSWD]);
 
 $title = $test->get_randum_title();
@@ -172,7 +176,7 @@ if ($test->match_return_msg('modify request link')) {
     echo "<h4>Success !</h4>\n";
     echo 'modify link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: modify link form failed: <br><hr>\n";
+    echo "Error: modify link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -205,11 +209,12 @@ if ($test->match_return_msg('modify approve link')) {
     echo "<h4>Success !</h4>\n";
     echo 'modify link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: modify link form failed: <br><hr>\n";
+    echo "Error: modify link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

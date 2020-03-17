@@ -1,5 +1,6 @@
 <?php
-// $Id: my11_to_web05.php,v 1.3 2005/10/28 11:56:02 ohwada Exp $
+
+// $Id: my11_to_web05.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 //================================================================
 // porting from mylinks to weblinks
@@ -111,6 +112,10 @@ echo '<h3>end</h3>';
 xoops_cp_footer();
 exit();
 
+/**
+ * @param $sql
+ * @return bool
+ */
 function sql_exec($sql)
 {
     global $xoopsDB;

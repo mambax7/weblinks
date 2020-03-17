@@ -1,6 +1,6 @@
 Hallo {X_UNAME},
 
-es liegt ein Bericht über eien defekten Link vor und wartet auf die Genehmigung.
+es liegt ein Bericht ï¿½ber eien defekten Link vor und wartet auf die Genehmigung.
 
 Anfrage hier ansehen:
 {BROKENREPORTS_URL}
@@ -9,7 +9,7 @@ Anfrage hier ansehen:
 
 Sie erhalten diese Nachricht, weil Sie benachrichtigt werden wollten.
 
-Falls dies ein Irrläufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wünschen, können Sie Ihre Voreinstellung durch klicken auf den folgenden Link ändern:
+Falls dies ein Irrlï¿½ufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wï¿½nschen, kï¿½nnen Sie Ihre Voreinstellung durch klicken auf den folgenden Link ï¿½ndern:
 {X_UNSUBSCRIBE_URL}
 
 Bitte antworten Sie nicht auf diese Nachricht.

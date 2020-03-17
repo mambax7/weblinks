@@ -1,13 +1,13 @@
 Hola {X_UNAME},
 
-Un nuevo enlace a sido añadido a {X_SITENAME}.
+Un nuevo enlace a sido aï¿½adido a {X_SITENAME}.
 
-Puede ver el enlace añadido aquí:
+Puede ver el enlace aï¿½adido aquï¿½:
 {LINK_URL}
 
-Información del Link nuevo :
+Informaciï¿½n del Link nuevo :
 Title : {LINK_NAME}
-Descripción :
+Descripciï¿½n :
 {LINK_DESCRIPTION}
 
 Comentarios para el Administrador :

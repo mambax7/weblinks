@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -66,7 +67,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'Category');
     define('_WLS_HITS', 'Hits');
     define('_WLS_RATING', 'Rating');
@@ -79,7 +80,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'Edit This Link');
     define('_WLS_MODIFY', 'Modify');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'Submit New Link');
     define('_WLS_SUBMITONCE', 'Submit your link only once.');
     define('_WLS_DONTABUSE', "Username and IP are recorded, so please don't abuse the system.");
@@ -88,7 +89,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', 'We received your Website information. Thanks!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'Link Modification Request');
     define('_WLS_THANKSFORINFO', "Thanks for the information. We'll look into your request shortly.");
 
@@ -174,7 +175,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'You cannot vote on the resource you submitted.<br>All votes are logged and reviewed.');
     define('_WLS_VOTEONCE2', 'Vote for the selected resource only once.<br>All votes are logged and reviewed.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'Web Links Configuration');
     define('_WLS_GENERALSET', 'Web Links General Settings');
@@ -251,7 +252,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Submit New Link');
     define('_WLS_SITE_POPULAR', 'Popular site');
@@ -274,7 +275,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', 'Last Update');
     define('_WLS_MORE', 'More Details');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'Description');
     define('_WLS_PROMOTER', 'Promote');
     define('_WLS_ZIP', 'Zip code');
@@ -282,7 +283,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'Telephone Number');
     define('_WLS_FAX', 'Facsimile Number');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'Banner URL');
     define('_WLS_NAME', 'Name');
     define('_WLS_EMAIL', 'Email');
@@ -294,20 +295,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'Do Not Publish');
     define('_WLS_NOTSELECT', 'Not Specified');
     define('_WLS_SUBMIT_INDISPENSABLE', "Star mark '<b>*</b>' means an indispensable item.");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"Comment to Admin" should use an opinion, request, etc.<br>This column is not displayed on WEB.<br>Please fill in URL of your site where is linked to this site, when you want to mark "Reciprocal link".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"Comment to Admin" should use an opinion, request, etc.<br>This column is not displayed on WEB.<br>Please fill in URL of your site where is linked to this site, when you want to mark "Reciprocal link".');
     define('_WLS_USER_COMMENT', 'Comment to Admin');
     define('_WLS_NOT_DISPLAY', 'This column is not displayed on WEB.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'Your link modification application has been approved. ');
     define('_WLS_MODIFY_NOT_OWNER', 'Please ensure that you are the person that submitted the original link.');
     define('_WLS_MODIFY_PENDING', 'Link Modification recorded. It will be published after verification.');
     define('_WLS_LINKSUBMITTER', 'Link Submitter');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'Enter your password');
     define('_WLS_REGSTERED', 'Registered User');
     define('_WLS_REGSTERED_DSC', 'Anybody can modify link information. <br>Webmaster will check the modification before posting.');
@@ -367,7 +365,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'auto discovery');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Notify if approved');
@@ -430,13 +428,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
     //}
 
     define('_WEBLINKS_MAP_USE', 'Use Map Icon');
@@ -453,7 +451,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Warning: Cannnot read url');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Warning: cannnot get banner size');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitude');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitude');
     define('_WEBLINKS_GM_ZOOM', 'Zoom Level');
@@ -576,4 +574,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // google map
     define('_WEBLINKS_GM_LOCATION', 'Location');
     define('_WEBLINKS_GM_ICON', 'Google Icon');
-}// --- define language end ---
+}
+// --- define language end ---

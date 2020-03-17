@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_req_handler.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 // 2011-12-29 K.OHWADA
@@ -20,6 +21,10 @@ if (!class_exists('weblinks_link_req_handler')) {
     //=========================================================
     // class weblinks_link_req_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_req_handler
+     */
     class weblinks_link_req_handler extends weblinks_link_edit_base_handler
     {
         public $_modify_handler;
@@ -27,16 +32,25 @@ if (!class_exists('weblinks_link_req_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_req_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
-            $this->_modify_handler = weblinks_getHandler('modify', $dirname);
+            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
         }
 
         //---------------------------------------------------------
         // link request admin_approve
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function user_submit_admin_approve()
         {
             $newid = $this->_add_modify_record(0);
@@ -49,6 +63,9 @@ if (!class_exists('weblinks_link_req_handler')) {
             return $newid;
         }
 
+        /**
+         * @return bool
+         */
         public function user_modify_admin_approve()
         {
             $newid = $this->_add_modify_record(1);
@@ -61,6 +78,9 @@ if (!class_exists('weblinks_link_req_handler')) {
             return $newid;
         }
 
+        /**
+         * @return bool
+         */
         public function user_delete_admin_approve()
         {
             $newid = $this->_add_modify_record(2);
@@ -77,9 +97,14 @@ if (!class_exists('weblinks_link_req_handler')) {
         // private
         //---------------------------------------------------------
         // mode 0: add, 1:mod, 2:del
+
+        /**
+         * @param int $mode
+         * @return bool
+         */
         public function _add_modify_record($mode = 0)
         {
-            $save_obj = &$this->_create_modify_save();
+            $save_obj = $this->_create_modify_save();
 
             // mod or del
             if ($mode) {
@@ -112,6 +137,10 @@ if (!class_exists('weblinks_link_req_handler')) {
             return $newid;
         }
 
+        /**
+         * @param bool $isNew
+         * @return \weblinks_modify_save
+         */
         public function &_create_modify_save($isNew = true)
         {
             $obj = new weblinks_modify_save($this->_DIRNAME);

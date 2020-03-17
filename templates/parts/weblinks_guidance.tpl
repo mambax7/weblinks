@@ -1,4 +1,4 @@
-<{* $Id: weblinks_guidance.html,v 1.7 2008/02/26 16:01:49 ohwada Exp $ *}>
+<{* $Id: weblinks_guidance.html,v 1.1 2011/12/29 14:32:37 ohwada Exp $ *}>
 
 <{* -- rss icon -- *}>
 <a href="<{$xoops_url}>/modules/<{$dirname}>/rdf.php" target='_blank'>

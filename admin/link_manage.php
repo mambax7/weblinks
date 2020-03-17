@@ -1,4 +1,5 @@
 <?php
+
 // $Id: link_manage.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -120,6 +121,10 @@ if (WEBLINKS_RSSC_USE) {
 //=========================================================
 // class admin_link_manage
 //=========================================================
+
+/**
+ * Class admin_link_menu
+ */
 class admin_link_menu
 {
     public $_category_handler;
@@ -138,9 +143,12 @@ class admin_link_menu
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -154,6 +162,9 @@ class admin_link_menu
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $op = 'main';
@@ -606,7 +617,7 @@ switch ($op) {
     case 'list_new':
         $manage->list_new();
         break;
-    case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+    case WEBLINKS_OP_APPROVE_NEW:    // approve_new
         $manage->approve_new();
         break;
     case 'delNewLink':
@@ -619,7 +630,7 @@ switch ($op) {
     case 'list_mod':
         $manage->list_mod();
         break;
-    case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+    case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
         $manage->approve_mod();
         break;
     case 'ignore':
@@ -634,7 +645,7 @@ switch ($op) {
     case 'approve_del_confirm':
         $manage->approve_del_confirm();
         break;
-    case WEBLINKS_OP_APPROVE_DEL:   // approve_del
+    case WEBLINKS_OP_APPROVE_DEL:    // approve_del
         $manage->approve_del();
         break;
     case 'refuse_del':
@@ -665,4 +676,5 @@ switch ($op) {
         break;
 }
 
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

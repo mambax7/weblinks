@@ -1,5 +1,5 @@
 <?php
-// $Id: my11_to_web09.php,v 1.4 2006/01/16 07:20:54 ohwada Exp $
+// $Id: my11_to_web09.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2006-01-01 K.OHWADA
 // weblinks ver 1.0
@@ -77,31 +77,31 @@ function first_step()
     global $LIMIT;
 
     $action = xoops_getenv('PHP_SELF'); ?>
-    <br>
-    There are 4 steps. <br>
-    1. transfer shot images <br>
-    2. transfer category table <br>
-    3. transfer link table <br>
-    excute each <?php echo $LIMIT; ?> links at a time <br>
-    4. transfer votedate table <br>
-    5. transfer comment table <br>
-    <br>
-    Preparation <br>
-    Please enable to be writable of cache directory. <br>
-    <br>
-    Nitice <br>
-    This program don't transfer modify and broken table. <br>
-    <br>
+    <br/>
+    There are 4 steps. <br/>
+    1. transfer shot images <br/>
+    2. transfer category table <br/>
+    3. transfer link table <br/>
+    excute each <?php echo $LIMIT; ?> links at a time <br/>
+    4. transfer votedate table <br/>
+    5. transfer comment table <br/>
+    <br/>
+    Preparation <br/>
+    Please enable to be writable of cache directory. <br/>
+    <br/>
+    Nitice <br/>
+    This program don't transfer modify and broken table. <br/>
+    <br/>
     <h4>STEP 1 : transfer shot images</h4>
     <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_image'>
         <input type='submit' value='GO STEP 1'>
     </form>
-    <br>
+    <br/>
     <h4>STEP 0 : initalize</h4>
-    Drop and create tables.<br>
-    If you want to redo <br>
-    <br>
+    Drop and create tables.<br/>
+    If you want to redo <br/>
+    <br/>
     <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='create'>
         <input type='submit' value='GO STEP 0'>
@@ -115,7 +115,7 @@ function trans_image()
 
     $shots_dir_my = XOOPS_ROOT_PATH . '/modules/mylinks/images/shots/';
 
-    //  $shots_dir_web = XOOPS_ROOT_PATH."/modules/weblinks/images/shots/";
+    //	$shots_dir_web = XOOPS_ROOT_PATH."/modules/weblinks/images/shots/";
     $shots_dir_web = $MODULE_ROOT . '/images/shots/';
 
     $file_arr = [];
@@ -164,7 +164,7 @@ function trans_image()
     }
 
     $action = xoops_getenv('PHP_SELF'); ?>
-    <br>
+    <br/>
     <hr>
     <h4>STEP 2 : transfer category table</h4>
     <form action='<?php echo $action; ?>' method='post'>
@@ -229,7 +229,7 @@ function trans_category()
     }
 
     $action = xoops_getenv('PHP_SELF'); ?>
-    <br>
+    <br/>
     <hr>
     <h4>STEP 3 : transfer link table</h4>
     <form action='<?php echo $action; ?>' method='post'>
@@ -401,6 +401,10 @@ function trans_link()
     }
 }
 
+/**
+ * @param $lid
+ * @return mixed
+ */
 function get_desc($lid)
 {
     global $xoopsDB;
@@ -413,6 +417,10 @@ function get_desc($lid)
     return $desc;
 }
 
+/**
+ * @param $cid
+ * @param $lid
+ */
 function insert_catlink($cid, $lid)
 {
     global $xoopsDB;
@@ -429,6 +437,9 @@ function insert_catlink($cid, $lid)
     sql_exec($sql);
 }
 
+/**
+ * @param $next
+ */
 function form_next_link($next)
 {
     global $LIMIT;
@@ -436,11 +447,11 @@ function form_next_link($next)
     $action = xoops_getenv('PHP_SELF');
     $submit = "GO next $LIMIT links";
     $next2 = $next + $LIMIT; ?>
-    <br>
+    <br/>
     <hr>
     <h4>STEP 3 : transfer link table</h4>
-    Transfer <?php echo $next; ?> - <?php echo $next2; ?> th link<br>
-    <br>
+    Transfer <?php echo $next; ?> - <?php echo $next2; ?> th link<br/>
+    <br/>
     <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='trans_link'>
         <input type='hidden' name='offset' value='<?php echo $next; ?>'>
@@ -452,7 +463,7 @@ function form_next_link($next)
 function form_votedate()
 {
     $action = xoops_getenv('PHP_SELF'); ?>
-    <br>
+    <br/>
     <hr>
     <h4>STEP 4 : transfer votedate table</h4>
     <form action='<?php echo $action; ?>' method='post'>
@@ -477,7 +488,7 @@ function trans_votedate()
 
     $action = xoops_getenv('PHP_SELF');
     $submit = 'excute'; ?>
-    <br>
+    <br/>
     <hr>
     <h4>STEP 5 : transfer comment table</h4>
     <form action='<?php echo $action; ?>' method='post'>
@@ -599,12 +610,18 @@ function create()
     clear_comment();
 }
 
+/**
+ * @param $table
+ */
 function delete_table($table)
 {
     $sql = "DROP TABLE $table";
     sql_exec($sql);
 }
 
+/**
+ * @param $table
+ */
 function create_category($table)
 {
     echo "<h4>create category table</h4>\n";
@@ -627,12 +644,15 @@ CREATE TABLE $table (
   editaccess varchar(255) NOT NULL default '1 2 3',
   PRIMARY KEY  (cid),
   KEY pid (pid)
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     sql_exec($sql);
 }
 
+/**
+ * @param $table
+ */
 function create_link($table)
 {
     echo "<h4>create link table</h4>\n";
@@ -682,12 +702,15 @@ CREATE TABLE $table (
   KEY uid (uid),
   KEY cids (cids),
   KEY title (title(40))
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     sql_exec($sql);
 }
 
+/**
+ * @param $table
+ */
 function create_catlink($table)
 {
     echo "<h4>create catlink table</h4>\n";
@@ -700,12 +723,15 @@ CREATE TABLE $table (
   PRIMARY KEY  (jid),
   KEY lid (lid),
   KEY cid (cid)
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     sql_exec($sql);
 }
 
+/**
+ * @param $table
+ */
 function create_votedata($table)
 {
     echo "<h4>create votedata table</h4>\n";
@@ -721,7 +747,7 @@ CREATE TABLE $table (
   PRIMARY KEY  (ratingid),
   KEY ratinguser (ratinguser),
   KEY ratinghostname (ratinghostname)
-) ENGINE=MyISAM
+) TYPE=MyISAM
 ";
 
     sql_exec($sql);
@@ -744,6 +770,12 @@ function clear_comment()
     $res = sql_exec($sql);
 }
 
+/**
+ * @param     $sql
+ * @param int $limit
+ * @param int $offset
+ * @return bool
+ */
 function sql_exec($sql, $limit = 0, $offset = 0)
 {
     global $xoopsDB;

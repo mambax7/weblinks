@@ -1,5 +1,6 @@
 <?php
-// $Id: admin_header_config.php,v 1.5 2007/11/15 11:29:09 ohwada Exp $
+
+// $Id: admin_header_config.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_config2_form.php

@@ -1,5 +1,5 @@
-<{* $Id: weblinks_map_jp.html,v 1.2 2007/11/07 11:14:31 ohwada Exp $ *}>
-<{* https://d.hatena.ne.jp/wata300/20060308/p1 *}>
+<{* $Id: weblinks_map_jp.html,v 1.1 2011/12/29 14:32:37 ohwada Exp $ *}>
+<{* http://d.hatena.ne.jp/wata300/20060308/p1 *}>
 
 <table class="weblinks_map_jp">
     <tr>

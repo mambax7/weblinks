@@ -1,6 +1,6 @@
 Hallo {X_UNAME},
 
-eine Anfrage zur Änderung oder Löschung wurde gesendet und wartet auf Freigabe.
+eine Anfrage zur ï¿½nderung oder Lï¿½schung wurde gesendet und wartet auf Freigabe.
 
 Anfrage hier ansehen:
 {MODIFYREPORTS_URL}

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: config_manage_4.php,v 1.2 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -52,9 +53,9 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_block_webmap.php';
 include_once WEBLINKS_ROOT_PATH . '/class/weblinks_webmap.php';
 
 // class
-$config_form = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
-$link_form_handler = weblinks_getHandler('link_form', WEBLINKS_DIRNAME);
+$config_form       = admin_config_form::getInstance();
+$config_store      = admin_config_store::getInstance();
+$link_form_handler = weblinks_get_handler('link_form', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
@@ -125,11 +126,12 @@ $config_form->show_by_catid(27, _AM_WEBLINKS_CONF_D3FORUM);
 // hack for multi site
 //if ( WEBLINKS_FLAG_MULTI_SITE )
 //{
-//  echo '<a name="form_multi_site"></a>'."\n";
-//  echo "<h4>".'multi site'."</h4>\n";
-//  $config_form->show_by_catid( 23, 'multi site' );
+//	echo '<a name="form_multi_site"></a>'."\n";
+//	echo "<h4>".'multi site'."</h4>\n";
+//	$config_form->show_by_catid( 23, 'multi site' );
 //}
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

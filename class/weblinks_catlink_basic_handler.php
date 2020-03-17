@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_catlink_basic_handler.php,v 1.1 2007/03/06 02:02:39 ohwada Exp $
+
+// $Id: weblinks_catlink_basic_handler.php,v 1.1 2011/12/29 14:33:05 ohwada Exp $
 
 // 2007-03-01 K.OHWADA
 // divid from weblinks_catlink_handler
@@ -14,11 +15,20 @@ if (!class_exists('weblinks_catlink_basic_handler')) {
     //=========================================================
     // class weblinks_catlink_basic_handler
     //=========================================================
+
+    /**
+     * Class weblinks_catlink_basic_handler
+     */
     class weblinks_catlink_basic_handler extends happy_linux_basic_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_catlink_basic_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -39,6 +49,13 @@ if (!class_exists('weblinks_catlink_basic_handler')) {
         //---------------------------------------------------------
         // get cid_array
         //---------------------------------------------------------
+
+        /**
+         * @param     $lid
+         * @param int $limit
+         * @param int $offset
+         * @return array
+         */
         public function &get_cid_array_by_lid($lid, $limit = 0, $offset = 0)
         {
             $sql = 'SELECT cid FROM ' . $this->_table . ' WHERE lid=' . (int)$lid;

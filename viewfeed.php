@@ -1,5 +1,6 @@
 <?php
-// $Id: viewfeed.php,v 1.16 2007/11/16 12:07:57 ohwada Exp $
+
+// $Id: viewfeed.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // happy_linux_get_memory_usage_mb()
@@ -94,6 +95,10 @@ exit();
 //=========================================================
 // class weblinks_viewfeed
 //=========================================================
+
+/**
+ * Class weblinks_viewfeed
+ */
 class weblinks_viewfeed
 {
     public $_rssc_handler;
@@ -107,14 +112,17 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     public function __construct()
     {
-        $config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
         $this->_conf = $config_handler->get_conf();
 
         $this->_pagenavi = happy_linux_pagenavi::getInstance();
 
-        $this->_rssc_handler = weblinks_getHandler('rssc_view', WEBLINKS_DIRNAME);
+        $this->_rssc_handler = weblinks_get_handler('rssc_view', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -128,6 +136,10 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     // count
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function get_total()
     {
         $this->_total = $this->_rssc_handler->get_feed_count();
@@ -138,6 +150,11 @@ class weblinks_viewfeed
     //---------------------------------------------------------
     // feed_list
     //---------------------------------------------------------
+
+    /**
+     * @param $keyword_array
+     * @return mixed
+     */
     public function &get_feed_list(&$keyword_array)
     {
         $feed_list = [];
@@ -162,6 +179,10 @@ class weblinks_viewfeed
         return $feed_list;
     }
 
+    /**
+     * @param $keywords
+     * @return string
+     */
     public function get_navi($keywords)
     {
         $script = WEBLINKS_URL . '/viewfeed.php';

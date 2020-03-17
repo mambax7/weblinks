@@ -1,5 +1,6 @@
 <?php
-// $Id: header_basic.php,v 1.10 2007/02/27 14:45:56 ohwada Exp $
+
+// $Id: header_basic.php,v 1.1 2011/12/29 14:32:27 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // functions.php
@@ -85,5 +86,5 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_handler.php';
 include_once WEBLINKS_ROOT_PATH . '/language/compatible.php';
 
 // config init
-$weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+$weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
 $weblinks_config_handler->init();

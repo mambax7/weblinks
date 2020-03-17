@@ -1,6 +1,6 @@
 Ciao,
 
-Il link "{LINK_NAME}" inviato precedentemente è stato approvato su {X_SITENAME}.
+Il link "{LINK_NAME}" inviato precedentemente ï¿½ stato approvato su {X_SITENAME}.
 
 Puoi vedere questo link qui:
 {LINK_URL}

@@ -1,5 +1,6 @@
 <?php
-// $Id: catlist_popup.php,v 1.5 2006/09/30 03:15:20 ohwada Exp $
+
+// $Id: catlist_popup.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2006-09-20 K.OHWADA
 // use happy_linux
@@ -22,13 +23,13 @@
 
 include 'header.php';
 
-$weblinks_view_handler = weblinks_getHandler('link_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('link_view', WEBLINKS_DIRNAME);
 
 xoops_header(false);
 echo '</head><body>';
 echo "<br>\n";
 echo '<h3 align="center">' . _WLS_CATLIST . '</h3>';
-echo "<hr>\n";
+echo "<hr />\n";
 echo '<table align="center"><tr><td>';
 
 // --- category list ---
@@ -41,8 +42,8 @@ foreach ($catlist as $cat) {
 }
 
 echo "</td></tr></table>\n";
-echo "<hr>\n";
-echo "<div style='text-align:center;'><input value='" . _CLOSE . "' type='button' onclick='window.close();' /></div>";
+echo "<hr />\n";
+echo "<div style='text-align:center;'><input value='" . _CLOSE . "' type='button' onclick='javascript:window.close();' /></div>";
 echo "<br>\n";
 
 xoops_footer();

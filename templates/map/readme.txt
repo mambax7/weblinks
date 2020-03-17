@@ -1,4 +1,4 @@
-$Id: readme.txt,v 1.1 2006/10/07 10:11:13 ohwada Exp $
+$Id: readme.txt,v 1.1 2011/12/29 14:32:40 ohwada Exp $
 
 =================================================
 Linkage goto the map site
@@ -14,16 +14,16 @@ use in case of the confirmation.
 
 (1) Yahoo
 Maps Terms of Use
-https://help.yahoo.com/l/us/yahoo/maps/using/maps-24.html
+http://help.yahoo.com/l/us/yahoo/maps/using/maps-24.html
 Personal Use Only.
 
 (2) Google
 Terms and Conditions
-https://maps.google.com/help/terms_maps.html
+http://maps.google.com/help/terms_maps.html
 
 Can I add maps from Google Maps to my site?
-https://maps.google.com/support/bin/answer.py?answer=26392
-Yes, you can.
+http://maps.google.com/support/bin/answer.py?answer=26392
+Yes, you can. 
 The Google Maps API is available for implementation on any site that is free for consumer use
 
 2. The choice of the map site

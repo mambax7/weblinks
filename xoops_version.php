@@ -1,5 +1,6 @@
 <?php
-// $Id: xoops_version.php,v 1.27 2008/02/26 16:01:33 ohwada Exp $
+
+// $Id: xoops_version.php,v 1.1 2011/12/29 14:32:27 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // sub menu: get_lang_sumit()
@@ -66,7 +67,7 @@ $WEBLINKS_ROOT_PATH = XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME;
 $WEBLINKS_URL = XOOPS_URL . '/modules/' . $WEBLINKS_DIRNAME;
 
 if (!preg_match('/^(\D+)(\d*)$/', $WEBLINKS_DIRNAME, $regs)) {
-    echo('invalid dirname: ' . htmlspecialchars($WEBLINKS_DIRNAME));
+    echo('invalid dirname: ' . htmlspecialchars($WEBLINKS_DIRNAME, ENT_QUOTES | ENT_HTML5));
 }
 $WEBLINKS_NUMBER = '' === $regs[2] ? '' : (int)$regs[2];
 
@@ -87,7 +88,7 @@ $modversion['version'] = WEBLINKS_VERSION;
 
 $modversion['name'] = _MI_WEBLINKS_NAME . $name_ext;
 $modversion['description'] = _MI_WEBLINKS_DESC;
-$modversion['author'] = 'Kenichi OHWADA<br>( https://linux2.ohwada.net/ )';
+$modversion['author'] = 'Kenichi OHWADA<br>( http://linux2.ohwada.net/ )';
 $modversion['credits'] = '';
 $modversion['help'] = '';
 $modversion['license'] = 'GPL see LICENSE';
@@ -112,7 +113,6 @@ $modversion['tables'][9] = $WEBLINKS_DIRNAME . '_linkitem';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
-$modversion['system_menu'] = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu'] = 'admin/menu.php';
 
@@ -123,19 +123,19 @@ $i = 1;
 if ($menu->show_submit()) {
     $modversion['sub'][$i]['name'] = $menu->get_lang_sumit();
     $modversion['sub'][$i]['url'] = 'submit.php';
-    ++$i;
+    $i++;
 }
 
 if ($menu->show_hits()) {
     $modversion['sub'][$i]['name'] = $menu->get_lang_hits();
     $modversion['sub'][$i]['url'] = 'topten.php?hit=1';
-    ++$i;
+    $i++;
 }
 
 if ($menu->show_rating()) {
     $modversion['sub'][$i]['name'] = $menu->get_lang_rating();
     $modversion['sub'][$i]['url'] = 'topten.php?rate=1';
-    ++$i;
+    $i++;
 }
 
 // Submenu
@@ -147,7 +147,7 @@ foreach ($catlist as $cat) {
     $cid = (int)$cat['cid'];
     $modversion['sub'][$i]['name'] = ' - ' . $title;
     $modversion['sub'][$i]['url'] = 'viewcat.php?cid=' . $cid . '';
-    ++$i;
+    $i++;
 }
 
 //---------------------------------------------------------

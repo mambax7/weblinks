@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_menu.php,v 1.7 2008/02/26 16:01:39 ohwada Exp $
+
+// $Id: weblinks_menu.php,v 1.1 2011/12/29 14:33:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // get_lang_sumit()
@@ -31,6 +32,10 @@ if (!class_exists('weblinks_menu')) {
     // this class handle MySQL table directly
     // this class does not use another class
     //=========================================================
+
+    /**
+     * Class weblinks_menu
+     */
     class weblinks_menu
     {
         // class instance
@@ -48,6 +53,11 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_menu constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             // class instance
@@ -64,6 +74,10 @@ if (!class_exists('weblinks_menu')) {
             $this->load();
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -94,6 +108,10 @@ if (!class_exists('weblinks_menu')) {
             }
         }
 
+        /**
+         * @param $name
+         * @return bool
+         */
         public function get_by_name($name)
         {
             if (isset($this->_config_cached[$name])) {
@@ -108,6 +126,10 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // get from DB
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &get_config()
         {
             $arr = [];
@@ -125,6 +147,9 @@ if (!class_exists('weblinks_menu')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &get_top_category()
         {
             $arr = [];
@@ -150,6 +175,11 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // exists table
         //---------------------------------------------------------
+
+        /**
+         * @param $table
+         * @return bool
+         */
         public function exists_table($table)
         {
             $sql = 'SHOW TABLES';
@@ -175,11 +205,18 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // get param
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function show_submit()
         {
             return $this->get_perm_submit();
         }
 
+        /**
+         * @return bool
+         */
         public function show_hits()
         {
             if ($this->get_by_name('use_hits') || $this->get_by_name('use_hits_singlelink')) {
@@ -189,11 +226,17 @@ if (!class_exists('weblinks_menu')) {
             return false;
         }
 
+        /**
+         * @return bool
+         */
         public function show_rating()
         {
             return $this->get_by_name('use_ratelink');
         }
 
+        /**
+         * @return array
+         */
         public function &get_catlist()
         {
             $arr = [];
@@ -204,16 +247,25 @@ if (!class_exists('weblinks_menu')) {
             return $arr;
         }
 
+        /**
+         * @return bool
+         */
         public function get_lang_sumit()
         {
             return $this->get_by_name('lang_submitlink');
         }
 
+        /**
+         * @return bool
+         */
         public function get_lang_hits()
         {
             return $this->get_by_name('lang_site_popular');
         }
 
+        /**
+         * @return bool
+         */
         public function get_lang_rating()
         {
             return $this->get_by_name('lang_site_highrate');
@@ -222,6 +274,10 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // permission
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function get_perm_submit()
         {
             if ($this->is_xoops_module_admin()) {
@@ -245,6 +301,10 @@ if (!class_exists('weblinks_menu')) {
         //---------------------------------------------------------
         // xoops system parameter
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function is_xoops_module_admin()
         {
             global $xoopsUser, $xoopsModule;
@@ -258,6 +318,9 @@ if (!class_exists('weblinks_menu')) {
             return false;
         }
 
+        /**
+         * @return array
+         */
         public function get_xoops_groups()
         {
             global $xoopsUser;

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: link_geocoding.php,v 1.2 2012/04/10 11:24:42 ohwada Exp $
 
 //================================================================
@@ -14,6 +15,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_address.php';
 //=========================================================
 // class admin_manage_geocoding
 //=========================================================
+
+/**
+ * Class admin_manage_geocoding
+ */
 class admin_manage_geocoding extends happy_linux_manage
 {
     public $_latitude_list;
@@ -24,6 +29,11 @@ class admin_manage_geocoding extends happy_linux_manage
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * admin_manage_geocoding constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         parent::__construct($dirname);
@@ -36,6 +46,10 @@ class admin_manage_geocoding extends happy_linux_manage
         $this->set_flag_execute_time(true);
     }
 
+    /**
+     * @param null $dirname
+     * @return \admin_manage_geocoding|\happy_linux_manage|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -49,6 +63,10 @@ class admin_manage_geocoding extends happy_linux_manage
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_op()
     {
         $op = 'list';
@@ -75,6 +93,9 @@ class admin_manage_geocoding extends happy_linux_manage
         $this->_main_mod_all(true);
     }
 
+    /**
+     * @return mixed
+     */
     public function &_get_obj_mod_all()
     {
         $id = $this->_id;
@@ -102,6 +123,10 @@ class admin_manage_geocoding extends happy_linux_manage
 //=========================================================
 // class admin_list_geocoding
 //=========================================================
+
+/**
+ * Class admin_list_geocoding
+ */
 class admin_list_geocoding extends happy_linux_page_frame
 {
     public $_api_class;
@@ -116,6 +141,11 @@ class admin_list_geocoding extends happy_linux_page_frame
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * admin_list_geocoding constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_DIRNAME = $dirname;
@@ -137,11 +167,15 @@ class admin_list_geocoding extends happy_linux_page_frame
 
         $this->_system_class = happy_linux_system::getInstance();
 
-        $config_handler = weblinks_getHandler('config2_basic', $dirname);
+        $config_handler = weblinks_get_handler('config2_basic', $dirname);
         $config_handler->init();
         $this->_conf = $config_handler->get_conf();
     }
 
+    /**
+     * @param null $dirname
+     * @return \admin_list_geocoding|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -191,12 +225,16 @@ class admin_list_geocoding extends happy_linux_page_frame
         }
 
         $this->_flag_webmap = true;
-        $this->_api_class = &webmap3_api_geocoding::getSingleton($webmap_dirname);
+        $this->_api_class = webmap3_api_geocoding::getSingleton($webmap_dirname);
     }
 
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -214,11 +252,20 @@ class admin_list_geocoding extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return bool
+     */
     public function _get_items($limit = 0, $start = 0)
     {
         return $this->_handler->get_objects_all($limit, $start);
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $lid = $obj->getVar('lid', 'n');
@@ -231,7 +278,13 @@ class admin_list_geocoding extends happy_linux_page_frame
         $zoom = $obj->getVar('gm_zoom', 'n');
 
         $jump_link = 'link_manage.php?op=mod_form&lid=';
-        $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $jump_link, '', '_blank');
+        $link_link = $this->_build_page_id_link_by_obj(
+            $obj,
+            'lid',
+            $jump_link,
+            '',
+            '_blank'
+        );
 
         $result = '-';
         $style = '';
@@ -283,6 +336,10 @@ class admin_list_geocoding extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $address
+     * @return array|bool
+     */
     public function fetch($address)
     {
         if (!$this->_flag_webmap) {
@@ -338,6 +395,13 @@ class admin_list_geocoding extends happy_linux_page_frame
     //---------------------------------------------------------
     // form
     //---------------------------------------------------------
+
+    /**
+     * @param int $colspan1
+     * @param int $colspan2
+     * @param int $colspan3
+     * @return string
+     */
     public function _build_page_submit($colspan1, $colspan2, $colspan3)
     {
         $text = '<tr>';
@@ -348,6 +412,10 @@ class admin_list_geocoding extends happy_linux_page_frame
         return $text;
     }
 
+    /**
+     * @param $colspan
+     * @return string
+     */
     public function _build_page_col_submit_next($colspan)
     {
         $lang_next = '[' . _AM_WEBLINKS_GOTO_NEXT_PAGE . ']';
@@ -371,6 +439,10 @@ class admin_list_geocoding extends happy_linux_page_frame
         return $text;
     }
 
+    /**
+     * @param $colspan
+     * @return string
+     */
     public function _build_page_col_submit_add($colspan)
     {
         $text = $this->build_html_td_tag_begin($this->_SUBMIT_ALIGN, $this->_SUBMIT_VALIGN, $colspan, $this->_SUBMIT_ROWSPAN, $this->_SUBMIT_CLASS);
@@ -383,6 +455,10 @@ class admin_list_geocoding extends happy_linux_page_frame
     //---------------------------------------------------------
     // script
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function _get_script()
     {
         return xoops_getenv('PHP_SELF');
@@ -395,7 +471,7 @@ class admin_list_geocoding extends happy_linux_page_frame
 // main
 //=========================================================
 $manage = admin_manage_geocoding::getInstance(WEBLINKS_DIRNAME);
-$list = admin_list_geocoding::getInstance(WEBLINKS_DIRNAME);
+$list   = admin_list_geocoding::getInstance(WEBLINKS_DIRNAME);
 
 $op = $manage->get_op();
 switch ($op) {
@@ -409,4 +485,5 @@ switch ($op) {
         break;
 }
 
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

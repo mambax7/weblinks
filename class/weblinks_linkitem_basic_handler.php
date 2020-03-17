@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_linkitem_basic_handler.php,v 1.2 2007/11/02 11:36:30 ohwada Exp $
+
+// $Id: weblinks_linkitem_basic_handler.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // _has_conf_cached()
@@ -17,11 +18,20 @@ if (!class_exists('weblinks_linkitem_basic_handler')) {
     //================================================================
     // class weblinks_linkitem_basic_handler
     //================================================================
+
+    /**
+     * Class weblinks_linkitem_basic_handler
+     */
     class weblinks_linkitem_basic_handler extends happy_linux_basic_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_basic_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);

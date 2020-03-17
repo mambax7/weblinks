@@ -1,5 +1,5 @@
 <?php
-// $Id: weblinks180_to_rssc070.php,v 1.2 2007/12/08 22:48:05 ohwada Exp $
+// $Id: weblinks180_to_rssc070.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2007-12-09 K.OHWADA
 // BUG : Fatal error: Class 'happy_linux_rss_parser'
@@ -26,6 +26,10 @@ if (WEBLINKS_RSSC_USE) {
 //=========================================================
 // class admin_export_rssc
 //=========================================================
+
+/**
+ * Class admin_export_rssc
+ */
 class admin_export_rssc extends happy_linux_error
 {
     public $_LIMIT = 100;
@@ -58,9 +62,9 @@ class admin_export_rssc extends happy_linux_error
         $this->_system = happy_linux_system::getInstance();
         $this->_post = happy_linux_post::getInstance();
 
-        $this->_weblinks_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_weblinks_atomfeed_handler = weblinks_getHandler('atomfeed', WEBLINKS_DIRNAME);
+        $this->_weblinks_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_atomfeed_handler = weblinks_get_handler('atomfeed', WEBLINKS_DIRNAME);
 
         $conf = $this->_weblinks_config_handler->get_conf();
         $this->_conf_rss_site_arr = $conf['rss_site_arr'];
@@ -68,12 +72,15 @@ class admin_export_rssc extends happy_linux_error
         $this->_conf_rss_white_arr = $conf['rss_white_arr'];
 
         if (WEBLINKS_RSSC_EXIST) {
-            $this->_rssc_import_handler = rssc_getHandler('import', WEBLINKS_RSSC_DIRNAME);
+            $this->_rssc_import_handler = rssc_get_handler('import', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_import_handler->set_mid_orig($this->_system->get_mid());
             $this->_rssc_import_handler->set_limit($this->_LIMIT);
         }
     }
 
+    /**
+     * @return \admin_export_rssc|\happy_linux_basic_handler|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -87,6 +94,10 @@ class admin_export_rssc extends happy_linux_error
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $this->_op = $this->_post->get_post_get('op');
@@ -100,15 +111,15 @@ class admin_export_rssc extends happy_linux_error
     public function menu()
     {
         ?>
-        <br>
-        There are 5 steps. <br>
-        1. export rss site to link table <br>
-        2. export to black list <br>
-        3. export to white list <br>
-        4. export to link table <br>
-        5. export to feed table <br>
-        excute each <?php echo $this->_LIMIT; ?> records at a time <br>
-        <br>
+        <br/>
+        There are 5 steps. <br/>
+        1. export rss site to link table <br/>
+        2. export to black list <br/>
+        3. export to white list <br/>
+        4. export to link table <br/>
+        5. export to feed table <br/>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br/>
+        <br/>
         <?php
 
         $this->_form_site();
@@ -252,7 +263,7 @@ class admin_export_rssc extends happy_linux_error
     //---------------------------------------------------------
     public function _print_finish()
     {
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo "<h4>FINISHED</h4>\n";
         echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
     }
@@ -284,6 +295,9 @@ class admin_export_rssc extends happy_linux_error
         $this->_print_form_next($title, $op, $submit);
     }
 
+    /**
+     * @param int $offset
+     */
     public function _form_link($offset = 0)
     {
         $title = 'STEP 4 : export to link table';
@@ -298,6 +312,9 @@ class admin_export_rssc extends happy_linux_error
         $this->_print_form_next($title, $op, $submit, $offset);
     }
 
+    /**
+     * @param int $offset
+     */
     public function _form_feed($offset = 0)
     {
         $title = 'STEP 5 : export to feed table';
@@ -315,6 +332,10 @@ class admin_export_rssc extends happy_linux_error
     //---------------------------------------------------------
     // rssc_import_handler
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function _rssc_get_post_offset()
     {
         return $this->_rssc_import_handler->get_post_offset();
@@ -325,6 +346,10 @@ class admin_export_rssc extends happy_linux_error
         $this->_rssc_import_handler->clear_num();
     }
 
+    /**
+     * @param null $total
+     * @return mixed
+     */
     public function _rssc_calc_next($total = null)
     {
         return $this->_rssc_import_handler->calc_next($total);
@@ -335,11 +360,20 @@ class admin_export_rssc extends happy_linux_error
         $this->_rssc_import_handler->set_lid_list();
     }
 
+    /**
+     * @param     $title
+     * @param     $op
+     * @param     $submit
+     * @param int $offset
+     */
     public function _print_form_next($title, $op, $submit, $offset = 0)
     {
         echo $this->_rssc_import_handler->build_form_next($title, $op, $submit, $offset, 'Export');
     }
 
+    /**
+     * @return mixed
+     */
     public function check_token()
     {
         return $this->_rssc_import_handler->check_token();
@@ -376,7 +410,7 @@ if (WEBLINKS_RSSC_EXIST) {
 }
 
 $export = admin_export_rssc::getInstance();
-$op = 'main';
+$op     = 'main';
 if (isset($_POST['op'])) {
     $op = $_POST['op'];
 }

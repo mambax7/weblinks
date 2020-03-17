@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // WebLinks Module
 // language for admin
@@ -13,7 +14,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'شاخه');
     define('_WLS_HITS', 'دفعات بازديد');
     define('_WLS_RATING', 'درجه');
@@ -26,7 +27,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'اين لينک را ويرايش کنيد');
     define('_WLS_MODIFY', 'تغيير');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'لينک جديد ارسال کنيد');
     define('_WLS_SUBMITONCE', 'لينک خود را تنها يک بار ارسال کنيد');
     define('_WLS_DONTABUSE', 'نام کاربري و شماره IP شما ضبط مي شود پس لطفا از سيستم سوء استفاده نکنيد');
@@ -35,7 +36,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_WHENAPPROVED', 'زماني که لينک شما قبول شود ، شما توسط پست الکترونيک مطلع خواهيد شد');
     define('_WLS_RECEIVED', 'ما اطلاعات وب سايت شما را دريافت کرديم، متشکرم');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'درخواست تغيير لينک');
     define('_WLS_THANKSFORINFO', 'از اطلاعات متشکريم ، ما بزودي درخواست شما را بررسي خواهيم کرد');
 
@@ -121,7 +122,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'شما نمي توانيد به لينکهايي که خودتان ارسال کرده ايد راي بدهيد<br>تمامي راي ها ضبط و بازبيني مي شوند');
     define('_WLS_VOTEONCE2', 'تنها به لينکهاي انتخاب شده راي بدهيد<br>تمامي راي ها ضبط و بازبيني مي شوند');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'تنظيمات وب لينک');
     define('_WLS_GENERALSET', 'تنظيمات عمومي وب لينک');
@@ -203,7 +204,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'ارسال لينک جديد');
     define('_WLS_SITE_POPULAR', 'سايت محبوب');
@@ -226,7 +227,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', 'آخرين به روز رساني');
     define('_WLS_MORE', 'جزييات بيشتر');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'توضيحات');
     define('_WLS_PROMOTER', 'ارتقاء');
     define('_WLS_ZIP', 'کد پستي');
@@ -234,7 +235,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'شماره تلفن');
     define('_WLS_FAX', 'شماره فکس');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'آدرس بنر');
     define('_WLS_NAME', 'نام');
     define('_WLS_EMAIL', 'پست الکترونيک');
@@ -246,20 +247,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'عدم انتشار');
     define('_WLS_NOTSELECT', 'نا مشخص');
     define('_WLS_SUBMIT_INDISPENSABLE', "علامت ستاره '<b>*</b>' به معناي فيلد حياتي است");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        'توضيح به مديران : شما بايد از يک نظر يا درخواست و يا ... استفاده کنيد<br>اين ستون بر روي وب نشان داده نخواهد شد<br>لطفا لينک سايت شما که به اين سايت اشاره مي کند را پر کنيد تا به عنوان لينک دو طرفه در نظر گرفته شود'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', 'توضيح به مديران : شما بايد از يک نظر يا درخواست و يا ... استفاده کنيد<br>اين ستون بر روي وب نشان داده نخواهد شد<br>لطفا لينک سايت شما که به اين سايت اشاره مي کند را پر کنيد تا به عنوان لينک دو طرفه در نظر گرفته شود');
     define('_WLS_USER_COMMENT', 'توضيح به مدير');
     define('_WLS_NOT_DISPLAY', 'اين ستون بر روي وب نشان داده نخواهد شد');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'تقاضاي تغيير لينک شما مورد پذيرش قرار گرفت');
     define('_WLS_MODIFY_NOT_OWNER', 'لطفا فکر نکنيد که شما ارسال کننده و مالک اين لينک بوده ايد !');
     define('_WLS_MODIFY_PENDING', 'تغيير لينک به صورت موقتي ذخيره شد و پس از بازبيني توسط کارکنان منتشر خواهد شد<br>اين بدان معناست که تغيير لينک ممکن است مدتي طول بکشد');
     define('_WLS_LINKSUBMITTER', 'فرستنده لينک');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'رمز عبور خود را وارد کنيد');
     define('_WLS_REGSTERED', 'کاربر عضو');
     define('_WLS_REGSTERED_DSC', 'هر کس مي تواند اطلاعات لينک را تغيير دهد<br>مدير سايت اطلاعات را قبل از ارسال بررسي خواهد کرد');
@@ -319,7 +317,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'کشف خودکار');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'تعميم دادن تغذيه کننده هاي RSS/ATOM که در اينجا نمايش داده شدند');
-    define('_WLS_ATOMFEED_FIREFOX', "اگر شما از <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a> استفاده کنيد مي توانيد تغذيه کننده هاي RSS/ATOM را مشاهده کنيد");
+    define('_WLS_ATOMFEED_FIREFOX', "اگر شما از <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a> استفاده کنيد مي توانيد تغذيه کننده هاي RSS/ATOM را مشاهده کنيد");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'اگر تاييد شد اطلاع بده');
@@ -401,7 +399,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'اخطار: ناتواني در خواندن url');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'اخطار: ناتواني در رفتن به اندازه ي بنر ها');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'عرض جغرافياي');
     define('_WEBLINKS_GM_LONGITUDE', 'طول جغرافياي');
     define('_WEBLINKS_GM_ZOOM', 'مرجله ي زوم');
@@ -512,4 +510,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
 
     // pagerank
     define('_WEBLINKS_SITE_PAGERANK', 'بالاترین PageRank سایت');
-}// --- define language end ---
+}
+// --- define language end ---

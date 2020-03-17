@@ -1,7 +1,8 @@
 <?php
+
 // $Id: weblinks_linkitem_define_handler.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
-//   $config[66]['name']        = 'gm_icon';
+//	 $config[66]['name']        = 'gm_icon';
 
 // 2008-02-17 K.OHWADA
 // pagerank, pagerank_update in link, modify
@@ -56,6 +57,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
     //=========================================================
     // class weblinks_linkitem_define
     //=========================================================
+
+    /**
+     * Class weblinks_linkitem_define
+     */
     class weblinks_linkitem_define
     {
         // user_mode
@@ -80,17 +85,26 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_define constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler = weblinks_getHandler('config2_basic', $dirname);
-                $conf = $config_handler->get_conf();
+                $config_handler = weblinks_get_handler('config2_basic', $dirname);
+                $conf = &$config_handler->get_conf();
                 if (is_array($conf) && (count($conf) > 0)) {
                     $this->set_num_etc($conf['link_num_etc']);
                 }
             }
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -104,6 +118,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &get_define()
         {
             //---------------------------------------------------------
@@ -521,7 +539,7 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
 
             // etc1 .. etci
             if ($this->_num_etc > 0) {
-                for ($i = 1; $i <= $this->_num_etc; ++$i) {
+                for ($i = 1; $i <= $this->_num_etc; $i++) {
                     $num = 200 + $i;
                     $config[$num]['name'] = 'etc' . $i;
                     $config[$num]['title'] = _WEBLINKS_ETC . ' ' . $i;
@@ -782,6 +800,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // load
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function load()
         {
             $this->_cached = $this->get_define();
@@ -789,6 +811,11 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return $this->_cached;
         }
 
+        /**
+         * @param $id
+         * @param $key
+         * @return bool|mixed
+         */
         public function get_cache_by_itemid_key($id, $key)
         {
             if (isset($this->_cached[$id][$key])) {
@@ -803,6 +830,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // set param
         //---------------------------------------------------------
+
+        /**
+         * @param $val
+         */
         public function set_num_etc($val)
         {
             $val = (int)$val;
@@ -818,6 +849,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
     //=========================================================
     // class weblinks_linkitem_define_handler
     //=========================================================
+
+    /**
+     * Class weblinks_linkitem_define_handler
+     */
     class weblinks_linkitem_define_handler
     {
         public $_linkitem_handler;
@@ -832,15 +867,24 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_define_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
-            $this->_linkitem_handler = weblinks_getHandler('linkitem', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('linkitem', $dirname);
             $this->_linkitem_define = weblinks_linkitem_define::getInstance($dirname);
 
             $system = happy_linux_system::getInstance();
             $this->_is_module_admin = $system->is_module_admin();
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -854,6 +898,10 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // load
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &load()
         {
             $def_arr = $this->_linkitem_define->load();
@@ -903,16 +951,28 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
         //---------------------------------------------------------
         // get cache
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &get_cached_by_itemid()
         {
             return $this->_cached_by_itemid;
         }
 
+        /**
+         * @return array
+         */
         public function &get_cached_by_name()
         {
             return $this->_cached_by_name;
         }
 
+        /**
+         * @param $id
+         * @param $key
+         * @return bool|mixed
+         */
         public function get_by_itemid($id, $key)
         {
             if (isset($this->_cached_by_itemid[$id][$key])) {
@@ -924,6 +984,11 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @param $key
+         * @return bool|mixed
+         */
         public function get_by_name($name, $key)
         {
             if (isset($this->_cached_by_name[$name][$key])) {
@@ -935,6 +1000,12 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return false;
         }
 
+        /**
+         * @param        $id
+         * @param int    $flag
+         * @param string $extra
+         * @return string
+         */
         public function build_caption_by_itemid($id, $flag = 0, $extra = '')
         {
             $mode = $this->get_by_itemid($id, 'user_mode');
@@ -946,6 +1017,15 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return $cap;
         }
 
+        /**
+         * @param        $title
+         * @param string $desc
+         * @param string $title_def
+         * @param int    $mode
+         * @param int    $flag
+         * @param string $extra
+         * @return string
+         */
         public function build_caption($title, $desc = '', $title_def = '', $mode = 0, $flag = 0, $extra = '')
         {
             if (2 == $mode) {
@@ -972,6 +1052,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return $cap;
         }
 
+        /**
+         * @return array
+         */
         public function &get_save_mode_list()
         {
             $list = [];
@@ -996,6 +1079,9 @@ if (!class_exists('weblinks_linkitem_define_handler')) {
             return $list;
         }
 
+        /**
+         * @return array
+         */
         public function &get_search_list()
         {
             $list = [];

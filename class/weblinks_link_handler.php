@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_handler.php,v 1.3 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -84,6 +85,10 @@ if (!class_exists('weblinks_link_handler')) {
     // class weblinks_link_handler
     // NOT use other handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_handler
+     */
     class weblinks_link_handler extends happy_linux_object_handler
     {
         public $_link_basic_handler;
@@ -91,13 +96,18 @@ if (!class_exists('weblinks_link_handler')) {
         public $_lid_array_with_email;
 
         // config
-        public $_conf_use_ratelink = 0;   // not use
+        public $_conf_use_ratelink = 0;    // not use
         public $_conf_broken = WEBLINKS_LINK_BROKEN_DEFAULT;
         public $_conf_link_num_etc = WEBLINKS_LINK_NUM_ETC;
 
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'link', 'lid', 'weblinks_link');
@@ -112,10 +122,10 @@ if (!class_exists('weblinks_link_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_basic_handler = weblinks_getHandler('link_basic', $dirname);
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_basic_handler = weblinks_get_handler('link_basic', $dirname);
 
-            $conf = $config_handler->get_conf();
+            $conf = &$config_handler->get_conf();
             if (is_array($conf) && (count($conf) > 0)) {
                 $this->_conf_use_ratelink = $conf['use_ratelink'];
                 $this->_conf_broken = $conf['broken_threshold'];
@@ -129,6 +139,12 @@ if (!class_exists('weblinks_link_handler')) {
         // insert
         // $flag_lid : for import from mylinks
         //---------------------------------------------------------
+
+        /**
+         * @param      $obj
+         * @param bool $flag_lid
+         * @return string|void
+         */
         public function _build_insert_sql($obj, $flag_lid = false)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -147,7 +163,7 @@ if (!class_exists('weblinks_link_handler')) {
 
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
-                for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
+                for ($i = 1; $i <= $this->_conf_link_num_etc; $i++) {
                     $etc_name = 'etc' . $i;
                     $etc_val = $obj->get($etc_name);
                     $sql_etc_name .= $etc_name . ', ';
@@ -345,6 +361,11 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -355,7 +376,7 @@ if (!class_exists('weblinks_link_handler')) {
 
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
-                for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
+                for ($i = 1; $i <= $this->_conf_link_num_etc; $i++) {
                     $etc_name = 'etc' . $i;
                     $etc_val = $obj->get($etc_name);
                     $sql_etc_set .= $etc_name . '=' . $this->quote($etc_val) . ', ';
@@ -460,6 +481,11 @@ if (!class_exists('weblinks_link_handler')) {
         // update
         //---------------------------------------------------------
         // for link_check.php
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function countup_broken($lid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET broken = broken+1 WHERE lid=' . (int)$lid;
@@ -469,6 +495,10 @@ if (!class_exists('weblinks_link_handler')) {
         }
 
         // for admin/link_check.php
+
+        /**
+         * @return bool
+         */
         public function clean_rss_xml()
         {
             $sql = 'UPDATE ' . $this->_table . " SET rss_xml = '' ";
@@ -478,6 +508,13 @@ if (!class_exists('weblinks_link_handler')) {
         }
 
         // for ratelink.php, admin/votedate.php
+
+        /**
+         * @param $lid
+         * @param $rating
+         * @param $votes
+         * @return bool
+         */
         public function update_rating($lid, $rating, $votes)
         {
             if (!$this->_conf_use_ratelink) {
@@ -486,7 +523,7 @@ if (!class_exists('weblinks_link_handler')) {
 
             $lid = (int)$lid;
 
-            $obj = &$this->get($lid);
+            $obj = $this->get($lid);
             if (!is_object($obj)) {
                 return true;    // no action
             }
@@ -498,9 +535,14 @@ if (!class_exists('weblinks_link_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $lid
+         * @param $rssc_lid
+         * @return bool
+         */
         public function update_rssc_lid($lid, $rssc_lid)
         {
-            $obj = &$this->get($lid);
+            $obj = $this->get($lid);
             if (!is_object($obj)) {
                 return true;    // no action
             }
@@ -514,6 +556,11 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function delete_by_lid($lid)
         {
             $obj = $this->get($lid);
@@ -529,6 +576,10 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // get count for admin link list
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function get_count_time_publish_before()
         {
             $time = time();
@@ -538,6 +589,9 @@ if (!class_exists('weblinks_link_handler')) {
             return $count;
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_time_expire_after()
         {
             $time = time();
@@ -547,6 +601,9 @@ if (!class_exists('weblinks_link_handler')) {
             return $count;
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_usercomment()
         {
             $where = "(usercomment <> '')";
@@ -559,6 +616,11 @@ if (!class_exists('weblinks_link_handler')) {
         // get count for other
         //---------------------------------------------------------
         // for admin user manage
+
+        /**
+         * @param $uid
+         * @return bool
+         */
         public function get_count_by_uid($uid)
         {
             $uid = (int)$uid;
@@ -570,6 +632,10 @@ if (!class_exists('weblinks_link_handler')) {
         }
 
         // for admin user manage
+
+        /**
+         * @return bool
+         */
         public function get_count_with_email()
         {
             $sql = 'SELECT COUNT(DISTINCT mail) FROM ' . $this->_table . ' ';
@@ -581,6 +647,10 @@ if (!class_exists('weblinks_link_handler')) {
 
         // --- previous version 1.10 ---
         // for admin export to rssc
+
+        /**
+         * @return bool
+         */
         public function get_count_rss_flag_prev_ver()
         {
             $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' ';
@@ -593,6 +663,12 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // get object for admin link list
         //---------------------------------------------------------
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_all($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -603,6 +679,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_desc($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -614,6 +695,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_non_url($limit = 0, $start = 0)
         {
             // XOOPS 2.2.3 dont accept value = ''
@@ -624,6 +710,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_broken($limit = 0, $start = 0)
         {
             // broken DESC
@@ -637,6 +728,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_broken_lid($limit = 0, $start = 0)
         {
             // BUG: dont work limit
@@ -646,6 +742,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_rss_flag($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -657,6 +758,13 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $lid
+         * @param     $rssc_lid
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_objects_rssc_lid($lid, $rssc_lid, $limit = 0, $start = 0)
         {
             if (0 == $rssc_lid) {
@@ -675,6 +783,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_time_publish_before($limit = 0, $start = 0)
         {
             // BUG: dont work limit
@@ -685,6 +798,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_time_expire_after($limit = 0, $start = 0)
         {
             // BUG: dont work limit
@@ -695,6 +813,11 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_usercomment_desc($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -707,6 +830,12 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $where
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_orderby_lid_by_where($where, $limit = 0, $start = 0)
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' WHERE ' . $where . ' ORDER BY lid';
@@ -719,6 +848,13 @@ if (!class_exists('weblinks_link_handler')) {
         // get objects for other
         //---------------------------------------------------------
         // for admin user manage
+
+        /**
+         * @param     $uid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_uid($uid, $limit = 0, $start = 0)
         {
             $uid = (int)$uid;
@@ -732,6 +868,12 @@ if (!class_exists('weblinks_link_handler')) {
         }
 
         // for admin user manage
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_with_email($limit = 0, $start = 0)
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' ';
@@ -745,6 +887,12 @@ if (!class_exists('weblinks_link_handler')) {
 
         // --- previous version 1.10 ---
         // for admin export to rssc
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_rss_flag_prev_ver($limit = 0, $start = 0)
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' ';
@@ -758,6 +906,11 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // get objects for bulk manage
         //---------------------------------------------------------
+
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_objects_by_title($title)
         {
             $title = addslashes($title);
@@ -768,6 +921,10 @@ if (!class_exists('weblinks_link_handler')) {
             return $objs;
         }
 
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_objects_by_title_like($title)
         {
             $title = addslashes($title);
@@ -782,6 +939,12 @@ if (!class_exists('weblinks_link_handler')) {
         // get lid list
         //---------------------------------------------------------
         // for randum jump
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_lid_array_by_random($limit = 0, $start = 0)
         {
             // XOOPS 2.2.3 dont accept value = ''
@@ -795,6 +958,12 @@ if (!class_exists('weblinks_link_handler')) {
         }
 
         // for link_check
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_lid_array($limit = 0, $start = 0)
         {
             $limit = (int)$limit;
@@ -811,6 +980,12 @@ if (!class_exists('weblinks_link_handler')) {
         // this function dont work well, when too much links
         //---------------------------------------------------------
         // for admin user manage
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_with_email($limit = 0, $start = 0)
         {
             $user_list = [];
@@ -830,7 +1005,7 @@ if (!class_exists('weblinks_link_handler')) {
                 }
 
                 if (in_array($email, $email_store)) {
-                    //          echo "omit $lid $email <br>\n";
+                    //			echo "omit $lid $email <br>\n";
                     continue;
                 }
 
@@ -844,6 +1019,10 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // field
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &get_field_name_etc_array()
         {
             $arr_name = [];
@@ -865,6 +1044,12 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // add_column_table
         //---------------------------------------------------------
+
+        /**
+         * @param $start
+         * @param $end
+         * @return bool
+         */
         public function add_column_table_etc($start, $end)
         {
             if ($end < $start) {
@@ -879,7 +1064,7 @@ if (!class_exists('weblinks_link_handler')) {
             $sql = 'ALTER TABLE ' . $this->_table . ' ADD COLUMN (';
 
             // etci .. etcj
-            for ($i = $start; $i <= $end; ++$i) {
+            for ($i = $start; $i <= $end; $i++) {
                 $etc_name = 'etc' . $i;
                 $sql .= $etc_name . ' varchar(255) default NULL' . $comma;
             }
@@ -894,6 +1079,11 @@ if (!class_exists('weblinks_link_handler')) {
         //---------------------------------------------------------
         // get lid_array for bulk manage
         //---------------------------------------------------------
+
+        /**
+         * @param $title
+         * @return int|mixed
+         */
         public function get_lid_by_title($title)
         {
             $lid_arr = $this->get_lid_array_by_title($title);
@@ -902,23 +1092,27 @@ if (!class_exists('weblinks_link_handler')) {
             if (is_array($lid_arr) && (1 == $count)) {
                 return $lid_arr[0];
             } elseif ($count > 1) {
-                return -2;  // too many
+                return -2;    // too many
             }
 
             if (!is_array($lid_arr) || (0 == $count)) {
-                $lid_arr2 = &$this->get_lid_array_by_title_like($title);
+                $lid_arr2 = $this->get_lid_array_by_title_like($title);
                 $count2 = count($lid_arr2);
 
                 if (is_array($lid_arr2) && (1 == $count2)) {
                     return $lid_arr2[0];
                 } elseif ($count2 > 1) {
-                    return -3;  // too many
+                    return -3;    // too many
                 }
             }
 
-            return -1;  // no match
+            return -1;    // no match
         }
 
+        /**
+         * @param $title
+         * @return array
+         */
         public function get_lid_array_by_title($title)
         {
             $lid_arr = [];
@@ -934,6 +1128,10 @@ if (!class_exists('weblinks_link_handler')) {
             return $lid_arr;
         }
 
+        /**
+         * @param $title
+         * @return mixed
+         */
         public function get_lid_array_by_title_like($title)
         {
             $lid_arr = [];
@@ -952,36 +1150,62 @@ if (!class_exists('weblinks_link_handler')) {
         //=========================================================
         // link_basic_handler
         //=========================================================
+
+        /**
+         * @param bool $flag_exclude
+         * @return mixed
+         */
         public function get_count_rss_flag($flag_exclude = true)
         {
             return $this->_link_basic_handler->get_count_rss_flag($flag_exclude);
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_non_url()
         {
             return $this->_link_basic_handler->get_count_non_url();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_broken()
         {
             return $this->_link_basic_handler->get_count_broken();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_gmap()
         {
             return $this->_link_basic_handler->get_count_gmap();
         }
 
+        /**
+         * @param $where
+         * @return mixed
+         */
         public function get_count_by_where($where)
         {
             return $this->_link_basic_handler->get_count_by_where($where);
         }
 
+        /**
+         * @return mixed
+         */
         public function build_sql_where_exclude()
         {
             return $this->_link_basic_handler->build_sql_where_exclude();
         }
 
+        /**
+         * @param        $lid
+         * @param string $format
+         * @return mixed
+         */
         public function get_title($lid, $format = 'n')
         {
             return $this->_link_basic_handler->get_title($lid, $format);

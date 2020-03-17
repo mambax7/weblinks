@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_view_basic.php.\040ORIGINAL\0402.00.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -15,6 +16,10 @@ if (!class_exists('weblinks_link_view_basic')) {
     //=========================================================
     // class weblinks_link_view_basic
     //=========================================================
+
+    /**
+     * Class weblinks_link_view_basic
+     */
     class weblinks_link_view_basic extends happy_linux_basic
     {
         public $_DIRNAME;
@@ -34,6 +39,11 @@ if (!class_exists('weblinks_link_view_basic')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_view_basic constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -41,10 +51,10 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
 
-            $this->_myts = MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts = &MyTextSanitizer::sGetInstance()) || $this->_myts = MyTextSanitizer::getInstance();
             $this->_system = happy_linux_system::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -53,6 +63,10 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set_is_japanese($this->_system->is_japanese());
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_block_view|\weblinks_link_view_basic|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -66,6 +80,11 @@ if (!class_exists('weblinks_link_view_basic')) {
         //---------------------------------------------------------
         // main
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function &get_show_basic_by_lid($lid)
         {
             $show = false;
@@ -228,11 +247,19 @@ if (!class_exists('weblinks_link_view_basic')) {
         //---------------------------------------------------------
         // set & build
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function _build_single_link()
         {
             return $this->_build_single_link_by_lid($this->get('lid'));
         }
 
+        /**
+         * @param $lid
+         * @return string
+         */
         public function _build_single_link_by_lid($lid)
         {
             $link = $this->_WEBLINKS_URL . '/singlelink.php?lid=' . $lid;
@@ -258,6 +285,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('banner_s', $this->sanitize_url($this->get('banner')));
         }
 
+        /**
+         * @return mixed
+         */
         public function _build_description_disp()
         {
             $context = $this->get('description');
@@ -325,6 +355,11 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('mail_disp', $mail_disp);
         }
 
+        /**
+         * @param $value
+         * @param $flag
+         * @return string|string[]|null
+         */
         public function _build_name_mail_common($value, $flag)
         {
             $str = null;
@@ -411,6 +446,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('warn_broken', $this->_is_warn_broken());
         }
 
+        /**
+         * @return bool
+         */
         public function _is_warn_time_publish()
         {
             if ((0 == $this->get('time_publish')) || ($this->get('time_publish') < time())) {
@@ -420,6 +458,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function _is_warn_time_expire()
         {
             if ((0 == $this->get('time_expire')) || ($this->get('time_expire') > time())) {
@@ -429,6 +470,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function _is_warn_broken()
         {
             if ((0 == $this->get('broken')) || ($this->get('broken') < $this->_conf['broken_threshold'])) {
@@ -457,6 +501,11 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('gm_info_list', $info_list);
         }
 
+        /**
+         * @param      $url
+         * @param bool $flag_target
+         * @return string
+         */
         public function _build_gmap_info($url, $flag_target = false)
         {
             $gm_title_s = $this->get('gm_title_s');
@@ -544,6 +593,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('flag_kml_use', $flag_kml_use);
         }
 
+        /**
+         * @return bool
+         */
         public function _check_gm_set()
         {
             if (0 != $this->get('gm_latitude')) {
@@ -559,6 +611,10 @@ if (!class_exists('weblinks_link_view_basic')) {
             return false;
         }
 
+        /**
+         * @param $str
+         * @return string
+         */
         public function _build_gm_desc($str)
         {
             $str = $this->add_space_after_punctuation($str);
@@ -579,6 +635,11 @@ if (!class_exists('weblinks_link_view_basic')) {
         //---------------------------------------------------------
         // google map kml
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function get_kml_by_lid($lid)
         {
             // not use return references
@@ -601,6 +662,9 @@ if (!class_exists('weblinks_link_view_basic')) {
             $this->set('kml_description', $this->_build_kml_desc());
         }
 
+        /**
+         * @return string
+         */
         public function _build_kml_desc()
         {
             $summary = $this->_build_gm_desc($this->_build_description_disp());

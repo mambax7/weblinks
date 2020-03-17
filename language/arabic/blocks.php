@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.2 2008/02/24 12:53:04 ohwada Exp $
+
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:44 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // _MB_WEBLINKS_GM_MARKER_WIDTH
@@ -108,4 +109,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
 
     // === 2007-10-10 ===
     define('_MB_WEBLINKS_GM_MARKER_WIDTH', 'Width of map marker');
-}// --- define language end ---
+}
+// --- define language end ---

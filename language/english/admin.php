@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.4 2012/04/11 06:00:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -69,7 +70,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', 'Other Functions');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', 'Go To Admin Index');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // Access Authority
     define('_WEBLINKS_ADMIN_AUTH', 'Permissions');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'The administrator has all management authority');
@@ -94,10 +95,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'Auto update RSS/ATOM feeds');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "YES performs 'Auto Discovery of RSS/ATOM url' and 'auto update' if RSS/ATOM links are included in the link submission. ");
     define('_WEBLINKS_RSS_MODE_DATA', 'Data of RSS/ATOM to show');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        'ATOM FEED, uses the data in the Atom feed table after parsing. <br>XML uses the data from the link table before parsing. <br>Some data may not be saved in atomfeed table after filtering. '
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', 'ATOM FEED, uses the data in the Atom feed table after parsing. <br>XML uses the data from the link table before parsing. <br>Some data may not be saved in atomfeed table after filtering. ');
     define('_WEBLINKS_RSS_CACHE', 'Cache time of RSS/ATOM feeds');
     define('_WEBLINKS_RSS_CACHE_DSC', 'Measured in hours.');
     define('_WEBLINKS_RSS_LIMIT', 'The maximum number of RSS/ATOM feeds');
@@ -105,15 +103,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_SITE', 'RSS search site');
     define('_WEBLINKS_RSS_SITE_DSC', "Enter a list of RSS url of RSS search site. <br>Separate each entry with a new line when specifying more than one. <br>Don't enter ATOM url. ");
     define('_WEBLINKS_RSS_BLACK', 'Black list of RSS/ATOM url');
-    define(
-        '_WEBLINKS_RSS_BLACK_DSC',
-        'Enter a list of urls to refuse when collecting RSS/ATOM feeds. <br>Separate each entry with a new line when specifying more than one. <br>You can use regular PERL expressions. '
-    );
+    define('_WEBLINKS_RSS_BLACK_DSC', 'Enter a list of urls to refuse when collecting RSS/ATOM feeds. <br>Separate each entry with a new line when specifying more than one. <br>You can use regular PERL expressions. ');
     define('_WEBLINKS_RSS_WHITE', 'White list of RSS/ATOM url');
-    define(
-        '_WEBLINKS_RSS_WHITE_DSC',
-        'Enter list of urls to collect when matching with a blacklist. <br>Separate each entry with a new line when specifying more than one. <br>You can use regular PERL expression. '
-    );
+    define('_WEBLINKS_RSS_WHITE_DSC', 'Enter list of urls to collect when matching with a blacklist. <br>Separate each entry with a new line when specifying more than one. <br>You can use regular PERL expression. ');
     define('_WEBLINKS_RSS_URL_CHECK', 'There are some link urls matching the blacklist. ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', 'Please copy and paste from the lower white list to a registration form, if necessary. ');
     define('_WEBLINKS_RSS_UPDATED', 'RSS/ATOM settings updated');
@@ -131,10 +123,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_NUM_CONTENT', 'Number of feeds displaying content');
     define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'Enter the number of feeds displaying the content of RSS/ATOM feeds on the Link detail page. <br>A summary is displayed on the remaining feeds. ');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'Maximum number of characters used for RSS/ATOM feed content');
-    define(
-        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
-        'Enter the maximum number of characters to be used for RSS/ATOM feed content in RSS/ATOM page.  <br>To be used when "Use of HTML tag of the contents" is "yes." '
-    );
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'Enter the maximum number of characters to be used for RSS/ATOM feed content in RSS/ATOM page.  <br>To be used when "Use of HTML tag of the contents" is "yes." ');
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'Maximum number of characters used for RSS/ATOM feed summary');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'Enter the maximum number of characters to be used for RSS/ATOM feed summary in the Main page. ');
 
@@ -168,7 +157,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'Use when selecting "Setting Image". ');
     define('_WEBLINKS_CAT_UPDATED', 'Category Settings Updated');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'Category Management');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'Category List');
     //define("_WEBLINKS_ORDER_ID"," Listed by ID");
@@ -181,12 +170,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', 'Number of sub category');
     define('_WEBLINKS_ORDERS_UPDATED', 'Updated order of category');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', 'URL of category image');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', 'Optional. <br>Image sizes are adjusted automatically');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","Images are for the main category only. ");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', 'Link Management');
     define('_WEBLINKS_ADMIN_LINK_LIST', 'Link list');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', 'Broken Link List');
@@ -197,23 +186,17 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', 'There is no corresponding link. ');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'Data saved in database shown here. ');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","User ID");
     //define("_WEBLINKS_CREATE","Created");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'Link check and update');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'Broken Link Check');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'Check');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', 'Check Results');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        'A timeout may occur, if there are many broken links. <br>If so, please change the numerical value of limit and offset. <br>limit= 0, or No Restrictions.'
-    );
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE',
-        "Clicking the <b>link ID</b> opens a link modification page. <br><b>Website URL</b> will take you to the link's web site when clicked. <br>"
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', 'A timeout may occur, if there are many broken links. <br>If so, please change the numerical value of limit and offset. <br>limit= 0, or No Restrictions.');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', "Clicking the <b>link ID</b> opens a link modification page. <br><b>Website URL</b> will take you to the link's web site when clicked. <br>");
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'Google Search will open when clicking <b>website title</b>. <br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'Maximum of links to check (limit)');
     define('_WEBLINKS_ADMIN_OFFSET', 'Offset (offset)');
@@ -229,7 +212,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', 'Check next %s links');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Simultaneously execute an Auto Discovery of RSS/ATOM urls ");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'RSS/ATOM feed Management');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'Refresh RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'Refresh link data cache');
@@ -246,7 +229,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'Number of RSS/ATOM cache cleared');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'Number of ATOM/RSS feed cleared');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', 'User Management');
     define('_WEBLINKS_ADMIN_USER_EMAIL', 'List of the users with Email addresses');
     define('_WEBLINKS_ADMIN_USER_LINK', 'List of the registrated users withe link information');
@@ -260,7 +243,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', 'No Users Found');
     define('_WEBLINKS_UID_EMAIL', 'Email address of submitter');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', 'Send Email');
     define('_WEBLINKS_THERE_ARE_EMAIL', 'There are <b>%s</b> e-mails');
     define('_WEBLINKS_SEND_NUM', 'Send email form %s th person to %s th person');
@@ -331,23 +314,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', 'Show category list in submenu');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'YES show top category list in submenu');
     define('_AM_WEBLINKS_VIEW_URL', 'URL view style');
-    define(
-        '_AM_WEBLINKS_VIEW_URL_DSC',
-        'NONE <br>no url or &lt;a&gt; tag is displayed.<br>Indirect<br> displays visit.php in href field instead of URL. <br>Direct <br>Displays url in href field, JavaScript in onmousedown field and hits is counted via JavaScript.'
-    );
+    define('_AM_WEBLINKS_VIEW_URL_DSC', 'NONE <br>no url or &lt;a&gt; tag is displayed.<br>Indirect<br> displays visit.php in href field instead of URL. <br>Direct <br>Displays url in href field, JavaScript in onmousedown field and hits is counted via JavaScript.');
     define('_AM_WEBLINKS_VIEW_URL_0', 'NONE');
     define('_AM_WEBLINKS_VIEW_URL_1', 'Indirect url');
     define('_AM_WEBLINKS_VIEW_URL_2', 'Direct url');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Priority of Recommended Sites');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'NONE <br>Not display.<br>Normal <br>Recommended sites are displayed in the header.<br>Higher <br>Displays Recommended sites at the top of each respective category.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'NONE <br>Not display.<br>Normal <br>Recommended sites are displayed in the header.<br>Higher <br>Displays Recommended sites at the top of each respective category.');
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Priority of Reciprocal Sites');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'NONE <br>Not display.<br>Normal <br>Recommended sites are displayed in the header.<br>Higher <br>Displays Recommended sites at the top of each respective category.'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'NONE <br>Not display.<br>Normal <br>Recommended sites are displayed in the header.<br>Higher <br>Displays Recommended sites at the top of each respective category.');
     define('_AM_WEBLINKS_PRI_0', 'NONE');
     define('_AM_WEBLINKS_PRI_1', 'Normal');
     define('_AM_WEBLINKS_PRI_2', 'Higher');
@@ -426,8 +400,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Locate Configuration');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'Country Code');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh the item which relates to the country code. <br> The item with the <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh the item which relates to the country code. <br/> The item with the <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', 'Renew');
 
     // map
@@ -436,14 +410,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'Template of Map Site');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'Enter template file name in template/map/ directory');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps Configuration');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Use Google Maps');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'Get the API key on <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> When you use GoogleMaps.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'Get the API key on <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> When you use GoogleMaps.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Server Name');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'Language Code');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'default Location');
@@ -492,10 +463,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Full detail');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Performance improvement');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', 'Because of the performance improvement, it computes necessary data beforehand when showing, and it stores in the database.<br>When using in first time, execute "category list" -> "Update category path tree"');
     define('_AM_WEBLINKS_CAT_PATH', 'Category path tree');
     define('_AM_WEBLINKS_CAT_PATH_DSC', 'YES computes the category path tree, and it stores in the category table.<br>NO computes when showing.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Category link count');
@@ -506,10 +474,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Guest Link Register Configuration');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Use CAPTCHA');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha module ver %s is finded');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha module is not finded');
 
@@ -614,19 +579,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Search] Map Type');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Search] Kind of Geocode');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Single Result: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'More Results: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Search][Japan] Use CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br>Search latitude and longitude from address');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Search][Japan] Use Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'Valid in Japan<br>Search address from latitude and longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'Valid in Japan<br>Search address from latitude and longitude<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] Maximum characters for Title');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Maximum number of characters used for Title in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] Maximum characters for Content');
@@ -658,10 +617,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'HTML Style Configuration');
     define('_AM_WEBLINKS_HEADER_MODE', 'Use xoops module header');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        'When "No", show style sheet and Javascript in body tag<br>When "Yes", show them in header tag, using xoops module header<br>there are same themes which can not be used'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', 'When "No", show style sheet and Javascript in body tag<br>When "Yes", show them in header tag, using xoops module header<br>there are same themes which can not be used');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'You can see sample, click sample button');
@@ -725,8 +681,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'The substitution of the link image');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'show the WEB site thumbnail instead of the link image, <br>using the thumbnail web service, <br>if not set the link image.');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'none');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 
     // === 2007-11-01 ===
     // google map
@@ -779,10 +735,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // === 2012-03-01 ===
 
     define('_AM_WEBLINKS_BULK_COMMENT', 'Bulk Registation of Comment');
-    define(
-        '_AM_WEBLINKS_BULK_COMMENT_DSC1',
-        'describe the title of link, uid, the title of comment, and the text of commentwith comma(,) separate<br>uid is omissible. substitute with uid of administrator.<br/ >the title of comment is omissible. substitute with the title of link.'
-    );
+    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', 'describe the title of link, uid, the title of comment, and the text of commentwith comma(,) separate<br>uid is omissible. substitute with uid of administrator.<br/ >the title of comment is omissible. substitute with the title of link.');
     define('_AM_WEBLINKS_NO_COMMENT', 'No comment');
     define('_AM_WEBLINKS_COMMENT_ADDED', 'Added comment');
     define('_AM_WEBLINKS_BULK_DSC1', '<br>describe \2c instead of comma.<br/ >describe \n instead of new-line.');
@@ -800,12 +753,6 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_TITLE_RSSC_ADD', 'Add RSS URL in Link');
     define('_AM_WEBLINKS_TITLE_RSSC_ADD_DSC', '<b>Caution</b> It takes time, in order to search the url of rss using internet');
 
-    //    define('_AM_WEBLINKS_BULK_COMMENT', 'Bulk Registation of Comment');
-    //    define('_AM_WEBLINKS_BULK_COMMENT_DSC1', 'describe the title of link, uid, the title of comment, and the text of commentwith comma(,) separate<br>uid is omissible. substitute with uid of administrator.<br/ >the title of comment is omissible. substitute with the title of link.');
-    //    define('_AM_WEBLINKS_NO_COMMENT', 'No comment');
-    //    define('_AM_WEBLINKS_COMMENT_ADDED', 'Added comment');
-    //    define('_AM_WEBLINKS_BULK_DSC1', '<br>describe \2c instead of comma.<br/ >describe \n instead of new-line.');
-
     define('_AM_WEBLINKS_TITLE_LINK_GEOCODING', 'List of latitude & longitude');
     define(
         '_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
@@ -820,4 +767,5 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', 'Memo which notes place');
     define('_AM_WEBLINKS_CAT_GM_ICON_DSC', 'The icon of the parent category is inherited at (default)');
-}// --- define language begin ---
+}
+// --- define language begin ---

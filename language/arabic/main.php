@@ -1,5 +1,6 @@
 <?php
-// $Id: main.php,v 1.2 2008/02/24 12:53:04 ohwada Exp $
+
+// $Id: main.php,v 1.1 2011/12/29 14:32:44 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // _WEBLINKS_ERROR_LENGTH
@@ -361,7 +362,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', '������� ���');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "If you use <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark this page, to browse our RSS/ATOM feed. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', '������ �� ���� ��������');
@@ -424,13 +425,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
     //}
 
     define('_WEBLINKS_MAP_USE', '������� ������ �������');
@@ -447,7 +448,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', '�����: ��� ���� ��� ����� �������');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', '�����: ��� ���� ��� ��� ������ �����');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', '�� �����');
     define('_WEBLINKS_GM_LONGITUDE', '�� �����');
     define('_WEBLINKS_GM_ZOOM', '����� �������');
@@ -543,4 +544,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
 
     // === 2007-11-01 ===
     define('_WEBLINKS_ERROR_LENGTH', 'Error: %s must be less than %s characters');
-}// --- define language end ---
+}
+// --- define language end ---

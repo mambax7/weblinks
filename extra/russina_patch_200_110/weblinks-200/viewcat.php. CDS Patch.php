@@ -1,4 +1,5 @@
 <?php
+
 // $Id: viewcat.php.\040CDS\040Patch.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2009-02-16 K.OHWADA
@@ -72,6 +73,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_pagenavi_menu.php';
 //=========================================================
 // class weblinks_viewcat
 //=========================================================
+
+/**
+ * Class weblinks_viewcat
+ */
 class weblinks_viewcat
 {
     public $_config_handler;
@@ -86,10 +91,15 @@ class weblinks_viewcat
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_viewcat constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+        $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
         $this->_template = weblinks_template::getInstance($dirname);
         $this->_gmap = weblinks_gmap::getInstance($dirname);
         $this->_map_jp = weblinks_map_jp::getInstance($dirname);
@@ -99,6 +109,10 @@ class weblinks_viewcat
         $this->_conf = &$this->_config_handler->get_conf();
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -112,6 +126,10 @@ class weblinks_viewcat
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function &get_category()
     {
         $cid = $this->_link_view_handler->get_get_cid();
@@ -135,6 +153,11 @@ class weblinks_viewcat
         return $category;
     }
 
+    /**
+     * @param $category
+     * @param $keyword_array
+     * @return array
+     */
     public function &build($category, &$keyword_array)
     {
         $show_category_navi = false;
@@ -262,6 +285,13 @@ class weblinks_viewcat
     }
 
     // Notice [PHP]: Only variables should be assigned by reference
+
+    /**
+     * @param $total
+     * @param $cid
+     * @param $keywords
+     * @return mixed
+     */
     public function &get_linklist_self($total, $cid, $keywords)
     {
         global $xoopsTpl;
@@ -362,4 +392,5 @@ $xoopsTpl->assign('lang_latest_forum', _WEBLINKS_LATEST_FORUM);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // -- main end ---
+exit();
+// -- main end ---

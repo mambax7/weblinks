@@ -1,5 +1,6 @@
 <?php
-// $Id: kml_sample.php,v 1.1 2008/02/26 16:05:21 ohwada Exp $
+
+// $Id: kml_sample.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module

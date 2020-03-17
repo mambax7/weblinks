@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_mod_link.php,v 1.2 2007/09/24 07:06:10 ohwada Exp $
+
+// $Id: test_form_admin_mod_link.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // build_rss_url()
@@ -84,7 +85,7 @@ if ($test->check_msg_and_link($msg)) {
     echo "<h4>Success !</h4>\n";
     echo 'mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: admin mod link failed: <br><hr>\n";
+    echo "Error: admin mod link failed: <br><hr />\n";
     echo $test->get_body() . "<br>\n";
     dev_footer();
 }
@@ -126,7 +127,7 @@ if ($test->check_msg_and_link($msg)) {
     echo "<h4>Success !</h4>\n";
     echo 'admin mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: mod link form failed: <br><hr>\n";
+    echo "Error: mod link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -175,7 +176,7 @@ if ($test->check_msg_and_link($msg)) {
     echo "<h4>Success !</h4>\n";
     echo 'admin mod link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: mod link form failed: <br><hr>\n";
+    echo "Error: mod link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -227,7 +228,7 @@ if ($test->is_exist_rssc_module()) {
         echo "<h4>Success !</h4>\n";
         echo 'mod link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: mod link form failed: <br><hr>\n";
+        echo "Error: mod link form failed: <br><hr />\n";
         echo $test->get_body() . "<br><br>\n";
         dev_footer();
     }
@@ -285,7 +286,7 @@ if ($test->is_exist_rssc_module()) {
         echo "<h4>Success !</h4>\n";
         echo 'mod link: ' . $title . " <br><br>\n";
     } else {
-        echo "Error: mod link form failed: <br><hr>\n";
+        echo "Error: mod link form failed: <br><hr />\n";
         echo $test->get_body() . "<br><br>\n";
         dev_footer();
     }
@@ -295,4 +296,5 @@ if ($test->is_exist_rssc_module()) {
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

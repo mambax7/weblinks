@@ -1,11 +1,11 @@
-<{* $Id: weblinks_search_form.html,v 1.4 2007/08/08 04:18:48 ohwada Exp $ *}>
+<{* $Id: weblinks_search_form.html,v 1.1 2011/12/29 14:32:37 ohwada Exp $ *}>
 
 <div class="weblinks_search_form">
     <form action="<{$xoops_url}>/modules/<{$dirname}>/search.php" method="get">
         <input type="text" id="query" name="query" size="50" maxlength="255" value="<{$search_query}>"/>
 
         <{if $show_br1 }>
-        <br>
+    <br>
         <{/if}>
 
         <select id="andor" name="andor" size="1">
@@ -18,7 +18,7 @@
         </select>
 
         <{if $show_br2 }>
-        <br>
+    <br>
         <{/if}>
 
         <{if $show_mark }>
@@ -29,15 +29,15 @@
             <option value="mutual"
             <{$search_selected.mutual}> ><{$lang_site_mutual}></option>
         </select>
-        <br>
+    <br>
         <{/if}>
 
         <{if $show_cat }>
         <{$search_cat_selbox}>
-        <br>
-        <input type="checkbox" name="subcat" id="subcat" value="1" <{$search_checked.subcat}> />
+    <br>
+    <input type="checkbox" name="subcat" id="subcat" value="1" <{$search_checked.subcat}> />
         <{$lang_search_with_subcat}>
-        <br>
+    <br>
         <{/if}>
 
         <input type="hidden" name="action" value="results"/>

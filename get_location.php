@@ -1,4 +1,5 @@
 <?php
+
 // $Id: get_location.php,v 1.2 2012/04/10 11:24:42 ohwada Exp $
 
 //=========================================================
@@ -12,6 +13,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_address.php';
 //=========================================================
 // class weblinks_get_location
 //=========================================================
+
+/**
+ * Class weblinks_get_location
+ */
 class weblinks_get_location
 {
     public $_link_handler;
@@ -32,18 +37,27 @@ class weblinks_get_location
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_get_location constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-        $this->_cat_handler = weblinks_getHandler('category_basic', $dirname);
-        $this->_conf_handler = weblinks_getHandler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
+        $this->_cat_handler = weblinks_get_handler('category_basic', $dirname);
+        $this->_conf_handler = weblinks_get_handler('config2_basic', $dirname);
 
         $this->_conf_handler->init();
         $this->_conf = $this->_conf_handler->get_conf();
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -57,6 +71,10 @@ class weblinks_get_location
     //---------------------------------------------------------
     // main
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function main()
     {
         $webmap3_dirname = $this->_conf['webmap3_dirname'];
@@ -67,9 +85,9 @@ class weblinks_get_location
             return false;
         }
 
-        list($flag, $lat, $lng, $zoom, $addr) = $this->get_latlng();
+        [$flag, $lat, $lng, $zoom, $addr] = $this->get_latlng();
 
-        $api_class = &webmap3_api_get_location::getSingleton($webmap3_dirname);
+        $api_class = webmap3_api_get_location::getSingleton($webmap3_dirname);
 
         $api_class->set_latitude($lat);
         $api_class->set_longitude($lng);
@@ -85,6 +103,9 @@ class weblinks_get_location
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function get_latlng()
     {
         $flag = false;
@@ -106,7 +127,11 @@ class weblinks_get_location
                     $zoom = $row['gm_zoom'];
                 }
 
-                $temp = $this->build_address($row['state'], $row['city'], $row['addr']);
+                $temp = $this->build_address(
+                    $row['state'],
+                    $row['city'],
+                    $row['addr']
+                );
                 if ('' != $temp) {
                     $addr = $temp;
                 }
@@ -129,19 +154,28 @@ class weblinks_get_location
         return [$flag, $lat, $lng, $zoom, $addr];
     }
 
+    /**
+     * @param $state
+     * @param $city
+     * @param $addr
+     * @return mixed
+     */
     public function build_address($state, $city, $addr)
     {
         $address_class = weblinks_address::getInstance($this->_DIRNAME);
-        $locate_class = $address_class->get_instance_locate();
+        $locate_class = &$address_class->get_instance_locate();
 
         return $locate_class->build_address($state, $city, $addr);
     }
 
+    /**
+     * @return string
+     */
     public function error()
     {
         $text = <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <title>get location</title>

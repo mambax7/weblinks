@@ -1,4 +1,4 @@
-<{* $Id: weblinks_search.html,v 1.15 2007/11/16 12:07:58 ohwada Exp $ *}>
+<{* $Id: weblinks_search.html,v 1.1 2011/12/29 14:32:36 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -38,34 +38,34 @@
     <{foreach item=keyword from=$search_keywords}>
     <strong><{$keyword}></strong>
     <{/foreach}>
-    <br>
+<br>
 
     <{if $search_show_candidate }>
-    <br>
+<br>
     <{$lang_search_candidate}>:<br>
     <{foreach item=candidate from=$search_candidates}>
     <strong><{$candidate.keyword}></strong>(<{$candidate.lang}>)
     <{/foreach}>
-    <br>
+<br>
     <{/if}>
 
     <{if $search_show_ignore }>
-    <br>
+<br>
     <{$lang_search_ignore}><br>
     <{foreach item=ignore from=$search_ignores}>
     <strong><{$ignore}></strong>
     <{/foreach}>
-    <br>
+<br>
     <{/if}>
 
     <{if $search_found_show != 1}>
-    <br>
+<br>
     <span class="weblinks_error"><{$search_not_found_result}></span><br>
     <{else}>
-    <br>
+<br>
     <{$search_found}><br><br>
     <{$weblinks_links_list}>
-    <br><br>
+<br><br>
 
     <div class="weblinks_pagenavi">
         <{$page_navi}>
@@ -96,7 +96,7 @@
         </div>
     </div>
     <{/foreach}>
-    <br>
+<br>
     <{* -- feed list end -- *}>
 
     <{elseif $feed_show == 2}>
@@ -106,7 +106,7 @@
     <{/if}>
     <{/if}>
 
-    <hr>
+    <hr/>
     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

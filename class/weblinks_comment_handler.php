@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_comment_handler.php,v 1.1 2012/04/09 10:23:37 ohwada Exp $
 
 //=========================================================
@@ -13,6 +14,10 @@ if (!class_exists('weblinks_comment_handler')) {
     //=========================================================
     // class weblinks_comment_handler
     //=========================================================
+
+    /**
+     * Class weblinks_comment_handler
+     */
     class weblinks_comment_handler
     {
         public $_db;
@@ -37,6 +42,13 @@ if (!class_exists('weblinks_comment_handler')) {
             $this->_remote_addr = xoops_getenv('REMOTE_ADDR');
         }
 
+        /**
+         * @param $lid
+         * @param $uid
+         * @param $title
+         * @param $text
+         * @return bool
+         */
         public function insert_comment_by_lid($lid, $uid, $title, $text)
         {
             $this->_error = '';
@@ -98,7 +110,7 @@ if (!class_exists('weblinks_comment_handler')) {
             }
 
             // increment user post if needed
-            $poster = &$this->_member_handler->getUser($com_uid);
+            $poster = $this->_member_handler->getUser($com_uid);
             if (is_object($poster)) {
                 $this->_member_handler->updateUserByField($poster, 'posts', $poster->getVar('posts') + 1);
             }

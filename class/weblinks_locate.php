@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_locate.php,v 1.4 2007/11/14 11:50:24 ohwada Exp $
+
+// $Id: weblinks_locate.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-11-11 K.OHWADA
 // set_config_google_server( $val )
@@ -21,6 +22,10 @@ if (!class_exists('weblinks_locate')) {
     //=========================================================
     // class weblinks_locate
     //=========================================================
+
+    /**
+     * Class weblinks_locate_base
+     */
     class weblinks_locate_base extends happy_linux_locate_base
     {
         //---------------------------------------------------------
@@ -37,6 +42,10 @@ if (!class_exists('weblinks_locate')) {
     //=========================================================
     // class weblinks_locate_factory
     //=========================================================
+
+    /**
+     * Class weblinks_locate_factory
+     */
     class weblinks_locate_factory extends happy_linux_locate_factory
     {
         public $_config_google_server = null;
@@ -44,13 +53,22 @@ if (!class_exists('weblinks_locate')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_locate_factory constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
             $this->set_dirname($dirname);
-            //  $this->set_config_handler( weblinks_getHandler( 'config2_basic', $dirname ) );
+            //	$this->set_config_handler( weblinks_get_handler( 'config2_basic', $dirname ) );
         }
 
+        /**
+         * @param null $dirname
+         * @return bool|\happy_linux_locate_base|mixed|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -77,6 +95,11 @@ if (!class_exists('weblinks_locate')) {
         //---------------------------------------------------------
         // get value
         //---------------------------------------------------------
+
+        /**
+         * @param string $mode
+         * @return array
+         */
         public function &weblinks_get_value($mode = 'config')
         {
             switch ($mode) {
@@ -104,11 +127,19 @@ if (!class_exists('weblinks_locate')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @param $val
+         */
         public function set_config_google_server($val)
         {
             $this->_config_google_server = $val;
         }
 
+        /**
+         * @param $query
+         * @return string
+         */
         public function weblinks_build_google_search_url($query)
         {
             return $this->build_google_search_url($query, $this->_config_google_server);

@@ -1,8 +1,8 @@
 Hallo {X_UNAME},
 
-Ihr Antrag zur Lösung des Links auf der Webseite von {X_SITENAME} wurde genehmigt.
+Ihr Antrag zur Lï¿½sung des Links auf der Webseite von {X_SITENAME} wurde genehmigt.
 
-Infos zur gelöschten Webseite
+Infos zur gelï¿½schten Webseite
 Name: {SITE_NAME}
 URL:  {SITE_URL}
 

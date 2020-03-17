@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_catlink_handler.php,v 1.5 2007/03/06 02:01:51 ohwada Exp $
+
+// $Id: weblinks_catlink_handler.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2007-03-01 K.OHWADA
 // divid to weblinks_catlink_basic_handler
@@ -29,6 +30,10 @@ if (!class_exists('weblinks_catlink_handler')) {
     //=========================================================
     // class weblinks_catlink
     //=========================================================
+
+    /**
+     * Class weblinks_catlink
+     */
     class weblinks_catlink extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -49,6 +54,10 @@ if (!class_exists('weblinks_catlink_handler')) {
     //=========================================================
     // class weblinks_catlink_handler
     //=========================================================
+
+    /**
+     * Class weblinks_catlink_handler
+     */
     class weblinks_catlink_handler extends happy_linux_object_handler
     {
         public $_catlink_basic_handler;
@@ -56,6 +65,11 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_catlink_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'catlink', 'jid', 'weblinks_catlink');
@@ -68,12 +82,17 @@ if (!class_exists('weblinks_catlink_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_catlink_basic_handler = weblinks_getHandler('catlink_basic', $dirname);
+            $this->_catlink_basic_handler = weblinks_get_handler('catlink_basic', $dirname);
         }
 
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -91,6 +110,10 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $sql;
         }
 
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -108,6 +131,12 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @param $cid_arr
+         * @return bool
+         */
         public function add_link_by_lid_cid_array($lid, $cid_arr)
         {
             $this->_clear_errors();
@@ -115,7 +144,7 @@ if (!class_exists('weblinks_catlink_handler')) {
             $lid = (int)$lid;
 
             foreach ($cid_arr as $cid) {
-                $obj = &$this->create();
+                $obj = $this->create();
                 $obj->setVar('cid', $cid);
                 $obj->setVar('lid', $lid);
                 $this->insert($obj);
@@ -128,6 +157,12 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
+
+        /**
+         * @param      $cid
+         * @param bool $force
+         * @return bool
+         */
         public function delete_by_cid($cid, $force = false)
         {
             $sql = 'DELETE FROM ' . $this->_table . ' WHERE cid=' . (int)$cid;
@@ -139,6 +174,11 @@ if (!class_exists('weblinks_catlink_handler')) {
             return true;
         }
 
+        /**
+         * @param      $lid
+         * @param bool $force
+         * @return bool
+         */
         public function delete_by_lid($lid, $force = false)
         {
             $sql = 'DELETE FROM ' . $this->_table . ' WHERE lid=' . (int)$lid;
@@ -153,6 +193,11 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @param $cid
+         * @return bool
+         */
         public function get_count_by_cid($cid)
         {
             $cid = (int)$cid;
@@ -163,6 +208,10 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $count;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function get_count_by_lid($lid)
         {
             $lid = (int)$lid;
@@ -173,6 +222,10 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $count;
         }
 
+        /**
+         * @param $cid_arr
+         * @return bool
+         */
         public function get_count_by_cid_array($cid_arr)
         {
             $sql = 'SELECT COUNT(DISTINCT lid) c FROM ' . $this->_table;
@@ -182,13 +235,17 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $num;
         }
 
+        /**
+         * @param $cid_arr
+         * @return string
+         */
         public function _build_where_by_cid_array($cid_arr)
         {
             $where = '';
             if (is_array($cid_arr) && count($cid_arr)) {
                 $count = count($cid_arr);
                 $where = ' WHERE ( cid=' . (int)$cid_arr[0];
-                for ($i = 1; $i < $count; ++$i) {
+                for ($i = 1; $i < $count; $i++) {
                     $where .= ' OR cid=' . (int)$cid_arr[$i];
                 }
                 $where .= ' )';
@@ -200,6 +257,13 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
+
+        /**
+         * @param     $cid
+         * @param int $limit
+         * @param int $offset
+         * @return array
+         */
         public function &get_objects_by_cid($cid, $limit = 0, $offset = 0)
         {
             $cid = (int)$cid;
@@ -212,6 +276,12 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $lid
+         * @param int $limit
+         * @param int $offset
+         * @return array
+         */
         public function &get_objects_by_lid($lid, $limit = 0, $offset = 0)
         {
             $lid = (int)$lid;
@@ -227,6 +297,13 @@ if (!class_exists('weblinks_catlink_handler')) {
         //---------------------------------------------------------
         // get link list
         //---------------------------------------------------------
+
+        /**
+         * @param     $cid
+         * @param int $limit
+         * @param int $offset
+         * @return array
+         */
         public function &get_lid_array_by_cid($cid, $limit = 0, $offset = 0)
         {
             $cid = (int)$cid;
@@ -244,6 +321,10 @@ if (!class_exists('weblinks_catlink_handler')) {
             return $lid_arr;
         }
 
+        /**
+         * @param $cid_arr
+         * @return array|bool
+         */
         public function &get_lid_array_by_cid_array($cid_arr)
         {
             $sql = 'SELECT DISTINCT lid FROM ' . $this->_table;
@@ -256,6 +337,13 @@ if (!class_exists('weblinks_catlink_handler')) {
         //=========================================================
         // catlink_basic_handler
         //=========================================================
+
+        /**
+         * @param     $lid
+         * @param int $limit
+         * @param int $offset
+         * @return mixed
+         */
         public function &get_cid_array_by_lid($lid, $limit = 0, $offset = 0)
         {
             $arr = &$this->_catlink_basic_handler->get_cid_array_by_lid($lid, $limit = 0, $offset = 0);

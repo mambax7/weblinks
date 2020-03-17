@@ -1,5 +1,6 @@
 <?php
-// $Id: config_manage_2.php,v 1.5 2007/11/12 12:41:13 ohwada Exp $
+
+// $Id: config_manage_2.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // _HAPPY_LINUX_CONF_BIN
@@ -21,7 +22,7 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
@@ -108,4 +109,5 @@ $config_form->show_form_template_compiled_clear(_HAPPY_LINUX_CONF_TPL_COMPILED_C
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

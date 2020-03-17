@@ -1,16 +1,16 @@
 Hello {X_UNAME},
 
-Un nuevo enlace se ha añadido en la categoría "{CATEGORY_NAME}" en {X_SITENAME}.
+Un nuevo enlace se ha aï¿½adido en la categorï¿½a "{CATEGORY_NAME}" en {X_SITENAME}.
 
-Puede ver este enlace añadido aquí:
+Puede ver este enlace aï¿½adido aquï¿½:
 {LINK_URL}
 
-Puede ver toda la categoría aquí:
+Puede ver toda la categorï¿½a aquï¿½:
 {CATEGORY_URL}
 
-Información del Link nuevo :
+Informaciï¿½n del Link nuevo :
 Title : {LINK_NAME}
-Descripción :
+Descripciï¿½n :
 {LINK_DESCRIPTION}
 
 -------------------

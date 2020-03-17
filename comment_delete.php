@@ -1,5 +1,6 @@
 <?php
-// $Id: comment_delete.php,v 1.3 2005/10/28 11:56:02 ohwada Exp $
+
+// $Id: comment_delete.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //

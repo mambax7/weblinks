@@ -1,5 +1,6 @@
 <?php
-// $Id: rss.php,v 1.1 2007/09/24 07:07:38 ohwada Exp $
+
+// $Id: rss.php,v 1.1 2011/12/29 14:33:00 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -20,4 +21,5 @@ $xml = str_replace('{host}', $host, $tpl);
 happy_linux_http_output('pass');
 header('Content-type: application/xml;charset=utf-8');
 echo $xml;
-exit(); // --- main end ---
+exit();
+// --- main end ---

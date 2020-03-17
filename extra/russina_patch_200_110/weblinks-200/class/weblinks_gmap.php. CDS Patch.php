@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_gmap.php.\040CDS\040Patch.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
@@ -15,6 +16,10 @@ if (!class_exists('weblinks_gmap')) {
     //=========================================================
     // class google map
     //=========================================================
+
+    /**
+     * Class weblinks_gmap
+     */
     class weblinks_gmap
     {
         public $_DIRNAME;
@@ -33,12 +38,17 @@ if (!class_exists('weblinks_gmap')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_gmap constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_linkitem_handler = weblinks_getHandler('linkitem_basic', $dirname);
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_linkitem_handler = weblinks_get_handler('linkitem_basic', $dirname);
             $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $config_handler->get_conf();
@@ -64,6 +74,10 @@ if (!class_exists('weblinks_gmap')) {
             /* CDS Patch. Weblinks. 2.00. 1. EOF */
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -77,6 +91,13 @@ if (!class_exists('weblinks_gmap')) {
         //---------------------------------------------------------
         // template
         //---------------------------------------------------------
+
+        /**
+         * @param        $links
+         * @param        $param
+         * @param string $css_map
+         * @return mixed
+         */
         public function fetch_list($links, $param, $css_map = 'weblinks_gm_map_index')
         {
             $tpl = new XoopsTpl();
@@ -94,6 +115,10 @@ if (!class_exists('weblinks_gmap')) {
             return $text;
         }
 
+        /**
+         * @param $link
+         * @return mixed
+         */
         public function fetch_single($link)
         {
             $tpl = new XoopsTpl();
@@ -105,6 +130,10 @@ if (!class_exists('weblinks_gmap')) {
             return $text;
         }
 
+        /**
+         * @param      $tpl
+         * @param null $param
+         */
         public function _assign_common($tpl, $param = null)
         {
             $gm_latitude = isset($param['gm_latitude']) ? $param['gm_latitude'] : 0;
@@ -150,6 +179,9 @@ if (!class_exists('weblinks_gmap')) {
             $tpl->assign('lang_more', _WLS_MORE);
         }
 
+        /**
+         * @return string
+         */
         public function build_form_iframe()
         {
             $text = '<div id="weblinks_gm_iframe"></div>';
@@ -157,6 +189,9 @@ if (!class_exists('weblinks_gmap')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function build_form_desc()
         {
             // BUG 4313: same browser like opera cannot show gm_get_location.php

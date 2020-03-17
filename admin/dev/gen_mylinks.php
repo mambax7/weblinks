@@ -1,4 +1,5 @@
 <?php
+
 // $Id: gen_mylinks.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //================================================================
@@ -16,6 +17,10 @@ include_once 'dev_header.php';
 //=========================================================
 // class dev_genarate_mylinks
 //=========================================================
+
+/**
+ * Class weblinks_genarate_mylinks
+ */
 class weblinks_genarate_mylinks extends weblinks_gen_record
 {
     //---------------------------------------------------------
@@ -34,6 +39,10 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     //  title varchar(50)
     //  imgurl varchar(150)
 
+    /**
+     * @param $MAX_CAT
+     * @param $MAX_PARENT
+     */
     public function gen_mylinks_category($MAX_CAT, $MAX_PARENT)
     {
         echo "<h4>generete category table</h4>\n";
@@ -43,7 +52,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         // contant
         $pid = 0;
 
-        for ($i = 0; $i < $MAX_PARENT; ++$i) {
+        for ($i = 0; $i < $MAX_PARENT; $i++) {
             // randum data
             $title = 'main_' . $this->get_randum_title();
             $imgurl = $imgurl_dir . sprintf('%01d', mt_rand(0, 9)) . '.gif';
@@ -59,10 +68,10 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         // contant
         $imgurl = '';
 
-        for ($i = 0; $i < ($MAX_CAT - $MAX_PARENT); ++$i) {
+        for ($i = 0; $i < ($MAX_CAT - $MAX_PARENT); $i++) {
             // randum data
             $title = 'sub_' . $this->get_randum_title();
-            $max_pid = (int)($MAX_PARENT + $i);
+            $max_pid = (int)(($MAX_PARENT + $i) / 2);
             $pid = mt_rand(1, $max_pid);
 
             // ctegory table
@@ -70,6 +79,11 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         }
     }
 
+    /**
+     * @param $pid
+     * @param $title
+     * @param $imgurl
+     */
     public function insert_mylinks_category($pid, $title, $imgurl)
     {
         $category_table = $this->db_prefix('mylinks_cat');
@@ -104,6 +118,10 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     //  lid int(11)
     //  description text
 
+    /**
+     * @param $MAX_LINK
+     * @param $MAX_CAT
+     */
     public function gen_mylinks_link($MAX_LINK, $MAX_CAT)
     {
         echo "<h4>generete link table</h4>\n";
@@ -119,7 +137,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         $comments = 0;
         $status = 1;
 
-        for ($i = 0; $i < $MAX_LINK; ++$i) {
+        for ($i = 0; $i < $MAX_LINK; $i++) {
             // randum data
             $cid = mt_rand(1, $MAX_CAT);
             $submitter = mt_rand(0, 10);
@@ -129,7 +147,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
             $date = $this->get_randum_time();
 
             // other
-            $url = "https://$title/";
+            $url = "http://$title/";
             $desc = "$title\n $date\n";
 
             // link table
@@ -167,6 +185,10 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     //  ratinghostname varchar(60)
     //  ratingtimestamp int(10)
 
+    /**
+     * @param $MAX_VOTE
+     * @param $MAX_LINK
+     */
     public function gen_mylinks_votedata($MAX_VOTE, $MAX_LINK)
     {
         echo "<h4>generete votedata table</h4>\n";
@@ -176,7 +198,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
         $votedata_table = $this->db_prefix('mylinks_votedata');
         $link_table = $this->db_prefix('mylinks_links');
 
-        for ($i = 0; $i < $MAX_VOTE; ++$i) {
+        for ($i = 0; $i < $MAX_VOTE; $i++) {
             // randum data
             $lid = mt_rand(1, $MAX_LINK);
             $ratinguser = mt_rand(1, 10);
@@ -212,6 +234,11 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
     //---------------------------------------------------------
     // xoopscomments table
     //---------------------------------------------------------
+
+    /**
+     * @param $MAX_COM
+     * @param $MAX_LINK
+     */
     public function gen_mylinks_comment($MAX_COM, $MAX_LINK)
     {
         echo "<h4>generete xoopscomments table</h4>\n";
@@ -268,4 +295,5 @@ $genarete->gen_mylinks_votedata($MAX_VOTE, $MAX_VOTE / 4);
 $genarete->gen_mylinks_comment($MAX_COM, $MAX_COM / 4);
 
 echo '<h3>end</h3>';
-dev_footer(); // =====
+dev_footer();
+// =====

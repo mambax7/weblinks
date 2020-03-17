@@ -1,5 +1,6 @@
 <?php
-// $Id: rss_sample.php,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+
+// $Id: rss_sample.php,v 1.1 2011/12/29 14:32:31 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -14,11 +15,19 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout_rss_sample')) {
+    /**
+     * Class weblinks_htmlout_rss_sample
+     */
     class weblinks_htmlout_rss_sample extends weblinks_htmlout_base
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout_rss_sample constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -27,11 +36,18 @@ if (!class_exists('weblinks_htmlout_rss_sample')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function description()
         {
             return 'RSS: url in description';
         }
 
+        /**
+         * @return bool
+         */
         public function execute_plugin()
         {
             $url = $this->get('url');

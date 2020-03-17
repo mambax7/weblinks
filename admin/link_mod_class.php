@@ -1,5 +1,6 @@
 <?php
-// $Id: link_mod_class.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_mod_class.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -19,6 +20,10 @@
 //=========================================================
 // class admin_link_mod
 //=========================================================
+
+/**
+ * Class admin_link_mod
+ */
 class admin_link_mod extends admin_link_base
 {
     //---------------------------------------------------------
@@ -29,9 +34,12 @@ class admin_link_mod extends admin_link_base
         parent::__construct();
         $this->set_edit_handler('link_mod');
 
-        $this->_votedata_handler = weblinks_getHandler('votedata', WEBLINKS_DIRNAME);
+        $this->_votedata_handler = weblinks_get_handler('votedata', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_link_base|\admin_link_mod|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -65,6 +73,9 @@ class admin_link_mod extends admin_link_base
         $this->_print_cp_footer();
     }
 
+    /**
+     * @return bool|void
+     */
     public function _print_mod_form()
     {
         $MAX_RECORD = 5;
@@ -72,7 +83,7 @@ class admin_link_mod extends admin_link_base
         $lid = $this->get_post_lid();
 
         $this->_form->show_admin_form('modify', $lid);
-        echo "<hr>\n";
+        echo "<hr />\n";
 
         $list = admin_votedata_list::getInstance();
         $list->set_perpage($MAX_RECORD);
@@ -134,6 +145,10 @@ class admin_link_mod extends admin_link_base
         }
     }
 
+    /**
+     * @param $lid
+     * @return string
+     */
     public function _build_url_mod_form($lid)
     {
         $url = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
@@ -185,6 +200,10 @@ class admin_link_mod extends admin_link_base
         exit();
     }
 
+    /**
+     * @param $lid
+     * @return bool
+     */
     public function _exec_mod_link($lid)
     {
         $ret = $this->_edit_handler->admin_mod_link($lid);
@@ -195,6 +214,9 @@ class admin_link_mod extends admin_link_base
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function _check_mod_link()
     {
         $ret = $this->_check_handler->check_form_modlink_for_owner_by_post();
@@ -207,6 +229,9 @@ class admin_link_mod extends admin_link_base
         return true;
     }
 
+    /**
+     * @return bool|void
+     */
     public function _print_mod_preview_form()
     {
         $this->_form->show_admin_form('modify_preview');
@@ -235,6 +260,10 @@ class admin_link_mod extends admin_link_base
     //---------------------------------------------------------
     // mod_banner
     //---------------------------------------------------------
+
+    /**
+     * @param $op_mode
+     */
     public function _print_mod_banner_form($op_mode)
     {
         $this->_print_cp_header();
@@ -242,7 +271,7 @@ class admin_link_mod extends admin_link_base
 
         if ('mod_banner' == $op_mode) {
             echo '<h4 style="color: #0000ff;">' . _WLS_DBUPDATED . "</h4>\n";
-            echo "<hr>\n";
+            echo "<hr />\n";
         }
 
         $this->_print_title(_AM_WEBLINKS_MOD_BANNER);

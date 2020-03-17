@@ -1,4 +1,5 @@
 <?php
+
 // 2005-01-20 K.OHWADA
 // _MB_WEBLINKS_NEWDAYS
 // _MB_WEBLINKS_MORE
@@ -10,7 +11,7 @@
 // 2004-10-24 K.OHWADA
 // catlist.html
 
-// $Id: blocks.php,v 1.4 2006/01/04 08:46:27 ohwada Exp $
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:48 ohwada Exp $
 
 //=========================================================
 // language for Blocks

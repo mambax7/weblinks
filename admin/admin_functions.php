@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin_functions.php,v 1.3 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
@@ -69,6 +70,11 @@ function weblinks_admin_print_footer()
     echo $menu->build_footer();
 }
 
+/**
+ * @param        $name1
+ * @param string $url1
+ * @param string $name2
+ */
 function weblinks_admin_print_bread($name1, $url1 = '', $name2 = '')
 {
     $system = happy_linux_system::getInstance();
@@ -103,8 +109,8 @@ function weblinks_admin_print_menu()
 
     $menu = happy_linux_admin_menu::getInstance();
     $handler = happy_linux_basic_handler::getInstance(WEBLINKS_DIRNAME);
-    $link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
-    $modify_handler = weblinks_getHandler('modify_basic', WEBLINKS_DIRNAME);
+    $link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
+    $modify_handler = weblinks_get_handler('modify_basic', WEBLINKS_DIRNAME);
 
     $total_cat = $handler->get_count_by_tablename('category');
     $total_vote = $handler->get_count_by_tablename('votedata');

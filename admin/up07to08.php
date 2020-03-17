@@ -1,5 +1,5 @@
 <?php
-// $Id: up07to08.php,v 1.3 2005/10/28 11:56:02 ohwada Exp $
+// $Id: up07to08.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 //================================================================
 // version up 0.7 to 0.8
@@ -122,9 +122,9 @@ function print_form_start()
 {
     $action = xoops_getenv('PHP_SELF'); ?>
     <h4><font color='blue'>Warnig</font></h4>
-    Excute only once, after update. <br>
-    This program overwrite MySQL tables. <br>
-    <br>
+    Excute only once, after update. <br/>
+    This program overwrite MySQL tables. <br/>
+    <br/>
     <form action='<?php echo $action; ?>' method='post'>
         <input type='hidden' name='op' value='excute'>
         <input type='submit' value='EXCUTE'>
@@ -132,6 +132,10 @@ function print_form_start()
     <?php
 }
 
+/**
+ * @param $sql
+ * @return bool
+ */
 function sql_exec($sql)
 {
     global $xoopsDB;

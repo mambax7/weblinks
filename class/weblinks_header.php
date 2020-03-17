@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_header.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -23,6 +24,10 @@ if (!class_exists('weblinks_header')) {
     //=========================================================
     // class weblinks_header
     //=========================================================
+
+    /**
+     * Class weblinks_header
+     */
     class weblinks_header
     {
         // dirname
@@ -38,16 +43,25 @@ if (!class_exists('weblinks_header')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_header constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
             $this->_conf = $config_handler->get_conf();
             $this->_header_mode = $this->_conf['header_mode'];
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -62,6 +76,10 @@ if (!class_exists('weblinks_header')) {
         // public
         //-------------------------------------------------------------------
         // index.php etc
+
+        /**
+         * @param bool $flag_gmap
+         */
         public function assign_module_header($flag_gmap = false)
         {
             $header = $this->_build_module_header($flag_gmap);
@@ -83,6 +101,10 @@ if (!class_exists('weblinks_header')) {
         }
 
         // submit.php modify.php
+
+        /**
+         * @return string
+         */
         public function get_module_header_submit()
         {
             $text = '';
@@ -94,6 +116,10 @@ if (!class_exists('weblinks_header')) {
         }
 
         // category_manage.php weblinks_link_form_admin_handler.php
+
+        /**
+         * @return string
+         */
         public function build_module_header_submit()
         {
             $temp = $this->_build_visit_js();
@@ -105,6 +131,10 @@ if (!class_exists('weblinks_header')) {
         }
 
         // map_jp_manage.php
+
+        /**
+         * @return string
+         */
         public function build_module_header_map_jp()
         {
             $text = $this->_build_weblinks_css();
@@ -116,6 +146,10 @@ if (!class_exists('weblinks_header')) {
         //-------------------------------------------------------------------
         // private
         //-------------------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function _build_module_header()
         {
             $text = $this->_build_weblinks_css();
@@ -125,6 +159,9 @@ if (!class_exists('weblinks_header')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _build_module_header_submit()
         {
             $temp = $this->_build_visit_js();
@@ -135,16 +172,25 @@ if (!class_exists('weblinks_header')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _build_weblinks_css()
         {
             return $this->_build_css('weblinks.css');
         }
 
+        /**
+         * @return string
+         */
         public function _build_map_jp_css()
         {
             return $this->_build_css('include/weblinks_map_jp.css');
         }
 
+        /**
+         * @return string
+         */
         public function _build_once_weblinks_gmap_js()
         {
             $text = '';
@@ -156,11 +202,18 @@ if (!class_exists('weblinks_header')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _build_weblinks_gmap_js()
         {
             return $this->_build_js('include/weblinks_gmap.js');
         }
 
+        /**
+         * @param $file
+         * @return string
+         */
         public function _build_css($file)
         {
             $text = '<link href="' . $this->_WEBLINKS_URL . '/' . $file . '" rel="stylesheet" type="text/css" media="all" />' . "\n";
@@ -168,6 +221,10 @@ if (!class_exists('weblinks_header')) {
             return $text;
         }
 
+        /**
+         * @param $file
+         * @return string
+         */
         public function _build_js($file)
         {
             $text = '<script src="' . $this->_WEBLINKS_URL . '/' . $file . '" type="text/javascript" ></script>' . "\n";
@@ -175,6 +232,9 @@ if (!class_exists('weblinks_header')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _build_visit_js()
         {
             $weblinks_url = $this->_WEBLINKS_URL;
@@ -183,14 +243,18 @@ if (!class_exists('weblinks_header')) {
 /* hardlink */
 function weblinks_hardlink( link, lid )
 {
-    link.href = "$weblinks_url/visit.php?lid=" + lid;
-    return true;
+	link.href = "$weblinks_url/visit.php?lid=" + lid;
+	return true;
 }
 END_OF_TEXT;
 
             return $text . "\n";
         }
 
+        /**
+         * @param $content
+         * @return string
+         */
         public function _envelop_script($content)
         {
             $text = <<< END_OF_TEXT
@@ -208,12 +272,22 @@ END_OF_TEXT;
         // xoops template
         //--------------------------------------------------------
         // some block use xoops_module_header
+
+        /**
+         * @param $var
+         */
         public function _assign_xoops_module_header($var)
         {
             global $xoopsTpl;
-            $xoopsTpl->assign('xoops_module_header', $var . "\n" . $xoopsTpl->get_template_vars('xoops_module_header'));
+            $xoopsTpl->assign(
+                'xoops_module_header',
+                $var . "\n" . $xoopsTpl->get_template_vars('xoops_module_header')
+            );
         }
 
+        /**
+         * @param $var
+         */
         public function _assign_weblinks_module_header($var)
         {
             global $xoopsTpl;

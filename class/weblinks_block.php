@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_block.php,v 1.2 2012/04/10 04:12:39 ohwada Exp $
 
 //=========================================================
@@ -11,6 +12,10 @@ if (!class_exists('weblinks_block')) {
     //=========================================================
     // class weblinks_block
     //=========================================================
+
+    /**
+     * Class weblinks_block
+     */
     class weblinks_block extends weblinks_block_view
     {
         public $_db;
@@ -25,6 +30,11 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_block constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -37,7 +47,11 @@ if (!class_exists('weblinks_block')) {
             $this->_table_catlink = weblinks_multi_get_table_name($dirname, 'catlink');
         }
 
-        public function &getSingleton($dirname)
+        /**
+         * @param $dirname
+         * @return mixed|\weblinks_block
+         */
+        public static function &getSingleton($dirname)
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {
@@ -89,6 +103,11 @@ if (!class_exists('weblinks_block')) {
         //       when 0, not show
         //       when 1, show
         //---------------------------------------------------------
+
+        /**
+         * @param $options
+         * @return array
+         */
         public function top_show($options)
         {
             $SHOW_RECOMMEND = false;
@@ -114,13 +133,13 @@ if (!class_exists('weblinks_block')) {
             $gm_timeout = isset($options[15]) ? (int)$options[15] : 0;
 
             // use config value
-            //  $gm_desc_length  = isset($options[16]) ? intval($options[16])   : 0;
-            //  $gm_wordwrap     = isset($options[17]) ? intval($options[17])   : 0;
-            //  $gm_marker_width = isset($options[18]) ? intval($options[18])   : 0;
+            //	$gm_desc_length  = isset($options[16]) ? intval($options[16])   : 0;
+            //	$gm_wordwrap     = isset($options[17]) ? intval($options[17])   : 0;
+            //	$gm_marker_width = isset($options[18]) ? intval($options[18])   : 0;
 
             // NOT use
-            //  $gm_control      = isset($options[19]) ? intval($options[19])   : 1;
-            //  $gm_type_control = isset($options[20]) ? intval($options[20])   : 1;
+            //	$gm_control      = isset($options[19]) ? intval($options[19])   : 1;
+            //	$gm_type_control = isset($options[20]) ? intval($options[20])   : 1;
 
             // time_create
             if (('hits' != $order) && ('rating' != $order) && ('time_create' != $order)) {
@@ -231,6 +250,10 @@ if (!class_exists('weblinks_block')) {
             return $block;
         }
 
+        /**
+         * @param $options
+         * @return string
+         */
         public function top_edit($options)
         {
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -335,32 +358,32 @@ if (!class_exists('weblinks_block')) {
             $form .= _MB_WEBLINKS_GM_TIMEOUT_DSC;
             $form .= "</td></tr>\n";
 
-            //  $form .= "<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_DESC_LENGTH;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[16]" value="'. $gm_desc_length .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_WORDWRAP;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[17]" value="'. $gm_wordwrap .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_MARKER_WIDTH;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[18]" value="'. $gm_marker_width .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_PIXEL ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[19]" value="'. $gm_control .'" />'."\n";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_TYPE_CONTROL;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[20]" value="'. $gm_type_control .'" />'."\n";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
-            //  $form .= "</td></tr>";
+            //	$form .= "<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_DESC_LENGTH;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[16]" value="'. $gm_desc_length .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_WORDWRAP;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[17]" value="'. $gm_wordwrap .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_MARKER_WIDTH;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[18]" value="'. $gm_marker_width .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_PIXEL ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[19]" value="'. $gm_control .'" />'."\n";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL_DSC;
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_TYPE_CONTROL;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[20]" value="'. $gm_type_control .'" />'."\n";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL_DSC;
+            //	$form .= "</td></tr>";
 
             // MUST be described as the turn of a number.
             $form .= "<tr><td></td><td>\n";
@@ -436,8 +459,13 @@ if (!class_exists('weblinks_block')) {
         // latest: dirname|10|30|0|0|7|0|50|50|1|0|0|0|1|-|0|time_update|DESC|0|0|0|0|300|1000|100|50
         // random: dirname|5 |30|0|0|0|0|50|50|0|1|1|0|1|-|1|lid        |ASC|0|0|0|0|300|1000|100|50
         //
-        // 2006-11-03 hiro <https://ishinomaki.cc/>
+        // 2006-11-03 hiro <http://ishinomaki.cc/>
         //---------------------------------------------------------
+
+        /**
+         * @param $options
+         * @return array
+         */
         public function generic_show($options)
         {
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -467,13 +495,13 @@ if (!class_exists('weblinks_block')) {
             $gm_timeout = isset($options[23]) ? (int)$options[23] : 0;
 
             // use config value
-            //  $gm_desc_length  = isset($options[24]) ? intval($options[24])   : 0;
-            //  $gm_wordwrap     = isset($options[25]) ? intval($options[25])   : 0;
-            //  $gm_marker_width = isset($options[26]) ? intval($options[26])   : 0;
+            //	$gm_desc_length  = isset($options[24]) ? intval($options[24])   : 0;
+            //	$gm_wordwrap     = isset($options[25]) ? intval($options[25])   : 0;
+            //	$gm_marker_width = isset($options[26]) ? intval($options[26])   : 0;
 
             // NOT use
-            //  $gm_control      = isset($options[27]) ? intval($options[27])   : 1;
-            //  $gm_type_control = isset($options[28]) ? intval($options[28])   : 1;
+            //	$gm_control      = isset($options[27]) ? intval($options[27])   : 1;
+            //	$gm_type_control = isset($options[28]) ? intval($options[28])   : 1;
 
             if (('time_update' != $order)
                 && ('time_create' != $order)
@@ -587,6 +615,10 @@ if (!class_exists('weblinks_block')) {
             return $block;
         }
 
+        /**
+         * @param $options
+         * @return string
+         */
         public function generic_edit($options)
         {
             // base on W3C
@@ -596,10 +628,10 @@ if (!class_exists('weblinks_block')) {
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
             // config init before get_handler(category)
-            $config_handler = weblinks_getHandler('config2_basic', $DIRNAME);
+            $config_handler = weblinks_get_handler('config2_basic', $DIRNAME);
             $config_handler->init();
 
-            $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
+            $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
             $category_handler->load_once();
 
             $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -890,32 +922,32 @@ if (!class_exists('weblinks_block')) {
             $form .= _MB_WEBLINKS_GM_TIMEOUT_DSC;
             $form .= "</td></tr>\n";
 
-            //  $form .= "<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_DESC_LENGTH;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[24]" value="'. $gm_desc_length .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_WORDWRAP;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[25]" value="'. $gm_wordwrap .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_MARKER_WIDTH;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[26]" value="'. $gm_marker_width .'" />'."\n";
-            //  $form .= "&nbsp;". _MB_WEBLINKS_PIXEL ."\n";
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[27]" value="'. $gm_control .'" />'."\n";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
-            //  $form .= "</td></tr>\n<tr><td>";
-            //  $form .= _MB_WEBLINKS_GM_TYPE_CONTROL;
-            //  $form .= "</td><td>";
-            //  $form .= '<input type="text" name="options[28]" value="'. $gm_type_control .'" />'."\n";
-            //  $form .= _MB_WEBLINKS_GM_CONTROL_DSC;
-            //  $form .= "</td></tr>";
+            //	$form .= "<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_DESC_LENGTH;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[24]" value="'. $gm_desc_length .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_WORDWRAP;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[25]" value="'. $gm_wordwrap .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_LENGTH  ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_MARKER_WIDTH;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[26]" value="'. $gm_marker_width .'" />'."\n";
+            //	$form .= "&nbsp;". _MB_WEBLINKS_PIXEL ."\n";
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[27]" value="'. $gm_control .'" />'."\n";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL_DSC;
+            //	$form .= "</td></tr>\n<tr><td>";
+            //	$form .= _MB_WEBLINKS_GM_TYPE_CONTROL;
+            //	$form .= "</td><td>";
+            //	$form .= '<input type="text" name="options[28]" value="'. $gm_type_control .'" />'."\n";
+            //	$form .= _MB_WEBLINKS_GM_CONTROL_DSC;
+            //	$form .= "</td></tr>";
 
             // MUST be described as the turn of a number.
             $form .= "<tr><td></td><td>\n";
@@ -934,6 +966,12 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // build link
         //---------------------------------------------------------
+
+        /**
+         * @param $row
+         * @param $param
+         * @return array
+         */
         public function build_link($row, $param)
         {
             $this->set_vars($row);
@@ -942,15 +980,19 @@ if (!class_exists('weblinks_block')) {
 
             $lid = $row['lid'];
 
-            list($google_use, $google_cid, $google_icon) = $this->get_google_use_icon($row);
+            [
+                $google_use, $google_cid, $google_icon
+                ] = $this->get_google_use_icon($row);
 
-            list($show_cat_title, $cid, $cat_title, $cat_title_disp) = $this->get_cat_title_disp($lid, $google_cid, $param);
+            [
+                $show_cat_title, $cid, $cat_title, $cat_title_disp
+                ] = $this->get_cat_title_disp($lid, $google_cid, $param);
 
-            list($show_title, $title_disp) = $this->get_block_title_disp();
-            list($show_desc, $desc_short, $desc_html) = $this->get_block_desc_disp();
-            list($hits_disp, $rating_disp) = $this->get_block_hits_disp();
-            list($show_banner, $banner_width) = $this->get_block_banner_disp();
-            list($show_new, $show_update) = $this->get_show_new_update();
+            [$show_title, $title_disp] = $this->get_block_title_disp();
+            [$show_desc, $desc_short, $desc_html] = $this->get_block_desc_disp();
+            [$hits_disp, $rating_disp] = $this->get_block_hits_disp();
+            [$show_banner, $banner_width] = $this->get_block_banner_disp();
+            [$show_new, $show_update] = $this->get_show_new_update();
 
             $arr = [
                 'id' => $lid,
@@ -987,6 +1029,13 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // cat title
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @param $google_cid
+         * @param $param
+         * @return array
+         */
         public function get_cat_title_disp($lid, $google_cid, $param)
         {
             $cat_title_length = $param['cat_title_length'];
@@ -998,13 +1047,18 @@ if (!class_exists('weblinks_block')) {
 
             if (0 != $cat_title_length) {
                 $show_cat_title = true;
-                list($cid, $cat_title) = $this->get_cat_title($lid, $google_cid);
+                [$cid, $cat_title] = $this->get_cat_title($lid, $google_cid);
                 $cat_title_disp = $this->build_summary($cat_title, $cat_title_length);
             }
 
             return [$show_cat_title, $cid, $cat_title, $cat_title_disp];
         }
 
+        /**
+         * @param $lid
+         * @param $google_cid
+         * @return array
+         */
         public function get_cat_title($lid, $google_cid)
         {
             if ($google_cid > 0) {
@@ -1020,6 +1074,11 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // google map
         //---------------------------------------------------------
+
+        /**
+         * @param $row
+         * @return array
+         */
         public function get_google_use_icon($row)
         {
             $google_use = false;
@@ -1027,12 +1086,16 @@ if (!class_exists('weblinks_block')) {
             $google_icon = 0;
             if ($this->_webmap_class->check_latlng_by_link($row)) {
                 $google_use = true;
-                list($google_cid, $google_icon) = $this->find_google_icon($row);
+                [$google_cid, $google_icon] = $this->find_google_icon($row);
             }
 
             return [$google_use, $google_cid, $google_icon];
         }
 
+        /**
+         * @param $link_row
+         * @return array|int[]
+         */
         public function find_google_icon($link_row)
         {
             // find in link
@@ -1057,6 +1120,13 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // link table
         //---------------------------------------------------------
+
+        /**
+         * @param $order
+         * @param $broken
+         * @param $limit
+         * @return array|bool
+         */
         public function get_rows_order_in_link($order, $broken, $limit)
         {
             $where = weblinks_get_where_public($broken);
@@ -1068,6 +1138,11 @@ if (!class_exists('weblinks_block')) {
             return $this->get_rows_by_sql($sql, $limit);
         }
 
+        /**
+         * @param $broken
+         * @param $limit
+         * @return array|bool
+         */
         public function get_rows_recommend_in_link($broken, $limit)
         {
             $where = weblinks_get_where_public($broken);
@@ -1080,6 +1155,10 @@ if (!class_exists('weblinks_block')) {
             return $this->get_rows_by_sql($sql, $limit);
         }
 
+        /**
+         * @param $param
+         * @return array|bool
+         */
         public function get_rows_generic_in_link($param)
         {
             $flag_url_empty = $param['flag_url_empty'];
@@ -1124,7 +1203,7 @@ if (!class_exists('weblinks_block')) {
                     if (0 == count($cid_array)) {
                         $cids = $cid;
                     } else {
-                        array_push($cid_array, $cid);   // with parent
+                        array_push($cid_array, $cid);    // with parent
                         $cids = implode(',', $cid_array);
                     }
 
@@ -1171,6 +1250,11 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // catlink table
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return int|mixed
+         */
         public function get_cid_in_catlink($lid)
         {
             $arr = $this->get_cid_array_in_catlink($lid);
@@ -1181,6 +1265,10 @@ if (!class_exists('weblinks_block')) {
             return 0;
         }
 
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function get_cid_array_in_catlink($lid)
         {
             $cid = 0;
@@ -1208,6 +1296,11 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // category table
         //---------------------------------------------------------
+
+        /**
+         * @param $cid
+         * @return array|bool|mixed|null
+         */
         public function get_cached_row_in_category($cid)
         {
             if (isset($this->_cat_cached[$cid])) {
@@ -1224,6 +1317,10 @@ if (!class_exists('weblinks_block')) {
             return null;
         }
 
+        /**
+         * @param $cid
+         * @return bool
+         */
         public function get_row_in_category($cid)
         {
             if (empty($cid)) {
@@ -1239,6 +1336,13 @@ if (!class_exists('weblinks_block')) {
         //---------------------------------------------------------
         // sql
         //---------------------------------------------------------
+
+        /**
+         * @param     $sql
+         * @param int $limit
+         * @param int $offset
+         * @return array|bool
+         */
         public function get_rows_by_sql($sql, $limit = 0, $offset = 0)
         {
             $arr = [];
@@ -1255,6 +1359,11 @@ if (!class_exists('weblinks_block')) {
             return $arr;
         }
 
+        /**
+         * @param      $sql
+         * @param bool $force
+         * @return bool
+         */
         public function get_row_by_sql($sql, $force = false)
         {
             $res = $this->_db->query($sql, 1, 0, $force);

@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_count_handler.php,v 1.2 2008/02/26 16:01:37 ohwada Exp $
+
+// $Id: weblinks_link_count_handler.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // gmap
@@ -18,6 +19,10 @@ if (!class_exists('weblinks_link_count_handler')) {
     // class weblinks_link_count_handler
     // show link count in guidance bar
     //=========================================================
+
+    /**
+     * Class weblinks_link_count_handler
+     */
     class weblinks_link_count_handler extends happy_linux_error
     {
         public $_DIRNAME;
@@ -36,6 +41,11 @@ if (!class_exists('weblinks_link_count_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_count_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -43,11 +53,11 @@ if (!class_exists('weblinks_link_count_handler')) {
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
-            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
-            $this->_catlink_handler = weblinks_getHandler('catlink_basic', $dirname);
-            $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
+            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('catlink_basic', $dirname);
+            $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', $dirname);
 
             $this->_conf = &$this->_config_handler->get_conf();
         }
@@ -67,6 +77,10 @@ if (!class_exists('weblinks_link_count_handler')) {
         // link count
         //---------------------------------------------------------
         // index
+
+        /**
+         * @return int
+         */
         public function get_link_count_public()
         {
             if (isset($this->_cached_mark['public'])) {
@@ -80,6 +94,11 @@ if (!class_exists('weblinks_link_count_handler')) {
         }
 
         // viewmark
+
+        /**
+         * @param $mark
+         * @return int
+         */
         public function get_link_count_by_mark($mark)
         {
             if (isset($this->_cached_mark[$mark])) {
@@ -100,6 +119,11 @@ if (!class_exists('weblinks_link_count_handler')) {
         }
 
         // viewcat
+
+        /**
+         * @param $cid
+         * @return int
+         */
         public function get_top_link_count_by_cid($cid)
         {
             if (isset($this->_cached_cid[$cid]['top_link_count'])) {
@@ -113,6 +137,11 @@ if (!class_exists('weblinks_link_count_handler')) {
         }
 
         // viewcat
+
+        /**
+         * @param $cid
+         * @return int
+         */
         public function get_all_link_count_by_cid($cid)
         {
             if (isset($this->_cached_cid[$cid]['all_link_count'])) {
@@ -132,12 +161,23 @@ if (!class_exists('weblinks_link_count_handler')) {
         }
 
         // search
+
+        /**
+         * @param $cid_arr
+         * @param $where
+         * @return mixed
+         */
         public function get_link_count_by_cid_array_where(&$cid_arr, $where)
         {
             return $this->_link_catlink_handler->get_count_by_cid_array_where($cid_arr, $where);
         }
 
         // search
+
+        /**
+         * @param $where
+         * @return mixed
+         */
         public function get_link_count_by_where($where)
         {
             return $this->_link_handler->get_count_by_where($where);
@@ -146,6 +186,11 @@ if (!class_exists('weblinks_link_count_handler')) {
         //---------------------------------------------------------
         // cid array
         //---------------------------------------------------------
+
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function &get_cid_array_patent_children($cid)
         {
             return $this->_category_handler->get_parent_and_all_child_id($cid);
@@ -154,6 +199,10 @@ if (!class_exists('weblinks_link_count_handler')) {
         //---------------------------------------------------------
         // config
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function get_config()
         {
             return $this->_conf;

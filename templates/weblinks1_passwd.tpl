@@ -1,4 +1,4 @@
-<{* $Id: weblinks1_passwd.html,v 1.6 2007/11/02 11:36:30 ohwada Exp $ *}>
+<{* $Id: weblinks1_passwd.html,v 1.1 2011/12/29 14:32:36 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -13,8 +13,8 @@
 <br><br>
 
 <{if $incorrect_show}>
-<div class="errorMsg"><{$lang_password_incorrect}></div><br>
-<{/if}>
+    <div class="errorMsg"><{$lang_password_incorrect}></div><br>
+    <{/if}>
 
 <div class="weblinks_password_frame">
     <span class="weblinks_subtitle"><{$lang_submitter}></span><br><br>
@@ -42,24 +42,24 @@
     <br>
 
     <form action="<{$xoops_url}>/modules/<{$dirname}>/modlink.php" method="post">
-        <input type="button" value="<{$lang_cancel}>" onclick="history.go(-1)"/>
+        <input type="button" value="<{$lang_cancel}>" onclick="javascript:history.go(-1)"/>
     </form>
 
 </div><br>
 
 <{if $request_show}>
-<div class="weblinks_password_frame">
-    <span class="weblinks_subtitle"><{$lang_anonymous}></span><br><br>
+    <div class="weblinks_password_frame">
+        <span class="weblinks_subtitle"><{$lang_anonymous}></span><br><br>
 
-    <{$lang_registered_dsc}>
-    <br><br>
+        <{$lang_registered_dsc}>
+        <br><br>
 
-    <form action="<{$xoops_url}>/modules/<{$dirname}>/modlink.php" method="post">
-        <input type="hidden" name="lid" value="<{$lid}>"/>
-        <input type="hidden" name="request" value="modify"/>
-        <input type="hidden" name="<{$token_name}>" value="<{$token_value}>"/>
-        <input type="submit" value="<{$lang_modify}>"/>
-    </form>
+        <form action="<{$xoops_url}>/modules/<{$dirname}>/modlink.php" method="post">
+            <input type="hidden" name="lid" value="<{$lid}>"/>
+            <input type="hidden" name="request" value="modify"/>
+            <input type="hidden" name="<{$token_name}>" value="<{$token_value}>"/>
+            <input type="submit" value="<{$lang_modify}>"/>
+        </form>
 
-</div>
-<{/if}>
+    </div>
+    <{/if}>

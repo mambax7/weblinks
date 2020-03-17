@@ -1,5 +1,6 @@
 <?php
-// $Id: admin.php,v 1.4 2009/03/22 03:27:25 ohwada Exp $
+
+// $Id: admin.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // htmlout
@@ -69,7 +70,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', 'Outras fun��es');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', 'Ir para o Index da Administra��o');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // Access Authority
     define('_WEBLINKS_ADMIN_AUTH', 'Permiss�es');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'O administrador tem todas as permiss�es');
@@ -94,10 +95,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'Auto atualiza��o dos feeds RSS/ATOM');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "YES executa 'Auto descoberta da url do RSS/ATOM' e 'auto atualiza��o' se os links RSS/ATOM est�o inclu�dos no link submetido. ");
     define('_WEBLINKS_RSS_MODE_DATA', 'Dados do RSS/ATOM para mostrar');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        'ATOM FEED, usa osw dados na tabela Atom feed  ap�s da an�lise. <br>XML usa os dados da tabela de links antes da an�lise. <br>Alguns dados possivelmente n�o ser�o salvos na tabela atom feed depois da filtragem. '
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', 'ATOM FEED, usa osw dados na tabela Atom feed  ap�s da an�lise. <br>XML usa os dados da tabela de links antes da an�lise. <br>Alguns dados possivelmente n�o ser�o salvos na tabela atom feed depois da filtragem. ');
     define('_WEBLINKS_RSS_CACHE', 'Tempo em cache dos feeds RSS/ATOM');
     define('_WEBLINKS_RSS_CACHE_DSC', 'Medido em horas.');
     define('_WEBLINKS_RSS_LIMIT', 'N�mero m�ximo de feeds RSS/ATOM');
@@ -105,15 +103,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_SITE', 'Buscar site RSS');
     define('_WEBLINKS_RSS_SITE_DSC', 'Informe a lista de url RSS buscadas no site. <br>Separe cada entrada com uma nova linha, quando especificar mais de uma. <br>N�o informe a url ATOM. ');
     define('_WEBLINKS_RSS_BLACK', 'Lista negra de url RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_BLACK_DSC',
-        'Informe a lista de urls recusadas quando da coleta de feeds RSS/ATOM. <br>Separe cada entrada com uma nova linha, quando especificar mais de uma. <br>Voc� pode usar express�es regulares PERL. '
-    );
+    define('_WEBLINKS_RSS_BLACK_DSC', 'Informe a lista de urls recusadas quando da coleta de feeds RSS/ATOM. <br>Separe cada entrada com uma nova linha, quando especificar mais de uma. <br>Voc� pode usar express�es regulares PERL. ');
     define('_WEBLINKS_RSS_WHITE', 'Lista branca de url RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_WHITE_DSC',
-        'Informe a lista de uls para coletar, quando combinadas com uma lista negra. <br>Separe cada entrada com uma nova linha, quando especificar mais de uma. <br>Voc� pode usar express�es regulares PERL. '
-    );
+    define('_WEBLINKS_RSS_WHITE_DSC', 'Informe a lista de uls para coletar, quando combinadas com uma lista negra. <br>Separe cada entrada com uma nova linha, quando especificar mais de uma. <br>Voc� pode usar express�es regulares PERL. ');
     define('_WEBLINKS_RSS_URL_CHECK', 'Existem alguma urls de links combinadas na lista negra. ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', 'Por favor, copie e cole no formul�rio de registro a partir da mais baixa lista branca, se necess�rio. ');
     define('_WEBLINKS_RSS_UPDATED', 'Configura��es do RSS/ATOM atualizadas');
@@ -131,10 +123,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_NUM_CONTENT', 'N�mero de feeds mostrando conte�do');
     define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'Informe o n�mero de feeds mostrando o conte�do de feeds RSS/ATOM na p�gina de detalhes do link. <br>Um sum�rio � mostrado nos feeds remanescentes. ');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'N�mero m�ximo de caracteres usados para o conte�do feed RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
-        'Informe o n�mero m�ximo de caracteres a serem usados para o conte�do feed RSS/ATOM na p�gina RSS/ATOM.  <br>� usado quando "Usar tags HTML nos conte�dos" � "sim." '
-    );
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'Informe o n�mero m�ximo de caracteres a serem usados para o conte�do feed RSS/ATOM na p�gina RSS/ATOM.  <br>� usado quando "Usar tags HTML nos conte�dos" � "sim." ');
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'N�mero m�ximo de caracteres usados para o sum�rio do feed RSS/ATOM');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'Informe o n�mero m�ximo de caracteres a serem usados para o sumario do feed RSS/ATOM na p�gina principal. ');
 
@@ -168,7 +157,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'Usar quando selecionado "Configura��o da Imagem". ');
     define('_WEBLINKS_CAT_UPDATED', 'Configura��o das Categorias atualizada');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'Administra��o das Categorias');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'Lista das Categorias');
     //define("_WEBLINKS_ORDER_ID"," Listed by ID");
@@ -181,12 +170,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', 'N�mero da subcategoria');
     define('_WEBLINKS_ORDERS_UPDATED', 'Ordena��o da catagoria atualizada');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', 'URL da imagem da categoria');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', 'Opcional. <br>O tamanho das imagens s�o ajustadas automaticamente');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","Images are for the main category only. ");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', 'Aministra��o dos Link');
     define('_WEBLINKS_ADMIN_LINK_LIST', 'Lista do Link');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', 'Lista de link Quebrado');
@@ -197,23 +186,17 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', 'N�o h� link correspondente. ');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'dado salvo no banco de dados mostrado aqui. ');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","User ID");
     //define("_WEBLINKS_CREATE","Created");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'Checagem e atualiza��o de link');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'Checar link quebrado');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'Checar');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', 'Checar Resultados');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        'Um esgotamento do tempo possivelmente ocorra, se existirem muitos links quebrados. <br>Se isso ocorrer, por favor mude o valor num�rico do limite e saia da configura��o. <br>limite= 0, ou Sem restri��es.'
-    );
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE',
-        'Clicando o <b>ID do link</b> abre uma p�gina de modifica��o do link. <br><b>URL do Website</b> conduzir� voc� a um link de um website, quando clicado. <br>'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', 'Um esgotamento do tempo possivelmente ocorra, se existirem muitos links quebrados. <br>Se isso ocorrer, por favor mude o valor num�rico do limite e saia da configura��o. <br>limite= 0, ou Sem restri��es.');
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', 'Clicando o <b>ID do link</b> abre uma p�gina de modifica��o do link. <br><b>URL do Website</b> conduzir� voc� a um link de um website, quando clicado. <br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'A busca Google abrir� quando clicado <b>t�tulo website</b>. <br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'M�ximo de links para checar (limite)');
     define('_WEBLINKS_ADMIN_OFFSET', 'Offset (offset)');
@@ -229,7 +212,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', 'Checar pr�ximos %s links');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Simultaneously execute an Auto Discovery of RSS/ATOM urls ");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'Administra��o feed RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'Atualizar RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'Atualizar cache dos dados do link');
@@ -246,7 +229,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'N�mero de cache RSS/ATOM apagados');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'N�mero de feed ATOM/RSS feed apagados');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', 'Administra��o do Usu�rio');
     define('_WEBLINKS_ADMIN_USER_EMAIL', 'Lista de usu�rios com endere�o de e-mail');
     define('_WEBLINKS_ADMIN_USER_LINK', 'Lista de usu�rios registrados com informa��o de link');
@@ -260,7 +243,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', 'N�o foram encontrados usu�rios');
     define('_WEBLINKS_UID_EMAIL', 'Endere�o de e-mail de quem enviou');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', 'Enviar e-mail');
     define('_WEBLINKS_THERE_ARE_EMAIL', 'Existem <b>%s</b> e-mails');
     define('_WEBLINKS_SEND_NUM', 'Enviado e-mail de %s th pessoa para %s th pessoa');
@@ -332,23 +315,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', 'Mostrar a lista de categorias no submenu');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', 'SIM mostra a lista da categoria tops no submenu');
     define('_AM_WEBLINKS_VIEW_URL', 'Ver estilo da URL');
-    define(
-        '_AM_WEBLINKS_VIEW_URL_DSC',
-        'NENHUM <br>sem url ou &lt;a&gt; tag � mostrada.<br>Indireto<br> mostra visit.php em href campo ao inv�s da URL. <br>Direto <br>Mostra url em href campo, JavaScript no campo onmousedown e os acessos s�o contados atrav�s do JavaScript.'
-    );
+    define('_AM_WEBLINKS_VIEW_URL_DSC', 'NENHUM <br>sem url ou &lt;a&gt; tag � mostrada.<br>Indireto<br> mostra visit.php em href campo ao inv�s da URL. <br>Direto <br>Mostra url em href campo, JavaScript no campo onmousedown e os acessos s�o contados atrav�s do JavaScript.');
     define('_AM_WEBLINKS_VIEW_URL_0', 'NENHUM');
     define('_AM_WEBLINKS_VIEW_URL_1', 'URL indireta');
     define('_AM_WEBLINKS_VIEW_URL_2', 'URL direta');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Prioridade de recomenda��o de sites');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'NENHUM <br>N�o mostra.<br>Normal <br>Sites recomendados s�o mostrados no cabe�alho.<br>Mais alto <br>Mostra os sites recomendados no topo da respectiva categoria.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'NENHUM <br>N�o mostra.<br>Normal <br>Sites recomendados s�o mostrados no cabe�alho.<br>Mais alto <br>Mostra os sites recomendados no topo da respectiva categoria.');
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Prioridade de Reciprocidade de Sites');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'NENHUM <br>N�o mostra.<br>Normal <br>Sites rec�procos s�o mostrados no cabe�alho.<br>Mais alto <br>Mostra os sites rec�procos no topo da respectiva categoria'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'NENHUM <br>N�o mostra.<br>Normal <br>Sites rec�procos s�o mostrados no cabe�alho.<br>Mais alto <br>Mostra os sites rec�procos no topo da respectiva categoria');
     define('_AM_WEBLINKS_PRI_0', 'NENHUM');
     define('_AM_WEBLINKS_PRI_1', 'Normal');
     define('_AM_WEBLINKS_PRI_2', 'Mais alto');
@@ -427,8 +401,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Configura��o do local');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'C�digo do pa�s');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Informe o c�digo ccTLDs <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Atualizar os �tens relacionados ao c�digo do pa�s. <br> O �tem com o <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Informe o c�digo ccTLDs <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Atualizar os �tens relacionados ao c�digo do pa�s. <br/> O �tem com o <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', 'Renovar');
 
     // map
@@ -437,14 +411,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'Modelo do Mapa do Site');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'Informar o nome do modelo de arquivo do diret�rio template/map/ ');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Configura��o do Google Maps');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Usar Google Maps');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Chave API do Google Maps');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'Obter a chave API em <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> Quando voc� usar o GoogleMaps.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'Obter a chave API em <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> Quando voc� usar o GoogleMaps.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Nome do Servidor');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'C�digo da Linguagem');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Local padr�o');
@@ -493,10 +464,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', 'Todos os detalhes');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', 'Melhoria da performance');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        'Por causa da melhoria na performance, isso processa os dados necess�rios antes, quando mostrado, e os armazena no banco de dados.<br>Quando usado pela primeira vez, execute "lista de categoria" -> "Atualiza��o do percurso da �rvore da categoria"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', 'Por causa da melhoria na performance, isso processa os dados necess�rios antes, quando mostrado, e os armazena no banco de dados.<br>Quando usado pela primeira vez, execute "lista de categoria" -> "Atualiza��o do percurso da �rvore da categoria"');
     define('_AM_WEBLINKS_CAT_PATH', 'Percurso da �rvore da categoria');
     define('_AM_WEBLINKS_CAT_PATH_DSC', 'SIM processa o percurso da �rvore da categoria e o armazena na tabela da categoria.<br>N�O processa quando mostrado.');
     define('_AM_WEBLINKS_CAT_COUNT', 'Category link count');
@@ -507,10 +475,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'Configura��o do registro do link de convidado');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Usar CAPTCHA');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA � uma tecnica para anti-spam.<br>Esta caracter�stica precisa do m�dulo Captcha.<br>YES, <b>usu�rio an�nimo</b> deve usar CAPTCHA quando adicionar ou modificar um link.<br>N�O n�o mostra o campo CAPTCHA.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA � uma tecnica para anti-spam.<br>Esta caracter�stica precisa do m�dulo Captcha.<br>YES, <b>usu�rio an�nimo</b> deve usar CAPTCHA quando adicionar ou modificar um link.<br>N�O n�o mostra o campo CAPTCHA.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'M�dulo Captcha ver %s � encontrado');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'M�dulo Captcha n�o encontrado');
 
@@ -615,19 +580,13 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Busca] Tipo de Mapa');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[Busca] Tipo de Geocode');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Buscar latitude e longitude para o endere�o<br><b>Resultado �nico</b><br>GClientGeocoder - getLatLng<br><b>Mais resultados</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Buscar latitude e longitude para o endere�o<br><b>Resultado �nico</b><br>GClientGeocoder - getLatLng<br><b>Mais resultados</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Resultado �nico: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'Mais resultados: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Busca][Japan] Usar CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'V�lido no Jap�o<br>Buscar latitude e longitude para o endere�o');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Busca][Jap�o] Use Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'V�lido no Jap�o<br>Buscar endere�o para a latitude e longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'V�lido no Jap�o<br>Buscar endere�o para a latitude e longitude<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marcador] M�ximo de caracteres para o t�tulo');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'N�mero m�ximo de caracteres usados no t�tulo no marcador<br><b>-1</b> � ilimitado');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marcador] M�ximo de caracteres para o conte�do');
@@ -659,10 +618,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'Configura��o do estilo do HTML');
     define('_AM_WEBLINKS_HEADER_MODE', 'Usar m�dulo xoops cabe�alho');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        'Quando "N�o", mostra a folha de estilo e tag Javascript no corpo<br>Quando "Sim", mostra as tags no cabe�alho, usando o cabe�alho do m�dulor xoops<br>existem alguns temas que n�o podem ser usados'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', 'Quando "N�o", mostra a folha de estilo e tag Javascript no corpo<br>Quando "Sim", mostra as tags no cabe�alho, usando o cabe�alho do m�dulor xoops<br>existem alguns temas que n�o podem ser usados');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'Voc� pode ver um exemplo clicando no bot�o');
@@ -726,8 +682,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'A substitui��o da imagem do link');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'mostrar a miniatura do WEB site ao inv�s do link da imagem, <br>usando a miniatura do servi�o web, <br>se n�o configurado o link da imagem.');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'nenhum');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Use <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Use <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 
     // === 2007-11-01 ===
     // google map
@@ -776,4 +732,5 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // kml
     define('_AM_WEBLINKS_KML_USE', 'Mostrar KML');
-}// --- define language begin ---
+}
+// --- define language begin ---

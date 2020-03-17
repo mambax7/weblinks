@@ -1,5 +1,6 @@
 <?php
-// $Id: forum_sel.php,v 1.4 2008/10/12 02:34:08 ohwada Exp $
+
+// $Id: forum_sel.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2008-09-08 Eparcyl92
 // added newbbex
@@ -17,6 +18,9 @@
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_forum_sel')) {
+    /**
+     * @return array
+     */
     function &weblinks_plugin_forum_sel()
     {
         $sel = [];
@@ -43,4 +47,5 @@ if (!function_exists('weblinks_plugin_forum_sel')) {
 
         return $sel;
     }
-}// --- functions end ---
+}
+// --- functions end ---

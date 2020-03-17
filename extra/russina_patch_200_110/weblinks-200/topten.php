@@ -1,4 +1,5 @@
 <?php
+
 // $Id: topten.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -43,6 +44,10 @@ include 'header.php';
 //=========================================================
 // class weblinks_topten
 //=========================================================
+
+/**
+ * Class weblinks_topten
+ */
 class weblinks_topten
 {
     public $_DIRNAME;
@@ -65,12 +70,17 @@ class weblinks_topten
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_topten constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_DIRNAME = $dirname;
 
-        $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_view_handler = weblinks_getHandler('link_view', $dirname);
+        $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_view_handler = weblinks_get_handler('link_view', $dirname);
 
         $this->_template = weblinks_template::getInstance($dirname);
         $this->_post = happy_linux_post::getInstance();
@@ -78,6 +88,10 @@ class weblinks_topten
         $this->_conf = $config_basic_handler->get_conf();
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -91,6 +105,10 @@ class weblinks_topten
     //---------------------------------------------------------
     // get_template_name
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_template_name()
     {
         if ($this->_conf['topten_style']) {
@@ -124,6 +142,9 @@ class weblinks_topten
         }
     }
 
+    /**
+     * @return string
+     */
     public function get_topten_title()
     {
         $title = sprintf(_WLS_TOPTEN_TITLE, $this->_title, $this->_conf['topten_links']);
@@ -149,6 +170,9 @@ class weblinks_topten
         return $this->_sort_name;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_conf()
     {
         return $this->_conf;
@@ -157,6 +181,10 @@ class weblinks_topten
     //---------------------------------------------------------
     // get_rankings
     //---------------------------------------------------------
+
+    /**
+     * @return array
+     */
     public function get_rankings()
     {
         $links_list = [];
@@ -173,9 +201,16 @@ class weblinks_topten
         return [$links_list, $rankings];
     }
 
+    /**
+     * @return mixed
+     */
     public function &_get_rankings_each()
     {
-        $arr = &$this->_link_view_handler->get_topten_list($this->_conf['topten_cats'], $this->_get_orderby(), $this->_conf['topten_links']);
+        $arr = &$this->_link_view_handler->get_topten_list(
+            $this->_conf['topten_cats'],
+            $this->_get_orderby(),
+            $this->_conf['topten_links']
+        );
 
         if (!$this->_link_view_handler->returnExistError()) {
             $this->_error = $this->_link_view_handler->getErrors(1);
@@ -184,13 +219,22 @@ class weblinks_topten
         return $arr;
     }
 
+    /**
+     * @return mixed
+     */
     public function &_get_rankings_mixed()
     {
-        $links = &$this->_link_view_handler->get_link_list_orderby($this->_get_orderby(), $this->_conf['topten_links']);
+        $links = &$this->_link_view_handler->get_link_list_orderby(
+            $this->_get_orderby(),
+            $this->_conf['topten_links']
+        );
 
         return $links;
     }
 
+    /**
+     * @return string
+     */
     public function _get_orderby()
     {
         $ret = $this->_sort_db . ' DESC, lid DESC';
@@ -198,6 +242,9 @@ class weblinks_topten
         return $ret;
     }
 
+    /**
+     * @return string
+     */
     public function get_error()
     {
         return $this->_error;
@@ -206,11 +253,19 @@ class weblinks_topten
     //---------------------------------------------------------
     // set keyword property
     //---------------------------------------------------------
+
+    /**
+     * @param $value
+     */
     public function set_highlight($value)
     {
         $this->_link_view_handler->set_highlight($value);
     }
 
+    /**
+     * @param $arr
+     * @return mixed
+     */
     public function set_keyword_array(&$arr)
     {
         return $this->_link_view_handler->set_keyword_array($arr);
@@ -257,7 +312,7 @@ $topten_title_simple = $weblinks_topten->get_topten_title_simple();
 $sort_db = $weblinks_topten->get_sort_db();
 /* CDS Patch. Weblinks. 2.00. 7. EOF */
 $sort_name = $weblinks_topten->get_sort_name();
-list($links, $rankings) = $weblinks_topten->get_rankings();
+[$links, $rankings] = $weblinks_topten->get_rankings();
 $topten_error = $weblinks_topten->get_error();
 
 $template_links_list = $weblinks_template->fetch_links_list($links);
@@ -271,7 +326,7 @@ foreach ($rankings as $rank) {
     $template_rankings[$i]['title_simple'] = $rank['title_simple'];
     /* CDS Patch. Weblinks. 2.00. 7. BOF */
     $template_rankings[$i]['links_list'] = $weblinks_template->fetch_links_list($rank['links']);
-    ++$i;
+    $i++;
 }
 
 $xoopsTpl->assign('keywords', $keywords_urlencoded);
@@ -288,4 +343,5 @@ $xoopsTpl->assign('rankings', $template_rankings);
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

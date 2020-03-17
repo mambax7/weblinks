@@ -1,5 +1,6 @@
 <?php
-// $Id: mail_users.php,v 1.16 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: mail_users.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -54,6 +55,10 @@ include 'admin_header_mail.php';
 //=========================================================
 // class admin_mail_users
 //=========================================================
+
+/**
+ * Class admin_mail_users
+ */
 class admin_mail_users
 {
     public $_MAX_USER = 50;
@@ -71,7 +76,7 @@ class admin_mail_users
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
         $this->_form = admin_mail_form::getInstance();
         $this->_form->set_max_user($this->_MAX_USER);
@@ -81,6 +86,9 @@ class admin_mail_users
         $this->_system = happy_linux_system::getInstance();
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -94,11 +102,18 @@ class admin_mail_users
     //---------------------------------------------------------
     // post parameter
     //---------------------------------------------------------
+
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_text('op');
     }
 
+    /**
+     * @return int
+     */
     public function _get_post_start()
     {
         $this->_start = $this->_post->get_post_int('start');
@@ -106,6 +121,10 @@ class admin_mail_users
         return $this->_start;
     }
 
+    /**
+     * @param $total
+     * @return int
+     */
     public function _calc_end($total)
     {
         $end = $total;
@@ -163,7 +182,7 @@ class admin_mail_users
             echo "<br><br>\n";
 
             $users = [];
-            for ($i = $start; $i < $end; ++$i) {
+            for ($i = $start; $i < $end; $i++) {
                 $users[] = $added[$i];
             }
 
@@ -229,9 +248,9 @@ class admin_mail_users
             echo "<br><br>\n";
 
             // send each user
-            for ($i = $start; $i < $end; ++$i) {
+            for ($i = $start; $i < $end; $i++) {
                 $lid = (int)$user_list[$i];
-                $obj = &$this->_link_handler->get($lid);
+                $obj = $this->_link_handler->get($lid);
 
                 $user_name = $obj->user_name('n');
                 $user_mail = $obj->user_mail('n');
@@ -332,6 +351,9 @@ class admin_mail_users
         echo $this->_form->build_html_bread_crumb($arr);
     }
 
+    /**
+     * @return mixed
+     */
     public function check_token()
     {
         $ret = $this->_form->check_token();
@@ -345,6 +367,10 @@ class admin_mail_users
 //=========================================================
 // class admin_mail_users
 //=========================================================
+
+/**
+ * Class admin_mail_form
+ */
 class admin_mail_form extends happy_linux_mail_form
 {
     public $_link_handler;
@@ -356,9 +382,12 @@ class admin_mail_form extends happy_linux_mail_form
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_mail_form|\happy_linux_form|\happy_linux_html|\happy_linux_mail_form|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -382,7 +411,7 @@ class admin_mail_form extends happy_linux_mail_form
 
         $body_caption = $this->build_mail_caption($this->_LANG_BODY, $this->_LANG_MAILTAGS, $desc2);
 
-        list($user_list, $users_label) = $this->get_post_memberslist_link();
+        [$user_list, $users_label] = $this->get_post_memberslist_link();
 
         $param = [
             'op' => 'send_link',
@@ -396,6 +425,9 @@ class admin_mail_form extends happy_linux_mail_form
         $this->print_form($param);
     }
 
+    /**
+     * @return array
+     */
     public function get_post_memberslist_link()
     {
         if (isset($_POST['memberslist_id']) && is_array($_POST['memberslist_id'])) {
@@ -403,7 +435,7 @@ class admin_mail_form extends happy_linux_mail_form
             $link_count = count($user_list);
             $display_names = '';
 
-            for ($i = 0; $i < $link_count; ++$i) {
+            for ($i = 0; $i < $link_count; $i++) {
                 $lid = (int)$user_list[$i];
 
                 $obj = &$this->_link_handler->get($lid);
@@ -445,7 +477,7 @@ if ('form_user' == $op) {
 
     $mail_users->print_form_user();
 } elseif ('send_user' == $op) {
-    if (!$mail_users->check_token()) {
+    if (!($mail_users->check_token())) {
         redirect_header('mail_users.php', 5, 'Token Error');
         exit();
     }
@@ -460,7 +492,7 @@ if ('form_user' == $op) {
 
     $mail_users->print_form_link();
 } elseif ('send_link' == $op) {
-    if (!$mail_users->check_token()) {
+    if (!($mail_users->check_token())) {
         redirect_header('user_list.php', 5, 'Token Error');
         exit();
     }
@@ -468,7 +500,7 @@ if ('form_user' == $op) {
     xoops_cp_header();
     $mail_users->send_link();
 } elseif ('send_email' == $op) {
-    if (!$mail_users->check_token()) {
+    if (!($mail_users->check_token())) {
         xoops_cp_header();
         weblinks_admin_print_header();
         echo '<h4>' . _WEBLINKS_ADMIN_SENDMAIL . "</h4>\n";

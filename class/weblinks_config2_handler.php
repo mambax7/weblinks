@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_config2_handler.php,v 1.3 2006/09/30 03:15:21 ohwada Exp $
+
+// $Id: weblinks_config2_handler.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2006-09-20 K.OHWADA
 // use happy_linux
@@ -26,6 +27,10 @@ if (!class_exists('weblinks_config2_handler')) {
     // class weblinks_config2
     // modify form system XoopsConfigItem
     //================================================================
+
+    /**
+     * Class weblinks_config2
+     */
     class weblinks_config2 extends happy_linux_config_base
     {
         //---------------------------------------------------------
@@ -42,11 +47,20 @@ if (!class_exists('weblinks_config2_handler')) {
     //=========================================================
     // class config handler
     //=========================================================
+
+    /**
+     * Class weblinks_config2_handler
+     */
     class weblinks_config2_handler extends happy_linux_config_base_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_config2_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'config2', 'conf_id', 'weblinks_config2');

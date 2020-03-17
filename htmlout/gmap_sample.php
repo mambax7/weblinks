@@ -1,5 +1,6 @@
 <?php
-// $Id: gmap_sample.php,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+
+// $Id: gmap_sample.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -17,6 +18,9 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout_gmap_sample')) {
+    /**
+     * Class weblinks_htmlout_gmap_sample
+     */
     class weblinks_htmlout_gmap_sample extends weblinks_htmlout_base
     {
         public $_MAX_TITLE_DEFAULT = -1;
@@ -26,6 +30,11 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout_gmap_sample constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -34,16 +43,26 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function description()
         {
             return 'info in GoogleMaps Marker';
         }
 
+        /**
+         * @return string
+         */
         public function usage()
         {
             return 'gmap_sample( [ max_title, max_desc, marker_width ] )';
         }
 
+        /**
+         * @return bool
+         */
         public function execute_plugin()
         {
             $lid = $this->get('lid');
@@ -60,6 +79,11 @@ if (!class_exists('weblinks_htmlout_gmap_sample')) {
             return true;
         }
 
+        /**
+         * @param      $url
+         * @param bool $flag_target
+         * @return string
+         */
         public function _build_info($url, $flag_target = false)
         {
             $max_title = (int)$this->get_param_by_num(0, $this->_MAX_TITLE_DEFAULT);

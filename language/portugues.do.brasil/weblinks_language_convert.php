@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_language_convert.php,v 1.1 2006/01/16 07:24:57 ohwada Exp $
+
+// $Id: weblinks_language_convert.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2006-01-01 K.OHWADA
 // weblinks ver 1.0
@@ -18,6 +19,10 @@ if (!class_exists('weblinks_language_convert')) {
     // class weblinks_language_convert
     // dummy class for english
     //=========================================================
+
+    /**
+     * Class weblinks_language_convert
+     */
     class weblinks_language_convert extends weblinks_language_base
     {
         //---------------------------------------------------------
@@ -25,7 +30,7 @@ if (!class_exists('weblinks_language_convert')) {
         //---------------------------------------------------------
         public function __construct()
         {
-            parent::__construct();
+            $this->weblinks_language_base();
         }
 
         // --- class end ---

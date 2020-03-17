@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
 <html>
 <head>
-    <{* $Id: weblinks_print.html,v 1.1 2007/08/08 04:20:59 ohwada Exp $ *}>
+    <{* $Id: weblinks_print.html,v 1.1 2011/12/29 14:32:38 ohwada Exp $ *}>
     <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>"/>
     <meta http-equiv="content-language" content="<{$xoops_langcode}>"/>
     <meta name="robots" content="<{$xoops_meta_robots}>"/>
@@ -23,13 +23,12 @@
         function gm_load() {
             if (GBrowserIsCompatible()) {
                 var weblinks_gm_map = new GMap2(document.getElementById("weblinks_gm_map"));
-                var point = new GLatLng(parseFloat( < {$link.gm_latitude
-            }>) ,
-                parseFloat( < {$link.gm_longitude
-            }>) )
+                var point = new GLatLng(parseFloat( <{$link.gm_latitude}>), parseFloat
+                ( <{$link.gm_longitude}>
+            ) )
                 ;
-                weblinks_gm_map.setCenter(point, Math.floor( < {$link.gm_zoom
-            }>) )
+                weblinks_gm_map.setCenter(point, Math.floor( <{$link.gm_zoom}>)
+            )
                 ;
                 weblinks_gm_map.addOverlay(new GMarker(point));
                 weblinks_gm_map.disableDragging();
@@ -37,6 +36,7 @@
 
             window.print();
         }
+
         //-->
     </script>
 
@@ -47,6 +47,7 @@
         function load() {
             window.print();
         }
+
         //-->
     </script>
     <{/if}>
@@ -85,23 +86,23 @@
             <div class="weblinks_print_frame_link_category">
 
                 <{if $link.flag_new == 1}>
-                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/new.gif" border="0" alt="<{$lang_image_new}>"/>
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/new.gif" border="0" alt="<{$lang_image_new}>"/>
                 <{/if}>
 
                 <{if $link.flag_update == 1}>
-                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/update.gif" border="0" alt="<{$lang_image_update}>"/>
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/update.gif" border="0" alt="<{$lang_image_update}>"/>
                 <{/if}>
 
                 <{if $link.flag_pop == 1}>
-                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/pop.gif" border="0" alt="<{$lang_image_popular}>"/>
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/pop.gif" border="0" alt="<{$lang_image_popular}>"/>
                 <{/if}>
 
                 <{if $link.flag_recommend == 1}>
-                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/cool.gif" border="0" alt="<{$lang_image_recommend}>"/>
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/cool.gif" border="0" alt="<{$lang_image_recommend}>"/>
                 <{/if}>
 
                 <{if $link.flag_mutual == 1}>
-                <img src="<{$xoops_url}>/modules/<{$dirname}>/images/hot.gif" border="0" alt="<{$lang_image_mutual}>"/>
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/hot.gif" border="0" alt="<{$lang_image_mutual}>"/>
                 <{/if}>
 
                 <br>
@@ -119,7 +120,7 @@
                 <{/if}>
                 <{/section}>
                 <{if $smarty.section.ii.last == false}>
-                <br>
+            <br>
                 <{/if}>
                 <{/section}>
                 <{* -- End path loop -- *}>
@@ -176,7 +177,7 @@
                 , <{$link.state}>
                 <{/if}>
 
-                <br>
+            <br>
                 <{/if}>
 
                 <{/if}>
@@ -194,9 +195,9 @@
 
                 <{if ($link_image_use == 1) && $link.image_url != ""}>
                 <{if ($link.image_link_width != "") && ($link.image_link_height != "")}>
-                <img src="<{$link.image_url}>" width="<{$link.image_link_width}>" height="<{$link.image_link_height}>" alt="banner" class="weblinks_print_link_image"/>
+            <img src="<{$link.image_url}>" width="<{$link.image_link_width}>" height="<{$link.image_link_height}>" alt="banner" class="weblinks_print_link_image"/>
                 <{else}>
-                <img src="<{$link.image_url}>" alt="banner" class="weblinks_print_link_image"/>
+            <img src="<{$link.image_url}>" alt="banner" class="weblinks_print_link_image"/>
                 <{/if}>
                 <{/if}>
 
@@ -247,21 +248,18 @@
         <div class="weblinks_print_textarea1">
             <span class="weblinks_bold"><{$lang_link_textarea1}></span><br>
             <{$link.textarea1}>
-        </div>
-        <br>
+        </div><br>
         <{/if}>
 
         <{if $link.textarea2 != ""}>
         <div class="weblinks_print_textarea2">
             <span class="weblinks_bold"><{$lang_link_textarea2}></span><br>
             <{$link.textarea2}>
-        </div>
-        <br>
+        </div><br>
         <{/if}>
 
         <{if $gm_use}>
-        <div id="weblinks_gm_map" class="weblinks_gm_map_print"></div>
-        <br>
+        <div id="weblinks_gm_map" class="weblinks_gm_map_print"></div><br>
         <{/if}>
 
         <{if $link.rss_flag == 1}>
@@ -280,7 +278,7 @@
 
         <{if ($link.rss_flag == 1) || ($link.rss_flag == 2) || ($link.rss_flag == 3) }>
         <{$lang_lastupdate}>&nbsp;<{$rss_update}>
-        <br><br>
+    <br><br>
 
         <{* -- feed list begin -- *}>
         <div class="weblinks_print_frame_feed_all">
@@ -304,17 +302,17 @@
         </div>
         <{* -- feed list end -- *}>
 
-        <br>
+    <br>
         <{/if}>
 
         <{* -- start comments -- *}>
         <div class="weblinks_print_frame_comment">
             <{if $comment_mode == "flat"}>
-            <{include file="db:system_comments_flat.tpl"}>
+            <{include file="db:system_comments_flat.html"}>
             <{elseif $comment_mode == "thread"}>
-            <{include file="db:system_comments_thread.tpl"}>
+            <{include file="db:system_comments_thread.html"}>
             <{elseif $comment_mode == "nest"}>
-            <{include file="db:system_comments_nest.tpl"}>
+            <{include file="db:system_comments_nest.html"}>
             <{/if}>
         </div>
         <{* -- end comments -- *}>

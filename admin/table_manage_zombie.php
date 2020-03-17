@@ -1,5 +1,6 @@
 <?php
-// $Id: table_manage_zombie.php,v 1.1 2007/11/26 03:05:18 ohwada Exp $
+
+// $Id: table_manage_zombie.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // divid from table_manage.php
@@ -77,4 +78,5 @@ switch ($op) {
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

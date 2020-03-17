@@ -1,5 +1,6 @@
 <?php
-// $Id: votedata_manage.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: votedata_manage.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_flag_execute_time()
@@ -19,6 +20,10 @@ include 'admin_header.php';
 //=========================================================
 // class black manage
 //=========================================================
+
+/**
+ * Class admin_votedata_manage
+ */
 class admin_votedata_manage extends happy_linux_manage
 {
     public $_link_handler;
@@ -36,9 +41,12 @@ class admin_votedata_manage extends happy_linux_manage
         $this->set_redirect('votedata_list.php', 'votedata_list.php?sortid=1');
         $this->set_flag_execute_time(true);
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_votedata_manage|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -52,6 +60,10 @@ class admin_votedata_manage extends happy_linux_manage
     //---------------------------------------------------------
     // POST GET parameter
     //---------------------------------------------------------
+
+    /**
+     * @return bool|mixed|string
+     */
     public function _get_post_list_id()
     {
         $arr = false;
@@ -83,6 +95,9 @@ class admin_votedata_manage extends happy_linux_manage
         $this->_main_mod_table();
     }
 
+    /**
+     * @return bool
+     */
     public function _check_mod_table()
     {
         return true;
@@ -97,6 +112,9 @@ class admin_votedata_manage extends happy_linux_manage
         $this->_main_del_table();
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_del_table()
     {
         $ret = $this->_handler->delete($this->_obj);
@@ -105,7 +123,7 @@ class admin_votedata_manage extends happy_linux_manage
         }
 
         $lid = $this->_obj->get('lid');
-        list($finalrating, $votesDB) = $this->_handler->calc_rating_by_lid($lid);
+        [$finalrating, $votesDB] = $this->_handler->calc_rating_by_lid($lid);
 
         $ret = $this->_link_handler->update_rating($lid, $finalrating, $votesDB);
         if (!$ret) {
@@ -115,6 +133,9 @@ class admin_votedata_manage extends happy_linux_manage
         return $this->returnExistError();
     }
 
+    /**
+     * @return bool
+     */
     public function _check_del_table()
     {
         return true;
@@ -133,6 +154,9 @@ class admin_votedata_manage extends happy_linux_manage
         $this->_exec_del_table();
     }
 
+    /**
+     * @return bool
+     */
     public function _check_del_all()
     {
         return true;
@@ -144,6 +168,10 @@ class admin_votedata_manage extends happy_linux_manage
 //=========================================================
 // class admin_form_votedata
 //=========================================================
+
+/**
+ * Class admin_form_votedata
+ */
 class admin_form_votedata extends happy_linux_form
 {
     public $_link_handler;
@@ -156,10 +184,13 @@ class admin_form_votedata extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
         $this->_system = happy_linux_system::getInstance();
     }
 
+    /**
+     * @return \admin_form_votedata|\happy_linux_form|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -173,6 +204,12 @@ class admin_form_votedata extends happy_linux_form
     //---------------------------------------------------------
     // show black & white
     //---------------------------------------------------------
+
+    /**
+     * @param      $obj
+     * @param null $extra
+     * @param int  $mode
+     */
     public function _show($obj, $extra = null, $mode = 0)
     {
         $form_title = 'modify votedata';
@@ -184,7 +221,7 @@ class admin_form_votedata extends happy_linux_form
         $title_s = '';
 
         $lid = $obj->get('lid');
-        $link_obj = &$this->_link_handler->get($lid);
+        $link_obj = $this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
         }
@@ -256,4 +293,5 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

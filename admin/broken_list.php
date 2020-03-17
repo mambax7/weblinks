@@ -1,5 +1,6 @@
 <?php
-// $Id: broken_list.php,v 1.2 2007/11/11 03:22:58 ohwada Exp $
+
+// $Id: broken_list.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -18,6 +19,10 @@ include 'admin_header_list.php';
 //=========================================================
 // class admin_broken_list
 //=========================================================
+
+/**
+ * Class admin_broken_list
+ */
 class admin_broken_list extends happy_linux_page_frame
 {
     public $_link_handler;
@@ -41,11 +46,14 @@ class admin_broken_list extends happy_linux_page_frame
         $this->set_submit_colspan(0, 2, 5);
         $this->set_lang_submit_value(_DELETE);
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
         $this->_system = happy_linux_system::getInstance();
     }
 
+    /**
+     * @return \admin_broken_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -59,6 +67,10 @@ class admin_broken_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -74,6 +86,10 @@ class admin_broken_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $bid = $obj->get('bid');
@@ -90,7 +106,7 @@ class admin_broken_list extends happy_linux_page_frame
         $url_s = '';
         $uid = '';
 
-        $link_obj = &$this->_link_handler->get($lid);
+        $link_obj = $this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $flag_link_exist = true;
             $title_s = $link_obj->getVar('title', 's');
@@ -151,4 +167,5 @@ $list->_show();
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

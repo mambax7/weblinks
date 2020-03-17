@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_mod_handler.php,v 1.3 2008/02/26 16:01:38 ohwada Exp $
+
+// $Id: weblinks_link_mod_handler.php,v 1.1 2011/12/29 14:33:03 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // _get_flag_pagerank()
@@ -20,6 +21,10 @@ if (!class_exists('weblinks_link_mod_handler')) {
     //=========================================================
     // class weblinks_link_mod_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_mod_handler
+     */
     class weblinks_link_mod_handler extends weblinks_link_edit_base_handler
     {
         public $_broken_handler;
@@ -27,16 +32,26 @@ if (!class_exists('weblinks_link_mod_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_mod_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
-            $this->_broken_handler = weblinks_getHandler('broken', $dirname);
+            $this->_broken_handler = weblinks_get_handler('broken', $dirname);
         }
 
         //---------------------------------------------------------
         // modify link
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function user_mod_link($lid)
         {
             $ret = $this->_mod_link_common($lid, true);
@@ -59,6 +74,10 @@ if (!class_exists('weblinks_link_mod_handler')) {
             return true;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function admin_mod_link($lid)
         {
             $ret = $this->_mod_link_common($lid, false);
@@ -72,6 +91,10 @@ if (!class_exists('weblinks_link_mod_handler')) {
             return true;
         }
 
+        /**
+         * @param $modify_obj
+         * @return bool
+         */
         public function admin_approve_mod_link(&$modify_obj)
         {
             $lid = $modify_obj->get('lid');
@@ -90,6 +113,11 @@ if (!class_exists('weblinks_link_mod_handler')) {
         //---------------------------------------------------------
         // preview
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function build_modify_preview($lid)
         {
             $this->_clear_errors();
@@ -98,13 +126,13 @@ if (!class_exists('weblinks_link_mod_handler')) {
             $rss_url = '';
 
             // create link object
-            $obj = &$this->_create_mod_link_by_post($lid, true);
+            $obj = $this->_create_mod_link_by_post($lid, true);
 
             // check url, banner & check rss url
-            list($rss_flag, $rss_url) = $this->_check_url_banner_rssurl($obj);
+            [$rss_flag, $rss_url] = $this->_check_url_banner_rssurl($obj);
 
             // create edit object
-            $edit_obj = &$this->_create_edit();
+            $edit_obj = $this->_create_edit();
             $edit_obj->set_object($obj);
             $edit_obj->build_preview_for_template($this->_cid_array);
 
@@ -120,6 +148,12 @@ if (!class_exists('weblinks_link_mod_handler')) {
         // private
         //---------------------------------------------------------
         // mod link & catlink
+
+        /**
+         * @param      $lid
+         * @param bool $flag_banner
+         * @return bool
+         */
         public function _mod_link_common($lid, $flag_banner = false)
         {
             $this->_clear_errors();
@@ -142,9 +176,14 @@ if (!class_exists('weblinks_link_mod_handler')) {
             return $this->returnExistError();
         }
 
+        /**
+         * @param      $lid
+         * @param bool $flag_banner
+         * @return bool
+         */
         public function _mod_link_record($lid, $flag_banner = false)
         {
-            $save_obj = &$this->_create_mod_link_by_post($lid, $flag_banner);
+            $save_obj = $this->_create_mod_link_by_post($lid, $flag_banner);
             if (!is_object($save_obj)) {
                 $this->_set_errors_not_exist($lid);
 
@@ -163,18 +202,28 @@ if (!class_exists('weblinks_link_mod_handler')) {
             return true;
         }
 
+        /**
+         * @param      $lid
+         * @param bool $flag_banner
+         * @return bool|\weblinks_link_save
+         */
         public function &_create_mod_link_by_post($lid, $flag_banner = false)
         {
-            $link_obj = &$this->get($lid);
+            $link_obj = $this->get($lid);
             if (!is_object($link_obj)) {
                 $false = false;
 
                 return $false;
             }
 
-            $save_obj = &$this->_create_link_save();
+            $save_obj = $this->_create_link_save();
             $save_obj->assignVars($link_obj->gets());
-            $save_obj->assign_mod_object($_POST, false, $flag_banner, $this->_get_flag_pagerank());
+            $save_obj->assign_mod_object(
+                $_POST,
+                false,
+                $flag_banner,
+                $this->_get_flag_pagerank()
+            );
 
             $this->_cid_array = &$save_obj->get_cid_array();
             $this->_banner_error_code = $save_obj->get_banner_error_code();
@@ -183,6 +232,10 @@ if (!class_exists('weblinks_link_mod_handler')) {
             return $save_obj;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function _delete_broken_by_lid($lid)
         {
             $broken_count = $this->_broken_handler->get_count_by_lid($lid);

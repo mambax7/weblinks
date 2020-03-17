@@ -1,5 +1,6 @@
 <?php
-// $Id: gen_child_category.php,v 1.2 2007/11/02 11:36:28 ohwada Exp $
+
+// $Id: gen_child_category.php,v 1.1 2011/12/29 14:32:58 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // PHP5.2: Assigning the return value of new by reference is deprecated
@@ -33,10 +34,10 @@ if (isset($_POST['pid'])) {
     dev_footer();
 }
 
-for ($j = 0; $j < $MAX_PID; ++$j) {
+for ($j = 0; $j < $MAX_PID; $j++) {
     $pid = $PID_START + $j;
 
-    for ($i = 1; $i <= $MAX_CAT; ++$i) {
+    for ($i = 1; $i <= $MAX_CAT; $i++) {
         // category table
         $title = $pid . ': ' . $genarete->get_randum_title();
         $imgurl = $genarete->get_randum_category_image();
@@ -54,4 +55,5 @@ for ($j = 0; $j < $MAX_PID; ++$j) {
 echo '<h3>end</h3>';
 echo "$MAX_CAT categories in cateogry $PID_START <br>\n";
 
-dev_footer(); // =====
+dev_footer();
+// =====

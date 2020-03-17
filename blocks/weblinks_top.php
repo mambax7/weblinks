@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_top.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -38,9 +39,9 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
 
-// 2006-11-03 hiro <https://ishinomaki.cc/>
+// 2006-11-03 hiro <http://ishinomaki.cc/>
 // add b_weblinks_generic_show()
 
 // 2006-05-15 K.OHWADA
@@ -69,6 +70,10 @@ include_once XOOPS_ROOT_PATH . '/modules/' . $WEBLINKS_DIRNAME . '/class/weblink
 
 // --- block function begin ---
 if (!function_exists('b_weblinks_top_show')) {
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_top_show($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -77,6 +82,10 @@ if (!function_exists('b_weblinks_top_show')) {
         return $class->top_show($options);
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_top_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -85,6 +94,10 @@ if (!function_exists('b_weblinks_top_show')) {
         return $class->top_edit($options);
     }
 
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_generic_show($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -96,6 +109,10 @@ if (!function_exists('b_weblinks_top_show')) {
         return $class->generic_show($options);
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_generic_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];

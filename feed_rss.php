@@ -1,5 +1,6 @@
 <?php
-// $Id: feed_rss.php,v 1.3 2007/10/22 02:23:04 ohwada Exp $
+
+// $Id: feed_rss.php,v 1.1 2011/12/29 14:32:27 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // weblinks_build_rss_feed
@@ -23,11 +24,12 @@ include 'header.php';
 if (WEBLINKS_RSSC_EXIST) {
     include_once WEBLINKS_ROOT_PATH . '/api/build_rss_feed.php';
 
-    $weblinks_builder = weblinks_getHandler('build_rss_feed', WEBLINKS_DIRNAME);
+    $weblinks_builder = weblinks_get_handler('build_rss_feed', WEBLINKS_DIRNAME);
     $weblinks_builder->build_for_weblinks('rss');
 } else {
     $msg = sprintf(_WEBLINKS_RSSC_NOT_INSTALLED, WEBLINKS_RSSC_DIRNAME);
     redirect_header('index.php', 5, $msg);
 }
 
-exit(); // --- main end ---
+exit();
+// --- main end ---

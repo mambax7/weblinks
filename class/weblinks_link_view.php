@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_view.php,v 1.3 2012/04/10 18:52:29 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -53,6 +54,10 @@ if (!class_exists('weblinks_link_view')) {
     //=========================================================
     // class weblinks_link_view
     //=========================================================
+
+    /**
+     * Class weblinks_link_view
+     */
     class weblinks_link_view extends weblinks_link_view_basic
     {
         // handler
@@ -71,15 +76,20 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_view constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
-            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
-            $this->_catlink_handler = weblinks_getHandler('catlink_basic', $dirname);
-            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
-            $this->_pagerank_handler = weblinks_getHandler('pagerank', $dirname);
-            $this->_rssc_handler = weblinks_getHandler('rssc_view', $dirname);
+            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('catlink_basic', $dirname);
+            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
+            $this->_pagerank_handler = weblinks_get_handler('pagerank', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('rssc_view', $dirname);
             $this->_auth = weblinks_auth::getInstance($dirname);
             $this->_webmap_class = weblinks_webmap::getInstance($dirname);
 
@@ -90,6 +100,10 @@ if (!class_exists('weblinks_link_view')) {
             $this->_highlight->set_class('weblinks_highlight');
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_block_view|\weblinks_link_view|\weblinks_link_view_basic|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -103,6 +117,13 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         // main
         //---------------------------------------------------------
+
+        /**
+         * @param      $lid
+         * @param bool $flag_highlight
+         * @param null $keyword_array
+         * @return array|bool
+         */
         public function get_show_by_lid($lid, $flag_highlight = false, $keyword_array = null)
         {
             // not use return references
@@ -117,6 +138,10 @@ if (!class_exists('weblinks_link_view')) {
             return $show;
         }
 
+        /**
+         * @param bool $flag_highlight
+         * @param null $keyword_array
+         */
         public function build_show($flag_highlight = false, $keyword_array = null)
         {
             $this->build_show_basic();
@@ -164,17 +189,13 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         // category_handler
         //---------------------------------------------------------
+
+        /**
+         * @param $cid_arr
+         */
         public function set_catpaths_by_cid_array($cid_arr)
         {
-            $show_catpaths = false;
-            $catpaths = null;
-
-            if (is_array($cid_arr) && count($cid_arr)) {
-                $catpaths = &$this->_category_handler->build_parent_path_multi($cid_arr);
-                if (is_array($catpaths) && count($catpaths)) {
-                    $show_catpaths = true;
-                }
-            }
+            [$show_catpaths, $catpaths] = $this->build_catpaths_by_cid_array($cid_arr);
 
             $this->set('show_catpaths', $show_catpaths);
             $this->set('catpaths', $catpaths);
@@ -239,13 +260,19 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         public function _set_link_rss_url()
         {
-            list($flag, $url, $url_s) = $this->build_rss_url_by_rssc_lid($this->get('rssc_lid'));
+            [
+                $flag, $url, $url_s
+                ] = $this->build_rss_url_by_rssc_lid($this->get('rssc_lid'));
 
             $this->set('rss_flag', $flag);
             $this->set('rss_url', $url);
             $this->set('rss_url_s', $url_s);
         }
 
+        /**
+         * @param $rssc_lid
+         * @return array
+         */
         public function build_rss_url_by_rssc_lid($rssc_lid)
         {
             $flag = 0;
@@ -264,6 +291,12 @@ if (!class_exists('weblinks_link_view')) {
         //---------------------------------------------------------
         // class highlight
         //---------------------------------------------------------
+
+        /**
+         * @param      $text
+         * @param bool $flag_highlight
+         * @param null $keyword_array
+         */
         public function _set_highlight_desc($text, $flag_highlight = false, $keyword_array = null)
         {
             if ($flag_highlight) {
@@ -272,6 +305,11 @@ if (!class_exists('weblinks_link_view')) {
             $this->set('desc_disp', $text);
         }
 
+        /**
+         * @param      $text
+         * @param bool $flag_highlight
+         * @param null $keyword_array
+         */
         public function _set_highlight_short($text, $flag_highlight = false, $keyword_array = null)
         {
             // BUG: not show  smile icon
@@ -303,7 +341,9 @@ if (!class_exists('weblinks_link_view')) {
             $mail_body = '';
 
             if ($lid) {
-                list($mail_subject, $mail_body) = $this->build_link_mail_by_lid($lid);
+                [
+                    $mail_subject, $mail_body
+                    ] = $this->build_link_mail_by_lid($lid);
             }
 
             $this->set('mail_subject', $mail_subject);
@@ -311,6 +351,11 @@ if (!class_exists('weblinks_link_view')) {
         }
 
         // myheader.php
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function build_link_mail_by_lid($lid)
         {
             $sitename = $this->_system->get_sitename();
@@ -329,9 +374,32 @@ if (!class_exists('weblinks_link_view')) {
             return [$subject, $body];
         }
 
+        /**
+         * @param $cid_arr
+         * @return array
+         */
+        public function build_catpaths_by_cid_array($cid_arr)
+        {
+            $show_catpaths = false;
+            $catpaths = null;
+
+            if (is_array($cid_arr) && count($cid_arr)) {
+                $catpaths = &$this->_category_handler->build_parent_path_multi($cid_arr);
+                if (is_array($catpaths) && count($catpaths)) {
+                    $show_catpaths = true;
+                }
+            }
+
+            return [$show_catpaths, $catpaths];
+        }
+
         //---------------------------------------------------------
         // google map
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function check_webmap_dirname()
         {
             $dirname = $this->_conf['webmap3_dirname'];
@@ -348,9 +416,16 @@ if (!class_exists('weblinks_link_view')) {
             return true;
         }
 
+        /**
+         * @return bool
+         */
         public function check_lat_lng_zoom()
         {
-            $ret = $this->_webmap_class->check_lat_lng_zoom($this->get('gm_latitude'), $this->get('gm_longitude'), $this->get('gm_zoom'));
+            $ret = $this->_webmap_class->check_lat_lng_zoom(
+                $this->get('gm_latitude'),
+                $this->get('gm_longitude'),
+                $this->get('gm_zoom')
+            );
 
             $this->set('google_use', $ret);
 
@@ -375,12 +450,19 @@ if (!class_exists('weblinks_link_view')) {
             $this->set('flag_kml_use', $flag_kml_use);
         }
 
+        /**
+         * @param $cid_arr
+         */
         public function set_google_icon_by_cid_array($cid_arr)
         {
             $icon = $this->find_google_icon($cid_arr);
             $this->set('google_icon', $icon);
         }
 
+        /**
+         * @param $cid_arr
+         * @return bool|int|mixed
+         */
         public function find_google_icon($cid_arr)
         {
             // find in link
@@ -402,6 +484,12 @@ if (!class_exists('weblinks_link_view')) {
         //=========================================================
         // for rss
         //=========================================================
+
+        /**
+         * @param      $lid
+         * @param bool $flag_user
+         * @return array|bool
+         */
         public function get_rss_by_lid($lid, $flag_user = false)
         {
             // not use return references
@@ -416,6 +504,9 @@ if (!class_exists('weblinks_link_view')) {
             return $show;
         }
 
+        /**
+         * @param bool $flag_user
+         */
         public function build_rss($flag_user = false)
         {
             $lid = $this->get('lid');

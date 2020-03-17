@@ -1,4 +1,5 @@
 <?php
+
 // =======>Kirby Traductions<======= \\
 // =======>  Dynamic Noiser  <======= \\
 
@@ -17,7 +18,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'Categor�a');
     define('_WLS_HITS', 'Visitas');
     define('_WLS_RATING', 'Calificaci�n');
@@ -30,19 +31,16 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'Edita �ste Enlace');
     define('_WLS_MODIFY', 'Modifica');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'Env�a un nuevo Enlace');
     define('_WLS_SUBMITONCE', 'Env�a �ste Enlace una sola vez.');
     define('_WLS_DONTABUSE', 'El nombre e IP del usuario quedan registradas, por favor no abuse del sistema.');
     define('_WLS_TAKESHOT', 'Se tomar� una impresi�n de pantalla del sitio y puede tomar unos d�as para que sea agregado a nuestro directorio comercial.');
-    define(
-        '_WLS_ALLPENDING',
-        'El env�o de su enlace es registrado <b>temporaralmente</b>, y es publicado despues de su verificaci�n por parte del staff. <br>Puede agregar informaci�n del enlace antes de su aprobaci�n.'
-    );
+    define('_WLS_ALLPENDING', 'El env�o de su enlace es registrado <b>temporaralmente</b>, y es publicado despues de su verificaci�n por parte del staff. <br>Puede agregar informaci�n del enlace antes de su aprobaci�n.');
     //define("_WLS_WHENAPPROVED","Recibir� un E-mail cuando sea aprobado");
     define('_WLS_RECEIVED', 'Recibimos la informaci�n del Enlace, gracias!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'Solicitar modificaci�n de enlace');
     define('_WLS_THANKSFORINFO', 'racias por la informaci�n. Su solicitud ser� revisada a la brevedad.');
     define('_WLS_THANKSFORHELP', 'Gracias por ayudar a mantener la integridad de este directorio.');
@@ -114,7 +112,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'No puedes votar a tu Enlace.<br>Todos los votos son registrados y repasados.');
     define('_WLS_VOTEONCE2', 'Vota solo una vez.<br>Todos los votos son registrados y repasados.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'Configuraci�n de Enlaces');
     define('_WLS_GENERALSET', 'Ajustes Generales');
@@ -187,7 +185,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Env�a un nuevo Enlace');
     define('_WLS_SITE_POPULAR', 'Enlace popular');
@@ -208,7 +206,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', '�ltima actualizaci�n');
     define('_WLS_MORE', 'M�s detalles');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'Descripci�n');
     define('_WLS_PROMOTER', 'Promotor');
     define('_WLS_ZIP', 'C�digo postal');
@@ -216,7 +214,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'N�mero de tel�fono');
     define('_WLS_FAX', 'N�mero de fax');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'Direcci�n del Banner');
     define('_WLS_NAME', 'Nombre');
     define('_WLS_EMAIL', 'E-mail');
@@ -228,20 +226,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'No publicar');
     define('_WLS_NOTSELECT', 'No especificado');
     define('_WLS_SUBMIT_INDISPENSABLE', 'Lo que est� marcado con una estrella <b>*</b> es indispensable.');
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"Comentar al administrador" usa �ste campo para escribirle al administrador.<br>Lo que aqu� escribas no saldr� en la web.<br>No te olvides de poner la web del Enlace si es que tiene".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"Comentar al administrador" usa �ste campo para escribirle al administrador.<br>Lo que aqu� escribas no saldr� en la web.<br>No te olvides de poner la web del Enlace si es que tiene".');
     define('_WLS_USER_COMMENT', 'Comentar al administrador');
     define('_WLS_NOT_DISPLAY', 'Esto no se ver� en la web.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'La modificaci�n solicitada ha sido aprobada.');
     define('_WLS_MODIFY_NOT_OWNER', 'Por favor, aseg�rate de que eres t� la misma persona que insert� el Enlace.');
     define('_WLS_MODIFY_PENDING', 'Grabado. Pendiente de aprobaci�n');
     define('_WLS_LINKSUBMITTER', 'Ha enviado el Enlace');
 
-    //======    user.php    ======
+    //======	user.php	======
     //define('_WLS_PLEASEPASSWORD','Escribe contrase�a');
     define('_WLS_REGSTERED', 'Usuario registrado');
     define('_WLS_REGSTERED_DSC', 'Cualquiera puede modificar el Enlace. <br>Se verificar� antes de publicar.');
@@ -299,7 +294,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'Autom�tico');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distribuir semillas RSS/ATOM mostradas aqu�.');
-    define('_WLS_ATOMFEED_FIREFOX', "Espero que est�s usando <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>. Si es as�, a�ade a marcadores");
+    define('_WLS_ATOMFEED_FIREFOX', "Espero que est�s usando <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>. Si es as�, a�ade a marcadores");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Se notificar� si se aprueba');
@@ -381,7 +376,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'ATENCION: No se puede leer la p�gina web');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'ATENCI�N: No se puede determinar el tama�o del banner');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitud');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitud');
     define('_WEBLINKS_GM_ZOOM', 'Nivel de Zoom');
@@ -473,4 +468,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_TIME_EXPIRE_DESC', 'Si no ajustas �sto, finalizar� sin fecha');
     define('_WEBLINKS_DEL_LINK_CONFIRM', 'Confirma el borrado');
     define('_WEBLINKS_DEL_LINK_REASON', 'Raz�n para borrar');
-}// --- define language end ---
+}
+// --- define language end ---

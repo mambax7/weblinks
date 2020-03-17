@@ -1,12 +1,12 @@
 Hallo, {UNAME}.
 
-Ihr Antrag zur Änderung des Links wurde aus einem der folgenden Gründe abgelehnt:
+Ihr Antrag zur ï¿½nderung des Links wurde aus einem der folgenden Grï¿½nde abgelehnt:
 - Der Inhalt entspricht nicht unseren Kriterien
 - Der Inhalt ist illegal
 - Es ist eine URL-Weiterleitung, wir akzeptieren nur direkten Zugriff auf URL
-- Ihren geänderten Inhalte ist nicht richtig.
+- Ihren geï¿½nderten Inhalte ist nicht richtig.
 
-Sie können den Inhalt des Angebotes hier einsehen:
+Sie kï¿½nnen den Inhalt des Angebotes hier einsehen:
 {LINK_URL}
 
 -----------

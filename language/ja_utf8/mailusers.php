@@ -1,5 +1,6 @@
 <?php
-// $Id: mailusers.php,v 1.2 2007/07/22 14:33:13 ohwada Exp $
+
+// $Id: mailusers.php,v 1.1 2011/12/29 14:32:43 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -13,10 +14,10 @@
 // same as modules/system/language/japanese/admin/mailusers.php
 //---------------------------------------------------------
 
-//%%%%%%    Admin Module Name  MailUsers    %%%%%
+//%%%%%%	Admin Module Name  MailUsers	%%%%%
 define('_AM_DBUPDATED', _MD_AM_DBUPDATED);
 
-//%%%%%%    mailusers.php   %%%%%
+//%%%%%%	mailusers.php 	%%%%%
 define('_AM_SENDTOUSERS', '送信先ユーザの選択：');
 define('_AM_SENDTOUSERS2', '送信先:');
 define('_AM_GROUPIS', 'グループ（省略可）');

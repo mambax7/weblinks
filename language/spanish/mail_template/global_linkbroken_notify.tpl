@@ -1,15 +1,15 @@
 Hola {X_UNAME},
 
-Un enlace roto reportado ha sido añadido y está a la espera de su aprobación.
+Un enlace roto reportado ha sido aï¿½adido y estï¿½ a la espera de su aprobaciï¿½n.
 
-Puede consultar esta petición aquí:
+Puede consultar esta peticiï¿½n aquï¿½:
 {BROKENREPORTS_URL}
 
 -----------
 
-Usted está recibiendo este mensaje porque ha seleccionado la opción para recibir una notificación cuando nuevos enlaces rotos se añadan en esta categoría.
+Usted estï¿½ recibiendo este mensaje porque ha seleccionado la opciï¿½n para recibir una notificaciï¿½n cuando nuevos enlaces rotos se aï¿½adan en esta categorï¿½a.
 
-Si se trata de un error o no desea recibir más notificaciones de este tipo, por favor, actualice los datos de su suscripción, visite el link de abajo:
+Si se trata de un error o no desea recibir mï¿½s notificaciones de este tipo, por favor, actualice los datos de su suscripciï¿½n, visite el link de abajo:
 {X_UNSUBSCRIBE_URL}
 
 Por favor, no responda a este mensaje.

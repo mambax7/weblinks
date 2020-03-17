@@ -1,5 +1,6 @@
 <?php
-// $Id: main.php,v 1.4 2008/01/18 14:10:34 ohwada Exp $
+
+// $Id: main.php,v 1.1 2011/12/29 14:32:43 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -7,7 +8,7 @@
 //=========================================================
 
 // 2008-01-18 22:49:00 ken
-// tanslated by sato-san <https://www.xoops-magazine.com/>
+// tanslated by sato-san <http://www.xoops-magazine.com/>
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MB_LOADED')) {
@@ -227,10 +228,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_2', 'ATOM Typ');
     define('_WLS_RSS_URL_3', 'automatisch erkennen');
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Stelle RSS/ATOM Feeds zur Verf�gung, welche hier angezeigt werden.');
-    define(
-        '_WLS_ATOMFEED_FIREFOX',
-        "Wenn Sie <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a> benutzen, k�nnen Sie durch setzen eines Lesezeichen die RSS/ATOM Feeds durchsuchen. "
-    );
+    define('_WLS_ATOMFEED_FIREFOX', "Wenn Sie <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a> benutzen, k�nnen Sie durch setzen eines Lesezeichen die RSS/ATOM Feeds durchsuchen. ");
     define('_WLS_EMAIL_APPROVE', 'Benachrichtigen wenn best�tigt');
     define('_WLS_TOPTEN_TITLE', '%s Top %u');
     define('_WLS_TOPTEN_ERROR', 'Es gibt zu viele TOP Kategorien. Anzeigenstop bei %u');
@@ -342,4 +340,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_DEL_LINK_CONFIRM', 'Best�tigen Sie das L�schen');
     define('_WEBLINKS_DEL_LINK_REASON', 'Grund zum l�schen');
     define('_WEBLINKS_ERROR_LENGTH', 'Fehler: %s muss kleiner sein als %s Zeichen');
-}// --- define language end ---
+}
+// --- define language end ---

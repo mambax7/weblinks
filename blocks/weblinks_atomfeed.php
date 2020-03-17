@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_atomfeed.php,v 1.9 2007/08/09 03:34:25 ohwada Exp $
+
+// $Id: weblinks_atomfeed.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 // 2007-08-01 K.OHWADA
 // multibyte.php
@@ -32,6 +33,10 @@ if (!function_exists('b_weblinks_atom_show')) {
     // [3] max of summary      (100)
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array|bool
+     */
     function b_weblinks_atom_show($options)
     {
         global $xoopsDB;
@@ -160,6 +165,10 @@ if (!function_exists('b_weblinks_atom_show')) {
         return $block;
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_atom_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -189,6 +198,10 @@ if (!function_exists('b_weblinks_atom_show')) {
     // [4] max of summary  (200)
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array|bool
+     */
     function b_weblinks_blog_show($options)
     {
         global $xoopsDB;
@@ -317,7 +330,7 @@ if (!function_exists('b_weblinks_atom_show')) {
             $feed['title'] = happy_linux_sanitize_text($title);
             $feed['summary'] = happy_linux_sanitize_text($summary);
 
-            ++$i;
+            $i++;
             $block['feeds'][] = $feed;
         }
 
@@ -333,6 +346,10 @@ if (!function_exists('b_weblinks_atom_show')) {
         return $block;
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_blog_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];

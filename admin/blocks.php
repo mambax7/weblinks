@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.1 2007/06/08 19:49:51 ohwada Exp $
+
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -18,4 +19,5 @@ $admin = happy_linux_admin::getInstance();
 $admin->print_blocks();
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

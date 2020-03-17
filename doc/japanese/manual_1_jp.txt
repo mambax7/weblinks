@@ -1,104 +1,104 @@
-$Id: manual_1_jp.txt,v 1.3 2005/10/28 11:56:02 ohwada Exp $
+$Id: manual_1_jp.txt,v 1.1 2011/12/29 14:33:02 ohwada Exp $
 
 =================================================
 Date:   2004-12-23
 Author: Kenichi OHWADA
-URL:    https://linux.ohwada.jp/
+URL:    http://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
-WebLinks ï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½
+WebLinks ƒ}ƒjƒ…ƒAƒ‹
 
-ï¿½ï¿½ï¿½Ìƒï¿½ï¿½Wï¿½ï¿½?[ï¿½ï¿½ï¿½ÆŽgï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á‚¤ï¿½ï¿½ï¿½Ì‚ï¿½?Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ•ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½?A?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½?B
+‘¼‚Ìƒ‚ƒWƒ…[ƒ‹‚ÆŽg‚¢•û‚ªˆá‚¤‚à‚Ì‚âA‚¿‚å‚Á‚Æ•ª‚©‚è‚É‚­‚¢‚Æ‚±‚ë‚ðAà–¾‚µ‚Ä‚¢‚Ü‚·B
 
-ï¿½P?DRSS/ATOMï¿½ÖŒWï¿½Ìƒuï¿½?ï¿½bï¿½N
+‚PDRSS/ATOMŠÖŒW‚ÌƒuƒƒbƒN
 
-ï¿½P?Dï¿½P ï¿½ï¿½ï¿½ï¿½ï¿½N?Wï¿½ï¿½?Vï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½
-viewfeed.php ï¿½Æ—ÞŽï¿½ï¿½Ì‹@ï¿½\ï¿½Å‚ï¿½?B
-ï¿½e?[ï¿½uï¿½ï¿½ atomfeed ï¿½ÉŠiï¿½[ï¿½ï¿½ï¿½ê‚½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½?Vï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½?B
-ï¿½ï¿½ï¿½Ìƒuï¿½?ï¿½bï¿½Nï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½?A?Vï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ÌŽæ“¾ï¿½ï¿½?sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½?B
-ï¿½æ“¾ï¿½ÉŠÖ‚ï¿½ï¿½Ä‚ï¿½?uRSS/ATOMï¿½Lï¿½ï¿½ï¿½ÌŽæ“¾?vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
+‚PD‚P ƒŠƒ“ƒNW‚ÌV’…RSS/ATOM‹LŽ–
+viewfeed.php ‚Æ—ÞŽ—‚Ì‹@”\‚Å‚·B
+ƒe[ƒuƒ‹ atomfeed ‚ÉŠi”[‚³‚ê‚½RSS/ATOM‹LŽ–‚ð“ú•t‚ÌV‚µ‚¢‡‚©‚ç•\Ž¦‚µ‚Ü‚·B
+‚±‚ÌƒuƒƒbƒN‚ð•\Ž¦‚µ‚Ä‚àAV‚µ‚¢RSS/ATOM‹LŽ–‚ÌŽæ“¾‚Ís‚¢‚Ü‚¹‚ñB
+Žæ“¾‚ÉŠÖ‚µ‚Ä‚ÍuRSS/ATOM‹LŽ–‚ÌŽæ“¾v‚ð‚²——‚­‚¾‚³‚¢B
 
-ï¿½P?Dï¿½Q ï¿½ï¿½ï¿½ï¿½ï¿½N?Wï¿½ï¿½blogï¿½\ï¿½ï¿½
-ï¿½e?[ï¿½uï¿½ï¿½ atomfeed ï¿½ÉŠiï¿½[ï¿½ï¿½ï¿½ê‚½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½Ì‹Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½?Vï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½?B
-ï¿½P?Dï¿½Pï¿½Æ“ï¿½ï¿½lï¿½ï¿½?Aï¿½ï¿½ï¿½Ìƒuï¿½?ï¿½bï¿½Nï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½?A?Vï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ÌŽæ“¾ï¿½ï¿½?sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½?B
+‚PD‚Q ƒŠƒ“ƒNW‚Ìblog•\Ž¦
+ƒe[ƒuƒ‹ atomfeed ‚ÉŠi”[‚³‚ê‚½RSS/ATOM‹LŽ–‚©‚çA“Á’è‚ÌƒŠƒ“ƒN‚Ì‹LŽ–‚ð“ú•t‚ÌV‚µ‚¢‡‚©‚ç•\Ž¦‚µ‚Ü‚·B
+‚PD‚P‚Æ“¯—l‚ÉA‚±‚ÌƒuƒƒbƒN‚ð•\Ž¦‚µ‚Ä‚àAV‚µ‚¢RSS/ATOM‹LŽ–‚ÌŽæ“¾‚Ís‚¢‚Ü‚¹‚ñB
 
-ï¿½uï¿½?ï¿½bï¿½Nï¿½Ç—?ï¿½ï¿½ï¿½?uï¿½ï¿½ï¿½ï¿½ï¿½N?Wï¿½ï¿½blogï¿½\ï¿½ï¿½?vï¿½Ì•ï¿½?Wï¿½ï¿½Ê‚ï¿½ï¿½Jï¿½ï¿½?A
-ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½blogï¿½Ìƒï¿½ï¿½ï¿½ï¿½NIDï¿½ï¿½?Ý’è‚µï¿½Ü‚ï¿½?B
+ƒuƒƒbƒNŠÇ—‚æ‚èuƒŠƒ“ƒNW‚Ìblog•\Ž¦v‚Ì•ÒW‰æ–Ê‚ðŠJ‚«A
+•\Ž¦‚·‚éblog‚ÌƒŠƒ“ƒNID‚ðÝ’è‚µ‚Ü‚·B
 
-ï¿½P?Dï¿½R ï¿½Jï¿½Xï¿½^ï¿½ï¿½?Eï¿½uï¿½?ï¿½bï¿½Nï¿½É‚ï¿½blogï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½P?Dï¿½Qï¿½Æ—ÞŽï¿½ï¿½Ì‹@ï¿½\ï¿½Å‚ï¿½?B
-ï¿½á‚¢ï¿½ï¿½?Aï¿½Qï¿½Â‚ï¿½ï¿½ï¿½Ü‚ï¿½?B
-(1) ï¿½ï¿½?ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½É‘Î‚ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½ê‚¼ï¿½ï¿½blogï¿½ï¿½\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½?B
-(2) ï¿½ï¿½ï¿½Ìƒuï¿½?ï¿½bï¿½Nï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½?A?Vï¿½ï¿½ï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ÌŽæ“¾ï¿½ï¿½?sï¿½ï¿½ï¿½Ü‚ï¿½?B
+‚PD‚R ƒJƒXƒ^ƒ€EƒuƒƒbƒN‚É‚Äblog‚ð•\Ž¦‚·‚é
+‚PD‚Q‚Æ—ÞŽ—‚Ì‹@”\‚Å‚·B
+ˆá‚¢‚ÍA‚Q‚Â‚ ‚è‚Ü‚·B
+(1) •¡”‚ÌƒŠƒ“ƒN‚É‘Î‚µ‚ÄA‚»‚ê‚¼‚êblog‚ð•\Ž¦‚Å‚«‚Ü‚·B
+(2) ‚±‚ÌƒuƒƒbƒN‚ð•\Ž¦‚·‚é‚Æ‚«‚ÉAV‚µ‚¢RSS/ATOM‹LŽ–‚ÌŽæ“¾‚ðs‚¢‚Ü‚·B
 
-ï¿½Jï¿½Xï¿½^ï¿½ï¿½?Eï¿½uï¿½?ï¿½bï¿½Nï¿½ï¿½PHPï¿½ï¿½?[ï¿½hï¿½ï¿½?ï¿½?ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
+ƒJƒXƒ^ƒ€EƒuƒƒbƒN‚ðPHPƒ‚[ƒh‚Åì¬‚µA‰º‹L‚ð‹L“ü‚·‚éB
 ---
 include_once XOOPS_ROOT_PATH."/modules/weblinks/include/atomfeed.inc.php";
 weblinks_view_blog(???);
 ---
-??? ï¿½Íƒï¿½ï¿½ï¿½ï¿½NID
+??? ‚ÍƒŠƒ“ƒNID
 
 
-ï¿½Q?Dï¿½ï¿½ï¿½ï¿½ï¿½N?Ø‚ï¿½ÌŒï¿½?ï¿½
-ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½@ï¿½Åƒï¿½ï¿½ï¿½ï¿½N?Ø‚ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½é‚©?B
-ï¿½Rï¿½Â‚Ì•ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½?B
+‚QDƒŠƒ“ƒNØ‚ê‚ÌŒŸ¸
+‚Ç‚¤‚¢‚¤Œ_‹@‚ÅƒŠƒ“ƒNØ‚ê‚ðŒŸ¸‚·‚é‚©B
+‚R‚Â‚Ì•û–@‚ª‚ ‚è‚Ü‚·B
 
-ï¿½Q?Dï¿½P ï¿½ï¿½ï¿½pï¿½Ò‚ï¿½ï¿½Cï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½ï¿½ï¿½N?Ø‚ï¿½Ì•ï¿½??ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
-mylinks ï¿½ï¿½ï¿½ï¿½p?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½Å‚ï¿½?B
+‚QD‚P —˜—pŽÒ‚ª‹C‚ª•t‚¢‚½‚Æ‚«‚ÉAƒŠƒ“ƒNØ‚ê‚Ì•ñ‚ð‚·‚éB
+mylinks ‚©‚çŒp³‚µ‚½•û–@‚Å‚·B
 
-ï¿½Q?Dï¿½Q ï¿½Ç—?ï¿½Ò‚ï¿½ï¿½è“®ï¿½ÅŒï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½?B
+‚QD‚Q ŠÇ—ŽÒ‚ªŽè“®‚ÅŒŸ¸‚·‚éB
 
-ï¿½Q?Dï¿½R ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½?[ï¿½hï¿½ï¿½?Aï¿½ï¿½ï¿½ï¿½Iï¿½ÉŒï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½?B
+‚QD‚R ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒ‚[ƒh‚ÅA’èŠú“I‚ÉŒŸ¸‚·‚éB
 
-cache ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½B ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½ï¿½Ý‰Â”\ï¿½É‚ï¿½ï¿½ï¿½?B
-Weblinksï¿½ÌŠÇ—?ï¿½Ò‰ï¿½Ê‚ï¿½ï¿½?A?uï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Ì‹@ï¿½\?v -> ?ucreate config file for bin?v ï¿½ï¿½ï¿½ï¿½?sï¿½ï¿½ï¿½ï¿½?B
-bin/link_check.php ï¿½ï¿½ $XOOPS_ROOT_PATH ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÂ‹ï¿½ï¿½ï¿½?ï¿½ï¿½í‚¹ï¿½Ä•ï¿½?Xï¿½ï¿½ï¿½ï¿½?B
+cache ƒfƒBƒŒƒNƒgƒŠƒB ‚ð‘‚«ž‚Ý‰Â”\‚É‚·‚éB
+Weblinks‚ÌŠÇ—ŽÒ‰æ–Ê‚æ‚èAu‚»‚Ì‘¼‚Ì‹@”\v -> ucreate config file for binv ‚ðŽÀs‚·‚éB
+bin/link_check.php ‚Ì $XOOPS_ROOT_PATH ‚ðŽ©•ª‚ÌŠÂ‹«‚É‡‚í‚¹‚Ä•ÏX‚·‚éB
 
-crontab ï¿½É‰ï¿½ï¿½Lï¿½Ì‚æ‚¤ï¿½ï¿½?Ý’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
+crontab ‚É‰º‹L‚Ì‚æ‚¤‚ÈÝ’è‚ð‰Á‚¦‚éB
 11 2 * * 0 /usr/bin/php4 -q -f /home/***/html/modules/weblinks/bin/link_check.php
 
 
-ï¿½R?DRSS/ATOMï¿½Lï¿½ï¿½ï¿½ÌŽæ“¾
-ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½@ï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½é‚©?B
-ï¿½Sï¿½Â‚Ì•ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½?B
+‚RDRSS/ATOM‹LŽ–‚ÌŽæ“¾
+‚Ç‚¤‚¢‚¤Œ_‹@‚ÅRSS/ATOM‹LŽ–‚ðŽæ“¾‚·‚é‚©B
+‚S‚Â‚Ì•û–@‚ª‚ ‚è‚Ü‚·B
 
-ï¿½R?Dï¿½P singlelink.php ï¿½É‚Äƒï¿½ï¿½ï¿½ï¿½N?ï¿½?×‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½?Ý’è‚µï¿½È‚ï¿½ï¿½Æ‚ï¿½?Aï¿½ï¿½?sï¿½ï¿½ï¿½ï¿½Ü‚ï¿½?B
-ï¿½Ç—?ï¿½Ò‰ï¿½Ê‚ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½?Ý’ï¿½Å‚ï¿½ï¿½Ü‚ï¿½?B
-?ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½24ï¿½ï¿½ï¿½Ô‚Å‚ï¿½?B
+‚RD‚P singlelink.php ‚É‚ÄƒŠƒ“ƒNÚ×‚ð•\Ž¦‚·‚é‚Æ‚«‚ÉA‚»‚ÌƒŠƒ“ƒN‚©‚çŽæ“¾‚·‚é
+‰½‚àÝ’è‚µ‚È‚­‚Æ‚àAŽÀs‚³‚ê‚Ü‚·B
+ŠÇ—ŽÒ‰æ–Ê‚©‚çƒLƒƒƒbƒVƒ…ŽžŠÔ‚ðÝ’è‚Å‚«‚Ü‚·B
+‰Šú’l‚Í24ŽžŠÔ‚Å‚·B
 
-ï¿½R?Dï¿½Q ï¿½Jï¿½Xï¿½^ï¿½ï¿½?Eï¿½uï¿½?ï¿½bï¿½Nï¿½É‚ï¿½blogï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½?B
+‚RD‚Q ƒJƒXƒ^ƒ€EƒuƒƒbƒN‚É‚Äblog‚ð•\Ž¦‚·‚é‚Æ‚«‚ÉA‚»‚ÌƒŠƒ“ƒN‚©‚çŽæ“¾‚·‚éB
 
-ï¿½R?Dï¿½R ï¿½Ç—?ï¿½Ò‚ï¿½ï¿½è“®ï¿½Å‘Sï¿½Ä‚Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
+‚RD‚R ŠÇ—ŽÒ‚ªŽè“®‚Å‘S‚Ä‚ÌƒŠƒ“ƒN‚©‚çŽæ“¾‚·‚é
 
-ï¿½R?Dï¿½S ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½?[ï¿½hï¿½ï¿½?Aï¿½ï¿½ï¿½ï¿½Iï¿½É‘Sï¿½Ä‚Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½?B
+‚RD‚S ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒ‚[ƒh‚ÅA’èŠú“I‚É‘S‚Ä‚ÌƒŠƒ“ƒN‚©‚çŽæ“¾‚·‚éB
 
-cache ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½B ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½ï¿½Ý‰Â”\ï¿½É‚ï¿½ï¿½ï¿½?B
-Weblinksï¿½ÌŠÇ—?ï¿½Ò‰ï¿½Ê‚ï¿½ï¿½?A?uï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Ì‹@ï¿½\?v -> ?ucreate config file for bin?v ï¿½ï¿½ï¿½ï¿½?sï¿½ï¿½ï¿½ï¿½?B
-bin/rss_refresh.php ï¿½ï¿½ $XOOPS_ROOT_PATH ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÂ‹ï¿½ï¿½ï¿½?ï¿½ï¿½í‚¹ï¿½Ä•ï¿½?Xï¿½ï¿½ï¿½ï¿½?B
+cache ƒfƒBƒŒƒNƒgƒŠƒB ‚ð‘‚«ž‚Ý‰Â”\‚É‚·‚éB
+Weblinks‚ÌŠÇ—ŽÒ‰æ–Ê‚æ‚èAu‚»‚Ì‘¼‚Ì‹@”\v -> ucreate config file for binv ‚ðŽÀs‚·‚éB
+bin/rss_refresh.php ‚Ì $XOOPS_ROOT_PATH ‚ðŽ©•ª‚ÌŠÂ‹«‚É‡‚í‚¹‚Ä•ÏX‚·‚éB
 
-crontab ï¿½É‰ï¿½ï¿½Lï¿½Ì‚æ‚¤ï¿½ï¿½?Ý’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
+crontab ‚É‰º‹L‚Ì‚æ‚¤‚ÈÝ’è‚ð‰Á‚¦‚éB
 22 3 * * * /usr/bin/php4 -q -f /home/***/html/modules/weblinks/bin/rss_refresh.php
 
-ï¿½R?Dï¿½T ?uï¿½ï¿½ï¿½ï¿½ï¿½N?Wï¿½ï¿½?Vï¿½ï¿½RSS/ATOMï¿½Lï¿½ï¿½?vï¿½Ìƒuï¿½?ï¿½bï¿½Nï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½?Aï¿½Sï¿½Ä‚Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½?B
-ï¿½Tï¿½|?[ï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½?B
-RSS/ATOMï¿½Î‰ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½ï¿½Â”\?ï¿½ï¿½ï¿½ï¿½ï¿½?B
+‚RD‚T uƒŠƒ“ƒNW‚ÌV’…RSS/ATOM‹LŽ–v‚ÌƒuƒƒbƒN‚ð•\Ž¦‚·‚é‚Æ‚«‚ÉA‘S‚Ä‚ÌƒŠƒ“ƒN‚©‚çŽæ“¾‚·‚éB
+ƒTƒ|[ƒg‚µ‚Ä‚¢‚È‚¢B
+RSS/ATOM‘Î‰ž‚ÌƒŠƒ“ƒN‚ª‘½‚¢‚ÆAƒ^ƒCƒ€ƒAƒEƒg‚·‚é‰Â”\«‚ ‚èB
 
 
-ï¿½S?Dï¿½nï¿½ï¿½Ë‘ï¿½?ï¿½
-ï¿½S?Dï¿½P ï¿½n?}ï¿½Tï¿½Cï¿½g?iyahoo?jï¿½Ö‚Ìƒï¿½ï¿½ï¿½ï¿½N
-ï¿½ï¿½ï¿½{ï¿½Æ•ï¿½?ï¿½ï¿½Å‚Í•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù‚È‚ï¿½?B
+‚SD’nˆæˆË‘¶«
+‚SD‚P ’n}ƒTƒCƒgiyahooj‚Ö‚ÌƒŠƒ“ƒN
+“ú–{‚Æ•Ä‘‚Å‚Í•ûŽ®‚ªˆÙ‚È‚éB
 
-(1) ï¿½ï¿½ï¿½{ï¿½Å‚ï¿½?Ayahooï¿½ï¿½?Z?ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½ï¿½?ï¿½ï¿½Å‚ï¿½ï¿½ï¿½?B
+(1) “ú–{‚Å‚ÍAyahoo‚ÖZŠ‚ð“n‚·‚¾‚¯‚ðAŒŸõ‚Å‚«‚éB
 ---
-<a href="https://search.map.yahoo.co.jp/search?p=<{$link.addr_encode}>" target=_blank>
+<a href="http://search.map.yahoo.co.jp/search?p=<{$link.addr_encode}>" target=_blank>
 <img src="<{$module_url}>/images/map.png" board="0" alt="map"></a>
 ----
 
-(2) ï¿½ï¿½?ï¿½ï¿½Å‚ï¿½?A?Z?ï¿½ï¿½ÈŠOï¿½ï¿½?Aï¿½Xï¿½Ö”ï¿½?ï¿½?A?B?Aï¿½s ï¿½ï¿½nï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
+(2) •Ä‘‚Å‚ÍAZŠˆÈŠO‚ÉA—X•Ö”Ô†ABAŽs ‚ð“n‚·•K—v‚ª‚ ‚éB
 ----
-<form action="https://us.rd.yahoo.com/maps/home/submit_a/*-https://maps.yahoo.com/maps" target="_blank" method=get>
+<form action="http://us.rd.yahoo.com/maps/home/submit_a/*-http://maps.yahoo.com/maps" target="_blank" method=get>
 <input type="hidden" name="addr" value="<{$link.address}>">
 <input type="hidden" name="csz" value="<{$link.city}>, <{$link.state}> <{$link.zip}>">
 <input type="hidden" name="country" value="us">
@@ -107,33 +107,33 @@ RSS/ATOMï¿½Î‰ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½^ï¿½Cï¿½ï¿½ï¿½Aï¿
 </form>
 ---
 
-(3) ï¿½á‚¢ï¿½Ì‹zï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½eï¿½ï¿½ï¿½vï¿½ï¿½?[ï¿½g weblinks_link.html ï¿½É–ï¿½ï¿½ï¿½?ï¿½ï¿½Ü‚ï¿½Ä‚ï¿½ï¿½ï¿½?B
-ï¿½ï¿½?ï¿½ï¿½?Aï¿½ï¿½ï¿½{ï¿½pï¿½Ì‚ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½?B
+(3) ˆá‚¢‚Ì‹zŽû
+‚±‚ê‚ÍAƒeƒ“ƒvƒŒ[ƒg weblinks_link.html ‚É–„‚ßž‚Ü‚ê‚Ä‚¢‚éB
+Œ»ó‚ÍA“ú–{—p‚Ì‚à‚Ì‚µ‚©‚È‚¢B
 
-ï¿½S?Dï¿½Q ï¿½ï¿½?ï¿½ï¿½Tï¿½Cï¿½g?igoogole?jï¿½Ö‚Ìƒï¿½ï¿½ï¿½ï¿½N
-ï¿½ï¿½ï¿½{ï¿½Æ•ï¿½?ï¿½ï¿½Å‚ï¿½gogoleï¿½ï¿½URLï¿½ï¿½ï¿½Ù‚È‚ï¿½?B
+‚SD‚Q ŒŸõƒTƒCƒgigoogolej‚Ö‚ÌƒŠƒ“ƒN
+“ú–{‚Æ•Ä‘‚Å‚Ígogole‚ÌURL‚ªˆÙ‚È‚éB
 
-(1) ï¿½ï¿½ï¿½{
-https://www.google.co.jp/search?hl=ja&amp;q=
+(1) “ú–{
+http://www.google.co.jp/search?hl=ja&amp;q=
 
-(2) ï¿½ï¿½?ï¿½
-https://www.google.com/search?hl=en&amp;q=
+(2) •Ä‘
+http://www.google.com/search?hl=en&amp;q=
 
-(3) ï¿½á‚¢ï¿½Ì‹zï¿½ï¿½
-URLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Êƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ admin.php ï¿½É‚ï¿½?Ý’è‚µï¿½Ä‚ï¿½ï¿½ï¿½?B
+(3) ˆá‚¢‚Ì‹zŽû
+URL‚ð Œ¾Œê•Êƒtƒ@ƒCƒ‹‚Ì admin.php ‚É‚ÄÝ’è‚µ‚Ä‚¢‚éB
 
-ï¿½S?Dï¿½R ï¿½Fï¿½Bï¿½É‹ï¿½ï¿½ï¿½ï¿½ï¿½
-ï¿½ï¿½ï¿½{ï¿½Å—Lï¿½ÌŽï¿½?î‚ªï¿½ï¿½ï¿½ï¿½?B
-ï¿½ï¿½ï¿½ï¿½ï¿½R?[ï¿½hï¿½ï¿½ SJIS,JIS,EUC-JP ï¿½Æ•ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½?B
-ï¿½T?[ï¿½o?[ï¿½Ì•ï¿½ï¿½ï¿½ï¿½R?[ï¿½hï¿½ÆƒNï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gPCï¿½Ì•ï¿½ï¿½ï¿½ï¿½R?[ï¿½hï¿½ï¿½ï¿½Ù‚È‚ï¿½ï¿½?A
-?uï¿½Fï¿½Bï¿½É‹ï¿½ï¿½ï¿½ï¿½ï¿½?vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?B
-ï¿½ï¿½ï¿½ï¿½ï¿½?Aï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gPCï¿½É‚ÄŽgï¿½pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½??[ï¿½ï¿½?Eï¿½Aï¿½vï¿½ï¿½?Eï¿½\ï¿½tï¿½gï¿½ï¿½ï¿½ÖŒWï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½?Aï¿½ï¿½ï¿½Gï¿½ÈŒï¿½?Û‚ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½?B
+‚SD‚R —F’B‚É‹³‚¦‚é
+“ú–{ŒÅ—L‚ÌŽ–î‚ª‚ ‚éB
+•¶ŽšƒR[ƒh‚ª SJIS,JIS,EUC-JP ‚Æ•¡”‚ ‚éB
+ƒT[ƒo[‚Ì•¶ŽšƒR[ƒh‚ÆƒNƒ‰ƒCƒAƒ“ƒgPC‚Ì•¶ŽšƒR[ƒh‚ªˆÙ‚È‚é‚ÆA
+u—F’B‚É‹³‚¦‚év‚ª•¶Žš‰»‚¯‚·‚éB
+‚³‚ç‚ÉAƒNƒ‰ƒCƒAƒ“ƒgPC‚É‚ÄŽg—p‚µ‚Ä‚¢‚éƒ[ƒ‹EƒAƒvƒŠEƒ\ƒtƒg‚àŠÖŒW‚µ‚Ä‚¨‚èA•¡ŽG‚ÈŒ»Û‚ð‹N‚±‚µ‚Ä‚¢‚éB
 
-ï¿½Ð‚Æ‚Ü‚ï¿½ï¿½Ì‘ï¿½?ï¿½Æ‚ï¿½ï¿½ï¿½?A
-ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gPCï¿½ï¿½OSï¿½ï¿½?AWindows ï¿½ï¿½ MAC ï¿½Å‚ï¿½ï¿½ï¿½ï¿½?A
-ï¿½ï¿½ï¿½ï¿½ï¿½R?[ï¿½hï¿½ï¿½ SJIS ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½?B
+‚Ð‚Æ‚Ü‚¸‚Ì‘Îô‚Æ‚µ‚ÄA
+ƒNƒ‰ƒCƒAƒ“ƒgPC‚ÌOS‚ªAWindows ‚© MAC ‚Å‚ ‚ê‚ÎA
+•¶ŽšƒR[ƒh‚ð SJIS ‚É•ÏŠ·‚µ‚Ä‚¢‚éB
 
-ï¿½á‚¢ï¿½Ì‹zï¿½ï¿½
-ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?Aï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½?ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ language_convert.php ï¿½É‚ÄŽï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½?B
+ˆá‚¢‚Ì‹zŽû
+‚±‚Ìˆ—‚ÍAŒ¾Œê•Êˆ—ƒtƒ@ƒCƒ‹‚Ì language_convert.php ‚É‚ÄŽÀ‘•‚µ‚Ä‚¢‚éB
 

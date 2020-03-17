@@ -1,5 +1,6 @@
 <?php
-// $Id: oninstall.php,v 1.5 2008/02/26 16:01:32 ohwada Exp $
+
+// $Id: oninstall.php,v 1.1 2011/12/29 14:32:31 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // happy_linux global.php
@@ -64,12 +65,12 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')
 
 function xoops_module_install_' . $WEBLINKS_DIRNAME . '( $module )
 {
-    return weblinks_install_base( "' . $WEBLINKS_DIRNAME . '" ,  $module );
+	return weblinks_install_base( "' . $WEBLINKS_DIRNAME . '" ,  $module );
 }
 
 function xoops_module_update_' . $WEBLINKS_DIRNAME . '( $module, $prev_version )
 {
-    return weblinks_update_base( "' . $WEBLINKS_DIRNAME . '" ,  $module, $prev_version );
+	return weblinks_update_base( \'' . $WEBLINKS_DIRNAME . '\' ,  $module, $prev_version );
 }
 
 '
@@ -80,6 +81,11 @@ function xoops_module_update_' . $WEBLINKS_DIRNAME . '( $module, $prev_version )
 
 // === weblinks_oninstall_base ===
 if (!function_exists('weblinks_install_base')) {
+    /**
+     * @param $DIRNAME
+     * @param $module
+     * @return bool
+     */
     function weblinks_install_base($DIRNAME, $module)
     {
         // prepare for message
@@ -104,6 +110,12 @@ if (!function_exists('weblinks_install_base')) {
         return $code;
     }
 
+    /**
+     * @param $DIRNAME
+     * @param $module
+     * @param $prev_version
+     * @return bool
+     */
     function weblinks_update_base($DIRNAME, $module, $prev_version)
     {
         // prepare for message
@@ -129,6 +141,10 @@ if (!function_exists('weblinks_install_base')) {
     }
 
     // for Cube 2.1
+    /**
+     * @param $module_obj
+     * @param $log
+     */
     function weblinks_message_append_oninstall(&$module_obj, $log)
     {
         if (is_array(@$GLOBALS['ret'])) {
@@ -140,6 +156,10 @@ if (!function_exists('weblinks_install_base')) {
     }
 
     // for Cube 2.1
+    /**
+     * @param $module_obj
+     * @param $log
+     */
     function weblinks_message_append_onupdate(&$module_obj, $log)
     {
         if (is_array(@$GLOBALS['msgs'])) {

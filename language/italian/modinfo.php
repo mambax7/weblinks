@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.1 2007/09/29 12:37:33 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:41 ohwada Exp $
 
 // 2007-09-24 Luigi Trovato - Italian translation
 
@@ -182,10 +183,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Scegli se visualizzare la pagina di destinazione del link dentro un frame');
 
     define('_MI_WEBLINKS_BROKEN', 'Numero rapporti Link non valido prima di bloccare visualizzazione');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'Inserire quante volte il link deve essere riportato come non valido prima di bloccarne la visual. <br> Sotto questo valore, sar� considerato errore temporaneo, e nulla verr� fatto. <br>Oltre questo valore il link non sar� pi� visualizzato.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'Inserire quante volte il link deve essere riportato come non valido prima di bloccarne la visual. <br> Sotto questo valore, sar� considerato errore temporaneo, e nulla verr� fatto. <br>Oltre questo valore il link non sar� pi� visualizzato.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Usa immagini link per lista link');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Max larghezza immagine link');
@@ -238,4 +236,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Admin] Notificami quando un nuovo link viene postato (se contiene commento per admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Ricevi notifica quando un nuovo link viene postato (se contiene commento per admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notifica : Nuovo link)');
-}// --- define language begin ---
+}
+// --- define language begin ---

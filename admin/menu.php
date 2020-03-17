@@ -1,5 +1,6 @@
 <?php
-// $Id: menu.php,v 1.6 2007/11/05 04:36:46 ohwada Exp $
+
+// $Id: menu.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // small change

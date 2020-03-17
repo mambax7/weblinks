@@ -1,5 +1,5 @@
 <?php
-// $Id: table_manage_zombie_class.php,v 1.2 2007/11/26 05:36:10 ohwada Exp $
+// $Id: table_manage_zombie_class.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // divid from table_manage.php
@@ -32,6 +32,10 @@
 //================================================================
 // class admin_table_manage_zombie
 //================================================================
+
+/**
+ * Class admin_table_manage_zombie
+ */
 class admin_table_manage_zombie extends happy_linux_basic_handler
 {
     public $FLAG_DEBUG_LINK = 0;
@@ -76,11 +80,14 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         $this->_form = admin_table_manage_zombie_form::getInstance();
     }
 
+    /**
+     * @return \admin_table_manage_zombie|\happy_linux_basic_handler
+     */
     public static function getInstance()
     {
         static $instance;
-        if (null === $instance) {
-            $instance = new static();
+        if (!isset($instance)) {
+            $instance = new self();
         }
 
         return $instance;
@@ -89,6 +96,10 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_param()
     {
         $op = $this->get_post_op();
@@ -99,6 +110,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $op;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $this->_op = $this->_post->get_post_get('op');
@@ -106,6 +120,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $this->_op;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_get('limit');
@@ -113,6 +130,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $this->_limit;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
@@ -133,6 +153,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         $this->print_menu_zombie($this->_THIS_URL);
     }
 
+    /**
+     * @param $action
+     */
     public function print_menu_zombie($action)
     {
         $submit = 'Goto Zombie Check';
@@ -168,7 +191,7 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
             <td><?php echo $total_catlink; ?></td>
         </tr>
     </table>
-    <br>
+    <br/>
     <?php
 
     if ($total_link != $num_link_from_catlink) {
@@ -210,7 +233,7 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
             <td><?php echo $total_catlink; ?></td>
         </tr>
     </table>
-    <br>
+    <br/>
     <?php
 
     $lid_from_link = $this->get_lid_from_link();
@@ -387,6 +410,12 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     }
 
     // check id of arr_2 in arr_1
+
+    /**
+     * @param $arr_1
+     * @param $arr_2
+     * @return array
+     */
     public function check_in_array($arr_1, $arr_2)
     {
         $arr_3 = [];
@@ -463,6 +492,10 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     //---------------------------------------------------------
     // SQL function
     //---------------------------------------------------------
+
+    /**
+     * @return int
+     */
     public function get_num_from_link()
     {
         $sql = 'SELECT count(*) FROM ' . $this->table_link;
@@ -471,6 +504,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $count;
     }
 
+    /**
+     * @return int
+     */
     public function get_num_from_cat()
     {
         $sql = 'SELECT count(*) FROM ' . $this->table_cat;
@@ -478,6 +514,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $this->get_count_by_sql($sql);
     }
 
+    /**
+     * @return int
+     */
     public function get_num_from_catlink()
     {
         $sql = 'SELECT count(*) FROM ' . $this->table_catlink;
@@ -486,6 +525,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $count;
     }
 
+    /**
+     * @return int
+     */
     public function get_num_link_from_catlink()
     {
         $num = 0;
@@ -498,6 +540,9 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $num;
     }
 
+    /**
+     * @return int
+     */
     public function get_num_cat_from_catlink()
     {
         $num = 0;
@@ -510,6 +555,11 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $num;
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
     public function get_lid_from_link($limit = 0, $offset = 0)
     {
         $sql = 'SELECT lid FROM .' . $this->table_link . ' ORDER BY lid';
@@ -518,6 +568,11 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $row;
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
     public function get_lid_from_catlink($limit = 0, $offset = 0)
     {
         $sql = 'SELECT DISTINCT lid FROM ' . $this->table_catlink . ' ORDER BY lid';
@@ -526,6 +581,11 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $row;
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
     public function get_cid_from_cat($limit = 0, $offset = 0)
     {
         $sql = 'SELECT cid FROM .' . $this->table_cat . ' ORDER BY cid';
@@ -534,6 +594,11 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $row;
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
     public function get_cid_from_catlink($limit = 0, $offset = 0)
     {
         $sql = 'SELECT DISTINCT cid FROM ' . $this->table_catlink . ' ORDER BY cid';
@@ -542,6 +607,10 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $row;
     }
 
+    /**
+     * @param $lid
+     * @return mixed
+     */
     public function get_link_title_by_lid($lid)
     {
         $sql = 'SELECT title FROM ' . $this->table_link . " WHERE lid=$lid";
@@ -551,6 +620,10 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $title;
     }
 
+    /**
+     * @param $cid
+     * @return mixed
+     */
     public function get_cat_title_by_cid($cid)
     {
         $sql = 'SELECT title FROM ' . $this->table_cat . " WHERE cid=$cid";
@@ -560,18 +633,27 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         return $title;
     }
 
+    /**
+     * @param $lid
+     */
     public function del_link_by_lid($lid)
     {
         $sql = 'DELETE FROM ' . $this->table_link . " WHERE lid=$lid";
         $this->query($sql);
     }
 
+    /**
+     * @param $lid
+     */
     public function del_catlink_by_lid($lid)
     {
         $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE lid=$lid";
         $this->query($sql);
     }
 
+    /**
+     * @param $cid
+     */
     public function del_catlink_by_cid($cid)
     {
         $sql = 'DELETE FROM ' . $this->table_catlink . " WHERE cid=$cid";
@@ -591,14 +673,17 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         echo $this->_form->build_lib_box_limit_offset($title, $desc, $this->_limit, $this->_next, $this->_op, $submit);
     }
 
+    /**
+     * @param $lid_arr
+     */
     public function print_form_del_link_from_catlink($lid_arr)
     {
         $count = count($lid_arr); ?>
-    <br>
+    <br/>
     <hr>
     <h4><font color='red'>ERROR</font></h4>
-    There are <b><?php echo $count; ?></b> zombie links in catlink table <br>
-    <br>
+    There are <b><?php echo $count; ?></b> zombie links in catlink table <br/>
+    <br/>
     <form action='<?php echo $this->_THIS_URL; ?>' method='post'>
         <input type='hidden' name='op' value='del_link_from_catlink'>
         <input type='hidden' name='limit' value='<?php echo $this->_limit; ?>'>
@@ -613,7 +698,7 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         }
 
         echo "<br>\n"; ?>
-        <br>
+        <br/>
         <input type='submit' value='DELETE link from catlink'>
     </form>
     <?php
@@ -621,14 +706,17 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     $this->_print_finish();
     }
 
+    /**
+     * @param $cid_arr
+     */
     public function print_form_del_cat_from_catlink($cid_arr)
     {
         $count = count($cid_arr); ?>
-    <br>
+    <br/>
     <hr>
     <h4><font color='red'>ERROR</font></h4>
-    There are <b><?php echo $count; ?></b> zombie categories in catlink table <br>
-    <br>
+    There are <b><?php echo $count; ?></b> zombie categories in catlink table <br/>
+    <br/>
     <form action='<?php echo $this->_THIS_URL; ?>' method='post'>
         <input type='hidden' name='op' value='del_cat_from_catlink'>
         <input type='hidden' name='limit' value='<?php echo $this->_limit; ?>'>
@@ -641,7 +729,7 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         }
 
         echo "<br>\n"; ?>
-        <br>
+        <br/>
         <input type='submit' value='DELETE category from catlink'>
     </form>
     <?php
@@ -649,12 +737,15 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     $this->_print_finish();
     }
 
+    /**
+     * @param $lid_arr
+     */
     public function print_form_del_link($lid_arr)
     {
         $count = count($lid_arr); ?>
     <h4><font color='red'>ERROR</font></h4>
-    There are <b><?php echo $count; ?></b> links without category in link table <br>
-    <br>
+    There are <b><?php echo $count; ?></b> links without category in link table <br/>
+    <br/>
     <?php
 
     if ($this->FLAG_DEBUG_LINK) {
@@ -679,11 +770,11 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
             echo '</a>';
             echo "<input type='hidden' name='lid[]' value='$lid'>";
             echo '</a>';
-            echo '<td>' . htmlspecialchars($title) . '</td>';
+            echo '<td>' . htmlspecialchars($title, ENT_QUOTES | ENT_HTML5) . '</td>';
             echo "</tr>\n";
         } ?>
     </table>
-    <br>
+    <br/>
     <?php
 
     if ($this->FLAG_DEBUG_LINK) {
@@ -694,12 +785,15 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
         $this->_print_finish();
     }
 
+    /**
+     * @param $cid_arr
+     */
     public function print_cat_list($cid_arr)
     {
         $count = count($cid_arr); ?>
 <h4>Notice</h4>
-There are <b><?php echo $count; ?></b> categories without link in category table <br>
-<br>
+There are <b><?php echo $count; ?></b> categories without link in category table <br/>
+<br/>
 <table border='1'>
     <tr>
         <th>category id</th>
@@ -714,7 +808,7 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         echo '<a href="' . $this->_build_category_manage($cid) . '" target="_blank">';
         echo sprintf('%03d', $cid);
         echo '</a></td>';
-        echo '<td>' . htmlspecialchars($title) . '</td>';
+        echo '<td>' . htmlspecialchars($title, ENT_QUOTES | ENT_HTML5) . '</td>';
         echo "</tr>\n";
     }
 
@@ -722,6 +816,10 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         $this->_print_finish();
     }
 
+    /**
+     * @param $cid
+     * @return string
+     */
     public function _build_category_manage($cid)
     {
         $url = 'category_manage.php?op=mod_form&amp;cid=' . (int)$cid;
@@ -729,6 +827,10 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         return $url;
     }
 
+    /**
+     * @param $lid
+     * @return string
+     */
     public function _build_link_manage($lid)
     {
         $url = 'link_manage.php?op=mod_form&amp;lid=' . (int)$lid;
@@ -739,9 +841,13 @@ There are <b><?php echo $count; ?></b> categories without link in category table
     //---------------------------------------------------------
     // print
     //---------------------------------------------------------
+
+    /**
+     * @param $op
+     */
     public function _print_check_next($op)
     {
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo "<h4>OK</h4>\n";
         echo '<a href="' . $this->_build_url($op, $this->_limit, 0) . '">';
         echo "GOTO Next</a><br><br>\n";
@@ -749,20 +855,26 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         $this->_print_finish(false);
     }
 
+    /**
+     * @param $op
+     */
     public function _print_check_again_del($op)
     {
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo "<h4>DELETED</h4>\n";
         echo '<a href="' . $this->_build_url($op, $this->_limit, $this->_offset) . '">';
         echo "Check Again</a><br>\n";
     }
 
+    /**
+     * @param bool $flag
+     */
     public function _print_finish($flag = true)
     {
         echo "<br>\n";
 
         if ($flag) {
-            echo "<hr>\n";
+            echo "<hr />\n";
         }
 
         echo '<a href="table_manage_zombie.php">&gt;&gt; Check Again</a>';
@@ -772,6 +884,12 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         echo "</a><br>\n";
     }
 
+    /**
+     * @param $op
+     * @param $limit
+     * @param $offset
+     * @return string
+     */
     public function _build_url($op, $limit, $offset)
     {
         $url = $this->_THIS_URL . '?op=' . $op . '&amp;limit=' . $limit . '&amp;offset=' . $offset;
@@ -782,6 +900,10 @@ There are <b><?php echo $count; ?></b> categories without link in category table
     //---------------------------------------------------------
     // print_bread
     //---------------------------------------------------------
+
+    /**
+     * @param string $name
+     */
     public function print_bread($name = '')
     {
         $arr = [
@@ -814,6 +936,10 @@ There are <b><?php echo $count; ?></b> categories without link in category table
     //=========================================================
     // class admin_table_manage_zombie_form
     //=========================================================
+
+    /**
+     * Class admin_table_manage_zombie_form
+     */
     class admin_table_manage_zombie_form extends happy_linux_form_lib
     {
         //---------------------------------------------------------
@@ -824,6 +950,9 @@ There are <b><?php echo $count; ?></b> categories without link in category table
             parent::__construct();
         }
 
+        /**
+         * @return \admin_table_manage_zombie_form|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|static
+         */
         public static function getInstance()
         {
             static $instance;
@@ -837,6 +966,11 @@ There are <b><?php echo $count; ?></b> categories without link in category table
         //---------------------------------------------------------
         // show form
         //---------------------------------------------------------
+
+        /**
+         * @param $title
+         * @param $action
+         */
         public function show_zombie_start($title, $action)
         {
             echo "When there are many links, timeout may occure.<br>\n";

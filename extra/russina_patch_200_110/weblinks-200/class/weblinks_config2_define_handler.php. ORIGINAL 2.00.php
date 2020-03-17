@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_config2_define_handler.php.\040ORIGINAL\0402.00.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -73,6 +74,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
     //=========================================================
     // class weblinks_config2_define
     //=========================================================
+
+    /**
+     * Class weblinks_config2_define
+     */
     class weblinks_config2_define extends happy_linux_config_define_base
     {
         // class instance
@@ -81,6 +86,11 @@ if (!class_exists('weblinks_config2_define_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_config2_define constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -89,6 +99,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $this->_locate = weblinks_locate_factory::getInstance($dirname);
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -104,6 +118,10 @@ if (!class_exists('weblinks_config2_define_handler')) {
         // same as xoops_version.php
         //---------------------------------------------------------
         // Notice [PHP]: Only variables should be assigned by reference
+
+        /**
+         * @return mixed
+         */
         public function &get_define()
         {
             $SUBMIT_DEFAULT = [XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS, XOOPS_GROUP_ANONYMOUS];
@@ -294,7 +312,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             ];
 
             // move to google map
-            //  $config[29]['name']        = 'cat_show_gm';
+            //	$config[29]['name']        = 'cat_show_gm';
 
             $config[262]['name'] = 'cat_show_forum';
             $config[262]['catid'] = 26;
@@ -338,12 +356,12 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[33]['default'] = 0;
 
             // change to index_description
-            //  $config[34]['name']        = 'index_desc';
+            //	$config[34]['name']        = 'index_desc';
 
             $config[35]['name'] = 'view_style_cat';
             $config[35]['catid'] = '3';
             $config[35]['title'] = '_AM_WEBLINKS_VIEW_STYLE_CAT';
-            //  $config[35]['description'] = '_AM_WEBLINKS_VIEW_STYLE_CAT_DSC';
+            //	$config[35]['description'] = '_AM_WEBLINKS_VIEW_STYLE_CAT_DSC';
             $config[35]['formtype'] = 'radio';
             $config[35]['valuetype'] = 'int';
             $config[35]['default'] = 1;
@@ -722,8 +740,8 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[123]['valuetype'] = 'int';
             $config[123]['default'] = 7;
 
-            //  change to index_new_link
-            //  $config[124]['name']        = 'newlinks';
+            //	change to index_new_link
+            //	$config[124]['name']        = 'newlinks';
 
             $config[125]['name'] = 'perpage';
             $config[125]['catid'] = '12';
@@ -945,8 +963,8 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[157]['default'] = '';
 
             // use rssc
-            //  $config[158]['name']        = 'rss_mode_data';
-            //  $config[159]['name']        = 'rss_limit';
+            //	$config[158]['name']        = 'rss_mode_data';
+            //	$config[159]['name']        = 'rss_limit';
 
             //---------------------------------------------------------
             // rss view
@@ -968,7 +986,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[162]['default'] = 0;
 
             // change to index_new_rss
-            //  $config[163]['name']        = 'rss_new';
+            //	$config[163]['name']        = 'rss_new';
 
             $config[164]['name'] = 'rss_perpage';
             $config[164]['catid'] = '16';
@@ -1270,18 +1288,18 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[296]['valuetype'] = 'int';
             $config[296]['default'] = '1';
 
-            //  $config[297]['name']        = 'gm_map_type';
-            //  $config[297]['catid']       = '21';
-            //  $config[297]['title']       = '_AM_WEBLINKS_GM_MAP_TYPE';
-            //  $config[297]['description'] = '_AM_WEBLINKS_GM_MAP_TYPE_DESC';
-            //  $config[297]['formtype']    = 'radio_nl_non';
-            //  $config[297]['valuetype']   = 'text';
-            //  $config[297]['default']     = 'normal';
-            //  $config[297]['options']     = array(
-            //      _WEBLINKS_GM_TYPE_MAP       => 'normal',
-            //      _WEBLINKS_GM_TYPE_SATELLITE => 'satellite',
-            //      _WEBLINKS_GM_TYPE_HYBRID    => 'hybirid',
-            //  );
+            //	$config[297]['name']        = 'gm_map_type';
+            //	$config[297]['catid']       = '21';
+            //	$config[297]['title']       = '_AM_WEBLINKS_GM_MAP_TYPE';
+            //	$config[297]['description'] = '_AM_WEBLINKS_GM_MAP_TYPE_DESC';
+            //	$config[297]['formtype']    = 'radio_nl_non';
+            //	$config[297]['valuetype']   = 'text';
+            //	$config[297]['default']     = 'normal';
+            //	$config[297]['options']     = array(
+            //		_WEBLINKS_GM_TYPE_MAP       => 'normal',
+            //		_WEBLINKS_GM_TYPE_SATELLITE => 'satellite',
+            //		_WEBLINKS_GM_TYPE_HYBRID    => 'hybirid',
+            //	);
 
             $config[298]['name'] = 'gm_geocode_kind';
             $config[298]['catid'] = '21';
@@ -1353,8 +1371,8 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[29]['valuetype'] = 'int';
             $config[29]['default'] = 1;
 
-            //  $config[301]['name']        = 'gm_use_nishioka_inverse';
-            //  $config[302]['name']        = 'gm_marker_width';
+            //	$config[301]['name']        = 'gm_use_nishioka_inverse';
+            //	$config[302]['name']        = 'gm_marker_width';
 
             //---------------------------------------------------------
             // google search
@@ -1374,7 +1392,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[231]['name'] = 'index_description';
             $config[231]['catid'] = '23';
             $config[231]['title'] = '_AM_WEBLINKS_INDEX_DESC';
-            //  $config[231]['description'] = '_AM_WEBLINKS_INDEX_DESC_DSC';
+            //	$config[231]['description'] = '_AM_WEBLINKS_INDEX_DESC_DSC';
             $config[231]['formtype'] = 'textarea';
             $config[231]['valuetype'] = 'textarea';
             $config[231]['default'] = _AM_WEBLINKS_INDEX_DESC_DEFAULT;
@@ -1420,7 +1438,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[232]['name'] = 'index_new_link';
             $config[232]['catid'] = '23';
             $config[232]['title'] = '_MI_WEBLINKS_NEWLINKS';
-            //  $config[232]['description'] = '_MI_WEBLINKS_NEWLINKSDSC';
+            //	$config[232]['description'] = '_MI_WEBLINKS_NEWLINKSDSC';
             $config[232]['formtype'] = 'text';
             $config[232]['valuetype'] = 'int';
             $config[232]['default'] = 10;
@@ -1428,13 +1446,13 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[233]['name'] = 'index_new_rss';
             $config[233]['catid'] = '23';
             $config[233]['title'] = '_WEBLINKS_RSS_NEW';
-            //  $config[233]['description'] = '_WEBLINKS_RSS_NEW_DSC';
+            //	$config[233]['description'] = '_WEBLINKS_RSS_NEW_DSC';
             $config[233]['formtype'] = 'text';
             $config[233]['valuetype'] = 'int';
             $config[233]['default'] = 10;
 
             // move to google map
-            //  $config[234]['name']        = 'index_gm_mode';
+            //	$config[234]['name']        = 'index_gm_mode';
 
             $config[239]['name'] = 'index_mode_latest';
             $config[239]['catid'] = '23';
@@ -1450,7 +1468,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[341]['name'] = 'index_admin_waiting_show';
             $config[341]['catid'] = '23';
             $config[341]['title'] = '_AM_WEBLINKS_ADMIN_WAITING_SHOW';
-            //  $config[341]['description'] = '';
+            //	$config[341]['description'] = '';
             $config[341]['formtype'] = 'yesno';
             $config[341]['valuetype'] = 'int';
             $config[341]['default'] = 1;
@@ -1458,7 +1476,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[342]['name'] = 'index_user_waiting_num';
             $config[342]['catid'] = '23';
             $config[342]['title'] = '_AM_WEBLINKS_USER_WAITING_NUM';
-            //  $config[342]['description'] = '';
+            //	$config[342]['description'] = '';
             $config[342]['formtype'] = 'text';
             $config[342]['valuetype'] = 'int';
             $config[342]['default'] = 10;
@@ -1466,7 +1484,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[343]['name'] = 'index_user_owner_num';
             $config[343]['catid'] = '23';
             $config[343]['title'] = '_AM_WEBLINKS_USER_OWNER_NUM';
-            //  $config[343]['description'] = '';
+            //	$config[343]['description'] = '';
             $config[343]['formtype'] = 'text';
             $config[343]['valuetype'] = 'int';
             $config[343]['default'] = 10;
@@ -1719,7 +1737,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[371]['name'] = 'lang_main';
             $config[371]['catid'] = '37';
             $config[371]['title'] = '_HAPPY_LINUX_MAIN';
-            //  $config[371]['description'] = '';
+            //	$config[371]['description'] = '';
             $config[371]['formtype'] = 'text';
             $config[371]['valuetype'] = 'text';
             $config[371]['default'] = _HAPPY_LINUX_MAIN;
@@ -1727,7 +1745,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[372]['name'] = 'lang_submitlink';
             $config[372]['catid'] = '37';
             $config[372]['title'] = '_WLS_SUBMIT_NEW_LINK';
-            //  $config[372]['description'] = '';
+            //	$config[372]['description'] = '';
             $config[372]['formtype'] = 'text';
             $config[372]['valuetype'] = 'text';
             $config[372]['default'] = _WLS_SUBMIT_NEW_LINK;
@@ -1735,7 +1753,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[373]['name'] = 'lang_site_popular';
             $config[373]['catid'] = '37';
             $config[373]['title'] = '_WLS_SITE_POPULAR';
-            //  $config[373]['description'] = '';
+            //	$config[373]['description'] = '';
             $config[373]['formtype'] = 'text';
             $config[373]['valuetype'] = 'text';
             $config[373]['default'] = _WLS_SITE_POPULAR;
@@ -1743,7 +1761,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[374]['name'] = 'lang_site_highrate';
             $config[374]['catid'] = '37';
             $config[374]['title'] = '_WLS_SITE_HIGHRATE';
-            //  $config[374]['description'] = '';
+            //	$config[374]['description'] = '';
             $config[374]['formtype'] = 'text';
             $config[374]['valuetype'] = 'text';
             $config[374]['default'] = _WLS_SITE_HIGHRATE;
@@ -1751,7 +1769,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[375]['name'] = 'lang_site_pagerank';
             $config[375]['catid'] = '37';
             $config[375]['title'] = '_WEBLINKS_SITE_PAGERANK';
-            //  $config[375]['description'] = '';
+            //	$config[375]['description'] = '';
             $config[375]['formtype'] = 'text';
             $config[375]['valuetype'] = 'text';
             $config[375]['default'] = _WEBLINKS_SITE_PAGERANK;
@@ -1759,7 +1777,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[376]['name'] = 'lang_catlist';
             $config[376]['catid'] = '37';
             $config[376]['title'] = '_WLS_CATLIST';
-            //  $config[376]['description'] = '';
+            //	$config[376]['description'] = '';
             $config[376]['formtype'] = 'text';
             $config[376]['valuetype'] = 'text';
             $config[376]['default'] = _WLS_CATLIST;
@@ -1767,7 +1785,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[377]['name'] = 'lang_site_recommend';
             $config[377]['catid'] = '37';
             $config[377]['title'] = '_WLS_SITE_RECOMMEND';
-            //  $config[377]['description'] = '';
+            //	$config[377]['description'] = '';
             $config[377]['formtype'] = 'text';
             $config[377]['valuetype'] = 'text';
             $config[377]['default'] = _WLS_SITE_RECOMMEND;
@@ -1775,7 +1793,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[378]['name'] = 'lang_site_mutual';
             $config[378]['catid'] = '37';
             $config[378]['title'] = '_WLS_SITE_MUTUAL';
-            //  $config[378]['description'] = '';
+            //	$config[378]['description'] = '';
             $config[378]['formtype'] = 'text';
             $config[378]['valuetype'] = 'text';
             $config[378]['default'] = _WLS_SITE_MUTUAL;
@@ -1783,7 +1801,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[379]['name'] = 'lang_site_gmap';
             $config[379]['catid'] = '37';
             $config[379]['title'] = '_WEBLINKS_SITE_GMAP';
-            //  $config[379]['description'] = '';
+            //	$config[379]['description'] = '';
             $config[379]['formtype'] = 'text';
             $config[379]['valuetype'] = 'text';
             $config[379]['default'] = _WEBLINKS_SITE_GMAP;
@@ -1791,7 +1809,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[381]['name'] = 'lang_site_random';
             $config[381]['catid'] = '37';
             $config[381]['title'] = '_WLS_SITE_RANDOM';
-            //  $config[381]['description'] = '';
+            //	$config[381]['description'] = '';
             $config[381]['formtype'] = 'text';
             $config[381]['valuetype'] = 'text';
             $config[381]['default'] = _WLS_SITE_RANDOM;
@@ -1799,7 +1817,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[382]['name'] = 'lang_site_rss';
             $config[382]['catid'] = '37';
             $config[382]['title'] = '_WLS_SITE_RSS';
-            //  $config[382]['description'] = '';
+            //	$config[382]['description'] = '';
             $config[382]['formtype'] = 'text';
             $config[382]['valuetype'] = 'text';
             $config[382]['default'] = _WLS_SITE_RSS;
@@ -1807,7 +1825,7 @@ if (!class_exists('weblinks_config2_define_handler')) {
             $config[383]['name'] = 'lang_atomfeed';
             $config[383]['catid'] = '37';
             $config[383]['title'] = '_WLS_ATOMFEED';
-            //  $config[383]['description'] = '';
+            //	$config[383]['description'] = '';
             $config[383]['formtype'] = 'text';
             $config[383]['valuetype'] = 'text';
             $config[383]['default'] = _WLS_ATOMFEED;

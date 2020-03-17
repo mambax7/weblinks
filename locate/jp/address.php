@@ -1,4 +1,5 @@
 <?php
+
 // $Id: address.php,v 1.1 2012/04/10 11:24:42 ohwada Exp $
 
 //=========================================================
@@ -12,6 +13,10 @@ if (!class_exists('weblinks_address_jp')) {
     // class weblinks_address_jp
     // Japan (JP)
     //=========================================================
+
+    /**
+     * Class weblinks_address_jp
+     */
     class weblinks_address_jp
     {
         //---------------------------------------------------------
@@ -25,6 +30,13 @@ if (!class_exists('weblinks_address_jp')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @param $state
+         * @param $city
+         * @param $addr
+         * @return string
+         */
         public function build_address($state, $city, $addr)
         {
             $state = trim($state);

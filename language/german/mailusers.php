@@ -1,5 +1,6 @@
 <?php
-// $Id: mailusers.php,v 1.1 2007/07/28 12:04:01 ohwada Exp $
+
+// $Id: mailusers.php,v 1.1 2011/12/29 14:32:44 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -12,10 +13,10 @@
 // same as modules/system/language/english/admin/mailusers.php
 //---------------------------------------------------------
 
-//%%%%%%    Admin Module Name  MailUsers    %%%%%
+//%%%%%%	Admin Module Name  MailUsers	%%%%%
 define('_AM_DBUPDATED', _MD_AM_DBUPDATED);
 
-//%%%%%%    mailusers.php   %%%%%
+//%%%%%%	mailusers.php 	%%%%%
 define('_AM_SENDTOUSERS', 'Send message to users whose:');
 define('_AM_SENDTOUSERS2', 'Send to:');
 define('_AM_GROUPIS', 'Group is (optional)');

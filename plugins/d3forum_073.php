@@ -1,5 +1,6 @@
 <?php
-// $Id: d3forum_073.php,v 1.3 2007/11/27 11:51:52 ohwada Exp $
+
+// $Id: d3forum_073.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2007-11-26 K.OHWADA
 // Fatal error: Call to a member function getVar() on a non-object
@@ -10,12 +11,16 @@
 
 //=========================================================
 // WebLinks Module
-// for d3forum 0.73 <https://xoops.peak.ne.jp/>
+// for d3forum 0.73 <http://xoops.peak.ne.jp/>
 // 2007-06-10 K.OHWADA
 //=========================================================
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
+    /**
+     * @param $opts
+     * @return array|bool
+     */
     function &weblinks_plugin_forums_d3forum_073($opts)
     {
         global $xoopsDB;
@@ -50,10 +55,14 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         return $arr;
     }
 
+    /**
+     * @param $opts
+     * @return array|bool
+     */
     function &weblinks_plugin_threads_d3forum_073($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
@@ -87,7 +96,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
             return $false;
         }
 
-        $config = $config_handler->getConfigsByCat(0, $module->getVar('mid'));
+        $config = &$config_handler->getConfigsByCat(0, $module->getVar('mid'));
 
         $table_forums = $xoopsDB->prefix($DIRNAME . '_forums');
         $table_topics = $xoopsDB->prefix($DIRNAME . '_topics');
@@ -101,7 +110,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
 
         // BUG : not show when all forum
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql1 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql1 .= ' WHERE forum_id=' . $forum_id_in;
         }
 
         $res1 = $xoopsDB->query($sql1);
@@ -131,7 +140,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
         // latest topics
         $sql2 = 'SELECT * FROM ' . $table_topics;
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql2 .= ' WHERE forum_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_last_post_time ' . $post_order;
 
@@ -214,4 +223,5 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
 
         return $arr;
     }
-}// --- functions end ---
+}
+// --- functions end ---

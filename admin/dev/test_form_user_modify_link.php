@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_user_modify_link.php,v 1.7 2007/09/24 07:06:10 ohwada Exp $
+
+// $Id: test_form_user_modify_link.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // build_rss_url()
@@ -287,4 +288,5 @@ if (!$flag_ok) {
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

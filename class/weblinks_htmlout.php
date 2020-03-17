@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_htmlout.php,v 1.2 2008/02/28 02:52:17 ohwada Exp $
+
+// $Id: weblinks_htmlout.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -11,11 +12,20 @@ if (!class_exists('weblinks_htmlout')) {
     //=========================================================
     // class word
     //=========================================================
+
+    /**
+     * Class weblinks_htmlout
+     */
     class weblinks_htmlout extends happy_linux_plugin
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -25,6 +35,10 @@ if (!class_exists('weblinks_htmlout')) {
             $this->set_prefix_func_data('weblinks_htmlout_data');
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_htmlout|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -38,6 +52,11 @@ if (!class_exists('weblinks_htmlout')) {
         //---------------------------------------------------------
         // execute
         //---------------------------------------------------------
+
+        /**
+         * @param $items
+         * @return |null |null |null
+         */
         public function execute($items)
         {
             // not use return references

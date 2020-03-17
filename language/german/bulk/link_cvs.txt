@@ -1,5 +1,5 @@
 Berlin
-Kanzleramt Berlin,https://www.locationsite.de/berlin/kanzleramt.htm/,Address: Flotowstr. 3 10555 Berlin\nTitel: Vorname Nachname\n
+Kanzleramt Berlin,http://www.locationsite.de/berlin/kanzleramt.htm/,Address: Flotowstr. 3 10555 Berlin\nTitel: Vorname Nachname\n
 ---
 Stuttgart
-Amt fï¿½r ï¿½ffentliche Ordnung,https://http//www.stuttgart.de/,Address: Eberhardstraï¿½e 35 70173 Stuttgart\nAnrede: Vorname Nachname\n
+Amt für öffentliche Ordnung,http://http//www.stuttgart.de/,Address: Eberhardstraße 35 70173 Stuttgart\nAnrede: Vorname Nachname\n

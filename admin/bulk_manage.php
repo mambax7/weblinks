@@ -56,12 +56,16 @@
 // 2006-05-15 K.OHWADA
 //=========================================================
 
-include __DIR__ . '/admin_header.php';
-include __DIR__ . '/admin_header_link.php';
+include 'admin_header.php';
+include 'admin_header_link.php';
 
 //=========================================================
 // class admin_bulk_manage
 //=========================================================
+
+/**
+ * Class admin_bulk_manage
+ */
 class admin_bulk_manage extends happy_linux_error
 {
     // handlder
@@ -100,11 +104,11 @@ class admin_bulk_manage extends happy_linux_error
         parent::__construct();
 
         // handlder
-        $this->_link_edit_handler = weblinks_getHandler('link_edit', WEBLINKS_DIRNAME);
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_catlink_handler = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
-        $this->_comment_handler = weblinks_getHandler('comment', WEBLINKS_DIRNAME);
+        $this->_link_edit_handler = weblinks_get_handler('link_edit', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_catlink_handler = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
+        $this->_comment_handler = weblinks_get_handler('comment', WEBLINKS_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
         $this->_strings = happy_linux_strings::getInstance();
@@ -117,6 +121,9 @@ class admin_bulk_manage extends happy_linux_error
         $this->_init();
     }
 
+    /**
+     * @return \admin_bulk_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -127,6 +134,9 @@ class admin_bulk_manage extends happy_linux_error
         return $instance;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_xoops_uid()
     {
         global $xoopsUser;
@@ -140,41 +150,66 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_get('op');
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_file()
     {
         return $this->_post->get_post('file');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_cid()
     {
         return $this->_post->get_post_int('cid');
     }
 
+    /**
+     * @return array
+     */
     public function get_post_catlist()
     {
         return $this->_post->get_post_text_split('catlist');
     }
 
+    /**
+     * @return array
+     */
     public function get_post_linklist()
     {
         return $this->_post->get_post_text_split('linklist');
     }
 
+    /**
+     * @return array
+     */
     public function get_post_comment_list()
     {
         return $this->_post->get_post_text_split('commentlist');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_check_url()
     {
         return $this->_post->get_post_int('check_url');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_check_desc()
     {
         return $this->_post->get_post_int('check_desc');
@@ -210,12 +245,19 @@ class admin_bulk_manage extends happy_linux_error
         echo "<li><a href='$script_comment'>" . _AM_WEBLINKS_BULK_COMMENT . "</a><br><br></li>\n";
         echo "<li><a href='rssc_add.php'>" . _AM_WEBLINKS_TITLE_RSSC_ADD . "</a><br><br></li>\n";
         echo "<li><a href='link_geocoding.php'>" . _AM_WEBLINKS_GEO_ADD . "</a><br><br></li>\n";
-        //  echo "<li><a href='$script_file_cat'>".  _AM_WEBLINKS_BULK_CAT ."</a><br><br></li>\n";
-        //  echo "<li><a href='$script_file_link'>". _AM_WEBLINKS_BULK_LINK ."</a><br><br></li>\n";
+        //	echo "<li><a href='$script_file_cat'>".  _AM_WEBLINKS_BULK_CAT ."</a><br><br></li>\n";
+        //	echo "<li><a href='$script_file_link'>". _AM_WEBLINKS_BULK_LINK ."</a><br><br></li>\n";
         echo "</ul>\n";
         echo _AM_WEBLINKS_BULK_DSC1 . "<br><br>\n";
     }
 
+    /**
+     * @param $title
+     * @param $dsc
+     * @param $file
+     * @param $op
+     * @return bool
+     */
     public function print_form_file($title, $dsc, $file, $op)
     {
         $this->_print_title($title);
@@ -231,6 +273,9 @@ class admin_bulk_manage extends happy_linux_error
         $this->_bulk_form->print_form_exec($file, $op);
     }
 
+    /**
+     * @param $file
+     */
     public function print_setting_file($file)
     {
         $file_html = $this->_sanitize_text($file); ?>
@@ -248,29 +293,41 @@ class admin_bulk_manage extends happy_linux_error
         } else {
             $this->_print_error("file not exists: $file");
         } ?>
-        <br>
-        <input value='CLOSE' type='button' onclick='window.close();'/>
+        <br/>
+        <input value='CLOSE' type='button' onclick='javascript:window.close();'/>
         </head>
         </html>
         <?php
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_category($file)
     {
         $selbox = $this->_build_selbox_top(1);
         $this->_bulk_form->print_form_category($file, $selbox);
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_link($file)
     {
         $this->_bulk_form->print_form_link($file);
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_link_optional($file)
     {
         $this->_bulk_form->print_form_link_optional($file);
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_comment($file)
     {
         $this->_bulk_form->print_form_comment($file);
@@ -279,6 +336,11 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // add category & link
     //---------------------------------------------------------
+
+    /**
+     * @param $lines
+     * @return bool
+     */
     public function check_lines($lines)
     {
         $count = count($lines);
@@ -292,6 +354,10 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $cid
+     * @param $line_arr
+     */
     public function add_cat($cid, $line_arr)
     {
         echo '<h4>' . _AM_WEBLINKS_BULK_CAT . "</h4>\n";
@@ -307,6 +373,9 @@ class admin_bulk_manage extends happy_linux_error
         echo '<h4>' . _WLS_NEWCATADDED . "</h4>\n";
     }
 
+    /**
+     * @param $line_arr
+     */
     public function add_link($line_arr)
     {
         echo '<h4>' . _AM_WEBLINKS_BULK_LINK . "</h4>\n";
@@ -321,6 +390,9 @@ class admin_bulk_manage extends happy_linux_error
         echo '<h4>' . _WLS_NEWLINKADDED . "</h4>\n";
     }
 
+    /**
+     * @param $line_arr
+     */
     public function add_link_optional($line_arr)
     {
         echo '<h4>' . _AM_WEBLINKS_BULK_LINK . "</h4>\n";
@@ -335,6 +407,9 @@ class admin_bulk_manage extends happy_linux_error
         echo '<h4>' . _WLS_NEWLINKADDED . "</h4>\n";
     }
 
+    /**
+     * @param $line_arr
+     */
     public function add_comment($line_arr)
     {
         echo '<h4>' . _AM_WEBLINKS_BULK_COMMENT . "</h4>\n";
@@ -353,6 +428,11 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // file category & link
     //---------------------------------------------------------
+
+    /**
+     * @param $file
+     * @return bool|void
+     */
     public function file_cat($file)
     {
         $this->_print_title(_AM_WEBLINKS_BULK_CAT);
@@ -371,7 +451,7 @@ class admin_bulk_manage extends happy_linux_error
         $line = array_shift($line_arr);
         $line = trim($line);
 
-        list($depth, $arr) = $this->_get_cat($line);
+        [$depth, $arr] = $this->_get_cat($line);
 
         if (!$this->_check_cat($arr)) {
             echo "<br>\n";
@@ -397,9 +477,13 @@ class admin_bulk_manage extends happy_linux_error
 
         echo "<br>\n";
         echo '<b>' . _WLS_NEWCATADDED . "</b><br>\n";
-        echo "<hr>\n";
+        echo "<hr />\n";
     }
 
+    /**
+     * @param $file
+     * @return bool
+     */
     public function file_link($file)
     {
         $this->_print_title(_AM_WEBLINKS_BULK_LINK);
@@ -422,7 +506,7 @@ class admin_bulk_manage extends happy_linux_error
 
         echo "<br>\n";
         echo '<b>' . _WLS_NEWLINKADDED . "</b><br>\n";
-        echo "<hr>\n";
+        echo "<hr />\n";
     }
 
     //=========================================================
@@ -431,6 +515,12 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // category
     //---------------------------------------------------------
+
+    /**
+     * @param $pid_first
+     * @param $line_arr
+     * @return bool
+     */
     public function _proc_cat($pid_first, $line_arr)
     {
         // category
@@ -445,7 +535,7 @@ class admin_bulk_manage extends happy_linux_error
                 continue;
             }
 
-            list($depth, $arr) = $this->_get_cat($line);
+            [$depth, $arr] = $this->_get_cat($line);
 
             if (!$this->_check_cat($arr)) {
                 continue;
@@ -473,6 +563,10 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $line
+     * @return array
+     */
     public function _get_cat($line)
     {
         $depth = 0;
@@ -480,7 +574,7 @@ class admin_bulk_manage extends happy_linux_error
         $title = '';
 
         if (preg_match('/^>/', $line)) {
-            list($arrow, $title) = preg_split("/\s+/", $line, 2);
+            [$arrow, $title] = preg_split("/\s+/", $line, 2);
             $depth = mb_substr_count($arrow, '>');
         } else {
             $title = $line;
@@ -496,6 +590,10 @@ class admin_bulk_manage extends happy_linux_error
         return [$depth, $arr];
     }
 
+    /**
+     * @param $arr
+     * @return bool
+     */
     public function _check_cat($arr)
     {
         if (!isset($arr['title']) || empty($arr['title'])) {
@@ -507,6 +605,11 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $pid
+     * @param $arr
+     * @return bool
+     */
     public function _insert_cat($pid, $arr)
     {
         $pid = (int)$pid;
@@ -519,7 +622,7 @@ class admin_bulk_manage extends happy_linux_error
         $arr['pid'] = $pid;
         $arr['lflag'] = 1;
 
-        $obj = &$this->_category_handler->create();
+        $obj = $this->_category_handler->create();
 
         // BUG 4318: cannot register bulk links.
         // Fatal error: Call to undefined method weblinks_category::assign_vars_post()
@@ -535,6 +638,10 @@ class admin_bulk_manage extends happy_linux_error
         return $newid;
     }
 
+    /**
+     * @param $title
+     * @return int|mixed
+     */
     public function _get_cid_by_title($title)
     {
         $cid_arr = &$this->_category_handler->get_cid_array_by_title($title);
@@ -546,7 +653,7 @@ class admin_bulk_manage extends happy_linux_error
             return $cid_arr[0];
         } elseif ($count > 1) {
             $this->_print_error(_MANY_MATCH_RECORD . ': ' . $title_s);
-            //      echo "$err_html <br>\n";
+            //		echo "$err_html <br>\n";
             return -1;
         }
 
@@ -558,7 +665,7 @@ class admin_bulk_manage extends happy_linux_error
                 return $cid_arr2[0];
             } elseif ($count2 > 1) {
                 $this->_print_error(_MANY_MATCH_RECORD . ': ' . $title_s);
-                //          echo "$err_html <br>\n";
+                //			echo "$err_html <br>\n";
                 return -1;
             }
         }
@@ -569,10 +676,13 @@ class admin_bulk_manage extends happy_linux_error
         }
 
         $this->_print_error(_NO_MATCH_RECORD . ': ' . $title_s);
-        //  echo "$err_html <br>\n";
+        //	echo "$err_html <br>\n";
         return -1;
     }
 
+    /**
+     * @return mixed
+     */
     public function _build_selbox_top()
     {
         $selbox = $this->_category_handler->build_selbox_top(0, 1, 'cid', '');
@@ -585,6 +695,11 @@ class admin_bulk_manage extends happy_linux_error
     // order of filed is fixed
     // title, url, description
     //---------------------------------------------------------
+
+    /**
+     * @param $line_arr
+     * @return bool
+     */
     public function _proc_link($line_arr)
     {
         $this->_flag_check_url = $this->get_post_check_url();
@@ -609,7 +724,7 @@ class admin_bulk_manage extends happy_linux_error
             elseif (0 == $flag_line) {
                 $category_title = $line;
 
-                if (!$this->_check_cat($category_title)) {
+                if (!$this->_check_cat(['title' => $category_title])) {
                     return false;
                 }
 
@@ -642,13 +757,17 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $line
+     * @return mixed
+     */
     public function _get_link($line)
     {
         $title = '';
         $url = '';
         $description = '';
 
-        list($title, $url, $description) = $this->_split_line($line);
+        [$title, $url, $description] = $this->_split_line($line);
 
         $str = "$title, $url, $description";
         echo $this->_str_trim_html($str);
@@ -666,6 +785,10 @@ class admin_bulk_manage extends happy_linux_error
         return $arr;
     }
 
+    /**
+     * @param $arr
+     * @return bool
+     */
     public function _check_link($arr)
     {
         if (!isset($arr['title']) || empty($arr['title'])) {
@@ -693,6 +816,11 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $cid
+     * @param $arr
+     * @return bool
+     */
     public function _insert_link($cid, $arr)
     {
         $cid = (int)$cid;
@@ -708,7 +836,7 @@ class admin_bulk_manage extends happy_linux_error
 
         // BUG 4318: cannot register bulk links.
         // Fatal error: Call to undefined method weblinks_link_edit_handler::add_link_to_link()
-        $link_obj = &$this->_link_edit_handler->create_add_link_by_arr($arr, true, false);
+        $link_obj = $this->_link_edit_handler->create_add_link_by_arr($arr, true, false);
 
         // set time_publish
         if (isset($arr['time_publish'])) {
@@ -734,7 +862,7 @@ class admin_bulk_manage extends happy_linux_error
         }
 
         // catlink_obj
-        $catlink_obj = &$this->_catlink_handler->create();
+        $catlink_obj = $this->_catlink_handler->create();
         $catlink_obj->setVar('cid', $cid);
         $catlink_obj->setVar('lid', $newid);
 
@@ -755,6 +883,11 @@ class admin_bulk_manage extends happy_linux_error
     // user can specify the name and rder of fields
     // ex) 'title', 'url', 'description', 'addr'
     //---------------------------------------------------------
+
+    /**
+     * @param $line_arr
+     * @return bool
+     */
     public function _proc_link_optinal($line_arr)
     {
         $this->_flag_check_url = $this->get_post_check_url();
@@ -779,7 +912,7 @@ class admin_bulk_manage extends happy_linux_error
             elseif (0 == $flag_line) {
                 $category_title = $line;
 
-                if (!$this->_check_cat($category_title)) {
+                if (!$this->_check_cat(['title' => $category_title])) {
                     return false;
                 }
 
@@ -820,6 +953,10 @@ class admin_bulk_manage extends happy_linux_error
         return true;
     }
 
+    /**
+     * @param $line
+     * @return mixed
+     */
     public function _get_link_optinal($line)
     {
         $title = '';
@@ -829,7 +966,7 @@ class admin_bulk_manage extends happy_linux_error
         $link_arr = [];
         $temp_arr = &$this->_split_line($line);
 
-        for ($i = 0; $i < $this->_field_count; ++$i) {
+        for ($i = 0; $i < $this->_field_count; $i++) {
             if (isset($temp_arr[$i])) {
                 $link_arr[$this->_field_array[$i]] = $temp_arr[$i];
             }
@@ -868,13 +1005,17 @@ class admin_bulk_manage extends happy_linux_error
         echo $this->_str_trim_html($str);
         echo "<br>\n";
 
-        $obj = &$this->_link_handler->create();
+        $obj = $this->_link_handler->create();
         $obj->setVars($link_arr);
         $obj_arr = &$obj->gets();
 
         return $obj_arr;
     }
 
+    /**
+     * @param $arr
+     * @return bool
+     */
     public function _check_field($arr)
     {
         $this->_link_handler->get_field_meta_name_array();
@@ -897,6 +1038,11 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // comment
     //---------------------------------------------------------
+
+    /**
+     * @param $line_arr
+     * @return bool
+     */
     public function _proc_comment($line_arr)
     {
         foreach ($line_arr as $line) {
@@ -905,7 +1051,7 @@ class admin_bulk_manage extends happy_linux_error
                 continue;
             }
 
-            list($link_title, $uid, $com_title, $com_text) = $this->_split_line($line);
+            [$link_title, $uid, $com_title, $com_text] = $this->_split_line($line);
 
             $str = "$link_title, $uid, $com_title, $com_text";
             echo $this->_str_trim_html($str);
@@ -946,7 +1092,12 @@ class admin_bulk_manage extends happy_linux_error
 
             $com_text = $this->_convert_str_to_crlf($com_text);
 
-            $newid = $this->_comment_handler->insert_comment_by_lid($lid, $uid, $com_title, $com_text);
+            $newid = $this->_comment_handler->insert_comment_by_lid(
+                $lid,
+                $uid,
+                $com_title,
+                $com_text
+            );
             if (!$newid) {
                 $error = $this->_comment_handler->get_error();
                 $this->_print_error($error);
@@ -961,6 +1112,11 @@ class admin_bulk_manage extends happy_linux_error
     //-----------------------------------------------
     // check or split line
     //-----------------------------------------------
+
+    /**
+     * @param $line
+     * @return bool
+     */
     public function _check_line_pause($line)
     {
         if (preg_match('/^---/', $line)) {
@@ -970,9 +1126,13 @@ class admin_bulk_manage extends happy_linux_error
         return false;
     }
 
+    /**
+     * @param $line
+     * @return array
+     */
     public function &_split_line($line)
     {
-        $item_arr = preg_split($this->_split_pattern, $line);
+        $item_arr = split($this->_split_pattern, $line);
 
         foreach ($item_arr as $key => $item) {
             $item_arr[$key] = $this->_convert_str_to_camma(trim($item));
@@ -981,6 +1141,9 @@ class admin_bulk_manage extends happy_linux_error
         return $item_arr;
     }
 
+    /**
+     * @param $value
+     */
     public function set_split_pattern($value)
     {
         $this->_split_pattern = $value;
@@ -989,6 +1152,12 @@ class admin_bulk_manage extends happy_linux_error
     //-----------------------------------------------
     // convert strings
     //-----------------------------------------------
+
+    /**
+     * @param     $str
+     * @param int $max
+     * @return string
+     */
     public function _str_trim_html($str, $max = 100)
     {
         $str = $this->_strings->shorten_text($str, $max);
@@ -997,6 +1166,10 @@ class admin_bulk_manage extends happy_linux_error
         return $str;
     }
 
+    /**
+     * @param $str
+     * @return string|string[]
+     */
     public function _convert_str_to_crlf($str)
     {
         $str = $this->_strings->convert_str_to_crlf($str);
@@ -1004,6 +1177,10 @@ class admin_bulk_manage extends happy_linux_error
         return $str;
     }
 
+    /**
+     * @param $str
+     * @return string|string[]
+     */
     public function _convert_str_to_camma($str)
     {
         $str = str_replace('\2c', ',', $str);
@@ -1011,6 +1188,10 @@ class admin_bulk_manage extends happy_linux_error
         return $str;
     }
 
+    /**
+     * @param $str
+     * @return string
+     */
     public function _sanitize_text($str)
     {
         $str = htmlspecialchars($str, ENT_QUOTES);
@@ -1021,11 +1202,18 @@ class admin_bulk_manage extends happy_linux_error
     //-----------------------------------------------
     // print
     //-----------------------------------------------
+
+    /**
+     * @param $title
+     */
     public function _print_title($title)
     {
         echo $this->_bulk_form->_build_html_title($title);
     }
 
+    /**
+     * @param $msg
+     */
     public function _print_error($msg)
     {
         echo $this->_bulk_form->build_html_red($msg);
@@ -1034,6 +1222,10 @@ class admin_bulk_manage extends happy_linux_error
     //---------------------------------------------------------
     // token ticket
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function check_token()
     {
         $ret = $this->_bulk_form->check_token();
@@ -1047,6 +1239,10 @@ class admin_bulk_manage extends happy_linux_error
 //=========================================================
 // class admin_bulk_form
 //=========================================================
+
+/**
+ * Class admin_bulk_form
+ */
 class admin_bulk_form extends happy_linux_form
 {
     public $ROWS = 40;
@@ -1060,6 +1256,9 @@ class admin_bulk_form extends happy_linux_form
         parent::__construct();
     }
 
+    /**
+     * @return \admin_bulk_form|\happy_linux_form|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -1073,6 +1272,11 @@ class admin_bulk_form extends happy_linux_form
     //---------------------------------------------------------
     // public
     //---------------------------------------------------------
+
+    /**
+     * @param $file
+     * @param $selbox
+     */
     public function print_form_category($file, $selbox)
     {
         echo $this->_build_table_begin(_AM_WEBLINKS_BULK_CAT);
@@ -1099,6 +1303,9 @@ class admin_bulk_form extends happy_linux_form
         echo $this->_build_table_end();
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_link($file)
     {
         $msg = _AM_WEBLINKS_BULK_LINK . ' ( ' . _AM_WEBLINKS_BULK_LINK_DSC10 . ' )';
@@ -1131,6 +1338,9 @@ class admin_bulk_form extends happy_linux_form
         echo $this->_build_table_end();
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_link_optional($file)
     {
         $msg = _AM_WEBLINKS_BULK_LINK . ' ( ' . _AM_WEBLINKS_BULK_LINK_DSC20 . ' )';
@@ -1166,6 +1376,9 @@ class admin_bulk_form extends happy_linux_form
         echo $this->_build_table_end();
     }
 
+    /**
+     * @param $file
+     */
     public function print_form_comment($file)
     {
         echo $this->_build_table_begin(_AM_WEBLINKS_BULK_COMMENT);
@@ -1190,6 +1403,11 @@ class admin_bulk_form extends happy_linux_form
         echo $this->_build_table_end();
     }
 
+    /**
+     * @param     $file
+     * @param int $rows
+     * @param int $cols
+     */
     public function print_file_in_form($file, $rows = 40, $cols = 80)
     {
         echo "<form>\n";
@@ -1201,6 +1419,11 @@ class admin_bulk_form extends happy_linux_form
         echo "</form>\n";
     }
 
+    /**
+     * @param        $file
+     * @param        $op
+     * @param string $button
+     */
     public function print_form_exec($file, $op, $button = '')
     {
         if (empty($button)) {
@@ -1218,6 +1441,11 @@ class admin_bulk_form extends happy_linux_form
     //---------------------------------------------------------
     // private
     //---------------------------------------------------------
+
+    /**
+     * @param $form_name
+     * @param $file
+     */
     public function _print_view_file($form_name, $file)
     {
         $action = '';
@@ -1230,6 +1458,10 @@ class admin_bulk_form extends happy_linux_form
         echo $this->build_form_end();
     }
 
+    /**
+     * @param $title
+     * @return string
+     */
     public function _build_table_begin($title)
     {
         $text = "<table width='100%' border='0' cellspacing='1' class='outer'>\n";
@@ -1239,6 +1471,9 @@ class admin_bulk_form extends happy_linux_form
         return $text;
     }
 
+    /**
+     * @return string
+     */
     public function _build_table_end()
     {
         $text = "</td></tr></table><br>\n";
@@ -1246,6 +1481,10 @@ class admin_bulk_form extends happy_linux_form
         return $text;
     }
 
+    /**
+     * @param $title
+     * @return string
+     */
     public function _build_html_title($title)
     {
         $text = "<h4>$title</h4>\n";
@@ -1306,7 +1545,7 @@ switch ($op) {
         exit();
         break;
     case 'add_cat':
-        if (!$bulk_manage->check_token()) {
+        if (!($bulk_manage->check_token())) {
             redirect_header('bulk_manage.php', 5, 'Token Error');
             exit();
         }
@@ -1324,7 +1563,7 @@ switch ($op) {
         $bulk_manage->add_cat($cid, $cat_lines);
         break;
     case 'add_link':
-        if (!$bulk_manage->check_token()) {
+        if (!($bulk_manage->check_token())) {
             redirect_header('bulk_manage.php', 5, 'Token Error');
             exit();
         }
@@ -1341,7 +1580,7 @@ switch ($op) {
         $bulk_manage->add_link($link_lines);
         break;
     case 'add_link_optional':
-        if (!$bulk_manage->check_token()) {
+        if (!($bulk_manage->check_token())) {
             redirect_header('bulk_manage.php', 5, 'Token Error');
             exit();
         }
@@ -1358,7 +1597,7 @@ switch ($op) {
         $bulk_manage->add_link_optional($link_lines);
         break;
     case 'add_comment':
-        if (!$bulk_manage->check_token()) {
+        if (!($bulk_manage->check_token())) {
             redirect_header('bulk_manage.php', 5, 'Token Error');
             exit();
         }

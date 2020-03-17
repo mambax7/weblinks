@@ -1,5 +1,5 @@
 <?php
-// $Id: mylinks110_to_weblinks120.php,v 1.3 2007/05/09 13:08:27 ohwada Exp $
+// $Id: mylinks110_to_weblinks120.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2007-05-06 K.OHWADA
 // BUG 4562: Fatal error
@@ -21,6 +21,10 @@ include 'admin_header.php';
 //=========================================================
 // class admin_import_mylinks
 //=========================================================
+
+/**
+ * Class admin_import_mylinks
+ */
 class admin_import_mylinks extends happy_linux_basic_handler
 {
     public $_MYLINKS_DIRNAME = 'mylinks';
@@ -69,10 +73,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_post = happy_linux_post::getInstance();
         $this->_form = happy_linux_form_lib::getInstance();
 
-        $this->_weblinks_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_weblinks_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_weblinks_catlink_handler = weblinks_getHandler('catlink', WEBLINKS_DIRNAME);
-        $this->_weblinks_votedata_handler = weblinks_getHandler('votedata', WEBLINKS_DIRNAME);
+        $this->_weblinks_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_weblinks_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_weblinks_catlink_handler = weblinks_get_handler('catlink', WEBLINKS_DIRNAME);
+        $this->_weblinks_votedata_handler = weblinks_get_handler('votedata', WEBLINKS_DIRNAME);
         $this->_weblinks_votedata_table = $this->prefix('votedata');
 
         $this->_weblinks_category_handler->set_debug_db_error(1);
@@ -94,6 +98,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_mylinks_mid = $this->_system->get_mid_by_dirname($this->_MYLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_import_mylinks|\happy_linux_basic_handler|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -107,6 +114,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
     //---------------------------------------------------------
     // POST
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $this->_op = $this->_post->get_post_get('op');
@@ -114,6 +125,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
         return $this->_op;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_limit()
     {
         $this->_limit = $this->_post->get_post_get('limit');
@@ -121,6 +135,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
         return $this->_limit;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_post_offset()
     {
         $this->_offset = $this->_post->get_post_get('offset');
@@ -135,23 +152,23 @@ class admin_import_mylinks extends happy_linux_basic_handler
     public function menu()
     {
         ?>
-        <br>
-        There are 4 steps. <br>
-        1. import shot images <br>
-        2. import category table <br>
-        3. import link table <br>
-        4. import votedate table <br>
-        5. import comment table <br>
-        excute each <?php echo $this->_LIMIT; ?> records at a time <br>
-        <br>
-        Preparation <br>
-        Please enable to be writable of cache directory. <br>
-        <br>
-        Nitice <br>
-        This program don't import modify and broken table. <br>
+        <br/>
+        There are 4 steps. <br/>
+        1. import shot images <br/>
+        2. import category table <br/>
+        3. import link table <br/>
+        4. import votedate table <br/>
+        5. import comment table <br/>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br/>
+        <br/>
+        Preparation <br/>
+        Please enable to be writable of cache directory. <br/>
+        <br/>
+        Nitice <br/>
+        This program don't import modify and broken table. <br/>
         <h4 style="color:#ff0000;">Warnig</h4>
-        Excute only once, after install. <br>
-        This program overwrite MySQL tables. <br>
+        Excute only once, after install. <br/>
+        This program overwrite MySQL tables. <br/>
         <?php
 
         $this->_form_image();
@@ -263,7 +280,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
 
             echo "$cid: $title <br>";
 
-            $obj = &$this->_weblinks_category_handler->create();
+            $obj = $this->_weblinks_category_handler->create();
             $obj->set('cid', $cid);
             $obj->set('pid', $pid);
             $obj->set('title', $title);
@@ -348,7 +365,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $offset = $this->get_post_offset();
 
         $sql1 = 'SELECT count(*) FROM ' . $this->_mylinks_links_table;
-        $total = &$this->get_count_by_sql($sql1);
+        $total = $this->get_count_by_sql($sql1);
 
         $sql2 = 'SELECT * FROM ' . $this->_mylinks_links_table . ' ORDER BY lid';
         $rows2 = &$this->get_rows_by_sql($sql2, $this->_LIMIT, $offset);
@@ -438,6 +455,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
         }
     }
 
+    /**
+     * @param $lid
+     * @return mixed
+     */
     public function get_mylinks_description($lid)
     {
         $sql = 'SELECT * FROM ' . $this->_mylinks_text_table . ' WHERE lid=' . $lid;
@@ -577,6 +598,10 @@ class admin_import_mylinks extends happy_linux_basic_handler
     //---------------------------------------------------------
     // source module
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function exist_source_module()
     {
         if ($this->_mylinks_mid) {
@@ -586,6 +611,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
         return false;
     }
 
+    /**
+     * @return string
+     */
     public function get_source_msg_not_installed()
     {
         $msg = $this->_MYLINKS_DIRNAME . " module is not installed \n";
@@ -598,7 +626,7 @@ class admin_import_mylinks extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function _print_finish()
     {
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo "<h4>FINISHED</h4>\n";
         echo '<a href="index.php">GOTO Admin Menu</a>' . "<br>\n";
     }
@@ -645,13 +673,16 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_print_form_next($title, $op, $submit);
     }
 
+    /**
+     * @param $offset
+     */
     public function _form_next_link($offset)
     {
         $title = 'STEP 3 : import link table';
         $submit = 'GO next ' . $this->_LIMIT . ' links';
         $op = 'import_link';
 
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo '<h4>' . $title . "</h4>\n";
         $this->_print_form_next($title, $op, $submit, $offset);
     }
@@ -676,9 +707,15 @@ class admin_import_mylinks extends happy_linux_basic_handler
         $this->_print_form_next($title, $op, $submit);
     }
 
+    /**
+     * @param     $title
+     * @param     $op
+     * @param     $submit
+     * @param int $offset
+     */
     public function _print_form_next($title, $op, $submit, $offset = 0)
     {
-        echo "<br><hr>\n";
+        echo "<br><hr />\n";
         echo '<h4>' . $title . "</h4>\n";
 
         if ($offset) {
@@ -694,6 +731,9 @@ class admin_import_mylinks extends happy_linux_basic_handler
         echo $text;
     }
 
+    /**
+     * @return bool
+     */
     public function check_token()
     {
         $ret = $this->_form->check_token();

@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_parser_class.php,v 1.1 2007/11/02 11:36:29 ohwada Exp $
+
+// $Id: test_form_parser_class.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -9,6 +10,10 @@
 //=========================================================
 // class weblinks_test_form_parser
 //=========================================================
+
+/**
+ * Class weblinks_test_form_parser
+ */
 class weblinks_test_form_parser
 {
     public $_DEBUG = false;
@@ -24,6 +29,11 @@ class weblinks_test_form_parser
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+
+    /**
+     * @param $text
+     * @return array
+     */
     public function &parse($text)
     {
         $parser = new HtmlParser($text);
@@ -109,7 +119,7 @@ class weblinks_test_form_parser
                 $selected = false;
                 $checked = false;
 
-                for ($i = 0; $i < $size; ++$i) {
+                for ($i = 0; $i < $size; $i++) {
                     $attr_name = $attrNames[$i];
                     $attr_value = $attrValues[$attr_name];
 

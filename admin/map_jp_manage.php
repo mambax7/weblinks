@@ -1,5 +1,6 @@
 <?php
-// $Id: map_jp_manage.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: map_jp_manage.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // weblinks_admin_print_footer()
@@ -24,6 +25,10 @@ if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/map_jp.p
 //=========================================================
 // class admin_map_jp_manage
 //=========================================================
+
+/**
+ * Class admin_map_jp_manage
+ */
 class admin_map_jp_manage extends happy_linux_error
 {
     public $_category_handler;
@@ -40,8 +45,8 @@ class admin_map_jp_manage extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_category_handler = weblinks_getHandler('category_basic', WEBLINKS_DIRNAME);
-        $this->_config_handler = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category_basic', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2', WEBLINKS_DIRNAME);
         $this->_map_jp = weblinks_map_jp::getInstance(WEBLINKS_DIRNAME);
         $this->_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
@@ -49,6 +54,9 @@ class admin_map_jp_manage extends happy_linux_error
         $this->_post = happy_linux_post::getInstance();
     }
 
+    /**
+     * @return \admin_map_jp_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -62,6 +70,10 @@ class admin_map_jp_manage extends happy_linux_error
     //---------------------------------------------------------
     // post parameter
     //---------------------------------------------------------
+
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_text('op');
@@ -70,6 +82,10 @@ class admin_map_jp_manage extends happy_linux_error
     //---------------------------------------------------------
     // save
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function save_map()
     {
         $pref_arr = $this->_post->get_post('pref');
@@ -84,7 +100,7 @@ class admin_map_jp_manage extends happy_linux_error
 
         $arr = [];
         $count = count($pref_arr);
-        for ($i = 0; $i < $count; ++$i) {
+        for ($i = 0; $i < $count; $i++) {
             $pref = $pref_arr[$i];
             $arr[$pref]['name'] = $name_arr[$i];
             $arr[$pref]['cid'] = $cid_arr[$i];
@@ -116,6 +132,9 @@ class admin_map_jp_manage extends happy_linux_error
         echo $this->_map_jp->fetch_template($pref);
     }
 
+    /**
+     * @return bool
+     */
     public function &set_pref_array()
     {
         // get from config
@@ -141,6 +160,9 @@ class admin_map_jp_manage extends happy_linux_error
         $this->_form->print_form($this->_pref_array);
     }
 
+    /**
+     * @return mixed
+     */
     public function check_token()
     {
         $ret = $this->_form->check_token();
@@ -162,6 +184,10 @@ class admin_map_jp_manage extends happy_linux_error
 //=========================================================
 // class admin_map_jp_manage
 //=========================================================
+
+/**
+ * Class admin_map_jp_form
+ */
 class admin_map_jp_form extends happy_linux_form_lib
 {
     public $_category_handler;
@@ -173,9 +199,12 @@ class admin_map_jp_form extends happy_linux_form_lib
     {
         parent::__construct();
 
-        $this->_category_handler = weblinks_getHandler('category_basic', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category_basic', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_map_jp_form|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -189,6 +218,10 @@ class admin_map_jp_form extends happy_linux_form_lib
     //---------------------------------------------------------
     // form
     //---------------------------------------------------------
+
+    /**
+     * @param $info_arr
+     */
     public function print_form($info_arr)
     {
         echo $this->build_form_begin('map_jp_form');
@@ -245,8 +278,8 @@ class admin_map_jp_form extends happy_linux_form_lib
 //=========================================================
 // main
 //=========================================================
-$manage = admin_map_jp_manage::getInstance();
-$config_form = admin_config_form::getInstance();
+$manage       = admin_map_jp_manage::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
 $op = $manage->get_post_op();
@@ -265,7 +298,7 @@ if ('save' == $op) {
         $error .= $config_store->getErrors(1);
     }
 } elseif ('save_map' == $op) {
-    if (!$manage->check_token()) {
+    if (!($manage->check_token())) {
         redirect_header('map_jp_manage.php', 5, 'Token Error');
         exit();
     }

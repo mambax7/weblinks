@@ -1,5 +1,6 @@
 <?php
-// $Id: myalbum_287.php,v 1.6 2009/01/31 19:49:37 ohwada Exp $
+
+// $Id: myalbum_287.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2009-02-01 K.OHWADA
 // The unification of the interface with Webphoto
@@ -18,12 +19,16 @@
 
 //=========================================================
 // WebLinks Module
-// for myalbum 2.87 <https://xoops.peak.ne.jp/>
+// for myalbum 2.87 <http://xoops.peak.ne.jp/>
 // 2007-03-25 K.OHWADA
 //=========================================================
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
+    /**
+     * @param $opts
+     * @return array|bool
+     */
     function &weblinks_plugin_albums_myalbum_287($opts)
     {
         global $xoopsDB;
@@ -50,6 +55,10 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
         return $arr;
     }
 
+    /**
+     * @param $opts
+     * @return array|bool
+     */
     function &weblinks_plugin_photos_myalbum_287($opts)
     {
         $false = false;
@@ -72,17 +81,17 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
         if (0 == $album_id) {
             return $false;
         } elseif (WEBLINKS_PLUGIN_ALL == $album_id) {
-            $album_id = 0;  // all category
+            $album_id = 0;    // all category
         }
 
         $options = [
-            0 => $DIRNAME,      // dirname
+            0 => $DIRNAME,        // dirname
             1 => $width,        // box_size
-            2 => $album_limit,  // photos_num
-            3 => $album_id,     // category
-            4 => $mode_sub,     // sub category
+            2 => $album_limit,    // photos_num
+            3 => $album_id,        // category
+            4 => $mode_sub,        // sub category
             5 => $cycle,        // cycle (sec)
-            6 => $cols,         // cols
+            6 => $cols,            // cols
         ];
 
         // Fatal error: Call to undefined function b_myalbum_rphoto_show()
@@ -119,4 +128,5 @@ if (!function_exists('weblinks_plugin_albums_myalbum_287')) {
 
         return $ret;
     }
-}// --- functions end ---
+}
+// --- functions end ---

@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_view_handler.php,v 1.25 2008/10/18 07:38:25 ohwada Exp $
+
+// $Id: weblinks_link_view_handler.php,v 1.1 2011/12/29 14:33:05 ohwada Exp $
 
 // 2008-10-18 K.OHWADA
 // Notice [PHP]: Only variable references should be returned by reference
@@ -76,6 +77,10 @@ if (!class_exists('weblinks_link_view_handler')) {
     //=========================================================
     // class weblinks_link_view_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_view_handler
+     */
     class weblinks_link_view_handler extends weblinks_cat_view_handler
     {
         public $_link_view;
@@ -97,6 +102,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_view_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -122,6 +132,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         // get link item
         //---------------------------------------------------------
         // singlelink
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function get_link_rssc_lid($lid)
         {
             return $this->_link_handler->get_rssc_lid($lid);
@@ -131,6 +146,12 @@ if (!class_exists('weblinks_link_view_handler')) {
         // link list for index
         //---------------------------------------------------------
         // index
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_latest($limit = 0, $start = 0)
         {
             if ($this->get_debug_print_time()) {
@@ -149,6 +170,12 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // index
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_create($limit = 0, $start = 0)
         {
             $orderby = 'time_create DESC, lid DESC';
@@ -159,6 +186,13 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // index
+
+        /**
+         * @param     $uid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_owner_list_by_uid($uid, $limit = 0, $start = 0)
         {
             $arr = &$this->_link_handler->get_lid_array_by_uid($uid, $limit, $start);
@@ -171,6 +205,14 @@ if (!class_exists('weblinks_link_view_handler')) {
         // link list for viewcat
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param     $cid
+         * @param     $sort
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_by_cid_sort($cid, $sort, $limit = 0, $start = 0)
         {
             $lid_arr = &$this->get_lid_array_by_cid_sort($cid, $sort, $limit, $start);
@@ -180,6 +222,13 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // viewcat
+
+        /**
+         * @param     $cid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_all_child_list_latest_by_cid($cid, $limit = 0, $start = 0)
         {
             $orderby = 'time_update DESC';
@@ -193,6 +242,13 @@ if (!class_exists('weblinks_link_view_handler')) {
         // link list for top ten
         //---------------------------------------------------------
         // topten
+
+        /**
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_orderby($orderby, $limit = 0, $start = 0)
         {
             // BUG: topten is unlimited
@@ -203,6 +259,14 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // topten
+
+        /**
+         * @param     $topten_cats
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_topten_list($topten_cats, $orderby, $limit = 0, $start = 0)
         {
             $this->_clear_errors();
@@ -225,7 +289,7 @@ if (!class_exists('weblinks_link_view_handler')) {
                 $rank_arr[$i]['title'] = sprintf(_WLS_TOPTEN_TITLE, $ctitle_s, $limit);
                 $rank_arr[$i]['links'] = $links;
 
-                ++$i;
+                $i++;
                 if ($i >= $topten_cats) {
                     break;
                 }
@@ -234,6 +298,13 @@ if (!class_exists('weblinks_link_view_handler')) {
             return $rank_arr;
         }
 
+        /**
+         * @param     $cid
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &_get_link_parent_child_list_by_cid_orderby($cid, $orderby, $limit = 0, $start = 0)
         {
             $lid_arr = &$this->get_lid_array_parent_child_by_cid_orderby($cid, $orderby, $limit, $start);
@@ -251,6 +322,14 @@ if (!class_exists('weblinks_link_view_handler')) {
         // link list for viewmark
         //---------------------------------------------------------
         // viewmark
+
+        /**
+         * @param     $mark
+         * @param     $sort
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_by_mark_sort($mark, $sort, $limit = 0, $start = 0)
         {
             $orderby = 'lid ASC';
@@ -271,6 +350,11 @@ if (!class_exists('weblinks_link_view_handler')) {
             return $list;
         }
 
+        /**
+         * @param $total
+         * @param $limit
+         * @return mixed
+         */
         public function get_gmap_kml_page($total, $limit)
         {
             return $this->_link_handler->get_gmap_kml_page($total, $limit);
@@ -280,6 +364,15 @@ if (!class_exists('weblinks_link_view_handler')) {
         // link list for search
         //---------------------------------------------------------
         // search
+
+        /**
+         * @param     $cid_arr
+         * @param     $where
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_by_cid_array_where_orderby(&$cid_arr, $where, $orderby, $limit = 0, $start = 0)
         {
             $arr = &$this->get_lid_array_by_cid_array_where_orderby($cid_arr, $where, $orderby, $limit, $start);
@@ -289,6 +382,13 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // search
+
+        /**
+         * @param     $where
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_link_list_by_where($where, $limit = 0, $start = 0)
         {
             $arr = &$this->_link_handler->get_lid_array_by_where($where, $limit, $start);
@@ -298,12 +398,20 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // search
+
+        /**
+         * @return mixed
+         */
         public function build_sql_where_exclude()
         {
             return $this->_link_handler->build_sql_where_exclude();
         }
 
         // search
+
+        /**
+         * @return mixed
+         */
         public function build_sql_where_exclude_join()
         {
             return $this->_link_handler->build_sql_where_exclude_join();
@@ -313,6 +421,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         // single link
         //---------------------------------------------------------
         // singlelink
+
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function &get_link_by_lid($lid)
         {
             return $this->_get_link_by_lid($lid);
@@ -322,6 +435,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         // forum threads
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param $cid
+         * @return array
+         */
         public function &get_cat_forum_threads_by_cid($cid)
         {
             $forum_id = $this->get_cat_forum_id_by_cid($cid);
@@ -340,6 +458,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // singlelink
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function &get_link_forum_threads_by_lid($lid)
         {
             $forum_id = $this->_link_handler->get_forum_id($lid);
@@ -357,6 +480,10 @@ if (!class_exists('weblinks_link_view_handler')) {
             return $arr;
         }
 
+        /**
+         * @param $conf_name
+         * @return string
+         */
         public function _get_forum_post_order($conf_name)
         {
             $post_order_num = $this->_conf[$conf_name];
@@ -377,6 +504,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         // album photos
         //---------------------------------------------------------
         // viewcat
+
+        /**
+         * @param $cid
+         * @return array|mixed
+         */
         public function &get_cat_album_photos_by_cid($cid)
         {
             $album_id = $this->get_cat_album_id_by_cid($cid);
@@ -393,6 +525,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // singlelink
+
+        /**
+         * @param $lid
+         * @return array
+         */
         public function &get_link_album_photos_by_lid($lid)
         {
             $album_id = $this->_link_handler->get_album_id($lid);
@@ -411,11 +548,18 @@ if (!class_exists('weblinks_link_view_handler')) {
         //---------------------------------------------------------
         // get GET & POST
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function get_get_lid()
         {
             return $this->_post->get_get_int('lid');
         }
 
+        /**
+         * @return int
+         */
         public function get_get_cid()
         {
             return $this->_post->get_get_int('cid');
@@ -424,11 +568,18 @@ if (!class_exists('weblinks_link_view_handler')) {
         //---------------------------------------------------------
         // get property
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function is_admin()
         {
             return $this->_system_is_admin;
         }
 
+        /**
+         * @return mixed
+         */
         public function get_system_uid()
         {
             return $this->_system_uid;
@@ -437,11 +588,18 @@ if (!class_exists('weblinks_link_view_handler')) {
         //---------------------------------------------------------
         // set keyword property
         //---------------------------------------------------------
+
+        /**
+         * @param $value
+         */
         public function set_highlight($value)
         {
             $this->_flag_highlight = (bool)$value;
         }
 
+        /**
+         * @param $arr
+         */
         public function set_keyword_array(&$arr)
         {
             if (is_array($arr) && count($arr)) {
@@ -452,6 +610,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         //=========================================================
         // private
         //=========================================================
+
+        /**
+         * @param $lid_arr
+         * @return array
+         */
         public function &_get_link_list_by_lid_array($lid_arr)
         {
             $arr = [];
@@ -465,6 +628,11 @@ if (!class_exists('weblinks_link_view_handler')) {
         }
 
         // Notice [PHP]: Only variable references should be returned by reference
+
+        /**
+         * @param $lid
+         * @return array|bool
+         */
         public function &_get_link_by_lid($lid)
         {
             // not use return references

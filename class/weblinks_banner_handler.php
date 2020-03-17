@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_banner_handler.php,v 1.10 2008/01/14 06:07:13 ohwada Exp $
+
+// $Id: weblinks_banner_handler.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2008-01-10 K.OHWADA
 // Warning [PHP]: fopen(): failed to open stream: No such file or directory
@@ -31,6 +32,10 @@ if (!class_exists('weblinks_banner_handler')) {
     //=========================================================
     // class weblinks_banner_handler
     //=========================================================
+
+    /**
+     * Class weblinks_banner_handler
+     */
     class weblinks_banner_handler extends happy_linux_error
     {
         public $_DIRNAME;
@@ -62,6 +67,10 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+        /**
+         * weblinks_banner_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -70,8 +79,8 @@ if (!class_exists('weblinks_banner_handler')) {
             $this->_DIR_THUMBS = '/modules/' . $dirname . '/thumbs';
             $this->_DIR_SHOTS = '/modules/' . $dirname . '/images/shots';
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
             $this->_remote_image = happy_linux_remote_image::getInstance();
             $this->_image_size = happy_linux_image_size::getInstance();
             $this->_strings = happy_linux_strings::getInstance();
@@ -91,6 +100,9 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // get param
         //---------------------------------------------------------
+        /**
+         * @return string
+         */
         public function get_dir_work()
         {
             return $this->_dir_work;
@@ -99,6 +111,13 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // show banner
         //---------------------------------------------------------
+        /**
+         * @param $banner
+         * @param $width
+         * @param $height
+         * @param $url
+         * @return array
+         */
         public function &build_show_image_web($banner, $width, $height, $url)
         {
             $arr1 = &$this->build_show_image($banner, $width, $height);
@@ -131,6 +150,12 @@ if (!class_exists('weblinks_banner_handler')) {
             return $arr2;
         }
 
+        /**
+         * @param $banner
+         * @param $width
+         * @param $height
+         * @return array
+         */
         public function &build_show_image($banner, $width, $height)
         {
             $image_url = '';
@@ -165,13 +190,17 @@ if (!class_exists('weblinks_banner_handler')) {
             return $arr2;
         }
 
+        /**
+         * @param $banner
+         * @return bool|string
+         */
         public function _assume_banner_url($banner)
         {
             if (empty($banner)) {
                 return $banner;
             }
 
-            // URL style: "https://" or "https://"
+            // URL style: "http://" or "https://"
             $url = $banner;
             if (preg_match('|^https?://|', $url)) {
                 return $url;
@@ -209,11 +238,20 @@ if (!class_exists('weblinks_banner_handler')) {
             return false;
         }
 
+        /**
+         * @param $width
+         * @param $height
+         * @return array
+         */
         public function &_adjust_size($width, $height)
         {
-            list($list_width, $list_height) = $this->_image_size->adjust_size($width, $height, $this->_conf['list_image_width'], $this->_conf['list_image_height']);
+            [
+                $list_width, $list_height
+                ] = $this->_image_size->adjust_size($width, $height, $this->_conf['list_image_width'], $this->_conf['list_image_height']);
 
-            list($link_width, $link_height) = $this->_image_size->adjust_size($width, $height, $this->_conf['link_image_width'], $this->_conf['link_image_height']);
+            [
+                $link_width, $link_height
+                ] = $this->_image_size->adjust_size($width, $height, $this->_conf['link_image_width'], $this->_conf['link_image_height']);
 
             $arr = [
                 'link_width' => $link_width,
@@ -228,6 +266,10 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // get banner size
         //---------------------------------------------------------
+        /**
+         * @param $banner
+         * @return array|bool|false
+         */
         public function &get_remote_banner_size($banner)
         {
             $size = [0, 0, 0, ''];
@@ -250,11 +292,15 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // get category image size
         //---------------------------------------------------------
+        /**
+         * @param $url
+         * @return array|bool
+         */
         public function &get_cat_image_size($url)
         {
             $false = false;
 
-            if (empty($url) || ('https://' == $url) || ('https://' == $url)) {
+            if (empty($url) || ('http://' == $url) || ('https://' == $url)) {
                 return $false;
             }
 
@@ -266,9 +312,11 @@ if (!class_exists('weblinks_banner_handler')) {
                 return $false;
             }
 
-            list($orig_width, $orig_height) = $size;
+            [$orig_width, $orig_height] = $size;
 
-            list($show_width, $show_height) = $this->_image_size->adjust_size($orig_width, $orig_height, $this->_conf['cat_img_width'], $this->_conf['cat_img_height']);
+            [
+                $show_width, $show_height
+                ] = $this->_image_size->adjust_size($orig_width, $orig_height, $this->_conf['cat_img_width'], $this->_conf['cat_img_height']);
 
             $arr = [
                 'orig_width' => $orig_width,
@@ -283,6 +331,9 @@ if (!class_exists('weblinks_banner_handler')) {
         //---------------------------------------------------------
         // web thumbnail
         //---------------------------------------------------------
+        /**
+         * @return array
+         */
         public function get_thumb_options()
         {
             $opts = [];
@@ -313,6 +364,10 @@ if (!class_exists('weblinks_banner_handler')) {
         }
 
         // Only variables should be assigned by reference
+
+        /**
+         * @return array|null
+         */
         public function &_get_web_size()
         {
             $arr2 = null;
@@ -326,6 +381,10 @@ if (!class_exists('weblinks_banner_handler')) {
             return $arr2;
         }
 
+        /**
+         * @param $url
+         * @return mixed|string
+         */
         public function _build_web_url($url)
         {
             $image = '';
@@ -339,6 +398,11 @@ if (!class_exists('weblinks_banner_handler')) {
             return $image;
         }
 
+        /**
+         * @param        $key
+         * @param string $url
+         * @return array
+         */
         public function &_exec_plugin($key, $url = '')
         {
             $file = $this->_DIR_THUMBS . '/' . $key . '.php';

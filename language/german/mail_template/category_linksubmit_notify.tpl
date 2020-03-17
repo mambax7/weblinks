@@ -1,8 +1,8 @@
 Hallo {X_UNAME},
 
-ein neuer Link wurde in der Kategorie "{CATEGORY_NAME}" auf {X_SITENAME} hinzugefügt und wartet auf Freigabe.
+ein neuer Link wurde in der Kategorie "{CATEGORY_NAME}" auf {X_SITENAME} hinzugefï¿½gt und wartet auf Freigabe.
 
-Hinzugefügten Link hier betrachten:
+Hinzugefï¿½gten Link hier betrachten:
 {WAITINGLINKS_URL}
 
 Information zum Link:
@@ -18,7 +18,7 @@ Kommentar an den Admin:
 
 Sie erhalten diese Nachricht, weil Sie benachrichtigt werden wollten.
 
-Falls dies ein Irrläufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wünschen, können Sie Ihre Voreinstellung durch klicken auf den folgenden Link ändern:
+Falls dies ein Irrlï¿½ufer ist oder Sie in Zukunft keine Benachrichtigungen mehr wï¿½nschen, kï¿½nnen Sie Ihre Voreinstellung durch klicken auf den folgenden Link ï¿½ndern:
 {X_UNSUBSCRIBE_URL}
 
 Bitte antworten Sie nicht auf diese Nachricht.

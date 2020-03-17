@@ -1,5 +1,6 @@
 <?php
-// $Id: admin.php,v 1.2 2008/02/24 12:53:04 ohwada Exp $
+
+// $Id: admin.php,v 1.1 2011/12/29 14:32:45 ohwada Exp $
 
 // 2007-12-09 K.OHWADA
 // remove _WEBLINKS_ADMIN_CHECK
@@ -91,10 +92,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', '����� ��� RSS/ATOM feeds');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', "��� '������ ������ ������ RSS/ATOM' � '����� ������' ��� ����� RSS/ATOM ������ ���� . ");
     define('_WEBLINKS_RSS_MODE_DATA', '������ ��� RSS/ATOM ������');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        'ATOM FEED, uses the data in the Atom feed table after parsing. <br>XML uses the data from the link table before parsing. <br>Some data may not be saved in atomfeed table after filtering. '
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', 'ATOM FEED, uses the data in the Atom feed table after parsing. <br>XML uses the data from the link table before parsing. <br>Some data may not be saved in atomfeed table after filtering. ');
     define('_WEBLINKS_RSS_CACHE', '��� ����� �� RSS/ATOM feeds');
     define('_WEBLINKS_RSS_CACHE_DSC', '���� �� �������');
     define('_WEBLINKS_RSS_LIMIT', '���� ��� �� RSS/ATOM feeds');
@@ -197,10 +195,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', '��� ����� �� ����');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', '���');
     define('_WEBLINKS_ADMIN_BROKEN_RESULT', '����� �����');
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
-        '������ ����� �� ���ˡ ��� ���� ������ �� ����� �� ����. <br> ��� ��� ����� ���ߡ ���� ��� ������ ������� ������. <br> ������ = 0� �� ���� ����.'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION', '������ ����� �� ���ˡ ��� ���� ������ �� ����� �� ����. <br> ��� ��� ����� ���ߡ ���� ��� ������ ������� ������. <br> ������ = 0� �� ���� ����.');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', '���� <b> ��� ������ </b> �������. <br>  ���� </b><b>����� ������ </b> ������ ��� ������.<br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', '���� <b> ��� ������ </b>. ����� �� ������ �� ����.<br>');
     define('_WEBLINKS_ADMIN_LIMIT', '���� ��� �� ������� ������ (�����)');
@@ -319,10 +314,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', '��� ������� �� ������� ��������');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '"���"��� ������� �� ������� ��������');
     define('_AM_WEBLINKS_VIEW_URL', '����� ��� ����� ������');
-    define(
-        '_AM_WEBLINKS_VIEW_URL_DSC',
-        '"�� ���"  ��� ��� ������ �����. <br> "��� �����" ���� ������ ���� visit.php?lid=2   . <br> "�����" ���� ����� ������ ��� ���� ������ ��� ������ (���� �����).'
-    );
+    define('_AM_WEBLINKS_VIEW_URL_DSC', '"�� ���"  ��� ��� ������ �����. <br> "��� �����" ���� ������ ���� visit.php?lid=2   . <br> "�����" ���� ����� ������ ��� ���� ������ ��� ������ (���� �����).');
     define('_AM_WEBLINKS_VIEW_URL_0', '�� ���');
     define('_AM_WEBLINKS_VIEW_URL_1', '��� ������');
     define('_AM_WEBLINKS_VIEW_URL_2', '������');
@@ -408,8 +400,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', '����� ������');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '��� ������');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh the item which relates to the country code. <br> The item with the <span style="color:#0000ff;">#</span> mark');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Enter ccTLDs code <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', 'Refresh the item which relates to the country code. <br/> The item with the <span style="color:#0000ff;">#</span> mark');
     define('_AM_WEBLINKS_RENEW', '�����');
 
     // map
@@ -418,14 +410,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', '���� �������');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', '���� ��� ��� ������ �� template/map/');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', '������ ����� ����');
     define('_AM_WEBLINKS_CONF_GM_USE', '����� ����� ����');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'Get the API key on <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> <br> When you use GoogleMaps.'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'Get the API key on <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> <br/> When you use GoogleMaps.');
     define('_AM_WEBLINKS_CONF_GM_SERVER', '��� �������');
     define('_AM_WEBLINKS_CONF_GM_LANG', '��� �����');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', '������ ���������');
@@ -474,10 +463,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_VIEW_STYLE_1', '��� ����');
 
     define('_AM_WEBLINKS_CONF_PERFORMANCE', '����� ������');
-    define(
-        '_AM_WEBLINKS_CONF_PERFORMANCE_DSC',
-        '���� ����� ������� ���� �������� ����� ����� ���֡ ����� �� ����� ��������. <br> ����� ������� ��� ��ɡ ���� �� "����� �������" -> "����� ���� �������"'
-    );
+    define('_AM_WEBLINKS_CONF_PERFORMANCE_DSC', '���� ����� ������� ���� �������� ����� ����� ���֡ ����� �� ����� ��������. <br> ����� ������� ��� ��ɡ ���� �� "����� �������" -> "����� ���� �������"');
     define('_AM_WEBLINKS_CAT_PATH', '���� �����');
     define('_AM_WEBLINKS_CAT_PATH_DSC', '"���" ���� ���� ����� ����� �� ���� �����. <br> "��" �� ���� ����� ����.');
     define('_AM_WEBLINKS_CAT_COUNT', '����� ����� �����');
@@ -488,10 +474,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', '������ ��� ����� ����');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'Use CAPTCHA');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA is technique for anti-spam.<br>This feature Need Captcha module.<br>YES, <b>anoymous user</b> must use CAPTCHA when add or modify link.<br>NO does not show CAPTCHA field.');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha module ver %s is finded');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', '������ Captcha ��� ����');
 
@@ -595,20 +578,14 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_USE_OVERVIEW_CONT_DESC', 'GOverviewMapControl');
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Search] Map Type');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'GMapType');
-    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[��?�] Kind of Geocode');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[����] Kind of Geocode');
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Search latitude and longitude from address<br><b>Single Result</b><br>GClientGeocoder - getLatLng<br><b>More Results</b><br>GClientGeocoder - getLocations');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Single Result: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'More Results: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Search][Japan] Use CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'Valid in Japan<br>Search latitude and longitude from address');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Search][Japan] Use Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'Valid in Japan<br>Search address from latitude and longitude<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'Valid in Japan<br>Search address from latitude and longitude<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] Maximum characters for Title');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'Maximum number of characters used for Title in the marker<br><b>-1</b> is unlimited');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] Maximum characters for Content');
@@ -704,8 +681,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_LINK_IMG_THUMB', '���� ������');
     define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', '��� ���� ����� �����ڡ <br> �������� ���� �����ɡ <br> ��� ��� �� �� ���� ������ �������.');
     define('_AM_WEBLINKS_LINK_IMG_NON', '��');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '������ ���� <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '������ ���� <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '������ ���� <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '������ ���� <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
 
     // === 2007-11-01 ===
     // google map
@@ -729,4 +706,5 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     // === 2007-12-09 ===
     define('_AM_WEBLINKS_D3FORUM_VIEW', '��� ��� �����');
-}// --- define language begin ---
+}
+// --- define language begin ---

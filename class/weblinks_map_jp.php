@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_map_jp.php,v 1.3 2007/11/11 08:48:19 ohwada Exp $
+
+// $Id: weblinks_map_jp.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // link_count_handler, category_basic_handler
@@ -14,6 +15,10 @@ if (!class_exists('weblinks_map_jp')) {
     //=========================================================
     // class table_category
     //=========================================================
+
+    /**
+     * Class weblinks_map_jp
+     */
     class weblinks_map_jp extends happy_linux_basic_handler
     {
         public $_DIRNAME;
@@ -77,17 +82,26 @@ if (!class_exists('weblinks_map_jp')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_map_jp constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_category_handler = weblinks_getHandler('category_basic', $dirname);
-            $this->_link_count_handler = weblinks_getHandler('link_count', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_category_handler = weblinks_get_handler('category_basic', $dirname);
+            $this->_link_count_handler = weblinks_get_handler('link_count', $dirname);
 
             $this->_template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/weblinks_map_jp.tpl';
         }
 
+        /**
+         * @param null $dirname
+         * @return \happy_linux_basic_handler|\weblinks_map_jp|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -101,6 +115,11 @@ if (!class_exists('weblinks_map_jp')) {
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param null $pref
+         * @return mixed
+         */
         public function fetch_template($pref = null)
         {
             if (empty($pref)) {
@@ -116,6 +135,10 @@ if (!class_exists('weblinks_map_jp')) {
             return $text;
         }
 
+        /**
+         * @param null $pref
+         * @return array
+         */
         public function &get_pref_count_array($pref = null)
         {
             if (empty($pref)) {
@@ -137,6 +160,9 @@ if (!class_exists('weblinks_map_jp')) {
             return $arr;
         }
 
+        /**
+         * @return mixed
+         */
         public function &get_conf_pref_array()
         {
             $conf = $this->_config_handler->get_conf();
@@ -145,6 +171,9 @@ if (!class_exists('weblinks_map_jp')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &get_label_pref_array()
         {
             $arr = [];
@@ -163,6 +192,10 @@ if (!class_exists('weblinks_map_jp')) {
             return $arr;
         }
 
+        /**
+         * @param $title
+         * @return int|string
+         */
         public function _get_cid_by_like_title($title)
         {
             $cid = '';

@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.4 2009/03/22 03:27:25 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:50 ohwada Exp $
 
 // 2008-02-17
 // remove _MI_WEBLINKS_SMNAME1
@@ -189,10 +190,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Se exibe uma p�gina de link dentro de um frame');
 
     define('_MI_WEBLINKS_BROKEN', 'Quantidde de link broken para parar exibi��o');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'Informe quantidade de link broken para parar exibi��o. <br> Quando abaixo deste valor, ser� considerado como um erro tempor�rio, e n�o executa nada. <br>Quando ultrapassar este valor, ser� considerado um erro para corre��o, e para a exibi��o.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'Informe quantidade de link broken para parar exibi��o. <br> Quando abaixo deste valor, ser� considerado como um erro tempor�rio, e n�o executa nada. <br>Quando ultrapassar este valor, ser� considerado um erro para corre��o, e para a exibi��o.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Use imagens de link para uma lista de link');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Largura maxima de uma imagem do link');
@@ -214,10 +212,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Informe o n�mero m�ximo de links a serem mostrados em "Site Popular" e "Site melhor avaliado". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'O n�mero m�ximo de categorias no top dez topten');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        'Informe o n�mero m�ximo de categorias a serem mostradas em "Site Popular" e "Site melhor avaliado". <br>Tempo esgotado pode ocorrer se muitas categorias top forem selecionadas'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Informe o n�mero m�ximo de categorias a serem mostradas em "Site Popular" e "Site melhor avaliado". <br>Tempo esgotado pode ocorrer se muitas categorias top forem selecionadas');
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
@@ -248,4 +243,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Admin] Notifique-me quando um novo link for postado (se informado o coment�rio ao admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Receber notifica��o quando um novo link for postado (se informado o coment�rio para o admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notifica��o : Novo link)');
-}// --- define language begin ---
+}
+// --- define language begin ---

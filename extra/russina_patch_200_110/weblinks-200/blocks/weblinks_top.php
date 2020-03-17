@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_top.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2010-01-24 K.OHWADA
@@ -35,9 +36,9 @@
 // google map
 
 // 2007-03-17 K.OHWADA
-// BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler() in blocks/weblinks_top.php
+// BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler() in blocks/weblinks_top.php
 
-// 2006-11-03 hiro <https://ishinomaki.cc/>
+// 2006-11-03 hiro <http://ishinomaki.cc/>
 // add b_weblinks_generic_show()
 
 // 2006-05-15 K.OHWADA
@@ -104,6 +105,10 @@ if (!function_exists('b_weblinks_top_show')) {
     //       when 1, show
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_top_show($options)
     {
         $SHOW_RECOMMEND = false;
@@ -173,7 +178,7 @@ if (!function_exists('b_weblinks_top_show')) {
         $gm_name = $DIRNAME . '_b_' . $order;
 
         // config
-        $conf = &weblinks_get_config($DIRNAME);
+        $conf = weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $block;
         }
@@ -270,6 +275,10 @@ if (!function_exists('b_weblinks_top_show')) {
         return $block;
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_top_edit($options)
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -462,15 +471,19 @@ if (!function_exists('b_weblinks_top_show')) {
     // latest: dirname|10|30|0|0|7|0|50|50|1|0|0|0|1|-|0|time_update|DESC|0|0|0|0|300|1000|100|50
     // random: dirname|5 |30|0|0|0|0|50|50|0|1|1|0|1|-|1|lid        |ASC|0|0|0|0|300|1000|100|50
     //
-    // 2006-11-03 hiro <https://ishinomaki.cc/>
+    // 2006-11-03 hiro <http://ishinomaki.cc/>
     //---------------------------------------------------------
 
+    /**
+     * @param $options
+     * @return array
+     */
     function b_weblinks_generic_show($options)
     {
         include_once XOOPS_ROOT_PATH . '/class/xoopstree.php';
 
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
         $limit = (int)$options[1];
@@ -551,7 +564,7 @@ if (!function_exists('b_weblinks_top_show')) {
         ];
 
         // config
-        $conf = &weblinks_get_config($DIRNAME);
+        $conf = weblinks_get_config($DIRNAME);
         if (!isset($conf['broken_threshold'])) {
             return $block;
         }
@@ -589,7 +602,7 @@ if (!function_exists('b_weblinks_top_show')) {
                 if (0 == count($cid_array)) {
                     $cids = $cid;
                 } else {
-                    array_push($cid_array, $cid);   // with parent
+                    array_push($cid_array, $cid);    // with parent
                     $cids = implode(',', $cid_array);
                 }
 
@@ -632,7 +645,7 @@ if (!function_exists('b_weblinks_top_show')) {
 
         $result = $xoopsDB->query($sql, $limit);
         if (!$result) {
-            //      echo $xoopsDB->error();
+            //		echo $xoopsDB->error();
             return $block;
         }
 
@@ -689,9 +702,13 @@ if (!function_exists('b_weblinks_top_show')) {
         return $block;
     }
 
+    /**
+     * @param $options
+     * @return string
+     */
     function b_weblinks_generic_edit($options)
     {
-        // BUG 4508: Fatal error: Call to undefined function: weblinks_getHandler()
+        // BUG 4508: Fatal error: Call to undefined function: weblinks_get_handler()
 
         // base on W3C
         $SELECTED = 'selected="selected"';
@@ -714,10 +731,10 @@ if (!function_exists('b_weblinks_top_show')) {
         include_once $WEBLINKS_ROOT_PATH . '/class/weblinks_category_basic_handler.php';
 
         // config init before get_handler(category)
-        $config_handler = weblinks_getHandler('config2_basic', $DIRNAME);
+        $config_handler = weblinks_get_handler('config2_basic', $DIRNAME);
         $config_handler->init();
 
-        $category_handler = weblinks_getHandler('category_basic', $DIRNAME);
+        $category_handler = weblinks_get_handler('category_basic', $DIRNAME);
         $category_handler->load_once();
 
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
@@ -1039,6 +1056,11 @@ if (!function_exists('b_weblinks_top_show')) {
     //---------------------------------------------------------
     // config table
     //---------------------------------------------------------
+    /**
+     * @param $table_catlink
+     * @param $lid
+     * @return int
+     */
     function b_weblinks_get_cid_in_catlink($table_catlink, $lid)
     {
         global $xoopsDB;
@@ -1060,6 +1082,11 @@ if (!function_exists('b_weblinks_top_show')) {
         return $cid;
     }
 
+    /**
+     * @param $table_category
+     * @param $cid
+     * @return string
+     */
     function b_weblinks_get_title_in_category($table_category, $cid)
     {
         global $xoopsDB;
@@ -1083,9 +1110,14 @@ if (!function_exists('b_weblinks_top_show')) {
     //---------------------------------------------------------
     // utility
     //---------------------------------------------------------
+    /**
+     * @param $row
+     * @param $param
+     * @return array
+     */
     function &b_weblinks_build_link($row, $param)
     {
-        $myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
         $order = $param['order'];
         $title_length = $param['title_length'];
@@ -1156,7 +1188,7 @@ if (!function_exists('b_weblinks_top_show')) {
             }
         }
 
-        if ((0 != $gm_latitude) || (0 != $gm_longitude) || (0 != $gm_zoom)) {
+        if (((0 != $gm_latitude) || (0 != $gm_longitude) || (0 != $gm_zoom))) {
             $flag_gm_use = true;
         }
 
@@ -1277,6 +1309,11 @@ if (!function_exists('b_weblinks_top_show')) {
     }
 
     // max: 0=none -1=unlimited
+    /**
+     * @param $str
+     * @param $max
+     * @return string|string[]|null
+     */
     function b_weblinks_build_summary($str, $max)
     {
         $text = happy_linux_mb_build_summary($str, $max);
@@ -1288,6 +1325,11 @@ if (!function_exists('b_weblinks_top_show')) {
     //---------------------------------------------------------
     // gmap
     //---------------------------------------------------------
+    /**
+     * @param $param
+     * @param $conf
+     * @return array
+     */
     function &b_weblinks_build_gmap($param, $conf)
     {
         $show_gmap = false;
@@ -1335,6 +1377,10 @@ if (!function_exists('b_weblinks_top_show')) {
         return $arr;
     }
 
+    /**
+     * @param $block
+     * @return mixed
+     */
     function b_weblinks_fetch_gmap_template($block)
     {
         $dirname = $block['dirname'];

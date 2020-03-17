@@ -1,5 +1,6 @@
 <?php
-// $Id: link_del_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_del_class.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -16,6 +17,10 @@
 //=========================================================
 // class admin_link_del
 //=========================================================
+
+/**
+ * Class admin_link_del
+ */
 class admin_link_del extends admin_link_base
 {
     //---------------------------------------------------------
@@ -27,6 +32,9 @@ class admin_link_del extends admin_link_base
         $this->set_edit_handler('link_del');
     }
 
+    /**
+     * @return \admin_link_base|\admin_link_del|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -74,6 +82,9 @@ class admin_link_del extends admin_link_base
         $this->_main_del_table();
     }
 
+    /**
+     * @param bool $check_flag
+     */
     public function _main_del_table($check_flag = false)
     {
         $lid = $this->get_post_lid();
@@ -109,6 +120,9 @@ class admin_link_del extends admin_link_base
         exit();
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_del_table()
     {
         $lid = $this->get_post_lid();
@@ -130,6 +144,9 @@ class admin_link_del extends admin_link_base
         echo $this->getErrors(1);
     }
 
+    /**
+     * @return bool
+     */
     public function _check_del_table()
     {
         return true;

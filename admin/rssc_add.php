@@ -1,4 +1,5 @@
 <?php
+
 // $Id: rssc_add.php,v 1.3 2012/04/11 06:10:31 ohwada Exp $
 
 //=========================================================
@@ -26,6 +27,10 @@ if (WEBLINKS_RSSC_USE) {
 //=========================================================
 // class rssc_add
 //=========================================================
+
+/**
+ * Class rssc_add
+ */
 class rssc_add
 {
     public $_db;
@@ -43,6 +48,11 @@ class rssc_add
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * rssc_add constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -53,9 +63,13 @@ class rssc_add
         $this->_html_class = happy_linux_html::getInstance();
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
+        $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -123,6 +137,9 @@ class rssc_add
         echo "<br><br>\n";
     }
 
+    /**
+     * @param $total
+     */
     public function link_to_rssc($total)
     {
         $offset = 0;
@@ -169,6 +186,12 @@ class rssc_add
         }
     }
 
+    /**
+     * @param $lid
+     * @param $title
+     * @param $url
+     * @return bool
+     */
     public function add_rssc($lid, $title, $url)
     {
         $this->_error = null;
@@ -178,7 +201,7 @@ class rssc_add
             return false;
         }
 
-        // catch in build_rssc of weblinks_rssc_handler.php
+        // catch in	build_rssc of weblinks_rssc_handler.php
         $_POST['title'] = $title;
         $_POST['url'] = $url;
 
@@ -224,6 +247,10 @@ class rssc_add
         return true;
     }
 
+    /**
+     * @param $url
+     * @return bool
+     */
     public function discovery($url)
     {
         $ret = $this->_rss_utility->discover($url);
@@ -233,13 +260,17 @@ class rssc_add
             return false;
         }
 
-        // catch in build_rssc of weblinks_rssc_handler.php
+        // catch in	build_rssc of weblinks_rssc_handler.php
         $_POST['rss_flag'] = $this->_rss_utility->get_xml_mode();
         $_POST['rss_url'] = $this->_rss_utility->get_xmlurl_by_mode();
 
         return true;
     }
 
+    /**
+     * @param $total
+     * @param $next
+     */
     public function form_next_link($total, $next)
     {
         $action = xoops_getenv('PHP_SELF');
@@ -273,6 +304,11 @@ EOF;
     //---------------------------------------------------------
     // sql
     //---------------------------------------------------------
+
+    /**
+     * @param $sql
+     * @return int
+     */
     public function get_count_by_sql($sql)
     {
         $res = $this->_db->query($sql);
@@ -293,6 +329,12 @@ EOF;
         return $count;
     }
 
+    /**
+     * @param     $sql
+     * @param int $limit
+     * @param int $offset
+     * @return array|bool
+     */
     public function get_rows_by_sql($sql, $limit = 0, $offset = 0)
     {
         $res = $this->_db->query($sql, $limit, $offset);

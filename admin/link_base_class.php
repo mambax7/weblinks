@@ -1,5 +1,6 @@
 <?php
-// $Id: link_base_class.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_base_class.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -20,6 +21,10 @@
 //=========================================================
 // class admin_link_base
 //=========================================================
+
+/**
+ * Class admin_link_base
+ */
 class admin_link_base extends happy_linux_manage
 {
     public $_config_handler;
@@ -52,8 +57,8 @@ class admin_link_base extends happy_linux_manage
         $this->set_module_dirname('weblinks');
         $this->set_flag_execute_time(true);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler = weblinks_getHandler('link_form_check', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_check_handler = weblinks_get_handler('link_form_check', WEBLINKS_DIRNAME);
         $this->_time_class = happy_linux_time::getInstance();
 
         if (WEBLINKS_RSSC_USE) {
@@ -63,6 +68,9 @@ class admin_link_base extends happy_linux_manage
         $this->_conf = $this->_config_handler->get_conf();
     }
 
+    /**
+     * @return \admin_link_base|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -73,14 +81,21 @@ class admin_link_base extends happy_linux_manage
         return $instance;
     }
 
+    /**
+     * @param $table
+     */
     public function set_edit_handler($table)
     {
-        $this->_edit_handler = weblinks_getHandler($table, WEBLINKS_DIRNAME);
+        $this->_edit_handler = weblinks_get_handler($table, WEBLINKS_DIRNAME);
     }
 
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return int
+     */
     public function get_post_lid()
     {
         $lid = 0;
@@ -96,36 +111,57 @@ class admin_link_base extends happy_linux_manage
         return $this->_lid;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_mid()
     {
         return $this->_post->get_post_get_int('mid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rssc_lid()
     {
         return $this->_post->get_post_get_int('rssc_lid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rssc_lid_flag_update()
     {
         return $this->_post->get_post_int('rssc_lid_flag_update');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rss_flag()
     {
         return $this->_post->get_post_get_int('rss_flag');
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_op_mode()
     {
         return $this->_post->get_post_get_text('op_mode');
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_skip()
     {
         return $this->_post->get_post_text('skip');
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_banner()
     {
         return $this->_post->get_post_url('banner');
@@ -134,6 +170,11 @@ class admin_link_base extends happy_linux_manage
     //---------------------------------------------------------
     // banner
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @param $op_mode
+     */
     public function _print_banner_form_common($lid, $op_mode)
     {
         switch ($op_mode) {
@@ -161,6 +202,9 @@ class admin_link_base extends happy_linux_manage
         $this->_form->show_admin_banner_form($lid, $width, $height, $op_mode);
     }
 
+    /**
+     * @return bool
+     */
     public function _exec_banner_common()
     {
         $ret = $this->_edit_handler->update_banner_and_size_by_post();
@@ -181,6 +225,10 @@ class admin_link_base extends happy_linux_manage
         $this->_print_update_cat_form(0, 'update_cat');
     }
 
+    /**
+     * @param $link
+     * @param $op_mode
+     */
     public function _print_update_cat_form($link, $op_mode)
     {
         $name = _AM_WEBLINKS_UPDATE_CAT_COUNT;
@@ -263,7 +311,7 @@ class admin_link_base extends happy_linux_manage
                 break;
         }
 
-        if (!$this->_check_token()) {
+        if (!($this->_check_token())) {
             redirect_header($url_err, 3, 'Token Error');
             exit();
         }
@@ -279,7 +327,7 @@ class admin_link_base extends happy_linux_manage
 
             $time = $this->_time_class->get_elapse_time();
             $msg .= _AM_WEBLINKS_CAT_COUNT_UPDATED . " : $time sec \n";
-            $msg .= $this->_build_comment('update cat');   // for test form
+            $msg .= $this->_build_comment('update cat');    // for test form
             redirect_header($url_end, 3, $msg);
             exit();
         }
@@ -292,6 +340,9 @@ class admin_link_base extends happy_linux_manage
         xoops_cp_footer();
     }
 
+    /**
+     * @return mixed
+     */
     public function _exec_update_cat()
     {
         $ret = $this->_edit_handler->update_category_link_count();
@@ -302,6 +353,10 @@ class admin_link_base extends happy_linux_manage
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return mixed
+     */
     public function _get_obj()
     {
         $lid = $this->get_post_lid();

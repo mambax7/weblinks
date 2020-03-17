@@ -1,4 +1,5 @@
 <?php
+
 // $Id: gen_all_table.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //================================================================
@@ -31,4 +32,5 @@ $genarete->gen_votedata($MAX_VOTE, $MAX_VOTE / 4);
 $genarete->gen_comment($MAX_COM, $MAX_COM / 4);
 
 echo '<h3>end</h3>';
-dev_footer(); // =====
+dev_footer();
+// =====

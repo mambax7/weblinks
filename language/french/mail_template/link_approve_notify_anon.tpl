@@ -1,6 +1,6 @@
 Bonjour,
 
-Le lien soumis "{LINK_NAME}" a été approuvé sur {X_SITENAME}.
+Le lien soumis "{LINK_NAME}" a ï¿½tï¿½ approuvï¿½ sur {X_SITENAME}.
 
 Vous pouvez voir ce lien ici:
 {LINK_URL}

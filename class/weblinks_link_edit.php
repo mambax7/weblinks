@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_edit.php,v 1.4 2007/11/02 11:36:30 ohwada Exp $
+
+// $Id: weblinks_link_edit.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // weblinks_auth
@@ -25,6 +26,10 @@ if (!class_exists('weblinks_link_edit')) {
     //=========================================================
     // class weblinks_link_edit
     //=========================================================
+
+    /**
+     * Class weblinks_link_edit
+     */
     class weblinks_link_edit extends happy_linux_basic
     {
         public $_DIRNAME;
@@ -48,18 +53,23 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_edit constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
             $this->_DIRNAME = $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link', $dirname);
-            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
             $this->_link_view = weblinks_link_view::getInstance($dirname);
             $this->_auth = weblinks_auth::getInstance($dirname);
-            $this->_rssc_handler = weblinks_getHandler('rssc', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('rssc', $dirname);
 
             $this->_system = happy_linux_system::getInstance();
             $this->_post = happy_linux_post::getInstance();
@@ -70,6 +80,10 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         // set object
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         */
         public function set_object(&$obj)
         {
             $this->_link_obj = &$obj;
@@ -80,7 +94,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_submit()
         {
-            $link_obj = &$this->_link_handler->create();
+            $link_obj = $this->_link_handler->create();
             $this->set_object($link_obj);
             $this->set_vars($link_obj->getVarAll('s'));
 
@@ -131,7 +145,9 @@ if (!class_exists('weblinks_link_edit')) {
             $passwd_new = $this->_post->get_post_text('passwd_new');
             $passwd_2 = $this->_post->get_post_text('passwd_2');
 
-            list($passwd_old, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
+            [
+                $passwd_old, $flag_passwd, $flag_code
+                ] = $this->_post->get_post_get_passwd_old();
 
             $this->set('passwd_new', $passwd_new);
             $this->set('passwd_2', $passwd_2);
@@ -143,7 +159,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_submit_preview()
         {
-            $link_obj = &$this->_link_handler->create();
+            $link_obj = $this->_link_handler->create();
             $this->set_object($link_obj);
 
             $this->build_preview_by_post();
@@ -176,6 +192,11 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         // admin modify
         //---------------------------------------------------------
+
+        /**
+         * @param      $lid
+         * @param bool $flag_owner
+         */
         public function build_modify($lid, $flag_owner = false)
         {
             $this->set_vars($this->_link_obj->getVarAll('e'));
@@ -235,6 +256,9 @@ if (!class_exists('weblinks_link_edit')) {
             $this->set('usercomment', '');
         }
 
+        /**
+         * @param $lid
+         */
         public function build_modify_cid_arr_by_lid($lid)
         {
             $cid_arr = $this->_catlink_handler->get_cid_array_by_lid($lid);
@@ -244,7 +268,9 @@ if (!class_exists('weblinks_link_edit')) {
         public function build_modify_rss_url()
         {
             $rssc_lid = $this->_link_obj->get('rssc_lid');
-            list($flag, $url, $url_s) = $this->_link_view->build_rss_url_by_rssc_lid($rssc_lid);
+            [
+                $flag, $url, $url_s
+                ] = $this->_link_view->build_rss_url_by_rssc_lid($rssc_lid);
 
             $this->set('rss_flag', $flag);
             $this->set('rss_url', $url);
@@ -274,7 +300,7 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         public function build_admin_submit_preview()
         {
-            $link_obj = &$this->_link_handler->create();
+            $link_obj = $this->_link_handler->create();
             $this->set_object($link_obj);
             $this->build_admin_preview_by_post();
 
@@ -300,6 +326,10 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         // admin modify
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         */
         public function build_admin_modify($lid)
         {
             $this->set_vars($this->_link_obj->getVarAll('e'));
@@ -395,13 +425,19 @@ if (!class_exists('weblinks_link_edit')) {
         //---------------------------------------------------------
         // build_preview
         //---------------------------------------------------------
+
+        /**
+         * @param $cid_arr
+         */
         public function build_preview_for_template($cid_arr)
         {
             $this->_link_view->set_vars($this->_link_obj->getVarAll());
             $this->_link_view->build_show();
             $arr = &$this->_link_view->get_vars();
 
-            list($show_catpaths, $catpaths) = $this->_link_view->build_catpaths_by_cid_array($cid_arr);
+            [
+                $show_catpaths, $catpaths
+                ] = $this->_link_view->build_catpaths_by_cid_array($cid_arr);
 
             // set value
             $this->set_vars($arr);

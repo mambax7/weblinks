@@ -1,16 +1,16 @@
-$Id: readme_jp.txt,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+$Id: readme_jp.txt,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 =================================================
-HTML?o—Íƒvƒ‰ƒOƒCƒ“‚Ì?ì‚è•û
+HTMLï¿½oï¿½Íƒvï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 =================================================
 
-ƒvƒ‰ƒOƒCƒ“–¼‚ğ "foobar" ‚Æ‚µ‚Ü‚·
+ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "foobar" ï¿½Æ‚ï¿½ï¿½Ü‚ï¿½
 
-1. ƒvƒ‰ƒOƒCƒ“‚Ì‹L?q—á
+1. ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½ï¿½
 
 htmlout/foobar.php
 ------
-if( !class_exists('weblinks_htmlout_foobar') )
+if( !class_exists('weblinks_htmlout_foobar') ) 
 {
 
 class weblinks_htmlout_foobar extends weblinks_htmlout_base
@@ -18,30 +18,30 @@ class weblinks_htmlout_foobar extends weblinks_htmlout_base
 
 function weblinks_htmlout_foobar( $dirname )
 {
-    $this->weblinks_htmlout_base( $dirname );
+	parent::__construct( $dirname );
 }
 
 function description()
 {
-    // ‚±‚±‚Í‰pŒê‚Ì?à–¾•¶
-    return "this is foobar description";
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Í‰pï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
+	return "this is foobar description";
 }
 
 function execute_plugin()
 {
-    $content = $this->get_item_by_key( 'content' );
-    $converted = xxx;   // ‚±‚±‚É•ÏŠ·?ˆ—?‚ğ?‘‚­
-    $this->set_item_by_key( 'content', $converted );
-    return true;
+	$content = $this->get_item_by_key( 'content' );
+	$converted = xxx;	// ï¿½ï¿½ï¿½ï¿½ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	$this->set_item_by_key( 'content', $converted );
+	return true;
 }
 
-} // class ‚Ì?I‚í‚è
-} // class_exists ‚Ì?I‚í‚è
+} // class ï¿½ÌIï¿½ï¿½ï¿½
+} // class_exists ï¿½ÌIï¿½ï¿½ï¿½
 -----
 
-2. “ú–{Œê‚Ì?à–¾•¶‚Ì‹L?q—á
+2. ï¿½ï¿½ï¿½{ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½ï¿½
 
 htmlout/language/japanese/foobar.php
 -----
-$PLUGIN_DESCRIPTION = "‚±‚ê‚Í foobar ‚Ì?à–¾•¶‚Å‚·";
+$PLUGIN_DESCRIPTION = "ï¿½ï¿½ï¿½ï¿½ï¿½ foobar ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½";
 -----

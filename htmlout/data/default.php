@@ -1,5 +1,6 @@
 <?php
-// $Id: default.php,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+
+// $Id: default.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -8,6 +9,9 @@
 
 // --- weblinks_htmlout_data_default begin ---
 if (!function_exists('weblinks_htmlout_data_default')) {
+    /**
+     * @return array
+     */
     function weblinks_htmlout_data_default()
     {
         $catpaths = [
@@ -38,8 +42,8 @@ if (!function_exists('weblinks_htmlout_data_default')) {
             'uid' => '1',
             'cids' => '',
             'title' => 'Exsample Site',
-            'url' => 'https://exsample.com/',
-            'banner' => 'https://exsample.com/banner.gif',
+            'url' => 'http://exsample.com/',
+            'banner' => 'http://exsample.com/banner.gif',
             'description' => 'exsample description',
             'name' => 'webmaster',
             'nameflag' => '1',

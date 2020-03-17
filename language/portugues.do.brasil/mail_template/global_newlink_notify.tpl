@@ -2,17 +2,17 @@ Hello {X_UNAME},
 
 Um novo link "{LINK_NAME}" foi adicionado em {X_SITENAME}.
 
-Você pode visualizar a solicitação aqui:
+Vocï¿½ pode visualizar a solicitaï¿½ï¿½o aqui:
 {LINK_URL}
 
 -----------
 
-Você está recebendo esta mensagem porque foi selecionado notificação quando novos links fossem adicionados ao nosso site.
+Vocï¿½ estï¿½ recebendo esta mensagem porque foi selecionado notificaï¿½ï¿½o quando novos links fossem adicionados ao nosso site.
 
-Se isto for um erro ou você deseja não receber mais mais tais notificações, atualize sua inscrição clicando o link abaixo:
+Se isto for um erro ou vocï¿½ deseja nï¿½o receber mais mais tais notificaï¿½ï¿½es, atualize sua inscriï¿½ï¿½o clicando o link abaixo:
 {X_UNSUBSCRIBE_URL}
 
-Por favor não responda esta mensagem.
+Por favor nï¿½o responda esta mensagem.
 
 -----------
 

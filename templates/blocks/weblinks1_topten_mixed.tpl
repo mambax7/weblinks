@@ -1,4 +1,4 @@
-<{* $Id: weblinks1_topten_mixed.html,v 1.1 2007/08/08 04:20:58 ohwada Exp $ *}>
+<{* $Id: weblinks1_topten_mixed.html,v 1.1 2011/12/29 14:32:39 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -20,8 +20,8 @@
 
 <{$weblinks_links_list}>
 
-<hr>
+<hr/>
 <div class="weblinks_time">execution time <{$execution_time}> sec</div>
 <{if $is_module_admin }>
-<a href="./admin/index.php">go to admin cp</a>
-<{/if}>
+    <a href="./admin/index.php">go to admin cp</a>
+    <{/if}>

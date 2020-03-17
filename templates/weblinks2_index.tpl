@@ -1,18 +1,14 @@
 <{* $Id: weblinks2_index.html,v 1.2 2012/04/09 10:20:06 ohwada Exp $ *}>
 
 <{if $show_webmap}>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload =
-    <
-    {
-        $webmap_func
-    }
-    >
-    ;
-    //]]>
-</script>
-<{/if}>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload =
+        <{$webmap_func}>
+        ;
+        //]]>
+    </script>
+    <{/if}>
 
 <{$weblinks_module_header}>
 
@@ -39,12 +35,12 @@
     <center>
         <{$weblinks_map_jp}>
     </center>
-    <br>
+<br>
     <{/if}>
 
     <{if $show_webmap}>
     <div id="<{$webmap_div_id}>" class="weblinks_gm_map_index">Loading ...</div>
-    <br>
+<br>
     <{/if}>
 
     <span class="weblinks_bold"><{$lang_main}></span><br>
@@ -58,11 +54,11 @@
 
     <{if $show_category_navi}>
     <{$weblinks_category_navi}>
-    <br><br>
+<br><br>
     <{/if}>
 
     <{$lang_thereare}><br>
-    <hr>
+    <hr/>
     <br>
 
     <{if $is_module_admin && $show_admin_waiting_list }>
@@ -80,7 +76,7 @@
         <{/foreach}>
     </ul>
     <{* -- End admin_waiting_list loop -- *}>
-    <br>
+<br>
     <{/if}>
 
     <{if $show_user_waiting_list }>
@@ -112,7 +108,7 @@
         <{/foreach}>
     </ul>
     <{* -- End user_waiting_list loop -- *}>
-    <br>
+<br>
     <{/if}>
 
     <{if $show_user_owner_list }>
@@ -137,7 +133,7 @@
         <{/foreach}>
     </ul>
     <{* -- End user_waiting_list loop -- *}>
-    <br>
+<br>
     <{/if}>
 
     <br>
@@ -146,7 +142,7 @@
     <{if $show_links_list }>
     <span class="weblinks_subtitle"><{$lang_new_sitelist}></span><br>
     <{$weblinks_links_list}>
-    <br>
+<br>
     <{/if}>
 
     <a name='new_atomfeed'></a>
@@ -187,17 +183,17 @@
             </div>
         </div>
         <{/foreach}>
-        <br>
+    <br>
         <{/if}>
         <{* -- feed list end -- *}>
 
         <{/if}>
 
-        <{include file="db:system_notification_select.tpl"}>
+        <{include file="db:system_notification_select.html"}>
 
         <br>
 
-        <hr>
+        <hr/>
         <noscript>
             <div class="weblinks_error"><{$lang_js_invalid}></div>
         </noscript>

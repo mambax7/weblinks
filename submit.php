@@ -1,5 +1,6 @@
 <?php
-// $Id: submit.php,v 1.28 2008/02/26 16:01:32 ohwada Exp $
+
+// $Id: submit.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // title: lang_submitlink
@@ -83,6 +84,10 @@ include 'header_edit.php';
 //=========================================================
 // class weblinks_submit
 //=========================================================
+
+/**
+ * Class weblinks_submit
+ */
 class weblinks_submit extends happy_linux_error
 {
     public $_DIRNAME;
@@ -121,6 +126,11 @@ class weblinks_submit extends happy_linux_error
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_submit constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         parent::__construct();
@@ -128,17 +138,17 @@ class weblinks_submit extends happy_linux_error
 
         $this->_DIRNAME = $dirname;
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_edit_handler = weblinks_getHandler('link_edit', $dirname);
-        $this->_link_form_handler = weblinks_getHandler('link_form', $dirname);
-        $this->_link_check_handler = weblinks_getHandler('link_form_check', $dirname);
+        $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_edit_handler = weblinks_get_handler('link_edit', $dirname);
+        $this->_link_form_handler = weblinks_get_handler('link_form', $dirname);
+        $this->_link_check_handler = weblinks_get_handler('link_form_check', $dirname);
 
         $this->_auth = weblinks_auth::getInstance($dirname);
         $this->_template = weblinks_template::getInstance($dirname);
         $this->_header = weblinks_header::getInstance($dirname);
 
         $this->_post = happy_linux_post::getInstance();
-        $this->_myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts = &MyTextSanitizer::sGetInstance()) || $this->_myts = MyTextSanitizer::getInstance();
 
         $this->_conf = &$this->_config_handler->get_conf();
 
@@ -149,6 +159,10 @@ class weblinks_submit extends happy_linux_error
         $this->_system_uid = $system->get_uid();
     }
 
+    /**
+     * @param null $dirname
+     * @return \weblinks_submit|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -162,6 +176,10 @@ class weblinks_submit extends happy_linux_error
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_post_op()
     {
         $op = '';
@@ -177,6 +195,10 @@ class weblinks_submit extends happy_linux_error
     //---------------------------------------------------------
     // check_access
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function check_access()
     {
         // admin
@@ -184,7 +206,9 @@ class weblinks_submit extends happy_linux_error
             return 'goto_admin';
         }
 
-        list($code, $this->_has_auth_permit, $this->_has_auth_auto) = $this->_auth->get_auth_submit();
+        [
+            $code, $this->_has_auth_permit, $this->_has_auth_auto
+            ] = $this->_auth->get_auth_submit();
 
         if ('permit' == $code) {
             $this->_link_edit_handler->init();
@@ -193,6 +217,9 @@ class weblinks_submit extends happy_linux_error
         return $code;
     }
 
+    /**
+     * @return array
+     */
     public function get_permit_param()
     {
         $ret = [$this->_has_auth_auto, $this->_system_is_user];
@@ -211,6 +238,9 @@ class weblinks_submit extends happy_linux_error
         $this->show_user_form('submit');
     }
 
+    /**
+     * @param $form_mode
+     */
     public function show_user_form($form_mode)
     {
         // show notify for user, hidden for guest
@@ -233,7 +263,7 @@ class weblinks_submit extends happy_linux_error
     public function print_preview()
     {
         $this->print_submit_header();
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo '<h4>' . _PREVIEW . "</h4>\n";
 
         if (WEBLINKS_RSSC_USE) {
@@ -255,7 +285,7 @@ class weblinks_submit extends happy_linux_error
 
         echo $this->_template->fetch_link_single($arr_preview);
 
-        echo "<hr>\n";
+        echo "<hr />\n";
         $this->print_submit_comment();
 
         $this->show_user_form('submit_preview');
@@ -265,6 +295,10 @@ class weblinks_submit extends happy_linux_error
     // submit
     //---------------------------------------------------------
     // execute when use rssc module
+
+    /**
+     * @return bool
+     */
     public function discovery_by_post()
     {
         $rss_utility = happy_linux_rss_utility::getInstance();
@@ -293,6 +327,9 @@ class weblinks_submit extends happy_linux_error
         return true;    // no action
     }
 
+    /**
+     * @return bool
+     */
     public function check_form()
     {
         $this->_flag_error = 0;
@@ -340,6 +377,9 @@ class weblinks_submit extends happy_linux_error
         echo "<br>\n";
     }
 
+    /**
+     * @return bool
+     */
     public function post_auto_approve()
     {
         $newid = $this->_link_edit_handler->user_add_link();
@@ -354,6 +394,9 @@ class weblinks_submit extends happy_linux_error
         return $newid;
     }
 
+    /**
+     * @return bool
+     */
     public function post_admin_approve()
     {
         $newid = $this->_link_edit_handler->user_submit_admin_approve();
@@ -401,6 +444,10 @@ class weblinks_submit extends happy_linux_error
     //---------------------------------------------------------
     // get_add_link_msg
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function get_add_link_msg()
     {
         $msg = '';
@@ -427,6 +474,11 @@ class weblinks_submit extends happy_linux_error
     //---------------------------------------------------------
     // utility
     //---------------------------------------------------------
+
+    /**
+     * @param $str
+     * @return mixed
+     */
     public function build_comment($str)
     {
         $ret = $this->_link_edit_handler->build_comment($str);
@@ -448,7 +500,7 @@ $check = $weblinks_submit->check_access();
 
 if ('not_permit' == $check) {
     $msg = _NOPERM;
-    $msg .= $weblinks_submit->build_comment('not permit');  // for test form
+    $msg .= $weblinks_submit->build_comment('not permit');    // for test form
     redirect_header(WEBLINKS_URL . '/index.php', 2, $msg);
     exit();
 }
@@ -476,7 +528,7 @@ if ('goto_admin' == $check) {
 $op = $weblinks_submit->get_post_op();
 
 // start
-list($has_auto_approve, $is_user) = $weblinks_submit->get_permit_param();
+[$has_auto_approve, $is_user] = $weblinks_submit->get_permit_param();
 
 // save to DB
 if ('submit' == $op) {
@@ -544,10 +596,11 @@ else {
     $weblinks_submit->print_submit_form();
 }
 
-echo "<br><hr>\n";
+echo "<br><hr />\n";
 echo $happy_linux_time->build_elapse_time() . "<br>\n";
 if (WEBLINKS_DEBUG_MEMORY) {
     echo happy_linux_build_memory_usage_mb() . "<br>\n";
 }
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_htmlout_base.php,v 1.1 2008/02/26 16:05:20 ohwada Exp $
+
+// $Id: weblinks_htmlout_base.php,v 1.1 2011/12/29 14:32:32 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -8,6 +9,9 @@
 
 // === class begin ===
 if (!class_exists('weblinks_htmlout_base')) {
+    /**
+     * Class weblinks_htmlout_base
+     */
     class weblinks_htmlout_base
     {
         public $_item_vars = [];
@@ -19,6 +23,11 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_htmlout_base constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->set_dirname($dirname);
@@ -43,8 +52,12 @@ if (!class_exists('weblinks_htmlout_base')) {
         //    strings: plugin description in English
         //
         //  exsample:
-        //  return "this is plugin description";
+        //	return "this is plugin description";
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function description()
         {
             return '';
@@ -56,8 +69,12 @@ if (!class_exists('weblinks_htmlout_base')) {
         //    strings: plugin usage in English
         //
         //  exsample:
-        //  return "plugin_name ( param_1, param_2 )";
+        //	return "plugin_name ( param_1, param_2 )";
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function usage()
         {
             return '';
@@ -70,6 +87,11 @@ if (!class_exists('weblinks_htmlout_base')) {
         // return value:
         //    array items
         //---------------------------------------------------------
+
+        /**
+         * @param $items
+         * @return array
+         */
         public function execute($items)
         {
             $arr = $items;
@@ -90,6 +112,10 @@ if (!class_exists('weblinks_htmlout_base')) {
         // return value:
         //    true or false
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function execute_plugin()
         {
             return false;
@@ -98,6 +124,10 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         // get name
         //---------------------------------------------------------
+
+        /**
+         * @return string|string[]
+         */
         public function name()
         {
             $name = get_class($this);
@@ -109,6 +139,10 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         // set & get param
         //---------------------------------------------------------
+
+        /**
+         * @param $arr
+         */
         public function set_param_array(&$arr)
         {
             if (is_array($arr)) {
@@ -116,16 +150,28 @@ if (!class_exists('weblinks_htmlout_base')) {
             }
         }
 
+        /**
+         * @param $num
+         * @param $value
+         */
         public function set_param_by_num($num, $value)
         {
             $this->_param_vars[$num] = $value;
         }
 
+        /**
+         * @return array
+         */
         public function get_param_array()
         {
             return $this->_param_vars;
         }
 
+        /**
+         * @param      $num
+         * @param bool $default
+         * @return bool|mixed
+         */
         public function get_param_by_num($num, $default = false)
         {
             if (isset($this->_param_vars[$num])) {
@@ -143,6 +189,9 @@ if (!class_exists('weblinks_htmlout_base')) {
             $this->_item_vars = [];
         }
 
+        /**
+         * @param $arr
+         */
         public function set_item_array($arr)
         {
             if (is_array($arr)) {
@@ -150,26 +199,47 @@ if (!class_exists('weblinks_htmlout_base')) {
             }
         }
 
+        /**
+         * @param $key
+         * @param $value
+         */
         public function set($key, $value)
         {
             $this->set_item_by_key($key, $value);
         }
 
+        /**
+         * @param $key
+         * @param $value
+         */
         public function set_item_by_key($key, $value)
         {
             $this->_item_vars[$key] = $value;
         }
 
+        /**
+         * @return array
+         */
         public function &get_item_array()
         {
             return $this->_item_vars;
         }
 
+        /**
+         * @param      $key
+         * @param bool $default
+         * @return bool|mixed
+         */
         public function &get($key, $default = false)
         {
             return $this->get_item_by_key($key, $default = false);
         }
 
+        /**
+         * @param      $key
+         * @param bool $default
+         * @return bool|mixed
+         */
         public function &get_item_by_key($key, $default = false)
         {
             if (isset($this->_item_vars[$key])) {
@@ -187,6 +257,9 @@ if (!class_exists('weblinks_htmlout_base')) {
             $this->_log_vars = [];
         }
 
+        /**
+         * @param $arr
+         */
         public function set_logs($arr)
         {
             if (is_array($arr)) {
@@ -198,6 +271,9 @@ if (!class_exists('weblinks_htmlout_base')) {
             }
         }
 
+        /**
+         * @return array
+         */
         public function &get_logs()
         {
             return $this->_log_vars;
@@ -206,6 +282,10 @@ if (!class_exists('weblinks_htmlout_base')) {
         //---------------------------------------------------------
         // set & get dirname
         //---------------------------------------------------------
+
+        /**
+         * @param $val
+         */
         public function set_dirname($val)
         {
             $this->_DIRNAME = $val;
@@ -216,24 +296,38 @@ if (!class_exists('weblinks_htmlout_base')) {
             return $this->_DIRNAME;
         }
 
+        /**
+         * @return string
+         */
         public function get_weblinks_root_path()
         {
             return XOOPS_ROOT_PATH . '/modules/' . $this->_DIRNAME;
         }
 
+        /**
+         * @return string
+         */
         public function get_weblinks_url()
         {
             return XOOPS_URL . '/modules/' . $this->_DIRNAME;
         }
 
+        /**
+         * @param $name
+         * @return bool|mixed
+         */
         public function &get_handler($name)
         {
-            return weblinks_getHandler($name, $this->_DIRNAME);
+            return weblinks_get_handler($name, $this->_DIRNAME);
         }
 
         //---------------------------------------------------------
         // xoops param
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function get_xoops_sitename()
         {
             global $xoopsConfig;

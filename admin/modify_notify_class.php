@@ -1,5 +1,6 @@
 <?php
-// $Id: modify_notify_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: modify_notify_class.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // $this->set_edit_handler();
@@ -13,6 +14,10 @@
 //=========================================================
 // class admin_modify_notify
 //=========================================================
+
+/**
+ * Class admin_modify_notify
+ */
 class admin_modify_notify extends admin_modify_base
 {
     //---------------------------------------------------------
@@ -24,6 +29,9 @@ class admin_modify_notify extends admin_modify_base
         $this->set_edit_handler('link_edit_base');
     }
 
+    /**
+     * @return \admin_modify_base|\admin_modify_notify|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -58,7 +66,7 @@ class admin_modify_notify extends admin_modify_base
             exit();
         }
         $msg = _WLS_NEWLINKADDED;
-        $msg .= $this->build_comment('notify approve new link');  // for test form
+        $msg .= $this->build_comment('notify approve new link');    // for test form
         redirect_header($this->_get_redirect_at_new(), 1, $msg);
         exit();
     }
@@ -80,7 +88,7 @@ class admin_modify_notify extends admin_modify_base
         }
 
         $msg = _WLS_LINKDELETED;
-        $msg .= $this->build_comment('notify refuse new link');   // for test form
+        $msg .= $this->build_comment('notify refuse new link');    // for test form
         redirect_header($this->_get_redirect_at_new(), 1, $msg);
     }
 
@@ -105,7 +113,7 @@ class admin_modify_notify extends admin_modify_base
             exit();
         }
         $msg = _WLS_DBUPDATED;
-        $msg .= $this->build_comment('notify approve mod link');  // for test form
+        $msg .= $this->build_comment('notify approve mod link');    // for test form
         redirect_header($this->_get_redirect_at_mod(), 1, $msg);
         exit();
     }
@@ -127,7 +135,7 @@ class admin_modify_notify extends admin_modify_base
         }
 
         $msg = _WLS_MODREQDELETED;
-        $msg .= $this->build_comment('notify refuse mod link');   // for test form
+        $msg .= $this->build_comment('notify refuse mod link');    // for test form
         redirect_header($this->_get_redirect_at_mod(), 1, $msg);
     }
 
@@ -148,7 +156,7 @@ class admin_modify_notify extends admin_modify_base
         }
 
         $msg = _WLS_DBUPDATED;
-        $msg .= $this->build_comment('notify approve del link');  // for test form
+        $msg .= $this->build_comment('notify approve del link');    // for test form
         redirect_header($this->_get_redirect_at_del(), 1, $msg);
         exit();
     }
@@ -170,16 +178,21 @@ class admin_modify_notify extends admin_modify_base
         }
 
         $msg = _AM_WEBLINKS_DEL_REQ_DELETED;
-        $msg .= $this->build_comment('notify refuse del link');   // for test form
+        $msg .= $this->build_comment('notify refuse del link');    // for test form
         redirect_header($this->_get_redirect_at_del(), 1, $msg);
     }
 
     //---------------------------------------------------------
     // notification common
     //--------------------------------------------------------
+
+    /**
+     * @param $mode
+     * @return bool
+     */
     public function _notify_submitter_common($mode)
     {
-        list($subject, $body) = $this->_build_subject_body_common($mode);
+        [$subject, $body] = $this->_build_subject_body_common($mode);
 
         $param = [
             'to_email' => $this->_email,
@@ -212,6 +225,9 @@ class admin_modify_notify extends admin_modify_base
         }
     }
 
+    /**
+     * @return bool
+     */
     public function _send_mail()
     {
         $ret = $this->_mail_send->send_email_by_post(true);

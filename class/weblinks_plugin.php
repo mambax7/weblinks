@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_plugin.php,v 1.8 2008/01/19 01:40:06 ohwada Exp $
+
+// $Id: weblinks_plugin.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2008-01-18 K.OHWADA
 // BUG: not show same category name
@@ -33,6 +34,10 @@ if (!class_exists('weblinks_plugin')) {
     //=========================================================
     // class weblinks_plugin
     //=========================================================
+
+    /**
+     * Class weblinks_plugin
+     */
     class weblinks_plugin
     {
         public $_DIRNAME;
@@ -41,14 +46,23 @@ if (!class_exists('weblinks_plugin')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_plugin constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_conf = $config_handler->get_conf();
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_conf = &$config_handler->get_conf();
         }
 
+        /**
+         * @param null $dirname
+         * @return static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -63,6 +77,11 @@ if (!class_exists('weblinks_plugin')) {
         // public: selecter
         //---------------------------------------------------------
         // config2_form
+
+        /**
+         * @param $sel_kind
+         * @return array
+         */
         public function &get_config_options($sel_kind)
         {
             $arr2 = [];
@@ -85,6 +104,10 @@ if (!class_exists('weblinks_plugin')) {
         // public: get category options
         //---------------------------------------------------------
         // category_manage
+
+        /**
+         * @return array
+         */
         public function &get_options_for_cat_forum()
         {
             $arr = &$this->_get_options_common('forum', 'forums', 'cat_forum_sel', 'cat_forum_dirname');
@@ -92,6 +115,9 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &get_options_for_cat_album()
         {
             $arr = &$this->_get_options_common('album', 'albums', 'cat_album_sel', 'cat_album_dirname');
@@ -100,6 +126,10 @@ if (!class_exists('weblinks_plugin')) {
         }
 
         // config2_form
+
+        /**
+         * @return array
+         */
         public function &get_options_for_d3forum()
         {
             $arr = &$this->_get_options_common('d3forum', 'forums', 'd3forum_plugin', 'd3forum_dirname', true, false);
@@ -108,6 +138,10 @@ if (!class_exists('weblinks_plugin')) {
         }
 
         // link_form_admin_handler
+
+        /**
+         * @return array
+         */
         public function &get_options_for_link_forum()
         {
             $arr1 = &$this->get_categories_for_link_forum();
@@ -116,6 +150,9 @@ if (!class_exists('weblinks_plugin')) {
             return $arr2;
         }
 
+        /**
+         * @return array
+         */
         public function &get_options_for_link_album()
         {
             $arr1 = &$this->get_categories_for_link_album();
@@ -124,6 +161,9 @@ if (!class_exists('weblinks_plugin')) {
             return $arr2;
         }
 
+        /**
+         * @return array
+         */
         public function &get_categories_for_link_forum()
         {
             $arr = &$this->_get_categories_common('forum', 'forums', 'link_forum_sel', 'link_forum_dirname');
@@ -131,6 +171,9 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @return array
+         */
         public function &get_categories_for_link_album()
         {
             $arr = &$this->_get_categories_common('album', 'albums', 'link_album_sel', 'link_album_dirname');
@@ -142,6 +185,11 @@ if (!class_exists('weblinks_plugin')) {
         // public: forum threads, album_photos
         //---------------------------------------------------------
         // link_view_handler
+
+        /**
+         * @param null $options
+         * @return array
+         */
         public function &get_forum_threads_for_cat($options = null)
         {
             $arr = &$this->_exec_plugin_common('forum', 'threads', 'cat_forum_sel', $options);
@@ -149,6 +197,10 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @param null $options
+         * @return array
+         */
         public function &get_forum_threads_for_link($options = null)
         {
             $arr = &$this->_exec_plugin_common('forum', 'threads', 'link_forum_sel', $options);
@@ -156,6 +208,10 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @param null $options
+         * @return array
+         */
         public function &get_album_photos_for_cat($options = null)
         {
             $arr = &$this->_get_album_photos_common('cat_album_sel', $options);
@@ -163,6 +219,10 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @param null $options
+         * @return array
+         */
         public function &get_album_photos_for_link($options = null)
         {
             $arr = &$this->_get_album_photos_common('link_album_sel', $options);
@@ -174,6 +234,12 @@ if (!class_exists('weblinks_plugin')) {
         // public: block
         //---------------------------------------------------------
         // BUG 4640: Call to undefined function: get_selecter_by_id() in blocks/weblinks_plugin.php
+
+        /**
+         * @param $sel_kind
+         * @param $sel_id
+         * @return bool|mixed
+         */
         public function &get_selecter_by_id($sel_kind, $sel_id)
         {
             $val = false;
@@ -188,6 +254,12 @@ if (!class_exists('weblinks_plugin')) {
         //---------------------------------------------------------
         // selecter
         //---------------------------------------------------------
+
+        /**
+         * @param $sel_kind
+         * @param $plugin_sel_name
+         * @return bool|mixed
+         */
         public function _get_filename_by_conf($sel_kind, $plugin_sel_name)
         {
             $name = $this->_get_value_by_conf_key($sel_kind, $plugin_sel_name, 'name');
@@ -195,6 +267,12 @@ if (!class_exists('weblinks_plugin')) {
             return $name;
         }
 
+        /**
+         * @param $sel_kind
+         * @param $conf_name
+         * @param $key
+         * @return bool|mixed
+         */
         public function _get_value_by_conf_key($sel_kind, $conf_name, $key)
         {
             $val = false;
@@ -209,6 +287,10 @@ if (!class_exists('weblinks_plugin')) {
             return $val;
         }
 
+        /**
+         * @param $sel_kind
+         * @return mixed
+         */
         public function &_exec_selecter($sel_kind)
         {
             $func_sel = 'weblinks_plugin_' . $sel_kind . '_sel';
@@ -217,6 +299,10 @@ if (!class_exists('weblinks_plugin')) {
             return $val;
         }
 
+        /**
+         * @param $conf_name
+         * @return bool
+         */
         public function _get_conf_value_by_name($conf_name)
         {
             if (isset($this->_conf[$conf_name])) {
@@ -229,6 +315,16 @@ if (!class_exists('weblinks_plugin')) {
         //---------------------------------------------------------
         // each plugin
         //---------------------------------------------------------
+
+        /**
+         * @param      $sel_kind
+         * @param      $plugin_kind
+         * @param      $conf_name
+         * @param      $conf_name_dirname
+         * @param bool $flag_zero
+         * @param bool $flag_all
+         * @return array
+         */
         public function &_get_options_common($sel_kind, $plugin_kind, $conf_name, $conf_name_dirname, $flag_zero = true, $flag_all = true)
         {
             $arr1 = &$this->_get_categories_common($sel_kind, $plugin_kind, $conf_name, $conf_name_dirname, $flag_zero, $flag_all);
@@ -237,6 +333,15 @@ if (!class_exists('weblinks_plugin')) {
             return $arr2;
         }
 
+        /**
+         * @param      $sel_kind
+         * @param      $plugin_kind
+         * @param      $conf_name
+         * @param      $conf_name_dirname
+         * @param bool $flag_zero
+         * @param bool $flag_all
+         * @return array
+         */
         public function &_get_categories_common($sel_kind, $plugin_kind, $conf_name, $conf_name_dirname, $flag_zero = true, $flag_all = true)
         {
             $options = [
@@ -248,6 +353,15 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @param      $sel_kind
+         * @param      $plugin_kind
+         * @param      $conf_name
+         * @param      $options
+         * @param bool $flag_zero
+         * @param bool $flag_all
+         * @return array
+         */
         public function &_get_categories_by_conf($sel_kind, $plugin_kind, $conf_name, $options, $flag_zero = false, $flag_all = false)
         {
             $filename = $this->_get_filename_by_conf($sel_kind, $conf_name);
@@ -258,6 +372,14 @@ if (!class_exists('weblinks_plugin')) {
             return $arr;
         }
 
+        /**
+         * @param      $filename
+         * @param      $func
+         * @param      $options
+         * @param bool $flag_zero
+         * @param bool $flag_all
+         * @return array
+         */
         public function &_get_categories_by_filename($filename, $func, $options, $flag_zero = false, $flag_all = false)
         {
             $arr2 = [];
@@ -280,6 +402,13 @@ if (!class_exists('weblinks_plugin')) {
             return $arr2;
         }
 
+        /**
+         * @param      $sel_kind
+         * @param      $plugin_kind
+         * @param      $plugin_sel_name
+         * @param null $options
+         * @return array
+         */
         public function &_exec_plugin_common($sel_kind, $plugin_kind, $plugin_sel_name, $options = null)
         {
             $filename = $this->_get_filename_by_conf($sel_kind, $plugin_sel_name);
@@ -290,6 +419,12 @@ if (!class_exists('weblinks_plugin')) {
         }
 
         // Fatal error: Call to undefined method build_plugin_func() in blocks/weblinks_plugin.php
+
+        /**
+         * @param $plugin_kind
+         * @param $filename
+         * @return string
+         */
         public function build_plugin_func($plugin_kind, $filename)
         {
             $func = 'weblinks_plugin_' . $plugin_kind . '_' . $filename;
@@ -297,6 +432,12 @@ if (!class_exists('weblinks_plugin')) {
             return $func;
         }
 
+        /**
+         * @param      $filename
+         * @param      $func
+         * @param null $options
+         * @return array
+         */
         public function &exec_plugin($filename, $func, $options = null)
         {
             $file = '/modules/' . $this->_DIRNAME . '/plugins/' . $filename . '.php';
@@ -318,6 +459,12 @@ if (!class_exists('weblinks_plugin')) {
         //---------------------------------------------------------
         // album_photos
         //---------------------------------------------------------
+
+        /**
+         * @param      $plugin_sel_name
+         * @param null $opts
+         * @return array
+         */
         public function &_get_album_photos_common($plugin_sel_name, $opts = null)
         {
             $dirname = isset($opts['dirname']) ? $opts['dirname'] : '';

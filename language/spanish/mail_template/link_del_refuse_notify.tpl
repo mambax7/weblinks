@@ -1,8 +1,8 @@
 Hola, {UNAME}.
 
-Tu eliminación de enlace a sido negada por alguna de estas razones:
+Tu eliminaciï¿½n de enlace a sido negada por alguna de estas razones:
 - No podemos confirmar si eres el verdadero propietario.
-- Tu razón para borrarlo no han sido apropiadas.
+- Tu razï¿½n para borrarlo no han sido apropiadas.
 
 Puedes ver tu enlace aqui:
 {LINK_URL}

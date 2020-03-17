@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_guest_class.php,v 1.1 2007/11/02 11:36:29 ohwada Exp $
+
+// $Id: test_form_guest_class.php,v 1.1 2011/12/29 14:32:58 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // divid from test_form_class.php
@@ -13,6 +14,10 @@
 //=========================================================
 // class weblinks_test_form_guest
 //=========================================================
+
+/**
+ * Class weblinks_test_form_guest
+ */
 class weblinks_test_form_guest extends weblinks_test_form
 {
     //---------------------------------------------------------
@@ -23,6 +28,9 @@ class weblinks_test_form_guest extends weblinks_test_form
         parent::__construct();
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|\weblinks_test_form_guest|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -36,6 +44,11 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // guest modify
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function guest_modify_password(&$param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -68,6 +81,11 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // guest delete
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function guest_delete_password($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -101,6 +119,11 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // build_link_form
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return array
+     */
     public function &build_form_password($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -116,6 +139,10 @@ class weblinks_test_form_guest extends weblinks_test_form
         return $arr;
     }
 
+    /**
+     * @param $param
+     * @return array
+     */
     public function &build_form_del_password($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -137,6 +164,10 @@ class weblinks_test_form_guest extends weblinks_test_form
     //---------------------------------------------------------
     // permission
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function has_guest_perm()
     {
         global $xoopsModule;

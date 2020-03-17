@@ -1,4 +1,4 @@
-<{* $Id: weblinks_viewmark.html,v 1.1 2007/08/08 04:20:59 ohwada Exp $ *}>
+<{* $Id: weblinks_viewmark.html,v 1.1 2011/12/29 14:32:39 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -20,50 +20,50 @@
 <{$weblinks_guidance}>
 
 <{if $show_links == true}>
-<{if $show_navi == true}>
-<div class="weblinks_pagenavi">
-    <{$lang_sortby}>&nbsp;&nbsp;
-    <{$lang_title}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=0&amp;keywords=<{$keywords}>">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_0}>"/></a>
-    <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=1&amp;keywords=<{$keywords}>">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_1}>"/></a>)
-    <{$lang_date}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=2&amp;keywords=<{$keywords}>">
-    <img src="images/up.gif" border="0" align="middle" alt="<{$lang_sort_2}>"/></a>
-    <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=3&amp;keywords=<{$keywords}>">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_3}>"/></a>)
-    <{$lang_rating}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=4&amp;keywords=<{$keywords}>">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_4}>"/></a>
-    <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=5&amp;keywords=<{$keywords}>">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_5}>"/></a>)
-    <{$lang_popularity}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=6&amp;keywords=<{$keywords}>">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_6}>"/></a>
-    <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=7&amp;keywords=<{$keywords}>">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
-    <span class="weblinks_bold"><{$lang_cursortedby}></span>
-</div>
-<hr>
-<{/if}>
+    <{if $show_navi == true}>
+    <div class="weblinks_pagenavi">
+        <{$lang_sortby}>&nbsp;&nbsp;
+        <{$lang_title}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=0&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_0}>"/></a>
+        <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=1&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_1}>"/></a>)
+        <{$lang_date}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=2&amp;keywords=<{$keywords}>">
+            <img src="images/up.gif" border="0" align="middle" alt="<{$lang_sort_2}>"/></a>
+        <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=3&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_3}>"/></a>)
+        <{$lang_rating}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=4&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_4}>"/></a>
+        <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=5&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_5}>"/></a>)
+        <{$lang_popularity}> (<a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=6&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/up.gif" border="0" align="middle" alt="<{$lang_sort_6}>"/></a>
+        <a href="<{$xoops_url}>/modules/<{$dirname}>/viewmark.php?mark=<{$mark}>&amp;sortid=7&amp;keywords=<{$keywords}>">
+            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
+        <span class="weblinks_bold"><{$lang_cursortedby}></span>
+    </div>
+<hr/>
+    <{/if}>
 <br>
 
-<div class="weblinks_viewcat_frame">
-    <{$weblinks_links_full}>
-</div><br>
+    <div class="weblinks_viewcat_frame">
+        <{$weblinks_links_full}>
+    </div><br>
 
-<div class="weblinks_pagenavi">
-    <{$page_navi}>
-</div>
+    <div class="weblinks_pagenavi">
+        <{$page_navi}>
+    </div>
 
-<{else}>
+    <{else}>
 
-<span class="weblinks_error"><{$lang_nomatch}></span>
-<hr>
+    <span class="weblinks_error"><{$lang_nomatch}></span>
+<hr/>
 
-<{/if}>
+    <{/if}>
 
 <{include file="db:system_notification_select.tpl"}>
 
-<hr>
+<hr/>
 <div class="weblinks_time">execution time <{$execution_time}> sec</div>
 <{if $is_module_admin }>
-<a href="./admin/index.php">go to admin cp</a>
-<{/if}>
+    <a href="./admin/index.php">go to admin cp</a>
+    <{/if}>

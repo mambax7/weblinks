@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_broken_handler.php,v 1.6 2007/02/27 14:46:00 ohwada Exp $
+
+// $Id: weblinks_broken_handler.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // hack for multi site
@@ -28,6 +29,10 @@ if (!class_exists('weblinks_broken_handler')) {
     //=========================================================
     // class weblinks_broken
     //=========================================================
+
+    /**
+     * Class weblinks_broken
+     */
     class weblinks_broken extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -46,6 +51,11 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
+
+        /**
+         * @param int $usereal
+         * @return string
+         */
         public function get_uname($usereal = 0)
         {
             $uid = $this->get('sender');
@@ -60,6 +70,10 @@ if (!class_exists('weblinks_broken_handler')) {
             return $uname;
         }
 
+        /**
+         * @param string $format
+         * @return string
+         */
         public function get_email($format = 's')
         {
             $uid = $this->get('sender');
@@ -80,11 +94,20 @@ if (!class_exists('weblinks_broken_handler')) {
     //=========================================================
     // class weblinks_broken_handler
     //=========================================================
+
+    /**
+     * Class weblinks_broken_handler
+     */
     class weblinks_broken_handler extends happy_linux_object_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_broken_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'broken', 'bid', 'weblinks_broken');
@@ -101,6 +124,11 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -120,6 +148,10 @@ if (!class_exists('weblinks_broken_handler')) {
             return $sql;
         }
 
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -138,6 +170,12 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
+
+        /**
+         * @param      $lid
+         * @param bool $force
+         * @return bool
+         */
         public function delete_by_lid($lid, $force = false)
         {
             $lid = (int)$lid;
@@ -153,6 +191,11 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function get_count_by_lid($lid)
         {
             $lid = (int)$lid;
@@ -163,6 +206,11 @@ if (!class_exists('weblinks_broken_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $lid
+         * @param $uid
+         * @return bool
+         */
         public function get_count_by_lid_uid($lid, $uid)
         {
             $lid = (int)$lid;
@@ -175,6 +223,11 @@ if (!class_exists('weblinks_broken_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $lid
+         * @param $ip
+         * @return bool
+         */
         public function get_count_by_lid_ip($lid, $ip)
         {
             $lid = (int)$lid;
@@ -189,7 +242,11 @@ if (!class_exists('weblinks_broken_handler')) {
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
-        public function &get_objects_group_by_lid()
+
+        /**
+         * @return array|bool
+         */
+        public function get_objects_group_by_lid()
         {
             $ret = [];
             $limit = $start = 0;
@@ -203,7 +260,7 @@ if (!class_exists('weblinks_broken_handler')) {
             }
 
             while ($row = $this->fetchArray($result)) {
-                $obj = &$this->create();
+                $obj = $this->create();
                 $obj->setVars($row);
                 $ret[] = &$obj;
                 unset($obj);

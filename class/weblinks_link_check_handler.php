@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_check_handler.php,v 1.13 2008/02/27 01:45:06 ohwada Exp $
+
+// $Id: weblinks_link_check_handler.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // divid to weblinks_check_base.php
@@ -46,6 +47,10 @@ if (!class_exists('weblinks_link_check_handler')) {
     // class weblinks_link_check_handler
     // this class is used by command line
     //=========================================================
+
+    /**
+     * Class weblinks_link_check_handler
+     */
     class weblinks_link_check_handler extends weblinks_link_check_base
     {
         public $_remote_file;
@@ -53,8 +58,8 @@ if (!class_exists('weblinks_link_check_handler')) {
 
         public $_flag_broken = false;    // view broken colum
 
-        public $_TIMEOUT_CONNECT = 0;  // 30 sec  ( snoopy default )
-        public $_TIMEOUT_READ = 0;  // disable ( snoopy default )
+        public $_TIMEOUT_CONNECT = 0;    // 30 sec  ( snoopy default )
+        public $_TIMEOUT_READ = 0;    // disable ( snoopy default )
 
         public $_link_broken_count = 0;
         public $_link_broken_arr = [];
@@ -63,6 +68,11 @@ if (!class_exists('weblinks_link_check_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_check_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -80,6 +90,11 @@ if (!class_exists('weblinks_link_check_handler')) {
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param int $limit
+         * @param int $offset
+         */
         public function check($limit = 0, $offset = 0)
         {
             $this->_link_broken_count = 0;
@@ -88,6 +103,9 @@ if (!class_exists('weblinks_link_check_handler')) {
             $this->_execute($limit, $offset);
         }
 
+        /**
+         * @param $row
+         */
         public function _loop($row)
         {
             $lid = $row['lid'];
@@ -109,11 +127,17 @@ if (!class_exists('weblinks_link_check_handler')) {
             }
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_broken($value)
         {
             $this->_flag_broken = (bool)$value;
         }
 
+        /**
+         * @return int
+         */
         public function get_num_link_broken()
         {
             return $this->_link_broken_count;
@@ -122,6 +146,10 @@ if (!class_exists('weblinks_link_check_handler')) {
         //---------------------------------------------------------
         // print HTML for check
         //---------------------------------------------------------
+
+        /**
+         * @return string|null
+         */
         public function _get_link_broken_list()
         {
             $text = '';
@@ -130,7 +158,7 @@ if (!class_exists('weblinks_link_check_handler')) {
                 $text .= $this->_get_check_table_start();
 
                 foreach ($this->_link_broken_arr as $broken) {
-                    list($lid, $title, $url, $check_time) = $broken;
+                    [$lid, $title, $url, $check_time] = $broken;
                     $text .= $this->_get_check_table_line($lid, $title, $url, $check_time);
                 }
 
@@ -144,6 +172,9 @@ if (!class_exists('weblinks_link_check_handler')) {
             return $text;
         }
 
+        /**
+         * @return string|null
+         */
         public function _get_link_broken_line()
         {
             $text = '<tr><td>' . _WEBLINKS_ADMIN_LINK_NUM_BROKEN . '</td>';
@@ -152,6 +183,9 @@ if (!class_exists('weblinks_link_check_handler')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _get_check_table_start()
         {
             $text = _WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE;
@@ -172,12 +206,20 @@ if (!class_exists('weblinks_link_check_handler')) {
             return $text;
         }
 
+        /**
+         * @param        $lid
+         * @param        $title
+         * @param        $url
+         * @param        $check_time
+         * @param string $broken
+         * @return string
+         */
         public function _get_check_table_line($lid, $title, $url, $check_time, $broken = '')
         {
             $link_id = sprintf('%03d', $lid);
 
             $modlink = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/admin/link_manage.php?op=modLink&lid=' . $lid;
-            $title = htmlspecialchars($title);
+            $title = htmlspecialchars($title, ENT_QUOTES | ENT_HTML5);
             $google_url = $this->_build_google_search_url($title);
 
             $text = '<tr>';
@@ -195,16 +237,23 @@ if (!class_exists('weblinks_link_check_handler')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _get_table_end()
         {
             return "</table><br>\n";
         }
 
+        /**
+         * @param $query
+         * @return string
+         */
         public function _build_google_search_url($query)
         {
             $query = happy_linux_convert_to_utf8($query);
             $query = urlencode($query);
-            $url = 'https://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
+            $url = 'http://www.google.com/search?hl=' . _LANGCODE . '&q=' . $query;
 
             return $url;
         }
@@ -212,21 +261,35 @@ if (!class_exists('weblinks_link_check_handler')) {
         //---------------------------------------------------------
         // happy_linux_bin_file
         //---------------------------------------------------------
+
+        /**
+         * @param $filename
+         * @return mixed
+         */
         public function open_bin($filename)
         {
             return $this->_bin_file->open_bin($filename, 'w');
         }
 
+        /**
+         * @param $flag_chmod
+         */
         public function close_bin($flag_chmod)
         {
             $this->_bin_file->close_bin($flag_chmod);
         }
 
+        /**
+         * @param $val
+         */
         public function set_flag_write($val)
         {
             $this->_bin_file->set_flag_write($val);
         }
 
+        /**
+         * @param $data
+         */
         public function _write_data($data)
         {
             $this->_bin_file->write_bin($data);
@@ -235,6 +298,11 @@ if (!class_exists('weblinks_link_check_handler')) {
         //---------------------------------------------------------
         // happy_linux_remote_file
         //---------------------------------------------------------
+
+        /**
+         * @param $url
+         * @return mixed
+         */
         public function _check_url($url)
         {
             return $this->_remote_file->check_url($url);

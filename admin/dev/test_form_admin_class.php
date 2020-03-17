@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_class.php,v 1.3 2008/02/26 16:01:35 ohwada Exp $
+
+// $Id: test_form_admin_class.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // print_error()
@@ -18,6 +19,10 @@
 //=========================================================
 // class weblinks_test_form_admin
 //=========================================================
+
+/**
+ * Class weblinks_test_form_admin
+ */
 class weblinks_test_form_admin extends weblinks_test_form
 {
     public $_admin_cat_url;
@@ -34,6 +39,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         $this->_admin_link_url = WEBLINKS_URL . '/admin/link_manage.php';
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|\weblinks_test_form_admin|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -47,6 +55,11 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     // admin add link
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function admin_add_link(&$param)
     {
         $title = isset($param['title']) ? $param['title'] : null;
@@ -68,26 +81,41 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_add_banner()
     {
         return $this->_admin_banner();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_update_cat()
     {
         return $this->_admin_update_cat();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_add_rssc()
     {
         return $this->_admin_rssc();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_link_refresh()
     {
         return $this->_admin_refresh();
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_banner()
     {
         $form_values = $this->get_form_values();
@@ -109,6 +137,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_update_cat()
     {
         $form_values = $this->get_form_values();
@@ -129,6 +160,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_rssc()
     {
         if (!$this->is_exist_rssc_module()) {
@@ -155,6 +189,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function _admin_refresh()
     {
         if (!$this->is_exist_rssc_module()) {
@@ -184,6 +221,11 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     // admin mod link
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function admin_mod_link($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -214,21 +256,33 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_mod_link_mod_banner()
     {
         return $this->_admin_banner();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_mod_link_update_cat()
     {
         return $this->_admin_update_cat();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_mod_link_mod_rssc()
     {
         return $this->_admin_rssc();
     }
 
+    /**
+     * @return bool
+     */
     public function admin_mod_link_refresh()
     {
         return $this->_admin_refresh();
@@ -237,6 +291,11 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     // admin del link
     //---------------------------------------------------------
+
+    /**
+     * @param $param
+     * @return bool
+     */
     public function admin_del_link($param)
     {
         $lid = isset($param['lid']) ? $param['lid'] : 0;
@@ -266,6 +325,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_del_confirm()
     {
         $form_values = $this->get_form_values();
@@ -287,6 +349,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_del_link_update_cat()
     {
         return $this->_admin_update_cat();
@@ -295,10 +360,15 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     // build form
     //---------------------------------------------------------
+
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_banner($v)
     {
         $arr = &$this->assign_link($v);
-        $arr['action'] = 'https://localhost' . $v['action'];
+        $arr['action'] = 'http://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op'] = $v['op'];
         $arr['op_mode'] = $v['op_mode'];
@@ -306,10 +376,14 @@ class weblinks_test_form_admin extends weblinks_test_form
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_update_cat($v)
     {
         $arr = &$this->assign_link($v);
-        $arr['action'] = 'https://localhost' . $v['action'];
+        $arr['action'] = 'http://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op'] = $v['op'];
         $arr['op_mode'] = $v['op_mode'];
@@ -317,6 +391,10 @@ class weblinks_test_form_admin extends weblinks_test_form
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_rssc($v)
     {
         $rdf_url = isset($v['rdf_url']) ? $v['rdf_url'] : '';
@@ -342,10 +420,14 @@ class weblinks_test_form_admin extends weblinks_test_form
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_refresh($v)
     {
         $arr = [
-            'action' => 'https://localhost' . $v['action'],
+            'action' => 'http://localhost' . $v['action'],
             'XOOPS_G_TICKET' => $v['XOOPS_G_TICKET'],
             'op' => $v['op'],
             'op_mode' => $v['op_mode'],
@@ -355,10 +437,14 @@ class weblinks_test_form_admin extends weblinks_test_form
         return $arr;
     }
 
+    /**
+     * @param $v
+     * @return array
+     */
     public function &build_form_del_confirm($v)
     {
         $arr = &$this->assign_link($v);
-        $arr['action'] = 'https://localhost' . $v['action'];
+        $arr['action'] = 'http://localhost' . $v['action'];
         $arr['XOOPS_G_TICKET'] = $v['XOOPS_G_TICKET'];
         $arr['op'] = $v['op'];
 
@@ -368,6 +454,12 @@ class weblinks_test_form_admin extends weblinks_test_form
     //---------------------------------------------------------
     // admin add category
     //---------------------------------------------------------
+
+    /**
+     * @param $title
+     * @param $mode
+     * @return bool
+     */
     public function admin_add_cat_add_cat($title, $mode)
     {
         $this->update_config_by_name('cat_path', $mode);
@@ -402,6 +494,9 @@ class weblinks_test_form_admin extends weblinks_test_form
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function admin_add_cat_update_path()
     {
         // build_form

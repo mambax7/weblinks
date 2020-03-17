@@ -1,5 +1,6 @@
 <?php
-// $Id: notification.inc.php,v 1.7 2007/08/25 02:37:27 ohwada Exp $
+
+// $Id: notification.inc.php,v 1.1 2011/12/29 14:32:35 ohwada Exp $
 
 // 2007-08-25 K.OHWADA
 // BUG: not show category title
@@ -30,7 +31,7 @@ eval(
 
 function ' . $WEBLINKS_DIRNAME . '_notify_iteminfo( $category, $item_id )
 {
-    return weblinks_notify_iteminfo_base( "' . $WEBLINKS_DIRNAME . '" , $category, $item_id ) ;
+	return weblinks_notify_iteminfo_base( \'' . $WEBLINKS_DIRNAME . '\' , $category, $item_id ) ;
 }
 
 '
@@ -42,6 +43,12 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
+    /**
+     * @param $dirname
+     * @param $category
+     * @param $item_id
+     * @return mixed
+     */
     function weblinks_notify_iteminfo_base($dirname, $category, $item_id)
     {
         global $xoopsModule, $xoopsModuleConfig, $xoopsConfig;
@@ -57,7 +64,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
             $module = $module_handler->getByDirname($dirname);
 
             $config_handler = xoops_getHandler('config');
-            $config = $config_handler->getConfigsByCat(0, $module->getVar('mid'));
+            $config = &$config_handler->getConfigsByCat(0, $module->getVar('mid'));
         } else {
             $module = &$xoopsModule;
             $config = &$xoopsModuleConfig;

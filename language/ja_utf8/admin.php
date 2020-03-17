@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.3 2012/04/10 18:52:29 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -68,7 +69,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', 'その他の機能');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', '管理者目次へ');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // アクセス権限
     define('_WEBLINKS_ADMIN_AUTH', 'アクセス権限の設定');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'サイト管理者は全ての管理権限を持っている');
@@ -95,10 +96,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_AUTO', 'RSS/ATOM記事の自動更新');
     define('_WEBLINKS_RSS_MODE_AUTO_DSC', '「はい」を選択すると、詳細表示のときにRSS/ATOMのURLの自動検出と記事の自動更新を実行します。');
     define('_WEBLINKS_RSS_MODE_DATA', '表示するRSS/ATOMのデータ');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        '「ATOM FEED」を選択すると、atomfeedテーブルにある構文解析後のデータを使用します。<br>「XML」を選択すると、linkテーブルにある構文解析前のXMLデータを使用します。<br>atomfeedテーブルは、フィルタ処理が入っているので、全てのデータが保存されていないことがあります。'
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', '「ATOM FEED」を選択すると、atomfeedテーブルにある構文解析後のデータを使用します。<br>「XML」を選択すると、linkテーブルにある構文解析前のXMLデータを使用します。<br>atomfeedテーブルは、フィルタ処理が入っているので、全てのデータが保存されていないことがあります。');
     define('_WEBLINKS_RSS_CACHE', 'RSS/ATOMのキャッシュ時間');
     define('_WEBLINKS_RSS_CACHE_DSC', '設定値は１時間単位です。');
     define('_WEBLINKS_RSS_LIMIT', 'RSS/ATOM記事の最大の件数');
@@ -171,7 +169,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', '「設定した画像」のときに有効。');
     define('_WEBLINKS_CAT_UPDATED', 'カテゴリの設定を更新した');
 
-    //======    cateogry_list.php   ======
+    //======	cateogry_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'カテゴリ管理');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'カテゴリ一覧');
     //define("_WEBLINKS_ORDER_ID","ID 順");
@@ -184,12 +182,12 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_SUBCAT', 'サブカテゴリ数');
     define('_WEBLINKS_ORDERS_UPDATED', 'カテゴリの並び順を更新した');
 
-    //======    cateogry_manage.php     ======
+    //======	cateogry_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', 'カテゴリ画像URL');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', 'オプションです。<br>画像ファイルの大きさは自動的に調整されます。');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","メイン・カテゴリで有効です。");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', 'リンク管理');
     define('_WEBLINKS_ADMIN_LINK_LIST', 'リンク一覧');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', 'リンク切れの一覧表示');
@@ -200,11 +198,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NO_LINK', '該当するリンク情報はありません');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'ここに表示されているのは、現在保存されているデータです。');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","ユーザ ID");
     //define("_WEBLINKS_CREATE","登録日");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'リンクの検査と更新');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'リンク切れの検査');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', '検査');
@@ -225,7 +223,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_CHECK_NEXT', '次の %s 件を検査する');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","同時にRSS/ATOMの自動検出を行います");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'RSS/ATOM管理');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'RSS/ATOMのキャッシュ更新');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'リンク情報のキャッシュ更新');
@@ -242,7 +240,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'クリアしたRSS/ATOMのキャッシュ');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'クリアしたRSS/ATOM記事の数');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', 'ユーザ管理');
     define('_WEBLINKS_ADMIN_USER_EMAIL', 'Ｅメールアドレスを持つユーザの一覧');
     define('_WEBLINKS_ADMIN_USER_LINK', 'リンク情報を登録している登録ユーザの一覧');
@@ -256,7 +254,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_USER_NOFOUND', '条件に合うユーザが見つかりませんでした');
     define('_WEBLINKS_UID_EMAIL', '投稿者のＥメールアドレス');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', 'Ｅメールの送信');
     define('_WEBLINKS_THERE_ARE_EMAIL', '<b>%s</b> 人宛のＥメールがあります');
     define('_WEBLINKS_SEND_NUM', '%s 人目から %s 人目までを送信します');
@@ -327,10 +325,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_SHOW_CATLIST', 'サブメニューへのカテゴリ一覧の表示');
     define('_AM_WEBLINKS_SHOW_CATLIST_DSC', '「はい」を選択すると、<br>サブメニューにカテゴリ一覧を表示する');
     define('_AM_WEBLINKS_VIEW_URL', 'URLの表示形式');
-    define(
-        '_AM_WEBLINKS_VIEW_URL_DSC',
-        '「非表示」を選択すると、<br>URL は &lt;a&gt; タグに表示されない。<br>「間接表示」を選択すると、<br>href 属性に URLではなく、visit.php を表示する。<br>「直接表示」を選択すると、<br>href 属性に URL を表示し、onmousedown 属性に JavaScript を表示し、JavaScript を経由してヒット数をカウントする。<br>'
-    );
+    define('_AM_WEBLINKS_VIEW_URL_DSC', '「非表示」を選択すると、<br>URL は &lt;a&gt; タグに表示されない。<br>「間接表示」を選択すると、<br>href 属性に URLではなく、visit.php を表示する。<br>「直接表示」を選択すると、<br>href 属性に URL を表示し、onmousedown 属性に JavaScript を表示し、JavaScript を経由してヒット数をカウントする。<br>');
     define('_AM_WEBLINKS_VIEW_URL_0', '非表示');
     define('_AM_WEBLINKS_VIEW_URL_1', '間接表示');
     define('_AM_WEBLINKS_VIEW_URL_2', '直接表示');
@@ -416,8 +411,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', '場所の設定');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', '国コード');
-    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs を入力する <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
-    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '国コードに関連する項目を再設定する<br> <span style="color:#0000ff;">#</span> 印がついている項目');
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'ccTLDs を入力する <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Country-Code Top-Level Domains</a>');
+    define('_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC', '国コードに関連する項目を再設定する<br/> <span style="color:#0000ff;">#</span> 印がついている項目');
     define('_AM_WEBLINKS_RENEW', '再設定');
 
     // map
@@ -426,14 +421,11 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', '地図サイトのテンプレート');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'template/map/ ディレクトリにあるテンプレート・ファイルを指定する');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Google Maps の設定');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Google Maps を使用する');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Google Maps API key');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'GoogleMapsを利用する場合は <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">https://www.google.com/apis/maps/signup.html</a> で <br> API key を取得してください'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'GoogleMapsを利用する場合は <br> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a> で <br> API key を取得してください');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'サーバー名');
     define('_AM_WEBLINKS_CONF_GM_LANG', '言語コード');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', '省略時の場所名');
@@ -493,10 +485,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 
     define('_AM_WEBLINKS_CONF_LINK_GUEST', 'ゲストのリンク登録項目の設定');
     define('_AM_WEBLINKS_USE_CAPTCHA', 'CAPTCHA (画像認証) を使用する');
-    define(
-        '_AM_WEBLINKS_USE_CAPTCHA_DSC',
-        'CAPTCHA は画像認証によるスパム対策です。<br>使用するには、Captcha モジュールが必要です。<br>「はい」を選択すると、<br><b>ゲスト</b> のときはリンクの登録と変更時に CAPTCHA を使用します。<br>「いいえ」を選択すると、<br>CAPTCHA 欄は表示されない。'
-    );
+    define('_AM_WEBLINKS_USE_CAPTCHA_DSC', 'CAPTCHA は画像認証によるスパム対策です。<br>使用するには、Captcha モジュールが必要です。<br>「はい」を選択すると、<br><b>ゲスト</b> のときはリンクの登録と変更時に CAPTCHA を使用します。<br>「いいえ」を選択すると、<br>CAPTCHA 欄は表示されない。');
     define('_AM_WEBLINKS_CAPTCHA_FINDED', 'Captcha モジュール ver %s が見つかりました');
     define('_AM_WEBLINKS_CAPTCHA_NOT_FINDED', 'Captcha モジュールは見つかりません');
 
@@ -605,9 +594,9 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', '単一の検索: getLatLng');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', '複数の検索: getLocations');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[検索][日本] 東京大学 CSIS を使用する');
-    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '日本でのみ有効<br>住所から緯度・経度を検索する<br><a href="https://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">東京大学 シンプルジオコーディング実験</a>');
+    define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', '日本でのみ有効<br>住所から緯度・経度を検索する<br><a href="http://pc035.tkl.iis.u-tokyo.ac.jp/~sagara/geocode/" target="_blank">東京大学 シンプルジオコーディング実験</a>');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[検索][日本] 逆ジオコードを使用する');
-    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '日本でのみ有効<br>緯度・経度から住所を検索する<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">https://nishioka.sakura.ne.jp/google/</a>');
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', '日本でのみ有効<br>緯度・経度から住所を検索する<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">http://nishioka.sakura.ne.jp/google/</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marker] タイトルの文字数');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'マーカーに表示するタイトルの文字数<br><b>-1</b> は制限なし');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marker] 本文の文字数');
@@ -707,8 +696,8 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
 WEBサイトのサムネイルを表示する'
     );
     define('_AM_WEBLINKS_LINK_IMG_NON', 'なし');
-    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="https://mozshot.nemui.org/" target="_blank">MozShot</a> を利用する');
-    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a> を利用する');
+    //define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', '<a href="http://mozshot.nemui.org/" target="_blank">MozShot</a> を利用する');
+    //define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', '<a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a> を利用する');
 
     // === 2007-11-01 ===
     // google map
@@ -775,10 +764,7 @@ WEBサイトのサムネイルを表示する'
     define('_AM_WEBLINKS_BULK_DSC1', 'カンマと改行を特別な記法で記述できます<br>カンマ(,)は \2c と記述する<br/ >改行は \n と記述する');
 
     define('_AM_WEBLINKS_TITLE_LINK_GEOCODING', 'リンクの緯度・経度の一覧');
-    define(
-        '_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC',
-        '住所から緯度・経度を検索します<br>すでに登録されているものは検索されません<br>検索結果は<span style="color:#0000ff">青字</span>で表示されます<br>検索できなかったときは<span style="color:#ff0000">赤字</span>で表示されます<br><b>注意</b> インターネットを使って、緯度・経度を検索するため、時間がかかります'
-    );
+    define('_AM_WEBLINKS_TITLE_LINK_GEOCODING_DSC', '住所から緯度・経度を検索します<br>すでに登録されているものは検索されません<br>検索結果は<span style="color:#0000ff">青字</span>で表示されます<br>検索できなかったときは<span style="color:#ff0000">赤字</span>で表示されます<br><b>注意</b> インターネットを使って、緯度・経度を検索するため、時間がかかります');
     define('_AM_WEBLINKS_SEARCHED_ADDRESS', '検索された住所');
     define('_AM_WEBLINKS_GOTO_NEXT_PAGE', '次のページへ');
     define('_AM_WEBLINKS_LAST_PAGE', 'ここは最後のページです');
@@ -788,4 +774,5 @@ WEBサイトのサムネイルを表示する'
 
     define('_AM_WEBLINKS_CAT_GM_LOCATION_DSC', '緯度・経度の場所を示すメモ');
     define('_AM_WEBLINKS_CAT_GM_ICON_DSC', '(default) のときは 親カテゴリのアイコンが継承される');
-}// --- define language end ---
+}
+// --- define language end ---

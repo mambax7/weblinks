@@ -1,5 +1,6 @@
 <?php
-// $Id: rssc_manage_class.php,v 1.5 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: rssc_manage_class.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // WEBLINKS_OP_APPROVE_NEW
@@ -23,6 +24,10 @@
 //=========================================================
 // class admin_rssc_manage
 //=========================================================
+
+/**
+ * Class admin_rssc_manage
+ */
 class admin_rssc_manage extends happy_linux_manage
 {
     public $_link_obj;
@@ -41,10 +46,13 @@ class admin_rssc_manage extends happy_linux_manage
         $this->set_handler('rssc', WEBLINKS_DIRNAME, 'weblinks');
         $this->set_id_name('lid');
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
         $this->_form = weblinks_rssc_form::getInstance();
     }
 
+    /**
+     * @return \admin_rssc_manage|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -58,6 +66,10 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_op()
     {
         $op = 'main';
@@ -80,6 +92,9 @@ class admin_rssc_manage extends happy_linux_manage
         return $op;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_lid()
     {
         $lid = 0;
@@ -94,21 +109,33 @@ class admin_rssc_manage extends happy_linux_manage
         return (int)$lid;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_mid()
     {
         return $this->_post->get_post_get_int('mid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rssc_lid()
     {
         return $this->_post->get_post_get_int('rssc_lid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rss_flag()
     {
         return $this->_post->get_post_get_int('rss_flag');
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_op_mode()
     {
         return $this->_post->get_post_get_text('op_mode');
@@ -117,13 +144,18 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // add_link
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @param $op_mode
+     */
     public function add_link($lid, $op_mode)
     {
         $this->_print_cp_header();
         $this->_print_bread_add_link($op_mode);
 
         echo '<h4 style="color: #0000ff;">' . _WLS_NEWLINKADDED . "</h4>\n";
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo '<h4>' . _AM_WEBLINKS_ADD_RSSC . "</h4>\n";
 
         if ($this->_exec_add_link($lid)) {
@@ -135,10 +167,14 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $lid
+     * @return bool
+     */
     public function _exec_add_link($lid)
     {
         // create object
-        $rssc_obj = &$this->_handler->create_new_rssc_obj($lid);
+        $rssc_obj = $this->_handler->create_new_rssc_obj($lid);
 
         // discover result
         $this->_print_discover_result($rssc_obj);
@@ -151,7 +187,7 @@ class admin_rssc_manage extends happy_linux_manage
             if (!$ret) {
                 $this->_set_errors($this->_link_handler->getErrors());
 
-                return false;   // db error
+                return false;    // db error
             }
 
             // print already message
@@ -183,6 +219,9 @@ class admin_rssc_manage extends happy_linux_manage
         }
     }
 
+    /**
+     * @param $op_mode
+     */
     public function _exec_add_rssc($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -222,10 +261,15 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $lid
+     * @param $op_mode
+     * @return int
+     */
     public function _exec_add_rssc_detail($lid, $op_mode)
     {
         // create object
-        $rssc_obj = &$this->_handler->create_new_rssc_obj($lid, 'add_rssc');
+        $rssc_obj = $this->_handler->create_new_rssc_obj($lid, 'add_rssc');
 
         // check
         if (!$this->_check_input_param($rssc_obj)) {
@@ -273,6 +317,10 @@ class admin_rssc_manage extends happy_linux_manage
         return 0;
     }
 
+    /**
+     * @param $rssc_obj
+     * @return bool
+     */
     public function _check_input_param(&$rssc_obj)
     {
         // check post paramter
@@ -286,6 +334,10 @@ class admin_rssc_manage extends happy_linux_manage
         return true;
     }
 
+    /**
+     * @param $code
+     * @return int
+     */
     public function _print_rssc_error($code)
     {
         switch ($code) {
@@ -310,9 +362,9 @@ class admin_rssc_manage extends happy_linux_manage
                 break;
             case WEBLINKS_CODE_PARAM_ERROR:
             default:
-                echo "<hr>\n";
+                echo "<hr />\n";
                 echo $this->getErrors(1);
-                echo "<hr>\n";
+                echo "<hr />\n";
                 break;
         }
 
@@ -322,16 +374,21 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // mod_form
     //---------------------------------------------------------
+
+    /**
+     * @param $link_obj
+     * @return int
+     */
     public function check_mod_form($link_obj)
     {
         $lid = $link_obj->get('lid');
         $rssc_lid = $link_obj->get('rssc_lid');
 
         if (0 == $rssc_lid) {
-            return 0;   // not set value
+            return 0;    // not set value
         }
 
-        $rssc_link_obj = &$this->_handler->get_rssc_link($rssc_lid);
+        $rssc_link_obj = $this->_handler->get_rssc_link($rssc_lid);
         if (!is_object($rssc_link_obj)) {
             xoops_error(_RSSC_LINK_NOT_EXIST);
             echo "<br>\n";
@@ -340,7 +397,7 @@ class admin_rssc_manage extends happy_linux_manage
         }
 
         // create
-        $rssc_obj = &$this->_handler->create_exist_rssc_obj_by_lid($lid);
+        $rssc_obj = $this->_handler->create_exist_rssc_obj_by_lid($lid);
 
         // if more same links in rssc module
         $rssc_lid = $this->_handler->check_get_rssc_exist_lid($rssc_obj);
@@ -357,6 +414,10 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // mod_link
     //---------------------------------------------------------
+
+    /**
+     * @param $op_mode
+     */
     public function mod_link($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -369,7 +430,7 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_bread_add_link($op_mode);
 
         echo '<h4 style="color: #0000ff;">' . _WLS_DBUPDATED . "</h4>\n";
-        echo "<hr>\n";
+        echo "<hr />\n";
         echo '<h4>' . _AM_WEBLINKS_MOD_RSSC . "</h4>\n";
 
         if ($this->_exec_mod_link($lid)) {
@@ -381,10 +442,14 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $lid
+     * @return bool
+     */
     public function _exec_mod_link($lid)
     {
         // create object
-        $rssc_obj = &$this->_handler->create_rssc_obj_by_lid($lid);
+        $rssc_obj = $this->_handler->create_rssc_obj_by_lid($lid);
 
         // discover result
         $this->_print_discover_result($rssc_obj);
@@ -402,7 +467,7 @@ class admin_rssc_manage extends happy_linux_manage
                 if (!$ret) {
                     $this->_set_errors($this->_link_handler->getErrors());
 
-                    return false;   // db error
+                    return false;    // db error
                 }
 
                 // print already message
@@ -441,6 +506,9 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $op_mode
+     */
     public function _exec_mod_rssc($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -458,7 +526,7 @@ class admin_rssc_manage extends happy_linux_manage
             case WEBLINKS_CODE_RSSC_NOT_FIND_PARAM:
             case 0:
                 $msg = _WLS_DBUPDATED;
-                $msg .= $this->build_comment('rssc no action');   // for test form
+                $msg .= $this->build_comment('rssc no action');    // for test form
                 redirect_header('link_list.php', 1, $msg);
                 exit();
         }
@@ -486,12 +554,16 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $lid
+     * @return int
+     */
     public function _exec_mod_rssc_detail($lid)
     {
-        $link_obj = &$this->_get_link_obj($lid);
+        $link_obj = $this->_get_link_obj($lid);
 
         // create object
-        $rssc_obj = &$this->_handler->create_rssc_obj_by_lid($lid, 'add_rssc');
+        $rssc_obj = $this->_handler->create_rssc_obj_by_lid($lid, 'add_rssc');
 
         // check
         if (!$this->_check_input_param($rssc_obj)) {
@@ -542,7 +614,7 @@ class admin_rssc_manage extends happy_linux_manage
 
             return WEBLINKS_CODE_ADD_RSSC_SUCCEEDED;
         } // when set rssc_lid, and not change the setting.
-        elseif ($saved_rssc_lid && ($current_rssc_lid == $saved_rssc_lid)) {
+        elseif (($saved_rssc_lid) && ($current_rssc_lid == $saved_rssc_lid)) {
             $code = $rssc_obj->check_necessary_param('mod');
             if (0 != $code) {
                 return $code;
@@ -588,6 +660,9 @@ class admin_rssc_manage extends happy_linux_manage
         exit();
     }
 
+    /**
+     * @param $op_mode
+     */
     public function _exec_refresh_link($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -598,7 +673,7 @@ class admin_rssc_manage extends happy_linux_manage
         switch ($code) {
             case 0:
                 $msg = _RSSC_REFRESH_LINK_FINISHED;
-                $msg .= $this->build_comment('refresh');  // for test form
+                $msg .= $this->build_comment('refresh');    // for test form
                 redirect_header('link_list.php?sortid=1', 1, $msg);
                 exit();
                 break;
@@ -633,11 +708,11 @@ class admin_rssc_manage extends happy_linux_manage
 
         switch ($op_mode) {
             case 'mod_link':
-            case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+            case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
                 $list_url = 'link_list.php?sortid=0';
                 break;
             case 'add_link':
-            case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+            case WEBLINKS_OP_APPROVE_NEW:    // approve_new
             default:
                 $list_url = 'link_list.php?sortid=1';
                 break;
@@ -648,7 +723,7 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_cp_header();
         $this->_print_bread_refresh_link($op_mode);
         echo $this->_print_error(1);
-        echo "<br><hr><br>\n";
+        echo "<br><hr /><br>\n";
         echo '- <a href="' . $list_url . '">' . _WEBLINKS_ADMIN_LINK_LIST . "</a><br>\n";
         echo '- <a href="' . $mod_url . '">' . _WLS_MODLINK . "</a><br>\n";
         $this->_print_cp_footer();
@@ -657,6 +732,10 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // print message
     //---------------------------------------------------------
+
+    /**
+     * @param $rssc_obj
+     */
     public function _print_discover_result($rssc_obj)
     {
         // discover result
@@ -697,6 +776,10 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // print bread
     //---------------------------------------------------------
+
+    /**
+     * @param $op_mode
+     */
     public function _print_bread_add_link($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -707,12 +790,12 @@ class admin_rssc_manage extends happy_linux_manage
                 $url1 = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
                 $name2 = _AM_WEBLINKS_MOD_RSSC;
                 break;
-            case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+            case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                 $name1 = _AM_WEBLINKS_APPROVE;
                 $url1 = '';
                 $name2 = _AM_WEBLINKS_ADD_RSSC;
                 break;
-            case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+            case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
                 $name1 = _AM_WEBLINKS_APPROVE_MOD;
                 $url1 = '';
                 $name2 = _AM_WEBLINKS_MOD_RSSC;
@@ -728,6 +811,9 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_bread_common($name1, $url1, $name2);
     }
 
+    /**
+     * @param $op_mode
+     */
     public function _print_bread_refresh_link($op_mode)
     {
         $lid = $this->get_post_lid();
@@ -737,11 +823,11 @@ class admin_rssc_manage extends happy_linux_manage
                 $name1 = _WLS_MODLINK;
                 $url1 = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
                 break;
-            case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+            case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                 $name1 = _AM_WEBLINKS_APPROVE;
                 $url1 = '';
                 break;
-            case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+            case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
                 $name1 = _AM_WEBLINKS_APPROVE_MOD;
                 $url1 = '';
                 break;
@@ -757,6 +843,11 @@ class admin_rssc_manage extends happy_linux_manage
         $this->_print_bread_common($name1, $url1, $name2);
     }
 
+    /**
+     * @param $name1
+     * @param $url1
+     * @param $name2
+     */
     public function _print_bread_common($name1, $url1, $name2)
     {
         $arr = [
@@ -780,6 +871,11 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // check POST param & set error
     //---------------------------------------------------------
+
+    /**
+     * @param $str
+     * @return string
+     */
     public function build_comment($str)
     {
         $text = ' <!-- weblinks : ' . $str . ' -->' . "\n";
@@ -790,9 +886,14 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return mixed
+     */
     public function _get_link_obj($lid)
     {
-        $obj = &$this->_link_handler->get($lid);
+        $obj = $this->_link_handler->get($lid);
         if (is_object($obj)) {
             $this->_link_obj = &$obj;
         }
@@ -800,6 +901,9 @@ class admin_rssc_manage extends happy_linux_manage
         return $obj;
     }
 
+    /**
+     * @return mixed
+     */
     public function _get_rssc_link_obj()
     {
         $rssc_lid = $this->get_post_rssc_lid();
@@ -814,17 +918,31 @@ class admin_rssc_manage extends happy_linux_manage
     //---------------------------------------------------------
     // show rssc form
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @param $op_mode
+     */
     public function _show_form_add_rssc($lid, $op_mode)
     {
-        $rssc_obj = &$this->_handler->create_rssc_obj_by_lid($lid);
+        $rssc_obj = $this->_handler->create_rssc_obj_by_lid($lid);
         $this->_form->show_add_rssc($rssc_obj, $op_mode);
     }
 
+    /**
+     * @param $lid
+     * @param $rssc_lid
+     * @param $op_mode
+     */
     public function _show_form_refresh_link($lid, $rssc_lid, $op_mode)
     {
         $this->_form->show_refresh_link($lid, $rssc_lid, $op_mode);
     }
 
+    /**
+     * @param $arr
+     * @return string
+     */
     public function _build_html_bread_crumb($arr)
     {
         return $this->_form->build_html_bread_crumb($arr);

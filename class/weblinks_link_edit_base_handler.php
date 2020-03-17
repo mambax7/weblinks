@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_edit_base_handler.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 // 2011-12-29 K.OHWADA
@@ -30,6 +31,10 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
     //=========================================================
     // class weblinks_link_edit_base
     //=========================================================
+
+    /**
+     * Class weblinks_link_edit_base_handler
+     */
     class weblinks_link_edit_base_handler extends happy_linux_error
     {
         public $_DIRNAME;
@@ -66,18 +71,23 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_edit_base_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
             parent::__construct();
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_catlink_handler = weblinks_getHandler('link_catlink_basic', $dirname);
-            $this->_category_handler = weblinks_getHandler('category', $dirname);
-            $this->_link_handler = weblinks_getHandler('link', $dirname);
-            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
-            $this->_banner_handler = weblinks_getHandler('banner', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_catlink_handler = weblinks_get_handler('link_catlink_basic', $dirname);
+            $this->_category_handler = weblinks_get_handler('category', $dirname);
+            $this->_link_handler = weblinks_get_handler('link', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
+            $this->_banner_handler = weblinks_get_handler('banner', $dirname);
             $this->_notification = weblinks_notification::getInstance($dirname);
 
             $this->_system = happy_linux_system::getInstance();
@@ -87,7 +97,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             $this->_remote_file = happy_linux_remote_file::getInstance();
 
             if (WEBLINKS_RSSC_USE) {
-                $this->_rssc_edit_handler = weblinks_getHandler('rssc_edit', $dirname);
+                $this->_rssc_edit_handler = weblinks_get_handler('rssc_edit', $dirname);
             }
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -96,21 +106,34 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // POST param
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function get_post_lid()
         {
             return $this->_post->get_post_int('lid');
         }
 
+        /**
+         * @return int
+         */
         public function get_post_mid()
         {
             return $this->_post->get_post_get_int('mid');
         }
 
+        /**
+         * @return string|string[]|null
+         */
         public function get_post_url()
         {
             return $this->_post->get_post_text('url');
         }
 
+        /**
+         * @return int
+         */
         public function get_post_rss_flag()
         {
             return $this->_post->get_post_int('rss_flag');
@@ -119,17 +142,26 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // wrapper of link_handler
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &get($lid)
         {
             $lid = (int)$lid;
-            $obj = &$this->_link_handler->get($lid);
+            $obj = $this->_link_handler->get($lid);
 
             return $obj;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function check_exist_link($lid)
         {
-            $obj = &$this->get($lid);
+            $obj = $this->get($lid);
             if (is_object($obj)) {
                 return true;
             }
@@ -137,6 +169,9 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return false;
         }
 
+        /**
+         * @return mixed
+         */
         public function getCount()
         {
             $count = $this->_link_handler->getCount();
@@ -144,6 +179,10 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return $count;
         }
 
+        /**
+         * @param $obj
+         * @return mixed
+         */
         public function insert(&$obj)
         {
             $newid = $this->_link_handler->insert($obj);
@@ -155,11 +194,15 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         // update banner size
         //---------------------------------------------------------
         // link_manage_class.php
+
+        /**
+         * @return bool
+         */
         public function update_banner_and_size_by_post()
         {
             $lid = $this->get_post_lid();
 
-            $obj = &$this->get($lid);
+            $obj = $this->get($lid);
             if (!is_object($obj)) {
                 return false;
             }
@@ -174,6 +217,11 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         }
 
         // link_manage_class.php
+
+        /**
+         * @param $banner
+         * @return mixed
+         */
         public function &get_remote_banner_size($banner)
         {
             $size = &$this->_banner_handler->get_remote_banner_size($banner);
@@ -188,26 +236,43 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // get param
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function get_banner_error_code()
         {
             return $this->_banner_error_code;
         }
 
+        /**
+         * @return |null
+         */
         public function get_banner_errors()
         {
             return $this->_banner_errors;
         }
 
+        /**
+         * @return int
+         */
         public function get_rssc_error_code()
         {
             return $this->_rssc_error_code;
         }
 
+        /**
+         * @return bool
+         */
         public function check_preview_result()
         {
             return $this->returnExistError();
         }
 
+        /**
+         * @param string $format
+         * @return array|string
+         */
         public function get_error_msg_preview($format = 's')
         {
             return $this->getErrors($format);
@@ -216,6 +281,11 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // check POST param & set error
         //---------------------------------------------------------
+
+        /**
+         * @param $str
+         * @return string
+         */
         public function build_comment($str)
         {
             $text = ' <!-- weblinks : ' . $str . ' -->' . "\n";
@@ -232,6 +302,10 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         }
 
         // link_manage_class
+
+        /**
+         * @return bool
+         */
         public function update_category_link_count()
         {
             $cat_objs = $this->_category_handler->get_objects_all();
@@ -256,10 +330,15 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         // modify table
         //---------------------------------------------------------
         // modify_new_class.
+
+        /**
+         * @param $modify_obj
+         * @return bool
+         */
         public function delete_modify(&$modify_obj)
         {
             if ($this->_DEBUG_MODIFY_DELETE) {
-                $modify_handler = weblinks_getHandler('modify', $this->_DIRNAME);
+                $modify_handler = weblinks_get_handler('modify', $this->_DIRNAME);
                 $ret = $modify_handler->delete($modify_obj);
                 if (!$ret) {
                     $this->_set_errors($modify_handler->getErrors());
@@ -275,16 +354,24 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         // link view
         // caller : modify.php admin/link_del.php
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function build_show_link($lid)
         {
             $link_view = weblinks_link_view::getInstance($this->_DIRNAME);
             $template = weblinks_template::getInstance($this->_DIRNAME);
-            $link = &$link_view->get_show_by_lid($lid);
+            $link = $link_view->get_show_by_lid($lid);
             $text = $template->fetch_link_single($link);
 
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function build_style_sheet()
         {
             $url = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/' . 'weblinks.css';
@@ -297,17 +384,28 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         // token ticket
         //---------------------------------------------------------
         // return html format
+
+        /**
+         * @return string|null
+         */
         public function build_token()
         {
             return $this->_form->build_token();
         }
 
         // return ( name, value )
-        public function &get_token_pair()
+
+        /**
+         * @return array|null
+         */
+        public function get_token_pair()
         {
             return $this->_form->get_token_pair();
         }
 
+        /**
+         * @return bool
+         */
         public function check_token()
         {
             return $this->_form->check_token();
@@ -316,11 +414,18 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //=========================================================
         // protected
         //=========================================================
+
+        /**
+         * @return mixed
+         */
         public function &_create()
         {
             return $this->_link_handler->create();
         }
 
+        /**
+         * @return \weblinks_link_view
+         */
         public function &_create_view()
         {
             $view_obj = new weblinks_link_view($this->_DIRNAME);
@@ -328,6 +433,9 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return $view_obj;
         }
 
+        /**
+         * @return \weblinks_link_edit
+         */
         public function &_create_edit()
         {
             $edit_obj = new weblinks_link_edit($this->_DIRNAME);
@@ -335,6 +443,10 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return $edit_obj;
         }
 
+        /**
+         * @param bool $isNew
+         * @return \weblinks_link_save
+         */
         public function &_create_link_save($isNew = true)
         {
             $obj = new weblinks_link_save($this->_DIRNAME);
@@ -348,6 +460,11 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // check url banner rssurl
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return array
+         */
         public function _check_url_banner_rssurl($obj)
         {
             $this->_clear_errors();
@@ -371,7 +488,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
 
             // BUG : Fatal error: Call to a member function create_new_rssc_obj() on a non-object
             if (WEBLINKS_RSSC_USE) {
-                list($rss_flag, $rss_url) = $this->_check_rssurl();
+                [$rss_flag, $rss_url] = $this->_check_rssurl();
             }
 
             return [$rss_flag, $rss_url];
@@ -380,6 +497,10 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // pagrank
         //---------------------------------------------------------
+
+        /**
+         * @return bool
+         */
         public function _get_flag_pagerank()
         {
             if ($this->_conf['use_pagerank'] > 0) {
@@ -392,13 +513,17 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
         //---------------------------------------------------------
         // rssc_edit_handler
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function _check_rssurl()
         {
             $rss_flag = 0;
             $rss_url = '';
 
             // create rssc object
-            $rssc_obj = &$this->_rssc_edit_handler->create_new_rssc_obj();
+            $rssc_obj = $this->_rssc_edit_handler->create_new_rssc_obj();
             if (is_object($rssc_obj)) {
                 $code = $rssc_obj->get('auto_code');
                 $rss_flag = $rssc_obj->get('rss_flag');
@@ -425,6 +550,9 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
             return [$rss_flag, $rss_url];
         }
 
+        /**
+         * @param $lid
+         */
         public function _set_errors_not_exist($lid)
         {
             $msg = _NO_LINK . ': lid = ' . $lid;

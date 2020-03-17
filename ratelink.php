@@ -1,5 +1,6 @@
 <?php
-// $Id: ratelink.php,v 1.16 2007/11/26 03:04:36 ohwada Exp $
+
+// $Id: ratelink.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // check the min of rating
@@ -49,6 +50,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_votedata_handler.php';
 //=========================================================
 // class weblinks_ratelink
 //=========================================================
+
+/**
+ * Class weblinks_ratelink
+ */
 class weblinks_ratelink extends happy_linux_error
 {
     public $_ALLOW_INCREMENT_POST = false;
@@ -78,14 +83,19 @@ class weblinks_ratelink extends happy_linux_error
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_ratelink constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
-        $this->_votedata_handler = weblinks_getHandler('votedata', $dirname);
+        $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_get_handler('link', $dirname);
+        $this->_votedata_handler = weblinks_get_handler('votedata', $dirname);
         $this->_auth = weblinks_auth::getInstance($dirname);
 
         $this->_system = happy_linux_system::getInstance();
@@ -93,6 +103,10 @@ class weblinks_ratelink extends happy_linux_error
         $this->_form = happy_linux_form::getInstance();
     }
 
+    /**
+     * @param null $dirname
+     * @return \weblinks_ratelink|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -119,6 +133,10 @@ class weblinks_ratelink extends happy_linux_error
     //---------------------------------------------------------
     // get POST
     //---------------------------------------------------------
+
+    /**
+     * @return mixed|string
+     */
     public function get_post_submit()
     {
         $ret = $this->_post->get_post('submit');
@@ -126,6 +144,9 @@ class weblinks_ratelink extends happy_linux_error
         return $ret;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_get_lid()
     {
         $ret = $this->_post->get_post_get_int('lid');
@@ -136,6 +157,11 @@ class weblinks_ratelink extends happy_linux_error
     //---------------------------------------------------------
     // check_access
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return int
+     */
     public function check_access($lid)
     {
         $has_auth_ratelink = $this->_auth->has_auth_ratelink();
@@ -149,7 +175,8 @@ class weblinks_ratelink extends happy_linux_error
         if (!$has_auth_ratelink) {
             if ($this->_system_is_user) {
                 return -2;
-            } // anonymous
+            }
+            // anonymous
 
             return -3;
         }
@@ -163,6 +190,9 @@ class weblinks_ratelink extends happy_linux_error
         return 0;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_title()
     {
         return $this->_title_s;
@@ -171,6 +201,11 @@ class weblinks_ratelink extends happy_linux_error
     //---------------------------------------------------------
     // rate_link
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return int
+     */
     public function check_rate_link($lid)
     {
         //Make sure only 1 anonymous from an IP in a single day.
@@ -183,7 +218,7 @@ class weblinks_ratelink extends happy_linux_error
 
         // Check if Link POSTER is voting (UNLESS Anonymous users allowed to post)
         if ($this->_system_is_user) {
-            $obj = &$this->_link_handler->get($lid);
+            $obj = $this->_link_handler->get($lid);
             $uid = $obj->getVar('uid');
 
             if ($this->_system->is_owner($uid)) {
@@ -204,9 +239,13 @@ class weblinks_ratelink extends happy_linux_error
             }
         }
 
-        return 0;   // OK
+        return 0;    // OK
     }
 
+    /**
+     * @param $lid
+     * @return bool
+     */
     public function rate_link($lid)
     {
         $rating = (int)$this->_post_rating;
@@ -221,7 +260,7 @@ class weblinks_ratelink extends happy_linux_error
         }
 
         // Add to Line Item Rate to DB.
-        $votedata_obj = &$this->_votedata_handler->create();
+        $votedata_obj = $this->_votedata_handler->create();
         $votedata_obj->setVar('lid', $lid);
         $votedata_obj->setVar('rating', $rating);
         $votedata_obj->setVar('ratinguser', $this->_system_uid);
@@ -236,7 +275,7 @@ class weblinks_ratelink extends happy_linux_error
         }
 
         // Calculate Score & Add to Summary (for quick retrieval & sorting) to DB.
-        list($votesDB, $finalrating) = $this->_votedata_handler->calc_rating_by_lid($lid);
+        [$votesDB, $finalrating] = $this->_votedata_handler->calc_rating_by_lid($lid);
 
         $ret = $this->_link_handler->update_rating($lid, $finalrating, $votesDB);
         if (!$ret) {
@@ -254,6 +293,9 @@ class weblinks_ratelink extends happy_linux_error
         return true;
     }
 
+    /**
+     * @return string
+     */
     public function get_msg_success()
     {
         $msg = _WLS_VOTEAPPRE . '<br>';
@@ -265,12 +307,19 @@ class weblinks_ratelink extends happy_linux_error
     //---------------------------------------------------------
     // token
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function check_token()
     {
         return $this->_form->check_token();
     }
 
-    public function &get_token_pair()
+    /**
+     * @return array|null
+     */
+    public function get_token_pair()
     {
         return $this->_form->get_token_pair();
     }
@@ -311,7 +360,7 @@ if (-4 == $check) {
 }
 
 if ($submit) {
-    if (!$weblinks_ratelink->check_token()) {
+    if (!($weblinks_ratelink->check_token())) {
         redirect_header($url_singlelink, 3, 'Token Error');
         exit();
     }
@@ -349,7 +398,7 @@ $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_ratelink.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $title_s = $weblinks_ratelink->get_title();
-list($token_name, $token_value) = $weblinks_ratelink->get_token_pair();
+[$token_name, $token_value] = $weblinks_ratelink->get_token_pair();
 
 $weblinks_header->assign_module_header();
 $weblinks_template->assignIndex();
@@ -369,4 +418,5 @@ $xoopsTpl->assign('token_value', $token_value);
 
 include XOOPS_ROOT_PATH . '/footer.php';
 
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

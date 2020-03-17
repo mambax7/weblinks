@@ -1,7 +1,7 @@
 Hallo, Admin
 
 Ein neuer Link wartet auf die Freigabe.
-Gehen Sie in die Administration um zu überprüfen:
+Gehen Sie in die Administration um zu ï¿½berprï¿½fen:
 {WAITINGLINKS_URL}
 
 Informationen:

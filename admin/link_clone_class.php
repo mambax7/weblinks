@@ -1,5 +1,6 @@
 <?php
-// $Id: link_clone_class.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: link_clone_class.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -12,6 +13,10 @@
 //=========================================================
 // class admin_link_clone
 //=========================================================
+
+/**
+ * Class admin_link_clone
+ */
 class admin_link_clone extends admin_link_base
 {
     //---------------------------------------------------------
@@ -23,6 +28,9 @@ class admin_link_clone extends admin_link_base
         $this->set_edit_handler('link_add');
     }
 
+    /**
+     * @return \admin_link_base|\admin_link_clone|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -55,7 +63,7 @@ class admin_link_clone extends admin_link_base
             $url = $this->_build_url_mod_form($this->_newid);
             $com = 'admin clone link [' . $this->_newid . ']';
             $msg = _WLS_NEWLINKADDED;
-            $msg .= $this->_build_comment($com);  // for test form
+            $msg .= $this->_build_comment($com);    // for test form
             redirect_header($url, 1, $msg);
             exit();
         }
@@ -63,6 +71,10 @@ class admin_link_clone extends admin_link_base
         exit();
     }
 
+    /**
+     * @param $lid
+     * @return bool
+     */
     public function _exec_clone_link($lid)
     {
         $newid = $this->_edit_handler->admin_clone_link($lid);
@@ -77,6 +89,9 @@ class admin_link_clone extends admin_link_base
         return $newid;
     }
 
+    /**
+     * @return bool
+     */
     public function _check_clone_link()
     {
         return true;
@@ -99,6 +114,10 @@ class admin_link_clone extends admin_link_base
         return $this->_print_add_db_error();
     }
 
+    /**
+     * @param $lid
+     * @return string
+     */
     public function _build_url_mod_form($lid)
     {
         $url = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
@@ -177,7 +196,7 @@ class admin_link_clone extends admin_link_base
             $url = $this->_build_url_mod_form($this->_newid);
             $com = 'admin clone module from [' . $this->_newid . ']';
             $msg = _WLS_NEWLINKADDED;
-            $msg .= $this->_build_comment($com);  // for test form
+            $msg .= $this->_build_comment($com);    // for test form
             redirect_header($url, 1, $msg);
             exit();
         }
@@ -185,6 +204,11 @@ class admin_link_clone extends admin_link_base
         exit();
     }
 
+    /**
+     * @param $from
+     * @param $lid
+     * @return bool
+     */
     public function _exec_clone_module_from($from, $lid)
     {
         $newid = $this->_edit_handler->admin_clone_module_from($from, $lid);

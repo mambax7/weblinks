@@ -1,5 +1,6 @@
 <?php
-// $Id: print.php,v 1.7 2007/09/23 05:17:54 ohwada Exp $
+
+// $Id: print.php,v 1.1 2011/12/29 14:32:27 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // BUG: Undefined index: flag_time_publish

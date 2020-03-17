@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.11 2008/02/26 16:01:45 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:46 ohwada Exp $
 
 // 2008-02-17
 // remove _MI_WEBLINKS_SMNAME1
@@ -178,10 +179,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', '��󥯥ڡ�����ե졼�����ɽ�����뤫�ɤ���');
 
     define('_MI_WEBLINKS_BROKEN', 'ɽ����ߤ��֥���ڤ�ײ��');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        '��󥯤�ɽ����ߤ�뤿��Ρ֥���ڤ�ײ������ꤷ�Ƥ���������<br>���ο��Ͱʲ��Ǥ���С����Ū�ʾ㳲�ȸ��ʤ������⤷�ޤ���<br>���ο��Ͱʾ�ˤʤ�С�����Ū�ʾ㳲�ȸ��ʤ�����󥯤�ɽ����ߤ�ޤ�'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', '��󥯤�ɽ����ߤ�뤿��Ρ֥���ڤ�ײ������ꤷ�Ƥ���������<br>���ο��Ͱʲ��Ǥ���С����Ū�ʾ㳲�ȸ��ʤ������⤷�ޤ���<br>���ο��Ͱʾ�ˤʤ�С�����Ū�ʾ㳲�ȸ��ʤ�����󥯤�ɽ����ߤ�ޤ�');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', '��󥯰���ɽ���˥�󥯲�������Ѥ���');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', '��󥯰���ɽ���β������κ�����');
@@ -234,4 +232,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[������] ������󥯤��Ǻܤ��줿�������Τ��� (�����԰������Ȥε��ܤ���)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', '������󥯤��Ǻܤ��줿�������Τ��� (�����԰������Ȥε��ܤ���)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE}: ������󥯤��Ǻܤ���ޤ���');
-}// --- define language begin ---
+}
+// --- define language begin ---

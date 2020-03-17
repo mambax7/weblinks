@@ -1,15 +1,15 @@
 Ciao {X_UNAME},
 
-Il link "{LINK_NAME}" inviato precedentemente è stato approvato su {X_SITENAME}.
+Il link "{LINK_NAME}" inviato precedentemente ï¿½ stato approvato su {X_SITENAME}.
 
 Puoi vedere questo link qui:
 {LINK_URL}
 
 -----------
 
-Ricevi questo messaggio perchè hai scelto di essere notificato quando questo link veniva approvato.
+Ricevi questo messaggio perchï¿½ hai scelto di essere notificato quando questo link veniva approvato.
 
-Se questo è un errore o non desideri ricevere ulteriori notifiche, per favore aggiorna la tua sottoscrizione visitando il link seguente:
+Se questo ï¿½ un errore o non desideri ricevere ulteriori notifiche, per favore aggiorna la tua sottoscrizione visitando il link seguente:
 {X_UNSUBSCRIBE_URL}
 
 Per favore non rispondere a questo messaggio.

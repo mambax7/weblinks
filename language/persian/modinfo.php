@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // WebLinks Module
 // language for admin
@@ -158,10 +159,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'درون فريم بودن صفحه لينک');
 
     define('_MI_WEBLINKS_BROKEN', 'تعداد لينکهاي از کارافتاده جهت توقف نمايش');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'تعداد لينکهاي از کار افتاده لازم جهت توقف نمايش را وارد کنيد<br> زماني که کمتر از اين مقدار باشد به عنوان يک خطاي موقتي در نظر گرفته مي شدو و عملي انجام نمي شود <br>زماني که بالاي اين عدد باشد به عنوان خطاي دائمي در نظر گرفته مي شود و نمايش متوقف مي شود'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'تعداد لينکهاي از کار افتاده لازم جهت توقف نمايش را وارد کنيد<br> زماني که کمتر از اين مقدار باشد به عنوان يک خطاي موقتي در نظر گرفته مي شدو و عملي انجام نمي شود <br>زماني که بالاي اين عدد باشد به عنوان خطاي دائمي در نظر گرفته مي شود و نمايش متوقف مي شود');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'از تصاوير لينکها براي ليست لينکها استفاده شود');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'حداکثر عرض يک تصوير لينک');
@@ -183,10 +181,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'وارد کنيد بيشتر تعداد لينک هاي را که نمايش داده شود در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'بيشتر تعداد شاخه هاي در ده تاي برتر');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        'وارد کنيد بيشتر تعداد شاخه هاي را که نمايش داده شوند در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". <br>timeout occurs, if too many top categories'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'وارد کنيد بيشتر تعداد شاخه هاي را که نمايش داده شوند در "سايت هاي محبوب" و "بهترين سايت هاي ارزيابي شده". <br>timeout occurs, if too many top categories');
 
     // 2006-03-26
     // REQ 3807: Description in main page
@@ -217,4 +212,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[مدیر] وقتی لینک جدیدی ارسال شد من را با خبر کن (if entered the comment the admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'این آگاهری رسانی را وقتی لینک جدیدی  ارسال شد دریافت کنید (if entered the comment for admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} آگاهی رسانی خودکار : لینک جدید)');
-}// --- define language begin ---
+}
+// --- define language begin ---

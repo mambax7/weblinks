@@ -1,4 +1,5 @@
 <?php
+
 // $Id: mailusers.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 //=========================================================
@@ -13,12 +14,12 @@
 //---------------------------------------------------------
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
-//%%%%%%    Admin Module Name  MailUsers    %%%%%
+//%%%%%%	Admin Module Name  MailUsers	%%%%%
 define('_AM_DBUPDATED', _MD_AM_DBUPDATED);
 
-//%%%%%%    mailusers.php   %%%%%
+//%%%%%%	mailusers.php 	%%%%%
 define('_AM_SENDTOUSERS', 'Отправить сообщение пользователям, которые:');
 define('_AM_SENDTOUSERS2', 'Отправить для:');
 define('_AM_GROUPIS', 'Входят в группу (опционально)');

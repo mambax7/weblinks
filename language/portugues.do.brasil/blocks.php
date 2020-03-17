@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.4 2009/03/22 03:27:25 ohwada Exp $
+
+// $Id: blocks.php,v 1.1 2011/12/29 14:32:51 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // _MB_WEBLINKS_GM_CONTROL
@@ -116,4 +117,5 @@ if (!defined('WEBLINKS_LANG_BL_LOADED')) {
     define('_MB_WEBLINKS_GM_CONTROL', 'Controle do Map');
     define('_MB_WEBLINKS_GM_CONTROL_DSC', '0: Não mostrar, 1: Mostrar');
     define('_MB_WEBLINKS_GM_TYPE_CONTROL', 'Tipo de controle do mapa');
-}// --- define language end ---
+}
+// --- define language end ---

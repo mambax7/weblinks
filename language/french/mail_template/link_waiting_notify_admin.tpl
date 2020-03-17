@@ -1,7 +1,7 @@
 Bonjour, Administrateur
 
 Un nouveau site est en attente d'approbation.
-Merci de te connecter depuis la zone admin pour vérifier cette demande:
+Merci de te connecter depuis la zone admin pour vï¿½rifier cette demande:
 {WAITINGLINKS_URL}
 
 Informations du nouveau site soumis:

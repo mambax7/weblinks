@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin_config_menu_class.php,v 1.2 2012/04/09 10:20:04 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -18,6 +19,10 @@
 //================================================================
 // class admin_config_menu
 //================================================================
+
+/**
+ * Class admin_config_menu
+ */
 class admin_config_menu
 {
     public $_MENU_STYLE = 'background-color: #E6E6E6; padding: 5px; border: 1px solid silver; ';
@@ -30,6 +35,9 @@ class admin_config_menu
         // dummy
     }
 
+    /**
+     * @return static
+     */
     public static function getInstance()
     {
         static $instance;

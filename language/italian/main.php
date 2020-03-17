@@ -1,5 +1,6 @@
 <?php
-// $Id: main.php,v 1.1 2007/09/29 12:37:33 ohwada Exp $
+
+// $Id: main.php,v 1.1 2011/12/29 14:32:41 ohwada Exp $
 
 // 2007-09-24 Luigi Trovato - Italian translation
 
@@ -57,7 +58,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'Categoria');
     define('_WLS_HITS', 'Hits');
     define('_WLS_RATING', 'Voti');
@@ -70,7 +71,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'Edita questo Link');
     define('_WLS_MODIFY', 'Modifica');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'Invia Nuovo Link');
     define('_WLS_SUBMITONCE', 'Invia il tuo link una volta sola.');
     define('_WLS_DONTABUSE', 'Nome Utente e IP sono salvati, per cui non abusare del sistema per favore.');
@@ -79,7 +80,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', 'Abbiamo ricevuto le informazioni sul tuo Sito web. Grazie!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'Richiesta Modifica Link');
     define('_WLS_THANKSFORINFO', 'Grazie per le informazioni. Controlleremo la tua richiesta a breve.');
 
@@ -161,7 +162,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'Non puoi votare una risorsa inviata da te stesso.<br>Tutti i voti sono loggati e verificati.');
     define('_WLS_VOTEONCE2', 'Vota per la risorsa selezionata solo una volta.<br>tutti i voti sono loggati e verificati.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'Configurazione Web Links');
     define('_WLS_GENERALSET', 'Impostazioni Generali Web Links');
@@ -243,7 +244,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Invia Nuovo Link');
     define('_WLS_SITE_POPULAR', 'Sito popolare');
@@ -266,7 +267,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', 'Ultimo Aggiornamento');
     define('_WLS_MORE', 'Pi� dettagli');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'Descrizione');
     define('_WLS_PROMOTER', 'Promuovi');
     define('_WLS_ZIP', 'Codice CAP');
@@ -274,7 +275,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'Numero Telefono');
     define('_WLS_FAX', 'Numero Fax');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'URL Banner');
     define('_WLS_NAME', 'Nome');
     define('_WLS_EMAIL', 'Email');
@@ -286,20 +287,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'Non pubblicare');
     define('_WLS_NOTSELECT', 'Non specificato');
     define('_WLS_SUBMIT_INDISPENSABLE', "Asterisco '<b>*</b>' indica elemento obbligatorio.");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"Commento ad Admin" indica una opinione, richiesta, ecc.<br>Questa colonna non � mostrata su WEB.<br>Per favore inserisci URL del tuo sito se linka a questo sito, se vuoi essere indicato come "Link Reciproco".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"Commento ad Admin" indica una opinione, richiesta, ecc.<br>Questa colonna non � mostrata su WEB.<br>Per favore inserisci URL del tuo sito se linka a questo sito, se vuoi essere indicato come "Link Reciproco".');
     define('_WLS_USER_COMMENT', 'Commento ad Admin');
     define('_WLS_NOT_DISPLAY', 'Questa colonna non � mostrata sul WEB.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'La tua richiesta di modifica link � stata approvata. ');
     define('_WLS_MODIFY_NOT_OWNER', 'Per favore assicurati di essere la persona che ha inviato il link originale.');
     define('_WLS_MODIFY_PENDING', 'Modifica link registrata. Sar� pubblicata dopo la verifica.');
     define('_WLS_LINKSUBMITTER', 'Link Submitter');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'Inserisci password');
     define('_WLS_REGSTERED', 'Utente Registrato');
     define('_WLS_REGSTERED_DSC', 'Chiunque pu� modificare le informazioni dei link. <br>Il Webmaster controller� la modifica prima di pubblicarla.');
@@ -359,7 +357,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'auto discovery');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Distributing RSS/ATOM feeds displayed here.');
-    define('_WLS_ATOMFEED_FIREFOX', "Se usi <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark questa pagina, per consultare il nostro RSS/ATOM feed. ");
+    define('_WLS_ATOMFEED_FIREFOX', "Se usi <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, bookmark questa pagina, per consultare il nostro RSS/ATOM feed. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Notificami se approvato');
@@ -442,7 +440,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Attanzione: Impossibile leggere url');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Attenzione: Impossibile verificare dimensione banner');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Latitudine');
     define('_WEBLINKS_GM_LONGITUDE', 'Longitudine');
     define('_WEBLINKS_GM_ZOOM', 'Livello Zoom');
@@ -535,4 +533,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_TIME_EXPIRE_DESC', 'Se non marcato, l\'ora di scadenza non sar� indicata');
     define('_WEBLINKS_DEL_LINK_CONFIRM', 'Conferma per cancellare');
     define('_WEBLINKS_DEL_LINK_REASON', 'Motivo della cancellazione');
-}// --- define language end ---
+}
+// --- define language end ---

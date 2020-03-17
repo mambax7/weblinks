@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_linkitem_handler.php,v 1.6 2007/11/26 11:33:58 ohwada Exp $
+
+// $Id: weblinks_linkitem_handler.php,v 1.1 2011/12/29 14:33:05 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to weblinks_install.php
@@ -32,6 +33,10 @@ if (!class_exists('weblinks_linkitem_handler')) {
     //================================================================
     // class weblinks_linkitem
     //================================================================
+
+    /**
+     * Class weblinks_linkitem
+     */
     class weblinks_linkitem extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -59,6 +64,10 @@ if (!class_exists('weblinks_linkitem_handler')) {
     //================================================================
     // class weblinks_linkitem_handler
     //================================================================
+
+    /**
+     * Class weblinks_linkitem_handler
+     */
     class weblinks_linkitem_handler extends happy_linux_object_handler
     {
         public $_cached_by_itemid = [];
@@ -67,6 +76,11 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_linkitem_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'linkitem', 'item_id', 'weblinks_linkitem');
@@ -78,6 +92,11 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -109,6 +128,10 @@ if (!class_exists('weblinks_linkitem_handler')) {
             return $sql;
         }
 
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -132,6 +155,10 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // load
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function load_once()
         {
             static $flag_init_load;
@@ -159,16 +186,27 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // get_cache
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &get_cache_array_by_itemid()
         {
             return $this->_cached_by_itemid;
         }
 
+        /**
+         * @return array
+         */
         public function &get_cache_array_by_name()
         {
             return $this->_cached_by_name;
         }
 
+        /**
+         * @param $id
+         * @return bool|mixed
+         */
         public function get_cache_by_itemid($id)
         {
             if (isset($this->_cached_by_itemid[$id])) {
@@ -180,6 +218,11 @@ if (!class_exists('weblinks_linkitem_handler')) {
             return false;
         }
 
+        /**
+         * @param $id
+         * @param $key
+         * @return bool|mixed
+         */
         public function get_cache_by_itemid_key($id, $key)
         {
             if (isset($this->_cached_by_itemid[$id][$key])) {
@@ -191,6 +234,10 @@ if (!class_exists('weblinks_linkitem_handler')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @return bool|mixed
+         */
         public function get_cache_by_name($name)
         {
             if (isset($this->_cached_by_name[$name])) {
@@ -202,6 +249,11 @@ if (!class_exists('weblinks_linkitem_handler')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @param $key
+         * @return bool|mixed
+         */
         public function get_cache_by_name_key($name, $key)
         {
             if (isset($this->_cached_by_name[$name][$key])) {
@@ -216,6 +268,11 @@ if (!class_exists('weblinks_linkitem_handler')) {
         //---------------------------------------------------------
         // get object
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         * @return bool|mixed
+         */
         public function &get_by_itemid($id)
         {
             $obj = false;

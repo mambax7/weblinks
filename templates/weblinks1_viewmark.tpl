@@ -1,4 +1,4 @@
-<{* $Id: weblinks1_viewmark.html,v 1.13 2008/02/26 16:01:46 ohwada Exp $ *}>
+<{* $Id: weblinks1_viewmark.html,v 1.1 2011/12/29 14:32:36 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -79,14 +79,13 @@
                                             <img src="<{$xoops_url}>/modules/<{$dirname}>/images/down.gif" border="0" align="middle" alt="<{$lang_sort_7}>"/></a>) <br>
                                         <span class="weblinks_bold"><{$lang_cursortedby}></span>
     </div>
-    <hr>
+<hr/>
     <{/if}>
-    <br>
+<br>
 
     <div class="weblinks_viewcat_frame">
         <{$weblinks_links_full}>
-    </div>
-    <br>
+    </div><br>
 
     <div class="weblinks_pagenavi">
         <{$page_navi}>
@@ -95,7 +94,7 @@
     <{else}>
 
     <span class="weblinks_error"><{$lang_nomatch}></span>
-    <hr>
+<hr/>
 
     <{/if}>
 
@@ -120,13 +119,13 @@
             [file <{$kml.page}>]</a>
         <{/foreach}>
     </div>
-    <br>
+<br>
     <{* -- End kml loop -- *}>
     <{/if}>
 
-    <{include file="db:system_notification_select.tpl"}>
+    <{include file="db:system_notification_select.html"}>
 
-    <hr>
+    <hr/>
     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

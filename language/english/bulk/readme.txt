@@ -1,4 +1,4 @@
-$Id: readme.txt,v 1.1 2006/11/04 02:03:38 ohwada Exp $
+$Id: readme.txt,v 1.1 2011/12/29 14:32:49 ohwada Exp $
 
 =================================================
 WebLinks Module

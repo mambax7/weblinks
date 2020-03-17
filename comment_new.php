@@ -1,5 +1,6 @@
 <?php
-// $Id: comment_new.php,v 1.7 2007/03/06 02:01:50 ohwada Exp $
+
+// $Id: comment_new.php,v 1.1 2011/12/29 14:32:27 ohwada Exp $
 
 // 2007-03-01 K.OHWADA
 // header.php
@@ -28,7 +29,7 @@
 
 include 'header.php';
 
-$weblinks_link_handler = weblinks_getHandler('link_basic', WEBLINKS_DIRNAME);
+$weblinks_link_handler = weblinks_get_handler('link_basic', WEBLINKS_DIRNAME);
 
 // BUG 2932: dont work correctly when register_long_arrays = off
 $com_itemid = 0;
@@ -43,4 +44,5 @@ if ($com_itemid > 0) {
     include XOOPS_ROOT_PATH . '/include/comment_new.php';
 }
 
-exit(); // -----
+exit();
+// -----

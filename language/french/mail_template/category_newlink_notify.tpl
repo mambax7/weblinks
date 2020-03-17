@@ -1,21 +1,21 @@
 Bonjour {X_UNAME},
 
-Un nouveau lien "{LINK_NAME}" a été ajouté dans la catégorie "{CATEGORY_NAME}" sur {X_SITENAME}.
+Un nouveau lien "{LINK_NAME}" a ï¿½tï¿½ ajoutï¿½ dans la catï¿½gorie "{CATEGORY_NAME}" sur {X_SITENAME}.
 
 Vous pouvez visualiser ce lien ici :
 {LINK_URL}
 
-Vous pouvez visualiser la catégorie entière ici :
+Vous pouvez visualiser la catï¿½gorie entiï¿½re ici :
 {CATEGORY_URL}
 
 -----------
 
-Vous recevez ce message parce que vous avez choisi d'être notifié lorsque de nouveaux liens sont ajoutés dans cette catégorie.
+Vous recevez ce message parce que vous avez choisi d'ï¿½tre notifiï¿½ lorsque de nouveaux liens sont ajoutï¿½s dans cette catï¿½gorie.
 
-S'il s'agissait là d'une erreur ou que vous ne désiriez de plus recevoir de notifications ultérieures, veuillez mettre à jour vos notifications en visitant le lien suivant :
+S'il s'agissait lï¿½ d'une erreur ou que vous ne dï¿½siriez de plus recevoir de notifications ultï¿½rieures, veuillez mettre ï¿½ jour vos notifications en visitant le lien suivant :
 {X_UNSUBSCRIBE_URL}
 
-Veuillez ne pas répondre à ce message.
+Veuillez ne pas rï¿½pondre ï¿½ ce message.
 
 -----------
 

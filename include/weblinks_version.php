@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_version.php,v 1.3 2012/04/09 10:20:05 ohwada Exp $
 
 // 2006-10-01 K.OHWADA
@@ -15,8 +16,10 @@
 
 // --- define version begin ---
 if (!defined('WEBLINKS_VERSION')) {
-    define('WEBLINKS_VERSION', '2.10');
-    define('WEBLINKS_HAPPY_LINUX_VERSION', '1.70');
-    define('WEBLINKS_RSSC_VERSION', '1.20');
-    define('WEBLINKS_WEBMAP3_VERSION', '1.10');
-}// --- define version end ---
+    define('WEBLINKS_VERSION', '2.30');
+    define('WEBLINKS_HAPPY_LINUX_VERSION', '1.90');
+    define('WEBLINKS_RSSC_VERSION', '1.50');
+    define('WEBLINKS_WEBMAP3_VERSION', '1.20');
+}
+
+// --- define version end ---

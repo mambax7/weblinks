@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_check_base.php,v 1.2 2008/02/27 01:45:06 ohwada Exp $
+
+// $Id: weblinks_link_check_base.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // divid from weblinks_link_broken_check.php
@@ -14,6 +15,10 @@ if (!class_exists('weblinks_link_check_base')) {
     //=========================================================
     // class weblinks_link_check_base
     //=========================================================
+
+    /**
+     * Class weblinks_link_check_base
+     */
     class weblinks_link_check_base
     {
         public $_DIRNAME;
@@ -35,17 +40,28 @@ if (!class_exists('weblinks_link_check_base')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_check_base constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_link_handler = weblinks_getHandler('link_bin', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_bin', $dirname);
         }
 
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param int $limit
+         * @param int $offset
+         * @return bool
+         */
         public function _execute($limit = 0, $offset = 0)
         {
             $this->_time_start = time();
@@ -95,16 +111,25 @@ if (!class_exists('weblinks_link_check_base')) {
             return true;
         }
 
+        /**
+         * @param $row
+         */
         public function _loop(&$row)
         {
             // duumy
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_echo($value)
         {
             $this->_flag_echo = (bool)$value;
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_echo_lid($value)
         {
             $this->_flag_echo_lid = (bool)$value;
@@ -118,6 +143,10 @@ if (!class_exists('weblinks_link_check_base')) {
         //---------------------------------------------------------
         // print HTML
         //---------------------------------------------------------
+
+        /**
+         * @return string
+         */
         public function _get_html_start()
         {
             $time_now = $this->_get_time_now();
@@ -127,6 +156,9 @@ if (!class_exists('weblinks_link_check_base')) {
             return $text;
         }
 
+        /**
+         * @return string
+         */
         public function _get_html_end()
         {
             $time_now = $this->_get_time_now();
@@ -156,16 +188,25 @@ if (!class_exists('weblinks_link_check_base')) {
             return $text;
         }
 
+        /**
+         * @return null
+         */
         public function _get_link_broken_list()
         {
             return null;
         }
 
+        /**
+         * @return null
+         */
         public function _get_link_broken_line()
         {
             return null;
         }
 
+        /**
+         * @return string
+         */
         public function _get_no_record()
         {
             $text = '<h4>' . $this->_TITLE . "</h4>\n";
@@ -177,6 +218,10 @@ if (!class_exists('weblinks_link_check_base')) {
         //---------------------------------------------------------
         // time
         //---------------------------------------------------------
+
+        /**
+         * @return false|string
+         */
         public function _get_time_now()
         {
             $text = date('Y-m-d H:i:s');
@@ -184,6 +229,10 @@ if (!class_exists('weblinks_link_check_base')) {
             return $text;
         }
 
+        /**
+         * @param $time_start
+         * @return string
+         */
         public function _get_time_elapse($time_start)
         {
             $time = time() - $time_start;
@@ -194,19 +243,28 @@ if (!class_exists('weblinks_link_check_base')) {
             return $text;
         }
 
+        /**
+         * @return float
+         */
         public function _get_microtime()
         {
-            list($usec, $sec) = explode(' ', microtime());
+            [$usec, $sec] = explode(' ', microtime());
             $time = (float)$sec + (float)$usec;
 
             return $time;
         }
 
+        /**
+         * @param $data
+         */
         public function print_write_data($data)
         {
             $this->_print_write_data($data);
         }
 
+        /**
+         * @param $data
+         */
         public function _print_write_data($data)
         {
             if ($this->_flag_echo) {
@@ -215,6 +273,9 @@ if (!class_exists('weblinks_link_check_base')) {
             $this->_write_data($data);
         }
 
+        /**
+         * @param $data
+         */
         public function _write_data($data)
         {
             // dummy
@@ -223,26 +284,46 @@ if (!class_exists('weblinks_link_check_base')) {
         //---------------------------------------------------------
         // link_bin_handler
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &get_conf()
         {
             return $this->_link_handler->_get_config_data();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_link_count_all()
         {
             return $this->_link_handler->get_count_all();
         }
 
+        /**
+         * @param int $limit
+         * @param int $offset
+         * @return mixed
+         */
         public function &_get_lid_array($limit = 0, $offset = 0)
         {
             return $this->_link_handler->get_id_array($limit, $offset);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function &_get_link_row($lid)
         {
             return $this->_link_handler->get_row_by_id($lid);
         }
 
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function _countup_link_broken($lid)
         {
             return $this->_link_handler->countup_broken($lid);

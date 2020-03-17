@@ -1,5 +1,6 @@
 <?php
-// $Id: brokenlink.php,v 1.14 2007/11/02 11:36:27 ohwada Exp $
+
+// $Id: brokenlink.php,v 1.1 2011/12/29 14:32:29 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // get_token_pair()
@@ -45,6 +46,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_broken_handler.php';
 //=========================================================
 // class weblinks_brokenlink
 //=========================================================
+
+/**
+ * Class weblinks_brokenlink
+ */
 class weblinks_brokenlink extends happy_linux_error
 {
     public $_link_handler;
@@ -60,14 +65,19 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * weblinks_brokenlink constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         parent::__construct();
         $this->set_debug_print_error(WEBLINKS_DEBUG_ERROR);
 
-        $config_handler = weblinks_getHandler('config2_basic', $dirname);
-        $this->_link_handler = weblinks_getHandler('link', $dirname);
-        $this->_broken_handler = weblinks_getHandler('broken', $dirname);
+        $config_handler = weblinks_get_handler('config2_basic', $dirname);
+        $this->_link_handler = weblinks_get_handler('link', $dirname);
+        $this->_broken_handler = weblinks_get_handler('broken', $dirname);
         $this->_system = happy_linux_system::getInstance();
         $this->_post = happy_linux_post::getInstance();
         $this->_form = happy_linux_form::getInstance();
@@ -79,6 +89,10 @@ class weblinks_brokenlink extends happy_linux_error
         $this->_conf_use_brokenlink = $conf['use_brokenlink'];
     }
 
+    /**
+     * @param null $dirname
+     * @return \weblinks_brokenlink|static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -92,6 +106,10 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     // get POST
     //---------------------------------------------------------
+
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_submit()
     {
         $ret = $this->_post->get_post_text('submit');
@@ -99,6 +117,9 @@ class weblinks_brokenlink extends happy_linux_error
         return $ret;
     }
 
+    /**
+     * @return int
+     */
     public function get_post_get_lid()
     {
         $ret = $this->_post->get_post_get_int('lid');
@@ -109,6 +130,11 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     // check_access
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return int
+     */
     public function check_access($lid)
     {
         // not use
@@ -125,6 +151,9 @@ class weblinks_brokenlink extends happy_linux_error
         return 0;
     }
 
+    /**
+     * @return mixed
+     */
     public function get_title()
     {
         return $this->_title_s;
@@ -133,6 +162,11 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     // check_broken_link
     //---------------------------------------------------------
+
+    /**
+     * @param $lid
+     * @return int
+     */
     public function check_broken_link($lid)
     {
         if (0 != $this->_system_uid) {
@@ -149,15 +183,19 @@ class weblinks_brokenlink extends happy_linux_error
             }
         }
 
-        return 0;   // OK
+        return 0;    // OK
     }
 
     //---------------------------------------------------------
     // broken_link
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function broken_link()
     {
-        $broken_obj = &$this->_broken_handler->create();
+        $broken_obj = $this->_broken_handler->create();
         $broken_obj->setVars($_POST);
         $broken_obj->setVar('sender', $this->_system_uid);
         $broken_obj->setVar('ip', $this->_remote_addr);
@@ -174,12 +212,19 @@ class weblinks_brokenlink extends happy_linux_error
     //---------------------------------------------------------
     // token
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function check_token()
     {
         return $this->_form->check_token();
     }
 
-    public function &get_token_pair()
+    /**
+     * @return array|null
+     */
+    public function get_token_pair()
     {
         return $this->_form->get_token_pair();
     }
@@ -214,7 +259,7 @@ if (-2 == $check) {
 }
 
 if ($submit) {
-    if (!$weblinks_brokenlink->check_token()) {
+    if (!($weblinks_brokenlink->check_token())) {
         redirect_header($url_singlelink, 3, 'Token Error');
         exit();
     }
@@ -250,7 +295,7 @@ if ($submit) {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $title_s = $weblinks_brokenlink->get_title();
-    list($token_name, $token_value) = $weblinks_brokenlink->get_token_pair();
+    [$token_name, $token_value] = $weblinks_brokenlink->get_token_pair();
 
     $weblinks_header->assign_module_header();
 
@@ -270,4 +315,5 @@ if ($submit) {
     include_once XOOPS_ROOT_PATH . '/footer.php';
 }
 
-exit(); // === main end ===
+exit();
+// === main end ===

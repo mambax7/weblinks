@@ -1,5 +1,6 @@
 <?php
-// $Id: test_class_user_class.php,v 1.5 2007/11/02 11:36:30 ohwada Exp $
+
+// $Id: test_class_user_class.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // comment for mode_user_perm
@@ -30,6 +31,10 @@
 //=========================================================
 // class weblinks_test_class_user
 //=========================================================
+
+/**
+ * Class weblinks_test_class_user
+ */
 class weblinks_test_class_user extends weblinks_test_class
 {
     public $_config_handler;
@@ -43,9 +48,12 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $this->set_debug_db_sql(false);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_class|\weblinks_test_class_user|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -77,6 +85,11 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // user add link
     //---------------------------------------------------------
+
+    /**
+     * @param $param_user
+     * @return bool
+     */
     public function test_user_add_link(&$param_user)
     {
         $flag = false;
@@ -94,9 +107,11 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $obj = &$this->create_link_save();
+        $obj = $this->create_link_save();
 
-        list($inputs, $expects) = $this->build_input_expect_user($obj->gets(), $param_user);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect_user($obj->gets(), $param_user);
 
         $excludes = &$this->build_excludes($mode_passwd);
 
@@ -119,6 +134,11 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // user mod link
     //---------------------------------------------------------
+
+    /**
+     * @param $param_user
+     * @return bool
+     */
     public function test_user_mod_link(&$param_user)
     {
         $flag = false;
@@ -138,10 +158,12 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $saves = &$this->build_saves();
 
-        $obj = &$this->create_link_save();
+        $obj = $this->create_link_save();
         $obj->assignVars($saves);
 
-        list($inputs, $expects) = $this->build_input_expect_user($obj->gets(), $param_user);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect_user($obj->gets(), $param_user);
 
         $expects['time_create'] = $saves['time_create'];
 
@@ -175,6 +197,11 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // user add modify
     //---------------------------------------------------------
+
+    /**
+     * @param $param_user
+     * @return bool
+     */
     public function test_user_add_modify(&$param_user)
     {
         $flag = false;
@@ -192,9 +219,11 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->set_permit_config($mode_user_perm);
         $this->set_permit_linkitem($mode_user_perm);
 
-        $obj = &$this->create_modify_save();
+        $obj = $this->create_modify_save();
 
-        list($inputs, $expects) = $this->build_input_expect_user_modify($obj->gets(), $param_user);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect_user_modify($obj->gets(), $param_user);
 
         $excludes = &$this->build_excludes($mode_passwd);
 
@@ -217,6 +246,11 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // user mod modify
     //---------------------------------------------------------
+
+    /**
+     * @param $param_user
+     * @return bool
+     */
     public function test_user_mod_modify($param_user)
     {
         $flag = false;
@@ -236,10 +270,12 @@ class weblinks_test_class_user extends weblinks_test_class
 
         $saves = &$this->build_saves();
 
-        $obj = &$this->create_modify_save();
+        $obj = $this->create_modify_save();
         $obj->assignVars($saves);
 
-        list($inputs, $expects) = $this->build_input_expect_user_modify($obj->gets(), $param_user);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect_user_modify($obj->gets(), $param_user);
 
         $expects['time_create'] = $saves['time_create'];
 
@@ -264,6 +300,12 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // build_input_expect
     //---------------------------------------------------------
+
+    /**
+     * @param $saves
+     * @param $param_user
+     * @return array
+     */
     public function build_input_expect_user($saves, $param_user)
     {
         $not_gpc = false;
@@ -286,7 +328,9 @@ class weblinks_test_class_user extends weblinks_test_class
             'flag_rssc_lid' => $flag_rssc_lid,
         ];
 
-        list($inputs, $expects) = $this->build_input_expect($param);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect($param);
 
         if (0 == $mode_user_perm) {
             $expects['url'] = $saves['url'];
@@ -354,12 +398,19 @@ class weblinks_test_class_user extends weblinks_test_class
         return [$inputs, $expects];
     }
 
+    /**
+     * @param $saves
+     * @param $param_user
+     * @return array
+     */
     public function build_input_expect_user_modify($saves, $param_user)
     {
         $mode_user_perm = $this->get_from_array($param_user, 'mode_user_perm');
         $modify_mode = $this->get_from_array($param_user, 'modify_mode');
 
-        list($inputs, $expects) = $this->build_input_expect_user($saves, $param_user);
+        [
+            $inputs, $expects
+            ] = $this->build_input_expect_user($saves, $param_user);
 
         $inputs['mode'] = $modify_mode;
         $inputs['notify'] = 1;
@@ -384,6 +435,11 @@ class weblinks_test_class_user extends weblinks_test_class
     //---------------------------------------------------------
     // set_permit
     //---------------------------------------------------------
+
+    /**
+     * @param $mode
+     * @return int
+     */
     public function get_permit_mode_passwd($mode)
     {
         if ($mode && !$this->_is_xoops_guest) {
@@ -393,6 +449,9 @@ class weblinks_test_class_user extends weblinks_test_class
         return $mode;
     }
 
+    /**
+     * @param $mode
+     */
     public function set_permit_config($mode)
     {
         if ($mode) {
@@ -421,6 +480,9 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->_config_handler->load_config();
     }
 
+    /**
+     * @param $use
+     */
     public function set_permit_linkitem($use)
     {
         $this->update_linkitem_user_mode_by_name('url', $use);

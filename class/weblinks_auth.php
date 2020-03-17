@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_auth.php,v 1.3 2009/02/08 11:07:53 ohwada Exp $
+
+// $Id: weblinks_auth.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2009-02-08 K.OHWADA
 // Notice [PHP]: Only variables should be assigned by reference
@@ -22,6 +23,10 @@ if (!class_exists('weblinks_auth')) {
     //=========================================================
     // class weblinks_auth
     //=========================================================
+
+    /**
+     * Class weblinks_auth
+     */
     class weblinks_auth extends happy_linux_error
     {
         public $_config_handler;
@@ -32,16 +37,25 @@ if (!class_exists('weblinks_auth')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_auth constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
             $this->_menu = weblinks_menu::getInstance($dirname);
             $this->_post = happy_linux_post::getInstance();
             $this->_system = happy_linux_system::getInstance();
         }
 
+        /**
+         * @param null $dirname
+         * @return \weblinks_auth|static
+         */
         public static function getInstance($dirname = null)
         {
             static $instance;
@@ -55,6 +69,11 @@ if (!class_exists('weblinks_auth')) {
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param $rec_uid
+         * @return bool
+         */
         public function show_modify($rec_uid)
         {
             $uid_match = $this->_check_uid_match($rec_uid);
@@ -68,6 +87,9 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @return array
+         */
         public function &get_auth_submit()
         {
             $has_permit = $this->_menu->show_submit();
@@ -79,13 +101,20 @@ if (!class_exists('weblinks_auth')) {
             return $arr;
         }
 
+        /**
+         * @param $rec_uid
+         * @param $rec_passwd
+         * @return array
+         */
         public function &get_auth_modify($rec_uid, $rec_passwd)
         {
             $request = $this->_post->get_post_text('request');
 
             $uid_match = $this->_check_uid_match($rec_uid);
 
-            list($passwd_match, $passwd_incorrect) = $this->_check_passwd_match($rec_passwd, $request);
+            [
+                $passwd_match, $passwd_incorrect
+                ] = $this->_check_passwd_match($rec_passwd, $request);
 
             $has_permit = $this->_has_auth_modify_permit($uid_match, $passwd_match);
 
@@ -102,12 +131,19 @@ if (!class_exists('weblinks_auth')) {
             return $arr;
         }
 
+        /**
+         * @return bool
+         */
         public function has_auth_ratelink()
         {
             return $this->_has_auth('auth_ratelink');
         }
 
         // Notice: Only variables should be assigned by reference in file class/weblinks_link.php
+
+        /**
+         * @return array
+         */
         public function &has_auth_desc_option()
         {
             $arr = [
@@ -130,6 +166,11 @@ if (!class_exists('weblinks_auth')) {
         //---------------------------------------------------------
         // private
         //---------------------------------------------------------
+
+        /**
+         * @param $has_permit
+         * @return string
+         */
         public function _get_submit_code($has_permit)
         {
             $code = '';
@@ -151,6 +192,12 @@ if (!class_exists('weblinks_auth')) {
             return $code;
         }
 
+        /**
+         * @param $has_permit
+         * @param $passwd_match
+         * @param $request
+         * @return string
+         */
         public function _get_modify_code($has_permit, $passwd_match, $request)
         {
             $show_passwd = $this->_check_show_passwd($passwd_match, $request);
@@ -178,6 +225,10 @@ if (!class_exists('weblinks_auth')) {
             return $code;
         }
 
+        /**
+         * @param $rec_uid
+         * @return bool
+         */
         public function _check_uid_match($rec_uid)
         {
             if ($this->_system->is_user() && ($this->_system->get_uid() == $rec_uid)) {
@@ -187,12 +238,19 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $rec_passwd
+         * @param $request
+         * @return bool[]
+         */
         public function _check_passwd_match($rec_passwd, $request)
         {
             $passwd_match = false;
             $passwd_incorrect = false;
 
-            list($passwd, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
+            [
+                $passwd, $flag_passwd, $flag_code
+                ] = $this->_post->get_post_get_passwd_old();
 
             if (('password' == $request) || $flag_code) {
                 if ($rec_passwd == md5($passwd)) {
@@ -205,6 +263,11 @@ if (!class_exists('weblinks_auth')) {
             return [$passwd_match, $passwd_incorrect];
         }
 
+        /**
+         * @param bool $passwd_match
+         * @param null $request
+         * @return bool
+         */
         public function _check_show_passwd($passwd_match = false, $request = null)
         {
             if ($passwd_match || ('modify' == $request)) {
@@ -221,6 +284,11 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $uid_match
+         * @param $passwd_match
+         * @return bool
+         */
         public function _is_owner($uid_match, $passwd_match)
         {
             if ($uid_match || $passwd_match) {
@@ -230,26 +298,52 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param      $uid_match
+         * @param bool $passwd_match
+         * @return bool
+         */
         public function _has_auth_modify_permit($uid_match, $passwd_match = false)
         {
             return $this->_has_modify_common('auth_modify', $uid_match, $passwd_match);
         }
 
+        /**
+         * @param $uid_match
+         * @param $passwd_match
+         * @return bool
+         */
         public function _has_auth_modify_auto($uid_match, $passwd_match)
         {
             return $this->_has_modify_common('auth_modify_auto', $uid_match, $passwd_match);
         }
 
+        /**
+         * @param $uid_match
+         * @param $passwd_match
+         * @return bool
+         */
         public function _has_auth_delete_permit($uid_match, $passwd_match)
         {
             return $this->_has_modify_common('auth_delete', $uid_match, $passwd_match);
         }
 
+        /**
+         * @param $uid_match
+         * @param $passwd_match
+         * @return bool
+         */
         public function _has_auth_delete_auto($uid_match, $passwd_match)
         {
             return $this->_has_modify_common('auth_delete_auto', $uid_match, $passwd_match);
         }
 
+        /**
+         * @param $name
+         * @param $uid_match
+         * @param $passwd_match
+         * @return bool
+         */
         public function _has_modify_common($name, $uid_match, $passwd_match)
         {
             $has_auth = $this->_has_auth($name);
@@ -275,6 +369,10 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @return bool
+         */
         public function _has_auth_uid($name)
         {
             if (in_array(WEBLINKS_ID_AUTH_UID, $this->_get_conf_array($name))) {
@@ -284,6 +382,10 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @return bool
+         */
         public function _has_auth_passwd($name)
         {
             if (in_array(WEBLINKS_ID_AUTH_PASSWD, $this->_get_conf_array($name))) {
@@ -293,6 +395,10 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @return bool
+         */
         public function _has_auth($name)
         {
             if ($this->_system->is_module_admin()) {
@@ -316,6 +422,10 @@ if (!class_exists('weblinks_auth')) {
             return false;
         }
 
+        /**
+         * @param $name
+         * @return mixed
+         */
         public function &_get_conf_array($name)
         {
             // Notice [PHP]: Only variables should be assigned by reference
@@ -324,6 +434,10 @@ if (!class_exists('weblinks_auth')) {
             return $arr;
         }
 
+        /**
+         * @param $name
+         * @return mixed
+         */
         public function &_get_conf($name)
         {
             // for debug: do not have a local variable

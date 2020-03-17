@@ -1,5 +1,6 @@
 <?php
-// $Id: test_class_link_save_user.php,v 1.2 2007/02/27 14:46:02 ohwada Exp $
+
+// $Id: test_class_link_save_user.php,v 1.1 2011/12/29 14:33:00 ohwada Exp $
 
 // 2007-02-20 K.OHWADA
 // user can use textarea1
@@ -15,7 +16,7 @@ $test = weblinks_test_class_user::getInstance();
 
 dev_header();
 echo "<h3>test class: link_save</h3>\n";
-echo 'magic_quotes_gpc: ' . @get_magic_quotes_gpc() . "<br>\n";
+echo 'magic_quotes_gpc: ' . get_magic_quotes_gpc() . "<br>\n";
 $test->print_user_mode();
 
 //---------------------------------------------------------
@@ -33,7 +34,7 @@ $test->print_param($param);
 
 $ret = $test->test_user_add_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
@@ -50,7 +51,7 @@ $test->print_param($param);
 
 $ret = $test->test_user_add_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
@@ -67,7 +68,7 @@ $test->print_param($param);
 
 $ret = $test->test_user_add_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
@@ -86,7 +87,7 @@ $test->print_param($param);
 
 $ret = $test->test_user_mod_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
@@ -103,7 +104,7 @@ $test->print_param($param);
 
 $ret = $test->test_user_mod_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
@@ -120,10 +121,11 @@ $test->print_param($param);
 
 $ret = $test->test_user_mod_link($param);
 if (!$ret) {
-    echo "Error: failed: <br><hr>\n";
+    echo "Error: failed: <br><hr />\n";
     dev_footer();
 }
 
 echo "<h4>Test OK !</h4>\n";
 
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

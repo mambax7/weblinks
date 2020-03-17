@@ -1,15 +1,15 @@
 Ciao {X_UNAME},
 
-Un rapporto link non valido è stato inviato ed è in attesa di approvazione.
+Un rapporto link non valido ï¿½ stato inviato ed ï¿½ in attesa di approvazione.
 
 Puoi vedere questa richiesta qui:
 {BROKENREPORTS_URL}
 
 -----------
 
-Ricevi questo messaggio perchè hai scelto di essere notificato quando vengono inviati rapporti link non validi.
+Ricevi questo messaggio perchï¿½ hai scelto di essere notificato quando vengono inviati rapporti link non validi.
 
-Se questo è un errore o non desideri ricevere ulteriori notifiche, per favoreaggiorna la tua sottoscrizione visitando il link seguente:
+Se questo ï¿½ un errore o non desideri ricevere ulteriori notifiche, per favoreaggiorna la tua sottoscrizione visitando il link seguente:
 {X_UNSUBSCRIBE_URL}
 
 Per favore non rispondere a questo messaggio.

@@ -1,8 +1,9 @@
 <?php
+
 // $Id: weblinks_category_handler.php,v 1.3 2012/04/09 10:20:04 ohwada Exp $
 
-//  $this->initVar('gm_icon',      XOBJ_DTYPE_INT,   0, false );
-//  $this->initVar('gm_location',  XOBJ_DTYPE_TXTBOX, null, false, 255);
+//	$this->initVar('gm_icon',      XOBJ_DTYPE_INT,   0, false );
+//	$this->initVar('gm_location',  XOBJ_DTYPE_TXTBOX, null, false, 255);
 
 // 2010-10-28 K.OHWADA
 // get_cid_array_by_title_like()
@@ -75,6 +76,10 @@ if (!class_exists('weblinks_category_handler')) {
     //=========================================================
     // class weblinks_category
     //=========================================================
+
+    /**
+     * Class weblinks_category
+     */
     class weblinks_category extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -170,6 +175,10 @@ if (!class_exists('weblinks_category_handler')) {
     //=========================================================
     // class table_category
     //=========================================================
+
+    /**
+     * Class weblinks_category_handler
+     */
     class weblinks_category_handler extends happy_linux_object_handler
     {
         // class
@@ -189,6 +198,11 @@ if (!class_exists('weblinks_category_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_category_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'category', 'cid', 'weblinks_category');
@@ -203,8 +217,8 @@ if (!class_exists('weblinks_category_handler')) {
 
             $this->_tree = new XoopsTree($this->_table, 'cid', 'pid');
 
-            $config_basic_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_category_basic_handler = weblinks_getHandler('category_basic', $dirname);
+            $config_basic_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_category_basic_handler = weblinks_get_handler('category_basic', $dirname);
             $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $config_basic_handler->get_conf();
@@ -214,6 +228,12 @@ if (!class_exists('weblinks_category_handler')) {
         // basic function
         // $flag_cid : for import from mylinks
         //---------------------------------------------------------
+
+        /**
+         * @param      $obj
+         * @param bool $flag_cid
+         * @return string|void
+         */
         public function _build_insert_sql($obj, $flag_cid = false)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -340,6 +360,10 @@ if (!class_exists('weblinks_category_handler')) {
             return $sql;
         }
 
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -406,6 +430,11 @@ if (!class_exists('weblinks_category_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @param $pid
+         * @return bool
+         */
         public function get_count_by_pid($pid)
         {
             $pid = (int)$pid;
@@ -419,6 +448,12 @@ if (!class_exists('weblinks_category_handler')) {
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_all($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -429,6 +464,11 @@ if (!class_exists('weblinks_category_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_desc($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -440,6 +480,12 @@ if (!class_exists('weblinks_category_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $pid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_pid($pid = 0, $limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -452,6 +498,10 @@ if (!class_exists('weblinks_category_handler')) {
             return $objs;
         }
 
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_objects_by_title($title)
         {
             $title = addslashes($title);
@@ -462,6 +512,10 @@ if (!class_exists('weblinks_category_handler')) {
             return $objs;
         }
 
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_objects_by_title_like($title)
         {
             $title = addslashes($title);
@@ -472,6 +526,11 @@ if (!class_exists('weblinks_category_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_tree($limit = 0, $start = 0)
         {
             $limit = (int)$limit;
@@ -494,6 +553,11 @@ if (!class_exists('weblinks_category_handler')) {
         //---------------------------------------------------------
         // for bulk_manage.php
         // BUG 4519: Fatal error: Call to undefined function: get_cid_array_by_title()
+
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_cid_array_by_title($title)
         {
             $cid_arr = [];
@@ -509,6 +573,10 @@ if (!class_exists('weblinks_category_handler')) {
             return $cid_arr;
         }
 
+        /**
+         * @param $title
+         * @return array
+         */
         public function &get_cid_array_by_title_like($title)
         {
             $cid_arr = [];
@@ -537,6 +605,11 @@ if (!class_exists('weblinks_category_handler')) {
             $this->_category_basic_handler->build_tree();
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return mixed
+         */
         public function &get_tree($limit = 0, $start = 0)
         {
             $ret = &$this->_category_basic_handler->get_tree();
@@ -544,6 +617,9 @@ if (!class_exists('weblinks_category_handler')) {
             return $ret;
         }
 
+        /**
+         * @return mixed
+         */
         public function &get_cat_info_array()
         {
             $ret = &$this->_category_basic_handler->get_cat_info_array();
@@ -552,6 +628,12 @@ if (!class_exists('weblinks_category_handler')) {
         }
 
         // BUG 4507: Fatal error: Call to undefined function: getallchildid()
+
+        /**
+         * @param        $cid
+         * @param string $order
+         * @return mixed
+         */
         public function &getAllChildId($cid, $order = 'cid')
         {
             $ret = &$this->_category_basic_handler->getAllChildId($cid, $order);
@@ -559,6 +641,11 @@ if (!class_exists('weblinks_category_handler')) {
             return $ret;
         }
 
+        /**
+         * @param        $cid
+         * @param string $order
+         * @return mixed
+         */
         public function &get_parent_and_all_child_id($cid, $order = 'cid')
         {
             $ret = &$this->_category_basic_handler->get_parent_and_all_child_id($cid, $order);
@@ -566,6 +653,10 @@ if (!class_exists('weblinks_category_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function &get_parent_path($cid)
         {
             $ret = &$this->_category_basic_handler->get_parent_path($cid);
@@ -573,41 +664,84 @@ if (!class_exists('weblinks_category_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $cid
+         * @return mixed
+         */
         public function get_cid_depth_from_cache_by_cid($cid)
         {
             return $this->_category_basic_handler->get_cid_depth_from_cache_by_cid($cid);
         }
 
+        /**
+         * @param        $cid
+         * @param string $format
+         * @return mixed
+         */
         public function build_cat_path($cid, $format = 's')
         {
             return $this->_category_basic_handler->build_cat_path($cid, $format);
         }
 
+        /**
+         * @param string $cid_arr
+         * @return mixed
+         */
         public function show_selbox_multi($cid_arr = '')
         {
             return $this->_category_basic_handler->show_selbox_multi($cid_arr);
         }
 
+        /**
+         * @param int    $preset_id
+         * @param int    $none
+         * @param string $sel_name
+         * @param string $onchange
+         * @return mixed
+         */
         public function build_selbox_top($preset_id = 0, $none = 0, $sel_name = '', $onchange = '')
         {
             return $this->_category_basic_handler->build_selbox($preset_id, $none, $sel_name, $onchange, WEBLINKS_C_CAT_TOP);
         }
 
+        /**
+         * @param int    $preset_id
+         * @param int    $none
+         * @param string $sel_name
+         * @param string $onchange
+         * @param string $none_name
+         * @param int    $flag
+         * @return mixed
+         */
         public function build_selbox($preset_id = 0, $none = 0, $sel_name = '', $onchange = '', $none_name = '---', $flag = 0)
         {
             return $this->_category_basic_handler->build_selbox($preset_id, $none, $sel_name, $onchange, $none_name, $flag);
         }
 
+        /**
+         * @param array $cid_arr
+         * @return mixed
+         */
         public function build_selbox_multi($cid_arr = [])
         {
             return $this->_category_basic_handler->build_selbox_multi($cid_arr);
         }
 
+        /**
+         * @param        $cid
+         * @param string $format
+         * @return mixed
+         */
         public function get_title($cid, $format = 's')
         {
             return $this->_category_basic_handler->get_title($cid, $format);
         }
 
+        /**
+         * @param        $cid
+         * @param string $format
+         * @return string
+         */
         public function get_title_with_top($cid, $format = 's')
         {
             if ($cid) {

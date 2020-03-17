@@ -1,4 +1,5 @@
 <?php
+
 //=========================================================
 // M�dulo WebLinks
 // Traducido por Kirby y Dynamic Noiser
@@ -20,7 +21,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_OTHERFUNC', 'Otras funciones');
     define('_WEBLINKS_ADMIN_GOTO_ADMIN_INDEX', 'Ir a inicio de Administraci�n');
 
-    //======    config.php  ======
+    //======	config.php 	======
     // Permisos de acceso
     define('_WEBLINKS_ADMIN_AUTH', 'Permisos');
     define('_WEBLINKS_ADMIN_AUTH_TEXT', 'El administrador tiene toda la autoridad');
@@ -35,10 +36,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_AUTH_RATELINK', 'Pueden calificar los enlaces');
     define('_WEBLINKS_AUTH_RATELINK_DSC', 'Especificar aquellos grupos que pueden calificar los enlaces.<br>');
     define('_WEBLINKS_USE_PASSWD', 'Usar contrase�a de autenticaci�n cuando modifiques un enlace');
-    define(
-        '_WEBLINKS_USE_PASSWD_DSC',
-        'Mostrar campo de contrase�a de autenticaci�n cuando SI/YES est� seleccionado, <br>para los grupos que no est� permitido enviar/aprobar solicitudes de modificaci�n. '
-    );
+    define('_WEBLINKS_USE_PASSWD_DSC', 'Mostrar campo de contrase�a de autenticaci�n cuando SI/YES est� seleccionado, <br>para los grupos que no est� permitido enviar/aprobar solicitudes de modificaci�n. ');
     define('_WEBLINKS_USE_RATELINK', 'Permitir calificaciones');
     define('_WEBLINKS_USE_RATELINK_DSC', 'SI/YES permite a los usuarios calificar los enlaces.');
     define('_WEBLINKS_AUTH_UPDATED', 'Permissions Updated');
@@ -46,37 +44,19 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     // RSS/ATOM
     define('_WEBLINKS_ADMIN_RSS', 'Ajustes de RSS/ATOM');
     define('_WEBLINKS_RSS_MODE_AUTO', 'Actualizaci�n autom�tica de RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_MODE_AUTO_DSC',
-        "SI/YES realiza 'Descubrimiento autom�tico de la direcci�n RSS/ATOM' y 'actualiza autom�ticamente' si los enlaces RSS/ATOM son incluidos en el formulario del enlace "
-    );
+    define('_WEBLINKS_RSS_MODE_AUTO_DSC', "SI/YES realiza 'Descubrimiento autom�tico de la direcci�n RSS/ATOM' y 'actualiza autom�ticamente' si los enlaces RSS/ATOM son incluidos en el formulario del enlace ");
     define('_WEBLINKS_RSS_MODE_DATA', 'Datos de RSS/ATOM a mostrar');
-    define(
-        '_WEBLINKS_RSS_MODE_DATA_DSC',
-        'ATOM FEED, utiliza los datos de la tabla tras hacer el an�lisis. <br>XML utiliza los datos desde la tabla de enlace antes del an�lisis. <br>Algunos datos pueden no ser grabado despu�s del filtrado de tabla.'
-    );
+    define('_WEBLINKS_RSS_MODE_DATA_DSC', 'ATOM FEED, utiliza los datos de la tabla tras hacer el an�lisis. <br>XML utiliza los datos desde la tabla de enlace antes del an�lisis. <br>Algunos datos pueden no ser grabado despu�s del filtrado de tabla.');
     define('_WEBLINKS_RSS_CACHE', 'Tiempo de cacheado de RSS/ATOM');
     define('_WEBLINKS_RSS_CACHE_DSC', 'En horas.');
     define('_WEBLINKS_RSS_LIMIT', 'N�mero m�ximo de RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_LIMIT_DSC',
-        'Entra el n�mero m�ximo de RSS/ATOM que se grabar�n en la tabla<br>Los datos antiguos se borrar�n si se excede �ste valor. <br>Cero se considera ilimitado. '
-    );
+    define('_WEBLINKS_RSS_LIMIT_DSC', 'Entra el n�mero m�ximo de RSS/ATOM que se grabar�n en la tabla<br>Los datos antiguos se borrar�n si se excede �ste valor. <br>Cero se considera ilimitado. ');
     define('_WEBLINKS_RSS_SITE', 'B�squeda RSS');
-    define(
-        '_WEBLINKS_RSS_SITE_DSC',
-        'Entra una lista de direcciones RSS en el sito de b�squeda RSS.<br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una. <br>No metas direcciones ATOM. '
-    );
+    define('_WEBLINKS_RSS_SITE_DSC', 'Entra una lista de direcciones RSS en el sito de b�squeda RSS.<br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una. <br>No metas direcciones ATOM. ');
     define('_WEBLINKS_RSS_BLACK', 'Lista negra de direcciones RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_BLACK_DSC',
-        'Entra una lista de direcciones que se rechazar�n cuando colecten RSS/ATOM. <br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una.<br>Puedes usar expresiones regulares en lenguaje PERL. '
-    );
+    define('_WEBLINKS_RSS_BLACK_DSC', 'Entra una lista de direcciones que se rechazar�n cuando colecten RSS/ATOM. <br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una.<br>Puedes usar expresiones regulares en lenguaje PERL. ');
     define('_WEBLINKS_RSS_WHITE', 'Lista blanca de direcciones RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_WHITE_DSC',
-        'Entra una lista de direcciones a colectar cuando coincidan con entradas en la lista negra. <br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una. <br>Puedes usar expresiones regulares en lenguaje PERL. '
-    );
+    define('_WEBLINKS_RSS_WHITE_DSC', 'Entra una lista de direcciones a colectar cuando coincidan con entradas en la lista negra. <br>Separa cada entrada con una nueva l�nea cuando especif�ques m�s de una. <br>Puedes usar expresiones regulares en lenguaje PERL. ');
     define('_WEBLINKS_RSS_URL_CHECK', 'Hay algunas direcciones que est�n en la lista negra ');
     define('_WEBLINKS_RSS_URL_CHECK_DSC', 'Por favor, copia y pega desde abajo de la lista blanca al formulario de registro si es necesario. ');
     define('_WEBLINKS_RSS_UPDATED', 'Ajustes RSS/ATOM actualizados');
@@ -86,24 +66,15 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_RSS_MODE_TITLE', 'Usar etiquetas HTML en el t�tulo');
     define('_WEBLINKS_RSS_MODE_TITLE_DSC', 'SI/YES muestra etiquetas HTML en los enlaces del t�tulo, si el t�tulo tiene �sas etiquetas HTML. <br>NO desecha las etiquetas HTML del t�tulo. ');
     define('_WEBLINKS_RSS_MODE_CONTENT', 'Usar etiquetas HTML en el contenido');
-    define(
-        '_WEBLINKS_RSS_MODE_CONTENT_DSC',
-        'SI/YES muestra etiquetas HTML en los enlaces del comntenido, si el contenido tiene �sas etiquetas HTML <br>NO desecha las todas las etiquetas HTML del contenido mostrado. '
-    );
+    define('_WEBLINKS_RSS_MODE_CONTENT_DSC', 'SI/YES muestra etiquetas HTML en los enlaces del comntenido, si el contenido tiene �sas etiquetas HTML <br>NO desecha las todas las etiquetas HTML del contenido mostrado. ');
     define('_WEBLINKS_RSS_NEW', 'Selecciona el m�ximo n�mero de "nuevos RSS/ATOM" mostrados en el tope de la p�gina');
     define('_WEBLINKS_RSS_NEW_DSC', 'Selecciona el m�ximo n�mero de "nuevos RSS/ATOM" mostrados en la p�gina principal.');
     define('_WEBLINKS_RSS_PERPAGE', 'Selecciona el m�ximo n�mero de "nuevos RSS/ATOM" mostrados en la p�gina de detalles de los enlaces y en la p�gina de RSS/ATOM');
     define('_WEBLINKS_RSS_PERPAGE_DSC', 'Selecciona el m�ximo n�mero de "nuevos RSS/ATOM" mostrados en la p�gina RSS/ATOM. ');
     define('_WEBLINKS_RSS_NUM_CONTENT', 'N�mero de enlaces que ser�n mostrados');
-    define(
-        '_WEBLINKS_RSS_NUM_CONTENT_DSC',
-        'Entra el n�mero de enlaces que mostrar�n contenido de los enlaces RSS/ATOM en los enlaces que contiene el detalle de la p�ginas. <br>Un sumario ser� mostrado en los enlaces remanentes. '
-    );
+    define('_WEBLINKS_RSS_NUM_CONTENT_DSC', 'Entra el n�mero de enlaces que mostrar�n contenido de los enlaces RSS/ATOM en los enlaces que contiene el detalle de la p�ginas. <br>Un sumario ser� mostrado en los enlaces remanentes. ');
     define('_WEBLINKS_RSS_MAX_CONTENT', 'M�ximo n�mero de caracteres usados para el contenido de los enlaces RSS/ATOM');
-    define(
-        '_WEBLINKS_RSS_MAX_CONTENT_DSC',
-        'M�ximo n�mero de caracteres usados para el contenido de los enlaces RSS/ATOM enla p�gina RSS/ATOM.  <br>Para se usados cuando est� activada la utilizaci�n de etiquetas HTML '
-    );
+    define('_WEBLINKS_RSS_MAX_CONTENT_DSC', 'M�ximo n�mero de caracteres usados para el contenido de los enlaces RSS/ATOM enla p�gina RSS/ATOM.  <br>Para se usados cuando est� activada la utilizaci�n de etiquetas HTML ');
     define('_WEBLINKS_RSS_MAX_SUMMARY', 'M�ximo n�mero de caracteres usado para el sumario de RSS/ATOM');
     define('_WEBLINKS_RSS_MAX_SUMMARY_DSC', 'M�ximo n�mero de caracteres usado para el sumario de RSS/ATOM en la p�gina principal. ');
 
@@ -111,7 +82,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_WEBLINKS_ADMIN_POST', 'Ajustes de los campos de enlaces');
     define(
         '_WEBLINKS_ADMIN_POST_TEXT_1',
-        '
+        '	
 No usar �sto significa que el campo no se mostrar� en el formulario. '
     );
     define('_WEBLINKS_ADMIN_POST_TEXT_2', 'Usar �sto significa que el campo se mostrar� en el formulario para permitir a qui�n lo rellena la opci�n de meter datos en �l o no.');
@@ -141,7 +112,7 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_CAT_IMG_SIZE_DSC', 'Usar cuando elija "Ajuste de imagen". ');
     define('_WEBLINKS_CAT_UPDATED', 'Ajustes de categor�as actualizados');
 
-    //======    category_list.php   ======
+    //======	category_list.php 	======
     define('_WEBLINKS_ADMIN_CATEGORY_MANAGE', 'Manejo de categor�as');
     define('_WEBLINKS_ADMIN_CATEGORY_LIST', 'Listado de categor�as');
     //define("_WEBLINKS_ORDER_ID"," Enlaces listados por Identificador ID");
@@ -154,12 +125,12 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_NUM_SUBCAT', 'N�mero de subcategor�a');
     define('_WEBLINKS_ORDERS_UPDATED', 'Actualizaci�n de las categor�as');
 
-    //======    category_manage.php     ======
+    //======	category_manage.php 	======
     define('_WEBLINKS_IMGURL_MAIN', 'Direcc�on de la imagen para la categor�a');
     define('_WEBLINKS_IMGURL_MAIN_DSC1', 'Opcional. <br>Los tama�os de las im�genes se ajustar�n autom�ticamente');
     //define("_WEBLINKS_IMGURL_MAIN_DSC2","Las im�genes s�lo se mostrar�n para las categor�as, no para las subcategor�as. ");
 
-    //======    link_list.php   ======
+    //======	link_list.php 	======
     define('_WEBLINKS_ADMIN_LINK_MANAGE', 'Manejo de enlaces');
     define('_WEBLINKS_ADMIN_LINK_LIST', 'Listado de enlaces');
     define('_WEBLINKS_ADMIN_LINK_BROKEN', 'Listado de enlaces que se deben reparar');
@@ -170,11 +141,11 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_NO_LINK', 'No existe el enlace. ');
     define('_WEBLINKS_ADMIN_PRESENT_SAVE', 'Los datos grabados en la base de datos ser�n mostrados aqu�.');
 
-    //======    link_manage.php     ======
+    //======	link_manage.php 	======
     //define("_WEBLINKS_USERID","N�mero de usuario");
     //define("_WEBLINKS_CREATE","Creado");
 
-    //======    link_broken_check.php   ======
+    //======	link_broken_check.php 	======
     define('_WEBLINKS_ADMIN_LINK_CHECK_UPDATE', 'Chequear enlaces y actualizar');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK', 'Chequear enlaces para reparar');
     define('_WEBLINKS_ADMIN_BROKEN_CHECK', 'Chequear');
@@ -183,10 +154,7 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
         '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_CAUTION',
         'Si hay muchos enlaces que se deben reparar, puede ocurrir que el servidor te devuelva un mensaje de error por una espera muy larga. <br>Si �sto sucede, cambia el valor num�rico para limitar y compensar �sto. <br>Si el l�mite es igual a cero, no habr�n restricciones en cuanto a cantidad.'
     );
-    define(
-        '_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE',
-        'Haciendo click <b>en el identificador ID del enlace</b> se abre una p�gina que te permite modificarlo. <br><b>La direcci�n de la p�gina web</b> te llevar� al sitio del enlace si haces click en �l. <br>'
-    );
+    define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_NOTICE', 'Haciendo click <b>en el identificador ID del enlace</b> se abre una p�gina que te permite modificarlo. <br><b>La direcci�n de la p�gina web</b> te llevar� al sitio del enlace si haces click en �l. <br>');
     define('_WEBLINKS_ADMIN_LINK_BROKEN_CHECK_GOOGLE', 'La b�squeda de Google se abrir� al hacer click en el <b>t�tulo de p�gina web</b>. <br>');
     define('_WEBLINKS_ADMIN_LIMIT', 'M�ximo n�mero de enlaces a chequear (l�mite)');
     define('_WEBLINKS_ADMIN_OFFSET', 'Compensaci�n');
@@ -202,7 +170,7 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_ADMIN_CHECK_NEXT', 'Chequear los pr�ximos %s enlaces');
     //define("_WEBLINKS_ADMIN_RSS_REFRESH_NOTE","Simult�neamente ejecutar el descubrimiento autom�tico de direcciones RSS/ATOM");
 
-    //======    rss_manage.php  ======
+    //======	rss_manage.php 	======
     define('_WEBLINKS_ADMIN_RSS_MANAGE', 'Manejo de RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH', 'Actualizar RSS/ATOM');
     define('_WEBLINKS_ADMIN_RSS_REFRESH_LINK', 'Actualizar datos del enlace del enlace que est�n en cach� ');
@@ -219,7 +187,7 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_NUM_RSS_CLEAR_LINK', 'N�mero de enlaces RSS/ATOM en la cach� que han sido limpiados');
     define('_WEBLINKS_NUM_RSS_CLEAR_ATOMFEED', 'N�mero de semillas RSS/ATOM en la cach� que han sido limpiados');
 
-    //======    user_list.php   ======
+    //======	user_list.php 	======
     define('_WEBLINKS_ADMIN_USER_MANAGE', 'Manejo de usuarios');
     define('_WEBLINKS_ADMIN_USER_EMAIL', 'Listado de usuarios con e-mail');
     define('_WEBLINKS_ADMIN_USER_LINK', 'Listado de usuarios registrados con informaci�n de enlace');
@@ -233,7 +201,7 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_WEBLINKS_USER_NOFOUND', 'Usuarios no encontrados');
     define('_WEBLINKS_UID_EMAIL', 'E-mail de qui�n env�a');
 
-    //======    mail_users.php  ======
+    //======	mail_users.php 	======
     define('_WEBLINKS_ADMIN_SENDMAIL', 'Enviar e-mail');
     define('_WEBLINKS_THERE_ARE_EMAIL', 'Hay <b>%s</b> e-mails');
     define('_WEBLINKS_SEND_NUM', 'Enviar e-mail desde %s al usuario %s al usuario');
@@ -311,15 +279,9 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     define('_AM_WEBLINKS_VIEW_URL_1', 'Direcci�n web indirecta');
     define('_AM_WEBLINKS_VIEW_URL_2', 'Direcci�n web directa');
     define('_AM_WEBLINKS_RECOMMEND_PRI', 'Prioridad de los sitios recomendados');
-    define(
-        '_AM_WEBLINKS_RECOMMEND_PRI_DSC',
-        'NONE <br>No se muestran.<br>NORMAL <br>Sitios recomendados se mostrar�n en la cabecera.<br>ALTA <br>Sitios recomendados se mostrar�n en la primera posici�n de cada categor�a.'
-    );
+    define('_AM_WEBLINKS_RECOMMEND_PRI_DSC', 'NONE <br>No se muestran.<br>NORMAL <br>Sitios recomendados se mostrar�n en la cabecera.<br>ALTA <br>Sitios recomendados se mostrar�n en la primera posici�n de cada categor�a.');
     define('_AM_WEBLINKS_MUTUAL_PRI', 'Prioridad de los sitios asociados');
-    define(
-        '_AM_WEBLINKS_MUTUAL_PRI_DSC',
-        'NONE <br>No se muestran.<br>NORMAL <br>Sitios asociados se mostrar�n en la cabecera.<br>ALTA <br>Sitios asociadose mostrar�n en la primera posici�n de cada categor�a.'
-    );
+    define('_AM_WEBLINKS_MUTUAL_PRI_DSC', 'NONE <br>No se muestran.<br>NORMAL <br>Sitios asociados se mostrar�n en la cabecera.<br>ALTA <br>Sitios asociadose mostrar�n en la primera posici�n de cada categor�a.');
     define('_AM_WEBLINKS_PRI_0', 'NONE');
     define('_AM_WEBLINKS_PRI_1', 'NORMAL');
     define('_AM_WEBLINKS_PRI_2', 'ALTA');
@@ -398,14 +360,11 @@ No usar �sto significa que el campo no se mostrar� en el formulario. '
     // locate
     define('_AM_WEBLINKS_CONF_LOCATE', 'Configuraci�n de localizaci�n');
     define('_AM_WEBLINKS_CONF_COUNTRY_CODE', 'C�digo de Pa�s');
-    define(
-        '_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC',
-        'Introduce el c�digo ccTLDs <br> <a href="https://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Aqu� encontrar�s �se c�digo ccTLDs. En el caso de Espa�a, el c�digo es el (punto).es</a>'
-    );
+    define('_AM_WEBLINKS_CONF_COUNTRY_CODE_DESC', 'Introduce el c�digo ccTLDs <br/> <a href="http://www.iana.org/cctld/cctld-whois.htm" target="_blank">IANA: Aqu� encontrar�s �se c�digo ccTLDs. En el caso de Espa�a, el c�digo es el (punto).es</a>');
     define(
         '_AM_WEBLINKS_CONF_RENEW_COUNTRY_CODE_DESC',
-        '
-Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con <span style="color:#0000ff;">#</span> mark'
+        ' 	
+Actualizar el tema que se relaciona con el c�digo de pa�s. <br/> El tema con <span style="color:#0000ff;">#</span> mark'
     );
     define('_AM_WEBLINKS_RENEW', 'Renovar');
 
@@ -415,14 +374,11 @@ Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con 
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE', 'Plantilla del mapa de sitio');
     define('_AM_WEBLINKS_CONF_MAP_TEMPLATE_DESC', 'Introduce la plantilla del mapa de sitio por FTP en template/map/ directory');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_AM_WEBLINKS_CONF_GOOGLE_MAP', 'Configuraci�n de mapas de Google');
     define('_AM_WEBLINKS_CONF_GM_USE', 'Usar mapas de Google');
     define('_AM_WEBLINKS_CONF_GM_APIKEY', 'Introduce la llave API de los mapas de Google');
-    define(
-        '_AM_WEBLINKS_CONF_GM_APIKEY_DESC',
-        'Consigue la llave API en <br> <a href="https://www.google.com/apis/maps/signup.html" target="_blank">La cerajerr�a API de Google :D</a> <br> cuando uses los mapas de Google'
-    );
+    define('_AM_WEBLINKS_CONF_GM_APIKEY_DESC', 'Consigue la llave API en <br/> <a href="http://www.google.com/apis/maps/signup.html" target="_blank">La cerajerr�a API de Google :D</a> <br/> cuando uses los mapas de Google');
     define('_AM_WEBLINKS_CONF_GM_SERVER', 'Nombre del servidor');
     define('_AM_WEBLINKS_CONF_GM_LANG', 'C�digo de lenguaje');
     define('_AM_WEBLINKS_CONF_GM_LOCATION', 'Localizaci�n por defecto');
@@ -437,10 +393,7 @@ Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con 
 
     // template
     define('_AM_WEBLINKS_CONF_TEMPLATE', 'Limpiar cach� de plantillas');
-    define(
-        '_AM_WEBLINKS_CONF_TEMPLATE_DESC',
-        'DEBES ejecutar �sto cuando hayas cambiado algo en los archivos de plantillas que est�n en los directorios template/parts/ template/xml/ y template/map/'
-    );
+    define('_AM_WEBLINKS_CONF_TEMPLATE_DESC', 'DEBES ejecutar �sto cuando hayas cambiado algo en los archivos de plantillas que est�n en los directorios template/parts/ template/xml/ y template/map/');
 
     // === 2006-12-11 ===
     // link item
@@ -596,19 +549,13 @@ Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con 
     define('_AM_WEBLINKS_GM_MAP_TYPE', '[Buscar] Tipo de mapa');
     define('_AM_WEBLINKS_GM_MAP_TYPE_DESC', 'Tipo de mapa');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND', '[UTF-8] Tipo de codificaci�n');
-    define(
-        '_AM_WEBLINKS_GM_GEOCODE_KIND_DESC',
-        'Buscar latitud y longitud desde<br><b>Resultado Simple</b><br>GClientGeocoder - Consigue latitud y longitud<br><b>M�s resultados</b><br>GClientGeocoder - Consigue sitio'
-    );
+    define('_AM_WEBLINKS_GM_GEOCODE_KIND_DESC', 'Buscar latitud y longitud desde<br><b>Resultado Simple</b><br>GClientGeocoder - Consigue latitud y longitud<br><b>M�s resultados</b><br>GClientGeocoder - Consigue sitio');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LATLNG', 'Resultado simple: Conseguir latitud y longitud');
     define('_AM_WEBLINKS_GM_GEOCODE_KIND_LOCATIONS', 'M�s resultados: conseguir los sitios');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO', '[Buscar en Jap�n] Usa CSIS');
     define('_AM_WEBLINKS_GM_USE_GEOCODE_TOKYO_DESC', 'V�lido en Jap�n<br>Conseguir latitud y longitud de la direcci�n');
     define('_AM_WEBLINKS_GM_USE_NISHIOKA', '[Buscar en Jap�n] Usa Inverse Geocode');
-    define(
-        '_AM_WEBLINKS_GM_USE_NISHIOKA_DESC',
-        'Valido en Jap�n<br>Busca direcciones desde latitud y longitud<br><a href="https://nishioka.sakura.ne.jp/google/" target="_blank">Esta el la web de mi amigo Nishioka</a>'
-    );
+    define('_AM_WEBLINKS_GM_USE_NISHIOKA_DESC', 'Valido en Jap�n<br>Busca direcciones desde latitud y longitud<br><a href="http://nishioka.sakura.ne.jp/google/" target="_blank">Esta el la web de mi amigo Nishioka</a>');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH', '[Marcador] M�ximos caracteres para el t�tulo');
     define('_AM_WEBLINKS_GM_TITLE_LENGTH_DESC', 'M�ximo n�mero de caracteres usados para el t�tulo en el marcador<br><b>-1</b> es ilimitado');
     define('_AM_WEBLINKS_GM_DESC_LENGTH', '[Marcador] M�ximos caracteres para el contenido');
@@ -640,10 +587,7 @@ Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con 
     // header
     define('_AM_WEBLINKS_CONF_HTML_STYLE', 'Configuraci�n del estilo HTML');
     define('_AM_WEBLINKS_HEADER_MODE', 'Usar cabecera del m�dulo XOOPS');
-    define(
-        '_AM_WEBLINKS_HEADER_MODE_DESC',
-        'Cuando es "NO", mostrar hoja de estilo y Javascript en la etiqueta<br>Cuando es "SI/YES", mostrarlos en etiqueta de cabecera, usando la cabecera del m�dulo de XOOPS<br>hay temas que no pueden ser utilizados'
-    );
+    define('_AM_WEBLINKS_HEADER_MODE_DESC', 'Cuando es "NO", mostrar hoja de estilo y Javascript en la etiqueta<br>Cuando es "SI/YES", mostrarlos en etiqueta de cabecera, usando la cabecera del m�dulo de XOOPS<br>hay temas que no pueden ser utilizados');
 
     // bulk
     define('_AM_WEBLINKS_BULK_SAMPLE', 'Para ver el ejemplo, pulsa en el bot�n de ejemplo');
@@ -705,11 +649,9 @@ Actualizar el tema que se relaciona con el c�digo de pa�s. <br> El tema con 
 
     // web shot
     define('_AM_WEBLINKS_LINK_IMG_THUMB', 'Sustituir el enlace de la imagen');
-    define(
-        '_AM_WEBLINKS_LINK_IMG_THUMB_DSC',
-        'Mostrar el sitio WEB en miniatura en lugar de la imagen en el v�nculo, <br>usando el servicio de miniaturas, <br>si no estable el v�nculo de la imagen.'
-    );
+    define('_AM_WEBLINKS_LINK_IMG_THUMB_DSC', 'Mostrar el sitio WEB en miniatura en lugar de la imagen en el v�nculo, <br>usando el servicio de miniaturas, <br>si no estable el v�nculo de la imagen.');
     define('_AM_WEBLINKS_LINK_IMG_NON', 'NINGUNA');
-    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Usar <a href="https://mozshot.nemui.org/" target="_blank">MozShot</a>');
-    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Usar <a href="https://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
-}// --- define language begin ---
+    define('_AM_WEBLINKS_LINK_IMG_MOZSHOT', 'Usar <a href="http://mozshot.nemui.org/" target="_blank">MozShot</a>');
+    define('_AM_WEBLINKS_LINK_IMG_SIMPLEAPI', 'Usar <a href="http://img.simpleapi.net/" target="_blank">SimpleAPI</a>');
+}
+// --- define language begin ---

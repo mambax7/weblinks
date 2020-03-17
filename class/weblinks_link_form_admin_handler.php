@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_form_admin_handler.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -61,6 +62,10 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
     //=========================================================
     // class weblinks_link_form_admin_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_form_admin_handler
+     */
     class weblinks_link_form_admin_handler extends weblinks_link_form_handler
     {
         public $_header;
@@ -70,6 +75,11 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_form_admin_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -108,6 +118,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // show_admin_form
         //---------------------------------------------------------
+
+        /**
+         * @param     $form_mode
+         * @param int $id
+         * @return bool
+         */
         public function show_admin_form($form_mode, $id = 0)
         {
             $this->_form_mode = $form_mode;
@@ -160,11 +176,11 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $flag_broken = true;
                     $flag_label = true;
                     break;
-                case WEBLINKS_OP_APPROVE_NEW:  // approve_new
+                case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                 case 'approve_preview':
                     $form_title = _WLS_MODREQUESTS;
                     $submit_value = _WLS_APPROVE;
-                    $op = WEBLINKS_OP_APPROVE_NEW;   // approve_new
+                    $op = WEBLINKS_OP_APPROVE_NEW;    // approve_new
                     $button_name = 'refuse_new';
                     $button_value = _WLS_IGNORE;
                     break;
@@ -182,7 +198,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             switch ($form_mode) {
                 case 'modify':
                     $lid = (int)$id;
-                    $edit_obj = &$this->get_edit($lid);
+                    $edit_obj = $this->get_edit($lid);
                     if (!is_object($edit_obj)) {
                         echo "no link record lid=$lid <br>\n";
 
@@ -190,9 +206,9 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     }
                     $edit_obj->build_admin_modify($lid);
                     break;
-                case WEBLINKS_OP_APPROVE_NEW:  // approve_new
+                case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                     $mid = (int)$id;
-                    $edit_obj = &$this->get_edit_modify($mid);
+                    $edit_obj = $this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
                         echo "no modify record mid=$mid <br>\n";
 
@@ -201,12 +217,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     $edit_obj->build_admin_approve();
                     break;
                 case 'submit_preview':
-                    $edit_obj = &$this->create_edit();
+                    $edit_obj = $this->create_edit();
                     $edit_obj->build_admin_submit_preview();
                     break;
                 case 'modify_preview':
                     $lid = $this->_post->get_post_int('lid');
-                    $edit_obj = &$this->get_edit($lid);
+                    $edit_obj = $this->get_edit($lid);
                     if (!is_object($edit_obj)) {
                         echo "no link record lid=$lid <br>\n";
 
@@ -216,7 +232,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     break;
                 case 'approve_preview':
                     $mid = $this->_post->get_post_int('mid');
-                    $edit_obj = &$this->get_edit_modify($mid);
+                    $edit_obj = $this->get_edit_modify($mid);
                     if (!is_object($edit_obj)) {
                         echo "no modify record mid=$mid <br>\n";
 
@@ -226,7 +242,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     break;
                 case 'submit':
                 default:
-                    $edit_obj = &$this->create_edit();
+                    $edit_obj = $this->create_edit();
                     $edit_obj->build_admin_submit();
                     break;
             }
@@ -237,7 +253,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
 
             switch ($form_mode) {
                 case 'modify':
-                case WEBLINKS_OP_APPROVE_NEW:  // approve_new
+                case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                     $cid_arr = $this->get_obj_var('cid_arr');
                     if (!is_array($cid_arr) || !count($cid_arr)) {
                         xoops_error('No Category');
@@ -392,11 +408,20 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // get cache
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         */
         public function set_saved_obj($obj)
         {
             $this->_saved_obj = $obj;
         }
 
+        /**
+         * @param        $key
+         * @param string $format
+         * @return mixed
+         */
         public function get_saved_obj_var($key, $format = 's')
         {
             $val = $this->_saved_obj->getVar($key, $format);
@@ -404,6 +429,10 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             return $val;
         }
 
+        /**
+         * @param $id
+         * @return array
+         */
         public function get_admin_param($id)
         {
             $name = null;
@@ -426,6 +455,10 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             return [$cap, $name, $value, $opt, $form, $mode];
         }
 
+        /**
+         * @param $id
+         * @return array
+         */
         public function get_saved_param($id)
         {
             $name = null;
@@ -451,9 +484,13 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // link item
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_admin_label_time($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $text = '---';
             if ($value) {
@@ -462,9 +499,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_id($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             if ($value > 0) {
                 $id_s = '<b>' . $value . '</b>';
@@ -473,9 +513,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_uid($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $this->add_text_by_id($id);
 
@@ -487,9 +530,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap2, $text2);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_time_update($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $text = '---';
             if ($value) {
@@ -502,9 +548,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_broken($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $text = $this->build_html_input_text($name, $value, $this->TEXT_SIZE, $this->TEXT_MAX);
 
@@ -518,9 +567,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_banner($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $width = $this->get_obj_var('width');
             $height = $this->get_obj_var('height');
@@ -534,6 +586,9 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_banner_size($id)
         {
             if ($this->_mode_banner_size) {
@@ -543,9 +598,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_gm_kml($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             $text = '';
 
@@ -561,14 +619,17 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_label($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_rssc_lid($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             switch ($this->_form_mode) {
                 case 'modify':
                 case 'modify_preview':
-                case WEBLINKS_OP_APPROVE_NEW:  // approve_new
+                case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                 case 'approve_preview':
                     $cap1 = $this->_build_caption(_RSSC_RSSC_LID);
                     $text1 = $this->build_html_input_text($name, $value, $this->TEXT_SIZE, $this->TEXT_MAX);
@@ -591,9 +652,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_forum_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $options = $this->_plugin->get_options_for_link_forum();
             $text = $this->build_html_select($name, $value, $options);
@@ -606,9 +670,12 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_album_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             // BUG 4533: dont show album selceter in admin form
             $options = $this->_plugin->get_options_for_link_album();
@@ -626,16 +693,20 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // build passwd
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_admin_passwd($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
 
             switch ($this->_form_mode) {
                 case 'modify':
                 case 'modify_preview':
                     $this->add_passwd_mod_1($id);
                     break;
-                case WEBLINKS_OP_APPROVE_NEW:  // approve_new
+                case WEBLINKS_OP_APPROVE_NEW:    // approve_new
                 case 'approve_preview':
                     $this->add_admin_passwd_approve($id);
                     break;
@@ -647,17 +718,23 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_passwd_new($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
             $text1 = $this->make_passwd_by_name('passwd_new');
             $text2 = $this->make_passwd_by_name('passwd_2');
             $this->add_buff($cap, $text1 . ' ' . $text2);
         }
 
+        /**
+         * @param $id
+         */
         public function add_admin_passwd_approve($id)
         {
-            list($cap, $name, $value, $opt, $admin_form, $mode) = $this->get_admin_param($id);
+            [$cap, $name, $value, $opt, $admin_form, $mode] = $this->get_admin_param($id);
             $name = 'passwd_md5';
             $this->add_hidden($name, $value);
         }
@@ -665,6 +742,13 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // admin image
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @param $width
+         * @param $height
+         * @param $op_mode
+         */
         public function show_admin_banner_form($lid, $width, $height, $op_mode)
         {
             switch ($op_mode) {
@@ -683,7 +767,7 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
                     break;
             }
 
-            $obj = &$this->create_edit();
+            $obj = $this->create_edit();
             $obj->build_admin_submit_preview();
 
             $this->set_obj($obj);
@@ -735,11 +819,16 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // admin category link count
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @param $op_mode
+         */
         public function show_admin_update_cat_form($lid, $op_mode)
         {
             $url_cancel = 'link_list.php';
 
-            $obj = &$this->create_edit();
+            $obj = $this->create_edit();
             $obj->build_admin_submit_preview();
 
             $this->set_obj($obj);
@@ -774,6 +863,10 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
         //---------------------------------------------------------
         // admin clone module
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         */
         public function show_admin_clone_module_form($lid)
         {
             $url_cancel = 'link_list.php';
@@ -805,10 +898,14 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             // --- form end ---
         }
 
+        /**
+         * @param $lid
+         * @param $dirname
+         */
         public function show_admin_clone_module_confirm_form($lid, $dirname)
         {
             $action = xoops_getenv('PHP_SELF');
-            list($name, $val) = $this->get_token();
+            [$name, $val] = $this->get_token();
 
             $hiddens = [
                 'op' => 'clone_module_from',
@@ -820,6 +917,9 @@ if (!class_exists('weblinks_link_form_admin_handler')) {
             xoops_confirm($hiddens, $action, _AM_WEBLINKS_CLONE_CONFIRM, _YES, false);
         }
 
+        /**
+         * @return array
+         */
         public function &_get_weblinks_module_list()
         {
             $param = [

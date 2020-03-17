@@ -1,5 +1,6 @@
 <?php
-// $Id: index.php,v 1.8 2007/09/24 07:06:10 ohwada Exp $
+
+// $Id: index.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // guest modify link

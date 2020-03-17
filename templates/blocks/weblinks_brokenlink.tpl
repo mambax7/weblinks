@@ -1,4 +1,4 @@
-<{* $Id: weblinks_brokenlink.html,v 1.1 2007/08/08 04:20:59 ohwada Exp $ *}>
+<{* $Id: weblinks_brokenlink.html,v 1.1 2011/12/29 14:32:37 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 
@@ -23,7 +23,7 @@
             <input type="hidden" name="lid" value="<{$link_id}>"/>
             <input type="hidden" name="<{$token_name}>" value="<{$token_value}>"/>
             <input type="submit" name="submit" value="<{$lang_reportbroken}>"/>&nbsp;
-            <input type="button" value="<{$lang_cancel}>" onclick="history.go(-1)"/>
+            <input type="button" value="<{$lang_cancel}>" onclick="javascript:history.go(-1)"/>
         </form>
     </div>
 

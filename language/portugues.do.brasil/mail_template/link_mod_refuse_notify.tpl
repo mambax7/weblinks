@@ -1,13 +1,13 @@
-Olá {X_UNAME},
+Olï¿½ {X_UNAME},
 
-Sua solicitação de modificação de link foi recusada por uma das seguintes razões:
+Sua solicitaï¿½ï¿½o de modificaï¿½ï¿½o de link foi recusada por uma das seguintes razï¿½es:
 
-- seu conteúdo não foi encontrado seundo nossos critérios
-- seu conteúdo é ilegal
-- ele é um redirecionamento de URL, pois nós aceitamos apenas URLs com acesso direto
-- seu conteúdo modificado não está correto.
+- seu conteï¿½do nï¿½o foi encontrado seundo nossos critï¿½rios
+- seu conteï¿½do ï¿½ ilegal
+- ele ï¿½ um redirecionamento de URL, pois nï¿½s aceitamos apenas URLs com acesso direto
+- seu conteï¿½do modificado nï¿½o estï¿½ correto.
 
-Você pode ver este link aqui:
+Vocï¿½ pode ver este link aqui:
 {LINK_URL}
 
 -----------

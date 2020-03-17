@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_guest_submit_link.php,v 1.6 2007/11/02 11:36:29 ohwada Exp $
+
+// $Id: test_form_guest_submit_link.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 // 2007-10-30 K.OHWADA
 // test_form_guest_class.php
@@ -65,7 +66,7 @@ if (!$ret) {
 if ($test->match_return_msg('not user')) {
     echo "<h4>Test OK !</h4>\n";
 } else {
-    echo "Error: test failed to fetch submit form <br><hr>\n";
+    echo "Error: test failed to fetch submit form <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -99,7 +100,7 @@ if ($test->match_return_msg('submit request link')) {
     echo "<h4>Success !</h4>\n";
     echo 'submit link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: submit link form failed: <br><hr>\n";
+    echo "Error: submit link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -133,11 +134,12 @@ if ($test->match_return_msg('submit approve link')) {
     echo "<h4>Success !</h4>\n";
     echo 'submit link: ' . $title . " <br><br>\n";
 } else {
-    echo "Error: submit link form failed: <br><hr>\n";
+    echo "Error: submit link form failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

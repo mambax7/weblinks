@@ -1,5 +1,6 @@
 <?php
-// $Id: modify_base_class.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: modify_base_class.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_edit_handler()
@@ -72,6 +73,10 @@
 //=========================================================
 // class admin_modify_base
 //=========================================================
+
+/**
+ * Class admin_modify_base
+ */
 class admin_modify_base extends happy_linux_manage
 {
     public $_config_handler;
@@ -107,20 +112,23 @@ class admin_modify_base extends happy_linux_manage
         $this->set_id_name('mid');
         $this->set_flag_execute_time(true);
 
-        $this->_config_handler = weblinks_getHandler('config2_basic', WEBLINKS_DIRNAME);
-        $this->_check_handler = weblinks_getHandler('link_form_check', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2_basic', WEBLINKS_DIRNAME);
+        $this->_check_handler = weblinks_get_handler('link_form_check', WEBLINKS_DIRNAME);
         $this->_mail_template = happy_linux_mail_template::getInstance(WEBLINKS_DIRNAME);
         $this->_mail_form = happy_linux_mail_form::getInstance();
         $this->_mail_send = happy_linux_mail_send::getInstance();
         $this->_post = happy_linux_post::getInstance();
 
         if (WEBLINKS_RSSC_USE) {
-            $this->_rssc_manage = &admin_rssc_manage::getInstance();
+            $this->_rssc_manage = admin_rssc_manage::getInstance();
         }
 
         $this->_conf = &$this->_config_handler->get_conf();
     }
 
+    /**
+     * @return \admin_modify_base|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -131,29 +139,45 @@ class admin_modify_base extends happy_linux_manage
         return $instance;
     }
 
+    /**
+     * @param $table
+     */
     public function set_edit_handler($table)
     {
-        $this->_edit_handler = weblinks_getHandler($table, WEBLINKS_DIRNAME);
+        $this->_edit_handler = weblinks_get_handler($table, WEBLINKS_DIRNAME);
     }
 
     //---------------------------------------------------------
     // POST param
     //---------------------------------------------------------
+
+    /**
+     * @return int
+     */
     public function get_post_mid()
     {
         return $this->_post->get_post_get_int('mid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_lid()
     {
         return $this->_post->get_post_get_int('lid');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_rss_flag()
     {
         return $this->_post->get_post_get_int('rss_flag');
     }
 
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_skip()
     {
         return $this->_post->get_post_text('skip');
@@ -162,6 +186,10 @@ class admin_modify_base extends happy_linux_manage
     //---------------------------------------------------------
     // modify table
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function _delete_modify()
     {
         $ret = $this->_handler->delete($this->_obj);
@@ -175,6 +203,10 @@ class admin_modify_base extends happy_linux_manage
     //---------------------------------------------------------
     // notification common
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function _check_notification()
     {
         $notify = $this->_obj->get('notify');
@@ -188,6 +220,9 @@ class admin_modify_base extends happy_linux_manage
         return false;
     }
 
+    /**
+     * @return mixed|null
+     */
     public function _get_user_email()
     {
         $email = null;
@@ -218,6 +253,9 @@ class admin_modify_base extends happy_linux_manage
         return $email;
     }
 
+    /**
+     * @param $mode
+     */
     public function _print_notification_form_common($mode)
     {
         $title = null;
@@ -226,7 +264,7 @@ class admin_modify_base extends happy_linux_manage
         $lid = null;
 
         switch ($mode) {
-            case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+            case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
                 $title = _WLS_MODREQUESTS;
                 $bread_op = 'list_mod';
                 $op = 'send_approve_mod';
@@ -255,7 +293,7 @@ class admin_modify_base extends happy_linux_manage
                 $bread_op = 'list_del';
                 $op = 'send_refuse_del';
                 break;
-            case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+            case WEBLINKS_OP_APPROVE_NEW:    // approve_new
             default:
                 $title = _AM_WEBLINKS_APPROVE;
                 $bread_op = 'list_new';
@@ -264,7 +302,7 @@ class admin_modify_base extends happy_linux_manage
                 break;
         }
 
-        list($subject, $body) = $this->_build_subject_body_common($mode);
+        [$subject, $body] = $this->_build_subject_body_common($mode);
 
         // new value for rssc
         $hidden_list = [
@@ -292,15 +330,19 @@ class admin_modify_base extends happy_linux_manage
         $this->_print_cp_footer();
     }
 
+    /**
+     * @param $mode
+     * @return array
+     */
     public function _build_subject_body_common($mode)
     {
         switch ($mode) {
-            case WEBLINKS_OP_APPROVE_MOD:   // approve_mod
+            case WEBLINKS_OP_APPROVE_MOD:    // approve_mod
                 $template = 'link_mod_approve_notify.tpl';
                 $subject_org = _AM_WEBLINKS_SUBJ_LINK_MOD_APPROVED;
                 $tags = &$this->_build_tags_approve_mod();
                 break;
-            case WEBLINKS_OP_APPROVE_DEL:   // approve_del
+            case WEBLINKS_OP_APPROVE_DEL:    // approve_del
                 $template = 'link_del_approve_notify.tpl';
                 $subject_org = _AM_WEBLINKS_SUBJ_LINK_DEL_APPROVED;
                 $tags = &$this->_build_tags_approve_del();
@@ -320,7 +362,7 @@ class admin_modify_base extends happy_linux_manage
                 $subject_org = _AM_WEBLINKS_SUBJ_LINK_DEL_REFUSED;
                 $tags = &$this->_build_tags_refuse_del();
                 break;
-            case WEBLINKS_OP_APPROVE_NEW:   // approve_new
+            case WEBLINKS_OP_APPROVE_NEW:    // approve_new
             default:
                 $template = 'link_approve_notify.tpl';
                 $subject_org = _WEBLINKS_LINK_APPROVED;
@@ -337,6 +379,9 @@ class admin_modify_base extends happy_linux_manage
         return [$subject, $body];
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_approve_new()
     {
         $tags = [];
@@ -346,6 +391,9 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_approve_mod()
     {
         $tags = [];
@@ -355,6 +403,9 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_approve_del()
     {
         $tags = [];
@@ -364,6 +415,9 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_refuse_new()
     {
         $tags = [];
@@ -373,6 +427,9 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_refuse_mod()
     {
         $tags = [];
@@ -382,6 +439,9 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @return array
+     */
     public function &_build_tags_refuse_del()
     {
         $tags = [];
@@ -391,6 +451,10 @@ class admin_modify_base extends happy_linux_manage
         return $tags;
     }
 
+    /**
+     * @param $lid
+     * @return string
+     */
     public function &_build_singlelink($lid)
     {
         $text = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/singlelink.php?lid=' . $lid;
@@ -401,6 +465,10 @@ class admin_modify_base extends happy_linux_manage
     //---------------------------------------------------------
     // redirect URL
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function _get_redirect_at_new()
     {
         $total = $this->_handler->get_count_new();
@@ -409,6 +477,9 @@ class admin_modify_base extends happy_linux_manage
         return $ret;
     }
 
+    /**
+     * @return string
+     */
     public function _get_redirect_at_mod()
     {
         $total = $this->_handler->get_count_mod();
@@ -417,6 +488,9 @@ class admin_modify_base extends happy_linux_manage
         return $ret;
     }
 
+    /**
+     * @return string
+     */
     public function _get_redirect_at_del()
     {
         $total = $this->_handler->get_count_del();
@@ -425,6 +499,11 @@ class admin_modify_base extends happy_linux_manage
         return $ret;
     }
 
+    /**
+     * @param $total
+     * @param $op
+     * @return string
+     */
     public function _get_redirect_common($total, $op)
     {
         $ret = 'link_list.php';
@@ -436,11 +515,14 @@ class admin_modify_base extends happy_linux_manage
         return $ret;
     }
 
+    /**
+     * @return string
+     */
     public function _get_redirect_by_mid()
     {
         $mid = $this->get_post_mid();
         $ret = '';
-        $obj = &$this->_handler->get($mid);
+        $obj = $this->_handler->get($mid);
         if (is_object($obj)) {
             $ret = '&amp;mid=' . $mid;
         }
@@ -451,6 +533,11 @@ class admin_modify_base extends happy_linux_manage
     //---------------------------------------------------------
     // edit_handler
     //---------------------------------------------------------
+
+    /**
+     * @param $msg
+     * @return mixed
+     */
     public function build_comment($msg)
     {
         return $this->_edit_handler->build_comment($msg);

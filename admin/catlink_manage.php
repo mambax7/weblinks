@@ -1,5 +1,6 @@
 <?php
-// $Id: catlink_manage.php,v 1.3 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: catlink_manage.php,v 1.1 2011/12/29 14:32:56 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_flag_execute_time()
@@ -19,6 +20,10 @@ include 'admin_header.php';
 //=========================================================
 // class admin_catlink_manage
 //=========================================================
+
+/**
+ * Class admin_catlink_manage
+ */
 class admin_catlink_manage extends happy_linux_manage
 {
     public $_category_handler;
@@ -37,10 +42,13 @@ class admin_catlink_manage extends happy_linux_manage
         $this->set_redirect('catlink_list.php', 'catlink_list.php?sortid=1');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_catlink_manage|\happy_linux_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -81,6 +89,10 @@ class admin_catlink_manage extends happy_linux_manage
 //=========================================================
 // class admin_form_catlink
 //=========================================================
+
+/**
+ * Class admin_form_catlink
+ */
 class admin_form_catlink extends happy_linux_form
 {
     public $_category_handler;
@@ -93,10 +105,13 @@ class admin_form_catlink extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_form_catlink|\happy_linux_form|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -110,6 +125,12 @@ class admin_form_catlink extends happy_linux_form
     //---------------------------------------------------------
     // show black & white
     //---------------------------------------------------------
+
+    /**
+     * @param      $obj
+     * @param null $extra
+     * @param int  $mode
+     */
     public function _show($obj, $extra = null, $mode = 0)
     {
         $form_title = 'modify catlink';
@@ -124,12 +145,12 @@ class admin_form_catlink extends happy_linux_form
         $cat_title_s = '';
         $link_title_s = '';
 
-        $cat_obj = &$this->_category_handler->get($cid);
+        $cat_obj = $this->_category_handler->get($cid);
         if (is_object($cat_obj)) {
             $cat_title_s = $cat_obj->getVar('title', 's');
         }
 
-        $link_obj = &$this->_link_handler->get($lid);
+        $link_obj = $this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $link_title_s = $link_obj->getVar('title', 's');
         }
@@ -196,4 +217,5 @@ switch ($op) {
 }
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

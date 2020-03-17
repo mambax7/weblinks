@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_modify_basic_handler.php,v 1.1 2007/11/12 12:41:14 ohwada Exp $
+
+// $Id: weblinks_modify_basic_handler.php,v 1.1 2011/12/29 14:33:06 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // divid from weblinks_modify_handler
@@ -18,11 +19,20 @@ if (!class_exists('weblinks_modify_basic_handler')) {
     //=========================================================
     // class weblinks_modify_basic_handler
     //=========================================================
+
+    /**
+     * Class weblinks_modify_basic_handler
+     */
     class weblinks_modify_basic_handler extends happy_linux_basic_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_modify_basic_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -42,6 +52,11 @@ if (!class_exists('weblinks_modify_basic_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @param $mode
+         * @return int
+         */
         public function get_count_by_mode($mode)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_table . ' WHERE mode=' . (int)$mode;
@@ -50,16 +65,25 @@ if (!class_exists('weblinks_modify_basic_handler')) {
             return $count;
         }
 
+        /**
+         * @return int
+         */
         public function get_count_new()
         {
             return $this->get_count_by_mode(WEBLINKS_C_MODIFY_NEW);
         }
 
+        /**
+         * @return int
+         */
         public function get_count_mod()
         {
             return $this->get_count_by_mode(WEBLINKS_C_MODIFY_MOD);
         }
 
+        /**
+         * @return int
+         */
         public function get_count_del()
         {
             return $this->get_count_by_mode(WEBLINKS_C_MODIFY_DEL);

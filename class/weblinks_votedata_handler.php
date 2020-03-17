@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_votedata_handler.php,v 1.6 2007/11/26 11:33:58 ohwada Exp $
+
+// $Id: weblinks_votedata_handler.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to weblinks_install.php
@@ -32,6 +33,10 @@ if (!class_exists('weblinks_votedata_handler')) {
     //=========================================================
     // class weblinks_votedata
     //=========================================================
+
+    /**
+     * Class weblinks_votedata
+     */
     class weblinks_votedata extends happy_linux_object
     {
         //---------------------------------------------------------
@@ -53,6 +58,11 @@ if (!class_exists('weblinks_votedata_handler')) {
         // function
         //---------------------------------------------------------
         // name for "anonymous" if not found
+
+        /**
+         * @param int $usereal
+         * @return mixed
+         */
         public function get_uname($usereal = 0)
         {
             $uid = $this->get('ratinguser');
@@ -61,6 +71,9 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $uname;
         }
 
+        /**
+         * @return mixed
+         */
         public function get_formatted_timestamp()
         {
             $timestamp = $this->get('ratingtimestamp');
@@ -75,11 +88,20 @@ if (!class_exists('weblinks_votedata_handler')) {
     //=========================================================
     // class weblinks_votedata_handler
     //=========================================================
+
+    /**
+     * Class weblinks_votedata_handler
+     */
     class weblinks_votedata_handler extends happy_linux_object_handler
     {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_votedata_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'votedata', 'ratingid', 'weblinks_votedata');
@@ -96,6 +118,11 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -119,6 +146,10 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $sql;
         }
 
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -139,6 +170,11 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function delete_by_lid($lid)
         {
             $sql = 'DELETE FROM ' . $this->_table . ' WHERE lid=' . (int)$lid;
@@ -153,6 +189,11 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function get_count_by_lid($lid)
         {
             $lid = (int)$lid;
@@ -163,6 +204,12 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $count;
         }
 
+        /**
+         * @param $lid
+         * @param $ip
+         * @param $time
+         * @return bool
+         */
         public function get_count_by_lid_ip_time($lid, $ip, $time)
         {
             $lid = (int)$lid;
@@ -177,6 +224,9 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $count;
         }
 
+        /**
+         * @return bool
+         */
         public function &get_count_user()
         {
             $criteria = new CriteriaCompo();
@@ -186,6 +236,10 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $count;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function &get_count_user_by_lid($lid)
         {
             $lid = (int)$lid;
@@ -197,6 +251,10 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $count;
         }
 
+        /**
+         * @param $uid
+         * @return bool
+         */
         public function &get_count_by_uid($uid)
         {
             $uid = (int)$uid;
@@ -207,6 +265,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $count;
         }
 
+        /**
+         * @param $lid
+         * @param $uid
+         * @return bool
+         */
         public function &get_count_by_lid_uid($lid, $uid)
         {
             $lid = (int)$lid;
@@ -222,6 +285,13 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
+
+        /**
+         * @param     $lid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_lid($lid, $limit = 0, $start = 0)
         {
             $lid = (int)$lid;
@@ -234,6 +304,12 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $lid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_user_by_lid($lid, $limit = 0, $start = 0)
         {
             $lid = (int)$lid;
@@ -248,6 +324,12 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $uid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_uid($uid, $limit = 0, $start = 0)
         {
             $uid = (int)$uid;
@@ -260,6 +342,13 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param     $lid
+         * @param     $uid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_lid_uid($lid, $uid, $limit = 0, $start = 0)
         {
             $lid = (int)$lid;
@@ -275,6 +364,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_orderby_lid($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -286,6 +380,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_orderby_uid($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -298,6 +397,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_anoymous($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
@@ -312,6 +416,12 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // check
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @param $uid
+         * @return bool
+         */
         public function check_by_lid_uid($lid, $uid)
         {
             $lid = (int)$lid;
@@ -339,6 +449,11 @@ if (!class_exists('weblinks_votedata_handler')) {
         //---------------------------------------------------------
         // calculation
         //---------------------------------------------------------
+
+        /**
+         * @param $objs
+         * @return array|int[]
+         */
         public function calc_rating($objs)
         {
             $total = 0;
@@ -357,6 +472,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return [$count, $total];
         }
 
+        /**
+         * @param     $lid
+         * @param int $decimals
+         * @return array|int[]
+         */
         public function calc_rating_by_lid($lid, $decimals = 4)
         {
             $lid = (int)$lid;
@@ -364,7 +484,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
             $objs = &$this->get_objects_by_lid($lid);
 
-            list($count, $total) = $this->calc_rating($objs);
+            [$count, $total] = $this->calc_rating($objs);
             if (0 == $count) {
                 return [0, 0];
             }
@@ -375,6 +495,11 @@ if (!class_exists('weblinks_votedata_handler')) {
             return [$count, $rating];
         }
 
+        /**
+         * @param     $uid
+         * @param int $decimals
+         * @return array|int[]
+         */
         public function calc_rating_by_uid($uid, $decimals = 1)
         {
             $uid = (int)$uid;
@@ -382,7 +507,7 @@ if (!class_exists('weblinks_votedata_handler')) {
 
             $objs = &$this->get_objects_by_uid($uid);
 
-            list($count, $total) = $this->calc_rating($objs);
+            [$count, $total] = $this->calc_rating($objs);
             if (0 == $count) {
                 return [0, 0];
             }

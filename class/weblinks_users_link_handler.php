@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_users_link_handler.php,v 1.1 2007/05/09 04:39:14 ohwada Exp $
+
+// $Id: weblinks_users_link_handler.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -12,6 +13,10 @@ if (!class_exists('weblinks_users_link_handler')) {
     // class weblinks_users_link_handler
     // handling for table_link & table_catlink
     //=========================================================
+
+    /**
+     * Class weblinks_users_link_handler
+     */
     class weblinks_users_link_handler extends happy_linux_basic_handler
     {
         public $_table_xoops_users;
@@ -20,6 +25,11 @@ if (!class_exists('weblinks_users_link_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_users_link_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -36,6 +46,10 @@ if (!class_exists('weblinks_users_link_handler')) {
         //---------------------------------------------------------
         // count
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function &get_uid_count_with_use()
         {
             $sql = 'SELECT COUNT(DISTINCT u.uid) FROM ';
@@ -44,11 +58,16 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= 'WHERE u.uid = l.uid ';
             $sql .= 'ORDER BY u.uid';
 
-            $ret = &$this->get_count_by_sql($sql);
+            $ret = $this->get_count_by_sql($sql);
 
             return $ret;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return int
+         */
         public function &get_uid_count_without_use($limit = 0, $start = 0)
         {
             $sql = 'SELECT COUNT(u.uid) FROM ';
@@ -58,7 +77,7 @@ if (!class_exists('weblinks_users_link_handler')) {
             $sql .= $this->_table_weblinks_link . ' l ';
             $sql .= ') ';
 
-            $ret = &$this->get_count_by_sql($sql, $limit, $start);
+            $ret = $this->get_count_by_sql($sql, $limit, $start);
 
             return $ret;
         }
@@ -66,6 +85,12 @@ if (!class_exists('weblinks_users_link_handler')) {
         //---------------------------------------------------------
         // uid list
         //---------------------------------------------------------
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_uid_list_with_use($limit = 0, $start = 0)
         {
             $sql = 'SELECT DISTINCT u.uid FROM ';
@@ -79,6 +104,11 @@ if (!class_exists('weblinks_users_link_handler')) {
             return $ret;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_uid_list_without_use($limit = 0, $start = 0)
         {
             $sql = 'SELECT u.uid FROM ';

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: link_csv.php,v 1.2 2012/04/10 19:47:02 ohwada Exp $
 
 //=========================================================
@@ -38,6 +39,10 @@ if (file_exists(WEBLINKS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/admin.ph
 //=========================================================
 // class link_csv
 //=========================================================
+
+/**
+ * Class link_csv
+ */
 class link_csv
 {
     public $_db;
@@ -66,65 +71,65 @@ class link_csv
         'banner' => _WLS_BANNERURL,
         'description' => _WLS_DESCRIPTION,
         'name' => _WLS_NAME,
-        //      "nameflag"
+        //		"nameflag"
         'mail' => _WLS_EMAIL,
-        //      "mailflag"
+        //		"mailflag"
         'company' => _WLS_COMPANY,
         'addr' => _WLS_ADDR,
         'tel' => _WLS_TEL,
-        //      "search",
-        //      "passwd" => _US_PASSWORD ,
+        //		"search",
+        //		"passwd" => _US_PASSWORD ,
         'admincomment' => _WLS_ADMINCOMMENT,
-        //      "mark",
+        //		"mark",
         'time_create' => _WEBLINKS_CREATE,
         'time_update' => _WLS_LASTUPDATE,
         'hits' => _WLS_HITS,
         'rating' => _WLS_RATING,
         'votes' => _WLS_VOTE,
         'comments' => _COMMENTS,
-        //      "width",
-        //      "height",
+        //		"width",
+        //		"height",
         'recommend' => _WLS_SITE_RECOMMEND,
         'mutual' => _WLS_SITE_MUTUAL,
         'broken' => _WLS_BROKEN_COUNTER,
         'rss_url' => _WLS_RSS_URL,
-        //      "rss_flag",
-        //      "rss_xml",
-        //      "rss_update",
+        //		"rss_flag",
+        //		"rss_xml",
+        //		"rss_update",
         'usercomment' => _WLS_USER_COMMENT,
         'zip' => _WLS_ZIP,
         'state' => _WLS_STATE,
         'city' => _WLS_CITY,
         'addr2' => _WLS_ADDR2,
         'fax' => _WLS_FAX,
-        //      "dohtml",
-        //      "dosmiley",
-        //      "doxcode",
-        //      "doimage",
-        //      "dobr",
-        //      "etc1",
-        //      "etc2",
-        //      "etc3",
-        //      "etc4",
-        //      "etc5",
+        //		"dohtml",
+        //		"dosmiley",
+        //		"doxcode",
+        //		"doimage",
+        //		"dobr",
+        //		"etc1",
+        //		"etc2",
+        //		"etc3",
+        //		"etc4",
+        //		"etc5",
         'map_use' => _WEBLINKS_MAP_USE,
         'rssc_lid' => _WEBLINKS_RSSC_LID,
         'gm_latitude' => _WEBLINKS_GM_LATITUDE,
         'gm_longitude' => _WEBLINKS_GM_LONGITUDE,
         'gm_zoom' => _WEBLINKS_GM_ZOOM,
-        //      "aux_int_1",
-        //      "aux_int_2",
-        //      "aux_text_1",
-        //      "aux_text_2",
+        //		"aux_int_1",
+        //		"aux_int_2",
+        //		"aux_text_1",
+        //		"aux_text_2",
         'time_publish' => _WEBLINKS_TIME_PUBLISH,
         'time_expire' => _WEBLINKS_TIME_EXPIRE,
-        //      "textarea1",
-        //      "textarea2",
-        //      "dohtml1",
-        //      "dosmiley1",
-        //      "doxcode1",
-        //      "doimage1",
-        //      "dobr1",
+        //		"textarea1",
+        //		"textarea2",
+        //		"dohtml1",
+        //		"dosmiley1",
+        //		"doxcode1",
+        //		"doimage1",
+        //		"dobr1",
         'forum_id' => _WEBLINKS_FORUM_SEL,
         'comment_use' => _WEBLINKS_COMMENT_USE,
         'album_id' => _WEBLINKS_ALBUM_SEL,
@@ -141,6 +146,11 @@ class link_csv
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
+
+    /**
+     * link_csv constructor.
+     * @param $dirname
+     */
     public function __construct($dirname)
     {
         $this->_DIRNAME = $dirname;
@@ -159,6 +169,10 @@ class link_csv
         $this->_table_linkitem = $this->_db->prefix($dirname . '_linkitem');
     }
 
+    /**
+     * @param null $dirname
+     * @return static
+     */
     public static function getInstance($dirname = null)
     {
         static $instance;
@@ -211,6 +225,9 @@ class link_csv
         }
     }
 
+    /**
+     * @return string
+     */
     public function get_start_form()
     {
         $sql = 'SELECT count(*) FROM ' . $this->_table_link;
@@ -232,7 +249,7 @@ class link_csv
 encoding
 </td><td class="even">
 <select name="encoding">
-$option
+$option 
 <option value="UTF-8">UTF-8</option>
 <option value="SJIS-win">SJIS</option>
 </select>
@@ -268,6 +285,9 @@ EOF;
         echo '<h3>' . _AM_WEBLINKS_TITLE_LINK_CSV . "</h3>\n";
     }
 
+    /**
+     * @return bool
+     */
     public function check_trust_path()
     {
         if (!defined('XOOPS_TRUST_PATH')) {
@@ -283,6 +303,10 @@ EOF;
     //---------------------------------------------------------
     // link_to_csv
     //---------------------------------------------------------
+
+    /**
+     * @return bool
+     */
     public function link_to_csv()
     {
         $encoding = isset($_POST['encoding']) ? $_POST['encoding'] : '';
@@ -392,6 +416,9 @@ EOF;
         }
     }
 
+    /**
+     * @return string
+     */
     public function get_file_name()
     {
         $now = date('YmdHis');
@@ -400,6 +427,9 @@ EOF;
         return $str;
     }
 
+    /**
+     * @return bool|string
+     */
     public function get_dir()
     {
         $dir = XOOPS_TRUST_PATH . '/cache/';
@@ -435,6 +465,10 @@ EOF;
         return $dir;
     }
 
+    /**
+     * @param $file
+     * @return bool
+     */
     public function open($file)
     {
         $this->_fp = fopen($file, 'wb');
@@ -452,11 +486,18 @@ EOF;
         fclose($this->_fp);
     }
 
+    /**
+     * @param $data
+     */
     public function write($data)
     {
         fwrite($this->_fp, $data);
     }
 
+    /**
+     * @param $field
+     * @return mixed
+     */
     public function get_field_name($field)
     {
         if (isset($this->_FIELD_NAME_ARRAY[$field])) {
@@ -466,6 +507,10 @@ EOF;
         return $field;
     }
 
+    /**
+     * @param $row
+     * @return mixed
+     */
     public function get_uid_uname($row)
     {
         $uid = (int)$row['uid'];
@@ -483,6 +528,10 @@ EOF;
         return $uname;
     }
 
+    /**
+     * @param $row
+     * @return string
+     */
     public function get_cids($row)
     {
         $lid = (int)$row['lid'];
@@ -498,16 +547,28 @@ EOF;
         return $str;
     }
 
+    /**
+     * @param $row
+     * @return false|string
+     */
     public function get_time_create($row)
     {
         return date('Y-m-d H:i:s', $row['time_create']);
     }
 
+    /**
+     * @param $row
+     * @return false|string
+     */
     public function get_time_update($row)
     {
         return date('Y-m-d H:i:s', $row['time_update']);
     }
 
+    /**
+     * @param $row
+     * @return false|string
+     */
     public function get_time_publish($row)
     {
         if ($row['time_publish'] > 0) {
@@ -517,6 +578,10 @@ EOF;
         return '-';
     }
 
+    /**
+     * @param $row
+     * @return false|string
+     */
     public function get_time_expire($row)
     {
         if ($row['time_expire'] > 0) {
@@ -526,6 +591,10 @@ EOF;
         return '-';
     }
 
+    /**
+     * @param $row
+     * @return false|string
+     */
     public function get_pagerank_update($row)
     {
         if ($row['pagerank_update'] > 0) {
@@ -535,6 +604,10 @@ EOF;
         return '-';
     }
 
+    /**
+     * @param $row
+     * @return mixed|string
+     */
     public function get_rss_url($row)
     {
         $rssc_lid = (int)$row['rssc_lid'];
@@ -545,6 +618,9 @@ EOF;
         return '-';
     }
 
+    /**
+     * @return array
+     */
     public function get_fields()
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->_table_link;
@@ -562,6 +638,10 @@ EOF;
         return $fields;
     }
 
+    /**
+     * @param $uid
+     * @return mixed
+     */
     public function get_xoops_users_uname($uid)
     {
         $sql = 'SELECT uname FROM ' . $this->_table_xoops_users;
@@ -575,6 +655,9 @@ EOF;
         return $uid;
     }
 
+    /**
+     * @return array|bool
+     */
     public function get_links()
     {
         $sql = 'SELECT * FROM ' . $this->_table_link . ' ORDER BY lid';
@@ -582,6 +665,10 @@ EOF;
         return $this->get_rows_by_sql($sql, 100);
     }
 
+    /**
+     * @param $lid
+     * @return array|bool
+     */
     public function get_catlink($lid)
     {
         $sql = 'SELECT cid FROM ' . $this->_table_catlink;
@@ -590,6 +677,10 @@ EOF;
         return $this->get_rows_by_sql($sql);
     }
 
+    /**
+     * @param $cid
+     * @return mixed
+     */
     public function get_cached_category_title($cid)
     {
         if (isset($this->_category_title_array[$cid])) {
@@ -602,6 +693,10 @@ EOF;
         return $title;
     }
 
+    /**
+     * @param $cid
+     * @return mixed
+     */
     public function get_category_title($cid)
     {
         $sql = 'SELECT title FROM ' . $this->_table_category;
@@ -615,6 +710,9 @@ EOF;
         return $cid;
     }
 
+    /**
+     * @return array
+     */
     public function get_configs()
     {
         $sql = 'SELECT * FROM ' . $this->_table_config2 . ' ORDER BY id';
@@ -628,6 +726,9 @@ EOF;
         return $arr;
     }
 
+    /**
+     * @return array
+     */
     public function get_linkitems()
     {
         $sql = 'SELECT * FROM ' . $this->_table_linkitem . ' ORDER BY id';
@@ -641,6 +742,10 @@ EOF;
         return $arr;
     }
 
+    /**
+     * @param $lid
+     * @return mixed|string
+     */
     public function get_rssc_link_rssurl($lid)
     {
         if (empty($this->_table_rssc_link)) {
@@ -671,6 +776,10 @@ EOF;
         return $url;
     }
 
+    /**
+     * @param $sql
+     * @return int
+     */
     public function get_count_by_sql($sql)
     {
         $res = $this->_db->query($sql);
@@ -691,6 +800,12 @@ EOF;
         return $count;
     }
 
+    /**
+     * @param     $sql
+     * @param int $limit
+     * @param int $offset
+     * @return array|bool
+     */
     public function get_rows_by_sql($sql, $limit = 0, $offset = 0)
     {
         $res = $this->_db->query($sql, $limit, $offset);
@@ -713,6 +828,10 @@ EOF;
         return $arr;
     }
 
+    /**
+     * @param $sql
+     * @return bool
+     */
     public function get_row_by_sql($sql)
     {
         $res = $this->_db->query($sql, 1);
@@ -732,6 +851,11 @@ EOF;
         return $row;
     }
 
+    /**
+     * @param $file_in
+     * @param $encoding
+     * @return string
+     */
     public function convert_encoding($file_in, $encoding)
     {
         $file_out = $file_in . '.txt';
@@ -746,6 +870,10 @@ EOF;
         return $file_out;
     }
 
+    /**
+     * @param $file
+     * @param $name
+     */
     public function download($file, $name)
     {
         if (ini_get('zlib.output_compression')) {

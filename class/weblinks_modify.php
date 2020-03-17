@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_modify.php,v 1.3 2012/04/10 03:54:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -46,6 +47,10 @@ if (!class_exists('weblinks_modify')) {
     //=========================================================
     // class weblinks_modify
     //=========================================================
+
+    /**
+     * Class weblinks_modify
+     */
     class weblinks_modify extends weblinks_link_base
     {
         //---------------------------------------------------------
@@ -83,8 +88,8 @@ if (!class_exists('weblinks_modify')) {
             $this->initVar('rating', XOBJ_DTYPE_FLOAT, 0.0, false);
             $this->initVar('votes', XOBJ_DTYPE_INT, 0, false);
             $this->initVar('comments', XOBJ_DTYPE_INT, 0, false);
-            //  $this->initVar('width',    XOBJ_DTYPE_INT, 0, false);
-            //  $this->initVar('height',   XOBJ_DTYPE_INT, 0, false);
+            //	$this->initVar('width',    XOBJ_DTYPE_INT, 0, false);
+            //	$this->initVar('height',   XOBJ_DTYPE_INT, 0, false);
             $this->initVar('recommend', XOBJ_DTYPE_INT, 0, false);
             $this->initVar('mutual', XOBJ_DTYPE_INT, 0, false);
             $this->initVar('broken', XOBJ_DTYPE_INT, 0, false);
@@ -146,7 +151,7 @@ if (!class_exists('weblinks_modify')) {
             $this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
 
             // etc1 .. etci
-            for ($i = 1; $i <= WEBLINKS_LINK_NUM_ETC; ++$i) {
+            for ($i = 1; $i <= WEBLINKS_LINK_NUM_ETC; $i++) {
                 $etc_name = 'etc' . $i;
                 $this->initVar($etc_name, XOBJ_DTYPE_TXTBOX, null, false, 255);
             }
@@ -155,6 +160,10 @@ if (!class_exists('weblinks_modify')) {
         //---------------------------------------------------------
         // cid array for modify
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &cid_array()
         {
             $arr = unserialize($this->get('cids'));
@@ -162,6 +171,9 @@ if (!class_exists('weblinks_modify')) {
             return $arr;
         }
 
+        /**
+         * @param $arr
+         */
         public function set_cids_by_cid_array($arr)
         {
             $this->setVar('cids', serialize($arr));
@@ -173,6 +185,10 @@ if (!class_exists('weblinks_modify')) {
     //=========================================================
     // class weblinks_modify_save
     //=========================================================
+
+    /**
+     * Class weblinks_modify_save
+     */
     class weblinks_modify_save extends weblinks_modify
     {
         public $_link_validate;
@@ -181,12 +197,17 @@ if (!class_exists('weblinks_modify')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_modify_save constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
 
             $this->_link_validate = weblinks_link_validate::getInstance($dirname);
-            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
+            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
         }
 
         //---------------------------------------------------------
@@ -194,6 +215,11 @@ if (!class_exists('weblinks_modify')) {
         // $_POST or bulk
         //---------------------------------------------------------
         // mode 0: add, 1:mod, 2:del
+
+        /**
+         * @param     $post
+         * @param int $mode
+         */
         public function assign_add_object(&$post, $mode = 0)
         {
             // delete

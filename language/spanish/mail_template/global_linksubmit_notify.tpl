@@ -1,13 +1,13 @@
 Hola {X_UNAME},
 
-Un nuevo link a sido agregado a {X_SITENAME} y esta a la espera de aprovación.
+Un nuevo link a sido agregado a {X_SITENAME} y esta a la espera de aprovaciï¿½n.
 
-Puedes ver la lista de espera aquí:
+Puedes ver la lista de espera aquï¿½:
 {WAITINGLINKS_URL}
 
-Información del Link nuevo :
+Informaciï¿½n del Link nuevo :
 Title : {LINK_NAME}
-Descripción :
+Descripciï¿½n :
 {LINK_DESCRIPTION}
 
 Comentarios para el Administrador :
@@ -16,9 +16,9 @@ Comentarios para el Administrador :
 
 -----------
 
-Usted está recibiendo este mensaje porque ha seleccionado la opción para recibir una notificación cuando nuevos enlaces se añadan a este sitio.
+Usted estï¿½ recibiendo este mensaje porque ha seleccionado la opciï¿½n para recibir una notificaciï¿½n cuando nuevos enlaces se aï¿½adan a este sitio.
 
-Si se trata de un error o no desea recibir más notificaciones de este tipo, por favor, actualice los datos de su suscripción, visite el link de abajo:
+Si se trata de un error o no desea recibir mï¿½s notificaciones de este tipo, por favor, actualice los datos de su suscripciï¿½n, visite el link de abajo:
 {X_UNSUBSCRIBE_URL}
 
 Por favor, no responda a este mensaje.

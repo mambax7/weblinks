@@ -1,5 +1,6 @@
 <?php
-// $Id: modinfo.php,v 1.4 2008/01/18 14:10:34 ohwada Exp $
+
+// $Id: modinfo.php,v 1.1 2011/12/29 14:32:43 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -7,7 +8,7 @@
 //=========================================================
 
 // 2008-01-18 22:57:02 ken
-// tanslated by sato-san <https://www.xoops-magazine.com/>
+// tanslated by sato-san <http://www.xoops-magazine.com/>
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MI_LOADED')) {
@@ -116,10 +117,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS', 'Maximum Anzahl von Links in den TopTen');
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Maximale Anzahl von Links die in "popul�re Seiten" und "best bewertete Seiten" angezeigt werden sollen. ');
     define('_MI_WEBLINKS_TOPTEN_CATS', 'Maximale Anzahl von Kategorien in den TopTen');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        'Festlegen der maximalen Anzahl an Kategorien die in "Popul�re Seiten" und "Best bewertete Seiten" angezeigt werden. <br>Zeit�berschreitung kann durch zu viele Kategorien verursacht werden'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Festlegen der maximalen Anzahl an Kategorien die in "Popul�re Seiten" und "Best bewertete Seiten" angezeigt werden. <br>Zeit�berschreitung kann durch zu viele Kategorien verursacht werden');
     define('_MI_WEBLINKS_ADMENU0', 'Index');
     define('_MI_WEBLINKS_BNAME_RANDOM', 'Zuf�lliger Link');
     define('_MI_WEBLINKS_BNAME_GENERIC', 'Eigener Link Block');
@@ -133,4 +131,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Admin] Notify me when any new link is posted (if entered the comment the admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Receive notification when any new link is posted (if entered the comment for admin)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} auto-notify : New Link)');
-}// --- define language begin ---
+}
+// --- define language begin ---

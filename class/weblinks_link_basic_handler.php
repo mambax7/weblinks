@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_basic_handler.php,v 1.9 2008/02/26 16:01:36 ohwada Exp $
+
+// $Id: weblinks_link_basic_handler.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
 // update_pagerank()
@@ -30,6 +31,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
     //=========================================================
     // class weblinks_link_basic_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_basic_handler
+     */
     class weblinks_link_basic_handler extends weblinks_link_bin_handler
     {
         public $_strings;
@@ -39,20 +44,31 @@ if (!class_exists('weblinks_link_basic_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_basic_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
 
-            $config_handler = weblinks_getHandler('config2_basic', $dirname);
+            $config_handler = weblinks_get_handler('config2_basic', $dirname);
             $this->_strings = happy_linux_strings::getInstance();
 
-            $this->_conf = $config_handler->get_conf();
+            $this->_conf = &$config_handler->get_conf();
         }
 
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
         // singlelink.php
+
+        /**
+         * @param $lid
+         * @param $width
+         * @param $height
+         */
         public function update_banner_size($lid, $width, $height)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET ';
@@ -63,6 +79,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // visit.php
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function countup_hits($lid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET hits = hits+1 WHERE lid=' . (int)$lid;
@@ -71,6 +92,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $ret;
         }
 
+        /**
+         * @param $lid
+         * @param $pagerank
+         * @param $update
+         */
         public function update_pagerank($lid, $pagerank, $update)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET ';
@@ -83,6 +109,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         //---------------------------------------------------------
         // get row
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return array|mixed
+         */
         public function &get_cache_by_lid($lid)
         {
             $row = false;
@@ -98,6 +129,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $row;
         }
 
+        /**
+         * @param $lid
+         * @return array|mixed
+         */
         public function &get_by_lid($lid)
         {
             $row = &$this->get_row_by_id($lid);
@@ -108,6 +143,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $row;
         }
 
+        /**
+         * @param $row
+         * @return mixed
+         */
         public function &_multi_replace(&$row)
         {
             $arr = &$row;
@@ -136,6 +175,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
         // get item
         //---------------------------------------------------------
         // comment_new.php brokenlink.php
+
+        /**
+         * @param        $lid
+         * @param string $format
+         * @return bool|string|string[]|null
+         */
         public function get_title($lid, $format = 'n')
         {
             $val = false;
@@ -148,6 +193,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // visit.php
+
+        /**
+         * @param        $lid
+         * @param string $format
+         * @return bool|string
+         */
         public function get_url($lid, $format = 'n')
         {
             $val = false;
@@ -160,6 +211,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // singlelink.php
+
+        /**
+         * @param $lid
+         * @return bool|int
+         */
         public function get_forum_id($lid)
         {
             $val = false;
@@ -172,6 +228,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // singlelink.php
+
+        /**
+         * @param $lid
+         * @return bool|int
+         */
         public function get_album_id($lid)
         {
             $val = false;
@@ -184,6 +245,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // weblinks_rssc_handler.php
+
+        /**
+         * @param $lid
+         * @return bool|int
+         */
         public function get_rssc_lid($lid)
         {
             $val = false;
@@ -198,6 +264,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function get_count_public()
         {
             $where = $this->build_sql_where_exclude();
@@ -206,6 +276,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $count;
         }
 
+        /**
+         * @param $mark
+         * @return int
+         */
         public function get_count_by_mark($mark)
         {
             $where = $this->build_sql_where_exclude();
@@ -215,6 +289,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $count;
         }
 
+        /**
+         * @param bool $flag_exclude
+         * @return int
+         */
         public function get_count_rss_flag($flag_exclude = true)
         {
             $where = 'rssc_lid <> 0 ';
@@ -227,6 +305,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // admin/index
+
+        /**
+         * @return int
+         */
         public function get_count_non_url()
         {
             // XOOPS 2.2.3 dont accept value = ''
@@ -237,6 +319,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // admin/index
+
+        /**
+         * @return int
+         */
         public function get_count_broken()
         {
             $where = '(broken <> 0 AND broken >= 0)';
@@ -245,6 +331,9 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $count;
         }
 
+        /**
+         * @return string
+         */
         public function build_sql_where_exclude()
         {
             $broken = (int)$this->_conf['broken_threshold'];
@@ -256,6 +345,9 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $where;
         }
 
+        /**
+         * @return string
+         */
         public function build_sql_where_exclude_join()
         {
             $broken = (int)$this->_conf['broken_threshold'];
@@ -267,6 +359,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $where;
         }
 
+        /**
+         * @param $where
+         * @return int
+         */
         public function get_count_by_where($where)
         {
             $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ' . $where;
@@ -278,6 +374,10 @@ if (!class_exists('weblinks_link_basic_handler')) {
         //---------------------------------------------------------
         // get gmap count
         //---------------------------------------------------------
+
+        /**
+         * @return int
+         */
         public function get_count_gmap()
         {
             $where = '( gm_latitude <> 0 OR gm_longitude <> 0 OR gm_zoom <> 0 ) ';
@@ -287,6 +387,11 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $count;
         }
 
+        /**
+         * @param $total
+         * @param $limit
+         * @return false|float
+         */
         public function get_gmap_kml_page($total, $limit)
         {
             $page = ceil($total / $limit);
@@ -298,6 +403,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
         // get lid array
         //---------------------------------------------------------
         // index
+
+        /**
+         * @param int $limit
+         * @param int $offset
+         * @return array
+         */
         public function &get_lid_array_latest($limit = 0, $offset = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
@@ -309,6 +420,13 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // for top ten
+
+        /**
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_orderby($orderby, $limit = 0, $start = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
@@ -320,6 +438,14 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // viewmark
+
+        /**
+         * @param     $mark
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_by_mark_orderby($mark, $orderby, $limit = 0, $start = 0)
         {
             if (empty($orderby)) {
@@ -335,6 +461,13 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // for rss site
+
+        /**
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_rss_by_orderby($orderby, $limit = 0, $start = 0)
         {
             if (empty($orderby)) {
@@ -349,6 +482,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
             return $arr;
         }
 
+        /**
+         * @param     $orderby
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_gmap_by_orderby($orderby, $limit = 0, $start = 0)
         {
             if (empty($orderby)) {
@@ -364,6 +503,13 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // for search
+
+        /**
+         * @param     $where
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_by_where($where, $limit = 0, $start = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ' . $where . ' ORDER BY time_update DESC';
@@ -373,6 +519,12 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // for randum jump
+
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_by_random($limit = 0, $start = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
@@ -385,6 +537,13 @@ if (!class_exists('weblinks_link_basic_handler')) {
         }
 
         // index.php
+
+        /**
+         * @param     $uid
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_lid_array_by_uid($uid, $limit = 0, $start = 0)
         {
             $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';

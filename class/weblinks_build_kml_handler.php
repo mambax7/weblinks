@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_build_kml_handler.php,v 1.2 2008/02/28 02:52:17 ohwada Exp $
+
+// $Id: weblinks_build_kml_handler.php,v 1.1 2011/12/29 14:33:10 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -11,6 +12,10 @@ if (!class_exists('weblinks_build_kml_handler')) {
     //=========================================================
     // class weblinks_build_kml_handler
     //=========================================================
+
+    /**
+     * Class weblinks_build_kml_handler
+     */
     class weblinks_build_kml_handler extends happy_linux_build_kml
     {
         public $_DIRNAME;
@@ -25,11 +30,16 @@ if (!class_exists('weblinks_build_kml_handler')) {
         public $_conf;
 
         public $_LANG_NO_MATCH = 'No matches found for your query';
-        public $_MIN_PAGE = 1; // page start from 1
+        public $_MIN_PAGE = 1;    // page start from 1
 
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_build_kml_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
@@ -39,12 +49,12 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->set_template($DIR_XML . '/weblinks_build_kml.tpl');
             $this->init_obj();
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link_basic', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link_basic', $dirname);
             $this->_link_view = weblinks_link_view_basic::getInstance($dirname);
             $this->_htmlout = weblinks_htmlout::getInstance($dirname);
 
-            $this->_myts = MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts = &MyTextSanitizer::sGetInstance()) || $this->_myts = MyTextSanitizer::getInstance();
             $this->_strings = happy_linux_strings::getInstance();
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -83,6 +93,11 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->_print_error($this->_LANG_NO_MATCH);
         }
 
+        /**
+         * @param null $page
+         * @param null $limit
+         * @return bool
+         */
         public function build_by_page($page = null, $limit = null)
         {
             $ret = $this->_execute_page($page, $limit);
@@ -93,6 +108,10 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->build_kml();
         }
 
+        /**
+         * @param null $lid
+         * @return bool
+         */
         public function build_by_lid($lid = null)
         {
             $ret = $this->_execute_lid($lid);
@@ -103,6 +122,11 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->build_kml();
         }
 
+        /**
+         * @param null $page
+         * @param null $limit
+         * @return bool
+         */
         public function view_by_page($page = null, $limit = null)
         {
             $ret = $this->_execute_page($page, $limit);
@@ -113,6 +137,10 @@ if (!class_exists('weblinks_build_kml_handler')) {
             $this->view_kml();
         }
 
+        /**
+         * @param null $lid
+         * @return bool
+         */
         public function view_by_lid($lid = null)
         {
             $ret = $this->_execute_lid($lid);
@@ -126,6 +154,12 @@ if (!class_exists('weblinks_build_kml_handler')) {
         //---------------------------------------------------------
         // private
         //---------------------------------------------------------
+
+        /**
+         * @param $page
+         * @param $limit
+         * @return bool
+         */
         public function _execute_page($page, $limit)
         {
             if (empty($page)) {
@@ -157,6 +191,10 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return true;
         }
 
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function _execute_lid($lid)
         {
             if (empty($lid)) {
@@ -180,6 +218,9 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return true;
         }
 
+        /**
+         * @return string
+         */
         public function _get_op()
         {
             $op = '';
@@ -193,6 +234,9 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return $op;
         }
 
+        /**
+         * @return int
+         */
         public function _get_lid()
         {
             $lid = isset($_GET['lid']) ? (int)$_GET['lid'] : 0;
@@ -200,6 +244,9 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return $lid;
         }
 
+        /**
+         * @return int
+         */
         public function _get_page()
         {
             $page = isset($_GET['page']) ? (int)$_GET['page'] : $this->_MIN_PAGE;
@@ -210,6 +257,9 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return $page;
         }
 
+        /**
+         * @return int
+         */
         public function _get_limit()
         {
             $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 0;
@@ -217,6 +267,9 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return $limit;
         }
 
+        /**
+         * @param $err
+         */
         public function _print_error($err)
         {
             echo $this->build_html_header($this->_view_title, false);
@@ -227,12 +280,22 @@ if (!class_exists('weblinks_build_kml_handler')) {
         //---------------------------------------------------------
         // link handler
         //---------------------------------------------------------
+
+        /**
+         * @param $page
+         * @param $limit
+         * @return array
+         */
         public function _get_placemarks_page($page, $limit)
         {
             $flase = false;
             $start = $limit * ($page - 1);
 
-            $lid_array = &$this->_link_handler->get_lid_array_gmap_by_orderby(null, $start, $limit);
+            $lid_array = &$this->_link_handler->get_lid_array_gmap_by_orderby(
+                null,
+                $start,
+                $limit
+            );
 
             if (!is_array($lid_array) || !count($lid_array)) {
                 return $false;
@@ -246,11 +309,19 @@ if (!class_exists('weblinks_build_kml_handler')) {
             return $arr;
         }
 
+        /**
+         * @param $lid
+         * @return array
+         */
         public function _get_placemarks_single($lid)
         {
             return $this->_get_kml_by_lid($lid);
         }
 
+        /**
+         * @param $lid
+         * @return array
+         */
         public function _get_kml_by_lid($lid)
         {
             // not use return references

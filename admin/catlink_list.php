@@ -1,5 +1,6 @@
 <?php
-// $Id: catlink_list.php,v 1.2 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: catlink_list.php,v 1.1 2011/12/29 14:32:53 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // set_flag_execute_time()
@@ -18,6 +19,10 @@ include 'admin_header_list.php';
 //=========================================================
 // class admin_catlink_list
 //=========================================================
+
+/**
+ * Class admin_catlink_list
+ */
 class admin_catlink_list extends happy_linux_page_frame
 {
     public $_category_handler;
@@ -34,10 +39,13 @@ class admin_catlink_list extends happy_linux_page_frame
         $this->set_lang_title('catlink list');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = weblinks_getHandler('category', WEBLINKS_DIRNAME);
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('category', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
     }
 
+    /**
+     * @return \admin_catlink_list|\happy_linux_form|\happy_linux_html|\happy_linux_page_frame|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -51,6 +59,10 @@ class admin_catlink_list extends happy_linux_page_frame
     //---------------------------------------------------------
     // handler
     //---------------------------------------------------------
+
+    /**
+     * @return array|string[]
+     */
     public function &_get_table_header()
     {
         $arr = [
@@ -64,6 +76,10 @@ class admin_catlink_list extends happy_linux_page_frame
         return $arr;
     }
 
+    /**
+     * @param $obj
+     * @return array
+     */
     public function &_get_cols(&$obj)
     {
         $jid = $obj->get('jid');
@@ -73,12 +89,12 @@ class admin_catlink_list extends happy_linux_page_frame
         $cat_title_s = '';
         $link_title_s = '';
 
-        $cat_obj = &$this->_category_handler->get($cid);
+        $cat_obj = $this->_category_handler->get($cid);
         if (is_object($cat_obj)) {
             $cat_title_s = $cat_obj->getVar('title', 's');
         }
 
-        $link_obj = &$this->_link_handler->get($lid);
+        $link_obj = $this->_link_handler->get($lid);
         if (is_object($link_obj)) {
             $link_title_s = $link_obj->getVar('title', 's');
         }
@@ -115,4 +131,5 @@ $list = admin_catlink_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
-exit(); // --- end of main ---
+exit();
+// --- end of main ---

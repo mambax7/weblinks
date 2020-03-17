@@ -1,18 +1,14 @@
 <{* $Id: weblinks2_singlelink.html,v 1.2 2012/04/09 10:20:06 ohwada Exp $ *}>
 
 <{if $show_webmap}>
-<script type="text/javascript">
-    //<![CDATA[
-    window.onload =
-    <
-    {
-        $webmap_func
-    }
-    >
-    ;
-    //]]>
-</script>
-<{/if}>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload =
+        <{$webmap_func}>
+        ;
+        //]]>
+    </script>
+    <{/if}>
 
 <{$weblinks_module_header}>
 
@@ -36,20 +32,20 @@
     <{$weblinks_guidance}>
 
     <{if $show_photo_list}>
-    <br>
+<br>
     <{$weblinks_photo_list}>
-    <br>
+<br>
     <{/if}>
 
     <{if $show_webmap}>
     <div id="<{$webmap_div_id}>" class="weblinks_gm_map_singlelink">Loading ...</div>
-    <br>
+<br>
     <div class="weblinks_gm_location">
-        <a href="https://maps.google.com/maps?hl=<{$xoops_langcode}>&amp;q=<{$link.gm_latitude}>,+<{$link.gm_longitude}>&amp;z=<{$link.gm_zoom}>" target="_blank">
+        <a href="http://maps.google.com/maps?hl=<{$xoops_langcode}>&amp;q=<{$link.gm_latitude}>,+<{$link.gm_longitude}>&amp;z=<{$link.gm_zoom}>" target="_blank">
             <img src="<{$xoops_url}>/modules/<{$dirname}>/images/google_maps.gif" border="0" alt="google map"/> </a>
         <{$lang_gm_latitude}> : <{$link.gm_latitude}> / <{$lang_gm_longitude}> : <{$link.gm_longitude}> / <{$lang_gm_zoom}> : <{$link.gm_zoom}>
     </div>
-    <br>
+<br>
     <{/if}>
 
     <{if $link.warn_time_publish}>
@@ -106,16 +102,14 @@
     <div class="weblinks_singlelink_textarea1">
         <span class="weblinks_bold"><{$lang_link_textarea1}></span><br>
         <{$link.textarea1_disp}>
-    </div>
-    <br>
+    </div><br>
     <{/if}>
 
     <{if $link.textarea2_disp}>
     <div class="weblinks_singlelink_textarea2">
         <span class="weblinks_bold"><{$lang_link_textarea2}></span><br>
         <{$link.textarea2_disp}>
-    </div>
-    <br>
+    </div><br>
     <{/if}>
 
     <a name="rss"></a>
@@ -136,7 +130,7 @@
 
     <{if ($rss_flag == 1) || ($rss_flag == 2) || ($rss_flag == 3) }>
     <{$lang_lastupdate}>&nbsp;<{$rss_update}>
-    <br><br>
+<br><br>
 
     <{* -- feed list begin -- *}>
     <div class="weblinks_singlelink_frame_feed">
@@ -166,8 +160,7 @@
         <{else}>
         <span class="weblinks_blue">No Feed</span>
         <{/if}>
-    </div>
-    <br>
+    </div><br>
     <{* -- feed list end -- *}>
 
     <{/if}>
@@ -175,7 +168,7 @@
     <a name="comment"></a>
 
     <{if $show_forum_list}>
-    <br>
+<br>
     <span class="weblinks_subtitle"><{$lang_latest_forum}></span><br><br>
     <div class="weblinks_viewcat_frame">
         <{$weblinks_forum_list}>
@@ -205,7 +198,7 @@
     <{include file="db:system_notification_select.tpl"}>
     <{/if}>
 
-    <hr>
+    <hr/>
     <div class="weblinks_execution_time">execution time : <{$execution_time}> sec</div>
     <{if $is_module_admin }>
     <{if $memory_usage > 0}>

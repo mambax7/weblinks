@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
-        xmlns="https://purl.org/rss/1.0/"
-        xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        xmlns:dc="https://purl.org/dc/elements/1.1/"
-        xmlns:content="https://purl.org/rss/1.0/modules/content/"
+        xmlns="http://purl.org/rss/1.0/"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
         xml:lang="<{$xml_lang}>">
     <channel rdf:about="<{$channel_link}>">
         <title><{$channel_title}></title>
@@ -21,7 +21,7 @@
         <items>
             <rdf:Seq>
                 <{foreach item=item from=$items}>
-                <rdf:li rdf:resource="<{$item.link}>"/>
+            <rdf:li rdf:resource="<{$item.link}>"/>
                 <{/foreach}>
             </rdf:Seq>
         </items>

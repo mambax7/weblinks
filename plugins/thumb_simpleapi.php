@@ -1,5 +1,6 @@
 <?php
-// $Id: thumb_simpleapi.php,v 1.1 2007/09/17 09:46:45 ohwada Exp $
+
+// $Id: thumb_simpleapi.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -11,11 +12,15 @@ if (!function_exists('weblinks_thumb_simpleapi')) {
     //=========================================================
     // thumbnail web service
     //=========================================================
+    /**
+     * @param $url
+     * @return array
+     */
     function &weblinks_thumb_simpleapi($url)
     {
         $arr = [
             'name' => 'simpleapi',
-            'image' => 'https://img.simpleapi.net/small/' . $url,
+            'image' => 'http://img.simpleapi.net/small/' . $url,
             'width' => 128,
             'height' => 128,
         ];

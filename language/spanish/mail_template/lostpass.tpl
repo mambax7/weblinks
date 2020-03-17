@@ -1,8 +1,8 @@
 Hola {NAME}
 
-Se necesita una contraseña de links {SITENAME} desde el user y la IP {IP}.
-Por favor, clickea después después de loguearte.
-Puedes entrar sin contraseña a la página de modificación de contenido.
+Se necesita una contraseï¿½a de links {SITENAME} desde el user y la IP {IP}.
+Por favor, clickea despuï¿½s despuï¿½s de loguearte.
+Puedes entrar sin contraseï¿½a a la pï¿½gina de modificaciï¿½n de contenido.
 
 {ENTRY}
 

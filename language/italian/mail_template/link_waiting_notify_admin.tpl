@@ -1,6 +1,6 @@
 Ciao, Admin
 
-Un nuovo sito è in attesa di approvazione.
+Un nuovo sito ï¿½ in attesa di approvazione.
 Per favore collegato alla tua sezione admin per controllarlo:
 {WAITINGLINKS_URL}
 

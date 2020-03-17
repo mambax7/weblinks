@@ -1,4 +1,4 @@
-<{* $Id: weblinks1_ratelink.html,v 1.1 2007/08/08 04:20:58 ohwada Exp $ *}>
+<{* $Id: weblinks1_ratelink.html,v 1.1 2011/12/29 14:32:39 ohwada Exp $ *}>
 
 <{$weblinks_module_header}>
 

@@ -1,5 +1,6 @@
 <?php
-// $Id: test_form_admin_approve_del.php,v 1.2 2007/09/24 07:06:10 ohwada Exp $
+
+// $Id: test_form_admin_approve_del.php,v 1.1 2011/12/29 14:32:57 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -80,7 +81,7 @@ if ($test->match_return_msg('notify refuse del link')) {
     echo "<h4>Success !</h4>\n";
     echo "delete & refuse del link: <br><br>\n";
 } else {
-    echo "Error: refuse del link failed: <br><hr>\n";
+    echo "Error: refuse del link failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -122,7 +123,7 @@ if ($test->match_return_msg($msg)) {
     echo "<h4>Success !</h4>\n";
     echo "delete & approve del link: <br><br>\n";
 } else {
-    echo "Error: approve link failed: <br><hr>\n";
+    echo "Error: approve link failed: <br><hr />\n";
     echo $test->get_body() . "<br><br>\n";
     dev_footer();
 }
@@ -131,4 +132,5 @@ $test->logout();
 
 //---------------------------------------------------------
 echo '<a href="' . $list_url . '" target="_blank" >goto link list</a>' . "<br>\n";
-dev_footer(); // --- end of main ---
+dev_footer();
+// --- end of main ---

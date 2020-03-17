@@ -1,5 +1,6 @@
 <?php
-// $Id: waiting.php,v 1.1 2007/09/15 04:23:34 ohwada Exp $
+
+// $Id: waiting.php,v 1.1 2011/12/29 14:32:40 ohwada Exp $
 
 //================================================================
 // WebLinks Module

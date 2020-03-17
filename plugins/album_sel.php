@@ -1,5 +1,6 @@
 <?php
-// $Id: album_sel.php,v 1.3 2009/01/31 19:49:37 ohwada Exp $
+
+// $Id: album_sel.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2009-02-01 K.OHWADA
 // webphoto_120
@@ -14,6 +15,9 @@
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_album_sel')) {
+    /**
+     * @return array
+     */
     function &weblinks_plugin_album_sel()
     {
         $sel = [];
@@ -28,4 +32,5 @@ if (!function_exists('weblinks_plugin_album_sel')) {
 
         return $sel;
     }
-}// --- functions end ---
+}
+// --- functions end ---

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
 <head>
     <{* $Id: weblinks_print.html,v 1.2 2012/04/09 10:20:06 ohwada Exp $ *}>
     <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>"/>
@@ -16,17 +16,16 @@
 
     <{* use google map *}>
     <{if $gm_use}>
-    <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         <!--
         function weblinks_google_map_load() {
-            var latlng = new google.maps.LatLng(parseFloat( < {$link.gm_latitude
-        }>),
-            parseFloat( < {$link.gm_longitude
-        }>) )
+            var latlng = new google.maps.LatLng(parseFloat( <{$link.gm_latitude}>), parseFloat
+            ( <{$link.gm_longitude}>
+        ) )
             ;
-            var zoom = Math.floor( < {$link.gm_zoom
-        }>)
+            var zoom = Math.floor( <{$link.gm_zoom}>
+        )
             ;
             var ele = document.getElementById("weblinks_google_map");
             var options = {
@@ -36,6 +35,7 @@
             };
             var map = new google.maps.Map(ele, options);
         }
+
         //-->
     </script>
 
@@ -46,6 +46,7 @@
         function load() {
             window.print();
         }
+
         //-->
     </script>
     <{/if}>
@@ -92,23 +93,23 @@
         <div class="weblinks_print_frame_link_category">
 
             <{if $link.flag_new == 1}>
-            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/new.gif" border="0" alt="<{$lang_image_new}>"/>
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/new.gif" border="0" alt="<{$lang_image_new}>"/>
             <{/if}>
 
             <{if $link.flag_update == 1}>
-            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/update.gif" border="0" alt="<{$lang_image_update}>"/>
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/update.gif" border="0" alt="<{$lang_image_update}>"/>
             <{/if}>
 
             <{if $link.flag_pop == 1}>
-            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/pop.gif" border="0" alt="<{$lang_image_popular}>"/>
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/pop.gif" border="0" alt="<{$lang_image_popular}>"/>
             <{/if}>
 
             <{if $link.flag_recommend == 1}>
-            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/cool.gif" border="0" alt="<{$lang_image_recommend}>"/>
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/cool.gif" border="0" alt="<{$lang_image_recommend}>"/>
             <{/if}>
 
             <{if $link.flag_mutual == 1}>
-            <img src="<{$xoops_url}>/modules/<{$dirname}>/images/hot.gif" border="0" alt="<{$lang_image_mutual}>"/>
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/hot.gif" border="0" alt="<{$lang_image_mutual}>"/>
             <{/if}>
 
             <br>
@@ -126,7 +127,7 @@
             <{/if}>
             <{/section}>
             <{if $smarty.section.ii.last == false}>
-            <br>
+        <br>
             <{/if}>
             <{/section}>
             <{* -- End path loop -- *}>
@@ -183,7 +184,7 @@
             , <{$link.state}>
             <{/if}>
 
-            <br>
+        <br>
             <{/if}>
 
             <{/if}>
@@ -201,9 +202,9 @@
 
             <{if $link.image_link_show}>
             <{if ($link.image_link_width != "") && ($link.image_link_height != "")}>
-            <img src="<{$link.image_url}>" width="<{$link.image_link_width}>" height="<{$link.image_link_height}>" alt="banner" class="weblinks_print_link_image"/>
+        <img src="<{$link.image_url}>" width="<{$link.image_link_width}>" height="<{$link.image_link_height}>" alt="banner" class="weblinks_print_link_image"/>
             <{else}>
-            <img src="<{$link.image_url}>" alt="banner" class="weblinks_print_link_image"/>
+        <img src="<{$link.image_url}>" alt="banner" class="weblinks_print_link_image"/>
             <{/if}>
             <{/if}>
 
@@ -236,7 +237,7 @@
             <{/if}>
 
             <{if $link.image_link_show}>
-            <br class="weblinks_link_image_clear"/>
+        <br class="weblinks_link_image_clear"/>
             <{/if}>
 
         </div>
@@ -258,21 +259,18 @@
     <div class="weblinks_print_textarea1">
         <span class="weblinks_bold"><{$lang_link_textarea1}></span><br>
         <{$link.textarea1_disp}>
-    </div>
-    <br>
+    </div><br>
     <{/if}>
 
     <{if $link.textarea2_disp != ""}>
     <div class="weblinks_print_textarea2">
         <span class="weblinks_bold"><{$lang_link_textarea2}></span><br>
         <{$link.textarea2_disp}>
-    </div>
-    <br>
+    </div><br>
     <{/if}>
 
     <{if $gm_use}>
-    <div id="weblinks_google_map" class="weblinks_gm_map_print"></div>
-    <br>
+    <div id="weblinks_google_map" class="weblinks_gm_map_print"></div><br>
     <{/if}>
 
     <{if $link.rss_flag == 1}>
@@ -291,7 +289,7 @@
 
     <{if ($link.rss_flag == 1) || ($link.rss_flag == 2) || ($link.rss_flag == 3) }>
     <{$lang_lastupdate}>&nbsp;<{$rss_update}>
-    <br><br>
+<br><br>
 
     <{* -- feed list begin -- *}>
     <div class="weblinks_print_frame_feed_all">
@@ -315,7 +313,7 @@
     </div>
     <{* -- feed list end -- *}>
 
-    <br>
+<br>
     <{/if}>
 
     <{* -- start comments -- *}>

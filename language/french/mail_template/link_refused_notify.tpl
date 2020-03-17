@@ -1,9 +1,9 @@
 Bonjour, {UNAME}.
 
-Le site que vous avez soumis a été refusé pour l'une des raisons suivantes :
-- son contenu ne correspond pas à nos critères
-- son contenu est illégal
-- il s'agit d'une adresse redirigée, nous n'acceptons que les URL en accès direct
+Le site que vous avez soumis a ï¿½tï¿½ refusï¿½ pour l'une des raisons suivantes :
+- son contenu ne correspond pas ï¿½ nos critï¿½res
+- son contenu est illï¿½gal
+- il s'agit d'une adresse redirigï¿½e, nous n'acceptons que les URL en accï¿½s direct
 
 Les informations concernant votre site:
 Nom: {SITE_NAME}

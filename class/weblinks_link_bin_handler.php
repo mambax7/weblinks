@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_link_bin_handler.php,v 1.1 2007/09/23 05:19:24 ohwada Exp $
+
+// $Id: weblinks_link_bin_handler.php,v 1.1 2011/12/29 14:33:04 ohwada Exp $
 
 // 2007-09-20 K.OHWADA
 // divid from weblinks_link_basic_handler.php
@@ -17,6 +18,10 @@ if (!class_exists('weblinks_link_bin_handler')) {
     // this class define config table
     // weblinks_link_basic_handler inherit this class
     //=========================================================
+
+    /**
+     * Class weblinks_link_bin_handler
+     */
     class weblinks_link_bin_handler extends happy_linux_basic_handler
     {
         // hack for multi language
@@ -25,6 +30,11 @@ if (!class_exists('weblinks_link_bin_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_bin_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname);
@@ -50,6 +60,11 @@ if (!class_exists('weblinks_link_bin_handler')) {
         //---------------------------------------------------------
         // link table
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return mixed
+         */
         public function countup_broken($lid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET broken = broken+1 WHERE lid=' . (int)$lid;

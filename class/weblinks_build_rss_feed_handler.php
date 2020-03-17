@@ -1,5 +1,6 @@
 <?php
-// $Id: weblinks_build_rss_feed_handler.php,v 1.2 2007/10/23 01:49:09 ohwada Exp $
+
+// $Id: weblinks_build_rss_feed_handler.php,v 1.1 2011/12/29 14:33:07 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // divid from feed_rss.php
@@ -23,6 +24,10 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
     //=========================================================
     // class weblinks_build_rss_feed_handler
     //=========================================================
+
+    /**
+     * Class weblinks_build_rss_feed_handler
+     */
     class weblinks_build_rss_feed_handler extends rssc_build_rssc
     {
         public $_DIRNAME;
@@ -35,6 +40,11 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_build_rss_feed_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             $DIR_XML = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/xml';
@@ -45,18 +55,25 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
             $this->set_atom_template($DIR_XML . '/weblinks_build_feed_atom.tpl');
             $this->set_cache_time_guest($this->_CACHE_TIME_ONE_HOUR);
 
-            $this->_rssc_view_handler = weblinks_getHandler('rssc_view', $dirname);
+            $this->_rssc_view_handler = weblinks_get_handler('rssc_view', $dirname);
         }
 
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
+
+        /**
+         * @param $mode
+         */
         public function build_for_weblinks($mode)
         {
             $this->set_mode($mode);
             $this->build_rss();
         }
 
+        /**
+         * @param $mode
+         */
         public function view_for_weblinks($mode)
         {
             $this->set_mode($mode);
@@ -66,6 +83,10 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
         //---------------------------------------------------------
         // private
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function &_get_feeds_for_weblinks()
         {
             return $this->_rssc_view_handler->get_feed_list_latest($this->_MAX_FEEDS);
@@ -74,6 +95,10 @@ if (!class_exists('weblinks_build_rss_feed_handler')) {
         //=========================================================
         // override into build_rss
         //=========================================================
+
+        /**
+         * @return array
+         */
         public function &_get_items()
         {
             return $this->_get_feeds_for_weblinks();

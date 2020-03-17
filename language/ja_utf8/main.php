@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -70,7 +71,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'カテゴリ');
     define('_WLS_HITS', 'ヒット数');
     define('_WLS_RATING', '評価');
@@ -83,7 +84,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'このリンクを編集');
     define('_WLS_MODIFY', '修正');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     //define("_WLS_SUBMITLINKHEAD","リンクフォームを登録");
     define('_WLS_SUBMITLINKHEAD', '新規リンクを登録する');
     define('_WLS_SUBMITONCE', '同一のリンク先は１回しか登録できません。');
@@ -93,7 +94,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","リンク情報は、当サイトスタッフによる承認後に正式掲載となることをご了承ください。");
     define('_WLS_RECEIVED', 'ウェブサイト情報を受付けました。ありがとうございます。');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     //define("_WLS_REQUESTMOD","リンク修正リクエスト");
     define('_WLS_REQUESTMOD', 'リンクを修正する');
     define('_WLS_THANKSFORINFO', '情報をありがとうございます。いただいたリクエストはすぐに調査します。');
@@ -180,7 +181,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'あなたが登録したリンクには投票できません。<br>投票は全て記録され調査されます。');
     define('_WLS_VOTEONCE2', '申し訳ありませんが、同一リンク情報への投票は一回限りとさせていただいています。');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'リンク集管理');
     define('_WLS_GENERALSET', '一般設定');
@@ -255,7 +256,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', '登録する');
     define('_WLS_SITE_NEW', '新着サイト');
@@ -273,7 +274,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', '最終更新日');
     define('_WLS_MORE', 'もっと詳しく');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', '説明');
     define('_WLS_PROMOTER', '主催者');
     define('_WLS_ZIP', '郵便番号');
@@ -281,7 +282,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', '電話番号');
     define('_WLS_FAX', 'FAX番号');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'バナーのURL');
     define('_WLS_NAME', '名前・ハンドル名');
     define('_WLS_EMAIL', 'Ｅメールアドレス');
@@ -297,13 +298,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_USER_COMMENT', '管理者へのコメント');
     define('_WLS_NOT_DISPLAY', 'この欄はWEBには表示されません');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'あなたからのリンク変更申請は承認されました。');
     define('_WLS_MODIFY_NOT_OWNER', 'あなたがリンク情報の登録者であるかどうかを自動的には判断できませんでした。');
     define('_WLS_MODIFY_PENDING', 'リンク情報の修正は一旦 <b>仮登録</b> され、スタッフによる確認後公開されます。<br>リンク修正に時間がかかる場合があるかもしれませんが予めご了承ください。');
     define('_WLS_LINKSUBMITTER', 'リンク情報提供者：');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'パスワードを入力してください');
     define('_WLS_REGSTERED', '登録ユーザー');
     define('_WLS_REGSTERED_DSC', 'リンク情報の提供者でなくとも、修正できます。<br>管理者が確認後に掲載されます。');
@@ -374,7 +375,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', '自動検出');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'ここに表示されている RSS/ATOM 記事を RSS と ATOM で配信しています。');
-    define('_WLS_ATOMFEED_FIREFOX', "<a href='https://www.mozilla-japan.org/products/firefox/' target='_blank'>Firefox</a> をご利用の方はこのページをブックマークすると、配信内容がご覧になれます。");
+    define('_WLS_ATOMFEED_FIREFOX', "<a href='http://www.mozilla-japan.org/products/firefox/' target='_blank'>Firefox</a> をご利用の方はこのページをブックマークすると、配信内容がご覧になれます。");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', '承認されると通知します');
@@ -438,13 +439,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME', 'ホーム');
-    //  define('_SAVE', '保存');
-    //  define('_SAVED','保存した');
-    //  define('_CREATE', '生成');
-    //  define('_CREATED','生成した');
-    //  define('_EXECUTE', '実行');
-    //  define('_EXECUTED','実行した');
+    //	define('_HOME', 'ホーム');
+    //	define('_SAVE', '保存');
+    //	define('_SAVED','保存した');
+    //	define('_CREATE', '生成');
+    //	define('_CREATED','生成した');
+    //	define('_EXECUTE', '実行');
+    //	define('_EXECUTED','実行した');
     //}
 
     define('_WEBLINKS_MAP_USE', '地図アイコンの表示');
@@ -461,7 +462,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', '警告: URL が読み出せない');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', '警告: バナーサイズが取得できない');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', '緯度');
     define('_WEBLINKS_GM_LONGITUDE', '経度');
     define('_WEBLINKS_GM_ZOOM', 'ズーム・レベル');
@@ -587,4 +588,5 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // google map
     define('_WEBLINKS_GM_LOCATION', '場所');
     define('_WEBLINKS_GM_ICON', 'Googleアイコン');
-}// --- define language end ---
+}
+// --- define language end ---

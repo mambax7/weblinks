@@ -1,5 +1,6 @@
 <?php
-// $Id: newbb_200.php,v 1.5 2007/11/27 11:52:29 ohwada Exp $
+
+// $Id: newbb_200.php,v 1.1 2011/12/29 14:32:59 ohwada Exp $
 
 // 2007-11-26 K.OHWADA
 // DEBUG
@@ -15,12 +16,15 @@
 
 //=========================================================
 // WebLinks Module
-// for NewBB 2.02 <https://dev.xoops.org/modules/xfmod/project/?newbb>
+// for NewBB 2.02 <http://dev.xoops.org/modules/xfmod/project/?newbb>
 // 2007-02-20 K.OHWADA
 //=========================================================
 
 // --- functions begin ---
 if (!function_exists('weblinks_plugin_forums_newbb_200')) {
+    /**
+     * @return array|bool
+     */
     function &weblinks_plugin_forums_newbb_200()
     {
         global $xoopsDB;
@@ -51,10 +55,14 @@ if (!function_exists('weblinks_plugin_forums_newbb_200')) {
         return $arr;
     }
 
+    /**
+     * @param $opts
+     * @return array|bool
+     */
     function &weblinks_plugin_threads_newbb_200($opts)
     {
         global $xoopsDB;
-        $myts = MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
         $DEBUG = false;
         if (defined('WEBLINKS_DEBUG_ERROR')) {
@@ -107,7 +115,7 @@ if (!function_exists('weblinks_plugin_forums_newbb_200')) {
         // latest topics
         $sql2 = 'SELECT * FROM ' . $xoopsDB->prefix('bb_topics');
         if (WEBLINKS_PLUGIN_ALL != $forum_id_in) {
-            $sql2 .= ' WHERE forum_id=' . (int)$forum_id_in;
+            $sql2 .= ' WHERE forum_id=' . $forum_id_in;
         }
         $sql2 .= ' ORDER BY topic_time ' . $post_order;
 
@@ -192,4 +200,5 @@ if (!function_exists('weblinks_plugin_forums_newbb_200')) {
 
         return $arr;
     }
-}// --- functions end ---
+}
+// --- functions end ---

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.1 2012/04/09 10:20:05 ohwada Exp $
 
 // 2008-02-17 K.OHWADA
@@ -59,7 +60,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MB_LOADED')) {
@@ -69,7 +70,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // same as mylinks
     //---------------------------------------------------------
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_CATEGORY', 'Категория');
     define('_WLS_HITS', 'Посещения');
     define('_WLS_RATING', 'Оценка');
@@ -82,7 +83,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_EDITTHISLINK', 'Редактировать эту ссылку');
     define('_WLS_MODIFY', 'Изменить');
 
-    //======    submit.php  ======
+    //======	submit.php	======
     define('_WLS_SUBMITLINKHEAD', 'Отправить новую ссылку');
     define('_WLS_SUBMITONCE', 'Отправляйте вашу ссылку только один раз.');
     define('_WLS_DONTABUSE', 'Имя пользователя и IP записаны, поэтому, пожалуйста, не злоупотребляйте системой.');
@@ -91,7 +92,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     //define("_WLS_WHENAPPROVED","You'll receive an E-mail when it's approved.");
     define('_WLS_RECEIVED', 'Мы получили информацию о своем веб-сайте. Спасибо!');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_REQUESTMOD', 'Запрос изменения ссылки');
     define('_WLS_THANKSFORINFO', 'Спасибо за информацию. Мы рассмотрим ваш запрос в ближайшее время.');
 
@@ -180,7 +181,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_CANTVOTEOWN', 'Вы не можете голосовать за ресурс, который Вы отправили.<br>Все голоса записываются и рецензируются.');
     define('_WLS_VOTEONCE2', 'Голосуйте за выбранный ресурс только один раз.<br>Все голоса записываются и рецензируются.');
 
-    //%%%%%%    Admin     %%%%%
+    //%%%%%%	Admin	  %%%%%
 
     define('_WLS_WEBLINKSCONF', 'Конфигурация Веб-ссылок');
     define('_WLS_GENERALSET', 'Общие настройки Веб-ссылок');
@@ -257,7 +258,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // weblinks
     //---------------------------------------------------------
 
-    //======    index.php   ======
+    //======	index.php	======
     // guidance bar
     define('_WLS_SUBMIT_NEW_LINK', 'Отправить новую ссылку');
     define('_WLS_SITE_POPULAR', 'Популярный сайт');
@@ -280,7 +281,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_LASTUPDATE', 'Последнее обновление');
     define('_WLS_MORE', 'Подробнее');
 
-    //======     singlelink.php ======
+    //======	 singlelink.php	======
     define('_WLS_DESCRIPTION', 'Описание');
     define('_WLS_PROMOTER', 'Промоутер');
     define('_WLS_ZIP', 'Почтовый индекс');
@@ -288,7 +289,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_TEL', 'Номер телефона');
     define('_WLS_FAX', 'Номер факса');
 
-    //======     submit.php ======
+    //======	 submit.php	======
     define('_WLS_BANNERURL', 'Адрес баннера');
     define('_WLS_NAME', 'Имя');
     define('_WLS_EMAIL', 'Электронная почта');
@@ -300,20 +301,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_NOTPUBLIC', 'Не опубликовывать');
     define('_WLS_NOTSELECT', 'Не определено');
     define('_WLS_SUBMIT_INDISPENSABLE', "Пометка звездочкой '<b>*</b>' означает обязательный пункт.");
-    define(
-        '_WLS_SUBMIT_USER_COMMENT',
-        '"Комментарий администратору" следует использовать для мнения, запроса и т.д.<br>Этот столбец не отображается на веб.<br>Пожалуйста, заполните адрес вашего сайта и как это связано с этим сайтом, если вы хотите пометить его как "Лучший сайт".'
-    );
+    define('_WLS_SUBMIT_USER_COMMENT', '"Комментарий администратору" следует использовать для мнения, запроса и т.д.<br>Этот столбец не отображается на веб.<br>Пожалуйста, заполните адрес вашего сайта и как это связано с этим сайтом, если вы хотите пометить его как "Лучший сайт".');
     define('_WLS_USER_COMMENT', 'Комментарий администратору');
     define('_WLS_NOT_DISPLAY', 'Этот столбец не отображается на веб.');
 
-    //======    modlink.php ======
+    //======	modlink.php	======
     define('_WLS_MODIFYAPPROVED', 'Заявка изменения вашей ссылки была утверждена. ');
     define('_WLS_MODIFY_NOT_OWNER', 'Пожалуйста, убедитесь, что вы человек, который представил подлинную ссылку.');
     define('_WLS_MODIFY_PENDING', 'Изменения ссылки записано. Она будет опубликована после проверки.');
     define('_WLS_LINKSUBMITTER', 'Отправитель ссылки');
 
-    //======    user.php    ======
+    //======	user.php	======
     define('_WLS_PLEASEPASSWORD', 'Введите ваш пароль');
     define('_WLS_REGSTERED', 'Зарегистрированный пользователь');
     define('_WLS_REGSTERED_DSC', 'Кто угодно может изменить информацию ссылки. <br>Веб-мастер проверит изменения перед публикацией.');
@@ -373,10 +371,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WLS_RSS_URL_3', 'автоматическое обнаружение');
 
     define('_WLS_ATOMFEED_DISTRIBUTE', 'Распространенные RSS/ATOM каналы отображаются здесь.');
-    define(
-        '_WLS_ATOMFEED_FIREFOX',
-        "Если вы используете <a href='https://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, сделайте закладку этой страницы, для просмотра вашего RSS/ATOM канала. "
-    );
+    define('_WLS_ATOMFEED_FIREFOX', "Если вы используете <a href='http://www.mozilla.org/products/firefox/' target='_blank'>Firefox</a>, сделайте закладку этой страницы, для просмотра вашего RSS/ATOM канала. ");
 
     // 2005-10-20
     define('_WLS_EMAIL_APPROVE', 'Оповестить, если утверждено');
@@ -439,13 +434,13 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // conflict with rssc
     //if( !defined('_SAVE') )
     //{
-    //  define('_HOME',  'Home');
-    //  define('_SAVE',  'Save');
-    //  define('_SAVED', 'Saved');
-    //  define('_CREATE', 'Create');
-    //  define('_CREATED','Created');
-    //  define('_EXECUTE', 'Execute');
-    //  define('_EXECUTED','Executed');
+    //	define('_HOME',  'Home');
+    //	define('_SAVE',  'Save');
+    //	define('_SAVED', 'Saved');
+    //	define('_CREATE', 'Create');
+    //	define('_CREATED','Created');
+    //	define('_EXECUTE', 'Execute');
+    //	define('_EXECUTED','Executed');
     //}
 
     define('_WEBLINKS_MAP_USE', 'Использовать иконку карты');
@@ -462,7 +457,7 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     define('_WEBLINKS_WARN_NOT_READ_URL', 'Предупреждение: Не удалось прочитать адрес');
     define('_WEBLINKS_WARN_BANNER_NOT_GET_SIZE', 'Предупреждение: Не удалось получить размер баннера');
 
-    // google map: hacked by wye <https://never-ever.info/>
+    // google map: hacked by wye <http://never-ever.info/>
     define('_WEBLINKS_GM_LATITUDE', 'Широта');
     define('_WEBLINKS_GM_LONGITUDE', 'Долгота');
     define('_WEBLINKS_GM_ZOOM', 'Уровень увеличения');
@@ -574,16 +569,17 @@ if (!defined('WEBLINKS_LANG_MB_LOADED')) {
     // pagerank
     define('_WEBLINKS_SITE_PAGERANK', 'Сайт с высокой важностью страницы');
 
-    define('_WEBLINKS_FROM', 'От');       // From
-    define('_WEBLINKS_EXECUTION_TIME', 'Время выполнения');      // execution time
+    define('_WEBLINKS_FROM', 'От');        // From
+    define('_WEBLINKS_EXECUTION_TIME', 'Время выполнения');        // execution time
     define('_WEBLINKS_MEMORY_USAGE', 'Использование памяти');        // memory usage
-    define('_WEBLINKS_SEC', 'сек');      // sec
-    define('_WEBLINKS_MB', 'МБ');     // MB
-    define('_WEBLINKS_FILE', 'файл');       //file
+    define('_WEBLINKS_SEC', 'сек');        // sec
+    define('_WEBLINKS_MB', 'МБ');        // MB
+    define('_WEBLINKS_FILE', 'файл');        //file
 
-    define('_WEBLINKS_RDF_FEED', 'RDF канал');     //RDF feed
-    define('_WEBLINKS_RSS_FEED', 'RSS канал');     //RSS feed
-    define('_WEBLINKS_ATOM_FEED', 'ATOM канал');       //ATOM feed
-    define('_WEBLINKS_NOFEED', 'Нет канала');      //No Feed
-    define('_WEBLINKS_IN', 'в');       //in
-}// --- define language end ---
+    define('_WEBLINKS_RDF_FEED', 'RDF канал');        //RDF feed
+    define('_WEBLINKS_RSS_FEED', 'RSS канал');        //RSS feed
+    define('_WEBLINKS_ATOM_FEED', 'ATOM канал');        //ATOM feed
+    define('_WEBLINKS_NOFEED', 'Нет канала');        //No Feed
+    define('_WEBLINKS_IN', 'в');        //in
+}
+// --- define language end ---

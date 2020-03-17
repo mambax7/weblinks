@@ -1,5 +1,6 @@
 <?php
-// $Id: catlist.php,v 1.13 2007/11/16 12:07:57 ohwada Exp $
+
+// $Id: catlist.php,v 1.1 2011/12/29 14:32:31 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // cat_view_handler
@@ -29,7 +30,7 @@
 
 include 'header.php';
 
-$weblinks_view_handler = weblinks_getHandler('cat_view', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('cat_view', WEBLINKS_DIRNAME);
 $weblinks_template = weblinks_template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_header = weblinks_header::getInstance(WEBLINKS_DIRNAME);
 
@@ -64,4 +65,5 @@ foreach ($catlist as $cat) {
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
 $xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
 include XOOPS_ROOT_PATH . '/footer.php';
-exit(); // --- main end ---
+exit();
+// --- main end ---

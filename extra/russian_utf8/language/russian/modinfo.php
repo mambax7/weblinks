@@ -1,4 +1,5 @@
 <?php
+
 // $Id: modinfo.php,v 1.1 2012/04/09 10:21:09 ohwada Exp $
 
 // 2008-02-17
@@ -38,7 +39,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 // --- define language begin ---
 if (!defined('WEBLINKS_LANG_MI_LOADED')) {
@@ -194,10 +195,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_USEFRAMEDSC', 'Выберите, следует ли отображать целевую страницу ссылки внутри фрейма');
 
     define('_MI_WEBLINKS_BROKEN', 'Количество отчетов о неработающей ссылке, чтобы остановить показ');
-    define(
-        '_MI_WEBLINKS_BROKENDSC',
-        'Введите количество отчетов о неработающей ссылке, чтобы остановить показ. <br> Когда ниже этого значения, то он будет рассматриваться как временная ошибка, и ничего не будет сделано. <br>Когда это значение больше, ссылка не будет отображаться.'
-    );
+    define('_MI_WEBLINKS_BROKENDSC', 'Введите количество отчетов о неработающей ссылке, чтобы остановить показ. <br> Когда ниже этого значения, то он будет рассматриваться как временная ошибка, и ничего не будет сделано. <br>Когда это значение больше, ссылка не будет отображаться.');
 
     define('_MI_WEBLINKS_LISTIMAGE_USE', 'Использовать изображения ссылки для списка ссылок');
     define('_MI_WEBLINKS_LISTIMAGE_WIDTH', 'Максимальная ширина изображения ссылки');
@@ -219,10 +217,7 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_TOPTEN_LINKS_DSC', 'Введите максимальное количество ссылок, которое будет отображаться в "Популярный сайт" и "Лучший сайт". ');
 
     define('_MI_WEBLINKS_TOPTEN_CATS', 'Максимальное количество категорий в лучшей десятке');
-    define(
-        '_MI_WEBLINKS_TOPTEN_CATS_DSC',
-        'Введите максимальное количество категорий, которое будет отображаться в "Популярный сайт" и "Лучший сайт". <br>Произойдет тайм-аут, если слишком много верхних категорий выбрано'
-    );
+    define('_MI_WEBLINKS_TOPTEN_CATS_DSC', 'Введите максимальное количество категорий, которое будет отображаться в "Популярный сайт" и "Лучший сайт". <br>Произойдет тайм-аут, если слишком много верхних категорий выбрано');
 
     // 2006-03-26
     // REQ 3807: Main Page Introductory Text
@@ -253,4 +248,5 @@ if (!defined('WEBLINKS_LANG_MI_LOADED')) {
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_CAP', '[Администрирование] Оповестить меня, когда опубликована какая-либо новая ссылка (если введен комментарий для администратора)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_DSC', 'Получать оповещения, когда опубликована какая-либо новая ссылка (если введен комментарий для администратора)');
     define('_MI_WEBLINKS_GLOBAL_NEWLINK_COMMENT_SBJ', '[{X_SITENAME}] {X_MODULE} авто-оповещение : Новая ссылка)');
-}// --- define language begin ---
+}
+// --- define language begin ---

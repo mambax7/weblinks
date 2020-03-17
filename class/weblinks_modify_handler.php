@@ -1,7 +1,8 @@
 <?php
+
 // $Id: weblinks_modify_handler.php,v 1.2 2012/04/09 10:20:05 ohwada Exp $
 
-//  $sql .= 'gm_icon='.intval($gm_icon).', ';
+//	$sql .= 'gm_icon='.intval($gm_icon).', ';
 
 // 2008-02-17 K.OHWADA
 // pagerank, pagerank_update in link, modify
@@ -57,6 +58,10 @@ if (!class_exists('weblinks_modify_handler')) {
     //=========================================================
     // class weblinks_modify_handler
     //=========================================================
+
+    /**
+     * Class weblinks_modify_handler
+     */
     class weblinks_modify_handler extends happy_linux_object_handler
     {
         public $_modify_basic_handler;
@@ -66,6 +71,11 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_modify_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct($dirname, 'modify', 'mid', 'weblinks_modify');
@@ -78,11 +88,11 @@ if (!class_exists('weblinks_modify_handler')) {
                 $this->renew_prefix(WEBLINKS_DB_PREFIX);
             }
 
-            $this->_modify_basic_handler = weblinks_getHandler('modify_basic', $dirname);
+            $this->_modify_basic_handler = weblinks_get_handler('modify_basic', $dirname);
 
             if (WEBLINKS_USE_LINK_NUM_ETC) {
-                $config_handler = weblinks_getHandler('config2_basic', $dirname);
-                $conf = $config_handler->get_conf();
+                $config_handler = weblinks_get_handler('config2_basic', $dirname);
+                $conf = &$config_handler->get_conf();
                 $this->_conf_link_num_etc = $conf['link_num_etc'];
             }
         }
@@ -90,6 +100,11 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -101,7 +116,7 @@ if (!class_exists('weblinks_modify_handler')) {
 
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
-                for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
+                for ($i = 1; $i <= $this->_conf_link_num_etc; $i++) {
                     $etc_name = 'etc' . $i;
                     $etc_val = $obj->get($etc_name);
                     $sql_etc_name .= $etc_name . ', ';
@@ -140,8 +155,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $sql .= 'rating, ';
             $sql .= 'votes, ';
             $sql .= 'comments, ';
-            //  $sql .= 'width, ';
-            //  $sql .= 'height, ';
+            //	$sql .= 'width, ';
+            //	$sql .= 'height, ';
             $sql .= 'recommend, ';
             $sql .= 'mutual, ';
             $sql .= 'broken, ';
@@ -237,8 +252,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $sql .= (float)$rating . ', ';
             $sql .= (int)$votes . ', ';
             $sql .= (int)$comments . ', ';
-            //  $sql .= intval($width).', ;
-            //  $sql .= intval($height).', ';
+            //	$sql .= intval($width).', ;
+            //	$sql .= intval($height).', ';
             $sql .= (int)$recommend . ', ';
             $sql .= (int)$mutual . ', ';
             $sql .= (int)$broken . ', ';
@@ -311,6 +326,11 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
+
+        /**
+         * @param $obj
+         * @return string|void
+         */
         public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
@@ -321,7 +341,7 @@ if (!class_exists('weblinks_modify_handler')) {
 
             // etc1 .. etci
             if ($this->_conf_link_num_etc > 0) {
-                for ($i = 1; $i <= $this->_conf_link_num_etc; ++$i) {
+                for ($i = 1; $i <= $this->_conf_link_num_etc; $i++) {
                     $etc_name = 'etc' . $i;
                     $etc_val = $obj->get($etc_name);
                     $sql_etc_set .= $etc_name . '=' . $this->quote($etc_val) . ', ';
@@ -359,8 +379,8 @@ if (!class_exists('weblinks_modify_handler')) {
             $sql .= 'rating=' . (float)$rating . ', ';
             $sql .= 'votes=' . (int)$votes . ', ';
             $sql .= 'comments=' . (int)$comments . ', ';
-            //  $sql .= 'width='.intval($width).', ';
-            //  $sql .= 'height='.intval($height).', ';
+            //	$sql .= 'width='.intval($width).', ';
+            //	$sql .= 'height='.intval($height).', ';
             $sql .= 'recommend=' . (int)$recommend . ', ';
             $sql .= 'mutual=' . (int)$mutual . ', ';
             $sql .= 'broken=' . (int)$broken . ', ';
@@ -433,6 +453,11 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
+
+        /**
+         * @param $lid
+         * @return bool
+         */
         public function delete_by_lid($lid)
         {
             $sql = 'DELETE FROM ' . $this->_table . ' WHERE lid=' . (int)$lid;
@@ -447,6 +472,13 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // get object
         //---------------------------------------------------------
+
+        /**
+         * @param     $mode
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_by_mode($mode, $limit = 0, $start = 0)
         {
             $mode = (int)$mode;
@@ -459,16 +491,31 @@ if (!class_exists('weblinks_modify_handler')) {
             return $objs;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_new($limit = 0, $start = 0)
         {
             return $this->get_objects_by_mode(WEBLINKS_C_MODIFY_NEW, $limit, $start);
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_mod($limit = 0, $start = 0)
         {
             return $this->get_objects_by_mode(WEBLINKS_C_MODIFY_MOD, $limit, $start);
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array
+         */
         public function &get_objects_del($limit = 0, $start = 0)
         {
             return $this->get_objects_by_mode(WEBLINKS_C_MODIFY_DEL, $limit, $start);
@@ -477,6 +524,13 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // get mid list
         //---------------------------------------------------------
+
+        /**
+         * @param     $mode
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_mid_array_by_mode($mode, $limit = 0, $start = 0)
         {
             $mode = (int)$mode;
@@ -489,16 +543,31 @@ if (!class_exists('weblinks_modify_handler')) {
             return $list;
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_mid_array_new($limit = 0, $start = 0)
         {
             return $this->get_mid_array_by_mode(WEBLINKS_C_MODIFY_NEW, $limit, $start);
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_mid_array_mod($limit = 0, $start = 0)
         {
             return $this->get_mid_array_by_mode(WEBLINKS_C_MODIFY_MOD, $limit, $start);
         }
 
+        /**
+         * @param int $limit
+         * @param int $start
+         * @return array|bool
+         */
         public function &get_mid_array_del($limit = 0, $start = 0)
         {
             return $this->get_mid_array_by_mode(WEBLINKS_C_MODIFY_DEL, $limit, $start);
@@ -507,6 +576,10 @@ if (!class_exists('weblinks_modify_handler')) {
         //---------------------------------------------------------
         // field
         //---------------------------------------------------------
+
+        /**
+         * @return array
+         */
         public function &get_field_name_etc_array()
         {
             $arr_name = [];
@@ -528,6 +601,12 @@ if (!class_exists('weblinks_modify_handler')) {
         //=========================================================
         // alter table
         //=========================================================
+
+        /**
+         * @param $start
+         * @param $end
+         * @return bool
+         */
         public function add_column_table_etc($start, $end)
         {
             if ($end < $start) {
@@ -542,7 +621,7 @@ if (!class_exists('weblinks_modify_handler')) {
             $sql = 'ALTER TABLE ' . $this->_table . ' ADD COLUMN (';
 
             // etci .. etcj
-            for ($i = $start; $i <= $end; ++$i) {
+            for ($i = $start; $i <= $end; $i++) {
                 $etc_name = 'etc' . $i;
                 $sql .= $etc_name . ' varchar(255) default NULL' . $comma;
             }
@@ -557,16 +636,26 @@ if (!class_exists('weblinks_modify_handler')) {
         //=========================================================
         // modify_basic_handler
         //=========================================================
+
+        /**
+         * @return mixed
+         */
         public function get_count_new()
         {
             return $this->_modify_basic_handler->get_count_new();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_mod()
         {
             return $this->_modify_basic_handler->get_count_mod();
         }
 
+        /**
+         * @return mixed
+         */
         public function get_count_del()
         {
             return $this->_modify_basic_handler->get_count_del();

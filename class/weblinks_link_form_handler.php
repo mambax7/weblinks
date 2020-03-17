@@ -1,4 +1,5 @@
 <?php
+
 // $Id: weblinks_link_form_handler.php,v 1.3 2012/04/09 10:20:05 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -74,6 +75,10 @@ if (!class_exists('weblinks_link_form_handler')) {
     //=========================================================
     // class weblinks_link_form_handler
     //=========================================================
+
+    /**
+     * Class weblinks_link_form_handler
+     */
     class weblinks_link_form_handler extends happy_linux_form_lib
     {
         public $_DIRNAME;
@@ -138,6 +143,11 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
+
+        /**
+         * weblinks_link_form_handler constructor.
+         * @param $dirname
+         */
         public function __construct($dirname)
         {
             parent::__construct();
@@ -145,13 +155,13 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->_DIRNAME = $dirname;
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_config_handler = weblinks_getHandler('config2_basic', $dirname);
-            $this->_link_handler = weblinks_getHandler('link', $dirname);
-            $this->_modify_handler = weblinks_getHandler('modify', $dirname);
-            $this->_category_handler = weblinks_getHandler('category', $dirname);
-            $this->_catlink_handler = weblinks_getHandler('catlink', $dirname);
-            $this->_broken_handler = weblinks_getHandler('broken', $dirname);
-            $this->_linkitem_define_handler = weblinks_getHandler('linkitem_define', $dirname);
+            $this->_config_handler = weblinks_get_handler('config2_basic', $dirname);
+            $this->_link_handler = weblinks_get_handler('link', $dirname);
+            $this->_modify_handler = weblinks_get_handler('modify', $dirname);
+            $this->_category_handler = weblinks_get_handler('category', $dirname);
+            $this->_catlink_handler = weblinks_get_handler('catlink', $dirname);
+            $this->_broken_handler = weblinks_get_handler('broken', $dirname);
+            $this->_linkitem_define_handler = weblinks_get_handler('linkitem_define', $dirname);
 
             $this->_auth = weblinks_auth::getInstance($dirname);
             $this->_system = happy_linux_system::getInstance();
@@ -192,6 +202,11 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // dhtml param
         //---------------------------------------------------------
+
+        /**
+         * @param $name
+         * @return array
+         */
         public function get_link_dhtml_size($name)
         {
             $row = $this->DHTML_ROW;
@@ -203,6 +218,12 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // show_user_form
         //---------------------------------------------------------
+
+        /**
+         * @param     $form_mode
+         * @param int $lid
+         * @return bool
+         */
         public function show_user_form($form_mode, $lid = 0)
         {
             $this->_form_mode = $form_mode;
@@ -225,7 +246,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->_conf_dhtml_option = $this->_auth->has_auth_desc_option();
 
             // password
-            list($passwd_old, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
+            [
+                $passwd_old, $flag_passwd, $flag_code
+                ] = $this->_post->get_post_get_passwd_old();
 
             // request
             $request = $this->_post->get_post_text('request');
@@ -256,7 +279,7 @@ if (!class_exists('weblinks_link_form_handler')) {
 
             switch ($form_mode) {
                 case 'modify':
-                    $edit_obj = &$this->get_edit($lid);
+                    $edit_obj = $this->get_edit($lid);
                     if (!is_object($edit_obj)) {
                         echo "no link record lid=$lid <br>\n";
 
@@ -265,12 +288,12 @@ if (!class_exists('weblinks_link_form_handler')) {
                     $edit_obj->build_modify($lid, $this->_flag_owner);
                     break;
                 case 'submit_preview':
-                    $edit_obj = &$this->create_edit();
+                    $edit_obj = $this->create_edit();
                     $edit_obj->build_submit_preview();
                     break;
                 case 'modify_preview':
                     $lid = $this->_post->get_post_int('lid');
-                    $edit_obj = &$this->get_edit($lid);
+                    $edit_obj = $this->get_edit($lid);
                     if (!is_object($edit_obj)) {
                         echo "no link record lid=$lid <br>\n";
 
@@ -280,7 +303,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                     break;
                 case 'submit':
                 default:
-                    $edit_obj = &$this->create_edit();
+                    $edit_obj = $this->create_edit();
                     $edit_obj->build_submit();
                     break;
             }
@@ -387,6 +410,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             return true;
         }
 
+        /**
+         * @param      $form_title
+         * @param      $op
+         * @param      $button
+         * @param null $button_2
+         */
         public function _print_form($form_title, $op, $button, $button_2 = null)
         {
             echo $this->build_form_begin();
@@ -410,6 +439,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             echo $this->build_form_end();
         }
 
+        /**
+         * @param $submit_value
+         * @param $button_name
+         * @param $button_value
+         * @return string
+         */
         public function _build_button($submit_value, $button_name, $button_value)
         {
             $button1 = $this->build_html_input_submit('submit', $submit_value);
@@ -426,6 +461,10 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // edit object
         //---------------------------------------------------------
+
+        /**
+         * @return \weblinks_link_edit
+         */
         public function &create_edit()
         {
             $edit_obj = new weblinks_link_edit($this->_DIRNAME);
@@ -433,31 +472,39 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $edit_obj;
         }
 
+        /**
+         * @param $lid
+         * @return bool|\weblinks_link_edit
+         */
         public function &get_edit($lid)
         {
-            $obj = &$this->_link_handler->get($lid);
+            $obj = $this->_link_handler->get($lid);
             if (!is_object($obj)) {
                 $false = false;
 
                 return $false;
             }
 
-            $edit_obj = &$this->create_edit();
+            $edit_obj = $this->create_edit();
             $edit_obj->set_object($obj);
 
             return $edit_obj;
         }
 
+        /**
+         * @param $mid
+         * @return bool|\weblinks_link_edit
+         */
         public function &get_edit_modify($mid)
         {
-            $obj = &$this->_modify_handler->get($mid);
+            $obj = $this->_modify_handler->get($mid);
             if (!is_object($obj)) {
                 $false = false;
 
                 return $false;
             }
 
-            $edit_obj = &$this->create_edit();
+            $edit_obj = $this->create_edit();
             $edit_obj->set_object($obj);
 
             return $edit_obj;
@@ -471,6 +518,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->_tray = [];
         }
 
+        /**
+         * @param $name
+         */
         public function add_tray_checkbox($name)
         {
             $value = $this->get_obj_var($name);
@@ -478,6 +528,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->_tray[] = $this->build_html_input_checkbox_select($name, $value, $options);
         }
 
+        /**
+         * @return string
+         */
         public function get_tray()
         {
             $text = '';
@@ -495,11 +548,19 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->_buff_hidden = [];
         }
 
+        /**
+         * @param      $cap
+         * @param      $text
+         * @param bool $flag_two_column
+         */
         public function add_buff($cap, $text, $flag_two_column = true)
         {
             $this->_buff[] = [$cap, $text, $flag_two_column];
         }
 
+        /**
+         * @param $text
+         */
         public function add_buff_hidden($text)
         {
             $this->_buff_hidden[] = $text;
@@ -508,7 +569,7 @@ if (!class_exists('weblinks_link_form_handler')) {
         public function display()
         {
             foreach ($this->_buff as $arr) {
-                list($cap, $text, $flag_two_column) = $arr;
+                [$cap, $text, $flag_two_column] = $arr;
 
                 if ($flag_two_column) {
                     echo $this->build_form_table_line($cap, $text);
@@ -525,6 +586,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $val
+         * @return string
+         */
         public function display_line($val)
         {
             $text = '<tr align="left" valign="top"><td class="odd" colspan="2">' . "\n";
@@ -534,6 +599,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $text;
         }
 
+        /**
+         * @param $id
+         * @return array
+         */
         public function get_user_param($id)
         {
             $name = null;
@@ -561,95 +630,140 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // link item
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_break_line_by_id($id)
         {
             $this->add_buff('', '', false);
         }
 
+        /**
+         * @param $id
+         */
         public function add_hidden_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $this->add_hidden($name, $value);
         }
 
+        /**
+         * @param $name
+         * @param $value
+         */
         public function add_hidden($name, $value)
         {
             $text = $this->build_html_input_hidden($name, $value);
             $this->add_buff_hidden($text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_label_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $this->add_label($cap, $value);
         }
 
+        /**
+         * @param $cap
+         * @param $value
+         */
         public function add_label($cap, $value)
         {
             $text = $this->_build_value_when_empty($value);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_label_float_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = number_format($value, 2);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_text_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_html_input_text($name, $value, $this->TEXT_SIZE, $this->TEXT_MAX);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_url_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_edit_url_with_visit($name, $value, $this->URL_SIZE, $this->URL_MAX);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_textarea_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_html_textarea($name, $value, $this->TEXTAREA_ROW, $this->TEXTAREA_COL);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_radio_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_html_input_radio_select($name, $value, $opt);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_checkbox_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_html_input_checkbox_select($name, $value, $opt);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_yesno_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_form_radio_yesno($name, $value);
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_lid_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             if ($value > 0) {
                 $this->add_hidden($name, $value);
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_cat_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $cid_arr = $this->get_obj_var('cid_arr');
 
             $file_popup = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/catlist_popup.php';
@@ -661,9 +775,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_rss_url_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             if (WEBLINKS_RSSC_USE) {
                 $rss_flag = $this->get_obj_var('rss_flag');
@@ -677,6 +794,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_notify_by_id($id)
         {
             if (1 == $this->_mode_notify_show) {
@@ -686,9 +806,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_usercomment_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
             $text = $this->build_html_textarea($name, $value, $this->TEXTAREA_ROW, $this->TEXTAREA_COL);
 
             if ($this->_flag_usercomment_indispensable) {
@@ -705,9 +828,13 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // name mail
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_name_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $text = $this->build_html_input_text($name, $value, $this->TEXT_SIZE, $this->TEXT_MAX);
             $text .= $this->build_nameflag_mailflag('nameflag', $this->_conf['user_nameflag']);
@@ -715,9 +842,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_mail_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $extra = '';
             if (!$this->_system->is_user()) {
@@ -731,6 +861,11 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap1, $text);
         }
 
+        /**
+         * @param $name
+         * @param $mode
+         * @return string
+         */
         public function build_nameflag_mailflag($name, $mode)
         {
             $text = '';
@@ -757,9 +892,13 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // build dhtml
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_user_dhtml_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $ext = $this->parse_tail_figure($name);
 
@@ -767,7 +906,7 @@ if (!class_exists('weblinks_link_form_handler')) {
                 $this->add_dhtml_by_id($id);
             } else {
                 $name_dhtml = $this->build_link_dhtml_name($name);
-                list($row, $col) = $this->get_link_dhtml_size($name);
+                [$row, $col] = $this->get_link_dhtml_size($name);
 
                 $text = $this->build_html_textarea($name_dhtml, $value, $row, $col);
                 $this->add_buff($cap, $text);
@@ -776,15 +915,18 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_dhtml_by_id($id)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $ext = $this->parse_tail_figure($name);
             $name_dhtml = $this->build_link_dhtml_name($name);
-            list($row, $col) = $this->get_link_dhtml_size($name);
-
-            $text1 = $this->build_form_dhtml_textarea($name_dhtml, $value, $row, $col);
+            [$row, $col] = $this->get_link_dhtml_size($name);
+            $dohtml = (bool)$this->get_obj_var('dohtml' . $ext);
+            $text1 = $this->build_form_dhtml_textarea($name_dhtml, $value, $row, $col, '', $dohtml);
             $this->add_buff($cap, $text1);
 
             $text2 = $this->build_link_dhtml_options($ext);
@@ -798,9 +940,13 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $ext
+         * @return int
+         */
         public function get_link_dhtml_type($ext)
         {
-            $type = 0;  // default
+            $type = 0;    // default
             $name = 'type_desc';
 
             if ($ext) {
@@ -814,6 +960,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $type;
         }
 
+        /**
+         * @param $name
+         * @return string
+         */
         public function build_link_dhtml_name($name)
         {
             // avoid the conflict of dhtml name
@@ -822,6 +972,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $name_dhtml;
         }
 
+        /**
+         * @param $ext
+         * @return string
+         */
         public function build_link_dhtml_options($ext)
         {
             $this->clear_tray();
@@ -835,6 +989,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $text;
         }
 
+        /**
+         * @param $ext
+         */
         public function add_link_dhtml_options_hidden($ext)
         {
             $this->add_dhtml_option_hidden('dohtml' . $ext);
@@ -844,6 +1001,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_dhtml_option_hidden('dobr' . $ext);
         }
 
+        /**
+         * @param $name
+         */
         public function add_dhtml_option_hidden($name)
         {
             if (isset($this->_conf_dhtml_option[$name]) && $this->_conf_dhtml_option[$name]) {
@@ -851,6 +1011,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $name
+         */
         public function add_dhtml_option_single($name)
         {
             if (isset($this->_conf_dhtml_option[$name]) && $this->_conf_dhtml_option[$name]) {
@@ -861,6 +1024,10 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // build google map
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_gm_latitude_by_id($id)
         {
             if (!$this->_flag_webmap) {
@@ -870,7 +1037,7 @@ if (!class_exists('weblinks_link_form_handler')) {
             $desc = $this->_webmap_class->build_form_desc();
             $iframe = $this->_webmap_class->build_form_iframe();
 
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $cap2 = $this->_build_caption(_WEBLINKS_GOOGLE_MAPS);
             $this->add_buff($cap2, $desc);
@@ -880,13 +1047,16 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text1);
         }
 
+        /**
+         * @param $id
+         */
         public function add_gm_icon_by_id($id)
         {
             if (!$this->_flag_webmap) {
                 return;
             }
 
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $text = $this->_webmap_class->build_ele_icon($value);
 
@@ -896,6 +1066,10 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // build passwd
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_passwd_by_id($id)
         {
             // no action, if NOT guest
@@ -921,6 +1095,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             }
         }
 
+        /**
+         * @param $id
+         */
         public function add_passwd_new_1($id)
         {
             $title = $this->_get_define_by_itemid($id, 'title');
@@ -930,6 +1107,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_passwd_new_2($id)
         {
             $cap = $this->_build_caption(_US_VERIFYPASS, '', '', 2);
@@ -937,6 +1117,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text);
         }
 
+        /**
+         * @param $id
+         */
         public function add_passwd_mod_1($id)
         {
             $cap = $this->_build_caption_by_itemid($id, _US_TYPEPASSTWICE);
@@ -945,15 +1128,24 @@ if (!class_exists('weblinks_link_form_handler')) {
             $this->add_buff($cap, $text1 . ' ' . $text2);
         }
 
+        /**
+         * @param $id
+         */
         public function add_passwd_mod_2($id)
         {
             $name = 'passwd_old';
 
-            list($passwd_old, $flag_passwd, $flag_code) = $this->_post->get_post_get_passwd_old();
+            [
+                $passwd_old, $flag_passwd, $flag_code
+                ] = $this->_post->get_post_get_passwd_old();
 
             $this->add_hidden($name, $passwd_old);
         }
 
+        /**
+         * @param $name
+         * @return string
+         */
         public function make_passwd_by_name($name)
         {
             $value = '';
@@ -965,6 +1157,10 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // captcha
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_captcha_by_id($id)
         {
             // no action, if NOT guest
@@ -977,26 +1173,38 @@ if (!class_exists('weblinks_link_form_handler')) {
             $cap = $this->_build_caption($title, $desc, '', 2);
 
             include_once XOOPS_ROOT_PATH . '/modules/captcha/include/api.php';
-            $captcha_api = captcha_api::getInstance();
+            $captcha_api = &captcha_api::getInstance();
             $this->add_buff($cap, $captcha_api->make_img_input());
         }
 
         //---------------------------------------------------------
         // time_publish
         //---------------------------------------------------------
+
+        /**
+         * @param $id
+         */
         public function add_time_publish($id)
         {
             $this->add_formated_time($id, _WEBLINKS_TIME_PUBLISH_SET, _WEBLINKS_TIME_PUBLISH_DESC);
         }
 
+        /**
+         * @param $id
+         */
         public function add_time_expire($id)
         {
             $this->add_formated_time($id, _WEBLINKS_TIME_EXPIRE_SET, _WEBLINKS_TIME_EXPIRE_DESC);
         }
 
+        /**
+         * @param $id
+         * @param $title
+         * @param $desc
+         */
         public function add_formated_time($id, $title, $desc)
         {
-            list($cap, $name, $value, $opt, $form, $mode) = $this->get_user_param($id);
+            [$cap, $name, $value, $opt, $form, $mode] = $this->get_user_param($id);
 
             $checked = '';
             if ($value) {
@@ -1017,6 +1225,12 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // build item
         //---------------------------------------------------------
+
+        /**
+         * @param     $value
+         * @param int $flag
+         * @return string
+         */
         public function _build_show_textarea($value, $flag = 0)
         {
             $text = '<table border="1" bordercolor="black" cellpadding="0" cellspacing="0" width="100%">';
@@ -1037,6 +1251,12 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $text;
         }
 
+        /**
+         * @param        $value
+         * @param        $opt_arr
+         * @param string $highlight
+         * @return string
+         */
         public function _build_value_checked($value, $opt_arr, $highlight = '')
         {
             $text = '';
@@ -1059,6 +1279,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $text;
         }
 
+        /**
+         * @param $value
+         * @return string
+         */
         public function _build_value_when_empty($value)
         {
             if ('' == $value) {
@@ -1071,10 +1295,16 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // delete form
         //---------------------------------------------------------
+
+        /**
+         * @param        $lid
+         * @param int    $mid
+         * @param string $op
+         */
         public function show_del_confirm_form($lid, $mid = 0, $op = 'delete')
         {
             $action = xoops_getenv('PHP_SELF');
-            list($name, $val) = $this->get_token();
+            [$name, $val] = $this->get_token();
 
             $request = $this->_post->get_post_text('request');
             $passwd_old = $this->_post->get_post_text('passwd_old');
@@ -1099,6 +1329,9 @@ if (!class_exists('weblinks_link_form_handler')) {
             xoops_confirm($hiddens, $action, _WEBLINKS_DEL_LINK_CONFIRM, _YES, false);
         }
 
+        /**
+         * @param $lid
+         */
         public function show_del_reason_form($lid)
         {
             $request = $this->_post->get_post_text('request');
@@ -1141,6 +1374,11 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // user_link
         //---------------------------------------------------------
+
+        /**
+         * @param $uid
+         * @return string|string[]
+         */
         public function build_user_link_uname_by_uid($uid)
         {
             $uname = $this->_system->get_uname_by_uid($uid);
@@ -1154,6 +1392,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $link_uname;
         }
 
+        /**
+         * @param $uid
+         * @return string|string[]
+         */
         public function build_user_link_email_by_uid($uid)
         {
             $email = $this->_system->get_email_by_uid($uid);
@@ -1169,6 +1411,10 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // linkitem_define_handler
         //---------------------------------------------------------
+
+        /**
+         * @return mixed
+         */
         public function _load_define()
         {
             $this->_linkitem_arr = &$this->_linkitem_define_handler->load();
@@ -1176,6 +1422,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $this->_linkitem_arr;
         }
 
+        /**
+         * @param $id
+         * @return mixed
+         */
         public function _get_name_by_itemid($id)
         {
             $val = $this->_linkitem_define_handler->get_by_itemid($id, 'name');
@@ -1183,6 +1433,11 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $val;
         }
 
+        /**
+         * @param $id
+         * @param $key
+         * @return mixed
+         */
         public function _get_define_by_itemid($id, $key)
         {
             $val = $this->_linkitem_define_handler->get_by_itemid($id, $key);
@@ -1190,6 +1445,10 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $val;
         }
 
+        /**
+         * @param $name
+         * @return mixed
+         */
         public function _get_options_by_name($name)
         {
             $val = $this->_linkitem_define_handler->get_by_name($name, 'options');
@@ -1197,6 +1456,11 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $val;
         }
 
+        /**
+         * @param $name
+         * @param $key
+         * @return mixed
+         */
         public function _get_define_by_name($name, $key)
         {
             $val = $this->_linkitem_define_handler->get_by_name($name, $key);
@@ -1204,6 +1468,11 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $val;
         }
 
+        /**
+         * @param        $id
+         * @param string $extra
+         * @return mixed
+         */
         public function _build_caption_by_itemid($id, $extra = '')
         {
             $val = $this->_linkitem_define_handler->build_caption_by_itemid($id, $this->_flag_admin_caption, $extra);
@@ -1211,6 +1480,15 @@ if (!class_exists('weblinks_link_form_handler')) {
             return $val;
         }
 
+        /**
+         * @param        $title
+         * @param string $desc
+         * @param string $title_def
+         * @param int    $mode
+         * @param int    $flag
+         * @param string $extra
+         * @return mixed
+         */
         public function _build_caption($title, $desc = '', $title_def = '', $mode = 0, $flag = 0, $extra = '')
         {
             $val = $this->_linkitem_define_handler->build_caption($title, $desc, $title_def, $mode, $flag, $extra);
@@ -1221,21 +1499,34 @@ if (!class_exists('weblinks_link_form_handler')) {
         //---------------------------------------------------------
         // set parameter
         //---------------------------------------------------------
+
+        /**
+         * @param $value
+         */
         public function set_mode_notify($value)
         {
             $this->_mode_notify_show = (int)$value;
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_owner($value)
         {
             $this->_flag_owner = (bool)$value;
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_auth_modify_auto($value)
         {
             $this->_flag_auth_modify_auto = (bool)$value;
         }
 
+        /**
+         * @param $value
+         */
         public function set_flag_button_del($value)
         {
             $this->_flag_button_del = (bool)$value;

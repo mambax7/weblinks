@@ -1,5 +1,6 @@
 <?php
-// $Id: map_jp.php,v 1.1 2007/08/08 04:18:39 ohwada Exp $
+
+// $Id: map_jp.php,v 1.1 2011/12/29 14:32:46 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -64,4 +65,5 @@ if (!defined('WEBLINKS_LANG_MP_LOADED')) {
     define('_WEBLINKS_JP_KAGOSHIMA', '������');
     define('_WEBLINKS_JP_MIYAZAKI', '�ܺ�');
     define('_WEBLINKS_JP_OKINAWA', '����');
-}// --- define language end ---
+}
+// --- define language end ---

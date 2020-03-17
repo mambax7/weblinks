@@ -1,5 +1,6 @@
 <?php
-// $Id: column_manage.php,v 1.1 2007/08/08 04:18:25 ohwada Exp $
+
+// $Id: column_manage.php,v 1.1 2011/12/29 14:32:52 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -19,6 +20,10 @@ include_once WEBLINKS_ROOT_PATH . '/class/weblinks_linkitem_store_handler.php';
 //=========================================================
 // class admin_column_manage
 //=========================================================
+
+/**
+ * Class admin_column_manage
+ */
 class admin_column_manage extends happy_linux_error
 {
     public $_link_handler;
@@ -33,15 +38,18 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
-        $this->_modify_handler = weblinks_getHandler('modify', WEBLINKS_DIRNAME);
-        $this->_config_handler = weblinks_getHandler('config2', WEBLINKS_DIRNAME);
-        $this->_linkitem_store_handler = weblinks_getHandler('linkitem_store', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('modify', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('config2', WEBLINKS_DIRNAME);
+        $this->_linkitem_store_handler = weblinks_get_handler('linkitem_store', WEBLINKS_DIRNAME);
 
         $this->_form = admin_column_form::getInstance();
         $this->_post = happy_linux_post::getInstance();
     }
 
+    /**
+     * @return \admin_column_manage|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -55,11 +63,18 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     // post parameter
     //---------------------------------------------------------
+
+    /**
+     * @return string|string[]|null
+     */
     public function get_post_op()
     {
         return $this->_post->get_post_text('op');
     }
 
+    /**
+     * @return int
+     */
     public function get_post_num()
     {
         return $this->_post->get_post_int('num');
@@ -68,6 +83,10 @@ class admin_column_manage extends happy_linux_error
     //---------------------------------------------------------
     // add_column
     //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
     public function add_column()
     {
         $num = $this->get_post_num();
@@ -159,6 +178,9 @@ class admin_column_manage extends happy_linux_error
         $this->_form->print_form();
     }
 
+    /**
+     * @return bool
+     */
     public function check_token()
     {
         $ret = $this->_form->check_token();
@@ -172,6 +194,10 @@ class admin_column_manage extends happy_linux_error
 //=========================================================
 // class admin_column_manage
 //=========================================================
+
+/**
+ * Class admin_column_form
+ */
 class admin_column_form extends happy_linux_form_lib
 {
     public $_link_handler;
@@ -185,11 +211,14 @@ class admin_column_form extends happy_linux_form_lib
     {
         parent::__construct();
 
-        $this->_link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+        $this->_link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
         $this->_system = happy_linux_system::getInstance();
         $this->_post = happy_linux_post::getInstance();
     }
 
+    /**
+     * @return \admin_column_form|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|static
+     */
     public static function getInstance()
     {
         static $instance;
@@ -230,7 +259,7 @@ $op = $manage->get_post_op();
 $error = '';
 
 if ('add_column' == $op) {
-    if (!$manage->check_token()) {
+    if (!($manage->check_token())) {
         redirect_header('column_manage.php', 5, 'Token Error');
         exit();
     }

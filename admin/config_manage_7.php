@@ -1,5 +1,6 @@
 <?php
-// $Id: config_manage_7.php,v 1.1 2008/02/26 16:06:47 ohwada Exp $
+
+// $Id: config_manage_7.php,v 1.1 2011/12/29 14:32:54 ohwada Exp $
 
 //=========================================================
 // WebLinks Module
@@ -10,9 +11,9 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
-$link_handler = weblinks_getHandler('link', WEBLINKS_DIRNAME);
+$link_handler = weblinks_get_handler('link', WEBLINKS_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
@@ -60,4 +61,5 @@ $config_form->show_by_catid(37, _AM_WEBLINKS_CONF_TITLE);
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---

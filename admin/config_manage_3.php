@@ -1,5 +1,6 @@
 <?php
-// $Id: config_manage_3.php,v 1.6 2007/11/11 03:22:59 ohwada Exp $
+
+// $Id: config_manage_3.php,v 1.1 2011/12/29 14:32:55 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
 // form_link_user
@@ -35,7 +36,7 @@ include_once 'admin_header.php';
 include_once 'admin_header_config.php';
 
 // class
-$config_form = admin_config_form::getInstance();
+$config_form  = admin_config_form::getInstance();
 $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
@@ -113,4 +114,5 @@ $config_form->show_by_catid(14, _AM_WEBLINKS_CONF_LINK_IMAGE);
 
 weblinks_admin_print_footer();
 xoops_cp_footer();
-exit(); // --- main end ---
+exit();
+// --- main end ---
