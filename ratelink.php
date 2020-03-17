@@ -85,7 +85,7 @@ class weblinks_ratelink extends Happylinux\Error
 
         $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
         $this->_link_handler = weblinks_get_handler('Link', $dirname);
-        $this->_votedata_handler = handler('Votedata', $dirname);
+        $this->_votedata_handler = weblinks_get_handler('Votedata', $dirname);
         $this->_auth = Auth::getInstance($dirname);
 
         $this->_system = Happylinux\System::getInstance();

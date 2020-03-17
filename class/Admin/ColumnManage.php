@@ -31,8 +31,8 @@ class ColumnManage extends Happylinux\Error
     public function __construct()
     {
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
-        $this->_modify_handler = handler('Modify', WEBLINKS_DIRNAME);
-        $this->_config_handler = handler('Config2', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('Modify', WEBLINKS_DIRNAME);
+        $this->_config_handler = weblinks_get_handler('Config2', WEBLINKS_DIRNAME);
         $this->_linkitem_store_handler = weblinks_get_handler('LinkitemStore', WEBLINKS_DIRNAME);
 
         $this->_form = ColumnForm::getInstance();

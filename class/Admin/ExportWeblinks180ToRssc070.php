@@ -67,7 +67,7 @@ class ExportWeblinks180ToRssc070 extends Happylinux\Error
 
         $this->_weblinks_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
         $this->_weblinks_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
-        $this->_weblinks_atomfeed_handler = handler('Atomfeed', WEBLINKS_DIRNAME);
+        $this->_weblinks_atomfeed_handler = weblinks_get_handler('Atomfeed', WEBLINKS_DIRNAME);
 
         $conf = $this->_weblinks_config_handler->get_conf();
         $this->_conf_rss_site_arr = $conf['rss_site_arr'];

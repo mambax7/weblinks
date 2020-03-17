@@ -106,9 +106,9 @@ class BulkManage extends Happylinux\Error
         // handlder
         $this->_link_edit_handler = weblinks_get_handler('LinkEdit', WEBLINKS_DIRNAME);
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
-        $this->_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_catlink_handler = weblinks_get_handler('CategoryLink', WEBLINKS_DIRNAME);
-        $this->_comment_handler = handler('Comment', WEBLINKS_DIRNAME);
+        $this->_comment_handler = weblinks_get_handler('Comment', WEBLINKS_DIRNAME);
 
         $this->_post = Happylinux\Post::getInstance();
         $this->_strings = Happylinux\Strings::getInstance();

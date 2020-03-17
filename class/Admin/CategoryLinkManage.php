@@ -44,7 +44,7 @@ class CategoryLinkManage extends Happylinux\Manage
         $this->set_redirect('catlink_list.php', 'catlink_list.php?sortid=1');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
     }
 

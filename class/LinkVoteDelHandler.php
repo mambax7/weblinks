@@ -41,9 +41,9 @@ if (!class_exists('LinkVoteDelHandler')) {
 
             $this->_link_handler = weblinks_get_handler('Link', $dirname);
             $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
-            $this->_modify_handler = handler('Modify', $dirname);
-            $this->_votedata_handler = handler('Votedata', $dirname);
-            $this->_broken_handler = handler('Broken', $dirname);
+            $this->_modify_handler = weblinks_get_handler('Modify', $dirname);
+            $this->_votedata_handler = weblinks_get_handler('Votedata', $dirname);
+            $this->_broken_handler = weblinks_get_handler('Broken', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
         }

@@ -100,8 +100,8 @@ if (!class_exists('LinkSave')) {
         {
             parent::__construct();
 
-            $this->_banner_handler = handler('Banner', $dirname);
-            $this->_pagerank_handler = handler('Pagerank', $dirname);
+            $this->_banner_handler = weblinks_get_handler('Banner', $dirname);
+            $this->_pagerank_handler = weblinks_get_handler('Pagerank', $dirname);
             $this->_link_validate = LinkValidate::getInstance($dirname);
 
             // BUG : not set search field

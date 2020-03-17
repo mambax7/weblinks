@@ -91,8 +91,8 @@ class LinkList extends Happylinux\PageFrame
         $this->set_flag_execute_time(true);
 
         $config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
-        $this->_modify_handler = handler('Modify', WEBLINKS_DIRNAME);
-        $this->_broken_handler = handler('Broken', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('Modify', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_get_handler('Broken', WEBLINKS_DIRNAME);
 
         $this->_strings = Happylinux\Strings::getInstance();
         $this->_locate = LocateFactory::getInstance(WEBLINKS_DIRNAME);

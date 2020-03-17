@@ -13,7 +13,7 @@ include 'admin_header.php';
 
 include_once WEBLINKS_ROOT_PATH . '/api/build_rss_feed.php';
 
-$builder = handler('BuildRssFeed', WEBLINKS_DIRNAME);
+$builder = weblinks_get_handler('BuildRssFeed', WEBLINKS_DIRNAME);
 $post = Happylinux\Post::getInstance();
 
 $mode = $post->get_get_text('mode');

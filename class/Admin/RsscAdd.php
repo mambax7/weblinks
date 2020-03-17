@@ -60,7 +60,7 @@ class RsscAdd
         $this->_html_class = happy_linux_html::getInstance();
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
+        $this->_rssc_edit_handler = weblinks_get_handler('RsscEdit', $dirname);
     }
 
     public static function getInstance($dirname = null)

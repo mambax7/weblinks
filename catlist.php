@@ -32,7 +32,7 @@ use XoopsModules\Weblinks;
 
 include 'header.php';
 
-$weblinks_view_handler = handler('CatView', WEBLINKS_DIRNAME);
+$weblinks_view_handler = weblinks_get_handler('CatView', WEBLINKS_DIRNAME);
 $weblinks_template = Weblinks\Template::getInstance(WEBLINKS_DIRNAME);
 $weblinks_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);
 

@@ -79,10 +79,10 @@ if (!class_exists('LinkEditBaseHandler')) {
 
             $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_catlink_handler = weblinks_get_handler('LinkCategoryLinkBasic', $dirname);
-            $this->_category_handler = handler('Category', $dirname);
+            $this->_category_handler = weblinks_get_handler('Category', $dirname);
             $this->_link_handler = weblinks_get_handler('Link', $dirname);
             $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
-            $this->_banner_handler = handler('Banner', $dirname);
+            $this->_banner_handler = weblinks_get_handler('Banner', $dirname);
             $this->_notification = Notification::getInstance($dirname);
 
             $this->_system = Happylinux\System::getInstance();
@@ -92,7 +92,7 @@ if (!class_exists('LinkEditBaseHandler')) {
             $this->_remote_file = Happylinux\RemoteFile::getInstance();
 
             if (WEBLINKS_RSSC_USE) {
-                $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
+                $this->_rssc_edit_handler = weblinks_get_handler('RsscEdit', $dirname);
             }
 
             $this->_conf = $this->_config_handler->get_conf();
@@ -264,7 +264,7 @@ if (!class_exists('LinkEditBaseHandler')) {
         public function delete_modify(&$modify_obj)
         {
             if ($this->_DEBUG_MODIFY_DELETE) {
-                $modify_handler = handler('Modify', $this->_DIRNAME);
+                $modify_handler = weblinks_get_handler('Modify', $this->_DIRNAME);
                 $ret = $modify_handler->delete($modify_obj);
                 if (!$ret) {
                     $this->_set_errors($modify_handler->getErrors());

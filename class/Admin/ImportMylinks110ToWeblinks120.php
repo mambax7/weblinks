@@ -76,10 +76,10 @@ class ImportMylinks110ToWeblinks120 extends Happylinux\BasicHandler
         $this->_post = Happylinux\Post::getInstance();
         $this->_form = Happylinux\FormLib::getInstance();
 
-        $this->_weblinks_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_weblinks_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_weblinks_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
         $this->_weblinks_catlink_handler = weblinks_get_handler('CategoryLink', WEBLINKS_DIRNAME);
-        $this->votedataHandler = handler('Votedata', WEBLINKS_DIRNAME);
+        $this->votedataHandler = weblinks_get_handler('Votedata', WEBLINKS_DIRNAME);
         $this->_weblinks_votedata_table = $this->prefix('votedata');
 
         $this->_weblinks_category_handler->set_debug_db_error(1);

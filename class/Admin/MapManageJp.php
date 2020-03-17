@@ -48,7 +48,7 @@ class MapManageJp extends Happylinux\Error
     public function __construct()
     {
         $this->_category_handler = weblinks_get_handler('CategoryBasic', WEBLINKS_DIRNAME);
-        $this->_config_handler   = handler('Config2', WEBLINKS_DIRNAME);
+        $this->_config_handler   = weblinks_get_handler('Config2', WEBLINKS_DIRNAME);
         $this->_map_jp           = MapJp::getInstance(WEBLINKS_DIRNAME);
         $this->_header           = Header::getInstance(WEBLINKS_DIRNAME);
 

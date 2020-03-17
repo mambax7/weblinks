@@ -71,7 +71,7 @@ class weblinks_brokenlink extends Happylinux\Error
 
         $config_handler = weblinks_get_handler('Config2Basic', $dirname);
         $this->_link_handler = weblinks_get_handler('Link', $dirname);
-        $this->_broken_handler = handler('Broken', $dirname);
+        $this->_broken_handler = weblinks_get_handler('Broken', $dirname);
         $this->_system = Happylinux\System::getInstance();
         $this->_post = Happylinux\Post::getInstance();
         $this->_form = Happylinux\Form::getInstance();

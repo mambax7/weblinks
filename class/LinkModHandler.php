@@ -36,7 +36,7 @@ if (!class_exists('LinkModHandler')) {
         {
             parent::__construct($dirname);
 
-            $this->_broken_handler = handler('Broken', $dirname);
+            $this->_broken_handler = weblinks_get_handler('Broken', $dirname);
         }
 
         //---------------------------------------------------------

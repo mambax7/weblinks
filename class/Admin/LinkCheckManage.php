@@ -83,7 +83,7 @@ class LinkCheckManage extends Happylinux\Manage
 
         $this->_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
         $this->_check_handler = weblinks_get_handler('LinkCheck', WEBLINKS_DIRNAME);
-        $this->_update_handler = handler('Pagerank_update', WEBLINKS_DIRNAME);
+        $this->_update_handler = weblinks_get_handler('Pagerank_update', WEBLINKS_DIRNAME);
 
         $this->_post = Happylinux\Post::getInstance();
 

@@ -145,7 +145,7 @@ class LinkMenu
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()

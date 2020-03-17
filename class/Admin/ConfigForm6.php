@@ -34,7 +34,7 @@ use XoopsModules\Happylinux;
 //================================================================
 // class ConfigForm6
 //================================================================
-class ConfigForm6 extends Happylinux\ConfigForm
+class ConfigForm6 extends ConfigForm
 {
     public $_webmap_class;
 
@@ -48,7 +48,7 @@ class ConfigForm6 extends Happylinux\ConfigForm
         $this->_webmap_class = Weblinks\Webmap::getInstance(WEBLINKS_DIRNAME);
     }
 
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {

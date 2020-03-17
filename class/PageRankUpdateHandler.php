@@ -27,7 +27,7 @@ if (!class_exists('PageRankUpdateHandler')) {
         {
             parent::__construct($dirname);
 
-            $this->_pagerank_handler = handler('Pagerank', $dirname);
+            $this->_pagerank_handler = weblinks_get_handler('Pagerank', $dirname);
 
             $this->_TITLE = 'Update PageRank';
         }

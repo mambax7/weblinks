@@ -68,7 +68,7 @@ class ModifyManage extends weblinks_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_modify_handler = handler('Modify', WEBLINKS_DIRNAME);
+        $this->_modify_handler = weblinks_get_handler('Modify', WEBLINKS_DIRNAME);
         $this->_link_edit_handler = weblinks_get_handler('LinkEdit', WEBLINKS_DIRNAME);
         $this->_link_form_handler = weblinks_get_handler('LinkForm', WEBLINKS_DIRNAME);
         $this->_sendmail = Sendmail::getInstance(WEBLINKS_DIRNAME);

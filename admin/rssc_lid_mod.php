@@ -39,7 +39,7 @@ class RsscLidMod
         $this->_table_rssc_link = $this->_db->prefix($this->_RSSC_DIRNAME . '_link');
 
         $this->_rss_utility = happy_linux_rss_utility::getInstance();
-        $this->_rssc_edit_handler = handler('RsscEdit', $dirname);
+        $this->_rssc_edit_handler = weblinks_get_handler('RsscEdit', $dirname);
     }
 
     public function check_admin()

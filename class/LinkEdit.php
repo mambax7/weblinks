@@ -64,7 +64,7 @@ if (!class_exists('LinkEdit')) {
             $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
             $this->_link_view = LinkView::getInstance($dirname);
             $this->_auth = Auth::getInstance($dirname);
-            $this->_rssc_handler = handler('Rssc', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('Rssc', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
             $this->_post = Happylinux\Post::getInstance();

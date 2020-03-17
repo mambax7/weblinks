@@ -59,7 +59,7 @@ if (!class_exists('RsscEditHandler')) {
             parent::__construct();
 
             $this->_link_handler = weblinks_get_handler('Link', $dirname);
-            $this->_rssc_handler = handler('Rssc', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('Rssc', $dirname);
             $this->_rssc_form = RsscForm::getInstance();
         }
 

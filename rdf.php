@@ -18,6 +18,6 @@ include_once WEBLINKS_ROOT_PATH . '/api/build_rss.php';
 //=========================================================
 // main
 //=========================================================
-$weblinks_build_handler = handler('BuildRss', WEBLINKS_DIRNAME);
+$weblinks_build_handler = weblinks_get_handler('BuildRss', WEBLINKS_DIRNAME);
 $weblinks_build_handler->build('rdf');
 exit(); // --- main end ---

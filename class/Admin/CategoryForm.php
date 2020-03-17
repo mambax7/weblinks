@@ -105,7 +105,7 @@ class CategoryForm extends Happylinux\Form
     {
         parent::__construct();
 
-        $this->_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_config_handler = weblinks_get_handler('Config2Basic', WEBLINKS_DIRNAME);
         $this->_plugin = Weblinks\Plugin::getInstance(WEBLINKS_DIRNAME);
         $this->_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);

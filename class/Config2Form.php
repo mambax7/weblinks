@@ -177,7 +177,7 @@ if (!class_exists('Config2Form')) {
 
         public function _build_conf_extra_link_img_thumb($config)
         {
-            $banner_handler = handler('Banner', $this->_DIRNAME);
+            $banner_handler = weblinks_get_handler('Banner', $this->_DIRNAME);
 
             $name = $config['name'];
             $value = $config['value'];

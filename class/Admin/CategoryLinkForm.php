@@ -37,7 +37,7 @@ class CategoryLinkForm extends Happylinux\Form
     {
         parent::__construct();
 
-        $this->_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
     }
 

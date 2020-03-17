@@ -52,7 +52,7 @@ class ModifyList extends Happylinux\PageFrame
         $this->set_max_sortid(4);
         $this->set_lang_no_item(_WEBLINKS_NO_LINK);
 
-        $this->_broken_handler = handler('Broken', WEBLINKS_DIRNAME);
+        $this->_broken_handler = weblinks_get_handler('Broken', WEBLINKS_DIRNAME);
 
         $this->_strings = Happylinux\Strings::getInstance();
     }

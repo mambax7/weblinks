@@ -88,7 +88,7 @@ class UserList extends Happylinux\PageFrame
         $this->set_operation('send');
         $this->set_flag_execute_time(true);
 
-        $this->_users_link_handler = handler('UsersLink', WEBLINKS_DIRNAME);
+        $this->_users_link_handler = weblinks_get_handler('UsersLink', WEBLINKS_DIRNAME);
         $this->_system = Happylinux\System::getInstance();
 
         $logo_url = XOOPS_URL . '/images/icons/email.gif';

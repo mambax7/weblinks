@@ -39,7 +39,7 @@ include_once 'admin_header_config.php';
 // main
 //================================================================
 
-$config_form = Admin\ConfigForm::getInstance();
+$config_form = Admin\ConfigForm6::getInstance();
 $config_store = Admin\ConfigStore::getInstance();
 $weblinks_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);
 

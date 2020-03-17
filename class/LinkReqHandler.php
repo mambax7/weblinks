@@ -36,7 +36,7 @@ if (!class_exists('LinkReqHandler')) {
         {
             parent::__construct($dirname);
 
-            $this->_modify_handler = handler('Modify', $dirname);
+            $this->_modify_handler = weblinks_get_handler('Modify', $dirname);
         }
 
         //---------------------------------------------------------

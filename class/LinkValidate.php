@@ -102,7 +102,7 @@ if (!class_exists('LinkValidate')) {
         public function __construct($dirname)
         {
             $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
-            $this->_category_handler = handler('Category', $dirname);
+            $this->_category_handler = weblinks_get_handler('Category', $dirname);
             $this->_linkitem_define_handler = weblinks_get_handler('LinkitemDefine', $dirname);
             $this->_auth = Auth::getInstance($dirname);
 

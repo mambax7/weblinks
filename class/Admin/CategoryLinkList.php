@@ -39,7 +39,7 @@ class CategoryLinkList extends Happylinux\PageFrame
         $this->set_lang_title('catlink list');
         $this->set_flag_execute_time(true);
 
-        $this->_category_handler = handler('Category', WEBLINKS_DIRNAME);
+        $this->_category_handler = weblinks_get_handler('Category', WEBLINKS_DIRNAME);
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
     }
 

@@ -78,9 +78,9 @@ if (!class_exists('Singlelink')) {
             $config_basic_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('LinkBasic', $dirname);
             $this->_link_view_handler = weblinks_get_handler('LinkView', $dirname);
-            $this->_banner_handler = handler('Banner', $dirname);
+            $this->_banner_handler = weblinks_get_handler('Banner', $dirname);
             $this->_rssc_view_handler = weblinks_get_handler('RsscView', $dirname);
-            $this->_rssc_handler = handler('Rssc', $dirname);
+            $this->_rssc_handler = weblinks_get_handler('Rssc', $dirname);
 
             $this->_system = Happylinux\System::getInstance();
             $this->_post = Happylinux\Post::getInstance();

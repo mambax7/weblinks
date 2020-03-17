@@ -36,7 +36,7 @@ class LinkMod extends LinkBase
         parent::__construct();
         $this->set_edit_handler('LinkMod');
 
-        $this->_votedata_handler = handler('Votedata', WEBLINKS_DIRNAME);
+        $this->_votedata_handler = weblinks_get_handler('Votedata', WEBLINKS_DIRNAME);
     }
 
     public static function getInstance()

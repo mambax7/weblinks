@@ -152,10 +152,10 @@ if (!class_exists('LinkFormHandler')) {
 
             $this->_config_handler = weblinks_get_handler('Config2Basic', $dirname);
             $this->_link_handler = weblinks_get_handler('Link', $dirname);
-            $this->_modify_handler = handler('Modify', $dirname);
-            $this->_category_handler = handler('Category', $dirname);
+            $this->_modify_handler = weblinks_get_handler('Modify', $dirname);
+            $this->_category_handler = weblinks_get_handler('Category', $dirname);
             $this->_catlink_handler = weblinks_get_handler('CategoryLink', $dirname);
-            $this->_broken_handler = handler('Broken', $dirname);
+            $this->_broken_handler = weblinks_get_handler('Broken', $dirname);
             $this->_linkitem_define_handler = weblinks_get_handler('LinkitemDefine', $dirname);
 
             $this->_auth = Auth::getInstance($dirname);

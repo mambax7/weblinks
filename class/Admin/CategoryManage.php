@@ -118,7 +118,7 @@ class CategoryManage extends Happylinux\Manage
         $this->_link_vote_handler = weblinks_get_handler('LinkVoteDel', WEBLINKS_DIRNAME);
         $this->_link_handler = weblinks_get_handler('Link', WEBLINKS_DIRNAME);
         $this->_catlink_handler = weblinks_get_handler('CategoryLink', WEBLINKS_DIRNAME);
-        $this->_banner_handler = handler('Banner', WEBLINKS_DIRNAME);
+        $this->_banner_handler = weblinks_get_handler('Banner', WEBLINKS_DIRNAME);
         $this->_link_catlink_handler = weblinks_get_handler('LinkCategoryLinkBasic', WEBLINKS_DIRNAME);
 
         $this->_strings = Happylinux\Strings::getInstance();

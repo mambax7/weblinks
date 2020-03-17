@@ -96,13 +96,13 @@ class ConfigStore extends Happylinux\Error
         include_once XOOPS_ROOT_PATH . '/modules/happylinux/api/rss_builder.php';
 //        include_once WEBLINKS_ROOT_PATH . '/class/weblinks_link_view.php';
 
-        $rss_builder = handler('BuildRss', WEBLINKS_DIRNAME);
+        $rss_builder = weblinks_get_handler('BuildRss', WEBLINKS_DIRNAME);
         $rss_builder->clear_all_guest_cache();
 
         if (WEBLINKS_RSSC_EXIST) {
 //            include_once WEBLINKS_RSSC_ROOT_PATH . '/class/rssc_build_rssc.php';
 
-            $feed_builder = handler('BuildRssFeed', WEBLINKS_DIRNAME);
+            $feed_builder = weblinks_get_handler('BuildRssFeed', WEBLINKS_DIRNAME);
             $feed_builder->clear_all_guest_cache();
         }
     }

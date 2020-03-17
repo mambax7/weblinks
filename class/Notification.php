@@ -46,7 +46,7 @@ if (!class_exists('Notification')) {
 
             $this->_WEBLINKS_URL = XOOPS_URL . '/modules/' . $dirname;
 
-            $this->_category_handler = handler('Category', $dirname);
+            $this->_category_handler = weblinks_get_handler('Category', $dirname);
             $this->_notification_handler = xoops_getHandler('notification');
         }
 

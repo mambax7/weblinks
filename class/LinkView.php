@@ -82,8 +82,8 @@ if (!class_exists('LinkView')) {
 
             $this->_category_handler = weblinks_get_handler('CategoryBasic', $dirname);
             $this->_catlink_handler = weblinks_get_handler('CategoryLinkBasic', $dirname);
-            $this->_banner_handler = handler('Banner', $dirname);
-            $this->_pagerank_handler = handler('Pagerank', $dirname);
+            $this->_banner_handler = weblinks_get_handler('Banner', $dirname);
+            $this->_pagerank_handler = weblinks_get_handler('Pagerank', $dirname);
             $this->_rssc_handler = weblinks_get_handler('RsscView', $dirname);
             $this->_auth = Auth::getInstance($dirname);
             $this->_webmap_class = Webmap::getInstance($dirname);
