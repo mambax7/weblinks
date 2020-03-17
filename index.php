@@ -77,6 +77,8 @@ $weblinks_header = Weblinks\Header::getInstance(WEBLINKS_DIRNAME);
 $weblinks_webmap = Weblinks\Webmap::getInstance(WEBLINKS_DIRNAME);
 $weblinks_map_jp = Weblinks\MapJp::getInstance(WEBLINKS_DIRNAME);
 
+
+
 //---------------------------------------------------------
 // main
 //---------------------------------------------------------
@@ -85,6 +87,9 @@ $weblinks_map_jp = Weblinks\MapJp::getInstance(WEBLINKS_DIRNAME);
 $xoopsOption['template_main'] = WEBLINKS_DIRNAME . '_index.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
+//$confHandler   = Weblinks\Helper::getInstance()->getHandler('Config2Define', RSSC_DIRNAME);
+//$confHandler   = new Weblinks\Config2Define(WEBLINKS_DIRNAME);
+//$conf = $confHandler->get_define();
 $conf = $weblinks_view_handler->get_config();
 $conf_new_link = $conf['index_new_link'];
 $conf_new_rss = $conf['index_new_rss'];
