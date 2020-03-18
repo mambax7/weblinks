@@ -54,11 +54,11 @@ class weblinks_test_class_user extends weblinks_test_class
     /**
      * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_class|\weblinks_test_class_user|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;
@@ -358,6 +358,7 @@ class weblinks_test_class_user extends weblinks_test_class
             $expects['gm_longitude'] = $saves['gm_longitude'];
             $expects['gm_zoom'] = $saves['gm_zoom'];
             $expects['gm_type'] = $saves['gm_type'];
+            $expects['gm_icon'] = $saves['gm_icon'];
             $expects['textarea1'] = $saves['textarea1'];
             $expects['textarea2'] = $saves['textarea2'];
             $expects['dohtml'] = $saves['dohtml'];
@@ -504,6 +505,7 @@ class weblinks_test_class_user extends weblinks_test_class
         $this->update_linkitem_user_mode_by_name('gm_longitude', $use);
         $this->update_linkitem_user_mode_by_name('gm_zoom', $use);
         $this->update_linkitem_user_mode_by_name('gm_type', $use);
+        $this->update_linkitem_user_mode_by_name('gm_icon', $use);
         $this->update_linkitem_user_mode_by_name('etc1', $use);
         $this->update_linkitem_user_mode_by_name('etc2', $use);
         $this->update_linkitem_user_mode_by_name('etc3', $use);

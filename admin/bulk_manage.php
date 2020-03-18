@@ -1214,7 +1214,7 @@ class admin_bulk_manage extends happy_linux_error
     /**
      * @param $msg
      */
-    public function _print_error($msg)
+    public function _print_error($msg, $flag_sanitize = true)
     {
         echo $this->_bulk_form->build_html_red($msg);
     }

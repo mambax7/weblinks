@@ -34,11 +34,11 @@ echo '<h4 style="color: #0000ff;">Warnig</h4>' . "\n";
 echo "The following programs overwrite MySQL tables. <br>\n";
 echo "Use only in Development enviroment. <br><br>\n";
 
-echo "<h4>Genarate Data</h4>\n";
-echo '- <a href="gen_link.php">generete link in one category</a>' . "<br><br>\n";
-echo '- <a href="gen_child_category.php">generete child category</a>' . "<br><br>\n";
-echo '- <a href="gen_all_table.php">generete all table data</a>' . "<br><br>\n";
-echo '- <a href="gen_for_export_rssc.php">generete table data for export rssc</a>' . "<br><br>\n";
+echo "<h4>Generate Data</h4>\n";
+echo '- <a href="gen_link.php">generate link in one category</a>' . "<br><br>\n";
+echo '- <a href="gen_child_category.php">generate child category</a>' . "<br><br>\n";
+echo '- <a href="gen_all_table.php">generate all table data</a>' . "<br><br>\n";
+echo '- <a href="gen_for_export_rssc.php">generate table data for export rssc</a>' . "<br><br>\n";
 
 echo "<h4>Test Class</h4>\n";
 echo '- <a href="test_class_link_save.php">test class: link_save</a>' . "<br><br>\n";
@@ -67,9 +67,9 @@ echo '- <a href="test_form_admin_approve_mod.php">test form: admin approve modif
 echo '- <a href="test_form_admin_approve_del.php">test form: admin approve delete link</a>' . "<br><br>\n";
 echo "<br>\n";
 
-echo "<h4>Genarate Data for Mylinks</h4>\n";
-echo '- <a href="gen_mylinks_link.php">generete mylinks link in one category</a>' . "<br><br>\n";
-echo '- <a href="gen_mylinks_child_category.php">generete mylinks child category</a>' . "<br><br>\n";
-echo '- <a href="gen_mylinks_randum.php">generete mylinks randum data</a>' . "<br><br>\n";
+echo "<h4>Generate Data for Mylinks</h4>\n";
+echo '- <a href="gen_mylinks_link.php">generate mylinks link in one category</a>' . "<br><br>\n";
+echo '- <a href="gen_mylinks_child_category.php">generate mylinks child category</a>' . "<br><br>\n";
+echo '- <a href="gen_mylinks_randum.php">generate mylinks randum data</a>' . "<br><br>\n";
 
 dev_footer();

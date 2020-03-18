@@ -84,7 +84,7 @@ if (!class_exists('weblinks_link_edit')) {
         /**
          * @param $obj
          */
-        public function set_object(&$obj)
+        public function set_object($obj)
         {
             $this->_link_obj = &$obj;
         }

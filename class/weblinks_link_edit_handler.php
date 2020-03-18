@@ -192,7 +192,7 @@ if (!class_exists('weblinks_link_edit_handler')) {
          * @param $obj
          * @return mixed
          */
-        public function admin_approve_mod_link(&$obj)
+        public function admin_approve_mod_link($obj)
         {
             return $this->_link_mod_handler->admin_approve_mod_link($obj);
         }
@@ -225,7 +225,7 @@ if (!class_exists('weblinks_link_edit_handler')) {
          * @param $obj
          * @return mixed
          */
-        public function admin_approve_del_link(&$obj)
+        public function admin_approve_del_link($obj)
         {
             return $this->_link_del_handler->admin_approve_del_link($obj);
         }

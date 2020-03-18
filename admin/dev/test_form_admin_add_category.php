@@ -12,8 +12,11 @@
 
 include_once 'dev_header.php';
 include_once 'test_form_class.php';
+include_once 'test_form_admin_class.php';
 
-$test = weblinks_test_form::getInstance();
+//$test = weblinks_test_form::getInstance();
+$test = weblinks_test_form_admin::getInstance();
+
 
 dev_header();
 echo "<h3>test form: admin add category</h3>\n";

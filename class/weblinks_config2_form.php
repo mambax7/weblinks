@@ -238,7 +238,7 @@ if (!class_exists('weblinks_config2_form')) {
 
             $name = $config['name'];
             $value = $config['value'];
-            $options = &$banner_handler->get_thumb_options();
+            $options = $banner_handler->get_thumb_options();
 
             return $this->build_html_input_radio_select($name, $value, $options, '<br>', false);
         }

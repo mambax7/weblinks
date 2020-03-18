@@ -21,7 +21,7 @@ $PID_START = 0;
 $MAX_CAT = 10;
 $MAX_PID = 10;
 
-echo "<h3>generete child category</h3>\n";
+echo "<h3>generate child category</h3>\n";
 echo "one link in each category <br>\n";
 
 if (isset($_POST['pid'])) {

@@ -114,7 +114,7 @@ if (!class_exists('weblinks_link_check_base')) {
         /**
          * @param $row
          */
-        public function _loop(&$row)
+        public function _loop($row)
         {
             // duumy
         }

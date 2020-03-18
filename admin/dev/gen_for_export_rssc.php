@@ -40,7 +40,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
      */
     public function gen_rssc_link($MAX_LINK)
     {
-        echo "<h4>generete rssc link table</h4>\n";
+        echo "<h4>generate rssc link table</h4>\n";
 
         if (0 == $MAX_LINK) {
             echo "skip <br>\n";
@@ -67,7 +67,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
      */
     public function gen_link_without_rssc_link($MAX_LINK, $MAX_CAT)
     {
-        echo "<h4>generete link table</h4>\n";
+        echo "<h4>generate link table</h4>\n";
 
         if (0 == $MAX_LINK) {
             echo "skip <br>\n";
@@ -103,7 +103,7 @@ class weblinks_genarate_rssc extends weblinks_gen_record
      */
     public function gen_link_with_rssc_link($MAX_LINK, $MAX_CAT)
     {
-        echo "<h4>generete link table and rssc link table</h4>\n";
+        echo "<h4>generate link table and rssc link table</h4>\n";
 
         if (0 == $MAX_LINK) {
             echo "skip <br>\n";
@@ -447,7 +447,7 @@ $MAX_VOTE = 30;
 $MAX_COM = 30;
 $MAX_RSSC_LINK = 10;
 
-echo "<h3>generete table data for export rssc</h3>\n";
+echo "<h3>generate table data for export rssc</h3>\n";
 
 if (!$genarete->is_exist_module($RSSC_DIRNAME)) {
     $msg = $RSSC_DIRNAME . " module is not installed \n";

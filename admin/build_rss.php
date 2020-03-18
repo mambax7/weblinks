@@ -8,6 +8,7 @@
 //=========================================================
 
 include 'admin_header.php';
+include 'admin_header_link.php';
 
 $post = happy_linux_post::getInstance();
 $type = $post->get_get_text('type');

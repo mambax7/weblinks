@@ -54,7 +54,7 @@ if (!class_exists('weblinks_pagerank_update_handler')) {
         /**
          * @param $row
          */
-        public function _loop(&$row)
+        public function _loop($row)
         {
             $pr = $this->_pagerank_handler->get_page_rank($row['lid'], true, true);
             if ($this->_flag_echo_lid) {

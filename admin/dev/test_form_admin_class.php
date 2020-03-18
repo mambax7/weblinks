@@ -42,11 +42,11 @@ class weblinks_test_form_admin extends weblinks_test_form
     /**
      * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|\weblinks_test_form_admin|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;

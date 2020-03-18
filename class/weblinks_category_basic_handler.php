@@ -153,7 +153,7 @@ if (!class_exists('weblinks_category_basic_handler')) {
          * @param $row
          * @return mixed
          */
-        public function &_multi_replace(&$row)
+        public function &_multi_replace($row)
         {
             $arr = &$row;
             if ($this->_flag_replace && $row['aux_text_1']) {

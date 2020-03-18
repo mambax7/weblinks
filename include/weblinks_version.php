@@ -18,7 +18,7 @@
 if (!defined('WEBLINKS_VERSION')) {
     define('WEBLINKS_VERSION', '2.30');
     define('WEBLINKS_HAPPY_LINUX_VERSION', '1.90');
-    define('WEBLINKS_RSSC_VERSION', '1.50');
+    define('WEBLINKS_RSSC_VERSION', '1.40');
     define('WEBLINKS_WEBMAP3_VERSION', '1.20');
 }
 

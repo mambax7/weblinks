@@ -549,7 +549,7 @@ class admin_list_new_links extends weblinks_page_frame
      * @param $obj
      * @return array
      */
-    public function &get_cols(&$obj)
+    public function &get_cols($obj)
     {
         $op = 'listNewLinks';
         $jump_id = 'link_manage.php?op=' . $this->_op . '&amp;mid=';

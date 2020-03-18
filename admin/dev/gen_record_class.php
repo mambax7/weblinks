@@ -90,11 +90,11 @@ class weblinks_gen_record extends weblinks_dev_handler
     /**
      * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;
@@ -115,7 +115,7 @@ class weblinks_gen_record extends weblinks_dev_handler
      */
     public function gen_category($MAX_CAT, $MAX_PARENT = 0)
     {
-        echo "<h4>generete category table</h4>\n";
+        echo "<h4>generate category table</h4>\n";
 
         if (0 == $MAX_CAT) {
             echo "skip <br>\n";
@@ -166,7 +166,7 @@ class weblinks_gen_record extends weblinks_dev_handler
      */
     public function gen_link($MAX_LINK, $MAX_CAT = 0)
     {
-        echo "<h4>generete link table</h4>\n";
+        echo "<h4>generate link table</h4>\n";
 
         if (0 == $MAX_LINK) {
             echo "skip <br>\n";
@@ -204,7 +204,7 @@ class weblinks_gen_record extends weblinks_dev_handler
      */
     public function gen_votedata($MAX_VOTE, $MAX_LINK = 0)
     {
-        echo "<h4>generete votedata table</h4>\n";
+        echo "<h4>generate votedata table</h4>\n";
 
         if (0 == $MAX_VOTE) {
             echo "skip <br>\n";
@@ -273,7 +273,7 @@ class weblinks_gen_record extends weblinks_dev_handler
      */
     public function gen_comment($MAX_COM, $MAX_LINK = 0)
     {
-        echo "<h4>generete xoopscomments table</h4>\n";
+        echo "<h4>generate xoopscomments table</h4>\n";
 
         if (0 == $MAX_COM) {
             echo "skip <br>\n";

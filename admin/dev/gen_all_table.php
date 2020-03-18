@@ -24,7 +24,7 @@ $MAX_LINK = 100;
 $MAX_VOTE = 30;
 $MAX_COM = 30;
 
-echo "<h3>generete table data</h3>\n";
+echo "<h3>generate table data</h3>\n";
 
 $genarete->gen_category($MAX_CAT, $MAX_PARENT);
 $genarete->gen_link($MAX_LINK, $MAX_CAT);

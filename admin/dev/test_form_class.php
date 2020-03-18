@@ -84,11 +84,11 @@ class weblinks_test_form extends weblinks_gen_record
     /**
      * @return \happy_linux_basic_handler|\weblinks_dev_handler|\weblinks_gen_record|\weblinks_test_form|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;
@@ -406,7 +406,7 @@ class weblinks_test_form extends weblinks_gen_record
         }
 
         $str = preg_replace('/^.*<body[^>]*>/i', '', $result);
-        $str = preg_replace('/</body>.*$/i', '', $str);
+        $str = preg_replace('/<\/body>.*$/i', '', $str);
 
         return $str;
     }

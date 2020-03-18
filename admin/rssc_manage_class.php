@@ -321,7 +321,7 @@ class admin_rssc_manage extends happy_linux_manage
      * @param $rssc_obj
      * @return bool
      */
-    public function _check_input_param(&$rssc_obj)
+    public function _check_input_param($rssc_obj)
     {
         // check post paramter
         $ret = $this->_handler->check_post_param($rssc_obj);

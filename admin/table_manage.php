@@ -75,7 +75,7 @@ class admin_table_manage extends happy_linux_table_manage
     /**
      * @return \admin_table_manage|\happy_linux_table_manage|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {

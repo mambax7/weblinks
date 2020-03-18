@@ -199,11 +199,11 @@ class weblinks_dev_handler extends happy_linux_basic_handler
     /**
      * @return \happy_linux_basic_handler|\weblinks_dev_handler|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;
@@ -728,7 +728,7 @@ class weblinks_dev_handler extends happy_linux_basic_handler
      * @param $value
      * @return bool|void
      */
-    public function update_config_by_name($name, $value)
+    public function update_config_by_name($name, $value, $force = false)
     {
         $config_table = $this->prefix('config2');
 

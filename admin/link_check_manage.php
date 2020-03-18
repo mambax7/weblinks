@@ -170,7 +170,7 @@ class admin_link_check_manage extends happy_linux_manage
      * @param $op
      * @param $title
      */
-    public function _print_form($op, $title)
+    public function _print_form($op=null, $title=null)
     {
         $limit = $this->get_post_limit();
         $offset = $this->get_post_offset();

@@ -1,4 +1,5 @@
 <?php
+
 // $Id: gen_mylinks_randum.php,v 1.2 2011/12/29 19:54:56 ohwada Exp $
 
 //================================================================
@@ -27,7 +28,7 @@ $MAX_LINK = 100;
 $MAX_VOTE = 30;
 $MAX_COM = 30;
 
-echo "<h3>generete mylinks table data</h3>\n";
+echo "<h3>generate mylinks table data</h3>\n";
 
 if (!$genarete->is_exist_module($MYLINKS_DIRNAME)) {
     $msg = $MYLINKS_DIRNAME . " module is not installed \n";

@@ -83,7 +83,7 @@ class admin_table_manage_zombie extends happy_linux_basic_handler
     /**
      * @return \admin_table_manage_zombie|\happy_linux_basic_handler
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (!isset($instance)) {

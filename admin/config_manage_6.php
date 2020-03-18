@@ -53,11 +53,11 @@ class admin_config_form_6 extends admin_config_form
     /**
      * @return \admin_config_form|\admin_config_form_6|\happy_linux_form|\happy_linux_form_lib|\happy_linux_html|\weblinks_config2_form|static
      */
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;

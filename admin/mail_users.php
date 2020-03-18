@@ -52,6 +52,8 @@
 include 'admin_header.php';
 include 'admin_header_mail.php';
 
+xoops_loadLanguage('mailusers', WEBLINKS_DIRNAME);
+
 //=========================================================
 // class admin_mail_users
 //=========================================================

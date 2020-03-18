@@ -45,7 +45,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
      */
     public function gen_mylinks_category($MAX_CAT, $MAX_PARENT)
     {
-        echo "<h4>generete category table</h4>\n";
+        echo "<h4>generate category table</h4>\n";
         mt_srand((float)microtime() * 1000000);
         $imgurl_dir = XOOPS_URL . '/modules/mylinks/images/category/';
 
@@ -124,7 +124,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
      */
     public function gen_mylinks_link($MAX_LINK, $MAX_CAT)
     {
-        echo "<h4>generete link table</h4>\n";
+        echo "<h4>generate link table</h4>\n";
         mt_srand((float)microtime() * 1000000);
 
         // table name
@@ -191,7 +191,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
      */
     public function gen_mylinks_votedata($MAX_VOTE, $MAX_LINK)
     {
-        echo "<h4>generete votedata table</h4>\n";
+        echo "<h4>generate votedata table</h4>\n";
         mt_srand((float)microtime() * 1000000);
 
         // table name
@@ -241,7 +241,7 @@ class weblinks_genarate_mylinks extends weblinks_gen_record
      */
     public function gen_mylinks_comment($MAX_COM, $MAX_LINK)
     {
-        echo "<h4>generete xoopscomments table</h4>\n";
+        echo "<h4>generate xoopscomments table</h4>\n";
         mt_srand((float)microtime() * 1000000);
 
         $mid = $this->get_mid_by_dirname('mylinks');
@@ -280,7 +280,7 @@ $MAX_LINK = 100;
 $MAX_VOTE = 30;
 $MAX_COM = 30;
 
-echo "<h3>generete mylinks table data</h3>\n";
+echo "<h3>generate mylinks table data</h3>\n";
 
 if (!$genarete->is_exist_module($MYLINKS_DIRNAME)) {
     $msg = $MYLINKS_DIRNAME . " module is not installed \n";

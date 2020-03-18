@@ -221,7 +221,7 @@ if (!class_exists('weblinks_link_add_handler')) {
          * @param $cid_arr
          * @return bool
          */
-        public function _clone_link_common(&$obj, &$cid_arr)
+        public function _clone_link_common($obj, &$cid_arr)
         {
             $title = '[clone] ' . $obj->get('title');
 

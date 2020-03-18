@@ -16,7 +16,7 @@ $test = weblinks_test_class_user::getInstance();
 
 dev_header();
 echo "<h3>test class: link_save</h3>\n";
-echo 'magic_quotes_gpc: ' . get_magic_quotes_gpc() . "<br>\n";
+echo 'magic_quotes_gpc: ' . @get_magic_quotes_gpc() . "<br>\n";
 $test->print_user_mode();
 
 //---------------------------------------------------------

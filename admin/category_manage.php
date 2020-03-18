@@ -995,7 +995,7 @@ class admin_form_category extends happy_linux_form
      * @param null $extra
      * @param int  $show_mode
      */
-    public function _show($obj, $extra = null, $show_mode = 0)
+    public function _show($obj=null, $extra = null, $show_mode = 0)
     {
         $cid = $obj->getVar('cid', 'e');
 

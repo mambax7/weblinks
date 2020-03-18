@@ -206,8 +206,9 @@ class admin_category_list extends happy_linux_page_frame
      * @param $obj
      * @return array
      */
-    public function _get_cols(&$obj)
+    public function &_get_cols($obj)
     {
+        $ret = [];
         $cid = $obj->getVar('cid', 'n');
         $pid = $obj->getVar('pid', 'n');
         $orders = $obj->getVar('orders', 'n');
@@ -254,7 +255,8 @@ class admin_category_list extends happy_linux_page_frame
             array_push($arr, $ele_orders);
         }
 
-        return [$arr, $depth];
+        $ret = [$arr, $depth];
+        return $ret;
     }
 
     //---------------------------------------------------------

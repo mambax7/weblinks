@@ -147,7 +147,7 @@ if (!class_exists('weblinks_link_basic_handler')) {
          * @param $row
          * @return mixed
          */
-        public function &_multi_replace(&$row)
+        public function &_multi_replace($row)
         {
             $arr = &$row;
             if ($row['etc1']) {

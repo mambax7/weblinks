@@ -266,7 +266,7 @@ class admin_list_geocoding extends happy_linux_page_frame
      * @param $obj
      * @return array
      */
-    public function &_get_cols(&$obj)
+    public function &_get_cols($obj)
     {
         $lid = $obj->getVar('lid', 'n');
         $title = $obj->getVar('title', 'n');

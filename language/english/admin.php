@@ -540,7 +540,7 @@ if (!defined('WEBLINKS_LANG_AM_LOADED')) {
     define('_AM_WEBLINKS_CAT_PATH_STYLE', 'View Style of Category Path');
 
     // category page
-    define('_AM_WEBLINKS_CONF_CAT_PAGE', 'Category Pgae Setting');
+    define('_AM_WEBLINKS_CONF_CAT_PAGE', 'Category Page Setting');
     define('_AM_WEBLINKS_CAT_COLS', 'Number of Columns in Categories');
     define('_AM_WEBLINKS_CAT_COLS_DESC', 'In category page, specify the number of the columns, when showing categories under one hierarchy');
     define('_AM_WEBLINKS_CAT_SUB_MODE', 'View Range of Sub Category');

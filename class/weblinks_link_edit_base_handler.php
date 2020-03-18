@@ -183,7 +183,7 @@ if (!class_exists('weblinks_link_edit_base_handler')) {
          * @param $obj
          * @return mixed
          */
-        public function insert(&$obj)
+        public function insert($obj)
         {
             $newid = $this->_link_handler->insert($obj);
 

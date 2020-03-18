@@ -71,7 +71,7 @@ class admin_export_rssc extends happy_linux_error
         $this->_conf_rss_black_arr = $conf['rss_black_arr'];
         $this->_conf_rss_white_arr = $conf['rss_white_arr'];
 
-        if (WEBLINKS_RSSC_EXIST) {
+        if (WEBLINKS_RSSC_EXIST && function_exists('rssc_get_handler')) {
             $this->_rssc_import_handler = rssc_get_handler('import', WEBLINKS_RSSC_DIRNAME);
             $this->_rssc_import_handler->set_mid_orig($this->_system->get_mid());
             $this->_rssc_import_handler->set_limit($this->_LIMIT);
@@ -368,7 +368,10 @@ class admin_export_rssc extends happy_linux_error
      */
     public function _print_form_next($title, $op, $submit, $offset = 0)
     {
-        echo $this->_rssc_import_handler->build_form_next($title, $op, $submit, $offset, 'Export');
+        if (WEBLINKS_RSSC_EXIST && function_exists('rssc_get_handler')) {
+            $this->_rssc_import_handler = rssc_get_handler('import', WEBLINKS_RSSC_DIRNAME);
+            echo $this->_rssc_import_handler->build_form_next($title, $op, $submit, $offset, 'Export');
+        }
     }
 
     /**

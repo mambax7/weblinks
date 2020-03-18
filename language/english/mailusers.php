@@ -14,7 +14,9 @@
 //---------------------------------------------------------
 
 //%%%%%%	Admin Module Name  MailUsers	%%%%%
-define('_AM_DBUPDATED', _MD_AM_DBUPDATED);
+//define('_AM_DBUPDATED', _MD_AM_DBUPDATED);
+define('_AM_DBUPDATED', _WLS_DBUPDATED);
+
 
 //%%%%%%	mailusers.php 	%%%%%
 define('_AM_SENDTOUSERS', 'Send message to users whose:');
