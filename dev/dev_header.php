@@ -27,6 +27,7 @@ include '../../../mainfile.php';
 //===== header.php begin =====
 // set module object
 $url_arr = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
+/** @var \XoopsModuleHandler $module_handler */
 $module_handler = xoops_getHandler('module');
 $xoopsModule = $module_handler->getByDirname($url_arr[2]);
 unset($url_arr);

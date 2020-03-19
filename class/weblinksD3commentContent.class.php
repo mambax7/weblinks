@@ -24,6 +24,7 @@ if (!class_exists('weblinksD3commentContent')) {
             $db = XoopsDatabaseFactory::getDatabaseConnection();
             (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = &MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
+            /** @var \XoopsModuleHandler $module_handler */
             $module_handler = xoops_getHandler('module');
             $module = $module_handler->getByDirname($this->mydirname);
 

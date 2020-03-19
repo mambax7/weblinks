@@ -229,6 +229,7 @@ if (!defined('WEBLINKS_RSSC_URL')) {
 }
 
 // rssc module install check
+/** @var \XoopsModuleHandler $module_handler */
 $module_handler = xoops_getHandler('module');
 $module = $module_handler->getByDirname(WEBLINKS_RSSC_DIRNAME);
 if (is_object($module)) {

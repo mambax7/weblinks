@@ -133,6 +133,7 @@ if (!function_exists('weblinks_view_blog_base')) {
         $WEBLINKS_RSSC_DIRNAME = 'rssc';
 
         // check exist rssc module
+        /** @var \XoopsModuleHandler $module_handler */
         $module_handler = xoops_getHandler('module');
         $module = $module_handler->getByDirname($WEBLINKS_RSSC_DIRNAME);
         if (!is_object($module)) {

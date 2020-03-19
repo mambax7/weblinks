@@ -59,6 +59,7 @@ if (!class_exists('weblinks_broken_handler')) {
         public function get_uname($usereal = 0)
         {
             $uid = $this->get('sender');
+            /** @var \XoopsUserHandler $user_handler */
             $user_handler = xoops_getHandler('user');
             $user_obj = $user_handler->get($uid);
             $uname = '';

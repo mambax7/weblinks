@@ -17,9 +17,11 @@ include_once '../../../../mainfile.php';
 
 //===== cp_header.php begin =====
 include_once XOOPS_ROOT_PATH . '/include/cp_functions.php';
+/** @var \XoopsGroupPermHandler $moduleperm_handler */
 $moduleperm_handler = xoops_getHandler('groupperm');
 if ($xoopsUser) {
     $url_arr = explode('/', mb_strstr($xoopsRequestUri, '/modules/'));
+    /** @var \XoopsModuleHandler $module_handler */
     $module_handler = xoops_getHandler('module');
     $xoopsModule = $module_handler->getByDirname($url_arr[2]);
     unset($url_arr);

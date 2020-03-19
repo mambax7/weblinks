@@ -68,6 +68,7 @@ if (!function_exists('b_weblinks_atom_show')) {
         $block['dirname'] = $DIRNAME;
 
         // check exist rssc module
+        /** @var \XoopsModuleHandler $module_handler */
         $module_handler = xoops_getHandler('module');
         $module = $module_handler->getByDirname($rss_dirname);
         if (!is_object($module)) {
@@ -233,6 +234,7 @@ if (!function_exists('b_weblinks_atom_show')) {
         $block = [];
 
         // check exist rssc module
+        /** @var \XoopsModuleHandler $module_handler */
         $module_handler = xoops_getHandler('module');
         $module = $module_handler->getByDirname($rss_dirname);
         if (!is_object($module)) {

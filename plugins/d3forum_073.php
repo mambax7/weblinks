@@ -87,6 +87,7 @@ if (!function_exists('weblinks_plugin_forums_d3forum_073')) {
 
         $URL_MOD = XOOPS_URL . '/modules/' . $DIRNAME;
 
+        /** @var \XoopsModuleHandler $module_handler */
         $module_handler = xoops_getHandler('module');
         $config_handler = xoops_getHandler('config');
         $module = $module_handler->getByDirname($DIRNAME);

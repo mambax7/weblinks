@@ -175,6 +175,7 @@ class weblinks_test_form_guest extends weblinks_test_form
 
         $groups_guest = [XOOPS_GROUP_ANONYMOUS];
 
+        /** @var \XoopsGroupPermHandler $groupperm_handler */
         $groupperm_handler = xoops_getHandler('groupperm');
         if ($groupperm_handler->checkRight('module_read', $mid, $groups_guest)) {
             return true;

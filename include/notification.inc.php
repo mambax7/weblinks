@@ -60,6 +60,7 @@ if (!function_exists('weblinks_notify_iteminfo_base')) {
         $table_link = weblinks_multi_get_table_name($dirname, 'link');
 
         if (empty($xoopsModule) || $xoopsModule->getVar('dirname') != $dirname) {
+            /** @var \XoopsModuleHandler $module_handler */
             $module_handler = xoops_getHandler('module');
             $module = $module_handler->getByDirname($dirname);
 

@@ -509,6 +509,7 @@ function trans_comment()
     $table_com = $xoopsDB->prefix('xoopscomments');
 
     // module id
+    /** @var \XoopsModuleHandler $module_handler */
     $module_handler = xoops_getHandler('module');
     $module = $module_handler->getByDirname('mylinks');
     $mid_my = $module->getVar('mid');

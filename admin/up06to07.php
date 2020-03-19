@@ -175,7 +175,7 @@ function alter_link($table_link)
  */
 function getCidArray($cids)
 {
-    $split = split('&', $cids);
+    $split =explode('&', $cids);
 
     $i = 0;
     $array = [];

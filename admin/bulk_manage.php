@@ -1132,7 +1132,7 @@ class admin_bulk_manage extends happy_linux_error
      */
     public function &_split_line($line)
     {
-        $item_arr = split($this->_split_pattern, $line);
+        $item_arr = preg_split($this->_split_pattern, $line);
 
         foreach ($item_arr as $key => $item) {
             $item_arr[$key] = $this->_convert_str_to_camma(trim($item));
